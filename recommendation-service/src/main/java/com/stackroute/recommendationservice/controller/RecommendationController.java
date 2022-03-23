@@ -33,5 +33,10 @@ public class RecommendationController {
         return new ResponseEntity<>(recommendationService.savejob(job), HttpStatus.CREATED);
     }
 
+    @PostMapping("/match")
+    public ResponseEntity<?> matchjobs(@RequestBody User user){
+        return new ResponseEntity<>(recommendationService.getMatchingJobs(user),HttpStatus.OK);
+    }
+
 
 }

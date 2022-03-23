@@ -7,6 +7,11 @@ import com.stackroute.recommendationservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Service
 public class RecommendationserviceImpl implements RecommendationService{
 
@@ -27,5 +32,40 @@ public class RecommendationserviceImpl implements RecommendationService{
     @Override
     public User saveUser(User user){
         return userRepository.save(user);
+    }
+
+    @Override
+    public Set<Long> getMatchingJobs(User user){
+        ArrayList<String> skills = user.getSkillSet();
+        ArrayList<String> preferences = user.getJobPreferences();
+        System.out.println("skillss :"+skills);
+        System.out.println("prefereces"+preferences);
+        Set<Long> matchingJobIds = new HashSet<>();
+
+        if(!skills.isEmpty())
+        {
+            for (String userSkils:skills) {
+                System.out.println("matchingjobs");
+               List<JobPosting> job1 = jobRepository.findBySkills(userSkils);
+               System.out.println(job1);
+               if(job1!=null){
+                   for (JobPosting jobs:job1) {
+                       matchingJobIds.add(jobs.getJobId());
+                   }
+               }
+            }
+        }
+        if(!preferences.isEmpty())
+        {
+            for (String jobRoles:preferences) {
+                List<JobPosting> job1 = jobRepository.findByJobRole(jobRoles);
+                if(job1!=null){
+                    for (JobPosting jobs:job1) {
+                        matchingJobIds.add(jobs.getJobId());
+                    }
+                }
+            }
+        }
+       return matchingJobIds;
     }
 }
