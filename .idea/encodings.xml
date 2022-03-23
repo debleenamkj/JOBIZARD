@@ -5,5 +5,11 @@
     <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/product-webapp/src/main/java" charset="UTF-8" />
+<<<<<<< HEAD
+=======
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trend-lab-service/src/main/java" charset="UTF-8" />
+>>>>>>> 4eedb04c3e59b31712a701790b023fbd3b8e162f
   </component>
 </project>
