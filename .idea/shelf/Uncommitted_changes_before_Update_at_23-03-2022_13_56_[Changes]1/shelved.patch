@@ -1,0 +1,38 @@
+Index: resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.stackroute.resourcesservice.domain;\r\n\r\nimport java.util.Date;\r\n\r\npublic class Review {\r\n    private int reviewId;\r\n    private String companyName;\r\n    private String prosMessage;\r\n    private String consMessage;\r\n    private Date reviewDate;\r\n\r\n    enum Ratings {\r\n        POOR,\r\n        NOT_BAD,\r\n        GOOD,\r\n        VERY_GOOD,\r\n        EXCELLENT\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java b/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java
+--- a/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java	
++++ b/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java	
+@@ -1,13 +1,21 @@
+ package com.stackroute.resourcesservice.domain;
+ 
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++
+ import java.util.Date;
+ 
++@Data
++@NoArgsConstructor
++@AllArgsConstructor
+ public class Review {
+     private int reviewId;
+     private String companyName;
+     private String prosMessage;
+     private String consMessage;
+     private Date reviewDate;
++    private WorkDetails workDetails;
+ 
+     enum Ratings {
+         POOR,
+@@ -16,5 +24,4 @@
+         VERY_GOOD,
+         EXCELLENT
+     }
+-
+ }
