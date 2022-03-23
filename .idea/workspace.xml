@@ -4,11 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="Created service" />
+=======
+    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    </list>
+>>>>>>> b5a14884de13e04596a2a20be9c18a4d60e5195e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -16,6 +30,19 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+>>>>>>> b5a14884de13e04596a2a20be9c18a4d60e5195e
   <component name="ProjectId" id="26lx3WiB0vLZikCV6IamjMwlDoY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,6 +51,43 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager" selected="Application.RecommendationServiceApplication">
+    <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
+      <module name="recommendation-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.recommendationservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResourcesServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.resourcesservice.ResourcesServiceApplication" />
+      <module name="resources-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.resourcesservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RecommendationServiceApplication" />
+        <item itemvalue="Application.ResourcesServiceApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -34,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648011784513</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00001" summary="Created service">
       <created>1648028929021</created>
       <option name="number" value="00001" />
@@ -42,6 +107,30 @@
       <updated>1648028929022</updated>
     </task>
     <option name="localTasksCounter" value="2" />
+=======
+    <task id="LOCAL-00001" summary="Added WorkDetails model class">
+      <created>1648024483342</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1648024483342</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added WorkDetails model class">
+      <created>1648024582226</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648024582226</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added WorkDetails model class">
+      <created>1648024765642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648024765642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+>>>>>>> b5a14884de13e04596a2a20be9c18a4d60e5195e
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -56,7 +145,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+<<<<<<< HEAD
     <MESSAGE value="Created service" />
     <option name="LAST_COMMIT_MESSAGE" value="Created service" />
+=======
+    <MESSAGE value="Added Resources service" />
+    <MESSAGE value="Added port,lombok DI,Review Domain" />
+    <MESSAGE value="Added WorkDetails model class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added WorkDetails model class" />
+>>>>>>> b5a14884de13e04596a2a20be9c18a4d60e5195e
   </component>
 </project>
