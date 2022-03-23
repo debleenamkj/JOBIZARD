@@ -9,6 +9,7 @@
         <module name="api-gateway" />
         <module name="trend-lab-service" />
         <module name="config-server" />
+        <module name="assessment-service" />
         <module name="eureka-server" />
         <module name="product-webapp" />
       </profile>
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="assessment-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="product-webapp" options="-parameters" />
