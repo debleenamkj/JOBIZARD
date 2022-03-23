@@ -19,6 +19,9 @@
         <module name="recommendation-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CvGeneration" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
