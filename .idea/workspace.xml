@@ -4,12 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="repo layer is done">
-      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvServiceImpl.java" afterDir="false" />
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="repo layer is done">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assessment-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/assessment-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatbot-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es2015.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es2015.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es5.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/controller/RecommendationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/controller/RecommendationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/JobPosting.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/JobDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/Seeker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/JobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/JobRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationserviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationserviceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recruitment-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trend-lab-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/mvnw.cmd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +41,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -45,7 +68,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.CvGenerationServiceApplication">
+  <component name="RunManager" selected="Application.RecommendationServiceApplication">
     <configuration name="CvGenerationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.cvgenerationservice.CvGenerationServiceApplication" />
       <module name="cv-generation-service" />
@@ -87,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CvGenerationServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />
+        <item itemvalue="Application.CvGenerationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
       </list>
     </recent_temporary>
@@ -136,7 +159,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Resources service" />

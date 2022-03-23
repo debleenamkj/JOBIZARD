@@ -3,8 +3,8 @@ package com.stackroute.recommendationservice.service;
 import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
 import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
 import com.stackroute.recommendationservice.exception.UserNotFoundException;
-import com.stackroute.recommendationservice.model.JobPosting;
-import com.stackroute.recommendationservice.model.User;
+import com.stackroute.recommendationservice.model.JobDetails;
+import com.stackroute.recommendationservice.model.Seeker;
 import com.stackroute.recommendationservice.repository.JobRepository;
 import com.stackroute.recommendationservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class RecommendationserviceImpl implements RecommendationService{
     }
 
     @Override
-    public JobPosting savejob(JobPosting job) throws JobAlreadyPresentException
+    public JobDetails savejob(JobDetails job) throws JobAlreadyPresentException
     {
         if(jobRepository.findById(job.getJobId()).isPresent())
         {
@@ -42,35 +42,35 @@ public class RecommendationserviceImpl implements RecommendationService{
     }
 
     @Override
-    public User saveUser(User user) throws UserAlreadyExistsException{
-        if(userRepository.findById(user.getEmail()).isPresent())
+    public Seeker saveUser(Seeker seeker) throws UserAlreadyExistsException{
+        if(userRepository.findById(seeker.getEmail()).isPresent())
         {
             throw new UserAlreadyExistsException();
         }
         else {
-              userRepository.save(user);
+              userRepository.save(seeker);
         }
-        return user;
+        return seeker;
     }
 
     @Override
-    public Set<Long> getMatchingJobs(User user) throws UserNotFoundException {
+    public Set<Long> getMatchingJobs(Seeker seeker) throws UserNotFoundException {
         Set<Long> matchingJobIds = new HashSet<>();
 
-        if(userRepository.findById(user.getEmail()).isEmpty())
+        if(userRepository.findById(seeker.getEmail()).isEmpty())
         {
             throw new UserNotFoundException();
         }
         else{
-            ArrayList<String> skills = user.getSkillSet();
-            ArrayList<String> preferences = user.getJobPreferences();
+            ArrayList<String> skills = seeker.getSkillSet();
+            ArrayList<String> preferences = seeker.getJobPreferences();
             if(!skills.isEmpty())
             {
                 for(String userSkils:skills) {
-                    List<JobPosting> job1 = jobRepository.findBySkills(userSkils);
+                    List<JobDetails> job1 = jobRepository.findBySkills(userSkils);
                     System.out.println(job1);
                     if(job1!=null){
-                        for (JobPosting jobs:job1) {
+                        for (JobDetails jobs:job1) {
                             matchingJobIds.add(jobs.getJobId());
                         }
                     }
@@ -79,16 +79,16 @@ public class RecommendationserviceImpl implements RecommendationService{
             if(!preferences.isEmpty())
             {
                 for (String jobRoles:preferences) {
-                    List<JobPosting> job1 = jobRepository.findByJobRole(jobRoles);
+                    List<JobDetails> job1 = jobRepository.findByJobRole(jobRoles);
                     if(job1!=null){
-                        for (JobPosting jobs:job1) {
+                        for (JobDetails jobs:job1) {
                             matchingJobIds.add(jobs.getJobId());
                         }
                     }
                 }
             }
             if(!matchingJobIds.isEmpty()){
-                createRelationships(user.getEmail(),matchingJobIds);
+                createRelationships(seeker.getEmail(),matchingJobIds);
             }
         }
 

@@ -1,15 +1,15 @@
 package com.stackroute.recommendationservice.repository;
 
-import com.stackroute.recommendationservice.model.JobPosting;
+import com.stackroute.recommendationservice.model.JobDetails;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 
 import java.util.List;
 
-public interface JobRepository extends Neo4jRepository<JobPosting,Long> {
+public interface JobRepository extends Neo4jRepository<JobDetails,Long> {
     @Query("MATCH(j:JobPosting) WHERE $userSkills IN j.skillsRequired RETURN j")
-    List<JobPosting> findBySkills(String userSkills);
+    List<JobDetails> findBySkills(String userSkills);
 
     @Query("MATCH(j:JobPosting{jobRole:$jobRoles}) RETURN j")
-    List<JobPosting> findByJobRole(String jobRoles);
+    List<JobDetails> findByJobRole(String jobRoles);
 }
