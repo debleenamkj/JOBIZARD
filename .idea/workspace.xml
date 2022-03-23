@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="recommendation service created">
-      <change afterPath="$PROJECT_DIR$/recommendation-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommendation-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommendation-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommendation-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/RecommendationServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommendation-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recommendation-service/src/test/java/com/stackroute/recommendationservice/RecommendationServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="Added WorkDetails model class">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" afterDir="false" />
     </list>
-=======
-    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="Added WorkDetails model class" />
->>>>>>> origin/v1.0.0
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,8 +49,6 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-<<<<<<< HEAD
-=======
   </component>
   <component name="RunManager">
     <configuration name="ResourcesServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -82,7 +69,6 @@
         <item itemvalue="Application.ResourcesServiceApplication" />
       </list>
     </recent_temporary>
->>>>>>> origin/v1.0.0
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648024582226</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added WorkDetails model class">
+      <created>1648024765642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1648024765642</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,14 +115,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-<<<<<<< HEAD
-    <MESSAGE value="recommendation service created" />
-    <option name="LAST_COMMIT_MESSAGE" value="recommendation service created" />
-=======
     <MESSAGE value="Added Resources service" />
     <MESSAGE value="Added port,lombok DI,Review Domain" />
     <MESSAGE value="Added WorkDetails model class" />
     <option name="LAST_COMMIT_MESSAGE" value="Added WorkDetails model class" />
->>>>>>> origin/v1.0.0
   </component>
 </project>
