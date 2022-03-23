@@ -1,5 +1,8 @@
 package com.stackroute.recommendationservice.service;
 
+import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
+import com.stackroute.recommendationservice.exception.UserNotFoundException;
 import com.stackroute.recommendationservice.model.JobPosting;
 import com.stackroute.recommendationservice.model.User;
 import com.stackroute.recommendationservice.repository.JobRepository;
@@ -25,49 +28,70 @@ public class RecommendationserviceImpl implements RecommendationService{
     }
 
     @Override
-    public JobPosting savejob(JobPosting job){
-        return jobRepository.save(job);
+    public JobPosting savejob(JobPosting job) throws JobAlreadyPresentException
+    {
+        if(jobRepository.findById(job.getJobId()).isPresent())
+        {
+            throw new JobAlreadyPresentException();
+        }
+        else {
+            jobRepository.save(job);
+        }
+        return job;
+
     }
 
     @Override
-    public User saveUser(User user){
-        return userRepository.save(user);
+    public User saveUser(User user) throws UserAlreadyExistsException{
+        if(userRepository.findById(user.getEmail()).isPresent())
+        {
+            throw new UserAlreadyExistsException();
+        }
+        else {
+              userRepository.save(user);
+        }
+        return user;
     }
 
     @Override
-    public Set<Long> getMatchingJobs(User user){
-        ArrayList<String> skills = user.getSkillSet();
-        ArrayList<String> preferences = user.getJobPreferences();
-
+    public Set<Long> getMatchingJobs(User user) throws UserNotFoundException {
         Set<Long> matchingJobIds = new HashSet<>();
 
-        if(!skills.isEmpty())
+        if(userRepository.findById(user.getEmail()).isEmpty())
         {
-            for (String userSkils:skills) {
-                System.out.println("matchingjobs");
-               List<JobPosting> job1 = jobRepository.findBySkills(userSkils);
-               System.out.println(job1);
-               if(job1!=null){
-                   for (JobPosting jobs:job1) {
-                       matchingJobIds.add(jobs.getJobId());
-                   }
-               }
-            }
+            throw new UserNotFoundException();
         }
-        if(!preferences.isEmpty())
-        {
-            for (String jobRoles:preferences) {
-                List<JobPosting> job1 = jobRepository.findByJobRole(jobRoles);
-                if(job1!=null){
-                    for (JobPosting jobs:job1) {
-                        matchingJobIds.add(jobs.getJobId());
+        else{
+            ArrayList<String> skills = user.getSkillSet();
+            ArrayList<String> preferences = user.getJobPreferences();
+            if(!skills.isEmpty())
+            {
+                for(String userSkils:skills) {
+                    List<JobPosting> job1 = jobRepository.findBySkills(userSkils);
+                    System.out.println(job1);
+                    if(job1!=null){
+                        for (JobPosting jobs:job1) {
+                            matchingJobIds.add(jobs.getJobId());
+                        }
                     }
                 }
             }
+            if(!preferences.isEmpty())
+            {
+                for (String jobRoles:preferences) {
+                    List<JobPosting> job1 = jobRepository.findByJobRole(jobRoles);
+                    if(job1!=null){
+                        for (JobPosting jobs:job1) {
+                            matchingJobIds.add(jobs.getJobId());
+                        }
+                    }
+                }
+            }
+            if(!matchingJobIds.isEmpty()){
+                createRelationships(user.getEmail(),matchingJobIds);
+            }
         }
-        if(!matchingJobIds.isEmpty()){
-            createRelationships(user.getEmail(),matchingJobIds);
-        }
+
        return matchingJobIds;
     }
 
