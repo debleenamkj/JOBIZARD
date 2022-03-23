@@ -17,6 +17,7 @@
         <module name="recruitment-service" />
         <module name="product-webapp" />
         <module name="recommendation-service" />
+        <module name="cv-generation-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -29,6 +30,7 @@
       <module name="api-gateway" options="-parameters" />
       <module name="assessment-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
+      <module name="cv-generation-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="product-webapp" options="-parameters" />
       <module name="recommendation-service" options="-parameters" />

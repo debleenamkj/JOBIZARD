@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="creating attributes">
-      <change beforePath="$PROJECT_DIR$/CvGeneration/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CvGeneration/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CvGeneration/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/java/com/stackroute/CvGeneration/CvGenerationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/CvGeneration/CvGenerationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/java/com/stackroute/CvGeneration/Domain/UserCv.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/CvGeneration/Domain/UserCv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/test/java/com/stackroute/CvGeneration/CvGenerationApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/test/java/com/stackroute/CvGeneration/CvGenerationApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/java/com/stackroute/CvGeneration/CvGenerationApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/java/com/stackroute/CvGeneration/Domain/UserCv.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CvGeneration/src/test/java/com/stackroute/CvGeneration/CvGenerationApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
