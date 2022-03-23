@@ -1,0 +1,14 @@
+Index: cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/repository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/repository.java b/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/repository.java
+new file mode 100644
+--- /dev/null	(date 1648038355419)
++++ b/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/repository.java	(date 1648038355419)
+@@ -0,0 +1,4 @@
++package com.stackroute.cvgenerationservice.controller;
++
++public interface repository {
++}
