@@ -27,6 +27,7 @@
         <module>api-gateway</module>
         <module>product-webapp</module>
         <module>trend-lab-service</module>
+        <module>assessment-service</module>
     </modules>
 
     <dependencies>
