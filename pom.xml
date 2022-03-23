@@ -26,17 +26,12 @@
         <module>eureka-server</module>
         <module>api-gateway</module>
         <module>product-webapp</module>
-<<<<<<< HEAD
+
         <module>recommendation-service</module>
-=======
-
         <module>recruitment-service</module>
-
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
-
->>>>>>> origin/v1.0.0
     </modules>
 
     <dependencies>
