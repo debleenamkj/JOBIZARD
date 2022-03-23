@@ -1,10 +1,10 @@
-package com.stackroute.CvGeneration;
+package com.stackroute.cvgenerationservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CvGenerationApplicationTests {
+class CvGenerationServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

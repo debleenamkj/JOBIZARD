@@ -1,13 +1,13 @@
-package com.stackroute.CvGeneration;
+package com.stackroute.cvgenerationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CvGenerationApplication {
+public class CvGenerationServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CvGenerationApplication.class, args);
+		SpringApplication.run(CvGenerationServiceApplication.class, args);
 	}
 
 }
