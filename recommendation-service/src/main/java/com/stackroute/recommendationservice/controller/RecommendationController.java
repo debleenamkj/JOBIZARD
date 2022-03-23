@@ -1,7 +1,10 @@
 package com.stackroute.recommendationservice.controller;
 
-import com.stackroute.recommendationservice.model.JobPosting;
-import com.stackroute.recommendationservice.model.User;
+import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
+import com.stackroute.recommendationservice.exception.UserNotFoundException;
+import com.stackroute.recommendationservice.model.JobDetails;
+import com.stackroute.recommendationservice.model.Seeker;
 import com.stackroute.recommendationservice.service.RecommendationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,18 +27,18 @@ public class RecommendationController {
     }
 
     @PostMapping("/user")
-    public ResponseEntity<?> saveUser(@RequestBody User user){
-      return new ResponseEntity<>(recommendationService.saveUser(user), HttpStatus.CREATED);
+    public ResponseEntity<?> saveUser(@RequestBody Seeker seeker) throws UserAlreadyExistsException {
+      return new ResponseEntity<>(recommendationService.saveUser(seeker), HttpStatus.CREATED);
     }
 
     @PostMapping("/job")
-    public ResponseEntity<?> savejob(@RequestBody JobPosting job){
+    public ResponseEntity<?> savejob(@RequestBody JobDetails job) throws JobAlreadyPresentException {
         return new ResponseEntity<>(recommendationService.savejob(job), HttpStatus.CREATED);
     }
 
     @PostMapping("/match")
-    public ResponseEntity<?> matchjobs(@RequestBody User user){
-        return new ResponseEntity<>(recommendationService.getMatchingJobs(user),HttpStatus.OK);
+    public ResponseEntity<?> matchjobs(@RequestBody Seeker seeker) throws UserNotFoundException {
+        return new ResponseEntity<>(recommendationService.getMatchingJobs(seeker),HttpStatus.OK);
     }
 
 

@@ -1,7 +1,10 @@
 package com.stackroute.recommendationservice.service;
 
-import com.stackroute.recommendationservice.model.JobPosting;
-import com.stackroute.recommendationservice.model.User;
+import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
+import com.stackroute.recommendationservice.exception.UserNotFoundException;
+import com.stackroute.recommendationservice.model.JobDetails;
+import com.stackroute.recommendationservice.model.Seeker;
 import com.stackroute.recommendationservice.repository.JobRepository;
 import com.stackroute.recommendationservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,49 +28,70 @@ public class RecommendationserviceImpl implements RecommendationService{
     }
 
     @Override
-    public JobPosting savejob(JobPosting job){
-        return jobRepository.save(job);
+    public JobDetails savejob(JobDetails job) throws JobAlreadyPresentException
+    {
+        if(jobRepository.findById(job.getJobId()).isPresent())
+        {
+            throw new JobAlreadyPresentException();
+        }
+        else {
+            jobRepository.save(job);
+        }
+        return job;
+
     }
 
     @Override
-    public User saveUser(User user){
-        return userRepository.save(user);
+    public Seeker saveUser(Seeker seeker) throws UserAlreadyExistsException{
+        if(userRepository.findById(seeker.getEmail()).isPresent())
+        {
+            throw new UserAlreadyExistsException();
+        }
+        else {
+              userRepository.save(seeker);
+        }
+        return seeker;
     }
 
     @Override
-    public Set<Long> getMatchingJobs(User user){
-        ArrayList<String> skills = user.getSkillSet();
-        ArrayList<String> preferences = user.getJobPreferences();
-
+    public Set<Long> getMatchingJobs(Seeker seeker) throws UserNotFoundException {
         Set<Long> matchingJobIds = new HashSet<>();
 
-        if(!skills.isEmpty())
+        if(userRepository.findById(seeker.getEmail()).isEmpty())
         {
-            for (String userSkils:skills) {
-                System.out.println("matchingjobs");
-               List<JobPosting> job1 = jobRepository.findBySkills(userSkils);
-               System.out.println(job1);
-               if(job1!=null){
-                   for (JobPosting jobs:job1) {
-                       matchingJobIds.add(jobs.getJobId());
-                   }
-               }
-            }
+            throw new UserNotFoundException();
         }
-        if(!preferences.isEmpty())
-        {
-            for (String jobRoles:preferences) {
-                List<JobPosting> job1 = jobRepository.findByJobRole(jobRoles);
-                if(job1!=null){
-                    for (JobPosting jobs:job1) {
-                        matchingJobIds.add(jobs.getJobId());
+        else{
+            ArrayList<String> skills = seeker.getSkillSet();
+            ArrayList<String> preferences = seeker.getJobPreferences();
+            if(!skills.isEmpty())
+            {
+                for(String userSkils:skills) {
+                    List<JobDetails> job1 = jobRepository.findBySkills(userSkils);
+                    System.out.println(job1);
+                    if(job1!=null){
+                        for (JobDetails jobs:job1) {
+                            matchingJobIds.add(jobs.getJobId());
+                        }
                     }
                 }
             }
+            if(!preferences.isEmpty())
+            {
+                for (String jobRoles:preferences) {
+                    List<JobDetails> job1 = jobRepository.findByJobRole(jobRoles);
+                    if(job1!=null){
+                        for (JobDetails jobs:job1) {
+                            matchingJobIds.add(jobs.getJobId());
+                        }
+                    }
+                }
+            }
+            if(!matchingJobIds.isEmpty()){
+                createRelationships(seeker.getEmail(),matchingJobIds);
+            }
         }
-        if(!matchingJobIds.isEmpty()){
-            createRelationships(user.getEmail(),matchingJobIds);
-        }
+
        return matchingJobIds;
     }
 
