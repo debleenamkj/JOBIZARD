@@ -38,8 +38,7 @@ public class RecommendationserviceImpl implements RecommendationService{
     public Set<Long> getMatchingJobs(User user){
         ArrayList<String> skills = user.getSkillSet();
         ArrayList<String> preferences = user.getJobPreferences();
-        System.out.println("skillss :"+skills);
-        System.out.println("prefereces"+preferences);
+
         Set<Long> matchingJobIds = new HashSet<>();
 
         if(!skills.isEmpty())
@@ -66,6 +65,15 @@ public class RecommendationserviceImpl implements RecommendationService{
                 }
             }
         }
+        if(!matchingJobIds.isEmpty()){
+            createRelationships(user.getEmail(),matchingJobIds);
+        }
        return matchingJobIds;
+    }
+
+    public void createRelationships(String userEmail,Set<Long> matchingJobs){
+        for (Long jobId:matchingJobs) {
+            userRepository.createRelation(userEmail,jobId);
+        }
     }
 }
