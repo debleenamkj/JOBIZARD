@@ -32,6 +32,7 @@
         <module>trend-lab-service</module>
         <module>assessment-service</module>
         <module>cv-generation-service</module>
+        <module>chatbot-service</module>
     </modules>
 
     <dependencies>
