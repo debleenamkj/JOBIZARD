@@ -6,11 +6,8 @@
     <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/product-webapp/src/main/java" charset="UTF-8" />
-<<<<<<< HEAD
     <file url="file://$PROJECT_DIR$/recruitment-service/src/main/java" charset="UTF-8" />
-=======
     <file url="file://$PROJECT_DIR$/resources-service/src/main/java" charset="UTF-8" />
->>>>>>> d279c91aee97e7da1089271c4c159a46a920abdb
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/trend-lab-service/src/main/java" charset="UTF-8" />
