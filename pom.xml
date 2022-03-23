@@ -27,6 +27,9 @@
         <module>api-gateway</module>
         <module>product-webapp</module>
 
+        <module>CvGeneration</module>
+
+        <module>recommendation-service</module>
         <module>recruitment-service</module>
 
         <module>resources-service</module>
