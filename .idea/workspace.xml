@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="creating attributes">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/java/com/stackroute/CvGeneration/CvGenerationApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/java/com/stackroute/CvGeneration/Domain/UserCv.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CvGeneration/src/test/java/com/stackroute/CvGeneration/CvGenerationApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="updated pom">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +36,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -147,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648032759832</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated pom">
+      <created>1648034140722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034140722</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,6 +165,7 @@
     <MESSAGE value="updated port" />
     <MESSAGE value="domain layer" />
     <MESSAGE value="creating attributes" />
-    <option name="LAST_COMMIT_MESSAGE" value="creating attributes" />
+    <MESSAGE value="updated pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated pom" />
   </component>
 </project>
