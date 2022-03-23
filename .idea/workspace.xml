@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="created domain layer">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/domain/userCv.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/domain/userCv.java" afterDir="false" />
+=======
     <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="recommendation service created">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationserviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationserviceImpl.java" afterDir="false" />
+>>>>>>> 77456a228f22fa6e894c3d2c99b142660665869e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +123,46 @@
       <option name="project" value="LOCAL" />
       <updated>1648024765642</updated>
     </task>
+<<<<<<< HEAD
+    <task id="LOCAL-00004" summary="domain layer">
+      <created>1648031907291</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648031907291</updated>
+    </task>
+    <task id="LOCAL-00005" summary="creating attributes">
+      <created>1648032759832</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648032759832</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated pom">
+      <created>1648034140722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034140722</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated application properties">
+      <created>1648034257572</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034257572</updated>
+    </task>
+    <task id="LOCAL-00008" summary="created domain layer">
+      <created>1648034378941</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034378941</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+=======
     <option name="localTasksCounter" value="4" />
+>>>>>>> 77456a228f22fa6e894c3d2c99b142660665869e
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +180,16 @@
     <MESSAGE value="Added Resources service" />
     <MESSAGE value="Added port,lombok DI,Review Domain" />
     <MESSAGE value="Added WorkDetails model class" />
+<<<<<<< HEAD
+    <MESSAGE value="updated port" />
+    <MESSAGE value="domain layer" />
+    <MESSAGE value="creating attributes" />
+    <MESSAGE value="updated pom" />
+    <MESSAGE value="updated application properties" />
+    <MESSAGE value="created domain layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="created domain layer" />
+=======
     <option name="LAST_COMMIT_MESSAGE" value="Added WorkDetails model class" />
+>>>>>>> 77456a228f22fa6e894c3d2c99b142660665869e
   </component>
 </project>
