@@ -5,85 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/src/main/java/com/stackroute/assessmentservice/AssessmentServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/src/test/java/com/stackroute/assessmentservice/AssessmentServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/stackroute/authenticationservice/AuthenticationServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/test/java/com/stackroute/authenticationservice/AuthenticationServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/src/main/java/com/stackroute/chatbotservice/ChatBotServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-bot-service/src/test/java/com/stackroute/chatbotservice/ChatBotServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/java/com/stackroute/chatservice/ChatServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-service/src/test/java/com/stackroute/chatservice/ChatServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/CvGenerationServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/test/java/com/stackroute/cvgenerationservice/CvGenerationServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/src/main/java/com/stackroute/jobsrecommendationservice/JobsRecommendationServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs-recommendation-service/src/test/java/com/stackroute/jobsrecommendationservice/JobsRecommendationServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/java/com/stackroute/paymentservice/PaymentServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/payment-service/src/test/java/com/stackroute/paymentservice/PaymentServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/src/main/java/com/stackroute/recruiterservice/RecruiterServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruiter-service/src/test/java/com/stackroute/recruiterservice/RecruiterServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/src/main/java/com/stackroute/resourceservice/ResourceServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/src/test/java/com/stackroute/resourceservice/ResourceServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/TrendLabServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/src/test/java/com/stackroute/trendlabservice/TrendLabServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/stackroute/userservice/UserServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/test/java/com/stackroute/userservice/UserServiceApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +34,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -122,5 +46,16 @@
       <updated>1648011784513</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
