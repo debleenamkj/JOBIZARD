@@ -8,18 +8,20 @@ import com.stackroute.recommendationservice.service.RecommendationService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Consumer {
     @Autowired
     private RecommendationService recommendationService;
     private int id;
 
-    @RabbitListener(queues = "userQueue")
+    @RabbitListener(queues = "seeker_queue")
     public void getUser(Seeker seeker) throws UserAlreadyExistsException {
         recommendationService.saveUser(seeker);
     }
 
-    @RabbitListener(queues = "userQueue")
+    @RabbitListener(queues = "job_queue")
     public void getJob(JobDetails job) throws JobAlreadyPresentException {
         recommendationService.savejob(job);
     }

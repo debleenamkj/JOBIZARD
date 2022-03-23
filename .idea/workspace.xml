@@ -5,26 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="repo layer is done">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assessment-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/assessment-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatbot-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/chatbot-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es2015.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es2015.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es5.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/src/main/resources/static/polyfills-es5.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/controller/RecommendationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/controller/RecommendationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/JobPosting.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/JobDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/model/Seeker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/MessageConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/MessageConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/JobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/JobRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationserviceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/service/RecommendationserviceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruitment-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/mvnw.cmd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

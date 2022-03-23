@@ -7,6 +7,6 @@ import org.springframework.data.neo4j.repository.query.Query;
 public interface UserRepository extends Neo4jRepository<Seeker,String> {
 
 
-    @Query("MATCH(u:User{email:$email}),(j:JobPosting{jobId:$job}) CREATE(u)-[:from]->(j)")
+    @Query("MATCH(u:Seeker{email:$email}),(j:JobDetails{jobId:$job}) CREATE(u)-[:from]->(j)")
     void createRelation(String email, Long job);
 }
