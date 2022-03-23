@@ -26,16 +26,12 @@
         <module>eureka-server</module>
         <module>api-gateway</module>
         <module>product-webapp</module>
-<<<<<<< HEAD
         <module>CvGeneration</module>
-=======
         <module>recommendation-service</module>
         <module>recruitment-service</module>
-
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
->>>>>>> b5a14884de13e04596a2a20be9c18a4d60e5195e
     </modules>
 
     <dependencies>
