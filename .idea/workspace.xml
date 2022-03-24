@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="repo layer is done">
+    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="recommendation service created">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/exception/CvAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/exception/CvNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/MessageConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/config/MessageConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/JobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/JobRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recommendation-service/src/main/java/com/stackroute/recommendationservice/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/domain/userCv.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/domain/userCv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/repository/repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/repository/repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/test/java/com/stackroute/cvgenerationservice/CvGenerationServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/test/java/com/stackroute/cvgenerationservice/CvGenerationServiceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +43,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -49,11 +73,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.RecommendationServiceApplication">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\91831\OneDrive\Desktop\product\jobizard\cv-generation-service\src\main\java\com\stackroute\cvgenerationservice" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CvGenerationServiceApplication">
     <configuration name="CvGenerationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.cvgenerationservice.CvGenerationServiceApplication" />
       <module name="cv-generation-service" />
@@ -95,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RecommendationServiceApplication" />
         <item itemvalue="Application.CvGenerationServiceApplication" />
+        <item itemvalue="Application.RecommendationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
       </list>
     </recent_temporary>
@@ -144,6 +175,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Resources service" />
