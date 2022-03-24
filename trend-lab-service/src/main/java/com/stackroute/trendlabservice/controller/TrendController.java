@@ -18,7 +18,7 @@ public class TrendController {
     }
 
     @GetMapping("/salary")
-    public ResponseEntity<String> callExternalApi(@RequestParam("job_title")String job_title){
+    public ResponseEntity<String> callExternalApiForSalaryTrend(@RequestParam("job_title")String job_title){
         String url="https://infosalary.p.rapidapi.com/?job_title="+job_title;
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-RapidAPI-Host", "infosalary.p.rapidapi.com");

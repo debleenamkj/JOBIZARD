@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Added external API for Salary Trend">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/controller/TrendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/controller/TrendController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
