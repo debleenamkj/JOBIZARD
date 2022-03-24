@@ -13,6 +13,7 @@ public class TrendController {
 
     @GetMapping("/check")
     public String hello(){
+        String hi = "hi";
         return "hello";
     }
 
