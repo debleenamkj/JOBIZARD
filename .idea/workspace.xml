@@ -4,20 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="recommendation service created">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/exception/CvAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/exception/CvNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/domain/userCv.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/domain/userCv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/repository/repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/repository/repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/service/cvServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/test/java/com/stackroute/cvgenerationservice/CvGenerationServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/test/java/com/stackroute/cvgenerationservice/CvGenerationServiceApplicationTests.java" afterDir="false" />
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added external API for Salary Trend">
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/CompanyAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/CompanyNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/ReviewAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/ReviewNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/WorkDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/WorkDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,32 +37,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
-      </map>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -79,25 +64,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\91831\OneDrive\Desktop\product\jobizard\cv-generation-service\src\main\java\com\stackroute\cvgenerationservice" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.CvGenerationServiceApplication">
-    <configuration name="CvGenerationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stackroute.cvgenerationservice.CvGenerationServiceApplication" />
-      <module name="cv-generation-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.stackroute.cvgenerationservice.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TrendLabServiceApplication">
     <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
       <module name="recommendation-service" />
@@ -124,9 +91,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TrendLabServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.trendlabservice.TrendLabServiceApplication" />
+      <module name="trend-lab-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.trendlabservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CvGenerationServiceApplication" />
+        <item itemvalue="Application.TrendLabServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
       </list>
@@ -162,7 +142,42 @@
       <option name="project" value="LOCAL" />
       <updated>1648024765642</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added external API for Salary Trend">
+      <created>1648108242164</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648108242164</updated>
+    </task>
+    <task id="LOCAL-00005" summary="creating attributes">
+      <created>1648032759832</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648032759832</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated pom">
+      <created>1648034140722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034140722</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated application properties">
+      <created>1648034257572</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034257572</updated>
+    </task>
+    <task id="LOCAL-00008" summary="created domain layer">
+      <created>1648034378941</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034378941</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -181,6 +196,13 @@
     <MESSAGE value="Added Resources service" />
     <MESSAGE value="Added port,lombok DI,Review Domain" />
     <MESSAGE value="Added WorkDetails model class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added WorkDetails model class" />
+    <MESSAGE value="updated port" />
+    <MESSAGE value="domain layer" />
+    <MESSAGE value="creating attributes" />
+    <MESSAGE value="updated pom" />
+    <MESSAGE value="updated application properties" />
+    <MESSAGE value="created domain layer" />
+    <MESSAGE value="Added external API for Salary Trend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added external API for Salary Trend" />
   </component>
 </project>
