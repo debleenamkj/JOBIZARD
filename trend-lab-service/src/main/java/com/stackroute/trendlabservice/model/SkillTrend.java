@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 
 @Document
 @Data
@@ -18,5 +20,7 @@ public class SkillTrend {
     long skillId;
     String onDemandSkills;
     String industryName;
+    int year;
+    int skillDemandedByCompany;
 
 }
