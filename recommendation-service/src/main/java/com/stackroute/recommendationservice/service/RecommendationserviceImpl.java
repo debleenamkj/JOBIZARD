@@ -30,26 +30,37 @@ public class RecommendationserviceImpl implements RecommendationService{
     @Override
     public JobDetails savejob(JobDetails job) throws JobAlreadyPresentException
     {
-        if(jobRepository.findById(job.getJobId()).isPresent())
-        {
-            throw new JobAlreadyPresentException();
+        try{
+            if(jobRepository.findById(job.getJobId()).isPresent())
+            {
+                throw new JobAlreadyPresentException();
+            }
+            else {
+                jobRepository.save(job);
+            }
+        }catch (JobAlreadyPresentException e){
+            System.out.println(e.toString());
         }
-        else {
-            jobRepository.save(job);
-        }
+
         return job;
 
     }
 
     @Override
     public Seeker saveUser(Seeker seeker) throws UserAlreadyExistsException{
-        if(userRepository.findById(seeker.getEmail()).isPresent())
+        try {
+            if(userRepository.findById(seeker.getEmail()).isPresent())
+            {
+                throw new UserAlreadyExistsException();
+            }
+            else {
+                userRepository.save(seeker);
+            }
+        }catch (UserAlreadyExistsException e)
         {
-            throw new UserAlreadyExistsException();
+            System.out.println(e.toString());
         }
-        else {
-              userRepository.save(seeker);
-        }
+
         return seeker;
     }
 
@@ -57,42 +68,45 @@ public class RecommendationserviceImpl implements RecommendationService{
     public Set<Long> getMatchingJobs(Seeker seeker) throws UserNotFoundException {
         Set<Long> matchingJobIds = new HashSet<>();
 
-        if(userRepository.findById(seeker.getEmail()).isEmpty())
-        {
-            throw new UserNotFoundException();
-        }
-        else{
-            ArrayList<String> skills = seeker.getSkillSet();
-            ArrayList<String> preferences = seeker.getJobPreferences();
-            if(!skills.isEmpty())
+        try{
+            if(userRepository.findById(seeker.getEmail()).isEmpty())
             {
-                for(String userSkils:skills) {
-                    List<JobDetails> job1 = jobRepository.findBySkills(userSkils);
-                    System.out.println(job1);
-                    if(job1!=null){
-                        for (JobDetails jobs:job1) {
-                            matchingJobIds.add(jobs.getJobId());
+                throw new UserNotFoundException();
+            }
+            else{
+                ArrayList<String> skills = seeker.getSkillSet();
+                ArrayList<String> preferences = seeker.getJobPreferences();
+                if(!skills.isEmpty())
+                {
+                    for(String userSkils:skills) {
+                        List<JobDetails> job1 = jobRepository.findBySkills(userSkils);
+                        System.out.println(job1);
+                        if(job1!=null){
+                            for (JobDetails jobs:job1) {
+                                matchingJobIds.add(jobs.getJobId());
+                            }
                         }
                     }
                 }
-            }
-            if(!preferences.isEmpty())
-            {
-                for (String jobRoles:preferences) {
-                    List<JobDetails> job1 = jobRepository.findByJobRole(jobRoles);
-                    if(job1!=null){
-                        for (JobDetails jobs:job1) {
-                            matchingJobIds.add(jobs.getJobId());
+                if(!preferences.isEmpty())
+                {
+                    for (String jobRoles:preferences) {
+                        List<JobDetails> job1 = jobRepository.findByJobRole(jobRoles);
+                        if(job1!=null){
+                            for (JobDetails jobs:job1) {
+                                matchingJobIds.add(jobs.getJobId());
+                            }
                         }
                     }
                 }
+                if(!matchingJobIds.isEmpty()){
+                    createRelationships(seeker.getEmail(),matchingJobIds);
+                }
             }
-            if(!matchingJobIds.isEmpty()){
-                createRelationships(seeker.getEmail(),matchingJobIds);
-            }
+        }catch (UserNotFoundException e){
+            System.out.println(e.toString());
         }
-
-       return matchingJobIds;
+        return matchingJobIds;
     }
 
     public void createRelationships(String userEmail,Set<Long> matchingJobs){
