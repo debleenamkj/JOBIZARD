@@ -69,4 +69,10 @@ public class SkillTrendServiceImpl implements SkillTrendService{
     public List<SkillTrend> getAllSkills(){
         return skillTrendRepository.findAll();
     }
+
+    @Override
+    public Boolean deleteEverything(){
+        skillTrendRepository.deleteAll();
+        return true;
+    }
 }

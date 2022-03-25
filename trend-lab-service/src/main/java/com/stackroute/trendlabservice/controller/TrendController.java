@@ -58,4 +58,10 @@ public class TrendController {
     public Boolean deleteSkillTrend(@PathVariable Long skillId){
         return skillTrendService.deleteSkill(skillId);
     }
+
+    @DeleteMapping("/deleteall")
+    public Boolean deleteAll(){
+        return skillTrendService.deleteEverything();
+    }
 }
+
