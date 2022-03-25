@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="chatroom-service: implemented domain,repository and service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chatroom-service/src/main/java/com/stackroute/chatroomservice/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom-service/src/main/java/com/stackroute/chatroomservice/controller/ChatController.java" afterDir="false" />
+=======
+    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Created Model Class for Skill Trends">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> origin/v1.0.0
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +54,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.RecommendationServiceApplication">
+  <component name="RunManager" selected="Application.TrendLabServiceApplication">
     <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
       <module name="recommendation-service" />
@@ -91,8 +96,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RecommendationServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
+        <item itemvalue="Application.RecommendationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
       </list>
     </recent_temporary>
@@ -100,7 +105,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added WorkDetails model class" />
+      <changelist id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Added external API for Salary Trend" />
       <created>1648011784513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -134,12 +139,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648108242164</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00005" summary="chatroom-service: implemented domain,repository and service">
       <created>1648202376608</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1648202376608</updated>
+=======
+    <task id="LOCAL-00005" summary="Created Model Class for Skill Trends">
+      <created>1648197160606</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648197160606</updated>
+>>>>>>> origin/v1.0.0
     </task>
     <task id="LOCAL-00006" summary="updated pom">
       <created>1648034140722</created>
@@ -187,7 +201,12 @@
     <MESSAGE value="updated application properties" />
     <MESSAGE value="created domain layer" />
     <MESSAGE value="Added external API for Salary Trend" />
+<<<<<<< HEAD
     <MESSAGE value="chatroom-service: implemented domain,repository and service" />
     <option name="LAST_COMMIT_MESSAGE" value="chatroom-service: implemented domain,repository and service" />
+=======
+    <MESSAGE value="Created Model Class for Skill Trends" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Model Class for Skill Trends" />
+>>>>>>> origin/v1.0.0
   </component>
 </project>

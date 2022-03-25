@@ -5,9 +5,11 @@ import com.stackroute.trendlabservice.exception.SkillTrendNotFoundException;
 import com.stackroute.trendlabservice.model.SkillTrend;
 import com.stackroute.trendlabservice.repository.SkillTrendRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SkillTrendServiceImpl implements SkillTrendService{
 
     @Autowired
