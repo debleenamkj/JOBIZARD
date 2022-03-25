@@ -53,4 +53,9 @@ public class TrendController {
     public SkillTrend updateSkills(@RequestBody SkillTrend skillTrend){
         return skillTrendService.updateSkill(skillTrend);
     }
+
+    @DeleteMapping("/deleteskills/{skillId}")
+    public Boolean deleteSkillTrend(@PathVariable Long skillId){
+        return skillTrendService.deleteSkill(skillId);
+    }
 }
