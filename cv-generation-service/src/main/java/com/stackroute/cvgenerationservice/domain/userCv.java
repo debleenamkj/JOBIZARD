@@ -32,7 +32,6 @@ public class userCv {
     private String[] skills;
     private String[] achievements;
     private String[] personalProfile;
-    @Lob
     private byte[] picture;
 }
 

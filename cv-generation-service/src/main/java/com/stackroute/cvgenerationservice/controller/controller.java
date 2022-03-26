@@ -1,6 +1,7 @@
 package com.stackroute.cvgenerationservice.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.cvgenerationservice.domain.userCv;
 import com.stackroute.cvgenerationservice.exception.CvAlreadyExistsException;
@@ -19,10 +20,7 @@ import java.io.IOException;
 public class controller {
     private cvService service;
     private ResponseEntity responseEntity;
-
-
     @Autowired
-
     public controller(cvService service) {
         this.service = service;
     }
@@ -30,7 +28,8 @@ public class controller {
     public ResponseEntity<?> saveUserCv(userCv user,@RequestParam("cv") String cv, @RequestParam("file") MultipartFile file) throws CvAlreadyExistsException {
         try{
             userCv UserCv = new ObjectMapper().readValue(cv,userCv.class);
-            ResponseEntity responseEntity = new ResponseEntity(service.saveCv(UserCv, file), HttpStatus.CREATED);
+            service.saveCv(UserCv, file);
+            ResponseEntity responseEntity = new ResponseEntity("Sucessfully created",HttpStatus.OK);
         }catch (CvAlreadyExistsException e) {
             throw new CvAlreadyExistsException();
         }
@@ -55,12 +54,10 @@ public class controller {
         return responseEntity;
     }
     @PutMapping("/userCv/{cvId}")
-    public ResponseEntity<userCv> updateUser(@PathVariable int cvId,@RequestBody userCv Cv,@RequestParam("cv") String cv,@RequestParam("file") MultipartFile file) throws CvNotFoundException , IOException {
+    public ResponseEntity<?> updateUser(@PathVariable int cvId,@RequestParam("cv") String cv,@RequestParam("file") MultipartFile file) throws CvNotFoundException , IOException {
         try {
-            Cv.setCvId(cvId);
-            this.service.updateCv(Cv,file);
             userCv UserCv = new ObjectMapper().readValue(cv,userCv.class);
-            ResponseEntity responseEntity = new ResponseEntity(service.updateCv(UserCv, file), HttpStatus.CREATED);
+            ResponseEntity responseEntity = new ResponseEntity(service.updateCv( cvId,UserCv,file), HttpStatus.CREATED);
         }catch (CvNotFoundException e){
             throw new CvNotFoundException();
         }
@@ -69,9 +66,6 @@ public class controller {
         }
         return responseEntity;
     }
-//    userCv UserCv = new ObjectMapper().readValue(cv,userCv.class);
-//    ResponseEntity responseEntity = new ResponseEntity(service.saveCv(UserCv, file), HttpStatus.CREATED);
-
     @GetMapping("/userByCvId/{cvId}")
     public ResponseEntity<?> userById(@PathVariable int cvId) throws CvNotFoundException {
         try {

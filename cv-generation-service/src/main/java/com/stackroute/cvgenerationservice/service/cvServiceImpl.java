@@ -33,16 +33,12 @@ public class cvServiceImpl implements cvService{
 
     @Override
     public int getSequenceNumber(String sequenceName) {
-        //get sequence no
         Query query = new Query(Criteria.where("_id").is(sequenceName));
-        //update the sequence no
         Update update = new Update().inc("seqNo", 1);
-        //modify in document
         sequence counter = mongoOperations
                 .findAndModify(query,
                         update, options().returnNew(true).upsert(true),
                         sequence.class);
-
         return !Objects.isNull(counter) ? counter.getSeqNo() : 1;
     }
 
@@ -68,26 +64,25 @@ public class cvServiceImpl implements cvService{
     }
 
     @Override
-    public userCv updateCv(userCv cv,MultipartFile file) throws CvNotFoundException, IOException {
-        Optional<userCv> cvDb =this.Repository.findById(cv.getCvId());
-        if(cvDb.isPresent()) {
-            userCv cvUpdate = cvDb.get();
-            cvUpdate.setFirstName(cv.getFirstName());
-            cvUpdate.setLastName(cv.getLastName());
-            cvUpdate.setEmail(cv.getEmail());
-            cvUpdate.setPhoneNumber(cv.getPhoneNumber());
-            cvUpdate.setLinks(cv.getLinks());
-            cvUpdate.setCareerObjective(cv.getCareerObjective());
-            cvUpdate.setEducation(cv.getEducation());
-            cvUpdate.setExperience(cv.getExperience());
-            cvUpdate.setCertifications(cv.getCertifications());
-            cvUpdate.setProject(cv.getProject());
-            cvUpdate.setSkills(cv.getSkills());
-            cvUpdate.setAchievements(cv.getAchievements());
-            cvUpdate.setPersonalProfile(cv.getPersonalProfile());
-            cvUpdate.setPicture(file.getBytes());
-            Repository.save(cvUpdate);
-            return cvUpdate;
+    public userCv updateCv(int cvId,userCv cv,MultipartFile file) throws CvNotFoundException, IOException {
+        userCv existingCv = findCvByCvId(cvId);
+        if(existingCv != null) {
+            existingCv.setFirstName(cv.getFirstName());
+            existingCv.setLastName(cv.getLastName());
+            existingCv.setEmail(cv.getEmail());
+            existingCv.setPhoneNumber(cv.getPhoneNumber());
+            existingCv.setLinks(cv.getLinks());
+            existingCv.setCareerObjective(cv.getCareerObjective());
+            existingCv.setEducation(cv.getEducation());
+            existingCv.setExperience(cv.getExperience());
+            existingCv.setCertifications(cv.getCertifications());
+            existingCv.setProject(cv.getProject());
+            existingCv.setSkills(cv.getSkills());
+            existingCv.setAchievements(cv.getAchievements());
+            existingCv.setPersonalProfile(cv.getPersonalProfile());
+            existingCv.setPicture(file.getBytes());
+            Repository.save(existingCv);
+            return existingCv;
         }else{
             throw new CvNotFoundException();
         }
