@@ -5,21 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added external API for Salary Trend">
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/CompanyAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/CompanyNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/ReviewAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/ReviewNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/UserNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/WorkDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/WorkDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_25__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_42__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_26__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,11 +33,28 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,12 +78,39 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../soulematematchingapp" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.TrendLabServiceApplication">
+  <component name="RunManager" selected="Application.AuthenticationServiceApplication">
+    <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.satckroute.applicationRegisterService.ApplicationRegisterServiceApplication" />
+      <module name="applicationRegisterService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.satckroute.applicationRegisterService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationServiceApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.authenticationService.AuthenticationServiceApplication" />
+      <module name="authenticationService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.authenticationService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
       <module name="recommendation-service" />
@@ -104,18 +150,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ApplicationRegisterServiceApplication" />
+      <item itemvalue="Application.AuthenticationServiceApplication" />
+      <item itemvalue="Application.RecommendationServiceApplication" />
+      <item itemvalue="Application.ResourcesServiceApplication" />
+      <item itemvalue="Application.TrendLabServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AuthenticationServiceApplication" />
+        <item itemvalue="Application.ApplicationRegisterServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
-        <item itemvalue="Application.RecommendationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
+        <item itemvalue="Application.RecommendationServiceApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="" />
+      <changelist id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added external API for Salary Trend" />
       <created>1648011784513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -190,7 +245,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Resources service" />
