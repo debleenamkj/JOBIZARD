@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="chatroom-service: implemented domain,repository and service">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatroom-service/src/main/java/com/stackroute/chatroomservice/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chatroom-service/src/main/java/com/stackroute/chatroomservice/controller/ChatController.java" afterDir="false" />
-=======
-    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Created Model Class for Skill Trends">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> origin/v1.0.0
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added external API for Salary Trend">
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/CompanyAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/CompanyNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/ReviewAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/ReviewNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/UserNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/WorkDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/WorkDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +58,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -105,7 +115,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Added external API for Salary Trend" />
+      <changelist id="92eea1fd-0ae1-4cdb-8344-3ff65a5c8dfe" name="Changes" comment="" />
       <created>1648011784513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -139,21 +149,12 @@
       <option name="project" value="LOCAL" />
       <updated>1648108242164</updated>
     </task>
-<<<<<<< HEAD
-    <task id="LOCAL-00005" summary="chatroom-service: implemented domain,repository and service">
-      <created>1648202376608</created>
+    <task id="LOCAL-00005" summary="creating attributes">
+      <created>1648032759832</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1648202376608</updated>
-=======
-    <task id="LOCAL-00005" summary="Created Model Class for Skill Trends">
-      <created>1648197160606</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1648197160606</updated>
->>>>>>> origin/v1.0.0
+      <updated>1648032759832</updated>
     </task>
     <task id="LOCAL-00006" summary="updated pom">
       <created>1648034140722</created>
@@ -176,7 +177,7 @@
       <option name="project" value="LOCAL" />
       <updated>1648034378941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +190,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Resources service" />
@@ -201,12 +203,6 @@
     <MESSAGE value="updated application properties" />
     <MESSAGE value="created domain layer" />
     <MESSAGE value="Added external API for Salary Trend" />
-<<<<<<< HEAD
-    <MESSAGE value="chatroom-service: implemented domain,repository and service" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatroom-service: implemented domain,repository and service" />
-=======
-    <MESSAGE value="Created Model Class for Skill Trends" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Model Class for Skill Trends" />
->>>>>>> origin/v1.0.0
+    <option name="LAST_COMMIT_MESSAGE" value="Added external API for Salary Trend" />
   </component>
 </project>
