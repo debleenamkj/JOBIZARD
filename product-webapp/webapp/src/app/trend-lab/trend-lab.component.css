@@ -1,0 +1,28 @@
+#mainheading{
+    color: #05595B;
+    font-weight: bold;
+}
+h2{
+    color: #05595B;
+}
+img{
+    margin-top: 15px;
+    height: 150px;
+}
+.firstdiv{
+    border-radius: 15px;
+    background-color: #e9dac1;
+    display: flex;
+}
+.seconddiv{
+    display: flex;
+    border-radius: 15px;
+    background-color: #54bab9;
+    margin-top: 2%;
+}
+.firstdivone{
+    margin-top: 3%;
+}
+.seconddivtwo{
+    margin-top: 3%;
+}
