@@ -1,6 +1,7 @@
 package com.stackroute.cvgenerationservice.controller;
 
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.cvgenerationservice.domain.userCv;
 import com.stackroute.cvgenerationservice.exception.CvAlreadyExistsException;
@@ -12,23 +13,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("api/v1")
 public class controller {
     private cvService service;
     private ResponseEntity responseEntity;
-
-
     @Autowired
-
     public controller(cvService service) {
         this.service = service;
     }
     @PostMapping("/userCv")
-    public ResponseEntity<?> saveUserCv(@RequestParam("cv") String cv, @RequestParam("file") MultipartFile file) throws CvAlreadyExistsException {
+    public ResponseEntity<?> saveUserCv(userCv user,@RequestParam("cv") String cv, @RequestParam("file") MultipartFile file) throws CvAlreadyExistsException {
         try{
             userCv UserCv = new ObjectMapper().readValue(cv,userCv.class);
-            ResponseEntity responseEntity = new ResponseEntity(service.saveCv(UserCv, file), HttpStatus.CREATED);
+            service.saveCv(UserCv, file);
+            ResponseEntity responseEntity = new ResponseEntity("Sucessfully created",HttpStatus.OK);
         }catch (CvAlreadyExistsException e) {
             throw new CvAlreadyExistsException();
         }
@@ -39,7 +40,7 @@ public class controller {
         return responseEntity;
     }
     @DeleteMapping("/userCv/{cvId}")
-    public ResponseEntity deleteUser(@PathVariable String cvId) throws CvNotFoundException {
+    public ResponseEntity deleteUser(@PathVariable int cvId) throws CvNotFoundException {
         try {
             service.deleteCv(cvId);
             responseEntity = new ResponseEntity("Successfully deleted !!!", HttpStatus.OK);
@@ -53,11 +54,10 @@ public class controller {
         return responseEntity;
     }
     @PutMapping("/userCv/{cvId}")
-    public ResponseEntity<userCv> updateUser(@PathVariable String cvId,@RequestBody userCv cv) throws CvNotFoundException {
+    public ResponseEntity<?> updateUser(@PathVariable int cvId,@RequestParam("cv") String cv,@RequestParam("file") MultipartFile file) throws CvNotFoundException , IOException {
         try {
-            cv.setCvId(cvId);
-            this.service.updateCv(cv);
-            responseEntity = new ResponseEntity("Successfully updated !!!", HttpStatus.OK);
+            userCv UserCv = new ObjectMapper().readValue(cv,userCv.class);
+            ResponseEntity responseEntity = new ResponseEntity(service.updateCv( cvId,UserCv,file), HttpStatus.CREATED);
         }catch (CvNotFoundException e){
             throw new CvNotFoundException();
         }
@@ -67,7 +67,7 @@ public class controller {
         return responseEntity;
     }
     @GetMapping("/userByCvId/{cvId}")
-    public ResponseEntity<?> userById(@PathVariable String cvId) throws CvNotFoundException {
+    public ResponseEntity<?> userById(@PathVariable int cvId) throws CvNotFoundException {
         try {
             userCv cv = service.findCvByCvId(cvId);
             responseEntity = new ResponseEntity<userCv>(cv, HttpStatus.OK);
