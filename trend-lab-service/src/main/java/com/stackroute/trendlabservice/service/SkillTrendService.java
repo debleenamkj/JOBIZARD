@@ -8,7 +8,7 @@ public interface SkillTrendService {
 
     SkillTrend saveSkill(SkillTrend skillTrend);
     SkillTrend updateSkill(SkillTrend skillTrend);
-    Boolean deleteSkill(Long skillId);
+    SkillTrend deleteSkill(Long skillId);
     List<SkillTrend> getAllSkills();
     Boolean deleteEverything();
 }

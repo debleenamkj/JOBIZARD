@@ -1,7 +1,9 @@
 package com.stackroute.trendlabservice.controller;
 
 import com.stackroute.trendlabservice.model.SkillTrend;
+import com.stackroute.trendlabservice.service.ExternalApiCaller;
 import com.stackroute.trendlabservice.service.SkillTrendService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,10 +17,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v6")
 @CrossOrigin
+@Slf4j
 public class TrendController {
 
+    private SkillTrendService skillTrendService;
+    private ExternalApiCaller externalApiCaller;
+
     @Autowired
-    SkillTrendService skillTrendService;
+    public TrendController(SkillTrendService skillTrendService, ExternalApiCaller externalApiCaller) {
+        log.info("Autowiring SkillTrendService Done");
+        this.skillTrendService = skillTrendService;
+        this.externalApiCaller = externalApiCaller;
+    }
 
     @GetMapping("/check")
     public String hello(){
@@ -27,15 +37,11 @@ public class TrendController {
 
     @GetMapping("/salary")
     public ResponseEntity<String> callExternalApiForSalaryTrend(@RequestParam("job_title")String job_title){
-        String url="https://infosalary.p.rapidapi.com/?job_title="+job_title;
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("X-RapidAPI-Host", "infosalary.p.rapidapi.com");
-        headers.add("X-RapidAPI-Key", "f7bab1b14emshd729e803f0810d0p16072fjsn9a2c50459692");
-        HttpEntity<Object> entity = new HttpEntity<>(headers);
-        RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        log.debug("Inside");
+        ResponseEntity<String> response = externalApiCaller.getStringResponseEntity(job_title);
         return response;
     }
+
 
     ////////////////////////SkillTrends/////////////////////////
 
@@ -55,7 +61,7 @@ public class TrendController {
     }
 
     @DeleteMapping("/deleteskills/{skillId}")
-    public Boolean deleteSkillTrend(@PathVariable Long skillId){
+    public SkillTrend deleteSkillTrend(@PathVariable Long skillId){
         return skillTrendService.deleteSkill(skillId);
     }
 
