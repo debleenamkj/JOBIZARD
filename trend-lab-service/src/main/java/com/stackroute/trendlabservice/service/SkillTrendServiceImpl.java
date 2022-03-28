@@ -86,10 +86,4 @@ public class SkillTrendServiceImpl implements SkillTrendService{
         return skillTrendRepository.findAll();
     }
 
-    @Override
-    public Boolean deleteEverything(){
-        log.debug("Inside SkillTrendServiceImpl - deleteEverything");
-        skillTrendRepository.deleteAll();
-        return true;
-    }
 }

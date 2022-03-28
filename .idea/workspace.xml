@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Created Model Class for Skill Trends">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Externalised Properties of ExternalApiCallerImpl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/controller/TrendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/controller/TrendController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/model/SkillTrend.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/model/SkillTrend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/service/SkillTrendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/service/SkillTrendService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/service/SkillTrendServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/service/SkillTrendServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,14 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648453338131</updated>
     </task>
-    <task id="LOCAL-00008" summary="created domain layer">
-      <created>1648034378941</created>
+    <task id="LOCAL-00008" summary="Externalised Properties of ExternalApiCallerImpl">
+      <created>1648457225077</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1648034378941</updated>
+      <updated>1648457225077</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +193,7 @@
     <MESSAGE value="Created Model Class for Skill Trends" />
     <MESSAGE value="Added Controller Layer for Skill Trends" />
     <MESSAGE value="Updated Trends" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Trends" />
+    <MESSAGE value="Externalised Properties of ExternalApiCallerImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Externalised Properties of ExternalApiCallerImpl" />
   </component>
 </project>

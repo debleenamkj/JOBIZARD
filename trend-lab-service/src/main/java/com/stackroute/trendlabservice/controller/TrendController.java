@@ -32,13 +32,13 @@ public class TrendController {
 
     @GetMapping("/check")
     public String hello(){
-        return "hello the service is working alright";
+        return "hello the trend lab service is working fine";
     }
 
-    @GetMapping("/salary")
-    public ResponseEntity<String> callExternalApiForSalaryTrend(@RequestParam("job_title")String job_title){
-        log.debug("Inside");
-        ResponseEntity<String> response = externalApiCaller.getStringResponseEntity(job_title);
+    @GetMapping("/salary/{jobtitle}")
+    public ResponseEntity<String> callExternalApiForSalaryTrend(@PathVariable String jobTitle){
+        log.debug("Inside TrendController - callExternalApiForSalaryTrend");
+        ResponseEntity<String> response = externalApiCaller.getStringResponseEntity(jobTitle);
         return response;
     }
 
@@ -47,27 +47,27 @@ public class TrendController {
 
     @PostMapping("/skills")
     public SkillTrend postSkills(@RequestBody SkillTrend skillTrend){
+        log.debug("Inside TrendController - postSkills");
         return skillTrendService.saveSkill(skillTrend);
     }
 
     @GetMapping("/getskills")
     public List<SkillTrend> getSkills(){
+        log.debug("Inside TrendController - getSkills");
         return skillTrendService.getAllSkills();
     }
 
     @PostMapping("/updateskill")
     public SkillTrend updateSkills(@RequestBody SkillTrend skillTrend){
+        log.debug("Inside TrendController - updateSkills");
         return skillTrendService.updateSkill(skillTrend);
     }
 
     @DeleteMapping("/deleteskills/{skillId}")
     public SkillTrend deleteSkillTrend(@PathVariable Long skillId){
+        log.debug("Inside TrendController - deleteSkillTrend");
         return skillTrendService.deleteSkill(skillId);
     }
 
-    @DeleteMapping("/deleteall")
-    public Boolean deleteAll(){
-        return skillTrendService.deleteEverything();
-    }
 }
 

@@ -10,5 +10,5 @@ public interface SkillTrendService {
     SkillTrend updateSkill(SkillTrend skillTrend);
     SkillTrend deleteSkill(Long skillId);
     List<SkillTrend> getAllSkills();
-    Boolean deleteEverything();
+
 }
