@@ -8,13 +8,15 @@ import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CvGenerationComponent } from './cv-generation/cv-generation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    CvGenerationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
