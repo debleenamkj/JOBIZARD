@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v6")
+@CrossOrigin
 public class TrendController {
 
     @Autowired
@@ -21,8 +22,7 @@ public class TrendController {
 
     @GetMapping("/check")
     public String hello(){
-        String hi = "hi";
-        return "hello";
+        return "hello the service is working alright";
     }
 
     @GetMapping("/salary")
@@ -37,7 +37,7 @@ public class TrendController {
         return response;
     }
 
-    ////////////////////////SkillTrend
+    ////////////////////////SkillTrends/////////////////////////
 
     @PostMapping("/skills")
     public SkillTrend postSkills(@RequestBody SkillTrend skillTrend){

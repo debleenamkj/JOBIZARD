@@ -8,13 +8,15 @@ import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TrendLabComponent } from './trend-lab/trend-lab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    TrendLabComponent
   ],
   imports: [
     BrowserModule,
