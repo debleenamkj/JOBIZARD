@@ -1,11 +1,19 @@
 package com.stackroute.recommendationservice.service;
 
-import com.stackroute.recommendationservice.model.JobPosting;
-import com.stackroute.recommendationservice.model.User;
+import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
+import com.stackroute.recommendationservice.exception.UserNotFoundException;
+import com.stackroute.recommendationservice.model.JobDetails;
+import com.stackroute.recommendationservice.model.Seeker;
 import com.stackroute.recommendationservice.repository.JobRepository;
 import com.stackroute.recommendationservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class RecommendationserviceImpl implements RecommendationService{
@@ -20,12 +28,90 @@ public class RecommendationserviceImpl implements RecommendationService{
     }
 
     @Override
-    public JobPosting savejob(JobPosting job){
-        return jobRepository.save(job);
+    public JobDetails savejob(JobDetails job) throws JobAlreadyPresentException
+    {
+        try{
+            if(jobRepository.findById(job.getJobId()).isPresent())
+            {
+                throw new JobAlreadyPresentException();
+            }
+            else {
+                jobRepository.save(job);
+            }
+        }catch (JobAlreadyPresentException e){
+            System.out.println(e.toString());
+        }
+
+        return job;
+
     }
 
     @Override
-    public User saveUser(User user){
-        return userRepository.save(user);
+    public Seeker saveUser(Seeker seeker) throws UserAlreadyExistsException{
+        try {
+            if(userRepository.findById(seeker.getEmail()).isPresent())
+            {
+                throw new UserAlreadyExistsException();
+            }
+            else {
+                userRepository.save(seeker);
+            }
+        }catch (UserAlreadyExistsException e)
+        {
+            System.out.println(e.toString());
+        }
+
+        return seeker;
+    }
+
+    @Override
+    public Set<Long> getMatchingJobs(Seeker seeker) throws UserNotFoundException {
+        Set<Long> matchingJobIds = new HashSet<>();
+
+        try{
+            if(userRepository.findById(seeker.getEmail()).isEmpty())
+            {
+                throw new UserNotFoundException();
+            }
+            else{
+                ArrayList<String> skills = seeker.getSkillSet();
+                ArrayList<String> preferences = seeker.getJobPreferences();
+                if(!skills.isEmpty())
+                {
+                    for(String userSkils:skills) {
+                        List<JobDetails> job1 = jobRepository.findBySkills(userSkils);
+                        System.out.println(job1);
+                        if(job1!=null){
+                            for (JobDetails jobs:job1) {
+                                matchingJobIds.add(jobs.getJobId());
+                            }
+                        }
+                    }
+                }
+                if(!preferences.isEmpty())
+                {
+                    for (String jobRoles:preferences) {
+                        List<JobDetails> job1 = jobRepository.findByJobRole(jobRoles);
+                        if(job1!=null){
+                            for (JobDetails jobs:job1) {
+                                matchingJobIds.add(jobs.getJobId());
+                            }
+                        }
+                    }
+                }
+                if(!matchingJobIds.isEmpty()){
+                    createRelationships(seeker.getEmail(),matchingJobIds);
+                }
+            }
+        }catch (UserNotFoundException e){
+            System.out.println(e.toString());
+        }
+        return matchingJobIds;
+    }
+
+    public void createRelationships(String userEmail,Set<Long> matchingJobs){
+        for (Long jobId:matchingJobs) {
+            userRepository.createRelation(userEmail,jobId);
+        }
     }
 }

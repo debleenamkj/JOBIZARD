@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
+import { TrendLabComponent } from './trend-lab/trend-lab.component';
+import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 
 const routes: Routes = [
   {
@@ -12,12 +14,18 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'home', component: NavBarComponent,
+    path: '', component: NavBarComponent,
     children: [
       {
         path: 'products', component: RegisterComponent
       }
     ]
+  },
+  {
+    path: 'trend',component: TrendLabComponent
+  },
+  {
+    path: 'skills',component: SkillsTrendLabComponent
   }
 ];
 

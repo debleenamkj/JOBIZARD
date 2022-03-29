@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51f3490d-b66a-4e54-ad54-416b297808d0" name="Changes" comment="Added WorkDetails model class">
+
+    <list default="true" id="51f3490d-b66a-4e54-ad54-416b297808d0" name="Changes" comment="Added WorkDetails model class"/>
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -15,6 +16,35 @@
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobPosting.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobPosting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/resources/application.properties" afterDir="false" />
+
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.spec.json" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +62,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -46,9 +88,13 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="26lx3WiB0vLZikCV6IamjMwlDoY" />
+
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -60,7 +106,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+
   <component name="RunManager" selected="Application.RecruitmentServiceApplication">
+  </component>
+
+  <component name="RunManager" selected="Application.ResourcesServiceApplication">
+
     <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
       <module name="recommendation-service" />
@@ -100,18 +151,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TrendLabServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.trendlabservice.TrendLabServiceApplication" />
+      <module name="trend-lab-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.trendlabservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+
         <item itemvalue="Application.RecruitmentServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />
+
+
         <item itemvalue="Application.ResourcesServiceApplication" />
+        <item itemvalue="Application.TrendLabServiceApplication" />
+        <item itemvalue="Application.RecommendationServiceApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+
       <changelist id="51f3490d-b66a-4e54-ad54-416b297808d0" name="Changes" comment="Added WorkDetails model class" />
+
+      <changelist id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="added execution of 2 controller methods" />
+
       <created>1648011784513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -138,7 +211,42 @@
       <option name="project" value="LOCAL" />
       <updated>1648024765642</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added external API for Salary Trend">
+      <created>1648108242164</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648108242164</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added execution of 2 controller methods">
+      <created>1648110811407</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648110811407</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Webapp BoilerPlate">
+      <created>1648537490220</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1648537490220</updated>
+    </task>
+    <task id="LOCAL-00007" summary="updated application properties">
+      <created>1648034257572</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034257572</updated>
+    </task>
+    <task id="LOCAL-00008" summary="created domain layer">
+      <created>1648034378941</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648034378941</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +264,15 @@
     <MESSAGE value="Added Resources service" />
     <MESSAGE value="Added port,lombok DI,Review Domain" />
     <MESSAGE value="Added WorkDetails model class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added WorkDetails model class" />
+    <MESSAGE value="updated port" />
+    <MESSAGE value="domain layer" />
+    <MESSAGE value="creating attributes" />
+    <MESSAGE value="updated pom" />
+    <MESSAGE value="updated application properties" />
+    <MESSAGE value="created domain layer" />
+    <MESSAGE value="Added external API for Salary Trend" />
+    <MESSAGE value="added execution of 2 controller methods" />
+    <MESSAGE value="Added Webapp BoilerPlate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Webapp BoilerPlate" />
   </component>
 </project>

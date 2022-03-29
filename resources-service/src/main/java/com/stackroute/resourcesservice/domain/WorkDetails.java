@@ -8,18 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WorkDetails {
-
     private boolean currentlyWorking;
     private String jobRole;
     private String yearsOfExperience;
-
-    enum WorkingDays{
-        MONDAY,
-        TUESDAY,
-        WEDNESDAY,
-        THURSDAY,
-        FRIDAY,
-        SATURDAY,
-        SUNDAY
-    }
+    private int workHoursPerDay;
+    private int workDaysPerWeek;
 }

@@ -29,15 +29,21 @@
 
 
 
-        <module>CvGeneration</module>
+
+        <module>cv-generation-service</module>
+
 
         <module>recommendation-service</module>
         <module>recruitment-service</module>
-
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
 
+
+
+
+        <module>cv-generation-service</module>
+        <module>chatbot-service</module>
 
     </modules>
 
