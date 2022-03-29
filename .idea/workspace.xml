@@ -8,8 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/ApplyJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/ApplyJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/ApplyJob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobPosting.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobPosting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/resources/application.properties" afterDir="false" />
