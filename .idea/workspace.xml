@@ -4,17 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp" beforeDir="false" afterPath="$PROJECT_DIR$/webapp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/styles.css" afterDir="false" />
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.spec.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,12 +178,12 @@
       <option name="project" value="LOCAL" />
       <updated>1648110811407</updated>
     </task>
-    <task id="LOCAL-00006" summary="updated pom">
-      <created>1648034140722</created>
+    <task id="LOCAL-00006" summary="Added Webapp BoilerPlate">
+      <created>1648537490220</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1648034140722</updated>
+      <updated>1648537490220</updated>
     </task>
     <task id="LOCAL-00007" summary="updated application properties">
       <created>1648034257572</created>
@@ -183,7 +199,7 @@
       <option name="project" value="LOCAL" />
       <updated>1648034378941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +225,7 @@
     <MESSAGE value="created domain layer" />
     <MESSAGE value="Added external API for Salary Trend" />
     <MESSAGE value="added execution of 2 controller methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added execution of 2 controller methods" />
+    <MESSAGE value="Added Webapp BoilerPlate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Webapp BoilerPlate" />
   </component>
 </project>
