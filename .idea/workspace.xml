@@ -4,14 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Externalised Properties of ExternalApiCallerImpl">
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="added execution of 2 controller methods">
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Sequence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Suggestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SequenceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SuggestionsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SequenceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/app/trend-lab/trend-lab.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/app/trend-lab/trend-lab.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/app/trend-lab/trend-lab.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/app/trend-lab/trend-lab.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/controller/TrendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/controller/TrendController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/service/ExternalApiCallerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/trend-lab-service/src/main/java/com/stackroute/trendlabservice/service/ExternalApiCallerImpl.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
+>>>>>>> df6e4eba53458ff472b6dc77c014dc1655edd491
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +75,8 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.TrendLabServiceApplication">
+  <component name="RunManager" selected="Application.ResourcesServiceApplication">
     <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
       <module name="recommendation-service" />
@@ -97,16 +118,16 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ResourcesServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />
-        <item itemvalue="Application.ResourcesServiceApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Added external API for Salary Trend" />
+      <changelist id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="added execution of 2 controller methods" />
       <created>1648011784513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -140,35 +161,35 @@
       <option name="project" value="LOCAL" />
       <updated>1648108242164</updated>
     </task>
-    <task id="LOCAL-00005" summary="Created Model Class for Skill Trends">
-      <created>1648197160606</created>
+    <task id="LOCAL-00005" summary="added execution of 2 controller methods">
+      <created>1648110811407</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1648197160606</updated>
+      <updated>1648110811407</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added Controller Layer for Skill Trends">
-      <created>1648202738319</created>
+    <task id="LOCAL-00006" summary="updated pom">
+      <created>1648034140722</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1648202738319</updated>
+      <updated>1648034140722</updated>
     </task>
-    <task id="LOCAL-00007" summary="Updated Trends">
-      <created>1648453338131</created>
+    <task id="LOCAL-00007" summary="updated application properties">
+      <created>1648034257572</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1648453338131</updated>
+      <updated>1648034257572</updated>
     </task>
-    <task id="LOCAL-00008" summary="Externalised Properties of ExternalApiCallerImpl">
-      <created>1648457225077</created>
+    <task id="LOCAL-00008" summary="created domain layer">
+      <created>1648034378941</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1648457225077</updated>
+      <updated>1648034378941</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,10 +214,7 @@
     <MESSAGE value="updated application properties" />
     <MESSAGE value="created domain layer" />
     <MESSAGE value="Added external API for Salary Trend" />
-    <MESSAGE value="Created Model Class for Skill Trends" />
-    <MESSAGE value="Added Controller Layer for Skill Trends" />
-    <MESSAGE value="Updated Trends" />
-    <MESSAGE value="Externalised Properties of ExternalApiCallerImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="Externalised Properties of ExternalApiCallerImpl" />
+    <MESSAGE value="added execution of 2 controller methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added execution of 2 controller methods" />
   </component>
 </project>

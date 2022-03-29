@@ -4,20 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-@Document(collection = "companyReviews")
+@Document
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Company {
+public class Sequence {
+
     @Id
-    private String cin;
-    @Indexed(unique = true)
-    private String companyName;
-    private byte[] companyLogo;
-    private List<Review> reviews;
+    private String id;
+    private int sequenceNumber;
 }
