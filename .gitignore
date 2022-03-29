@@ -16,9 +16,13 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+shelf
 *.iws
 *.iml
 *.ipr
+*.workspace
+*.compiler
+*.jarRepositories
 
 ### NetBeans ###
 /nbproject/private/
