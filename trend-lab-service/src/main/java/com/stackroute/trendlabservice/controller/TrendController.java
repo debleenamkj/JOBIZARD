@@ -1,7 +1,9 @@
 package com.stackroute.trendlabservice.controller;
 
 import com.stackroute.trendlabservice.model.SkillTrend;
+import com.stackroute.trendlabservice.service.ExternalApiCaller;
 import com.stackroute.trendlabservice.service.SkillTrendService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,20 +16,35 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v6")
+@CrossOrigin
+@Slf4j
 public class TrendController {
 
+    private SkillTrendService skillTrendService;
+    private ExternalApiCaller externalApiCaller;
+
     @Autowired
-    SkillTrendService skillTrendService;
+    public TrendController(SkillTrendService skillTrendService, ExternalApiCaller externalApiCaller) {
+        log.info("Autowiring SkillTrendService Done");
+        this.skillTrendService = skillTrendService;
+        this.externalApiCaller = externalApiCaller;
+    }
 
     @GetMapping("/check")
     public String hello(){
-        String hi = "hi";
-        return "hello";
+        return "hello the trend lab service is working fine.";
     }
 
-    @GetMapping("/salary")
-    public ResponseEntity<String> callExternalApiForSalaryTrend(@RequestParam("job_title")String job_title){
-        String url="https://infosalary.p.rapidapi.com/?job_title="+job_title;
+    @GetMapping("/salary/{jobTitle}")
+    public ResponseEntity<String> callExternalApiForSalaryTrend(@PathVariable String jobTitle){
+        log.debug("Inside TrendController - callExternalApiForSalaryTrend");
+        ResponseEntity<String> response = externalApiCaller.getStringResponseEntity(jobTitle);
+        return response;
+    }
+
+    @GetMapping("/salarys/{jobTitle}")
+    public ResponseEntity<String> callExternalApiForSalaryTrends(@PathVariable String jobTitle){
+        String url = "https://infosalary.p.rapidapi.com/?job_title=" + jobTitle;
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-RapidAPI-Host", "infosalary.p.rapidapi.com");
         headers.add("X-RapidAPI-Key", "f7bab1b14emshd729e803f0810d0p16072fjsn9a2c50459692");
@@ -37,31 +54,31 @@ public class TrendController {
         return response;
     }
 
-    ////////////////////////SkillTrend
+    ////////////////////////SkillTrends/////////////////////////
 
     @PostMapping("/skills")
     public SkillTrend postSkills(@RequestBody SkillTrend skillTrend){
+        log.debug("Inside TrendController - postSkills");
         return skillTrendService.saveSkill(skillTrend);
     }
 
     @GetMapping("/getskills")
     public List<SkillTrend> getSkills(){
+        log.debug("Inside TrendController - getSkills");
         return skillTrendService.getAllSkills();
     }
 
     @PostMapping("/updateskill")
     public SkillTrend updateSkills(@RequestBody SkillTrend skillTrend){
+        log.debug("Inside TrendController - updateSkills");
         return skillTrendService.updateSkill(skillTrend);
     }
 
     @DeleteMapping("/deleteskills/{skillId}")
-    public Boolean deleteSkillTrend(@PathVariable Long skillId){
+    public SkillTrend deleteSkillTrend(@PathVariable Long skillId){
+        log.debug("Inside TrendController - deleteSkillTrend");
         return skillTrendService.deleteSkill(skillId);
     }
 
-    @DeleteMapping("/deleteall")
-    public Boolean deleteAll(){
-        return skillTrendService.deleteEverything();
-    }
 }
 

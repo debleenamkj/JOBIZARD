@@ -33,6 +33,11 @@
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
+<<<<<<< HEAD
+=======
+        <module>cv-generation-service</module>
+        <module>chatbot-service</module>
+>>>>>>> 60681837c3dc1b8217e2c4609f35feb6c790dade
     </modules>
 
     <dependencies>

@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Company {
     @Id
-    private int companyId;
+    private String cin;
     @Indexed(unique = true)
     private String companyName;
     private byte[] companyLogo;
