@@ -32,16 +32,27 @@ public class TrendController {
 
     @GetMapping("/check")
     public String hello(){
-        return "hello the trend lab service is working fine";
+        return "hello the trend lab service is working fine.";
     }
 
-    @GetMapping("/salary/{jobtitle}")
+    @GetMapping("/salary/{jobTitle}")
     public ResponseEntity<String> callExternalApiForSalaryTrend(@PathVariable String jobTitle){
         log.debug("Inside TrendController - callExternalApiForSalaryTrend");
         ResponseEntity<String> response = externalApiCaller.getStringResponseEntity(jobTitle);
         return response;
     }
 
+    @GetMapping("/salarys/{jobTitle}")
+    public ResponseEntity<String> callExternalApiForSalaryTrends(@PathVariable String jobTitle){
+        String url = "https://infosalary.p.rapidapi.com/?job_title=" + jobTitle;
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("X-RapidAPI-Host", "infosalary.p.rapidapi.com");
+        headers.add("X-RapidAPI-Key", "f7bab1b14emshd729e803f0810d0p16072fjsn9a2c50459692");
+        HttpEntity<Object> entity = new HttpEntity<>(headers);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        return response;
+    }
 
     ////////////////////////SkillTrends/////////////////////////
 
