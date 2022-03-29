@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="added execution of 2 controller methods">
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Sequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Suggestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SequenceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SuggestionsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SequenceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +23,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

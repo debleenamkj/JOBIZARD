@@ -22,6 +22,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CvGeneration" target="11" />
+      <module name="product-webapp1" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -34,6 +35,7 @@
       <module name="cv-generation-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="product-webapp" options="-parameters" />
+      <module name="product-webapp1" options="-parameters" />
       <module name="recommendation-service" options="-parameters" />
       <module name="recruitment-service" options="-parameters" />
       <module name="resources-service" options="-parameters" />
