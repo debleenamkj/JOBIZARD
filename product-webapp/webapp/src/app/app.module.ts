@@ -9,6 +9,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TrendLabComponent } from './trend-lab/trend-lab.component';
+import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
+import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TrendLabComponent } from './trend-lab/trend-lab.component';
     RegisterComponent,
     NavBarComponent,
     LoginComponent,
-    TrendLabComponent
+    TrendLabComponent,
+    SkillsTrendLabComponent,
+    SalaryTrendLabComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,26 @@
 #mainheading{
     color: #05595B;
     font-weight: bold;
+    text-align: center;
 }
 h2{
     color: #05595B;
+    text-align: center;
+}
+p{
+    text-align: center;
 }
 img{
     margin-top: 15px;
     height: 150px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+  
+    filter: brightness(110%);
+    transition: 0.5s ease;
 }
 .firstdiv{
     border-radius: 15px;
