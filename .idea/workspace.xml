@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
 
     <list default="true" id="51f3490d-b66a-4e54-ad54-416b297808d0" name="Changes" comment="Added WorkDetails model class"/>
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
@@ -17,6 +18,37 @@
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobPosting.java" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/java/com/stackroute/recruitmentservice/model/JobPosting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recruitment-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/recruitment-service/src/main/resources/application.properties" afterDir="false" />
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Created Model Class for Skill Trends">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/app/app.module.ts" afterDir="false" />
+=======
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="added execution of 2 controller methods">
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Sequence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Suggestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SequenceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SuggestionsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SequenceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
+>>>>>>> 60681837c3dc1b8217e2c4609f35feb6c790dade
+=======
+>>>>>>> 6a71759a04f5ddd37a4f7e845385070eb6dfb2c0
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
       <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.browserslistrc" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.editorconfig" afterDir="false" />
@@ -44,7 +76,11 @@
       <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.app.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.spec.json" afterDir="false" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 087b6d3c25a31526861a6edc70991a12491c8556
+>>>>>>> 6a71759a04f5ddd37a4f7e845385070eb6dfb2c0
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
