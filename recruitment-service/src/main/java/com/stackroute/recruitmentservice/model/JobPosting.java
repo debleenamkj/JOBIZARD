@@ -1,19 +1,27 @@
 package com.stackroute.recruitmentservice.model;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
+//import org.springframework.data.annotation.Transient;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.List;
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+
+@Document(indexName = "jobs", type = "jobposting")
 public class JobPosting {
 
-    private int companyId;
+
+
+    @Id
+    private String companyId;
     private String companyName;
     private String companyMail;
     private String industryType;
+    private byte[] logo;
     List<JobDetails> jobDetailsList;
 
 

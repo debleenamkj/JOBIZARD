@@ -26,10 +26,9 @@
         <module>eureka-server</module>
         <module>api-gateway</module>
         <module>product-webapp</module>
-<<<<<<< HEAD
 
-=======
->>>>>>> 0f362965843cafa11e5f37aea7944222972a944a
+
+
         <module>CvGeneration</module>
 
         <module>recommendation-service</module>
@@ -38,10 +37,8 @@
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
-<<<<<<< HEAD
 
-=======
->>>>>>> 0f362965843cafa11e5f37aea7944222972a944a
+
     </modules>
 
     <dependencies>

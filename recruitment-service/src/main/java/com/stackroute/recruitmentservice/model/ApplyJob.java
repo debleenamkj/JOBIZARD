@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Candidate {
+public class ApplyJob {
 
     private String candidateName;
     private String candidatePhoneNumber;
