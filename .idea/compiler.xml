@@ -35,10 +35,7 @@
       <module name="cv-generation-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="product-webapp" options="-parameters" />
-
-
       <module name="product-webapp1" options="-parameters" />
-
       <module name="recommendation-service" options="-parameters" />
       <module name="recruitment-service" options="-parameters" />
       <module name="resources-service" options="-parameters" />
