@@ -11,7 +11,7 @@ export class JobPostingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  company(){
+  company(){ 
     let div = document.getElementsByClassName('b1') as HTMLCollectionOf<HTMLElement>;
     div[0].style.backgroundColor='yellow';
    }
@@ -29,6 +29,6 @@ export class JobPostingComponent implements OnInit {
     let div = document.getElementsByClassName('b4') as HTMLCollectionOf<HTMLElement>;
     div[0].style.backgroundColor='#8FD14F';
    }
-   
+
 
 }
