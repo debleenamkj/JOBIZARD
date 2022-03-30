@@ -10,6 +10,7 @@ import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.com
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { ChatbotComponent } from './chatbot/chatbot.component';
+
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 
@@ -28,6 +29,7 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     TrendLabComponent,
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
+    ChatbotComponent,
     NavBarComponent,
     JobApplyComponent,
     JobPostingComponent
