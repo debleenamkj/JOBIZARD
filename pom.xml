@@ -50,6 +50,10 @@
 
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
+<<<<<<< HEAD
+        <module>applicationRegisterService</module>
+        <module>authenticationService</module>
+=======
 
 
 
@@ -57,6 +61,7 @@
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
 
+>>>>>>> cd1805fc4e53d6fc2cc0c8e78e508628dbd98062
     </modules>
 
     <dependencies>

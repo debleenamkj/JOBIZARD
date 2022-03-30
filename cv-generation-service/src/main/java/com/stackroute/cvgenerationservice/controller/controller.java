@@ -17,7 +17,8 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("api/v1")
-public class controller {
+public class controller
+{
     private cvService service;
     private ResponseEntity responseEntity;
     @Autowired

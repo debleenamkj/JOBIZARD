@@ -8,17 +8,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chatbot-service" />
-        <module name="config-server" />
+        <module name="authenticationService" />
         <module name="resources-service" />
+
+
         <module name="email-service" />
         <module name="api-gateway" />
+
         <module name="trend-lab-service" />
-        <module name="assessment-service" />
-        <module name="recruitment-service" />
+        <module name="applicationRegisterService" />
         <module name="eureka-server" />
-        <module name="product-webapp" />
         <module name="recommendation-service" />
         <module name="cv-generation-service" />
+        <module name="config-server" />
+        <module name="api-gateway" />
+        <module name="assessment-service" />
+        <module name="recruitment-service" />
+        <module name="product-webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,7 +36,9 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CvGeneration" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
+      <module name="applicationRegisterService" options="-parameters" />
       <module name="assessment-service" options="-parameters" />
+      <module name="authenticationService" options="-parameters" />
       <module name="chatbot-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="cv-generation-service" options="-parameters" />

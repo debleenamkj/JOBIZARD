@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
+// import { CvFormComponent } from './cv-form/cv-form.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { JobDetailComponent } from './job-detail/job-detail.component';
 // import {MatButtonModule} from '@angular/material/button';
@@ -32,6 +35,8 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
   declarations: [
     AppComponent,
     CvGenerationComponent,
+<<<<<<< HEAD
+=======
     JobDetailComponent,
     TrendLabComponent,
     SkillsTrendLabComponent,
@@ -41,11 +46,16 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     JobApplyComponent,
     JobPostingComponent
 
+>>>>>>> 56f5ea69e37c9fdb3ed063bbba51b17dcb8759cf
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
+    MatFormFieldModule,
+    MatInputModule
+=======
 
     MatButtonModule,
 
@@ -59,6 +69,7 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     MatIconModule,
     MatListModule
 
+>>>>>>> 56f5ea69e37c9fdb3ed063bbba51b17dcb8759cf
   ],
   providers: [],
   bootstrap: [AppComponent],

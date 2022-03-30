@@ -22,11 +22,12 @@ import java.util.Arrays;
 // Default Constructor
 public class Recruiter
 {
-    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String recruiterId;
+//    @Id
+////    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private String recruiterId;
+//@Column(unique = true)
 
-//    @Column(unique = true)
+    @Id
     private String emailId;
 
     private String firstName;
@@ -38,7 +39,7 @@ public class Recruiter
     private long mobileNumber;
     private String password;
 
-    private Role recruiter;
+    private String  role;
 
     private Address addressDetails;
     private OrganizationDetails organizationDetails;
