@@ -29,47 +29,41 @@ import { MatListModule } from '@angular/material/list';
 
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
+import { LearningPortalComponent } from './learning-portal/learning-portal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CvGenerationComponent,
-<<<<<<< HEAD
-=======
-    JobDetailComponent,
+    LearningPortalComponent,
     TrendLabComponent,
+    JobPostingComponent,
+    JobApplyComponent,
+    NavBarComponent,
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
-    ChatbotComponent,
-    NavBarComponent,
-    JobApplyComponent,
-    JobPostingComponent
-
->>>>>>> 56f5ea69e37c9fdb3ed063bbba51b17dcb8759cf
+    ChatbotComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
     MatFormFieldModule,
-    MatInputModule
-=======
-
-    MatButtonModule,
-
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
+    MatInputModule,
+    NgbModule,
+    MatListModule,
     MatIconModule,
-    MatListModule
-
->>>>>>> 56f5ea69e37c9fdb3ed063bbba51b17dcb8759cf
+    MatSidenavModule,
+    MatButtonModule,
+    MatToolbarModule,
+    LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClient,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
