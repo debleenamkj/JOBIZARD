@@ -51,7 +51,6 @@ export class SkillsTrendLabComponent implements OnInit {
     console.log(this.allYears);
     console.log(this.allCompanyDemands);
     
-    
     this.url = "https://quickchart.io/chart?width=500&height=300&format=img&c={type:'line',data:{labels:["+this.allYears+"],datasets:[{label:'"+this.mySkills+"',data:["+this.allCompanyDemands+"]}]}}";
 
   }
