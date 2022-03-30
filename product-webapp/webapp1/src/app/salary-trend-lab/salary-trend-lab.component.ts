@@ -22,6 +22,10 @@ export class SalaryTrendLabComponent implements OnInit {
     this.trendsService.getSalary(this.jobTitle).subscribe((data)=>{
       console.log(data);      
 
+    },
+    (error)=>{
+      console.log("error occured");
+      
     })
   }
 

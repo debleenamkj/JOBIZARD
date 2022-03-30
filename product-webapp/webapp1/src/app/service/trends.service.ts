@@ -11,10 +11,15 @@ export class TrendsService {
   constructor(private http:HttpClient) { }
 
   getSkills() : Observable<SkillTrend[]>{
+    return this.http.get<SkillTrend[]>("http://localhost:8086/api/v6/getnames");
+  }
+
+  getAllSkills() : Observable<SkillTrend[]>{
     return this.http.get<SkillTrend[]>("http://localhost:8086/api/v6/getskills");
   }
 
   getSalary(jobTitle:any) : Observable<JSON>{
     return this.http.get<JSON>("http://localhost:8086/api/v6/salarys/"+jobTitle);
   }
+
 }

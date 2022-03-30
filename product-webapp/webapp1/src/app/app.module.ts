@@ -11,6 +11,16 @@ import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+import { JobApplyComponent } from './job-apply/job-apply.component';
+import { JobPostingComponent } from './job-posting/job-posting.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +29,10 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     TrendLabComponent,
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
-    ChatbotComponent
+    ChatbotComponent,
+    NavBarComponent,
+    JobApplyComponent,
+    JobPostingComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +40,13 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
