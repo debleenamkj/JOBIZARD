@@ -2,12 +2,33 @@
 <h1>Skill Trends</h1>
 <div class="container" style="text-align: center;">
     <div class="row">
-        <div class="col-xl-12 col-md-12">
-            <select [(ngModel)]="mySkills" (change)="selectedSkill()">
-                <option *ngFor="let skills of skill" value="{{skills.onDemandSkills}}">{{skills.onDemandSkills}}</option>
-            </select>
-        <br><br><br>
+        <div class="col-xl-2 col-md-4 col-s-12" style="margin-top: 10%;">
+           
+            <mat-form-field appearance="fill">
+                <mat-label>Choose Skills</mat-label>
+                <mat-select [(ngModel)]="mySkills">
+                    <mat-option value="" disabled selected hidden>{{mySkills}}</mat-option>
+                  <mat-option *ngFor="let skills of skill" value="{{skills.onDemandSkills}}">
+                    {{skills.onDemandSkills}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field> 
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Graph Type</mat-label>
+                <mat-select [(ngModel)]="myGraph">
+                  <mat-option *ngFor="let graphs of graphType" value="{{graphs}}">
+                    {{graphs}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field> 
+          <br><br>
+            <button mat-raised-button [disabled]="valid()" (click)="selectedSkill()">Apply</button>
+        </div>
+        <div class="col-xl-1 col-md-0"></div>
+        <div class="col-xl-9 col-md-8 col-s-12" style="margin-top: 1%;">
             <img src="{{url}}"/>
         </div>
+        
     </div>
 </div>

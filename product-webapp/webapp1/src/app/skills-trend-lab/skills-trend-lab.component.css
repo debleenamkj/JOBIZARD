@@ -4,3 +4,15 @@ h1{
     font-weight: bold;
     margin-top: 2%;
 }
+h2{
+    text-align: center;
+    color: #05595B;
+}
+h3{
+    text-align: center;
+    color: #05595B;
+    font-weight: bold;
+}
+button{
+    background-color: #54bab9;
+}

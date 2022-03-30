@@ -1,10 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(251, 248, 241);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #FBF8F1;}
 
 html, body { height: 100%; }
+<<<<<<< HEAD
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(251, 248, 241);}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+=======
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #FBF8F1;}
+>>>>>>> 2f443fec87d95289e24689d4417ca2e1a100f399
