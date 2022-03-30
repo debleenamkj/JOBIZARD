@@ -1,0 +1,88 @@
+<div style="background-color: rgb(251, 248, 241);">
+<div style="background-color: rgb(251, 248, 241); width: 95%; margin: auto;">
+
+    <div class="parent-container" style="height: 100px;">
+        <h1>Find the best courses</h1>
+        <h3>Hello Warrior, grow your skills and advance your career with jobizard Learning</h3>
+    </div>
+    <br><br><br>
+    <div class="parent-container">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper carousel-image-container">
+                    <div class="parent-container">
+                        <mat-card class="card skill-card">
+                            <img mat-card-image src=""
+                                alt="image of skilltype">
+                            <br>
+                            <mat-card-title>
+                                Skill types
+                            </mat-card-title>
+                        </mat-card>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+    <br><br><h2>Recommended for you <a href="">Show all</a></h2><br><br>
+
+    <div class="parent-container">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let template of carouselTemplate; index as i">
+                <div class="picsum-img-wrapper carousel-image-container">
+                    <div class="parent-container">
+                        <div class="card-block">
+                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i]">
+                
+                                <br>
+                                <mat-card-title>{{companies[6*i].companyName}}</mat-card-title>
+                            </mat-card>
+                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+1]">
+                                
+                                <br>
+                                <mat-card-title>{{companies[6*i+1].companyName}}</mat-card-title>
+                            </mat-card>
+                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+2]">
+                                
+                                <br>
+                                <mat-card-title>{{companies[6*i+2].companyName}}</mat-card-title>
+                            </mat-card>
+                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+3]">
+                                
+                                <br>
+                                <mat-card-title>{{companies[6*i+3].companyName}}</mat-card-title>
+                            </mat-card>
+                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+4]">
+                                
+                                <br>
+                                <mat-card-title>{{companies[6*i+4].companyName}}</mat-card-title>
+                            </mat-card>
+                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+5]">
+                                
+                                <br>
+                                <mat-card-title> {{companies[6*i+5].companyName}}</mat-card-title>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+    <br><br><h2>Top Seller <a href="">Show all</a></h2><br><br>
+
+    <div class="parent-container">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="logo-container">
+                    <mat-card class="card company-logo-card">
+                        <img mat-card-image src=""
+                            alt="company logo">
+                    </mat-card>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+</div>

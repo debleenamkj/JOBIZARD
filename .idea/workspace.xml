@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
+
       <change afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/AddressDetailsRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/EducationDetailsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
@@ -21,6 +22,14 @@
       <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/domain/UserLogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/domain/UserLogIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +66,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -76,12 +78,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
+
   <component name="RunManager" selected="Application.AuthenticationServiceApplication">
     <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+
+  <component name="RunManager" selected="Application.ResourcesServiceApplication">
+    <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" singleton="true" nameIsGenerated="true">
+
       <option name="MAIN_CLASS_NAME" value="com.satckroute.applicationRegisterService.ApplicationRegisterServiceApplication" />
       <module name="applicationRegisterService" />
       <extension name="coverage">
@@ -100,6 +108,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.stackroute.authenticationService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CvGenerationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.cvgenerationservice.CvGenerationServiceApplication" />
+      <module name="cv-generation-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.cvgenerationservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -152,11 +173,13 @@
       <item itemvalue="Application.ResourcesServiceApplication" />
       <item itemvalue="Application.TrendLabServiceApplication" />
       <item itemvalue="Application.AuthenticationServiceApplication" />
+      <item itemvalue="Application.CvGenerationServiceApplication" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
+        <item itemvalue="Application.CvGenerationServiceApplication" />
+        <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />
       </list>
