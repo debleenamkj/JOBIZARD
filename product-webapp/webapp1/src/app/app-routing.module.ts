@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { JobDetailComponent } from './job-detail/job-detail.component';
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { TrendLabComponent } from './trend-lab/trend-lab.component';
-import { JobDetailComponent } from './job-detail/job-detail.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
 
@@ -21,8 +21,9 @@ const routes: Routes = [
     path:"jobdetail",
     component:JobDetailComponent,
     pathMatch:"full"
-  }
+  },
 
+  {path:'jobdetail',component:JobDetailComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { SkillTrend } from '../model/skill-trend';
 import { TrendsService } from '../service/trends.service';
 
@@ -12,7 +14,7 @@ export class SkillsTrendLabComponent implements OnInit {
 
   skill : SkillTrend [] = [];
   allSkill : SkillTrend [] = [];
-
+  url!:string;
   allYears: number [] = [];
   allCompanyDemands: number [] = [];
   mySkills = '1';
@@ -31,9 +33,6 @@ export class SkillsTrendLabComponent implements OnInit {
     console.log(this.mySkills);
 
     this.trendsService.getAllSkills().subscribe((data)=>{
-      console.log(data.filter(e=>e.onDemandSkills==this.mySkills).map((item)=>{
-        return item.year;
-      }).sort());
 
       this.allSkill = data.filter(e=>{return e.onDemandSkills==this.mySkills});
 
@@ -48,11 +47,13 @@ export class SkillsTrendLabComponent implements OnInit {
     })
 
     
-    
     console.log(this.allSkill);
     console.log(this.allYears);
     console.log(this.allCompanyDemands);
     
+    
+    this.url = "https://quickchart.io/chart?width=500&height=300&format=img&c={type:'line',data:{labels:["+this.allYears+"],datasets:[{label:'"+this.mySkills+"',data:["+this.allCompanyDemands+"]}]}}";
+
   }
 
 }
