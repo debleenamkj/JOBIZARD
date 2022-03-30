@@ -13,6 +13,8 @@ export class SkillsTrendLabComponent implements OnInit {
   skill : SkillTrend [] = [];
   allSkill : SkillTrend [] = [];
 
+  allYears: number [] = [];
+  allCompanyDemands: number [] = [];
   mySkills = '1';
   selectedValue: any;
 
@@ -20,24 +22,36 @@ export class SkillsTrendLabComponent implements OnInit {
 
   ngOnInit(): void {
     this.trendsService.getSkills().subscribe((data)=>{
-      this.skill = data;
-      console.log(this.skill);
-      console.log(data.filter(e=>e.onDemandSkills==this.mySkills).values);
-      
+      this.skill = data; 
+      console.log(this.skill);      
     })
   }
 
   selectedSkill(){
     console.log(this.mySkills);
-   // if(this.mySkills == this.skill)
+
     this.trendsService.getAllSkills().subscribe((data)=>{
-      console.log(data.filter(e=>e.onDemandSkills==this.mySkills));
-      const result = data.filter(e=>{return e.onDemandSkills==this.mySkills});
-      console.log(result);
-      this.allSkill = result;
-      console.log(this.allSkill);
-      
+      console.log(data.filter(e=>e.onDemandSkills==this.mySkills).map((item)=>{
+        return item.year;
+      }).sort());
+
+      this.allSkill = data.filter(e=>{return e.onDemandSkills==this.mySkills});
+
+
+      this.allYears = data.filter(e=>e.onDemandSkills==this.mySkills).map((item)=>{
+        return item.year;
+      }).reverse();
+
+      this.allCompanyDemands = data.filter(e=>e.onDemandSkills==this.mySkills).map((item)=>{
+        return item.skillDemandedByCompany;
+      }).reverse();
     })
+
+    
+    
+    console.log(this.allSkill);
+    console.log(this.allYears);
+    console.log(this.allCompanyDemands);
     
   }
 
