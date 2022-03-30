@@ -1,0 +1,44 @@
+#mainheading{
+    color: #05595B;
+    font-weight: bold;
+    text-align: center;
+}
+h2{
+    color: #05595B;
+    text-align: center;
+    font-size:xx-large;
+}
+p{
+    text-align: center;
+}
+img{
+    margin-top: 60px;
+    height: 200px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+  
+    filter: brightness(110%);
+    transition: 0.5s ease;
+}
+.firstdiv{
+    border-radius: 15px;
+    background-color: #e9dac1;
+    display: flex;
+    height: 300px;
+}
+.seconddiv{
+    display: flex;
+    border-radius: 15px;
+    background-color: #54bab9;
+    margin-top: 2%;
+    height:300px;
+}
+.firstdivone{
+    margin-top: 7%;
+}
+.seconddivtwo{
+    margin-top: 7%;
+}

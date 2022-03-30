@@ -10,6 +10,7 @@
         <module name="chatbot-service" />
         <module name="config-server" />
         <module name="resources-service" />
+        <module name="email-service" />
         <module name="api-gateway" />
         <module name="trend-lab-service" />
         <module name="assessment-service" />
@@ -33,6 +34,7 @@
       <module name="chatbot-service" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="cv-generation-service" options="-parameters" />
+      <module name="email-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="product-webapp" options="-parameters" />
       <module name="product-webapp1" options="-parameters" />
