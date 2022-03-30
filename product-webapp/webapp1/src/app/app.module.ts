@@ -43,46 +43,32 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
-<<<<<<< HEAD
-import { JobApplyComponent } from './job-apply/job-apply.component';
-import { JobPostingComponent } from './job-posting/job-posting.component';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-=======
->>>>>>> 2f443fec87d95289e24689d4417ca2e1a100f399
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CvGenerationComponent,
-<<<<<<< HEAD
     LearningPortalComponent,
-=======
-    JobDetailComponent,
->>>>>>> 2f443fec87d95289e24689d4417ca2e1a100f399
     TrendLabComponent,
     JobPostingComponent,
     JobApplyComponent,
     NavBarComponent,
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
-<<<<<<< HEAD
-    ChatbotComponent
-    
-=======
     ChatbotComponent,
     NavBarComponent,
     JobApplyComponent,
-    JobPostingComponent
+    JobPostingComponent,
+    JobDetailComponent
 
->>>>>>> 2f443fec87d95289e24689d4417ca2e1a100f399
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-<<<<<<< HEAD
     MatFormFieldModule,
     MatInputModule,
     NgbModule,
@@ -94,9 +80,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClient,
-    HttpClientModule
-=======
+    HttpClientModule,
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
@@ -122,7 +106,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCheckboxModule,
     MatRadioModule,
     MatSnackBarModule
->>>>>>> 2f443fec87d95289e24689d4417ca2e1a100f399
   ],
   providers: [],
   bootstrap: [AppComponent],
