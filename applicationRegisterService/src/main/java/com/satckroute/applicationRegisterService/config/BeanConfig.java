@@ -1,6 +1,6 @@
 package com.satckroute.applicationRegisterService.config;
 
-import com.niit.soulmateservice.filter.JwtFilter;
+import com.satckroute.applicationRegisterService.filter.*;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

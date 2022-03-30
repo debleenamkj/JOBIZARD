@@ -11,14 +11,7 @@ import java.util.List;
 @Repository
 public interface RecruiterRegisterRepository extends MongoRepository<Recruiter , String>
 {
-
     List<Recruiter> findAllRecruiterByFirstName(String firstName);
-
-    List<Recruiter> findAllRecruiterByFirstNameAndLastName(String firstName , String lastName);
-
-
-    List<Recruiter> findAllRecruiterByFirstNameAndMiddleNameAndLastName(String firstName , String middleName , String lastName);
-
 }
 
 

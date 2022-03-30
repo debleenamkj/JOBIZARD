@@ -26,18 +26,42 @@
         <module>eureka-server</module>
         <module>api-gateway</module>
         <module>product-webapp</module>
-        <module>CvGeneration</module>
+        <module>email-service</module>
+
+
+
+
+        <module>cv-generation-service</module>
+
+
+
+        <module>cv-generation-service</module>
+
         <module>recommendation-service</module>
         <module>recruitment-service</module>
 
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
-<<<<<<< HEAD
-=======
+
+
+
+
+
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
->>>>>>> 60681837c3dc1b8217e2c4609f35feb6c790dade
+<<<<<<< HEAD
+        <module>applicationRegisterService</module>
+        <module>authenticationService</module>
+=======
+
+
+
+
+        <module>cv-generation-service</module>
+        <module>chatbot-service</module>
+
+>>>>>>> cd1805fc4e53d6fc2cc0c8e78e508628dbd98062
     </modules>
 
     <dependencies>

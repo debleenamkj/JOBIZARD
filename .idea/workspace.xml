@@ -4,63 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <list default="true" id="9088d150-898f-4ee2-8ada-4a9fe048df3c" name="Changes" comment="Created Model Class for Skill Trends">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-webapp/webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/product-webapp/webapp/src/app/app.module.ts" afterDir="false" />
-=======
-    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="added execution of 2 controller methods">
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Sequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Suggestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/exception/SuggestionNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SequenceRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/SuggestionsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SequenceService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/SuggestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_25__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_42__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_26__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_29__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-03-2022_09_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-03-2022_09_54__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/domain/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
->>>>>>> 60681837c3dc1b8217e2c4609f35feb6c790dade
-=======
-    <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.browserslistrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/angular.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/karma.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/app/app.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/environments/environment.prod.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/environments/environment.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/main.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/polyfills.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/src/test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product-webapp/webapp1/tsconfig.spec.json" afterDir="false" />
->>>>>>> 087b6d3c25a31526861a6edc70991a12491c8556
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/config/BeanConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/JobSeeker.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/JobSeeker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/Recruiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/Recruiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/filter/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/DTOEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/JobSeekerRegisterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/JobSeekerRegisterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/RecruiterRegisterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/RecruiterRegisterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/AuthenticationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/AuthenticationServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/DTOEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,11 +60,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -116,7 +99,33 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.ResourcesServiceApplication">
+  <component name="RunManager" selected="Application.ApplicationRegisterServiceApplication">
+    <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" singleton="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.satckroute.applicationRegisterService.ApplicationRegisterServiceApplication" />
+      <module name="applicationRegisterService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.satckroute.applicationRegisterService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.authenticationService.AuthenticationServiceApplication" />
+      <module name="authenticationService" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.authenticationService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecommendationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.recommendationservice.RecommendationServiceApplication" />
       <module name="recommendation-service" />
@@ -156,8 +165,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ApplicationRegisterServiceApplication" />
+      <item itemvalue="Application.RecommendationServiceApplication" />
+      <item itemvalue="Application.ResourcesServiceApplication" />
+      <item itemvalue="Application.TrendLabServiceApplication" />
+      <item itemvalue="Application.AuthenticationServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />

@@ -3,13 +3,9 @@ package com.satckroute.applicationRegisterService.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import javax.persistence.*;
-
 
 @Document
 @Data
@@ -18,20 +14,16 @@ import javax.persistence.*;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-//@Table(name="jobseeker")
 public class JobSeeker
 {
+//    @Transient
+//    public static final String SEQUENCE_NAME="user_sequence";
 
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
-//    @SequenceGenerator(name="sequence",sequenceName ="jobseeker" , allocationSize = 30)
-
-//    @Indexed(unique = true)
-    @Id
-    private String jobSeekerId;
+   // private String jobSeekerId;
 
 //    @Column(unique = true)
+    @Id
     private String emailId;
-
     private String firstName;
     private String middleName;
     private String lastName;
@@ -41,7 +33,8 @@ public class JobSeeker
     private long mobileNumber;
     private String password;
 
-    private Role jobSeeker;
+    private String role;
+//    private Role Role.JOBSEEKER;
 
     private Address address;
     private Education educationDetails;

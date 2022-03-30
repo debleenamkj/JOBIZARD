@@ -1,6 +1,7 @@
 package com.stackroute.recruitmentservice.model;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 @Getter
@@ -8,8 +9,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+
 public class JobDetails {
-    private Long jobId;
+
+    private String jobId;
     private String experienceRequired;
     private List<String> skillsRequired;
     private String jobRole;

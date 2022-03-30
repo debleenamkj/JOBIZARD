@@ -25,15 +25,14 @@ public interface RegisterService
     List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
     List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException;
 
-    List<JobSeeker> getAllJobSeekerByFirstNameAndLastName(String firstName, String lastName) throws JobSeekerNotFoundException;
-    List<Recruiter> getAllRecruiterByFirstNameAndLastName(String firstName , String lastName) throws RecruiterNotFoundException;
 
-    List<JobSeeker> getAllJobSeekerByFirstNameAndMiddleNameAndLastName(String firstName , String middleName , String lastName) throws JobSeekerNotFoundException;
-    List<Recruiter> getAllRecruiterByFirstNameAndMiddleNameAndLastName(String firstName ,String middleName , String lastName) throws RecruiterNotFoundException;
+    JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
+    Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws  RecruiterNotFoundException;
 
-    JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String jobSeekerId) throws  JobSeekerNotFoundException;
-    Recruiter updateRecruiterDetails(Recruiter recruiter, String recruiterId) throws  RecruiterNotFoundException;
+    boolean deleteJobSeekerDetails(String emailId) throws JobSeekerNotFoundException;
+    boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;
+    boolean deleteOrganizationDetails(String organizationId) throws OrganizationDetailsNotFoundException;
 
-    boolean deleteJobSeekerDetails(String jobSeekerId) throws JobSeekerNotFoundException;
-    boolean deleteRecruiterDetails(String recruiterId) throws RecruiterNotFoundException;
+
+    //public int generateJobSeekerIdInSequence(String sequenceName);
 }
