@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
+
+import { JobDetailComponent } from './job-detail/job-detail.component';
+// import {MatButtonModule} from '@angular/material/button';
+
+
 import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
@@ -22,10 +27,12 @@ import { MatListModule } from '@angular/material/list';
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     CvGenerationComponent,
+    JobDetailComponent,
     TrendLabComponent,
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
@@ -33,11 +40,15 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     NavBarComponent,
     JobApplyComponent,
     JobPostingComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
+    MatButtonModule,
+
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
@@ -47,6 +58,7 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

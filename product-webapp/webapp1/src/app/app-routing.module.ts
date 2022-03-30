@@ -1,5 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { JobDetailComponent } from './job-detail/job-detail.component';
+
+const routes: Routes = [
+  {
+    path:"jobdetail",
+    component:JobDetailComponent,
+    pathMatch:"full"
+  }
+
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -13,6 +23,7 @@ const routes: Routes = [
   {path : 'salary',component: SalaryTrendLabComponent},
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent}
+
 ];
 
 @NgModule({
