@@ -6,40 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_25__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_42__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_13_56__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_26__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_29__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_29__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_14_32__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_52__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23-03-2022_17_57__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_13_54__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24-03-2022_15_35__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-03-2022_09_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29-03-2022_09_54__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/config/BeanConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/JobSeeker.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/JobSeeker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/Recruiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/Recruiter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/filter/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/DTOEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/JobSeekerRegisterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/JobSeekerRegisterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/RecruiterRegisterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/RecruiterRegisterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/AuthenticationServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/AuthenticationServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/DTOEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/cv-generation-service/src/main/java/com/stackroute/cvgenerationservice/controller/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,13 +43,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -99,7 +59,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.ApplicationRegisterServiceApplication">
+  <component name="RunManager" selected="Application.CvGenerationServiceApplication">
     <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" singleton="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.satckroute.applicationRegisterService.ApplicationRegisterServiceApplication" />
       <module name="applicationRegisterService" />
@@ -119,6 +79,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.stackroute.authenticationService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CvGenerationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stackroute.cvgenerationservice.CvGenerationServiceApplication" />
+      <module name="cv-generation-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stackroute.cvgenerationservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,9 +144,11 @@
       <item itemvalue="Application.ResourcesServiceApplication" />
       <item itemvalue="Application.TrendLabServiceApplication" />
       <item itemvalue="Application.AuthenticationServiceApplication" />
+      <item itemvalue="Application.CvGenerationServiceApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CvGenerationServiceApplication" />
         <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.ResourcesServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
@@ -259,6 +234,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Resources service" />
