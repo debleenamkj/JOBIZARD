@@ -1,13 +1,12 @@
 <a routerLink="/trend">Trend</a>
 <h1>Skill Trends</h1>
 <div class="container">
-    <div class="row">
-        <div class="col-xl-4 col-md-12">
+    <div class="row" style="">
+        <div class="col-xl-12 col-md-12">
             <select [(ngModel)]="mySkills" (change)="selectedSkill()">
                 <option *ngFor="let skills of skill" value="{{skills.onDemandSkills}}">{{skills.onDemandSkills}}</option>
             </select>
-        </div>
-        <div class="col-xl-8 col-md-12">
+        <br><br><br>
             <img src="{{url}}"/>
         </div>
     </div>
