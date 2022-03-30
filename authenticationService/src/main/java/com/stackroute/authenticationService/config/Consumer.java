@@ -23,7 +23,7 @@ public class Consumer{
         UserLogIn userLogIn =new UserLogIn();
         userLogIn.setEmailId(userDTO.getEmailId());
         userLogIn.setPassword(userDTO.getPassword());
-        userLogIn.setRole(userDTO.getRole());
+//        userLogIn.setRole(userDTO.getRole());
         authenticationServiceImpl.saveUserDetails(userLogIn);
     }
 }

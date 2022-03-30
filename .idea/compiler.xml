@@ -10,17 +10,13 @@
         <module name="chatbot-service" />
         <module name="authenticationService" />
         <module name="resources-service" />
-
-
-        <module name="email-service" />
-        <module name="api-gateway" />
-
         <module name="trend-lab-service" />
         <module name="applicationRegisterService" />
         <module name="eureka-server" />
         <module name="recommendation-service" />
         <module name="cv-generation-service" />
         <module name="config-server" />
+        <module name="email-service" />
         <module name="api-gateway" />
         <module name="assessment-service" />
         <module name="recruitment-service" />

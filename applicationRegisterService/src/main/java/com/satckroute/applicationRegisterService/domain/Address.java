@@ -3,6 +3,7 @@ package com.satckroute.applicationRegisterService.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -14,8 +15,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 // Default Constructor
 public class Address
 {
-    private String city;
+    @Id
     private String state;
+    private String city;
     private int pinCode;
     private String nationality;
 }
