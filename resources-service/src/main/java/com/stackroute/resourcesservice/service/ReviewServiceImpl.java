@@ -7,7 +7,11 @@ import com.stackroute.resourcesservice.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
 
 @Service
 public class ReviewServiceImpl implements ReviewService {
@@ -41,9 +45,15 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<Company> getAllCompanies() throws CompanyNotFoundException {
-        List<Company> companyList = reviewRepository.findAll();
+        List<Company> companyList = reviewRepository.findAllCompanyDetails();
         if (companyList.isEmpty())
             throw new CompanyNotFoundException();
+        companyList.forEach((obj)->{
+            byte[] logo = obj.getCompanyLogo();
+            if ( logo != null){
+                obj.setCompanyLogo(decompressBytes(logo));
+            }
+        });
         return companyList;
     }
 
@@ -149,6 +159,31 @@ public class ReviewServiceImpl implements ReviewService {
         reviewRepository.save(company);
 
         return true;
+    }
+
+
+    public static byte[] decompressBytes(byte[] image){
+
+        Inflater inflater = new Inflater();
+        inflater.setInput(image);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(image.length);
+        byte[] buffer = new byte[1024];
+
+        try{
+            while (!inflater.finished()){
+                int count = inflater.inflate(buffer);
+
+                outputStream.write(buffer, 0, count);
+            }
+            outputStream.close();
+        } catch (DataFormatException e) {
+            System.out.println(e.toString());
+        } catch (IOException e) {
+            System.out.println(e.toString());
+        }
+
+        return outputStream.toByteArray();
     }
 
 }
