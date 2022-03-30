@@ -1,0 +1,13 @@
+
+<h1>Skill Trends</h1>
+<div class="container" style="text-align: center;">
+    <div class="row">
+        <div class="col-xl-12 col-md-12">
+            <select [(ngModel)]="mySkills" (change)="selectedSkill()">
+                <option *ngFor="let skills of skill" value="{{skills.onDemandSkills}}">{{skills.onDemandSkills}}</option>
+            </select>
+        <br><br><br>
+            <img src="{{url}}"/>
+        </div>
+    </div>
+</div>
