@@ -42,9 +42,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavBarComponent,
     JobApplyComponent,
     JobPostingComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    AssesmentPortalComponent
 
   ],
   imports: [
@@ -105,7 +108,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDatepickerModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent],
