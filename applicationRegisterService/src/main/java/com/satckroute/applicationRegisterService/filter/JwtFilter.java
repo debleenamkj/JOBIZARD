@@ -1,4 +1,4 @@
-package com.niit.soulmateservice.filter;
+package com.satckroute.applicationRegisterService.filter;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

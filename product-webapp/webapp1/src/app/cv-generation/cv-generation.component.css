@@ -1,0 +1,25 @@
+.cv-body{
+    justify-content: center;
+    font-family: Roboto,HelveticaNeue,Arial,sans-serif;
+    font-size: large;
+    color: whitesmoke;
+}
+.cv-body-header{
+    background-color:#1c1c3f;
+    height: 150px;
+    width: 70%;
+    margin-left: 10%;
+   /* display: flex;
+   align-items: center;
+   position: relative; */
+    padding: 5%;
+}
+.cv-header-content1{
+    color: whitesmoke;
+    text-align: center;
+}
+.cv-header-content3-middle{
+    text-align: center;
+    color: rgb(224, 192, 150);
+    
+}

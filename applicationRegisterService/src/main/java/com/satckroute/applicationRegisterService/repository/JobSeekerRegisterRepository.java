@@ -11,7 +11,4 @@ public interface JobSeekerRegisterRepository extends MongoRepository<JobSeeker ,
 {
     List<JobSeeker> findAllJobSeekerByFirstName(String firstName);
 
-    List<JobSeeker> findJobSeekerByFirstNameAndLastName(String firstName, String lastName);
-
-    List<JobSeeker> findAllJobSeekerByFirstNameAndMiddleNameAndLastName(String firstName , String middleName , String lastName);
 }

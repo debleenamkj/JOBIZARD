@@ -51,6 +51,10 @@
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
 
+        <module>applicationRegisterService</module>
+        <module>authenticationService</module>
+
+
 
 
 

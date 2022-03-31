@@ -20,6 +20,7 @@ import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("api/v1/resources/")
 public class ReviewController {
@@ -73,6 +74,7 @@ public class ReviewController {
         } catch (CompanyNotFoundException e) {
             throw new CompanyNotFoundException();
         } catch (Exception e){
+            System.out.println(e.toString());
             responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
@@ -181,31 +183,9 @@ public class ReviewController {
         } catch (IOException e) {
             System.out.println(e.toString());
         }
-        System.out.println("Compresssed Byte Size: "+outputStream.toByteArray().length );
+        //System.out.println("Compressed Byte Size: "+outputStream.toByteArray().length );
         return outputStream.toByteArray();
     }
-    public static byte[] decompressBytes(byte[] image){
 
-        Inflater inflater = new Inflater();
-        inflater.setInput(image);
-
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream(image.length);
-        byte[] buffer = new byte[1024];
-
-        try{
-            while (!inflater.finished()){
-                int count = inflater.inflate(buffer);
-
-                outputStream.write(buffer, 0, count);
-            }
-            outputStream.close();
-        } catch (DataFormatException e) {
-            System.out.println(e.toString());
-        } catch (IOException e) {
-            System.out.println(e.toString());
-        }
-
-        return outputStream.toByteArray();
-    }
 
 }
