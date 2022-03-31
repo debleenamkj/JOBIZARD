@@ -1,10 +1,9 @@
-
 <h1>Skill Trends</h1>
-<div class="container" style="text-align: center;">
+<div class="container-fluid" style="text-align: center;">
     <div class="row">
-        <div class="col-xl-2 col-md-4 col-s-12" style="margin-top: 10%;">
-           
-            <mat-form-field appearance="fill">
+        <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 10%;">
+            <mat-card style="background-color: #e9dac1; padding-top: 15%; padding-bottom: 15%;">
+            <mat-form-field appearance="fill" style="width: 300px;">
                 <mat-label>Choose Skills</mat-label>
                 <mat-select [(ngModel)]="mySkills">
                     <mat-option value="" disabled selected hidden>{{mySkills}}</mat-option>
@@ -14,7 +13,7 @@
                 </mat-select>
               </mat-form-field> 
             <br>
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" style="width: 300px;">
                 <mat-label>Graph Type</mat-label>
                 <mat-select [(ngModel)]="myGraph">
                   <mat-option *ngFor="let graphs of graphType" value="{{graphs}}">
@@ -24,11 +23,13 @@
               </mat-form-field> 
           <br><br>
             <button mat-raised-button [disabled]="valid()" (click)="selectedSkill()">Apply</button>
+            </mat-card>
         </div>
-        <div class="col-xl-1 col-md-0"></div>
+      
         <div class="col-xl-9 col-md-8 col-s-12" style="margin-top: 1%;">
+            <mat-card >
             <img src="{{url}}"/>
-        </div>
-        
+        </mat-card>
+        </div>  
     </div>
 </div>
