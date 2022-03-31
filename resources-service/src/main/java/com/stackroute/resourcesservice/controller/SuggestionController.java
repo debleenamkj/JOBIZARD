@@ -71,4 +71,28 @@ public class SuggestionController {
         return responseEntity;
     }
 
+    @GetMapping("getSourceBySkills")
+    public ResponseEntity<?> getSourceBySkills() {
+        try{
+            responseEntity = new ResponseEntity<>(suggestionService.getUrlBySkills(), HttpStatus.OK);
+        } catch (Exception e){
+            System.out.println(e.toString());
+            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }
+
+    @GetMapping("getBySuggestionId")
+    public ResponseEntity<?> getSuggestionById(@RequestParam("suggestionId")int suggestionId) throws SuggestionNotFoundException {
+        try{
+            responseEntity = new ResponseEntity<>(suggestionService.getSuggestionBySuggestionId(suggestionId), HttpStatus.OK);
+        } catch (SuggestionNotFoundException e){
+            throw new SuggestionNotFoundException();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }
 }
