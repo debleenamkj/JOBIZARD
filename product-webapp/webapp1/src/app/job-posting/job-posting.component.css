@@ -1,0 +1,8 @@
+.bg{
+    background-image: url('horizontal-border-design.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.finish{
+   display:none;
+}

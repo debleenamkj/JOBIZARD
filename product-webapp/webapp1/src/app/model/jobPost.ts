@@ -3,21 +3,30 @@ export class jobPost{
     companyUrl:string="";
     companyEmail:string="";
     industryType:string="";
+    companyLogo:any;
     jobRole:string="";
     salary:any="";
     jobDescription:string="";
     location:string="";
-    lastdate:string="";
+    lastDate:string="";
+    eduation:string="";
+    experience:string="";
+    skills:any=[];
+    // list getJobDetailsList = 
 
     constructor(){
         this.companyName="";
         this.companyUrl="";
         this.companyEmail="";
         this.industryType="";
+        this.companyLogo="";
         this.jobRole="";
         this.salary="";
         this.jobDescription="";
         this.location="";
-        this.lastdate="";
+        this.lastDate="";
+        this.eduation="",
+        this.experience="",
+        this.skills="";
     }
 }

@@ -8,7 +8,7 @@ import { CvGenerationComponent } from './cv-generation/cv-generation.component';
 
 import { JobDetailComponent } from './job-detail/job-detail.component';
 // import {MatButtonModule} from '@angular/material/button';
-
+import {MatChipsModule} from '@angular/material/chips';
 
 import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
@@ -23,10 +23,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -47,6 +47,9 @@ import { JobPostingComponent } from './job-posting/job-posting.component';
     AppRoutingModule,
     BrowserAnimationsModule,
 
+    MatChipsModule,
+    MatDatepickerModule,
+    MatStepperModule,
     MatButtonModule,
 
     ReactiveFormsModule,
