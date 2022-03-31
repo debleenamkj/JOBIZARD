@@ -5,20 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
-// import { CvFormComponent } from './cv-form/cv-form.component';
-<<<<<<< HEAD
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
-=======
-
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
->>>>>>> 8d007684555e7e45f05944ccfe329cdd12ab1694
-
 import { JobDetailComponent } from './job-detail/job-detail.component';
-// import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
 import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
@@ -27,18 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-
-//Angular Material Imports
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-<<<<<<< HEAD
-import { JobApplyComponent } from './job-apply/job-apply.component';
-import { JobPostingComponent } from './job-posting/job-posting.component';
-=======
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -52,21 +37,16 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
->>>>>>> 8d007684555e7e45f05944ccfe329cdd12ab1694
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CvGenerationComponent,
-<<<<<<< HEAD
     JobDetailComponent,
-=======
     LearningPortalComponent,
->>>>>>> 8d007684555e7e45f05944ccfe329cdd12ab1694
     TrendLabComponent,
     JobPostingComponent,
     JobApplyComponent,
@@ -83,20 +63,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
-
     MatChipsModule,
     MatDatepickerModule,
     MatStepperModule,
     MatButtonModule,
-    // MatInputModule,
-    // MatFormFieldModule,
-
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
@@ -109,19 +83,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-<<<<<<< HEAD
     MatDividerModule,
-    MatInputModule,
-    MatFormFieldModule
-=======
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule,
     MatAutocompleteModule,
     MatChipsModule,
     MatTooltipModule,
@@ -135,7 +99,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatRadioModule,
     MatSnackBarModule,
     NgbModule
->>>>>>> 8d007684555e7e45f05944ccfe329cdd12ab1694
   ],
   providers: [],
   bootstrap: [AppComponent],
