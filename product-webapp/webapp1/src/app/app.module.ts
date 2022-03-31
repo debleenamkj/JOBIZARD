@@ -59,7 +59,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
     ChatbotComponent,
-    NavBarComponent,
     JobApplyComponent,
     JobPostingComponent,
     JobDetailComponent
@@ -70,24 +69,26 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     BrowserAnimationsModule,
 
+
     MatChipsModule,
     MatDatepickerModule,
     MatStepperModule,
     MatButtonModule,
     // MatInputModule,
     // MatFormFieldModule,
+
+    LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+
     MatFormFieldModule,
     MatInputModule,
-    NgbModule,
     MatListModule,
     MatIconModule,
     MatSidenavModule,
     MatButtonModule,
     MatToolbarModule,
-    LayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
@@ -112,7 +113,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDatepickerModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
