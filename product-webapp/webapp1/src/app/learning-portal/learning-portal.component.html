@@ -2,23 +2,50 @@
 <div style="background-color: rgb(251, 248, 241); width: 95%; margin: auto;">
 
     <div class="parent-container" style="height: 100px;">
+        <br><br>
         <h1>Find the best courses</h1>
         <h3>Hello Warrior, grow your skills and advance your career with jobizard Learning</h3>
     </div>
     <br><br><br>
     <div class="parent-container">
         <ngb-carousel>
-            <ng-template ngbSlide>
-                <div class="picsum-img-wrapper carousel-image-container">
+            <ng-template ngbSlide *ngFor="let skill of skillTemplate; index as s">
+                <div class="carousel-image-container">
                     <div class="parent-container">
-                        <mat-card class="card skill-card">
-                            <img mat-card-image src=""
-                                alt="image of skilltype">
-                            <br>
-                            <mat-card-title>
-                                Skill types
-                            </mat-card-title>
-                        </mat-card>
+                        <div class="parent-container">
+                            <div class="card-block">
+                                <mat-card class="card skill-card template-div" *ngIf="skillTypes[6*s]">
+                
+                                    <br>
+                                    <mat-card-title>{{skillTypes[6*s]}}</mat-card-title>
+                                </mat-card>
+                                <mat-card class="card skill-card template-div" *ngIf="skillTypes[6*s+1]">
+                                    
+                                    <br>
+                                    <mat-card-title>{{skillTypes[6*s+1]}}</mat-card-title>
+                                </mat-card>
+                                <mat-card class="card skill-card template-div" *ngIf="skillTypes[6*s+2]">
+                                    
+                                    <br>
+                                    <mat-card-title>{{skillTypes[6*s+2]}}</mat-card-title>
+                                </mat-card>
+                                <mat-card class="card skill-card template-div" *ngIf="skillTypes[6*s+3]">
+                                    
+                                    <br>
+                                    <mat-card-title>{{skillTypes[6*s+3]}}</mat-card-title>
+                                </mat-card>
+                                <mat-card class="card skill-card template-div" *ngIf="skillTypes[6*s+4]">
+                                    
+                                    <br>
+                                    <mat-card-title>{{skillTypes[6*s+4]}}</mat-card-title>
+                                </mat-card>
+                                <mat-card class="card skill-card template-div" *ngIf="skillTypes[6*s+5]">
+                                    
+                                    <br>
+                                    <mat-card-title> {{skillTypes[6*s+5]}}</mat-card-title>
+                                </mat-card>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </ng-template>
@@ -29,43 +56,43 @@
 
     <div class="parent-container">
         <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let template of carouselTemplate; index as i">
-                <div class="picsum-img-wrapper carousel-image-container">
+            <ng-template ngbSlide *ngFor="let course of courseTemplate; index as i">
+                
                     <div class="parent-container">
                         <div class="card-block">
-                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i]">
-                
+                            <mat-card class="card suggestion-card template-div" *ngIf="suggestions[6*i]">
+            
                                 <br>
-                                <mat-card-title>{{companies[6*i].companyName}}</mat-card-title>
+                                <mat-card-title>{{suggestions[6*i].sourceUrl}}</mat-card-title>
                             </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+1]">
+                            <mat-card class="card suggestion-card template-div" *ngIf="suggestions[6*i+1]">
                                 
                                 <br>
-                                <mat-card-title>{{companies[6*i+1].companyName}}</mat-card-title>
+                                <mat-card-title>{{suggestions[6*i+1].sourceUrl}}</mat-card-title>
                             </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+2]">
+                            <mat-card class="card suggestion-card template-div" *ngIf="suggestions[6*i+2]">
                                 
                                 <br>
-                                <mat-card-title>{{companies[6*i+2].companyName}}</mat-card-title>
+                                <mat-card-title>{{suggestions[6*i+2].sourceUrl}}</mat-card-title>
                             </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+3]">
+                            <mat-card class="card suggestion-card template-div" *ngIf="suggestions[6*i+3]">
                                 
                                 <br>
-                                <mat-card-title>{{companies[6*i+3].companyName}}</mat-card-title>
+                                <mat-card-title>{{suggestions[6*i+3].sourceUrl}}</mat-card-title>
                             </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+4]">
+                            <mat-card class="card suggestion-card template-div" *ngIf="suggestions[6*i+4]">
                                 
                                 <br>
-                                <mat-card-title>{{companies[6*i+4].companyName}}</mat-card-title>
+                                <mat-card-title>{{suggestions[6*i+4].sourceUrl}}</mat-card-title>
                             </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="companies[6*i+5]">
+                            <mat-card class="card suggestion-card template-div" *ngIf="suggestions[6*i+5]">
                                 
                                 <br>
-                                <mat-card-title> {{companies[6*i+5].companyName}}</mat-card-title>
+                                <mat-card-title> {{suggestions[6*i+5].sourceUrl}}</mat-card-title>
                             </mat-card>
                         </div>
                     </div>
-                </div>
+               
             </ng-template>
         </ngb-carousel>
     </div>
@@ -74,13 +101,58 @@
 
     <div class="parent-container">
         <ngb-carousel>
-            <ng-template ngbSlide>
-                <div class="logo-container">
-                    <mat-card class="card company-logo-card">
-                        <img mat-card-image src=""
-                            alt="company logo">
-                    </mat-card>
-                </div>
+            <ng-template ngbSlide *ngFor="let logo of logoTemplate; index as j">
+                
+                    <div class="logo-container">
+                        <div class="card-block">
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j].retrievedImage">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j].retrievedImage" alt="company logo">
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+1]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+1].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+2]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+2].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+3]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+3].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+4]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+4].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+5]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+5].retrievedImage" alt="company logo">
+                            
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+6]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+6].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+7]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+7].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+8]">
+                                <br>
+                                <img mat-card-image [src]="companies[9*j+8].retrievedImage" alt="company logo">
+                                
+                            </mat-card>
+                            
+                        </div>
+                    </div>
+               
             </ng-template>
         </ngb-carousel>
     </div>

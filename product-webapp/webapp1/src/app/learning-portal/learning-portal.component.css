@@ -14,7 +14,8 @@
     text-align: center;   
 }
 .skill-card{
-    width: 15%;
+    width: 14.3%;
+    margin-left: 2%;
     border-radius: 30px;
 }
 .suggestion-card{
@@ -23,6 +24,7 @@
 }
 .company-logo-card{
     width: 10%;
+    margin-left: 0.9%;
     border-radius: 50%;
 }
 .mat-card-image{
