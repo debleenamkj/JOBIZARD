@@ -70,8 +70,10 @@ onFileChanged(event: any) {
   //this.post.companyLogo = files;
   reader.readAsDataURL(event.target.files[0]); 
   reader.onload = (_event) => { 
+    console.log(reader.result);
       this.upimage = reader.result; 
   }
+
 }
   preview(){
     let div = document.getElementsByClassName('details') as HTMLCollectionOf<HTMLElement>;
@@ -82,21 +84,11 @@ onFileChanged(event: any) {
     this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
     this.post.industryType=this.companyForm.controls['industryType'].value;
     this.post.companyLogo=this.upimage;
-    console.log(this.post);
-    console.log(this.date);
+    // console.log(this.post);
+    // console.log(this.date);
 
     this.post.eduation= this.requirementsForm.controls['education'].value;
     this.post.experience= this.requirementsForm.controls['experience'].value;
-    //this.post.skills= this.fruits.toString;
-   this.skills.clear();
-   console.log("---------")
-    this.fruits.forEach(element => {
-    //  this.skills.push(element.name);
-    console.log(element.name);
-      this.skill = this.skill + element.name + " ";
-    });
-    
-    console.log(this.skill);
   }
 
   preview1(date : any){

@@ -10,6 +10,7 @@ import { JobDetailComponent } from './job-detail/job-detail.component';
 // import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 
+import {MatInputModule} from '@angular/material/input';
 import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
@@ -27,6 +28,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDatepickerModule,
     MatStepperModule,
     MatButtonModule,
-
+    // MatInputModule,
+    // MatFormFieldModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
