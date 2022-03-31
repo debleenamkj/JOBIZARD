@@ -34,8 +34,22 @@
         <module>trend-lab-service</module>
         <module>assessment-service</module>
         <module>chatbot-service</module>
+<<<<<<< HEAD
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
+=======
+
+        <module>applicationRegisterService</module>
+        <module>authenticationService</module>
+
+
+
+
+
+        <module>cv-generation-service</module>
+        <module>chatbot-service</module>
+
+>>>>>>> 8d007684555e7e45f05944ccfe329cdd12ab1694
     </modules>
 
     <dependencies>

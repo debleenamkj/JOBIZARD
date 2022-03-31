@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
 import { SkillTrend } from '../model/skill-trend';
 import { TrendsService } from '../service/trends.service';
 
@@ -17,8 +15,10 @@ export class SkillsTrendLabComponent implements OnInit {
   url!:string;
   allYears: number [] = [];
   allCompanyDemands: number [] = [];
-  mySkills = '1';
+  mySkills = "Select Skills";
   selectedValue: any;
+  graphType:string []=["bar","pie","line","doughnut","polarArea","radar","horizontalBar","violin","sparkline"];
+  myGraph = "line";
 
   constructor(private trendsService:TrendsService, private router: Router) { }
 
@@ -27,6 +27,15 @@ export class SkillsTrendLabComponent implements OnInit {
       this.skill = data; 
       console.log(this.skill);      
     })
+  }
+
+  valid(){
+    if(this.mySkills=="Select Skills"){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   selectedSkill(){
@@ -50,9 +59,11 @@ export class SkillsTrendLabComponent implements OnInit {
     console.log(this.allSkill);
     console.log(this.allYears);
     console.log(this.allCompanyDemands);
+    console.log(this.myGraph);
     
-    this.url = "https://quickchart.io/chart?width=500&height=300&format=img&c={type:'line',data:{labels:["+this.allYears+"],datasets:[{label:'"+this.mySkills+"',data:["+this.allCompanyDemands+"]}]}}";
-
+    
+    this.url = "https://quickchart.io/chart?width=500&height=270&format=img&c={type:'"+this.myGraph+"',data:{labels:["+this.allYears+"],datasets:[{label:'Number of Companies Hiring for "+this.mySkills+"',data:["+this.allCompanyDemands+"],backgroundColor:'rgba(84, 186, 185,0.7)',borderColor:'rgba(5,89,91, 1.9)',borderWidth:1}]}}";
+  
   }
 
 }
