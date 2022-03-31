@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class JobDetailComponent implements OnInit {
 
   constructor() { }
-
+ 
   ngOnInit(): void {
   }
 

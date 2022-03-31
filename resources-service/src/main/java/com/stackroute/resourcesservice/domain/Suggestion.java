@@ -14,6 +14,7 @@ public class Suggestion {
 
     @Id
     private int suggestionId;
+    private String category;
     private String skillType;
     private String sourceUrl;
 }

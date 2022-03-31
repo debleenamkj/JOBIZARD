@@ -1,0 +1,8 @@
+.bg{
+    background-image: url('bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.finish{
+   display:none;
+}

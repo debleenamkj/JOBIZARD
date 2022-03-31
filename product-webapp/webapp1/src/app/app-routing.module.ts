@@ -10,6 +10,7 @@ import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
+import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 
 const routes: Routes = [
   {path: 'trend',component: TrendLabComponent},
@@ -17,13 +18,18 @@ const routes: Routes = [
   {path : 'salary',component: SalaryTrendLabComponent},
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
+  {
+    path:"jobdetail",
+    component:JobDetailComponent,
+    
+  },
   {path:"chatbot",component:ChatbotComponent},
   {
     path:"jobdetail",
     component:JobDetailComponent,
-    pathMatch:"full"
+    
   },
-
+  {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent}
 ];

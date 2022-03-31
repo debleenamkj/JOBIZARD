@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chatbot-service" />
+        <module name="authenticationService" />
+        <module name="resources-service" />
+        <module name="trend-lab-service" />
+        <module name="applicationRegisterService" />
+        <module name="eureka-server" />
+        <module name="recommendation-service" />
+        <module name="cv-generation-service" />
+        <module name="config-server" />
+        <module name="email-service" />
+        <module name="api-gateway" />
+        <module name="assessment-service" />
+        <module name="recruitment-service" />
+        <module name="product-webapp" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chatroom-service" target="11" />
+      <module name="CvGeneration" target="11" />
+      <module name="product-webapp1" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CvGeneration" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="applicationRegisterService" options="-parameters" />
+      <module name="assessment-service" options="-parameters" />
+      <module name="authenticationService" options="-parameters" />
+      <module name="chatbot-service" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="cv-generation-service" options="-parameters" />
+      <module name="email-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="product-webapp" options="-parameters" />
+      <module name="product-webapp1" options="-parameters" />
+      <module name="recommendation-service" options="-parameters" />
+      <module name="recruitment-service" options="-parameters" />
+      <module name="resources-service" options="-parameters" />
+      <module name="trend-lab-service" options="-parameters" />
+    </option>
+  </component>
+</project>

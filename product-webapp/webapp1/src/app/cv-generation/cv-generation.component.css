@@ -1,18 +1,31 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background: wheat;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    min-height: 100vh;
+}
 .cv-body{
     justify-content: center;
-    font-family: Roboto,HelveticaNeue,Arial,sans-serif;
-    font-size: large;
+    font-family: 'Poppins',sans-serif;
     color: whitesmoke;
+    display: flex;
+    box-sizing: border-box;
 }
 .cv-body-header{
     background-color:#1c1c3f;
-    height: 150px;
-    width: 70%;
-    margin-left: 10%;
-   /* display: flex;
-   align-items: center;
-   position: relative; */
-    padding: 5%;
+    height: 200px;
+    width: 80%;
+    margin-left: 1%;
+    padding: 2%;
 }
 .cv-header-content1{
     color: whitesmoke;
@@ -22,4 +35,96 @@
     text-align: center;
     color: rgb(224, 192, 150);
     
+}
+.container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  padding-top: 10%;
+}
+.cv-body-content{
+    background-color: grey;
+    margin-top: 14%;
+    margin-right: 10%;
+}
+.cv-body-main-content{
+    position: relative;
+    background-color: whitesmoke;
+    padding: 40px;
+
+}
+ */
+ div{
+     /* border-style: solid; */
+     margin: 5px;
+     padding: 5px;
+ }
+ body{
+     font-family: 'Poppins',sans-serif;
+ }
+ .cv-body-header{
+     background: rgb(49, 49, 83);
+     
+ }
+ .cv-header-content1{
+    text-align: center;
+    color: rgb(201, 178, 119);
+    text-transform: uppercase;
+ }
+ .cv-header-content2{
+    text-align: center;
+    color: azure;
+    text-transform: uppercase;
+ }
+ .cv-header-content3{
+     display: flex;
+     justify-content:space-evenly;
+ }
+.cv-header-content3-left{
+    width: 33.3%;
+ 
+}
+.cv-header-content3-middle{
+    width: 33.3%;
+    text-align:center;
+    margin: 0;
+    padding: 0;
+    color: rgb(201, 178, 119);
+}
+.cv-header-content3-right{
+    width: 33.3%;
+
+}
+mat-divider{
+    align-self: center;
+    color: rgb(201, 178, 119);
+}
+mat-icon{
+    color: rgb(201, 178, 119);
+}
+.cv-header-content4{
+    display: flex;
+     justify-content:center;
+     padding-left : 10%;
+}
+.cv-header-content4-left{
+    width: 33.3%;
+    text-align:center;
+    padding-right: 20%;
+
+ 
+}
+.cv-header-content4-middle{
+    width: 33.3%;
+    text-align: center;
+    padding-right: 20%;
+}
+.cv-header-content4-right{
+    width: 33.3%;
+    text-align: left;
+    padding-left: 20%;
+}
+.container{
+
 }
