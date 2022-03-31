@@ -3,7 +3,8 @@ package com.stackroute.resourcesservice.service;
 import com.stackroute.resourcesservice.domain.Suggestion;
 import com.stackroute.resourcesservice.exception.SuggestionAlreadyExistsException;
 import com.stackroute.resourcesservice.exception.SuggestionNotFoundException;
-import com.stackroute.resourcesservice.repository.AggregateDTO.SuggestionAggregate;
+import com.stackroute.resourcesservice.repository.AggregateDTO.SkillAggregate;
+import com.stackroute.resourcesservice.repository.AggregateDTO.SourceUrlAggregate;
 import com.stackroute.resourcesservice.repository.SuggestionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,9 +56,12 @@ public class SuggestionServiceImpl implements SuggestionService{
     }
 
     @Override
-    public List<SuggestionAggregate> getUrlBySkills() {
-
-        return suggestionsRepository.groupBySkillTypeAndSourceUrl();
+    public List<SourceUrlAggregate> getUrlBySkills() throws SuggestionNotFoundException{
+        List<SourceUrlAggregate> list;
+        list = suggestionsRepository.groupBySkillTypeAndSourceUrl();
+        if (list.isEmpty())
+            throw new SuggestionNotFoundException();
+        return list;
     }
 
     @Override
@@ -65,6 +69,15 @@ public class SuggestionServiceImpl implements SuggestionService{
         if(suggestionsRepository.findById(suggestionId).isEmpty())
             throw new SuggestionNotFoundException();
         return suggestionsRepository.findById(suggestionId).get();
+    }
+
+    @Override
+    public List<SkillAggregate> getSkillTypesByCategory() throws SuggestionNotFoundException {
+        List<SkillAggregate> skillAggregateList;
+        skillAggregateList = suggestionsRepository.groupByCategoryAndSkillType();
+        if (skillAggregateList == null)
+            throw new SuggestionNotFoundException();
+        return skillAggregateList;
     }
 
 }
