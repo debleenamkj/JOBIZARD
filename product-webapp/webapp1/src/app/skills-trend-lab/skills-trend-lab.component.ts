@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { delay } from 'rxjs';
 import { SkillTrend } from '../model/skill-trend';
 import { TrendsService } from '../service/trends.service';
 

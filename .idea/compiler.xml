@@ -24,6 +24,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="chatroom-service" target="11" />
       <module name="CvGeneration" target="11" />
       <module name="product-webapp1" target="11" />
     </bytecodeTargetLevel>

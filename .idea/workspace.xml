@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-  
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/AddressDetailsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/EducationDetailsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/JobSeeker.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/domain/JobSeeker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/rabbitMQ/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/service/RegisterServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/config/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/config/Consumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/domain/UserLogIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/domain/UserLogIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/authenticationService/src/main/java/com/stackroute/authenticationService/rabbitMq/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/ReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/controller/SuggestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/repository/ReviewRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/resources-service/src/main/java/com/stackroute/resourcesservice/service/ReviewServiceImpl.java" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,18 +57,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-
-  <component name="RunManager" selected="Application.AuthenticationServiceApplication">
-    <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
-
-  <component name="RunManager" selected="Application.ResourcesServiceApplication">
+  <component name="RunManager" selected="Application.CvGenerationServiceApplication">
     <configuration name="ApplicationRegisterServiceApplication" type="Application" factoryName="Application" singleton="true" nameIsGenerated="true">
-
       <option name="MAIN_CLASS_NAME" value="com.satckroute.applicationRegisterService.ApplicationRegisterServiceApplication" />
       <module name="applicationRegisterService" />
       <extension name="coverage">
@@ -103,7 +75,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthenticationServiceApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthenticationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stackroute.authenticationService.AuthenticationServiceApplication" />
       <module name="authenticationService" />
       <extension name="coverage">
@@ -178,9 +150,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ResourcesServiceApplication" />
         <item itemvalue="Application.CvGenerationServiceApplication" />
         <item itemvalue="Application.AuthenticationServiceApplication" />
+        <item itemvalue="Application.ResourcesServiceApplication" />
         <item itemvalue="Application.TrendLabServiceApplication" />
         <item itemvalue="Application.RecommendationServiceApplication" />
       </list>
@@ -237,12 +209,12 @@
       <option name="project" value="LOCAL" />
       <updated>1648537490220</updated>
     </task>
-    <task id="LOCAL-00007" summary="query updated">
-      <created>1648639358688</created>
+    <task id="LOCAL-00007" summary="updated application properties">
+      <created>1648034257572</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1648639358688</updated>
+      <updated>1648034257572</updated>
     </task>
     <task id="LOCAL-00008" summary="created domain layer">
       <created>1648034378941</created>
@@ -251,7 +223,7 @@
       <option name="project" value="LOCAL" />
       <updated>1648034378941</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,6 +236,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Resources service" />
@@ -278,7 +251,6 @@
     <MESSAGE value="Added external API for Salary Trend" />
     <MESSAGE value="added execution of 2 controller methods" />
     <MESSAGE value="Added Webapp BoilerPlate" />
-    <MESSAGE value="query updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="query updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Webapp BoilerPlate" />
   </component>
 </project>
