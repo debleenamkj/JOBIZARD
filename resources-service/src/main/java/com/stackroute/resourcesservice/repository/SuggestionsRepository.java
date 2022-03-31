@@ -1,7 +1,8 @@
 package com.stackroute.resourcesservice.repository;
 
 import com.stackroute.resourcesservice.domain.Suggestion;
-import com.stackroute.resourcesservice.repository.AggregateDTO.SuggestionAggregate;
+import com.stackroute.resourcesservice.repository.AggregateDTO.SkillAggregate;
+import com.stackroute.resourcesservice.repository.AggregateDTO.SourceUrlAggregate;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -14,5 +15,8 @@ public interface SuggestionsRepository extends MongoRepository<Suggestion, Integ
     List<Suggestion> findBySkillType(String skillType);
 
     @Aggregation("{$group: {_id: $skillType, source: { $addToSet: $sourceUrl}}}")
-    List<SuggestionAggregate> groupBySkillTypeAndSourceUrl();
+    List<SourceUrlAggregate> groupBySkillTypeAndSourceUrl();
+
+    @Aggregation("{$group: {_id: $category, skillTypes: { $addToSet: $skillType}}}")
+    List<SkillAggregate> groupByCategoryAndSkillType();
 }
