@@ -3,6 +3,7 @@ package com.stackroute.resourcesservice.service;
 import com.stackroute.resourcesservice.domain.Suggestion;
 import com.stackroute.resourcesservice.exception.SuggestionAlreadyExistsException;
 import com.stackroute.resourcesservice.exception.SuggestionNotFoundException;
+import com.stackroute.resourcesservice.repository.AggregateDTO.SuggestionAggregate;
 import com.stackroute.resourcesservice.repository.SuggestionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,4 +53,18 @@ public class SuggestionServiceImpl implements SuggestionService{
         suggestionsRepository.deleteById(suggestionId);
         return true;
     }
+
+    @Override
+    public List<SuggestionAggregate> getUrlBySkills() {
+
+        return suggestionsRepository.groupBySkillTypeAndSourceUrl();
+    }
+
+    @Override
+    public Suggestion getSuggestionBySuggestionId(int suggestionId) throws SuggestionNotFoundException {
+        if(suggestionsRepository.findById(suggestionId).isEmpty())
+            throw new SuggestionNotFoundException();
+        return suggestionsRepository.findById(suggestionId).get();
+    }
+
 }
