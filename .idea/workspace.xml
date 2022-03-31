@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+  
     <list default="true" id="76eda49d-3c91-4548-b5a4-af212656ad3f" name="Changes" comment="Added Webapp BoilerPlate">
-
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/AddressDetailsRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/applicationRegisterService/src/main/java/com/satckroute/applicationRegisterService/repository/EducationDetailsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
@@ -236,12 +237,12 @@
       <option name="project" value="LOCAL" />
       <updated>1648537490220</updated>
     </task>
-    <task id="LOCAL-00007" summary="updated application properties">
-      <created>1648034257572</created>
+    <task id="LOCAL-00007" summary="query updated">
+      <created>1648639358688</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1648034257572</updated>
+      <updated>1648639358688</updated>
     </task>
     <task id="LOCAL-00008" summary="created domain layer">
       <created>1648034378941</created>
@@ -250,7 +251,7 @@
       <option name="project" value="LOCAL" />
       <updated>1648034378941</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,6 +278,7 @@
     <MESSAGE value="Added external API for Salary Trend" />
     <MESSAGE value="added execution of 2 controller methods" />
     <MESSAGE value="Added Webapp BoilerPlate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Webapp BoilerPlate" />
+    <MESSAGE value="query updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="query updated" />
   </component>
 </project>
