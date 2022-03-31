@@ -19,7 +19,7 @@ export class SkillsTrendLabComponent implements OnInit {
   allCompanyDemands: number [] = [];
   mySkills = "Select Skills";
   selectedValue: any;
-  graphType:string []=["bar","pie","line"];
+  graphType:string []=["bar","pie","line","doughnut","polarArea","radar","horizontalBar","violin","sparkline"];
   myGraph = "line";
 
   constructor(private trendsService:TrendsService, private router: Router) { }
@@ -64,7 +64,7 @@ export class SkillsTrendLabComponent implements OnInit {
     console.log(this.myGraph);
     
     
-    this.url = "https://quickchart.io/chart?width=500&height=270&format=img&c={type:'"+this.myGraph+"',data:{labels:["+this.allYears+"],datasets:[{label:'Number of Companies Hiring for "+this.mySkills+"',data:["+this.allCompanyDemands+"]}]}}";
+    this.url = "https://quickchart.io/chart?width=500&height=270&format=img&c={type:'"+this.myGraph+"',data:{labels:["+this.allYears+"],datasets:[{label:'Number of Companies Hiring for "+this.mySkills+"',data:["+this.allCompanyDemands+"],backgroundColor:'rgba(84, 186, 185,0.7)',borderColor:'rgba(5,89,91, 1.9)',borderWidth:1}]}}";
   
   }
 
