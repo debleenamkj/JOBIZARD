@@ -43,26 +43,44 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
+import { LearningPortalComponent } from './learning-portal/learning-portal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CvGenerationComponent,
-    JobDetailComponent,
+    LearningPortalComponent,
     TrendLabComponent,
+    JobPostingComponent,
+    JobApplyComponent,
+    NavBarComponent,
     SkillsTrendLabComponent,
     SalaryTrendLabComponent,
     ChatbotComponent,
     NavBarComponent,
     JobApplyComponent,
-    JobPostingComponent
+    JobPostingComponent,
+    JobDetailComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgbModule,
+    MatListModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatToolbarModule,
+    LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,

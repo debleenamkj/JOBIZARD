@@ -4,9 +4,7 @@ import com.satckroute.applicationRegisterService.config.Producer;
 import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
-import com.satckroute.applicationRegisterService.repository.JobSeekerRegisterRepository;
-import com.satckroute.applicationRegisterService.repository.OrganizationDetailsRepository;
-import com.satckroute.applicationRegisterService.repository.RecruiterRegisterRepository;
+import com.satckroute.applicationRegisterService.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -29,17 +27,26 @@ public class RegisterServiceImpl implements RegisterService
     private JobSeekerRegisterRepository jobSeekerRegisterRepository;
     private RecruiterRegisterRepository recruiterRegisterRepository;
     private OrganizationDetailsRepository organizationDetailsRepository;
+    private AddressDetailsRepository addressDetailsRepository;
+    private EducationDetailsRepository educationDetailsRepository;
     private MongoOperations mongoOperations;
     private Producer producer;
 
     @Autowired
-    public RegisterServiceImpl(JobSeekerRegisterRepository jobSeekerRegisterRepository, RecruiterRegisterRepository recruiterRegisterRepository, OrganizationDetailsRepository organizationDetailsRepository, MongoOperations mongoOperations, Producer producer)
+    public RegisterServiceImpl(JobSeekerRegisterRepository jobSeekerRegisterRepository,
+                               RecruiterRegisterRepository recruiterRegisterRepository,
+                               OrganizationDetailsRepository organizationDetailsRepository,
+                               MongoOperations mongoOperations,
+                               Producer producer, AddressDetailsRepository addressDetailsRepository,
+                               EducationDetailsRepository educationDetailsRepository)
     {
         this.jobSeekerRegisterRepository = jobSeekerRegisterRepository;
         this.recruiterRegisterRepository = recruiterRegisterRepository;
         this.organizationDetailsRepository = organizationDetailsRepository;
         this.mongoOperations = mongoOperations;
         this.producer = producer;
+        this.addressDetailsRepository = addressDetailsRepository;
+        this.educationDetailsRepository =educationDetailsRepository;
     }
 
 
@@ -51,9 +58,10 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker saveJobSeekerImage(JobSeeker jobSeeker, MultipartFile file) throws JobSeekerImageAlreadyExistException, IOException
     {
-        Role role = Role.JOBSEEKER;
-        jobSeeker.setRole("jobSeeker");
-        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.getRole());//
+//        Role role = Role.JOBSEEKER;
+//        jobSeeker.setRole("jobSeeker");
+//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.getRole());//
+        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
         //jobSeeker.setJobSeekerId(generateJobSeekerIdInSequence(JobSeeker.SEQUENCE_NAME));
         //jobSeeker.setJobSeekerId(UUID.randomUUID().toString());
         jobSeeker.setJobSeekerImage(file.getBytes());
@@ -73,9 +81,11 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public Recruiter saveRecruiterImage(Recruiter recruiter, MultipartFile file) throws RecruiterImageAlreadyExistException , IOException
     {
-        Role role = Role.RECRUITER;
-        recruiter.setRole("recruiter");
-        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.getRole());//
+//        Role role = Role.RECRUITER;
+//        recruiter.setRole("recruiter");
+//        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.getRole());//
+        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
+
 //        recruiter.setRecruiterId(UUID.randomUUID().toString());
         recruiter.setRecruiterImage(file.getBytes());
         if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
@@ -99,6 +109,41 @@ public class RegisterServiceImpl implements RegisterService
         }
         return organizationDetailsRepository.save(organizationDetails);
     }
+//---------------------------------------------------------------------------------------------------------------------
+
+//    @Override
+//    public Address saveAddressDetails(Address address) throws Exception
+//    {
+//        if (addressDetailsRepository.findById(address.getState()).isPresent())
+//        {
+//            throw new Exception();
+//        }
+//        else
+//        {
+//            return addressDetailsRepository.save(address);
+//        }
+//    }
+//---------------------------------------------------------------------------------------------------------------------
+
+//    @Override
+//    public Details saveExtraDetails(Details details) throws Exception
+//    {
+//        return null;
+//    }
+////---------------------------------------------------------------------------------------------------------------------
+//
+//    @Override
+//    public Education saveEducationDetails(Education education) throws Exception
+//    {
+//        if (educationDetailsRepository.findById(education.getEducation()).isPresent())
+//        {
+//            throw new Exception();
+//        }
+//        else
+//        {
+//            return educationDetailsRepository.save(education);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -144,6 +189,12 @@ public class RegisterServiceImpl implements RegisterService
     public List<Recruiter> getAllRecruiter() throws Exception
     {
         return recruiterRegisterRepository.findAll();
+    }
+
+    @Override
+    public List<OrganizationDetails> getAllOrganization() throws Exception
+    {
+        return organizationDetailsRepository.findAll();
     }
 
 //---------------------------------------------------------------------------------------------------------------------
