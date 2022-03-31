@@ -39,6 +39,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ChatbotComponent,
     JobApplyComponent,
     JobPostingComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    RegisterComponent,
+    LoginComponent
 
   ],
   imports: [
