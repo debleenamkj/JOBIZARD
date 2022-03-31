@@ -3,4 +3,19 @@ h1{
     color: #05595B;
     font-weight: bold;
     margin-top: 2%;
+    font-size: xx-large;
+}
+h2{
+    text-align: center;
+    color: #05595B;
+}
+h3{
+    text-align: center;
+    color: #05595B;
+    font-weight: bold;
+}
+button{
+    background-color: #54bab9;
+    padding: 5px;
+    color: white;
 }

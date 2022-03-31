@@ -146,6 +146,17 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
+    @GetMapping("/getAllOrganization")
+    public ResponseEntity<?> getAllOrganization() {
+        try {
+            return new ResponseEntity<>(registerService.getAllOrganization(), HttpStatus.OK);
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
     @GetMapping("/jobSeeker/getUserByFirstName/{firstName}")
     public ResponseEntity<?> getJobSeekerByFirstName(@PathVariable String firstName) throws JobSeekerNotFoundException {
         try {
