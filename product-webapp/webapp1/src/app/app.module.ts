@@ -44,6 +44,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -67,7 +68,6 @@ import { LearningPortalComponent } from './learning-portal/learning-portal.compo
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgModule,
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
@@ -103,7 +103,8 @@ import { LearningPortalComponent } from './learning-portal/learning-portal.compo
     MatDatepickerModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
