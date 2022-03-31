@@ -18,11 +18,16 @@ const routes: Routes = [
   {path : 'salary',component: SalaryTrendLabComponent},
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
+  {
+    path:"jobdetail",
+    component:JobDetailComponent,
+    
+  },
   {path:"chatbot",component:ChatbotComponent},
   {
     path:"jobdetail",
     component:JobDetailComponent,
-    pathMatch:"full"
+    
   },
   {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:'jobdetail',component:JobDetailComponent},

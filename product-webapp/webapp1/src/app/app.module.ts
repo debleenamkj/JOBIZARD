@@ -42,6 +42,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.co
     JobApplyComponent,
     JobPostingComponent,
     JobDetailComponent,
-    AssesmentPortalComponent
+    AssesmentPortalComponent,
+    RegisterComponent,
+    LoginComponent
 
   ],
   imports: [
