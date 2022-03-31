@@ -44,7 +44,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -71,7 +70,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    NgbModule,
     MatListModule,
     MatIconModule,
     MatSidenavModule,
