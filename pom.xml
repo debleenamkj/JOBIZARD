@@ -27,41 +27,15 @@
         <module>api-gateway</module>
         <module>product-webapp</module>
         <module>email-service</module>
-
-
-
-
         <module>cv-generation-service</module>
-
-
-
-        <module>cv-generation-service</module>
-
         <module>recommendation-service</module>
         <module>recruitment-service</module>
-
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
-
-
-
-
-
-        <module>cv-generation-service</module>
         <module>chatbot-service</module>
-<<<<<<< HEAD
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
-=======
-
-
-
-
-        <module>cv-generation-service</module>
-        <module>chatbot-service</module>
-
->>>>>>> cd1805fc4e53d6fc2cc0c8e78e508628dbd98062
     </modules>
 
     <dependencies>
