@@ -1,13 +1,31 @@
 
-<h1>Salary Trends</h1>
-<div class="container">
+<mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem;"><h1>Salary Trends</h1></mat-card>
+<div class="container-fluid">
     <div class="row">
-        <div class="col-xl-4 col-md-12">
-            <input type="text" [(ngModel)]="jobTitle" placeholder="Please Enter a Job Title"/>
-            <button (click)="selectedTitle()">Get Details</button>
+        <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1%;">
+            <mat-card style="padding-top: 13%; padding-bottom: 25%; text-align: center;">
+                <mat-card-title>Generate the trending salary graph based on the average salary and the standard salary in the recent year by selecting from the folowing</mat-card-title><br><br>
+            <mat-form-field appearance="outline" style="width: 90%;">
+                <mat-label>Please Enter a Job Title</mat-label>
+            <input matInput type="text" [(ngModel)]="jobTitle" placeholder="Please Enter a Job Title"/>
+            </mat-form-field>
+            <mat-form-field appearance="fill" style="width: 90%; margin-top: 2%;">
+                <mat-label>Graph Type</mat-label>
+                <mat-select [(ngModel)]="myGraph">
+                  <mat-option *ngFor="let graphs of graphType" value="{{graphs}}">
+                    {{graphs}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field> 
+            <br>
+            <button mat-raised-button (click)="selectedTitle()">Get Details</button>
+        </mat-card>
         </div>
-        <div class="col-xl-8 col-md-12">
-
+        <div class="col-xl-9 col-md-8 col-s-12"  style="margin-top: 1%; text-align: center;">
+            <mat-card>
+                <img src="{{url}}"/>
+                <h2 style="text-align: center;">{{errorMessage}}</h2>
+            </mat-card>
         </div>
     </div>
 </div>
