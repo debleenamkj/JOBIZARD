@@ -3,8 +3,8 @@ package com.stackroute.resourcesservice.service;
 import com.stackroute.resourcesservice.domain.Suggestion;
 import com.stackroute.resourcesservice.exception.SuggestionAlreadyExistsException;
 import com.stackroute.resourcesservice.exception.SuggestionNotFoundException;
-import com.stackroute.resourcesservice.repository.AggregateDTO.SkillAggregate;
-import com.stackroute.resourcesservice.repository.AggregateDTO.SourceUrlAggregate;
+import com.stackroute.resourcesservice.AggregateDTO.SkillAggregate;
+import com.stackroute.resourcesservice.AggregateDTO.SourceUrlAggregate;
 
 import java.util.List;
 

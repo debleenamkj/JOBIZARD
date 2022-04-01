@@ -25,7 +25,9 @@ export class JobPostingComponent implements OnInit {
   }
 
   isLinear = false;
+
   isEditable = false;
+
 
   date = new Date();
 
@@ -55,16 +57,8 @@ export class JobPostingComponent implements OnInit {
   
    upimage:any;
 onFileChanged(event: any) {
+  console.log("onchange");
   const files = event.target.files[0];
-//  this.upimage =   URL.createObjectURL(event.target.files[0]);
-  // if (files.length === 0)
-  //     return;
-
-  // const mimeType = files[0].type;
-  // if (mimeType.match(/image\/*/) == null) {
-  //    // this.message = "Only images are supported.";
-  //     return;
-  // }
 
   const reader = new FileReader();
   //this.post.companyLogo = files;
@@ -72,6 +66,7 @@ onFileChanged(event: any) {
   reader.onload = (_event) => { 
     console.log(reader.result);
       this.upimage = reader.result; 
+      console.log(this.upimage);
   }
 
 }
@@ -91,11 +86,11 @@ onFileChanged(event: any) {
     this.post.experience= this.requirementsForm.controls['experience'].value;
   }
 
-  preview1(date : any){
+  preview1(){
     this.post.jobRole=this.jobForm.controls['jobTitle'].value;
     this.post.jobDescription=this.jobForm.controls['jobDescription'].value;
     this.post.location=this.jobForm.controls['location'].value;
-    this.post.lastDate=date;
+    this.post.lastDate=this.jobForm.controls['lastDate'].value;
     this.post.salary=this.jobForm.controls['salary'].value;
   }
   company(){ 

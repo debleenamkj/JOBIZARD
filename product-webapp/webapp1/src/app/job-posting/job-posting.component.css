@@ -1,8 +1,22 @@
 .bg{
-    background-image: url('bg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
+    /* background-image: url('bg.png');
+    background-image: linear-gradient(to right, #6E2586,#B11784);
+    background-clip: border-box;
+    border: 2px; */
+    border: 7px solid #4E1B5F;
+    /* border-color: -moz-linear-gradient(top, #6E2586,#B11784); */
 }
 .finish{
    display:none;
+}
+.text{
+  background-image: linear-gradient( #6E2586,#B11784);
+  background-clip: text;
+  color: transparent;
+}
+.text1{
+    color: #4E1B5F;
+}
+.text2{
+    color: #6E2586;
 }
