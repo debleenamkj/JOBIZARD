@@ -10,7 +10,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SuggestionAggregate {
-    private @Id String skillType;
-    private List<String> source;
+public class SkillAggregate {
+    @Id
+    private String category;
+    private List<String> skillTypes;
 }
