@@ -1,0 +1,60 @@
+<div class="container col-md-6">
+    <br>
+    <br>
+<h1 style="color: rgb(87, 187, 233);">Register Recruiter</h1>
+    
+<mat-form-field appearance="fill">
+  <mat-label>User Register Type</mat-label>
+  <mat-select>
+    <mat-option >
+      <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/jobSeekerRegister">JobSeeker</a>
+    </mat-option>
+
+    <mat-option>
+      <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Register</a>
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+    <form (ngSubmit)="recruiterRegister()">
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email-ID</label>
+        <input type="text" class="form-control"  placeholder="Enter the user Email-ID" id="emailId" name="emailId" [(ngModel)]="recruiter.emailId" >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+        <input type="text" class="form-control" placeholder="Enter the First Name" id="firstName" name="firstName" [(ngModel)]="recruiter.firstName" >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
+        <input type="text" class="form-control" placeholder="Enter the Middle Name" id="middleName" name="middleName" [(ngModel)]="recruiter.middleName" >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" placeholder="Enter the Last Name" id="lastName" name="lastName" [(ngModel)]="recruiter.lastName" >
+      </div>
+
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+        <input type="text" class="form-control" placeholder="Enter the user Gender" id="gender" name="gender" [(ngModel)]="recruiter.gender" >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
+        <input type="number" class="form-control" placeholder="Enter the Mobile Number" id="mobileNumber" name="mobileNumber" [(ngModel)]="recruiter.mobileNumber" >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Password</label>
+        <input type="text" class="form-control" placeholder="Enter the user password" id="password" name="password" [(ngModel)]="recruiter.password" >
+      </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+  

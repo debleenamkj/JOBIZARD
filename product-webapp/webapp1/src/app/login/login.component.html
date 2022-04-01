@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container col-md-6">
+    <br>
+    <br>
+      
+<h1 style="color: rgba(14, 173, 54, 0.582);"> User Login Page</h1>
+    <form (ngSubmit)="userLogin()">
+     
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email-ID</label>
+          <input type="text" class="form-control" placeholder="Enter the user Email-Id" id="emailIssd" name="emailId" [(ngModel)]="user.emailId">
+      </div>
+        
+      <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Password</label>
+          <input type="password" class="form-control" placeholder="Enter the user password" id="password" name="password" [(ngModel)]="user.password" >
+      </div>
+
+       <button type="submit" class="btn btn-success">login</button>
+    </form>
+
+</div>
