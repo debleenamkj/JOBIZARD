@@ -1,21 +1,29 @@
 h1{
     text-align: center;
-    color: #05595B;
+    color: white;
     font-weight: bold;
     margin-top: 2%;
     font-size: xx-large;
 }
 h2{
     text-align: center;
-    color: #05595B;
+    color: #4E1B5F;
 }
 h3{
     text-align: center;
-    color: #05595B;
+    color: #4E1B5F;
     font-weight: bold;
 }
 button{
-    background-color: #54bab9;
+    background-image: linear-gradient(to right, #6E2586,#B11784);
     padding: 5px;
+    width: 100px;
+    font-size: large;
     color: white;
+}
+mat-card-title{
+    line-height: 2rem;
+    color: #4E1B5F;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
 }
