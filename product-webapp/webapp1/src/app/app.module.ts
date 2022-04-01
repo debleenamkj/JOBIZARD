@@ -38,6 +38,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -106,7 +107,9 @@ import { LoginComponent } from './login/login.component';
     MatCheckboxModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatProgressBarModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
