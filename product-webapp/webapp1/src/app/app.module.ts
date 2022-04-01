@@ -106,7 +106,8 @@ import { LoginComponent } from './login/login.component';
     MatCheckboxModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatSliderModule
+    MatSliderModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.index.Indexed;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class User {
     @Indexed(unique = true)
     private int userId;
