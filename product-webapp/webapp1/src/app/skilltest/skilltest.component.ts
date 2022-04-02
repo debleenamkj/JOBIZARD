@@ -11,6 +11,7 @@ export class SkilltestComponent implements OnInit {
 
   // counter=90;
   ngOnInit(): void {
+    console.log("hi");
   this.startTimer();
 //   let doc = document.getElementsByClassName("timer") as HTMLCollectionOf<HTMLElement>;
 //   doc[0].innerHTML="helloo";
