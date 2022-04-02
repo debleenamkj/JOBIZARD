@@ -23,6 +23,9 @@ const routes: Routes = [
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {
+    path:'cv-generation',component:CvGenerationComponent
+  },
+  {
     path:"jobdetail",
     component:JobDetailComponent,
     

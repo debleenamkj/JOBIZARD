@@ -11,7 +11,6 @@ import java.util.List;
 
 @Document(collection = "companyReviews")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Company {
     @Id
