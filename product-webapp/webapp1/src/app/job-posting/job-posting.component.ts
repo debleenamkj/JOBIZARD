@@ -26,7 +26,7 @@ export class JobPostingComponent implements OnInit {
 
   isLinear = false;
 
-  isEditable = false;
+  // isEditable = false;
 
 
   date = new Date();
@@ -81,12 +81,14 @@ onFileChanged(event: any) {
     this.post.companyLogo=this.upimage;
     // console.log(this.post);
     // console.log(this.date);
-
+    console.log("preview1");
     this.post.eduation= this.requirementsForm.controls['education'].value;
     this.post.experience= this.requirementsForm.controls['experience'].value;
   }
 
   preview1(){
+    console.log("date");
+    console.log(this.jobForm.value.lastDate);
     this.post.jobRole=this.jobForm.controls['jobTitle'].value;
     this.post.jobDescription=this.jobForm.controls['jobDescription'].value;
     this.post.location=this.jobForm.controls['location'].value;
