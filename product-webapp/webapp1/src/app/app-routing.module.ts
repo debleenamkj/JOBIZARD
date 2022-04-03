@@ -14,6 +14,7 @@ import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.co
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { LoginComponent } from './login/login.component';
+import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 
 const routes: Routes = [
   {path: 'trend',component: TrendLabComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
     
   },
   {path:"assesmentportal",component:AssesmentPortalComponent},
+  {path:"assesmenttest",component:AssesmentTestPortalComponent},
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
 

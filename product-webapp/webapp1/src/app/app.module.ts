@@ -47,6 +47,7 @@ import { LoginComponent } from './login/login.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     SkilltestComponent,
     LoginComponent,
     JobSeekerRegisterComponent,
-    RecruiterRegisterComponent
+    RecruiterRegisterComponent,
+    AssesmentTestPortalComponent
 
   ],
   imports: [
