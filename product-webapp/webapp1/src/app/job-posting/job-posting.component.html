@@ -1,156 +1,151 @@
-<mat-stepper linear #stepper  color="accent">
-  <mat-step [stepControl]="companyForm" style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
-    <!-- <mat-step-label style="display: inline-block;">Company details</mat-step-label> -->
+<mat-stepper color="accent" #stepper>
+  <mat-step [stepControl]="companyForm" errorMessage="Fields required." style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
     <ng-template matStepLabel>
       <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Company Details</span>
     </ng-template>
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-      </mat-form-field> -->
-      <div class="">
-        <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
-          <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3" >
-            <div style="margin-left: 2%; height: 120%;">
-              
-              <div>
-                <p style="width:30%; display: inline-block; font-size: 150%">Company Name :</p>
-                <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                  <mat-label>Company Name</mat-label>
-                <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required (change)="preview()">
-              </mat-form-field>
-            </div>
-            <div>
-              <p style="width:30%; display: inline-block; font-size: 150%">Company Url :</p>
-              <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                <mat-label>Company Url</mat-label>
-              <input matInput placeholder="Company url" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyUrl" required (change)="preview()">
-            </mat-form-field>
-          </div>
-          <div>
-            <p style="width:30%; display: inline-block; font-size: 150%">Company Email :</p>
-              <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                <mat-label>Company Email</mat-label>
-                <input matInput placeholder="Company Email"style="padding:0 20px; width: 100%; border: none; margin-left: 20px; display: inline-block; " formControlName="companyEmail" required (change)="preview()">
-              </mat-form-field>
-          </div>
-          <div>
-            <p style="width:30%; display: inline-block; font-size: 150%">Industry Type :</p>
-              <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                <mat-label>Industry Type</mat-label>
-                <input matInput placeholder="Industry Type" style="padding: 0; width: 65%; margin-left: 20px; display: inline-block;"formControlName="industryType" required (change)="preview()">
-              </mat-form-field>
-          </div>
-              <div>
-                <p style="width:30%; display: inline-block; font-size: 150%">Company logo :</p>
-                <input type="file" placeholder="Company logo" style=" padding: 5px; width: 65%;  margin-left: 20px; margin-top: 2%; display: inline-block;" formControlName="companyLogo" (change)="onFileChanged($event)">
-              </div>
-              </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
-             
-              <br>
-          </form><br><br>
-          </div>
-    
-      <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
-        <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
-        <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
-        <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
-          <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Company details :</h2>
-          <div class="details" style="margin-left: 10%;">
-          <img style="margin-left: 30%;" src="{{upimage}}" width="30%"> <br><br>
-          <p>Company Name : {{post.companyName}}</p>
-          <p>Company Email : {{post.companyEmail}}</p>
-          <p>Company Url : {{post.companyUrl}}</p>
-          <p>Industry Type : {{post.industryType}}</p>
-          <br>
-          <br>
-          </div>
+    <div class="">
+      <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
+    <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3">
+      <div style="margin-left: 2%; height: 120%;">
+        <div>
+          <p style="width:30%; display: inline-block; font-size: 150%">Company Name :</p>
+          <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+            <mat-label>Company Name</mat-label>
+          <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required (change)="preview()">
+        </mat-form-field>
+      </div>
+      <div>
+        <p style="width:30%; display: inline-block; font-size: 150%">Company Url :</p>
+        <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+          <mat-label>Company Url</mat-label>
+        <input matInput placeholder="Company url" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyUrl" required (change)="preview()">
+      </mat-form-field>
+    </div>
+    <div>
+      <p style="width:30%; display: inline-block; font-size: 150%">Company Email :</p>
+        <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+          <mat-label>Company Email</mat-label>
+          <input matInput placeholder="Company Email"style="padding:0 20px; width: 100%; border: none; margin-left: 20px; display: inline-block; " formControlName="companyEmail" required (change)="preview()">
+        </mat-form-field>
+    </div>
+    <div>
+      <p style="width:30%; display: inline-block; font-size: 150%">Industry Type :</p>
+        <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+          <mat-label>Industry Type</mat-label>
+          <input matInput placeholder="Industry Type" style="padding: 0; width: 65%; margin-left: 20px; display: inline-block;"formControlName="industryType" required (change)="preview()">
+        </mat-form-field>
+    </div>
+        <div>
+          <p style="width:30%; display: inline-block; font-size: 150%">Company logo :</p>
+          <input type="file" placeholder="Company logo" style=" padding: 5px; width: 65%;  margin-left: 20px; margin-top: 2%; display: inline-block;" formControlName="companyLogo" (change)="onFileChanged($event)">
         </div>
-        <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
+      </div>
+      <div>
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
+               
         <br>
+        <!-- <p>Go to a different step to see the error state</p>
+        <button mat-button matStepperNext>Next</button> -->
       </div>
+    </form>
+    </div>
+
+    <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
+      <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
+      <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
+      <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
+        <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Company details :</h2>
+        <div class="details" style="margin-left: 10%;">
+        <img style="margin-left: 30%;" src="{{upimage}}" width="30%"> <br>
+        <p>Company Name : {{post.companyName}}</p>
+        <p>Company Email : {{post.companyEmail}}</p>
+        <p>Company Url : {{post.companyUrl}}</p>
+        <p>Industry Type : {{post.industryType}}</p>
+        <br>
+        <br>
+        </div>
       </div>
+      <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
+      <br>
+    </div>
+    </div>
   </mat-step>
-
-
-  <mat-step [stepControl]="jobForm" style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
-    <!-- <mat-step-label style="display: inline-block;">Company details</mat-step-label> -->
+  <mat-step [stepControl]="jobForm" errorMessage="Fields required." style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
     <ng-template matStepLabel>
       <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Job Details</span>
     </ng-template>
-      <div class="">
-        <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
-          <form [formGroup]="jobForm" style="width: 100%; padding: 15px; "class="col-3" editable="true">
-            <div style="margin-left: 2%; height: 120%;">
-              
-              <div>
-                <p style="width:30%; display: inline-block; font-size: 150%;">Job Title :</p>
-                 <mat-form-field color="accent" appearance="fill" style="width:60%">
-                  <mat-label>Job Title</mat-label>
-                <input matInput placeholder="Job Title" style=" margin-left: 20px; display: inline-block;" formControlName="jobTitle" required (change)="preview1()">
-              </mat-form-field>
-              </div>
-              <div>
-                <p style="width:30%; display: inline-block; font-size: 150%;">Job Description :</p>
-                <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                  <mat-label>Job description</mat-label>
-                  <textarea #description matInput placeholder="Job Description" maxlength="300" (change)="preview1()"></textarea>
-                  <mat-hint style="font-size: small;" align="end">{{description.value.length}} / 300</mat-hint>
-                </mat-form-field>
-              </div>
-              <div style="margin-top: 1%;">
-                <p style="width:30%; display: inline-block; font-size: 150%;">Location :</p>
-              <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                <mat-label>Location</mat-label>
-                <input matInput placeholder="Location"style="margin-left: 20px; display: inline-block;"formControlName="location" required (change)="preview1()">
-              </mat-form-field>
-              </div>
-              <div>
-                <p style="width:30%; display: inline-block; font-size: 150%;">Salary :</p>
-              <mat-form-field color="accent" appearance="fill" style="width:60%">
-                <mat-label>Salary</mat-label>
-                <input matInput placeholder="Salary" style=" margin-left: 20px; display: inline-block;"formControlName="salary" (change)="preview1()">
-              </mat-form-field>
-              </div>
-              <div>
-                <p style="width:30%; display: inline-block; font-size: 150%;">Last date to apply :</p>
-                <mat-form-field color="accent" appearance="fill" style="width: 60%;">
-                <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="lastDate" (change)="preview()">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field><br>
-              </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
-              <button mat-button matStepperPrevious style=" margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
-              <button mat-button matStepperNext>Next</button>
-              </div>
-              <br>
-          </form><br><br>
-          </div>
-    
-      <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
-        <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
-        <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
-        <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
-          <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Job details :</h2>
-          <div class="details" style="margin-left: 10%;">
-          <br>
-          <p>Job Title : {{post.jobRole}}</p>
-          <p>Job Description: {{post.jobDescription}}</p> 
-          <p>Job Location : {{post.location}}</p>
-          <p>Salary : {{post.salary}}</p>
-          <p>Last date to apply : {{post.lastDate}}</p>
-          <br>
-          <br>
-          </div>
+    <div class="">
+      <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
+    <form [formGroup]="jobForm" style="width: 100%; padding: 15px; "class="col-3">
+      <div style="margin-left: 2%; height: 120%;">
+                
+        <div>
+          <p style="width:30%; display: inline-block; font-size: 150%;">Job Title :</p>
+           <mat-form-field color="accent" appearance="fill" style="width:60%">
+            <mat-label>Job Title</mat-label>
+          <input matInput placeholder="Job Title" style=" margin-left: 20px; display: inline-block;" formControlName="jobTitle" required (change)="preview1()">
+        </mat-form-field>
         </div>
-        <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
+        <div>
+          <p style="width:30%; display: inline-block; font-size: 150%;">Job Description :</p>
+          <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+            <mat-label>Job description</mat-label>
+            <textarea #description matInput placeholder="Job Description" maxlength="300" (change)="preview2(description.value)"></textarea>
+            <mat-hint style="font-size: small;" align="end">{{description.value.length}} / 300</mat-hint>
+          </mat-form-field>
+        </div>
+        <div style="margin-top: 1%;">
+          <p style="width:30%; display: inline-block; font-size: 150%;">Location :</p>
+        <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+          <mat-label>Location</mat-label>
+          <input matInput placeholder="Location"style="margin-left: 20px; display: inline-block;"formControlName="location" required (change)="preview1()">
+        </mat-form-field>
+        </div>
+        <div>
+          <p style="width:30%; display: inline-block; font-size: 150%;">Salary :</p>
+        <mat-form-field color="accent" appearance="fill" style="width:60%">
+          <mat-label>Salary</mat-label>
+          <input matInput placeholder="Salary" style=" margin-left: 20px; display: inline-block;"formControlName="salary" (change)="preview1()">
+        </mat-form-field>
+        </div>
+        <div>
+          <p style="width:30%; display: inline-block; font-size: 150%;">Last date to apply :</p>
+          <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" #date formControlName="lastDate" (dateChange)="preview1()">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br>
+        </div>
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
+        <button mat-button matStepperPrevious style=" margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
+        </div>
         <br>
+    </form>
+    </div>
+
+    <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
+      <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
+      <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
+      <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
+        <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Job details :</h2>
+        <div class="details" style="margin-left: 10%;">
+        <br>
+        <p>Job Title : {{post.jobRole}}</p>
+        <p>Job Description: {{jobDescription}}</p> 
+        <p>Job Location : {{post.location}}</p>
+        <p>Salary : {{post.salary}}</p>
+        <p>Last date to apply : {{post.lastDate}}</p>
+        <br>
+        <br>
+        </div>
       </div>
-      </div>
+      <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
+      <br>
+    </div>
+    </div>
   </mat-step>
+
   <mat-step [stepControl]="requirementsForm" >
     <ng-template matStepLabel>
       <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Requirements</span>
@@ -161,26 +156,29 @@
             <div style="margin-left: 2%; height: 120%;">
               <div>
                 <p style="width:30%; display: inline-block; font-size: 150%;">Eduaction :</p>
-              <mat-form-field appearance="fill" style="width: 60%;">
-                <input matInput placeholder="Eduaction" style="margin-left: 20px; display: inline-block;" formControlName="education" required>
+              <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+                <mat-label>Eduaction</mat-label>
+                <input matInput placeholder="Eduaction" style="margin-left: 20px; display: inline-block;" formControlName="education" required (change)="preview()">
               </mat-form-field><br>
               </div>
               <div>
                 <p style="width:30%; display: inline-block; font-size: 150%;">Experience Required :</p>
-              <mat-form-field appearance="fill" style="width: 60%;">
-                <input matInput placeholder="Experience Required" style="margin-left: 20px; display: inline-block;" formControlName="experience" required>
+              <mat-form-field color="accent" appearance="fill" style="width: 60%;">
+                <mat-label>Experience</mat-label>
+                <input matInput placeholder="Experience Required" style="margin-left: 20px; display: inline-block;" formControlName="experience" required (change)="preview()">
               </mat-form-field>
               </div>
               <div>
                 <p style="width:30%; display: inline-block; font-size: 150%; margin-top: 4%;">Skills Required :</p>
-              <mat-form-field class="example-chip-list" appearance="fill" style="width:60%">
+              <mat-form-field color="accent" class="example-chip-list" appearance="fill" style="width:60%">
                 <!-- <mat-label>Skills Required</mat-label> -->
                 <mat-chip-list #chipList >
-                  <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)" style="background-color: #F84876; color: white;" >
+                  <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)" style="padding: 3px 10px; background-color:rgb(110,37,134); color: white;" >
                     {{fruit.name}}
                     <button matChipRemove>
                       <mat-icon>cancel</mat-icon>
                     </button>
+                    <!-- background-color: #F84876; -->
                   </mat-chip>
                   <input placeholder="Skills Required."
                          [matChipInputFor]="chipList"
@@ -192,9 +190,8 @@
              </div>
          
               </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-color: #54BAB9; padding: 0px 25px; border: none; color: white; border-radius: 5px; float: right;" (click)="company()">Next</button> 
-               <button mat-button style=" margin-top: 6%; background-color: #54BAB9; padding: 0px 25px; border: none; color: white; border-radius: 5px; float: right; margin-right: 20px;" (click)="preview()">Preview</button>
-               <button mat-button matStepperPrevious style=" margin-top: 6%; background-color: #54BAB9; padding: 0px 25px; border: none; color: white; border-radius: 5px; float: right; margin-right: 20px;">Back</button>
+              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
+              <button mat-button matStepperPrevious style=" margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
               <br>
           </form><br><br>
           </div>
@@ -203,14 +200,15 @@
         <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
         <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
         <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
-          <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Job details :</h2>
+          <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Requirements :</h2>
           <div class="details" style="margin-left: 10%;">
           <br>
-          <p>Job Title : {{post.jobRole}}</p>
-          <p>Job Description: {{post.jobDescription}}</p> 
-          <p>Job Location : {{post.location}}</p>
-          <p>Salary : {{post.salary}}</p>
-          <p>Last date to apply : {{post.lastDate}}</p>
+          <p>Education : {{post.eduation}}</p>
+          <p>Experience Required: {{post.experience}}</p> 
+          <p>Skills Required :</p>
+          <ul style="margin-left: 5%;" *ngFor="let fruit of fruits">
+            <li>{{fruit.name}}</li>
+          </ul>
           <br>
           <br>
           </div>
@@ -220,11 +218,18 @@
       </div>
       </div>
   </mat-step>
+
+
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+    <ng-template matStepLabel>
+      <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Done</span>
+    </ng-template>
+    <div style="text-align: center;">
+      <button mat-button style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 55px; border: none; color: white; border-radius: 5px;   " (click)="finish()">Finish</button><br><br>
+      <!-- <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button> -->
+      <h1 style="font-size: xx-large;">Click Finish to post a Job</h1><br><br>
+      <h1 class="text finish" style="font-size: 450%; font-weight: bold; padding: 25px;">Job Posted !!!</h1><br>
     </div>
   </mat-step>
+</mat-stepper>
