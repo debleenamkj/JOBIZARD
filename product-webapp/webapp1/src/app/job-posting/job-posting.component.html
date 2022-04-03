@@ -10,7 +10,7 @@
       </mat-form-field> -->
       <div class="">
         <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
-          <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3" editable="true">
+          <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3" >
             <div style="margin-left: 2%; height: 120%;">
               
               <div>
@@ -117,13 +117,14 @@
                 <p style="width:30%; display: inline-block; font-size: 150%;">Last date to apply :</p>
                 <mat-form-field color="accent" appearance="fill" style="width: 60%;">
                 <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="lastDate" (change)="preview1()">
+                <input matInput [matDatepicker]="picker" formControlName="lastDate" (change)="preview()">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field><br>
               </div>
               <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
               <button mat-button matStepperPrevious style=" margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
+              <button mat-button matStepperNext>Next</button>
               </div>
               <br>
           </form><br><br>
