@@ -47,6 +47,10 @@ import { LoginComponent } from './login/login.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
+import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
+import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
+
 
 
 @NgModule({
@@ -70,8 +74,10 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     SkilltestComponent,
     LoginComponent,
     JobSeekerRegisterComponent,
-    RecruiterRegisterComponent
-
+    RecruiterRegisterComponent,
+    CvTemplate1Component,
+    CvTemplate2Component,
+    CvTemplate3Component,
   ],
   imports: [
     BrowserModule,

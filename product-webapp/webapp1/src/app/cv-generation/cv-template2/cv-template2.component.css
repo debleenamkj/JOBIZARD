@@ -12,7 +12,7 @@ body{
 .cv-template {
   display: flex;
   justify-content: space-around;
-  height: 130%;
+  height: 180%;
   width: 80%;
   color: rgb(83, 83, 83);
   font-family: 'Josefin Sans', sans-serif;
@@ -107,11 +107,16 @@ mat-icon {
 .exp-content{
   text-align: center;
   text-transform: uppercase;
-  margin: 1px;
+  margin: 0px;
 }
 .exp-details{
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 100%;
   color: rgb(83, 83, 83);
+}
+li{
+  text-align:left;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 150%;
 }
