@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-skilltest',
@@ -7,13 +9,104 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkilltestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:HttpClient) { }
+
+  data : any = {name :"",questions:""};
+  question: any ={question:"",a:"",b:"",c:"",d:""};
+  no_of_questions:any=[];
+  answers:any=[];
+  bookmarks:any=[]
 
   ngOnInit(): void {
+    this.welcome()
+    let qno =0;
+
+    this.service.get("http://localhost:3000/test").subscribe(data =>{
+      console.log(data);
+      this.data = data;
+     this.ques_counter(this.data.no_of_questions);
+     console.log(qno);
+      console.log(this.data)
+    })
   this.startTimer();
+  setTimeout(() => {
+    this.getQuestion(1);   
+  }, 1000);
+
+
+}
+
+options: string="";
+
+bookmark(qno:number){
+  this.bookmarks[qno]="true";
+  let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
+  console.log(bookmark);
+  console.log(bookmark[qno]);
+  bookmark[qno].style.backgroundColor='#00CED1';
+}
+
+// unmark(qno:number){
+//   let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
+//   console.log(bookmark);
+//   console.log(bookmark[qno]);
+//   bookmark[qno].style.backgroundColor='#4E1B5F';
+// }
+
+option(qno:number){
+  console.log("options in");
+  if(this.answers[qno]==""){
+    console.log("optionss");
+   
+  }
+  else if(this.answers[qno]!=""){
+    console.log(this.answers);
+    let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
+    bookmark[qno].style.backgroundColor='#4E1B5F';
+    console.log("options checked");
+  }
+}
+
+changeColor(qno:number){
+  console.log(qno);
+  console.log(this.bookmarks);
+  let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
+  if(this.bookmarks[qno-2]=="true"){
+    console.log(this.bookmarks[qno]);
+    bookmark[qno-2].style.backgroundColor ='#00CED1';
+  }
+  else if(this.answers[qno-1]!=""){
+    console.log("changcolor");
+    console.log(this.answers[qno]);
+    setTimeout(() => {
+      bookmark[qno-2].style.backgroundColor='#4E1B5F';   
+    }, 200);
+   
+  }
+}
+
+  getQuestion(qno : number){
+    let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
+    if(this.answers[qno]==""){
+      bookmark[qno-1].style.backgroundColor='rgb(177,23,132)';
+      this.options = "";
+    }
+    // else if(this.answers[qno]!=""){
+    //   bookmark[qno].style.backgroundColor='#4E1B5F';
+    // }
+      let questions = new Array();
+      questions.push(this.data.questions);
+
+      for (let index = 0; index < questions[0].length; index++) {
+        if(questions[0][index].qno==qno)
+        this.question = questions[0][index];
+      }
+      console.log(this.question); 
+      // this.option(qno-1);
   }
 
-  counter : any;
+  // counter = {"min":0,"sec":0};
+  counter : any= { min: 15, sec: "00" }
 
   startTimer() {
     this.counter = { min: 15, sec: "00" } // choose whatever you want
@@ -51,6 +144,24 @@ export class SkilltestComponent implements OnInit {
    
     }, 1000)
   }
+
+  ques_counter(i: number) {
+    var arr = new Array();
+    for (let index = 1; index <= i; index++) {
+       console.log(index);
+        arr.push(index);
+        this.answers[index]="";
+        this.bookmarks[index]="";
+    }
+    this.no_of_questions = arr;
+    console.log(this.no_of_questions)
+    console.log(this.answers);
+    return arr;
+}
+
+welcome(){
+  console.log("hello");
+}
   
 
 }
