@@ -44,6 +44,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { LoginComponent } from './login/login.component';
     JobDetailComponent,
     AssesmentPortalComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateDetailsComponent
 
   ],
   imports: [
