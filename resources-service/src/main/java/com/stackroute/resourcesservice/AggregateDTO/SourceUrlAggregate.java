@@ -1,4 +1,4 @@
-package com.stackroute.resourcesservice.repository.AggregateDTO;
+package com.stackroute.resourcesservice.AggregateDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,8 @@ import org.springframework.data.annotation.Id;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class SuggestionAggregate {
+public class SourceUrlAggregate {
     private @Id String skillType;
     private List<String> source;
 }

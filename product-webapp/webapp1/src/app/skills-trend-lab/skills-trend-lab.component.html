@@ -1,10 +1,10 @@
-<h1>Skill Trends</h1>
+<mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem;"><h1>Skill Trends</h1></mat-card>
 <div class="container-fluid" style="text-align: center;">
     <div class="row">
         <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1%;">
-            <mat-card style="background-color: #e9dac1; padding-top: 15%; padding-bottom: 15%;">
+            <mat-card style=" padding-top: 15%; padding-bottom: 28%;">
               <mat-card-title>Generate the trending skill graph based on how many company is requiring the skill by selecting from the folowing</mat-card-title><br><br>
-            <mat-form-field appearance="fill" style="width: 300px;">
+            <mat-form-field appearance="fill" style="width: 90%;">
                 <mat-label>Choose Skills</mat-label>
                 <mat-select [(ngModel)]="mySkills">
                     <mat-option value="" disabled selected hidden>{{mySkills}}</mat-option>
@@ -14,7 +14,7 @@
                 </mat-select>
               </mat-form-field> 
             <br>
-            <mat-form-field appearance="fill" style="width: 300px;">
+            <mat-form-field appearance="fill" style="width: 90%;">
                 <mat-label>Graph Type</mat-label>
                 <mat-select [(ngModel)]="myGraph">
                   <mat-option *ngFor="let graphs of graphType" value="{{graphs}}">
@@ -23,7 +23,7 @@
                 </mat-select>
               </mat-form-field> 
           <br><br>
-            <button mat-raised-button [disabled]="valid()" (click)="selectedSkill()">Apply</button>
+            <button mat-raised-button [disabled]="valid()" (click)="selectedSkill()" style="color: white;">Apply</button>
             </mat-card>
         </div>
       

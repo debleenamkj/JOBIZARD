@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 public class Review {
     @Transient

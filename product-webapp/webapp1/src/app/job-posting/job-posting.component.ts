@@ -25,7 +25,9 @@ export class JobPostingComponent implements OnInit {
   }
 
   isLinear = false;
+
   isEditable = false;
+  jobDescription:string="";
 
   date = new Date();
 
@@ -41,7 +43,7 @@ export class JobPostingComponent implements OnInit {
 
    jobForm = this.fb.group({
     jobTitle:['', Validators.required],
-    jobDescription:['', Validators.required],
+    //jobDescription:['', Validators.required],
     location:['', Validators.required],
     salary:"",
     lastDate:['', Validators.required],
@@ -55,16 +57,8 @@ export class JobPostingComponent implements OnInit {
   
    upimage:any;
 onFileChanged(event: any) {
+  console.log("onchange");
   const files = event.target.files[0];
-//  this.upimage =   URL.createObjectURL(event.target.files[0]);
-  // if (files.length === 0)
-  //     return;
-
-  // const mimeType = files[0].type;
-  // if (mimeType.match(/image\/*/) == null) {
-  //    // this.message = "Only images are supported.";
-  //     return;
-  // }
 
   const reader = new FileReader();
   //this.post.companyLogo = files;
@@ -72,6 +66,7 @@ onFileChanged(event: any) {
   reader.onload = (_event) => { 
     console.log(reader.result);
       this.upimage = reader.result; 
+      console.log(this.upimage);
   }
 
 }
@@ -86,17 +81,29 @@ onFileChanged(event: any) {
     this.post.companyLogo=this.upimage;
     // console.log(this.post);
     // console.log(this.date);
-
+    console.log("preview1");
     this.post.eduation= this.requirementsForm.controls['education'].value;
     this.post.experience= this.requirementsForm.controls['experience'].value;
   }
 
-  preview1(date : any){
+  preview1(){
+    console.log("description");
+    console.log(this.jobForm.value);
+    console.log(this.jobForm.value.lastDate);
     this.post.jobRole=this.jobForm.controls['jobTitle'].value;
-    this.post.jobDescription=this.jobForm.controls['jobDescription'].value;
+    this.post.jobDescription=this.jobForm.value.jobDescription;
     this.post.location=this.jobForm.controls['location'].value;
-    this.post.lastDate=date;
+    let lastDate=this.jobForm.controls['lastDate'].value;
+    this.post.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
     this.post.salary=this.jobForm.controls['salary'].value;
+  }
+
+  preview2(description:any){
+    this.jobDescription=description;
+  }
+
+  previewdate(date:any){
+      this.post.lastDate = date;
   }
   company(){ 
   
@@ -122,7 +129,7 @@ onFileChanged(event: any) {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [{name: 'skills'}];
+  fruits: Fruit[] = [];
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
