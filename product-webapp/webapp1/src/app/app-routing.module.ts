@@ -18,6 +18,7 @@ import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-
 
 import { RegisterComponent } from './register/register.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
+import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 
 const routes: Routes = [
@@ -50,7 +51,8 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"jobSeekerRegister",component:JobSeekerRegisterComponent},
   {path:"recruiterRegister",component:RecruiterRegisterComponent},
-  {path:"userLogin",component:LoginComponent}
+  {path:"userLogin",component:LoginComponent},
+  {path:"updateDetails",component:UpdateDetailsComponent}
 
 ];
 
