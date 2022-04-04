@@ -17,35 +17,37 @@ export class LearningPortalComponent implements OnInit {
     config.pauseOnFocus = true;
     config.pauseOnHover = true;
 
-    this.getCompanies().subscribe(response=>{
+    this.getCompanies().subscribe((response: CompanyDetails[])=>{
       this.companies = response;
       this.retrieveLogos(this.companies)
       console.log(this.companies);
       this.setLogoTemplateLength(this.companies.length);
     })
 
-    /*this.getSuggestions().subscribe(response=>{
-      this.suggestions = response;
-      console.log(this.suggestions);
+    this.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
+      
+      this.skillAggregate = response;
+      console.log(this.skillAggregate);
 
-      if(this.suggestions.length > 0){
-        this.setCourseTemplateLength(this.suggestions.length);
-        this.skillTypes = this.groupBySkills(this.suggestions);
+      if(this.skillAggregate.length > 0){
+        this.setCategoryTemplateLength(this.skillAggregate.length);
       }
-    })*/
+    })
   }
 
   ngOnInit(): void {
   }
 
   private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
-  private getAllSuggestionsGetRequest = "";
+  private getSkillTypesByCategory = "http://localhost:8087/api/v1/resources/suggestions/get_skillTypes_by_category";
 
+  skillAggregate:SkillAggregate[]=[];
+  courses:string[]=[];
   companies: CompanyDetails[] = [];
-  suggestions: CourseSuggestion[]=[];
   skillTypes: string[]=[];
+  suggestion: any;
 
-  skillTemplate:number[]=[];
+  categoryTemplate:number[]=[];
   courseTemplate:number[]=[];
   logoTemplate:number[]=[];
 
@@ -55,7 +57,7 @@ export class LearningPortalComponent implements OnInit {
     });
   }
 
-  groupBySkills(array:CourseSuggestion[]): string[]{
+  /*groupBySkills(array:any[]): string[]{
     let skills:string[] = [];
     
     for(let i=0; i<array.length; i++ ){
@@ -67,14 +69,18 @@ export class LearningPortalComponent implements OnInit {
     });
   
     return skills;
+  }*/
+
+  carouselClick(){
+    console.log("clicked")
   }
 
 
-  setSkillTemplateLength(length:number){
+  setCategoryTemplateLength(length:number){
     let b = Math.floor(length/6)
     let c = (length%6 == 0) ? b : b+1; 
     for(let i=0; i<c; i++){
-      this.skillTemplate[i]=i;
+      this.categoryTemplate[i]=i;
     }
   }
   setCourseTemplateLength(length:number){
@@ -95,7 +101,25 @@ export class LearningPortalComponent implements OnInit {
   getCompanies(){
     return this.http.get<CompanyDetails[]>(this.getAllCompaniesGetRequest);
   }
-  getSuggestions(){
-    return this.http.get<CourseSuggestion[]>(this.getAllSuggestionsGetRequest)
+  getCategoriesAndSkillTypes(){
+    return this.http.get<SkillAggregate[]>(this.getSkillTypesByCategory);
+  }
+}
+
+export class SkillAggregate{
+  category:string;
+  skillTypes:string[];
+
+  constructor(category:string,skillTypes:string[]){
+    this.category = category;
+    this.skillTypes = skillTypes;
+  }
+}
+export class SourceUrlAggregate{
+  skillType:string;
+  source:string[];
+  constructor(skillType:string, source:string[]){
+    this.skillType=skillType;
+    this.source=source;
   }
 }

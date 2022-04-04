@@ -1,0 +1,103 @@
+.timer1, .blink{
+    padding: 30px 9px;
+    border: solid 11px;
+    border-color: green;
+}
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.ques{
+  background-color: #4E1B5F;
+}
+.questions{
+  /* backdrop-filter: blur(5px); */
+  z-index: 900;
+  opacity: 1.0;
+}
+
+.end{
+  display: none;
+}
+
+
+.back{
+  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+}
+
+.next{
+  background-image: linear-gradient(to left, rgb(110,37,134),rgb(177,23,132));
+}
+
+.mark{
+  background-color: rgb(110,37,134); 
+}
+
+.button{
+margin-top: 1%;
+padding: 3px 35px;
+font-size: large; 
+border: none; 
+color: white; 
+border-radius: 6px;
+}
+
+.warriors{
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: large;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(177,23,132), rgb(110,37,134), rgb(177,23,132));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 6s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
+
+.shine{
+  margin-top: 1%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  padding: 12px 48px;
+  color: #ffffff;
+  background: linear-gradient(to right, rgb(177,23,132) 0, rgb(110,37,134) 10%, rgb(177,23,132) 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+@keyframes shine{
+  0%{
+    background-position: 0}
+  60%{
+    background-position: 180px}
+  100%{
+    background-position: 180px}
+}

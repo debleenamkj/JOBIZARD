@@ -1,31 +1,110 @@
-<div class="grid-container">
-  
-  <h2 class="mat-h1">Assesment Portal</h2>
-  <mat-grid-list cols="2" rowHeight="350px" >
-   
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows" >
-      
-      <mat-card class="dashboard-card">
-        
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
+<h1 style="font-weight:bold;text-align: center;color: #4E1B5F;font-size: xx-large;margin-top: 1%;">Assesment Portal</h1>
+  <div class="container-fluid" >
+    <div class="row">
+            <div class="col-xl-12 firstdiv">
+                <div class="col-xl-10 col-md-12 firstdivone">
+                       <h1 style="text-align: center; font-size: xx-large;color: white;font-weight: bold;">Candidate Category</h1>
+                          <div class="box1">
+                          <div class="flip-box">
+                            <div class="flip-box-inner">
+                              <div class="flip-box-front">
+                             <button type="button" style="font-size: x-large;font-style: oblique;color:linear-gradient(to right, #6E2586,#B11784);">ENGINEERING</button>
+                             <p style="font-size: x-large;">Applicable for <br>B.Tech,M.Tech,B.E. </p>
+                             <img src ="https://hotemoji.com/images/dl/d/man-technologist-emoji-by-google.png" style="height: 40%; width: 20%; color: #4E1B5F;">
+                              </div>
+                              <div class="flip-box-back">
+                                <button type="button" style="font-size: x-large;    font-style: oblique;color:linear-gradient(to right, #6E2586,#B11784);">ENGINEERING</button>
+                                <p style="font-size: x-large;">Applicable for <br>B.Tech,M.Tech,B.E. </p>
+                                <img src ="https://hotemoji.com/images/dl/d/man-technologist-emoji-by-google.png" style="height: 40%; width: 20%; color: #4E1B5F;">
+
+                              </div>
+                              
+                            </div>
+                            </div>
+                         
+                         
+                          <!-- <div class="box2">
+                            <div class="flip-box">
+                              <div class="flip-box-inner">
+                                <div class="flip-box-front">
+                                  <button type="button" >NON-ENGINEERING</button>
+                                  <p style="font-size: x-large;">Applicable for <br> all Bachelor Degree Candidate. </p>
+                                  <img src ="https://hotemoji.com/images/dl/d/man-technologist-emoji-by-google.png" style="height: 40%; width: 20%; color: #4E1B5F;">
+
+                                </div>
+                                <div class="flip-box-back">
+                                  <button type="button">NON-ENGINEERING</button>
+                                  <p style="font-size: x-large;">Applicable for <br> all Bachelor Degree Candidate. </p>
+                                  <img src ="https://hotemoji.com/images/dl/d/man-technologist-emoji-by-google.png" style="height: 40%; width: 20%; color: #4E1B5F;">
+
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="box3">
+                            <div class="flip-box">
+                              <div class="flip-box-inner">
+                                <div class="flip-box-front">
+                                  <h2>MBA</h2>
+                                  <p style="font-size: x-large;">Applicable for <br> MBA,BBA ,BMS,BBM </p>
+                                  <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1vKsTWUTbJf-W_hU_hWzvanDpXy-rTjIWtzFWyfLVAhAs-bcWcK6sGOeEAMLyfeaFQNk&usqp=CAU" style="height: 40%; width: 20%; color: #4E1B5F;">
+                                </div>
+                                <div class="flip-box-back">
+                                  <h2>MBA</h2>
+                                  <p style="font-size: x-large;">Applicable for <br> MBA,BBA ,BMS,BBM </p>
+                                  <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1vKsTWUTbJf-W_hU_hWzvanDpXy-rTjIWtzFWyfLVAhAs-bcWcK6sGOeEAMLyfeaFQNk&usqp=CAU" style="height: 40%; width: 20%; color: #4E1B5F;">
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                           </div> 
+                          </div>
+                </div>  -->
+              
             
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="after">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          
-          </mat-card-title>
-        </mat-card-header>
-      
-      </mat-card>
-    
-    </mat-grid-tile>
-  
-  </mat-grid-list>
-  
-</div>
+
+            <div class="container-fluid" style="width: 120%;">
+              <div class="row">
+                      <div class="col-xl-12 seconddiv">
+                          <div class="col-xl-10 col-md-12 divtwo"> 
+                            <h1 style="text-align: center; font-size: xx-large;color: white;font-weight: bold;">TEST</h1>
+                             <div class = "mybtn">
+                              <button class = "button" onclick="location='http://localhost:4200/assesmenttest'">Aptitude</button>
+                              <button class = "button">Technical</button>
+                              <button class = "button">Programming</button>
+                            </div>
+                            <div class="box">
+                              <div class="mybtn">
+                                <button class = "button">Technical</button>
+                                <button class = "button">Programming</button>
+                                <button class = "button">Excel</button>
+                              </div> 
+                            </div> 
+                          
+                             
+                          </div>
+                      </div>
+                            <!-- <div class="div">
+                              <button class = "button1" onclick="location='http://localhost:4200/assesmenttest'">Aptitude</button>
+                          </div>
+                            <div class="div1">
+                              <button class = "button">Programming</button>
+                            </div>
+                            <div class="div2">
+                              <button class = "button">Programming</button>
+                            </div>
+                            <div class="div3">
+                              <button class = "button">Excel</button>
+                            </div>
+                            <div class="div4">
+                              <button class = "button">Excel</button>
+                            </div>
+                           </div>
+                          </div>
+                      </div> -->
+                   
+
+     
+                    

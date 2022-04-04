@@ -38,13 +38,27 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 import { LoginComponent } from './login/login.component';
+
+import { UpdateDetailsComponent } from './update-details/update-details.component';
+
+import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+
+import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
+import { RegisterComponent } from './register/register.component';
+import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
+import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
+import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
+import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+
+
 
 
 @NgModule({
@@ -64,10 +78,23 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     JobPostingComponent,
     JobDetailComponent,
     AssesmentPortalComponent,
+
+    RegisterComponent,
+    LoginComponent,
+    UpdateDetailsComponent,
+    LoginComponent,
+    SkilltestComponent,
     LoginComponent,
     JobSeekerRegisterComponent,
-    RecruiterRegisterComponent
+    RecruiterRegisterComponent,
 
+
+    AssesmentTestPortalComponent,
+
+    CvTemplate1Component,
+    CvTemplate2Component,
+    CvTemplate3Component,
+    UpdateUserDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,6 +136,7 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     MatRadioModule,
     MatSnackBarModule,
     MatSliderModule,
+    MatProgressBarModule,
     NgbModule
   ],
   providers: [],

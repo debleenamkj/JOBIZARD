@@ -1,8 +1,8 @@
 package com.stackroute.resourcesservice.repository;
 
-import com.stackroute.resourcesservice.domain.Suggestion;
-import com.stackroute.resourcesservice.repository.AggregateDTO.SkillAggregate;
-import com.stackroute.resourcesservice.repository.AggregateDTO.SourceUrlAggregate;
+import  com.stackroute.resourcesservice.domain.Suggestion;
+import com.stackroute.resourcesservice.AggregateDTO.SkillAggregate;
+import com.stackroute.resourcesservice.AggregateDTO.SourceUrlAggregate;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
