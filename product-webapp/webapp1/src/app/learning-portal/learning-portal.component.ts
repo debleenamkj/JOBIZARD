@@ -17,21 +17,28 @@ export class LearningPortalComponent implements OnInit {
     config.pauseOnFocus = true;
     config.pauseOnHover = true;
 
-    this.getCompanies().subscribe((response: CompanyDetails[])=>{
+    /*this.getCompanies().subscribe((response: CompanyDetails[])=>{
       this.companies = response;
       this.retrieveLogos(this.companies)
       console.log(this.companies);
-      this.setLogoTemplateLength(this.companies.length);
-    })
+      if(this.companies.length>0)
+      this.logoSlideCount = this.calculateNumberOfSlidesForCarouselTemplate(this.companies.length,8);
+    })*/
+
+    if(this.companyLogos.length>0)
+      this.logoSlideCount = this.calculateNumberOfSlidesForCarouselTemplate(this.companyLogos.length,8)
 
     this.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
-      
-      this.skillAggregate = response;
+      this.skillAggregate = response;  
       console.log(this.skillAggregate);
-
       if(this.skillAggregate.length > 0){
-        this.setCategoryTemplateLength(this.skillAggregate.length);
+        this.categorySlideCount = this.calculateNumberOfSlidesForCarouselTemplate(this.skillAggregate.length, 5);
       }
+    })
+
+    this.getSourceUrlBySkillTypes().subscribe((response:SourceUrlAggregate[])=>{
+      this.courses = response;
+      console.log(this.courses);
     })
   }
 
@@ -40,16 +47,41 @@ export class LearningPortalComponent implements OnInit {
 
   private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
   private getSkillTypesByCategory = "http://localhost:8087/api/v1/resources/suggestions/get_skillTypes_by_category";
+  private getUrlBySkillType = "http://localhost:8087/api/v1/resources/suggestions/getSourceBySkills";
+
+  
+
+  courses:SourceUrlAggregate[]=[];
+  skillTypes: string[]=[];
+  suggestion: string[]=[];
+  cardsPerSlide:number[]=[0,1,2,3,4,5,6,7]
+
+  categorySlideCount:number[]=[];
+  courseSlideCount:number[]=[];
+  logoSlideCount:number[]=[];
+
+  hideCourseVariable = true;
 
   skillAggregate:SkillAggregate[]=[];
-  courses:string[]=[];
   companies: CompanyDetails[] = [];
-  skillTypes: string[]=[];
-  suggestion: any;
+  logoLocation = "../../assets/learning-portal/CourseProviderLogos/"
+  companyLogos: String[] = [
+    "NIIT-logo.png",
+    "codecademy-logo.jpg",
+    "coursera-logo.png",
+    "edureka-logo.png",
+    "edX-logopng.png",
+    "Qwiklabs-logo.jpg",
+    "skillShare-logo.png",
+    "swayam-logo.png",
+    "udemy-logopng.png",
+    "unacademy-logo.svg"
+  ];
+  
 
-  categoryTemplate:number[]=[];
-  courseTemplate:number[]=[];
-  logoTemplate:number[]=[];
+  hideCourses(){
+    this.hideCourseVariable = true;
+  }
 
   retrieveLogos(companies:CompanyDetails[]){
     companies.forEach(company => {
@@ -70,39 +102,45 @@ export class LearningPortalComponent implements OnInit {
   
     return skills;
   }*/
-
-  carouselClick(){
-    console.log("clicked")
+  onSkillTypeClick(event:any){
+    this.hideCourseVariable = false;
+    console.log(event.target.innerText)
+    let skill:string = event.target.innerText;
+    this.courses.forEach((course)=>{
+      if(skill == course.skillType)
+        this.suggestion = course.source;
+    })
+    //this.suggestion = this.courses.find((course)=>{skill == course.skillType})?.source;
+    if(this.suggestion)
+      this.courseSlideCount = this.calculateNumberOfSlidesForCarouselTemplate(this.suggestion.length, 5);
   }
 
+  calculateNumberOfSlidesForCarouselTemplate(totalCards:number, cardsPerSlide:number):number[]{
+    let template:number[]=[];
+    let noOfSlides = Math.floor(totalCards/cardsPerSlide);
+    noOfSlides = (totalCards%cardsPerSlide == 0) ? noOfSlides : noOfSlides+1;
+    for(let i=0; i<noOfSlides; i++){
+      template.push(i);
+    }
+    return template;
+  }
+  calculateNumberOfCardsPerSlide = (totalCards:number):number[]=>{
+    let array:number[]=[];
+    for(let i=0; i<totalCards; i++){
+      array.push(i);
+    }
+    return array;
+  }
 
-  setCategoryTemplateLength(length:number){
-    let b = Math.floor(length/6)
-    let c = (length%6 == 0) ? b : b+1; 
-    for(let i=0; i<c; i++){
-      this.categoryTemplate[i]=i;
-    }
-  }
-  setCourseTemplateLength(length:number){
-    let b = Math.floor(length/6)
-    let c = (length%6 == 0) ? b : b+1; 
-    for(let i=0; i<c; i++){
-      this.courseTemplate[i]=i;
-    }
-  }
-  setLogoTemplateLength(length:number){
-    let b = Math.floor(length/9)
-    let c = (length%9 == 0) ? b : b+1; 
-    for(let i=0; i<c; i++){
-      this.logoTemplate[i]=i;
-    }
-  }
 
   getCompanies(){
     return this.http.get<CompanyDetails[]>(this.getAllCompaniesGetRequest);
   }
   getCategoriesAndSkillTypes(){
     return this.http.get<SkillAggregate[]>(this.getSkillTypesByCategory);
+  }
+  getSourceUrlBySkillTypes(){
+    return this.http.get<SourceUrlAggregate[]>(this.getUrlBySkillType);
   }
 }
 

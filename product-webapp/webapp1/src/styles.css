@@ -12,14 +12,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    filter: invert(61%) sepia(97%) saturate(1265%) hue-rotate(68deg) brightness(93%) contrast(90%);
+    /* filter: invert(13%) sepia(73%) saturate(5058%) hue-rotate(306deg) brightness(95%) contrast(90%); */
+    width: 50px;
+    height: 50px;
+}
 .carousel-control-prev-icon{
-background-image:  linear-gradient(to right, #6E2586 50%,#B11784 50%);
-   width: 50px;
-   height: 50px;
-
+    background-image: url(./assets/learning-portal/prevArrow.svg);
 }
 .carousel-control-next-icon{
-   background-image: url(./assets/learning-portal/nextArrow.svg);
-  width: 50px;
-  height: 50px;
+    background-image: url(./assets/learning-portal/nextArrow.svg);
 }
+.carousel-control-prev-icon:hover, .carousel-control-next-icon:hover{
+    filter: invert(61%) sepia(97%) saturate(1265%) hue-rotate(68deg) brightness(93%) contrast(90%);
+    /* filter: invert(20%) sepia(32%) saturate(4135%) hue-rotate(266deg) brightness(89%) contrast(97%); */
+}
+
