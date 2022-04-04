@@ -56,6 +56,7 @@ import { RegisterComponent } from './register/register.component';
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
+import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
 
 
@@ -93,6 +94,7 @@ import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
+    UpdateUserDetailsComponent,
   ],
   imports: [
     BrowserModule,
