@@ -6,7 +6,8 @@
   
 
 #imgs{
-    background-image: url("src/assets/Register/Colored Shapes.svg");
+    background-image: url("src/assets/Register/Cloudy.svg");
+    margin: auto;
 }
 
 .cssbuttons-io-button {
@@ -31,7 +32,7 @@
    }
    
    .cssbuttons-io-button .icon {
-    background: white;
+    background: whitesmoke;
     margin-left: 1em;
     position: absolute;
     display: flex;
