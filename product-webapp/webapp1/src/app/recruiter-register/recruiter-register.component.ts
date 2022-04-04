@@ -23,7 +23,7 @@ export class RecruiterRegisterComponent implements OnInit {
     console.log(this.recruiterRegister)
     this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
       alert("User data added successfully")
-      this.router.navigate(["/login"])
+      this.router.navigate(["/userLogin"])
     },error=>alert("Sorry User not register"));
   }
 }
