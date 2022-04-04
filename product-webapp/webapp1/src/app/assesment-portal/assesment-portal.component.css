@@ -1,28 +1,173 @@
-.grid-container {
-  margin: 20px;
+.mat-h1{
+  margin-top:1%;
+  font-size: x-large;
+  font-style:oblique;
+  margin-left: 1%;
+}
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+.navbar {
+  width: 60px;
+  display: block;
+  margin: 50px auto;
+  border: 4px solid #e7eeee;
+  padding: 8px 10px;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  margin-right: 95%;
+  margin-top: 1%;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.navbar div {
+  height: 5px !important;
+  background: rgb(7, 6, 6);
+  margin: 7px 0px 7px 0px;
+  /* border-radius: 25px; */
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
-.dashboard-card-content {
+.two {
+  width: 35px;
+}
+
+.three {
+  width: 50px;
+}
+
+.navbar:hover div {
+  width: 60px;
+  
+}
+.heading{
+  margin-top:1%
+  
+}
+mat-grid-tile {
+  background:  #B11784;
+  margin-left: 4%;
+  border: 5%;
+  border-top-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+ 
+  
+}
+.grid1{
+       width: 100%;
+     
+}
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
-mat-cell:nth-child(even){
-  background-color:#114592;
-              }
+.flip-box:hover .flip-box-inner {
+  transform: rotateX(180deg);
+}
 
-.fix-color{
-  background-color: blue;
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 110%;
+  height: 105%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  background-color:#6E2586;
+  color: black;
+}
+
+.flip-box-back {
+  background-color:  #6E2586;
+ 
+  transform: rotateX(180deg);
+}
+.box2{
+      margin-left: 50%;
+      margin-top: 1%;
+}
+.box1{
+  margin-left: 4%;
+ margin-top: 2%;
+}
+.grid2{
+  margin-top: 4%;
+  margin-left: 3%;
+  margin-bottom: 30%;
+}
+.grid1{
+  margin-left: 3%;
+}
+.firstdiv{
+  border-radius: 15px;
+  background-color: #B11784;
+  display: flex;
+  height: 270px;
+  width: 100%
+  
+  
+}
+
+.seconddiv{
+  
+  border-radius: 15px;
+  background-image:linear-gradient(to right, #B11784,#6E2586);
+  margin-top: 3%;
+  height:270px;
+}
+.box3{
+  margin-bottom: 50%;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+.mybtn .button {
+  background-color: #6E2586;
+  border: 7px solid #B11784;
+  width: 150px;
+  color: white;
+  font-size: large;
+  padding: 10px;
+  text-align: center;
+  display: block;
+  margin-left: 2%;
+  
+}
+.box{
+  margin-left: 45%;
+ 
+ 
+}
+.div1{
+  margin-left: 45%;
+}
+.div2{
+  margin-left: 85%;
+}
+.div4{
+  margin-left: 45%;
+}
+.div.button1{
+  margin-left: 2%;
+  width: 180px;
+  background-color: #6E2586;
+  color: white;
+  font-size: large;
+  padding: 10px;
+  text-align: center;
+  display: block;
 }

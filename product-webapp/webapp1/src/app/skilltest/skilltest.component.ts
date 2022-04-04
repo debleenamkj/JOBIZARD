@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
@@ -9,7 +10,7 @@ import { toInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class SkilltestComponent implements OnInit {
 
-  constructor(private service:HttpClient) { }
+  constructor(private service:HttpClient, private router:Router) { }
 
   data : any = {name :"",questions:""};
   question: any ={question:"",a:"",b:"",c:"",d:""};
@@ -105,11 +106,31 @@ changeColor(qno:number){
       // this.option(qno-1);
   }
 
+  end(){
+    console.log("enndd")
+    let end = document.getElementsByClassName("end") as HTMLCollectionOf<HTMLElement>;
+    end[0].style.display='block'
+    let ques = document.getElementsByClassName("questions") as HTMLCollectionOf<HTMLElement>;
+    ques[0].style.opacity='0.1';
+  }
+
+  end_yes(){
+    console.log("hello end yes")
+    setTimeout(() => {
+      this.router.navigate(['/job-posting'])
+    }, 300);
+  }
+  end_no(){
+    let end = document.getElementsByClassName("end") as HTMLCollectionOf<HTMLElement>;
+    end[0].style.display='none'
+    let ques = document.getElementsByClassName("questions") as HTMLCollectionOf<HTMLElement>;
+    ques[0].style.opacity='1.0';
+  }
   // counter = {"min":0,"sec":0};
-  counter : any= { min: 15, sec: "00" }
+  counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 15, sec: "00" } // choose whatever you want
+    this.counter = { min: 15, sec: "10" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;
@@ -126,7 +147,7 @@ changeColor(qno:number){
       }
       if (this.counter.min === 0 && this.counter.sec == 0) clearInterval(intervalId)
 
-      if(this.counter.min<=5 && this.counter.min>=2)
+      if(this.counter.min<=4 && this.counter.min>=2)
     {
       let timeLimit = document.getElementsByClassName('timer1') as HTMLCollectionOf<HTMLElement>;
       timeLimit[0].style.border = '10px solid orange'
@@ -141,7 +162,13 @@ changeColor(qno:number){
         timeLimit[0].style.animation = 'blink 1s steps(1, end) infinite';
       }
     }
+    if(this.counter.min==0 && this.counter.sec=="00")
+    {
+      setTimeout(() => {
+        this.router.navigate(['/job-posting'])
+      }, 300);
    
+    }
     }, 1000)
   }
 
