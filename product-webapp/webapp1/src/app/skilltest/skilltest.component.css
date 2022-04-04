@@ -1,0 +1,43 @@
+.timer1, .blink{
+    padding: 30px 9px;
+    border: solid 11px;
+    border-color: green;
+}
+  
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.ques{
+  background-color: #4E1B5F;
+}
+
+
+.back{
+  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+}
+
+.next{
+  background-image: linear-gradient(to left, rgb(110,37,134),rgb(177,23,132));
+}
+
+.mark{
+  background-color: rgb(110,37,134); 
+}
+
+.button{
+margin-top: 1%;
+padding: 3px 35px;
+font-size: large; 
+border: none; 
+color: white; 
+border-radius: 6px;
+}

@@ -16,6 +16,10 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
 import { LoginComponent } from './login/login.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 
+import { RegisterComponent } from './register/register.component';
+import { SkilltestComponent } from './skilltest/skilltest.component';
+
+
 const routes: Routes = [
   {path: 'trend',component: TrendLabComponent},
   {path: 'skills',component: SkillsTrendLabComponent},
@@ -38,13 +42,16 @@ const routes: Routes = [
   },
   {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:"assesmenttest",component:AssesmentTestPortalComponent},
+  {path:"test",component:SkilltestComponent},
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
 
   // providing path for register and login 
+  {path:"register",component:RegisterComponent},
   {path:"jobSeekerRegister",component:JobSeekerRegisterComponent},
   {path:"recruiterRegister",component:RecruiterRegisterComponent},
   {path:"userLogin",component:LoginComponent}
+
 ];
 
 @NgModule({
