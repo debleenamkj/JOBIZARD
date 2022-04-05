@@ -58,9 +58,6 @@ import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.
 import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +75,6 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     JobPostingComponent,
     JobDetailComponent,
     AssesmentPortalComponent,
-
     RegisterComponent,
     LoginComponent,
     UpdateDetailsComponent,
@@ -87,10 +83,7 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     LoginComponent,
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
-
-
     AssesmentTestPortalComponent,
-
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
