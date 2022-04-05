@@ -58,6 +58,7 @@ import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.
 import { RegisterComponent } from './register/register.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 
 
@@ -79,13 +80,12 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     JobPostingComponent,
     JobDetailComponent,
     AssesmentPortalComponent,
-
     RegisterComponent,
     LoginComponent,
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-
+    ChatroomComponent,
     
     
     CvTemplate1Component,
@@ -98,12 +98,10 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     LoginComponent,
 
     AssesmentTestPortalComponent,
-
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
-    UpdateUserDetailsComponent,
-
+    UpdateUserDetailsComponent
   ],
   imports: [
     BrowserModule,
