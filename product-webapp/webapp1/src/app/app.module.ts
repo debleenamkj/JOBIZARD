@@ -58,12 +58,9 @@ import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.
 import { RegisterComponent } from './register/register.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
-<<<<<<< HEAD
-=======
 import { ChatroomComponent } from './chatroom/chatroom.component';
 
 
->>>>>>> 99ed98c12be95febffb2e720cf4fa966f7ae394b
 
 @NgModule({
   declarations: [
@@ -87,7 +84,7 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-
+    ChatroomComponent,
     
     
     CvTemplate1Component,
@@ -96,18 +93,14 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
-<<<<<<< HEAD
-=======
     RegisterComponent,
     LoginComponent,
 
->>>>>>> 99ed98c12be95febffb2e720cf4fa966f7ae394b
     AssesmentTestPortalComponent,
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
-    UpdateUserDetailsComponent,
-    ChatroomComponent
+    UpdateUserDetailsComponent
   ],
   imports: [
     BrowserModule,
