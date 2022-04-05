@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -86,4 +88,10 @@ public class SkillTrendServiceImpl implements SkillTrendService{
         return skillTrendRepository.findAll();
     }
 
+    @Override
+    public List<SkillTrend> getNameOfSkills(){
+        List<SkillTrend> skillTrends = skillTrendRepository.findAll();
+        List<SkillTrend> uniqueTrends = skillTrends.stream().collect(Collectors.groupingBy(SkillTrend::getOnDemandSkills,Collectors.maxBy(Comparator.comparingLong(SkillTrend::getSkillId)))).values().stream().map(opt -> opt.orElse(null)).collect(Collectors.toList());
+        return uniqueTrends;
+    }
 }

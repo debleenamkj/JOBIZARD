@@ -51,12 +51,19 @@ import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
-import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
-import { RegisterComponent } from './register/register.component';
+
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
+import { RegisterComponent } from './register/register.component';
+import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+<<<<<<< HEAD
+=======
+import { ChatroomComponent } from './chatroom/chatroom.component';
+
+
+>>>>>>> 99ed98c12be95febffb2e720cf4fa966f7ae394b
 
 @NgModule({
   declarations: [
@@ -80,14 +87,27 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-    LoginComponent,
+
+    
+    
+    CvTemplate1Component,
+    CvTemplate2Component,
+    CvTemplate3Component,
+
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
+<<<<<<< HEAD
+=======
+    RegisterComponent,
+    LoginComponent,
+
+>>>>>>> 99ed98c12be95febffb2e720cf4fa966f7ae394b
     AssesmentTestPortalComponent,
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
     UpdateUserDetailsComponent,
+    ChatroomComponent
   ],
   imports: [
     BrowserModule,
