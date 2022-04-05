@@ -61,6 +61,7 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

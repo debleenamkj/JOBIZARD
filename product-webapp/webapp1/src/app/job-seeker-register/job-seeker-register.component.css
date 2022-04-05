@@ -4,11 +4,15 @@
     padding: 0px;
 }
   
-
 #imgs{
     background-image: url("src/assets/Register/Cloudy.svg");
     margin: auto;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
 
 .cssbuttons-io-button {
     background: #A370F0;
