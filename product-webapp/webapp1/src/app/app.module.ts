@@ -57,6 +57,7 @@ import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 
 
@@ -95,6 +96,7 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     CvTemplate2Component,
     CvTemplate3Component,
     UpdateUserDetailsComponent,
+    ChatroomComponent,
   ],
   imports: [
     BrowserModule,
