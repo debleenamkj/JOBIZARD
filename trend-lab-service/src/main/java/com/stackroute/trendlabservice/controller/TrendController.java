@@ -88,6 +88,12 @@ public class TrendController {
         return skillTrendService.deleteSkill(skillId);
     }
 
+    @GetMapping("/getnames")
+    public List<SkillTrend> getNames(){
+        log.debug("Inside TrendController - getNames");
+        return skillTrendService.getNameOfSkills();
+    }
+
     ////////////////////////TechNews/////////////////////////
 
     @GetMapping("/technews/gsmarena")

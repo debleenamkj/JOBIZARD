@@ -51,12 +51,13 @@ import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
-import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
-import { RegisterComponent } from './register/register.component';
+
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
-
+import { RegisterComponent } from './register/register.component';
+import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
+import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
 
 
@@ -83,16 +84,25 @@ import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-    LoginComponent,
+
+    
+    
+    CvTemplate1Component,
+    CvTemplate2Component,
+    CvTemplate3Component,
+
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
-
+    RegisterComponent,
+    LoginComponent,
 
     AssesmentTestPortalComponent,
 
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
+    UpdateUserDetailsComponent,
+
   ],
   imports: [
     BrowserModule,

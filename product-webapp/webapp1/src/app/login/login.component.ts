@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JobSeeker } from '../model/jobSeeker';
-import { User } from '../model/login';
+import { UserLogin } from '../model/userLogin';
+
 import { RegisterServiceService } from '../service/register-service.service';
 
 @Component({
@@ -16,22 +16,25 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  user:User =new User();
+  user:UserLogin =new UserLogin();
  
   userLogin()
   {
-    console.log(this.user)
+    console.log(this.userLogin)
     this.loginService.userLogIn(this.user)
     .subscribe(data=>{
       alert("Successfully User is logged in.")
       this.loginService.isloggedIn=true
-      this.router.navigate([""])
+      this.router.navigate(["/"])
      },error=>{
       alert("please check your username and password.")
-     this.router.navigate(["/login"])
+     this.router.navigate(["/userLogin"])
      this.loginService.isloggedIn=false
      }
      );
 
     }
+
+   
+  
   }
