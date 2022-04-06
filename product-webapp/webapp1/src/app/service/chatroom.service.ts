@@ -12,14 +12,14 @@ export class ChatroomService {
   constructor(private http:HttpClient) { }
 
   public getMessages() : Observable<ChatMessage[]>{
-    return this.http.get<ChatMessage[]>("http://localhost:8090/getall");
+    return this.http.get<ChatMessage[]>("http://localhost:8089/getall");
   }
 
   public postMessages(chats:ChatMessage){
-    return this.http.postImage<any>("http://localhost:8090/chat",chats);
+    return this.http.post<any>("http://localhost:8089/chat",chats);
   }
 
   public getChatroom() : Observable<ChatRoom[]>{
-    return this.http.get<ChatRoom[]>("http://localhost:8090/getchatroom");
+    return this.http.get<ChatRoom[]>("http://localhost:8089/getchatroom");
   }
 }

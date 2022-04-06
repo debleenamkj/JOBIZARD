@@ -2,6 +2,11 @@ sub {
   font-size: medium;
   color: aliceblue;
 }
+/* div {
+  border-style: solid;
+  margin: 10px;
+  padding: 10px; 
+} */
 body {
   margin: 1%;
 }
@@ -35,7 +40,7 @@ body {
 }
 
 .cv-header-content3-left {
-  width: 40%;
+  width: 35%;
   border-style: inset;
   border-color: rgb(201, 178, 119) transparent transparent transparent;
   margin: 1%;
@@ -132,30 +137,33 @@ mat-icon {
 .cv-body-main-content {
   width: 65%;
   background: whitesmoke;
-  padding: 5%;
+  padding: 2.5%;
   margin: 0%;
 }
 .main-career-objective {
   margin-bottom: 10%;
+  text-align: left;
+  padding-top: 5%;
 }
 .work-experience-container {
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 8%;
+  margin-bottom: 8%;
 }
 .work-experience-header-container {
   border-style: inset;
   border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
-  padding-top: 3%;
+  padding-top: 2%;
 }
 .skills-container {
   margin-top: 10%;
   margin-bottom: 10%;
 }
 .skills-header-container {
-  padding-top: 3%;
+  padding-top: 2%;
   border-style: inset;
   border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
 }
+
 h5 {
   margin: 5% 0% 0% 0%;
   padding: 0%;
