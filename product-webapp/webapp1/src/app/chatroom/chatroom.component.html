@@ -5,14 +5,14 @@
         <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1%;">
             <mat-card>
                 <h2>Chats</h2>
-                <mat-card *ngFor = "let receiver of receiverNames">{{receiver}}</mat-card>
+                <mat-card *ngFor = "let receiver of receiverID">{{receiver}}</mat-card>
                 
             </mat-card>
         </div>
         <div class="col-xl-9 col-md-8 col-s-12"  style="margin-top: 1%; height: 100%; overflow-y: hidden;">
             <mat-card style="height: 100%;">
                 <h2>Chat with {{receiverName}}</h2>
-                    <div style="height: 350px; overflow-y: auto; overflow-x: hidden; ">
+                    <div class="chatscrolls">
                         <span *ngFor="let chat of getChats">
                             <h3 style="font-weight: bold;">{{chat.senderName}} : </h3>
                             <p>{{chat.message}}</p>
