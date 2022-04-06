@@ -58,6 +58,7 @@ import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.
 import { RegisterComponent } from './register/register.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { TechnewsComponent } from './technews/technews.component';
 
 
 
@@ -102,6 +103,7 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
     CvTemplate2Component,
     CvTemplate3Component,
     UpdateUserDetailsComponent,
+    TechnewsComponent,
 
   ],
   imports: [

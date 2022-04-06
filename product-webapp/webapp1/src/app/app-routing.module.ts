@@ -20,12 +20,14 @@ import { RegisterComponent } from './register/register.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { TechnewsComponent } from './technews/technews.component';
 
 
 const routes: Routes = [
   {path: 'trend',component: TrendLabComponent},
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},
+  { path : 'technews', component: TechnewsComponent },
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {

@@ -1,0 +1,4 @@
+<mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 5px;"><h1>Tech News</h1></mat-card>
+<mat-grid-list cols="5">
+    <mat-grid-tile *ngFor="let article of articles" [colspan]="4" value="{{article}}"><p>{{article}}</p></mat-grid-tile>
+</mat-grid-list>
