@@ -1,8 +1,7 @@
- 
+
 #imgs{
     background-image: url("src/assets/Register/Cloudy.svg");
     margin: auto;
-    position: fixed;
 }
 
 .cssbuttons-io-button {
@@ -58,7 +57,4 @@
    .cssbuttons-io-button:active .icon {
     transform: scale(0.95);
    }
-    
-
-
-    
+   

@@ -20,7 +20,9 @@ import { RegisterComponent } from './register/register.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
-import { OrganizationDetails } from './model/organizationDetails';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
+import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 
 
 const routes: Routes = [
@@ -53,6 +55,12 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"jobSeekerRegister",component:JobSeekerRegisterComponent},
   {path:"recruiterRegister",component:RecruiterRegisterComponent},
+
+  // material component
+  {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
+  {path:"recruitersRegister",component:RecruitersRegisterComponent},
+
+  {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},
   // {path:"Organization",component:OrganizationDetails},
 

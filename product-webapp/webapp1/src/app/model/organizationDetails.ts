@@ -1,11 +1,14 @@
 export class OrganizationDetails
 {
-    organizationID!: string
+
+    emailId!:string
     organizationName!: string
     organizationSector!: string
-    rganizationOrigin!: string
-    roleInHiring!: string
-    organizationAddress!: string
+    organizationOrigin!: string
+    roleOfHiring!: string
     contactNumber!: number
+    password!:string
+    organizationAddress!: string
+    
     organizationLogo!: any
 }

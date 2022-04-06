@@ -59,6 +59,9 @@ import { RegisterComponent } from './register/register.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
+import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 
 
 
@@ -101,7 +104,10 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
-    UpdateUserDetailsComponent
+    UpdateUserDetailsComponent,
+    OrganizationDetailsComponent,
+    JobSeekersRegisterComponent,
+    RecruitersRegisterComponent
   ],
   imports: [
     BrowserModule,
