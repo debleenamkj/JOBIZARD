@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OrganizationDetails } from '../model/organizationDetails';
 import { Recruiter } from '../model/recruiter';
 import { RegisterServiceService } from '../service/register-service.service';
 
@@ -12,18 +13,42 @@ export class RecruiterRegisterComponent implements OnInit {
 
   constructor(private registerService : RegisterServiceService , private router : Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void{} 
 
   recruiter:Recruiter = new Recruiter();
+  organization:OrganizationDetails = new OrganizationDetails;
 
+  uploadLogo:any;
+  onImageUpload(event: any)
+  {
+    console.log("onchange");
+    const files = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]); 
+    reader.onload = (_event) =>
+    { 
+      console.log(reader.result);
+      this.uploadLogo = reader.result; 
+      console.log(this.uploadLogo);
+    }
+}
 
   recruiterRegister()
   {
     console.log(this.recruiterRegister)
     this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
-      alert("User data added successfully")
+      alert("Recruiter data added successfully")
       this.router.navigate(["/userLogin"])
-    },error=>alert("Sorry User not register"));
+    },error=>alert("Sorry not able to register Recruiter Details."));
   }
+
+  organizationRegister()
+  {
+    console.log(this.organizationRegister)
+    this.registerService.organizationRegister(this.organization).subscribe(data=>{
+      alert("Organization  data added successfully")
+      this.router.navigate(["/userLogin"])
+    },error=>alert("Sorry not able to register Organization Details. "));
+  }
+
 }

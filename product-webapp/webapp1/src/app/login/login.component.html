@@ -36,7 +36,7 @@
 
 
 
-    <form class="mx-1 mx-md-4" (ngSubmit)="userLogin()">
+    <form class="mx-1 mx-md-4" (ngSubmit)="userLogin(user)">
 
 <!-- ************************************************************************************************************************* -->
 <div class="d-flex flex-row align-items-center mb-4">
@@ -46,6 +46,15 @@
     <input matInput type="text" class="form-control"  placeholder="Enter your Email-Id" id="emailId" name="emailId" [(ngModel)]="user.emailId" required>
   </div>
 </div>
+
+<!-- <div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div> -->
+
 
 <!-- ************************************************************************************************************************* -->
 

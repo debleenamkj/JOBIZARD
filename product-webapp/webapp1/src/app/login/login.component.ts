@@ -18,14 +18,15 @@ export class LoginComponent implements OnInit {
 
   user:UserLogin =new UserLogin();
  
-  userLogin()
+  
+  userLogin(user:any)
   {
-    console.log(this.userLogin)
+    console.log(this.user)
     this.loginService.userLogIn(this.user)
     .subscribe(data=>{
       alert("Successfully User is logged in.")
       this.loginService.isloggedIn=true
-      this.router.navigate(["/"])
+      this.router.navigate(["/jobdetail"])
      },error=>{
       alert("please check your username and password.")
      this.router.navigate(["/userLogin"])
@@ -34,7 +35,4 @@ export class LoginComponent implements OnInit {
      );
 
     }
-
-   
-  
-  }
+}
