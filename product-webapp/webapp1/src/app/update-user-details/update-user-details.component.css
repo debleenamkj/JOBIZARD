@@ -1,0 +1,45 @@
+.PersonalInfoMat{
+    margin-top: 20px;
+    margin-left: 120px;
+    
+}
+.PersonalInfoPara{
+    margin-top: 20px;
+}
+.personalParentdiv{
+    
+    margin: auto;
+    padding-left: 80px;
+    font-size: medium;
+    border-style: solid;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 10px;
+}
+.commondiv{
+    display: flex;
+}
+.commonSpace{
+    padding-top: 20px;
+}
+.commonFieldSpace{
+    padding-left: 40px;
+}
+.firstNameSpace{
+    margin-left: 15px;
+}
+.lastNameSpace{
+    margin-left: 15px;
+}
+.genderSpcae{
+    margin-left: 40px;
+}
+.dobSpace{
+    margin-left: px;
+}
+.mobileSpace{
+    margin-left: -20px;
+}
+.commonInputDiv{
+    length:80px
+}

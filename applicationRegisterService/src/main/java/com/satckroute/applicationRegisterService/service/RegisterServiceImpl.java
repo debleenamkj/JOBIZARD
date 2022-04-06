@@ -101,9 +101,10 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails, MultipartFile file) throws OrganizationDetailsAlreadyExistException, IOException
     {
-        organizationDetails.setOrganizationID(UUID.randomUUID().toString());
+//        organizationDetails.setOrganizationID(UUID.randomUUID().toString());
+        UserDTO userDTO = new UserDTO(organizationDetails.getEmailId(),organizationDetails.getPassword());
         organizationDetails.setOrganizationLogo(file.getBytes());
-        if(organizationDetailsRepository.findById(organizationDetails.getOrganizationID()).isPresent())
+        if(organizationDetailsRepository.findById(organizationDetails.getEmailId()).isPresent())
         {
             throw new OrganizationDetailsAlreadyExistException();
         }
@@ -172,6 +173,21 @@ public class RegisterServiceImpl implements RegisterService
         else
         {
             return recruiterRegisterRepository.save(recruiter);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
+    {
+        if(organizationDetailsRepository.findById(organizationDetails.getEmailId()).isPresent())
+        {
+            throw new OrganizationDetailsAlreadyExistException();
+        }
+        else
+        {
+            return organizationDetailsRepository.save(organizationDetails);
         }
     }
 

@@ -1,135 +1,179 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Login Page</title>
-</head>
-
-<body>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#4E1B5F" fill-opacity="1" d="M0,192L14.1,192C28.2,192,56,192,85,181.3C112.9,171,141,149,169,138.7C197.6,128,226,128,254,122.7C282.4,117,311,107,339,106.7C367.1,107,395,117,424,117.3C451.8,117,480,107,508,122.7C536.5,139,565,181,593,218.7C621.2,256,649,288,678,261.3C705.9,235,734,149,762,106.7C790.6,64,819,64,847,90.7C875.3,117,904,171,932,192C960,213,988,203,1016,181.3C1044.7,160,1073,128,1101,133.3C1129.4,139,1158,181,1186,208C1214.1,235,1242,245,1271,218.7C1298.8,192,1327,128,1355,101.3C1383.5,75,1412,85,1426,90.7L1440,96L1440,0L1425.9,0C1411.8,0,1384,0,1355,0C1327.1,0,1299,0,1271,0C1242.4,0,1214,0,1186,0C1157.6,0,1129,0,1101,0C1072.9,0,1045,0,1016,0C988.2,0,960,0,932,0C903.5,0,875,0,847,0C818.8,0,791,0,762,0C734.1,0,706,0,678,0C649.4,0,621,0,593,0C564.7,0,536,0,508,0C480,0,452,0,424,0C395.3,0,367,0,339,0C310.6,0,282,0,254,0C225.9,0,198,0,169,0C141.2,0,113,0,85,0C56.5,0,28,0,14,0L0,0Z"></path></svg>
+<!-- <body>
+<div class="container col-md-6" style="text-align: center; margin-left: 28%;">
+    <br>
+    <br>
+<h1 style="color: rgb(87, 187, 233);">User Register Type Recruiter</h1> -->
     
-    <div class="main">
-      <div class="container a-container" id="a-container">
-        
-        
-        <form class="form" id="a-form" method="" action="" (ngSubmit)="userLogin()">
-          <h2 class="form_title title">Login</h2>
-          
-          <div class="form__icons">
+<!-- <mat-form-field appearance="fill">
+  <mat-label>User Register Type</mat-label>
+  <mat-select>
+    <mat-option >
+      <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/jobSeekerRegister">JobSeeker</a>
+    </mat-option>
+
+    <mat-option>
+      <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Register</a>
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<section id="imgs" class="vh-100">
+  
+
+  <div class="row d-flex justify-content-center align-items-center h-100"  style="position: relative;">
+    <div class="col-lg-12 col-xl-11">
+      <div class="card text-black" style="border-radius: 25px;">
+        <div class="card-body p-md-5">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">LOGIN PAGE</p>
+
+
+
+
+    <form class="mx-1 mx-md-4" (ngSubmit)="userLogin(user)">
+
+<!-- ************************************************************************************************************************* -->
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+    <label for="form3Example1c" class="form-label">Email-ID</label>
+    <input matInput type="text" class="form-control"  placeholder="Enter your Email-Id" id="emailId" name="emailId" [(ngModel)]="user.emailId" required>
+  </div>
+</div>
+
+<!-- <div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div> -->
+
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Password</label>
+        <input matInput type="password" class="form-control" placeholder="Enter your Password" id="password" name="password" [(ngModel)]="user.password" required>
+      </div></div>
+
+      <!-- <div class="form__icons" >
             <img  src="\assets\icons8-google.svg"></div>
             <span class="form__span">or use email for login</span><br>
-            
-          <input type="text" class="form__input"  placeholder="Email-Id" id="emailIssd" name="emailId" [(ngModel)]="user.emailId" required>
-          <input type="password" class="form__input" placeholder="Password" id="password" name="password" [(ngModel)]="user.password" required>
+             -->
+         
+       
 
           <!-- <button class="form__button button submit">Login</button> -->
-          <br><br>
-          <button type="submit" class="cssbuttons-io-button submit">Login
-            <div class="icon">
-                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-              </div>
-            </button>
-          <br><br>
           
-        </form>
-        
-      </div>
-    
-      <!-- <div class="container b-container" id="b-container">
-          
-        <form class="form" id="b-form" method="" action="">
-          <h2 class="form_title title">Sign in to Website</h2>
-
-          <div class="form__icons">
-            <img class="form__icon" src="https://webdevtrick.com/wp-content/uploads/facebook.svg" alt="">
-            <img class="form__icon" src="https://webdevtrick.com/wp-content/uploads/twitter.svg">
-            <img class="form__icon" src="https://webdevtrick.com/wp-content/uploads/linkedin.svg"></div>
-            <span class="form__span">or use your email account</span>
-
-          <input class="form__input" type="text" placeholder="Email">
-          <input class="form__input" type="password" placeholder="Password"><a class="form__link">Forgot your password?</a>
-          <button class="form__button button submit">SIGN IN</button>
-        </form>
-      </div> -->
-
-
-      <div class="switch" id="switch-cnt">
-        <div class="switch__circle"></div>
-        <div class="switch__circle switch__circle--t"></div>
-        <div class="switch__container" id="switch-c1">
-          <h2 class="switch__title title" style="margin-top: -30px;">Welcome Back</h2><h2 class="switch__title title" style="margin-top: -70px;">to</h2>
-          <h2 class="switch__title title" style="margin-left: 8px;margin-top: -68px;" >JOBIZARD !</h2>
-
-          <p class="switch__description description">To keep connected with us please login with your personal info</p>
-          
-        </div>
-        <div class="switch__container is-hidden" id="switch-c2">
-          <h2 class="switch__title title">Hello Friend !</h2>
-          <p class="switch__description description">Enter your personal details and start journey with us</p>
-          <button class="switch__button button switch-btn">SIGN UP</button>
-        </div>
-      </div>
       
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#4E1B5F" fill-opacity="1" d="M0,192L14.1,192C28.2,192,56,192,85,181.3C112.9,171,141,149,169,138.7C197.6,128,226,128,254,122.7C282.4,117,311,107,339,106.7C367.1,107,395,117,424,117.3C451.8,117,480,107,508,122.7C536.5,139,565,181,593,218.7C621.2,256,649,288,678,261.3C705.9,235,734,149,762,106.7C790.6,64,819,64,847,90.7C875.3,117,904,171,932,192C960,213,988,203,1016,181.3C1044.7,160,1073,128,1101,133.3C1129.4,139,1158,181,1186,208C1214.1,235,1242,245,1271,218.7C1298.8,192,1327,128,1355,101.3C1383.5,75,1412,85,1426,90.7L1440,96L1440,0L1425.9,0C1411.8,0,1384,0,1355,0C1327.1,0,1299,0,1271,0C1242.4,0,1214,0,1186,0C1157.6,0,1129,0,1101,0C1072.9,0,1045,0,1016,0C988.2,0,960,0,932,0C903.5,0,875,0,847,0C818.8,0,791,0,762,0C734.1,0,706,0,678,0C649.4,0,621,0,593,0C564.7,0,536,0,508,0C480,0,452,0,424,0C395.3,0,367,0,339,0C310.6,0,282,0,254,0C225.9,0,198,0,169,0C141.2,0,113,0,85,0C56.5,0,28,0,14,0L0,0Z"></path></svg>
-  <script  src="function.js"></script>
 
-</body>
-</html>
+<!-- ************************************************************************************************************************* -->
+<!-- <div class="form-check d-flex justify-content-center mb-5">
+  <input
+    class="form-check-input me-2"
+    type="checkbox"
+    value=""
+    id="form2Example3c" required
+  />
+  <label class="form-check-label" for="form2Example3" >
+    I agree all statements in <a href="#!">Terms of service</a>
+  </label>
+</div> -->
 
+      
 
+<!-- ************************************************************************************************************************* -->
+<button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));"> Login
+  <div class="icon">
+    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+  </div>
+</button>
 
- <!-- <div class="content"> <br>
+<!-- ************************************************************************************************************************* -->
 
-    <h1 style="color: rgba(14, 173, 54, 0.582);"> User Login Page</h1> 
-    <div class="text" style="text-align: center;">Login Page</div>
-    <form (ngSubmit)="userLogin()" action="#">
+</form>
 
- ------------------------------------------------------------------------------------------------------------------------- 
-     
-      <div class="field">
-           <label for="exampleFormControlInput1" class="form-label">Email-ID</label>
-          <span class="fas fa-user"></span>
-          <input type="text"  placeholder="Enter the user Email-Id" id="emailIssd" name="emailId" [(ngModel)]="user.emailId" required>
-      </div>
+</div>
 
+<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image ">
+<!-- src="assets/Register/signin-image.jpg" -->
   
-   
- ------------------------------------------------------------------------------------------------------------------------- 
-        
-      <div class="field">
-           <label for="exampleFormControlInput1" class="form-label">Password</label> 
-          <span class="fas fa-lock"></span>
-          <input type="password" placeholder="Enter the user password" id="password" name="password" [(ngModel)]="user.password" required>
-      </div>
- -------------------------------------------------------------------------------------------------------------------------
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <div class="forgot-pass">
-        <a href="#">Forgot Password?</a>
-    </div>
+</section>
 
-    <button type="submit" class="cssbuttons-io-button">login
-        <div class="icon">
-            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-          </div>
-        </button>
 
-    
+<!-- 
+<section id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);margin-top: -30px;" >
+
+ <div class="container h-100" style="margin-left: 100px;" > 
+    <div class="row d-flex justify-content-center align-items-center h-100" style="position: relative;">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
             
-            <div class="singup">Not a member?
-                <a href="#">Sing up</a>
-            </div>
+<form class="mx-1 mx-md-4" [formGroup]="loginForm"  (ngSubmit)="userLogin(user)">
+  
+  <mat-card class="shipping-card" >
+    <mat-card-header>
+      <mat-card-title style="color:  rgb(110,37,134);margin-left: 50px;font-weight: bolder;">JOBSEEKER REGISTER PAGE</mat-card-title>
+    <br>
+      <br>
+    </mat-card-header>
+
+    <mat-card-content >
+      
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email ID" formControlName="emailId">
+            <mat-error *ngIf="loginForm.controls['emailId'].hasError('required')">
+              Email-ID is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+   
+  
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
 
 
- ------------------------------------------------------------------------------------------------------------------------- 
-
-    </form>
-</div>   -->
+ 
 
 
 
-
-
-
-
-
+      
+    </mat-card-content>
+    <mat-card-actions>
+      
+      <button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));">Register
+        <div class="icon">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+        </div>
+      </button> -->

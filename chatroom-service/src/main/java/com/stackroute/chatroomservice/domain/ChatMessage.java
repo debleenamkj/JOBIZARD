@@ -23,6 +23,6 @@ public class ChatMessage {
     private String senderName;
     private String recipientName;
     private String message;
-    private Date timestamp;
+    private String timestamp;
     private MessageStatus status;
 }

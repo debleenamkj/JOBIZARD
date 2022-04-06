@@ -3,6 +3,7 @@ package com.satckroute.applicationRegisterService.service;
 import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
 import org.springframework.data.mongodb.core.aggregation.ArithmeticOperators;
+import org.springframework.data.mongodb.core.aggregation.BooleanOperators;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -21,6 +22,8 @@ public interface RegisterService
     JobSeeker registerNewJobSeeker(JobSeeker jobSeeker) throws JobSeekerAlreadyExistException;
     Recruiter registerNewRecruiter(Recruiter recruiter) throws RecruiterAlreadyExistException;
 
+    OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException;
+
     List<JobSeeker> getAllJobSeeker() throws Exception;
     List<Recruiter> getAllRecruiter() throws Exception;
     List<OrganizationDetails> getAllOrganization() throws Exception;
@@ -35,7 +38,7 @@ public interface RegisterService
 
     boolean deleteJobSeekerDetails(String emailId) throws JobSeekerNotFoundException;
     boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;
-    boolean deleteOrganizationDetails(String organizationId) throws OrganizationDetailsNotFoundException;
+    boolean deleteOrganizationDetails(String organizationEmailId) throws OrganizationDetailsNotFoundException;
 
 
     //public int generateJobSeekerIdInSequence(String sequenceName);

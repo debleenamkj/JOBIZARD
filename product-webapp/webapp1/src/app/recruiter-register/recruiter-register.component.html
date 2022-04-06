@@ -60,39 +60,39 @@
 
 <!-- ************************************************************************************************************************* -->
 
-<div class="d-flex flex-row align-items-center mb-4">
+<!-- <div class="d-flex flex-row align-items-center mb-4">
   <i class="fas fa-user fa-lg me-3 fa-fw"></i>
   <div class="form-outline flex-fill mb-0">
         <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Middle Name</label>
         <input type="text" class="form-control" placeholder="Enter the Middle Name" id="form3Example1c" name="middleName" [(ngModel)]="recruiter.middleName" >
-      </div></div>
+      </div></div> -->
 
 <!-- ************************************************************************************************************************* -->
 
-<div class="d-flex flex-row align-items-center mb-4">
+<!-- <div class="d-flex flex-row align-items-center mb-4">
 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
 <div class="form-outline flex-fill mb-0">
       <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Last Name</label>
         <input type="text" class="form-control" placeholder="Enter the Last Name" id="form3Example1c" name="lastName" [(ngModel)]="recruiter.lastName" >
-      </div></div>
+      </div></div> -->
 
 <!-- ************************************************************************************************************************* -->
 
-<div class="d-flex flex-row align-items-center mb-4">
+<!-- <div class="d-flex flex-row align-items-center mb-4">
   <i class="fa fa-venus-mars fa-lg me-3 fa-fw"></i>
   <div class="form-outline flex-fill mb-0">
         <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Gender</label>
         <input type="text" class="form-control" placeholder="Enter the user Gender" id="form3Example1c" name="gender" [(ngModel)]="recruiter.gender" >
-      </div></div>
+      </div></div> -->
 
 <!-- ************************************************************************************************************************* -->
 
-<div class="d-flex flex-row align-items-center mb-4">
+<!-- <div class="d-flex flex-row align-items-center mb-4">
   <i class="fas fa-phone-alt fa-lg me-3 fa-fw"></i>
   <div class="form-outline flex-fill mb-0">
         <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Mobile Number</label>
         <input type="number" class="form-control" placeholder="Enter the Mobile Number" id="form3Example1c" name="mobileNumber" [(ngModel)]="recruiter.mobileNumber" >
-      </div></div>
+      </div></div> -->
 
 <!-- ************************************************************************************************************************* -->
 
@@ -104,7 +104,47 @@
       </div></div>
 
 <!-- ************************************************************************************************************************* -->
-<div class="form-check d-flex justify-content-center mb-5">
+
+<!-- <div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Organization Name</label>
+        <input type="text" class="form-control" placeholder="Enter the organizationName" id="form3Example1c" name="password" [(ngModel)]="recruiter.organizationDetails" >
+
+  </div></div> -->
+  
+<!-- ************************************************************************************************************************* -->
+<!-- 
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Organization Sector</label>
+        <input type="text" class="form-control" placeholder="Enter the Organization Sector" id="form3Example1c" name="password" [(ngModel)]="recruiter.organizationDetails" >
+
+  </div></div> -->
+
+<!-- ************************************************************************************************************************* -->
+
+<!-- <div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Organization Origin</label>
+        <input type="text" class="form-control" placeholder="Enter the organization Origin" id="form3Example1c" name="password" [(ngModel)]="recruiter.organizationDetails" >
+
+  </div></div> -->
+
+<!-- ************************************************************************************************************************* -->
+<!-- 
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Contact Number</label>
+        <input type="text" class="form-control" placeholder="Enter the Contact Number" id="form3Example1c" name="password" [(ngModel)]="recruiter.organizationDetails" >
+
+  </div></div> -->
+
+<!-- ************************************************************************************************************************* -->
+<!-- <div class="form-check d-flex justify-content-center mb-5">
   <input
     class="form-check-input me-2"
     type="checkbox"
@@ -114,12 +154,27 @@
   <label class="form-check-label" for="form2Example3" >
     I agree all statements in <a href="#!">Terms of service</a>
   </label>
-</div>
-
-      
+</div> -->
 
 <!-- ************************************************************************************************************************* -->
-<button type="submit" class="cssbuttons-io-button"> Register
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <!-- <i style="margin-left:5px;" class="n"></i> -->
+  <img style="size: 8px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
+  <div class="form-outline flex-fill mb-0">
+  <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c">Recruiter Image </label>
+  
+  <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="Recruiter Image" class="form__icon" id="form3Example1c"  formControlName="recruiterImage" [(ngModel)]="recruiter.organizationDetails" (change)="onImageUpload($event)">
+</div>
+</div>
+
+<img style="border-radius: 3px;" src="{{uploadLogo}}" width="40%"> 
+<br><br>
+
+
+<!-- ************************************************************************************************************************* -->
+
+<button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));"> Register
   <div class="icon">
     <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
   </div>
