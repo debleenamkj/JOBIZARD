@@ -41,6 +41,7 @@
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
         <module>chatroom-service</module>
+        <module>post-service</module>
 
     </modules>
 
@@ -133,7 +134,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>post-unit-test</id>
+                        <id>postImage-unit-test</id>
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>

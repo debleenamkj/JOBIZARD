@@ -62,11 +62,13 @@ import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
 import { TechnewsComponent } from './technews/technews.component';
+
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 import { ReviewComponent } from './review/review.component';
+import { BusinessnewsComponent } from './businessnews/businessnews.component';
 
 
 
@@ -117,7 +119,8 @@ import { ReviewComponent } from './review/review.component';
     JobSeekersRegisterComponent,
     RecruitersRegisterComponent,
     TechnewsComponent,
-    ReviewComponent
+    ReviewComponent,
+    BusinessnewsComponent
 
   ],
   imports: [

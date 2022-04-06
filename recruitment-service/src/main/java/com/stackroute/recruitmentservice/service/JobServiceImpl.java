@@ -1,8 +1,8 @@
 package com.stackroute.recruitmentservice.service;
 
 import com.stackroute.recruitmentservice.config.Producer;
+import com.stackroute.recruitmentservice.model.JobDetails;
 import com.stackroute.recruitmentservice.model.JobPosting;
-import com.stackroute.recruitmentservice.rabbitmq.domain.JobPostingDTO;
 import com.stackroute.recruitmentservice.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,20 +24,68 @@ public class JobServiceImpl implements JobService{
     @Autowired
      Producer producer;
 
+    @Override
+    public JobPosting getCompany(String companyName)
+    {
+        Optional<JobPosting> job1 = jobRepository.findByCompanyName(companyName);
+        try {
+            if(job1.isEmpty())
+            {
+                System.out.println("Job not present");
+            }
+            job1.get().setLogo(decompressBytes(job1.get().getLogo()));
+        }catch (Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return job1.get();
+    }
 
 
     @Override
+    public JobPosting addJob(JobPosting jobPosting){
+        Optional<JobPosting> job1 = jobRepository.findByCompanyName(jobPosting.getCompanyName());
+        try {
+            if (job1.isPresent()) {
+                System.out.println(job1.get());
+                List<JobDetails> jobList = job1.get().getJobDetailsList();
+                jobList.addAll(jobPosting.getJobDetailsList());
+                // jobList.add(jobPosting.getJobDetailsList());
+                job1.get().setJobDetailsList(jobList);
+                System.out.println(job1.get().getJobDetailsList());
+                jobRepository.save(job1.get());
+            }
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return job1.get();
+    }
+
+    @Override
     public JobPosting  jobPosting(MultipartFile multipartFile,JobPosting jobPosting) throws IOException {
-        JobPostingDTO jobPostingDTO = new JobPostingDTO(jobPosting.getCompanyId(), jobPosting.getCompanyName(),jobPosting.getCompanyMail(),jobPosting.getIndustryType(),jobPosting.getLogo(),jobPosting.getJobDetailsList());
-        producer.sendMessageToRabbitTemplate(jobPostingDTO);
-        byte[] logo = compressBytes(multipartFile.getBytes());
-        //multipartFile.getBytes(jobPosting.setLogo(logo));
-        //jobPosting.setLogo(multipartFile.getBytes());
-        jobPosting.setLogo(logo);
-        JobPosting  job = jobRepository.save(jobPosting);
-        System.out.println(jobRepository.findById(job.getCompanyId()));
-//        return jobRepository.save(jobPosting);
-        return  job;
+        System.out.println("in service");
+//        JobPostingDTO jobPostingDTO = new JobPostingDTO(jobPosting.getCompanyId(), jobPosting.getCompanyName(),jobPosting.getCompanyEmail(),jobPosting.getIndustryType(),jobPosting.getLogo(),jobPosting.getJobDetailsList());
+//        producer.sendMessageToRabbitTemplate(jobPostingDTO);
+        Optional<JobPosting> job1 = jobRepository.findByCompanyName(jobPosting.getCompanyName());
+        if(job1.isPresent()){
+            System.out.println(job1.get());
+            List<JobDetails> jobList = job1.get().getJobDetailsList();
+            jobList.addAll(jobPosting.getJobDetailsList());
+           // jobList.add(jobPosting.getJobDetailsList());
+            job1.get().setJobDetailsList(jobList);
+            System.out.println(job1.get().getJobDetailsList());
+            jobRepository.save(job1.get());
+            return job1.get();
+        }
+        else {
+            byte[] logo = compressBytes(multipartFile.getBytes());
+            //multipartFile.getBytes(jobPosting.setLogo(logo));
+            //jobPosting.setLogo(multipartFile.getBytes());
+            jobPosting.setLogo(logo);
+            JobPosting  job = jobRepository.save(jobPosting);
+            System.out.println(jobRepository.findById(job.getCompanyId()));
+            return  job;
+        }
     }
 
 
@@ -102,7 +150,7 @@ public class JobServiceImpl implements JobService{
         return jobRepository.findByJobDetailsList(skill);
     }
     @Override
-    public Optional<JobPosting> specificJob(String companyId)    {
+    public Optional<JobPosting> specificJob(String companyId){
         return jobRepository.findById(companyId);
     }
 
