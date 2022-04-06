@@ -1,0 +1,135 @@
+
+<section id="imgs" class="vh-100" >
+
+    <div class="container h-100" >
+       
+    
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+  
+  
+  
+  
+      <form class="mx-1 mx-md-4" (ngSubmit)="organizationRegister()">
+  
+
+<!-- ************************************************************************************************************************* -->
+
+  <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label for="form3Example1c" class="form-label">Email-ID</label>
+          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.emailId" >
+        </div>
+        </div>
+ 
+<!-- ************************************************************************************************************************* -->
+  
+  <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label for="form3Example1c" class="form-label">Organization Name</label>
+          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.organizationName" >
+        </div>
+        </div>
+
+<!-- ************************************************************************************************************************* -->
+  
+ <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label for="form3Example1c" class="form-label">Organization Sector</label>
+          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.organizationSector" >
+        </div>
+        </div> 
+
+<!-- ************************************************************************************************************************* -->
+  
+ <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label for="form3Example1c" class="form-label">organization Origin</label>
+          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.organizationOrigin" >
+        </div>
+        </div> 
+
+<!-- ************************************************************************************************************************* -->
+  
+  <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label for="exampleFormControlInput1" id="form3Example1c" class="form-label">Role of Hiring</label>
+          <input type="text" class="form-control" placeholder="Enter the First Name" id="form3Example1c" name="firstName" [(ngModel)]="organization.roleOfHiring">
+        </div></div>
+
+  
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+          <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Contact Number</label>
+          <input type="text" class="form-control" placeholder="Enter the user password" id="form3Example1c" name="password" [(ngModel)]="organization.contactNumber" >
+        </div></div>
+
+<!-- ************************************************************************************************************************* -->
+
+  <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+          <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Password</label>
+          <input type="text" class="form-control" placeholder="Enter the user password" id="form3Example1c" name="password" [(ngModel)]="organization.password" >
+        </div></div>
+  
+<!-- ************************************************************************************************************************* -->
+  
+<div class="d-flex flex-row align-items-center mb-4">
+    
+    <img style="size: 8px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
+    <div class="form-outline flex-fill mb-0">
+    <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c">Organization Logo</label>
+    
+    <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="Recruiter Image" class="form__icon" id="form3Example1c"  formControlName="recruiterImage" [(ngModel)]="organization.organizationLogo" (change)="onUploadLogo($event)">
+  </div>
+  </div>
+  
+  <img style="border-radius: 3px;" src="{{uploadLogo}}" width="40%"> 
+  <br><br>
+  
+  
+  <!-- ************************************************************************************************************************* -->
+  
+  <button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));"> Register
+    <div class="icon">
+      <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+    </div>
+  </button>
+        
+  
+  <!-- ************************************************************************************************************************* -->
+  
+  </form>
+  
+  </div>
+  
+  <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image ">
+  
+    
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+  
+  

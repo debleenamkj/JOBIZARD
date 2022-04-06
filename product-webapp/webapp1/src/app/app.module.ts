@@ -38,6 +38,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -51,6 +53,7 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
@@ -62,6 +65,9 @@ import { UpdateUserDetailsComponent } from './update-user-details/update-user-de
 import { TechnewsComponent } from './technews/technews.component';
 
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
+import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 
 
 
@@ -98,6 +104,7 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
+
     RegisterComponent,
     LoginComponent,
 
@@ -106,7 +113,10 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
     CvTemplate2Component,
     CvTemplate3Component,
     UpdateUserDetailsComponent,
-    TechnewsComponent,
+    OrganizationDetailsComponent,
+    JobSeekersRegisterComponent,
+    RecruitersRegisterComponent,
+    TechnewsComponent
 
   ],
   imports: [
@@ -151,7 +161,10 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
     MatSliderModule,
     MatProgressBarModule,
     NgbModule,
+    MatExpansionModule,
+
     MatTabsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

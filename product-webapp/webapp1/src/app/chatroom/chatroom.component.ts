@@ -1,5 +1,10 @@
+
 // import { HttpClient } from '@angular/common/http';
 // import { Component, OnInit } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+
 // import * as Stomp from '@stomp/stompjs';
 // import * as SockJS from 'sockjs-client';
 
@@ -21,7 +26,7 @@
 //   name!: string;
 //   private stompClient:any;
 
-  
+
 
 //   setConnected(connected: boolean) {
 //     this.disabled = !connected;
@@ -66,4 +71,8 @@
 //   showGreeting(message: string) {
 //     this.greetings.push(message);
 //   }
+
 // }
+
+//}
+

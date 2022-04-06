@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.*;
+import java.util.Date;
 
 @Document
 @Data
@@ -25,11 +26,10 @@ public class JobSeeker
     @Id
     private String emailId;
     private String firstName;
-    private String middleName;
     private String lastName;
 
     private String gender;
-    private String dateOfBirth;
+    private Date dateOfBirth;
     private long mobileNumber;
     private String password;
 
