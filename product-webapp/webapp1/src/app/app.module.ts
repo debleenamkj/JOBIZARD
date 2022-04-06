@@ -60,7 +60,6 @@ import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
 import { TechnewsComponent } from './technews/technews.component';
-=======
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
@@ -109,14 +108,11 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
     CvTemplate2Component,
     CvTemplate3Component,
     UpdateUserDetailsComponent,
-<<<<<<< HEAD
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
-    RecruitersRegisterComponent
-=======
-    TechnewsComponent,
+    RecruitersRegisterComponent,
+    TechnewsComponent
 
->>>>>>> f75d3027a9169b3bd39818f40f2cbd4bedda9661
   ],
   imports: [
     BrowserModule,

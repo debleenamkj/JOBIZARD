@@ -89,8 +89,8 @@
        
         <div class="col">
           <br>
-          <mat-radio-group  aria-label="Select an gender">
-            <input matInput  placeholder="Gender" formControlName="gender">
+          <mat-radio-group  formControlName="gender" aria-label="Select an gender">
+            <input matInput  placeholder="Gender" >
             <mat-radio-button style="margin-left: 70px;margin-top:-20px;" value="male">Male</mat-radio-button>
             <mat-radio-button style="margin-left:145px;margin-top:-30px;" value="female">Female</mat-radio-button>
             <mat-radio-button style="margin-left:230px;margin-top:-30px;"  value="other">Other</mat-radio-button>
@@ -105,7 +105,7 @@
         <mat-form-field appearance="fill">
           
           <mat-label>Create your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'">
+          <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
           
            <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

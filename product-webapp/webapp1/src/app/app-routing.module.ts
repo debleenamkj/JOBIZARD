@@ -20,14 +20,11 @@ import { RegisterComponent } from './register/register.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
-<<<<<<< HEAD
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
-=======
 import { TechnewsComponent } from './technews/technews.component';
 import { OrganizationDetails } from './model/organizationDetails';
->>>>>>> f75d3027a9169b3bd39818f40f2cbd4bedda9661
 
 
 
