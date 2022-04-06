@@ -109,6 +109,46 @@ public class RecommendationserviceImpl implements RecommendationService{
         return matchingJobIds;
     }
 
+    @Override
+    public Set<String> getMatchingJobSeeker(JobDetails job) throws UserNotFoundException {
+        Set<String> matchingJobSeekers = new HashSet<>();
+        try{
+            if(jobRepository.findById(job.getJobId()).isEmpty())
+            {
+                throw new UserNotFoundException();
+            }
+            else{
+                ArrayList<String> skills = job.getSkillsRequired();
+                String jobRole = job.getJobRole();
+                if(!skills.isEmpty())
+                {
+                    for(String requiredSkills:skills) {
+                        List<Seeker> seeker1 = userRepository.findBySkillSet(requiredSkills);
+                        System.out.println(seeker1);
+                        if(seeker1!=null){
+                            for (Seeker seeker:seeker1 ) {
+                                matchingJobSeekers.add(seeker.getEmail());
+                            }
+                        }
+                    }
+                }
+
+                if(!matchingJobSeekers.isEmpty()){
+                    createRelationships1(job.getJobId(),matchingJobSeekers);
+                }
+            }
+        }catch (UserNotFoundException e){
+            System.out.println(e.toString());
+        }
+        return matchingJobSeekers;
+    }
+
+    public void createRelationships1(Long jobId,Set<String> matchingSeekers){
+        for (String seeker:matchingSeekers) {
+//            userRepository.createRelation(userEmail,jobId);
+            userRepository.createRelation(seeker,jobId);
+        }
+    }
     public void createRelationships(String userEmail,Set<Long> matchingJobs){
         for (Long jobId:matchingJobs) {
             userRepository.createRelation(userEmail,jobId);

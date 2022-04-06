@@ -16,7 +16,7 @@ export class ChatroomService {
   }
 
   public postMessages(chats:ChatMessage){
-    return this.http.post<any>("http://localhost:8090/chat",chats);
+    return this.http.postImage<any>("http://localhost:8090/chat",chats);
   }
 
   public getChatroom() : Observable<ChatRoom[]>{

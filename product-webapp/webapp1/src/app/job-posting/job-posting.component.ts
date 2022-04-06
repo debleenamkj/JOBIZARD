@@ -17,7 +17,7 @@ export class JobPostingComponent implements OnInit {
 
   constructor(private fb:FormBuilder) { }
 
-  post=new jobPost();
+  postImage=new jobPost();
   companyDetailsError:any;
   jobDetailsError:any;
   requirementsError:any;
@@ -56,18 +56,18 @@ export class JobPostingComponent implements OnInit {
     experience:['', Validators.required],
     skills:['', Validators.required],
    });
-  
+
    upimage:any;
 onFileChanged(event: any) {
   console.log("onchange");
   const files = event.target.files[0];
 
   const reader = new FileReader();
-  //this.post.companyLogo = files;
-  reader.readAsDataURL(event.target.files[0]); 
-  reader.onload = (_event) => { 
+  //this.postImage.companyLogo = files;
+  reader.readAsDataURL(event.target.files[0]);
+  reader.onload = (_event) => {
     console.log(reader.result);
-      this.upimage = reader.result; 
+      this.upimage = reader.result;
       console.log(this.upimage);
   }
 
@@ -79,25 +79,25 @@ onFileChanged(event: any) {
     console.log(this.companyForm);
     let div = document.getElementsByClassName('details') as HTMLCollectionOf<HTMLElement>;
     div[0].style.display='block';
-    this.post.companyName=this.companyForm.controls['companyName'].value;
-    this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
-    this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
-    this.post.industryType=this.companyForm.controls['industryType'].value;
-    this.post.companyLogo=this.upimage;
-    this.post.eduation= this.requirementsForm.controls['education'].value;
-    this.post.experience= this.requirementsForm.controls['experience'].value;
+    this.postImage.companyName=this.companyForm.controls['companyName'].value;
+    this.postImage.companyEmail=this.companyForm.controls['companyEmail'].value;
+    this.postImage.companyUrl=this.companyForm.controls['companyUrl'].value;
+    this.postImage.industryType=this.companyForm.controls['industryType'].value;
+    this.postImage.companyLogo=this.upimage;
+    this.postImage.eduation= this.requirementsForm.controls['education'].value;
+    this.postImage.experience= this.requirementsForm.controls['experience'].value;
   }
 
   preview1(){
     console.log("description");
     console.log(this.jobForm.value);
     console.log(this.jobForm.value.lastDate);
-    this.post.jobRole=this.jobForm.controls['jobTitle'].value;
-    this.post.jobDescription=this.jobForm.value.jobDescription;
-    this.post.location=this.jobForm.controls['location'].value;
+    this.postImage.jobRole=this.jobForm.controls['jobTitle'].value;
+    this.postImage.jobDescription=this.jobForm.value.jobDescription;
+    this.postImage.location=this.jobForm.controls['location'].value;
     let lastDate=this.jobForm.controls['lastDate'].value;
-    this.post.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
-    this.post.salary=this.jobForm.controls['salary'].value;
+    this.postImage.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
+    this.postImage.salary=this.jobForm.controls['salary'].value;
   }
 
   preview2(description:any){
@@ -105,10 +105,10 @@ onFileChanged(event: any) {
   }
 
   previewdate(date:any){
-      this.post.lastDate = date;
+      this.postImage.lastDate = date;
   }
-  company(){ 
-  
+  company(){
+
     this.companyDetailsError="";
     console.log(this.companyForm);
     // let div = document.getElementsByClassName('b1') as HTMLCollectionOf<HTMLElement>;

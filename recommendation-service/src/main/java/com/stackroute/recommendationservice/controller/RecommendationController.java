@@ -57,5 +57,15 @@ public class RecommendationController {
 
     }
 
+    @PostMapping("/match1")
+    public ResponseEntity<?> matchSeeker(@RequestBody JobDetails seeker) throws UserNotFoundException {
+        try{
+            return new ResponseEntity<>(recommendationService.getMatchingJobSeeker(seeker),HttpStatus.OK);
+        }catch (UserNotFoundException e){
+            return new ResponseEntity<>(UserNotFoundException.class, HttpStatus.NOT_FOUND);
+        }
+
+    }
+
 
 }
