@@ -31,3 +31,9 @@ mat-card-title{
 mat-label{
     color: #4E1B5F;
 }
+
+.chatscrolls{
+    height: 350px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
