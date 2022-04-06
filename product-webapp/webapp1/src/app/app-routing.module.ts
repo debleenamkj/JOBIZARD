@@ -72,6 +72,8 @@ const routes: Routes = [
   {path: "not-found", component:NotFoundComponent},
   // {path:"Organization",component:OrganizationDetails},
 
+
+
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent}
 ];
