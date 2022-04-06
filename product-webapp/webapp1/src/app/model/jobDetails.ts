@@ -1,0 +1,20 @@
+export class jobDetails{
+   experienceRequired:string=""
+    skillsRequired:any=[]
+    jobRole:string=""
+    salary:any;
+    lastDate:any;
+    jobLocation:string=""
+    jobDescription:string=""
+    educationRequired:string=""
+    constructor(){
+        this.jobRole="";
+        this.salary="";
+        this.jobDescription="";
+        this.jobLocation="";
+        this.lastDate="";
+        this.educationRequired="",
+        this.experienceRequired="",
+        this.skillsRequired="";
+    }
+}

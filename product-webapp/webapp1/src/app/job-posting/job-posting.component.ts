@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { jobPost } from '../model/jobPost';
+import { jobPosting } from '../model/jobPosting';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { jobDetails } from '../model/jobDetails';
+import { HttpClient } from '@angular/common/http';
+import { PostJobServiceService } from '../service/post-job-service.service';
+
+
 
 export interface Fruit {
   name: string;
@@ -15,13 +20,16 @@ export interface Fruit {
 })
 export class JobPostingComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private service:PostJobServiceService) { }
 
-  post=new jobPost();
+  file:any
+  post=new jobPosting();
+  details=new jobDetails();
   companyDetailsError:any;
   jobDetailsError:any;
   requirementsError:any;
-
+  companyPresent:string="";
+  companyDetails:any=null;
 
   ngOnInit(): void {
   }
@@ -35,6 +43,21 @@ export class JobPostingComponent implements OnInit {
 
   skills:any=[];
   skill:string="";
+
+  isPosted(){
+    console.log(this.companyPresent);
+    let companyForm = document.getElementsByClassName('companyForm') as HTMLCollectionOf<HTMLElement>;
+    if(this.companyPresent=='yes'){
+      companyForm[0].style.pointerEvents='all'
+      companyForm[1].style.pointerEvents='all'
+    }
+    else{
+      companyForm[0].style.pointerEvents='all'
+      companyForm[1].style.pointerEvents='all'
+      companyForm[2].style.pointerEvents='all'
+    }
+  }
+
   companyForm = this.fb.group({
     companyName:['', Validators.required],
     companyUrl:"",
@@ -60,10 +83,10 @@ export class JobPostingComponent implements OnInit {
    upimage:any;
 onFileChanged(event: any) {
   console.log("onchange");
-  const files = event.target.files[0];
+
+  this.file = event.target.files[0];
 
   const reader = new FileReader();
-  //this.post.companyLogo = files;
   reader.readAsDataURL(event.target.files[0]); 
   reader.onload = (_event) => { 
     console.log(reader.result);
@@ -72,40 +95,68 @@ onFileChanged(event: any) {
   }
 
 }
-  preview(){
-    this.companyDetailsError='';
-    this.companyDetailsError=this.companyForm.controls['status'];
-    console.log(this.companyDetailsError);
-    console.log(this.companyForm);
-    let div = document.getElementsByClassName('details') as HTMLCollectionOf<HTMLElement>;
-    div[0].style.display='block';
+
+getCompany(){
+  if(this.companyPresent=='yes'){
     this.post.companyName=this.companyForm.controls['companyName'].value;
-    this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
-    this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
-    this.post.industryType=this.companyForm.controls['industryType'].value;
-    this.post.companyLogo=this.upimage;
-    this.post.eduation= this.requirementsForm.controls['education'].value;
-    this.post.experience= this.requirementsForm.controls['experience'].value;
+    this.service.getCompany(this.post.companyName).subscribe(data => {
+      console.log(data);
+      this.companyDetails = data;
+      this.companyForm.patchValue({
+      companyUrl:this.companyDetails.companyUrl,
+      companyEmail:this.companyDetails.companyEmail,
+      companyLogo:this.companyDetails.log,
+      industryType:this.companyDetails.industryType,
+      });
+      this.post.companyUrl = this.companyDetails.companyUrl
+      this.post.companyEmail = this.companyDetails.companyEmail
+      this.post.industryType = this.companyDetails.industryType
+      // let img = this.companyDetails.logo;
+      // this.upimage = 'data:image/jpeg;base64,'+img;
+      // console.log(img);
+      // console.log(this.upimage);
+    })
+  }
+ 
+
+  console.log(this.companyForm);
+  console.log(this.post);
+}
+  preview(){
+    if(this.companyDetails==null)
+    {
+      this.companyDetailsError='';
+      this.companyDetailsError=this.companyForm.controls['status'];
+      console.log(this.companyDetailsError);
+      this.post.companyName=this.companyForm.controls['companyName'].value;
+      this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
+      this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
+      this.post.industryType=this.companyForm.controls['industryType'].value;
+    }
+  
+    //this.post.companyLogo=this.upimage;
+    this.details.educationRequired= this.requirementsForm.controls['education'].value;
+    this.details.experienceRequired= this.requirementsForm.controls['experience'].value;
   }
 
   preview1(){
     console.log("description");
     console.log(this.jobForm.value);
     console.log(this.jobForm.value.lastDate);
-    this.post.jobRole=this.jobForm.controls['jobTitle'].value;
-    this.post.jobDescription=this.jobForm.value.jobDescription;
-    this.post.location=this.jobForm.controls['location'].value;
-    let lastDate=this.jobForm.controls['lastDate'].value;
-    this.post.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
-    this.post.salary=this.jobForm.controls['salary'].value;
+    this.details.jobRole=this.jobForm.controls['jobTitle'].value;
+    //this.details.jobDescription=this.jobForm.value.jobDescription;
+    this.details.jobLocation=this.jobForm.controls['location'].value;
+    this.details.salary=this.jobForm.controls['salary'].value;
   }
 
   preview2(description:any){
-    this.jobDescription=description;
+    this.details.jobDescription=description;
   }
 
-  previewdate(date:any){
-      this.post.lastDate = date;
+  previewdate(){
+      // this.details.lastDate = date;
+      let lastDate=this.jobForm.controls['lastDate'].value;
+    this.details.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
   }
   company(){ 
   
@@ -115,18 +166,52 @@ onFileChanged(event: any) {
     // div[0].style.backgroundColor='yellow';
    }
 
-   job(){
-    let div = document.getElementsByClassName('b2') as HTMLCollectionOf<HTMLElement>;
-    div[0].style.backgroundColor='#FAC710';
-   }
-   requirements(){
-    let div = document.getElementsByClassName('b3') as HTMLCollectionOf<HTMLElement>;
-    div[0].style.backgroundColor='#CEE741';
-   }
+
    finish(){
+    let skills = new Array();
+    this.fruits.forEach(element => {
+      console.log("in for")
+      console.log(element.name);
+      skills.push(element.name);
+    });
+    console.log(skills);
+    this.details.skillsRequired = skills;
      console.log("finish");
-    let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
-    div[0].style.display='block';
+     this.post.jobDetailsList=[this.details];
+     console.log(this.post);
+
+     const uploadData = new FormData();
+     if(this.companyDetails==''){
+       console.log("company details is null")
+      uploadData.append('file', this.file);
+      uploadData.append('jobs',JSON.stringify(this.post));
+      console.log(uploadData.get('file'));
+      console.log(uploadData.get('jobs'));
+      console.log(uploadData);
+      this.service.postJob(uploadData).subscribe(data =>{
+        console.log(data)
+        let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
+        div[0].style.display='block';
+      }) 
+     }
+     else if (this.companyDetails!=null){
+      console.log("company details is present")
+      uploadData.append('jobs',JSON.stringify(this.post));
+      this.service.postJob1(uploadData).subscribe(data =>{
+        console.log(data)
+        let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
+        div[0].style.display='block';
+      }) 
+     }
+    //  uploadData.append('file', this.file);
+    //  uploadData.append('jobs',JSON.stringify(this.post));
+    //  console.log(uploadData.get('file'));
+    //  console.log(uploadData.get('jobs'));
+    //  console.log(uploadData);
+    //  this.service.postJob(uploadData).subscribe(data =>{
+    //    console.log(data)
+    //  })
+   
    }
 
   addOnBlur = true;
@@ -136,12 +221,10 @@ onFileChanged(event: any) {
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our fruit
     if (value) {
       this.fruits.push({name: value});
     }
 
-    // Clear the input value
     event.chipInput!.clear();
   }
 
