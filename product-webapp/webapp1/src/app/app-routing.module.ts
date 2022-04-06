@@ -26,6 +26,7 @@ import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 import { TechnewsComponent } from './technews/technews.component';
 import { OrganizationDetails } from './model/organizationDetails';
+import { ChatroomComponent } from './chatroom/chatroom.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
 
   },
   {path:"chatbot",component:ChatbotComponent},
+  {path:"chatroom",component:ChatroomComponent},
   {
     path:"jobdetail",
     component:JobDetailComponent,
@@ -74,7 +76,6 @@ const routes: Routes = [
 
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent}
-
 ];
 
 @NgModule({
