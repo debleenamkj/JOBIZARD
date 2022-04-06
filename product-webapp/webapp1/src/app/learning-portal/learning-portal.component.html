@@ -1,132 +1,63 @@
 <div>
     <div style="  background-color: #4E1B5F; height: initial;">
-        <br><br><br>
-        <section style="display: flex; align-items: flex-end; border-bottom: 5px solid white; padding-bottom: 10px;">
+        
+        <section style="display: flex; align-items: center; justify-content: center; border-bottom: 5px solid white;">
             <div class="tagline">
                 Hello Warrior, grow your skills and advance your career with jobizard Learning.
             </div>
-            <div class="search-headline">
-                Find the best courses
-            </div>
-            <div class="search-bar">
-                
-                <button matSuffix mat-icon-button style="">
-                    <mat-icon>close</mat-icon>
-                </button>
-                <input class="search-input" type="text">
-                <button matPrefix mat-icon-button style="margin-left: 0px; margin-right: auto;">
+            <section style="display: flex; align-items: center; justify-content: end">
+            
+                <div class="search-headline">
+                    Find the best courses
+                </div>
+                <mat-form-field>
+                    <button matSuffix (click)="queryReSet()" *ngIf="query.value" mat-icon-button>
+                        <!-- style="filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%); -->
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-label style="color: white; font-size: 1vw;">Find Courses</mat-label>
+                    <input matInput [formControl]="query" [matAutocomplete]="auto" class="search-input" type="search"
+                        >
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" style="background-color: white; color: #4E1B5F; font-weight: 700;" >
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                    
+                </mat-form-field>
+                <button mat-icon-button class="search-icon">
                     <i class="fa-solid 
-                     fa-magnifying-glass
-                      fa-xl"></i>
+                 fa-magnifying-glass
+                  fa-xl" (click)="onSkillTypeClick({target:{innerText: this.query.value}})"></i>
                 </button>
-            </div>
+            </section>
         </section>
+        <div style="height: 400px;">
 
+            <ngb-carousel style="height: 100%;">
+                <ng-template ngbSlide *ngFor="let slide of categoryTemplate; index as i;">
 
-        <div style="height: 400px; padding-top: 0%;">
+                    <div style="width: 80%; height: 400px; margin: auto;">
 
-            <ngb-carousel style="height: 100%; padding: 0px;">
-                <ng-template ngbSlide *ngFor="let skillCategory of categorySlideCount index as s">
-                    <div class="width-100">
-                        <div class="card-block" style="width: 80%; height: 400px;">
-
-                            <div class="flip-card skill-card-margin float-left">
-                                <div class="flip-card-inner">
-                                    <mat-card style="background-image: url(../../assets/learning-portal/fintech.jpg);"
-                                        class="skill-card flip-card-front" *ngIf="skillAggregate[5*s]">
-                                        <mat-card-title>{{skillAggregate[5*s].category}}</mat-card-title>
-                                    </mat-card>
-                                    <mat-card class="flip-card-back">
-                                        <ul>
-                                            <h1>{{skillAggregate[5*s].category}}</h1>
-                                            <mat-card-title *ngFor="let skill of skillAggregate[5*s].skillTypes">
-                                                <a (click)="onSkillTypeClick($event)">
-                                                    <li>{{skill}}</li>
-                                                </a>
-                                            </mat-card-title>
-                                        </ul>
-                                    </mat-card>
-                                </div>
-                            </div>
-
-                            <div class="flip-card skill-card-margin float-left">
-                                <div class="flip-card-inner">
-                                    <mat-card
-                                        style="background-image: url(../../assets/learning-portal/Banking-and-Finance.jpg);"
-                                        class="skill-card flip-card-front" *ngIf="skillAggregate[5*s+1]">
-                                        <mat-card-title>{{skillAggregate[5*s+1].category}}</mat-card-title>
-                                    </mat-card>
-                                    <mat-card class="flip-card-back">
-                                        <ul>
-                                            <h1>{{skillAggregate[5*s+1].category}}</h1>
-                                            <mat-card-title *ngFor="let skill of skillAggregate[5*s+1].skillTypes">
-                                                <a (click)="onSkillTypeClick($event)">
-                                                    <li>{{skill}}</li>
-                                                </a>
-                                            </mat-card-title>
-                                        </ul>
-                                    </mat-card>
-                                </div>
-                            </div>
-
-                            <div class="flip-card skill-card-margin float-left">
-                                <div class="flip-card-inner">
-                                    <mat-card
-                                        style="background-image: url(../../assets/learning-portal/technology-courses.jpg);"
-                                        class="skill-card flip-card-front" *ngIf="skillAggregate[5*s+2]">
-                                        <mat-card-title>{{skillAggregate[5*s+2].category}}</mat-card-title>
-                                    </mat-card>
-                                    <mat-card class="flip-card-back">
-                                        <ul>
-                                            <h1>{{skillAggregate[5*s+2].category}}</h1>
-                                            <mat-card-title *ngFor="let skill of skillAggregate[5*s+2].skillTypes">
-                                                <a (click)="onSkillTypeClick($event)">
-                                                    <li>{{skill}}</li>
-                                                </a>
-                                            </mat-card-title>
-                                        </ul>
-                                    </mat-card>
-                                </div>
-                            </div>
-
-                            <div class="flip-card skill-card-margin float-left">
-                                <div class="flip-card-inner">
-                                    <mat-card
-                                        style="background-image: url(../../assets/learning-portal/personality-development.jpg);"
-                                        class="skill-card flip-card-front" *ngIf="skillAggregate[5*s+3]">
-                                        <mat-card-title>{{skillAggregate[5*s+3].category}}</mat-card-title>
-                                    </mat-card>
-                                    <mat-card class="flip-card-back">
-                                        <ul>
-                                            <h1>{{skillAggregate[5*s+3].category}}</h1>
-                                            <mat-card-title *ngFor="let skill of skillAggregate[5*s+3].skillTypes">
-                                                <a (click)="onSkillTypeClick($event)">
-                                                    <li>{{skill}}</li>
-                                                </a>
-                                            </mat-card-title>
-                                        </ul>
-                                    </mat-card>
-                                </div>
-                            </div>
-
-                            <div class="flip-card skill-card-margin float-left">
-                                <div class="flip-card-inner">
-                                    <mat-card
-                                        style="background-image: url(../../assets/learning-portal/math-and-logic.jpg);"
-                                        class="skill-card flip-card-front" *ngIf="skillAggregate[5*s+4]">
-                                        <mat-card-title>{{skillAggregate[5*s+4].category}}</mat-card-title>
-                                    </mat-card>
-                                    <mat-card class="flip-card-back">
-                                        <ul>
-                                            <h1>{{skillAggregate[5*s+4].category}}</h1>
-                                            <mat-card-title *ngFor="let skill of skillAggregate[5*s+4].skillTypes">
-                                                <a (click)="onSkillTypeClick($event)">
-                                                    <li>{{skill}}</li>
-                                                </a>
-                                            </mat-card-title>
-                                        </ul>
-                                    </mat-card>
-                                </div>
+                        <div class="flip-card skill-card-margin float-left" *ngFor="let card of slide; index as j;">
+                            <div class="flip-card-inner">
+                                <mat-card style="background-image: url(../../assets/learning-portal/{{skillAggregate[cardsPerSlide.category*i+j].image}});"
+                                    class="skill-card flip-card-front"
+                                    *ngIf="skillAggregate[cardsPerSlide.category*i+j]">
+                                    <mat-card-title>{{skillAggregate[cardsPerSlide.category*i+j].category}}
+                                    </mat-card-title>
+                                </mat-card>
+                                <mat-card class="flip-card-back">
+                                    <ul>
+                                        <h1 style=" border-bottom: 3px solid white;">{{skillAggregate[cardsPerSlide.category*i+j].category}}</h1>
+                                        <mat-card-title
+                                            *ngFor="let skill of skillAggregate[cardsPerSlide.category*i+j].skillTypes">
+                                            <a (click)="onSkillTypeClick($event)">
+                                                <li>{{skill}}</li>
+                                            </a>
+                                        </mat-card-title>
+                                    </ul>
+                                </mat-card>
                             </div>
                         </div>
                     </div>
@@ -134,109 +65,47 @@
             </ngb-carousel>
         </div>
     </div>
-    <div style="padding:30px 0px; background-color: rgb(230, 230, 230)" [hidden]="hideCourseVariable">
+    <mat-accordion  multi >
+    <mat-expansion-panel>
         <button mat-raised-button (click)="hideCourses()" class="hide-arrow-button">
             <i class="fa-solid fa-arrow-up-long fa-bounce fa-xl"></i>
             Hide
         </button>
         <br><br>
-        <p style="font-size: x-large; margin-bottom: 0%; font-weight: 500;">Courses Available:</p>
+        <p style=" margin-left: 2%; font-size: xx-large; margin-bottom: 2%; font-weight: 500; color: #4E1B5F;">Courses Available: {{queryValue}}</p>
         <div class="parent-container">
-            <ngb-carousel style="padding-bottom: 0%;">
-                <ng-template style="padding-bottom: 0%;" ngbSlide *ngFor="let course of courseSlideCount; index as i">
-
-                    <div class="parent-container">
-                        <div class="width-100">
-                            <div class="card-block" style="width: 80%;">
-                                <mat-card class="card suggestion-card float-left"
-                                    *ngFor="let source of suggestion; index as k">
-
-                                    <br>
-                                    <mat-card-title><a href={{suggestion[5*i+k]}}>Click Me</a></mat-card-title>
-                                </mat-card>
-                                <!-- <mat-card class="card suggestion-card float-left" *ngIf="suggestion[5*i+1]">
-
-                                <br>
-                                <mat-card-title><a href={{suggestion[5*i+1]}}>Click Me </a></mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card float-left" *ngIf="suggestion[5*i+2]">
-
-                                <br>
-                                <mat-card-title><a href={{suggestion[5*i+2]}}>Click Me </a></mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card float-left" *ngIf="suggestion[5*i+3]">
-
-                                <br>
-                                <mat-card-title><a href={{suggestion[5*i+3]}}>Click Me </a></mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card float-left" *ngIf="suggestion[5*i+4]">
-
-                                <br>
-                                <mat-card-title><a href={{suggestion[5*i+4]}}>Click Me</a></mat-card-title>
-                            </mat-card> -->
-                            </div>
-                        </div>
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slide of courseTemplate; index as i">
+                    <div style="width: 80%; height: 200px; margin: auto; overflow-x: auto;">
+                        <mat-card class="card suggestion-card float-left" *ngFor="let card of slide; index as j;">
+                            <mat-card-title ><a href={{suggestion[cardsPerSlide.course*i+j]}}>
+                                <img *ngIf="skillImage" [src]="skillImageLocation+skillImage">
+                        
+                            </a>
+                            </mat-card-title>
+                        </mat-card>
                     </div>
                 </ng-template>
             </ngb-carousel>
         </div>
-    </div>
+    </mat-expansion-panel>
+</mat-accordion>
     <div style=" width: 95%;  margin: auto;">
         <br><br>
-        <p style="font-size: x-large; margin-bottom: 0%; font-weight: 500;">Recommended for you</p>
+        <p style="font-size: xx-large; margin-bottom: 0%; font-weight: 500;">Recommended for you</p>
         <br><br>
 
-        <p style="font-size: x-large; margin-bottom: 0%; font-weight: 500;">Top Educators</p>
+        <p style="font-size: xx-large; color: #4E1B5F; margin-left: 1%; margin-bottom: 2%; font-weight: 500;">Top Educators</p>
+
         <div class="parent-container">
             <ngb-carousel>
-                <ng-template ngbSlide *ngFor="let logo of logoSlideCount; index as j">
+                <ng-template ngbSlide *ngFor="let slide of logoTemplate; index as i">
                     <div class="logo-container">
-                        <div class="width-100">
-                            <div class="card-block" style="width: 80%;">
-                
-                                <mat-card class="card company-logo-card float-left" *ngFor="let card of calculateNumberOfCardsPerSlide(8); index as k">
-                                    <div *ngIf="companyLogos[8*j+k]">
-                                        <img [src]="logoLocation + companyLogos[8*j+k]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                            
-                                <!-- <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+1]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+1]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                                <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+2]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+2]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                                <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+3]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+3]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                                <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+4]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+4]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                                <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+5]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+5]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                                <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+6]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+6]" alt="company logo">
-                                    </div>
-                                </mat-card>
-                                <mat-card class="card company-logo-card float-left" *ngIf="companyLogos[8*j+7]">
-                                    <div>
-                                        <img [src]="logoLocation + companyLogos[8*j+7]" alt="company logo">
-                                    </div>
-                                </mat-card> -->
+                        <mat-card class="card company-logo-card float-left" *ngFor="let card of slide; index as j;">
+                            <div *ngIf="companyLogos[cardsPerSlide.logo*i+j]">
+                                <img [src]="logoLocation + companyLogos[cardsPerSlide.logo*i+j]" alt="company logo">
                             </div>
-                        </div>
+                        </mat-card>
                     </div>
                 </ng-template>
             </ngb-carousel>

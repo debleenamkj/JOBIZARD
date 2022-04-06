@@ -1,0 +1,122 @@
+div {
+  /* border-style: solid;
+  margin: 10px;
+  padding: 10px;  */
+}
+body{
+ display: flex;
+ justify-content: center;
+ padding: 0%;
+ margin: 2%;
+}
+.cv-template {
+  display: flex;
+  justify-content: space-around;
+  height: 180%;
+  width: 80%;
+  color: rgb(83, 83, 83);
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-family: 'PT Sans', sans-serif; */
+}
+.contact-details{
+    text-align: center;
+
+}
+.contact-header{
+    text-align: left;
+    padding: 3%;
+    margin: 2%;
+    text-align: center;
+   
+}
+.mat-card-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+.cv-left-side-content{
+    background-color: rgb(238, 224, 226);
+    width: 25%;
+   
+}
+.cv-left-side-header {
+  text-align: center;
+  padding: 5%;
+}
+.cv-left-side-content {
+  margin: 0%;
+  padding: 0%;
+}
+mat-icon {
+    color: rgb(108, 105, 105);
+    
+}
+.num-header{
+    text-align: left;
+}
+.location header{
+    text-align: left;
+    margin-left: 10%;
+    padding-bottom: 15%;
+}
+.name-header{
+    text-align: center;
+}
+.name-content{
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 9%;
+    
+}
+.role-content{
+  text-align: center;
+  text-transform: uppercase;
+}
+.name-header{
+    background-color: rgb(234, 234, 234);
+    height: 25%;
+}
+
+.cv-right-side-content {
+  margin: 0%;
+  padding: 0%;
+  width: 75%;
+}
+.content-objective{
+    text-align: left;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 200%;
+    color: rgb(108, 105, 105);
+    font-weight: bold;
+    padding: 1%;
+    margin: 3%;
+}
+.Exp-header{
+   
+    /* border-color: rgb(169, 166, 166)  rgb(169, 166, 166)  rgb(169, 166, 166)  rgb(169, 166, 166) ; */
+}
+.exp{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(238, 224, 226) ;
+}
+.exp-content{
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0px;
+}
+.exp-details{
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 100%;
+  color: rgb(83, 83, 83);
+}
+li{
+  text-align:left;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 150%;
+}

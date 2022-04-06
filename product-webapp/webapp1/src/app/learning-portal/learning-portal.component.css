@@ -1,20 +1,18 @@
+*{
+    text-decoration: none;
+}
 .parent-container{
     width: 100%;
     height: 200px;
     text-align: center;
     /* background-image:  linear-gradient(to right, #6E2586,#B11784); */
 }
-
 .card-arrow-gap{
     width: 90%;
     height: 200px;
     margin: auto;
 }
-.logo-container{
-    height: 150px;
-    width: 100%;
-    text-align: center;
-}
+
 .card{  
     height: 100%;
     margin: auto;
@@ -26,7 +24,7 @@
     height: 100%;
     background-position: center; 
     background-repeat: no-repeat; 
-     background-size: cover;   
+    background-size: cover;   
 }
 .skill-card-margin{
     margin-left: 0.5%;
@@ -51,34 +49,57 @@
 }
 
 .suggestion-card{
-    width: 17.6%;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
     margin-left: 2%;
     border-radius: 50px;
+    overflow: hidden;
 }
-.company-logo-card{
-    width: 11.4%;
+.suggestion-card img{
+    width: 200px;
+    height: 150px;
+    object-fit: fill;
+}
+.suggestion-card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,1);
+}
+mat-expansion-panel{
+    background-color: white;
+     padding:30px 0px;
+    
+}
+.logo-container{
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    overflow-x: auto;
+}
+.company-logo-card{   
+    width: 150px;
     min-width: 150px;
-    margin-left: 1%;
+    height: 100%;
     border-radius: 90px;
     background-color: white;
 }
 .company-logo-card>div{
-    min-height: 80%;
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    border-radius: 100px;
+    background-color: white;
 }
-.mat-card-image{
-    width: 100px;
-    margin: auto;
+.company-logo-card>div>img{ 
+    border-radius: unset;
+    width: 60%;
+    align-self: center;
 }
-.template-div, .float-left{
+
+.float-left{
     float: left;
-}
-.card-block{
-    height: 200px;
-    width: 96%;
-    margin: auto;
-}
-.width-100{
-    width: 100%;
 }
 mat-card{
     display: flex;
@@ -86,57 +107,57 @@ mat-card{
     min-width: 100px;
     background-image:  linear-gradient(to right, #6E2586,#B11784);
 }
-mat-card > div{
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    border-radius: 100px;
-}
-mat-card>div>img{
-    border-radius: unset;
-    width: 60%;
-    align-self: center;
-
-}
 mat-card-title{
     font-size: larger;
     line-height: 110%;
     color: white;
 }
 .tagline{
+    margin-left: 0%;
+    margin-right: auto;
     text-align: left;
     width: fit-content;
-    font-size: x-large;
+    font-size: 1.5vw;
     color: white;
     height: 25px;
     background-image: linear-gradient(to right,#B11784,#4E1B5F);
+    overflow: auto;
+    scrollbar-width: none;
+}
+.tagline::-webkit-scrollbar, .search-headline::-webkit-scrollbar{
+    display: none;
 }
 .search-headline{
-    height: 25px;
-    margin-right: 10%;
+    /* position: relative;
+    right: -2%; */
+    margin-right: 30px;
     margin-left: auto;
     height: 25px;
-    font-size: x-large;
+    font-size: 1.5vw;
     color: white;
-}
-section div{
-    background-color: #33ca25;
+    overflow: auto;
+    scrollbar-width: none;
 }
 .search-bar{
     background-color: transparent;
-    border: 1px solid white ;
-    border-radius: 50px;
-    margin-right: 1%;
-    margin-left: auto;
-    width: 30%;
+    /* border: 3px solid white ; */
+    /* transition: width 1s; */
 } 
+/* .search-input:focus{
+    width: 500px;
+} */
+/* .search-icon{
+     filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);
+} */
 .search-input{
-    border: none;
-    border-bottom: 2px solid white;
-    background-color: transparent;
-    outline: none;
-    color: white;
-    font-size: large; 
+    font-size: 1vw;
+    text-align: center;
+    caret-color: white;
+    
+    /* border: none;
+    outline: none;   */
+    
+    
 }
 .flip-card{
     background-color: transparent;
@@ -165,22 +186,30 @@ section div{
     backface-visibility: hidden;
 }
 .flip-card-back{
-    background-image: linear-gradient(to right, #33ca25, #4E1B5F);
+    background-image: linear-gradient(to right,#391e94, #391e94);
     transform: rotateY(180deg);
     text-align: center;
-    
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
-
-.flip-card-back mat-card-title{
-    text-decoration: none;
-    color: white;
+.flip-card-back::-webkit-scrollbar{
+    display: none;
 }
 .flip-card-back h1{
-    font-weight: bolder;
+    font-weight: bold;
+    font-size: x-large;
 }
-.flip-card-back a:hover{
-    text-decoration: underline;
-    color: black;
+.flip-card-back a li{
+    box-shadow: 1px 1px 1px rgba(0,0,0,0);
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    text-align: center;
+}
+.flip-card-back a li:hover{
+    box-shadow: 1px 1px 1px rgba(0,0,0,1);
 }
 a{
     cursor: pointer;
@@ -188,7 +217,8 @@ a{
     text-decoration: none;
 }
 a:hover{
-    color: black;
+    text-decoration: none;
+    color: #4E1B5F;;
     text-decoration: underline;
 }
 .hide-arrow-button{
@@ -199,5 +229,5 @@ a:hover{
     background-image: linear-gradient(to right,#6E2586, #B11784);
 }
 .hide-arrow-button:hover{
-    color: #33ca25;
+    color: #391e94;
 }

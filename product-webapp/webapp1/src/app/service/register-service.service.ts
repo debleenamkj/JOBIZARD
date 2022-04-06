@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JobSeeker } from '../model/jobSeeker';
+import { User } from '../model/login';
 import { Recruiter } from '../model/recruiter';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class RegisterServiceService {
   constructor(private http:HttpClient) { }
   jobSeekerRegister(jobSeeker:JobSeeker)
   {
-    return this.http.post("http://localhost:8098/api/v1/jobSeeker",jobSeeker)
+    return this.http.post("http://localhost:8098/api/v1/registerJobSeeker",jobSeeker)
   }
 
   recruiterRegister(recruiter:Recruiter)
@@ -25,7 +26,7 @@ export class RegisterServiceService {
     return this.http.post("http://localhost:8098/api/v1/registerRecruiter",recruiter)
   }
 
-  userLogIn(user:any)  // any - jobSeeker and recruiter any one can log-in
+  userLogIn(user:User)  // any - jobSeeker and recruiter any one can log-in
   {
     return this.http.post("http://localhost:8099/api/v2/login",user)
   }

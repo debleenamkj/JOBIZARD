@@ -18,7 +18,9 @@ export class JobPostingComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
 
   post=new jobPost();
-  companyDetailsError="";
+  companyDetailsError:any;
+  jobDetailsError:any;
+  requirementsError:any;
 
 
   ngOnInit(): void {
@@ -27,7 +29,7 @@ export class JobPostingComponent implements OnInit {
   isLinear = false;
 
   isEditable = false;
-
+  jobDescription:string="";
 
   date = new Date();
 
@@ -43,7 +45,7 @@ export class JobPostingComponent implements OnInit {
 
    jobForm = this.fb.group({
     jobTitle:['', Validators.required],
-    jobDescription:['', Validators.required],
+    //jobDescription:['', Validators.required],
     location:['', Validators.required],
     salary:"",
     lastDate:['', Validators.required],
@@ -71,27 +73,39 @@ onFileChanged(event: any) {
 
 }
   preview(){
+    this.companyDetailsError='';
+    this.companyDetailsError=this.companyForm.controls['status'];
+    console.log(this.companyDetailsError);
+    console.log(this.companyForm);
     let div = document.getElementsByClassName('details') as HTMLCollectionOf<HTMLElement>;
     div[0].style.display='block';
-   // console.log(this.post.companyLogo);
     this.post.companyName=this.companyForm.controls['companyName'].value;
     this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
     this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
     this.post.industryType=this.companyForm.controls['industryType'].value;
     this.post.companyLogo=this.upimage;
-    // console.log(this.post);
-    // console.log(this.date);
-
     this.post.eduation= this.requirementsForm.controls['education'].value;
     this.post.experience= this.requirementsForm.controls['experience'].value;
   }
 
   preview1(){
+    console.log("description");
+    console.log(this.jobForm.value);
+    console.log(this.jobForm.value.lastDate);
     this.post.jobRole=this.jobForm.controls['jobTitle'].value;
-    this.post.jobDescription=this.jobForm.controls['jobDescription'].value;
+    this.post.jobDescription=this.jobForm.value.jobDescription;
     this.post.location=this.jobForm.controls['location'].value;
-    this.post.lastDate=this.jobForm.controls['lastDate'].value;
+    let lastDate=this.jobForm.controls['lastDate'].value;
+    this.post.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
     this.post.salary=this.jobForm.controls['salary'].value;
+  }
+
+  preview2(description:any){
+    this.jobDescription=description;
+  }
+
+  previewdate(date:any){
+      this.post.lastDate = date;
   }
   company(){ 
   
@@ -117,7 +131,7 @@ onFileChanged(event: any) {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [{name: 'skills'}];
+  fruits: Fruit[] = [];
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();

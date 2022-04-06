@@ -1,9 +1,10 @@
-<div class="container col-md-6">
+<!-- <body>
+<div class="container col-md-6" style="text-align: center; margin-left: 28%;">
     <br>
     <br>
-<h1 style="color: rgb(87, 187, 233);">Register Recruiter</h1>
+<h1 style="color: rgb(87, 187, 233);">User Register Type Recruiter</h1> -->
     
-<mat-form-field appearance="fill">
+<!-- <mat-form-field appearance="fill">
   <mat-label>User Register Type</mat-label>
   <mat-select>
     <mat-option >
@@ -14,47 +15,132 @@
       <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Register</a>
     </mat-option>
   </mat-select>
-</mat-form-field>
+</mat-form-field> -->
 
-    <form (ngSubmit)="recruiterRegister()">
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email-ID</label>
-        <input type="text" class="form-control"  placeholder="Enter the user Email-ID" id="emailId" name="emailId" [(ngModel)]="recruiter.emailId" >
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">First Name</label>
-        <input type="text" class="form-control" placeholder="Enter the First Name" id="firstName" name="firstName" [(ngModel)]="recruiter.firstName" >
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Middle Name</label>
-        <input type="text" class="form-control" placeholder="Enter the Middle Name" id="middleName" name="middleName" [(ngModel)]="recruiter.middleName" >
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-        <input type="text" class="form-control" placeholder="Enter the Last Name" id="lastName" name="lastName" [(ngModel)]="recruiter.lastName" >
-      </div>
-
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Gender</label>
-        <input type="text" class="form-control" placeholder="Enter the user Gender" id="gender" name="gender" [(ngModel)]="recruiter.gender" >
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
-        <input type="number" class="form-control" placeholder="Enter the Mobile Number" id="mobileNumber" name="mobileNumber" [(ngModel)]="recruiter.mobileNumber" >
-      </div>
-
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Password</label>
-        <input type="text" class="form-control" placeholder="Enter the user password" id="password" name="password" [(ngModel)]="recruiter.password" >
-      </div>
-
-    <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-  </div>
+<section id="imgs" class="vh-100" >
   
+  <div class="container h-100" >
+      <!-- <br>
+      <br>
+  <h1 style="color: rgb(87, 187, 233);">User Register Type JobSeeker</h1> -->
+  
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-12 col-xl-11">
+      <div class="card text-black" style="border-radius: 25px;">
+        <div class="card-body p-md-5">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+
+
+
+    <form class="mx-1 mx-md-4" (ngSubmit)="recruiterRegister()">
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+    <label for="form3Example1c" class="form-label">Email-ID</label>
+        <input type="text" class="form-control"  placeholder="Enter the user Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="recruiter.emailId" >
+      </div>
+      </div>
+    
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+    <label for="exampleFormControlInput1" id="form3Example1c" class="form-label">First Name</label>
+        <input type="text" class="form-control" placeholder="Enter the First Name" id="form3Example1c" name="firstName" [(ngModel)]="recruiter.firstName" >
+      </div></div>
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Middle Name</label>
+        <input type="text" class="form-control" placeholder="Enter the Middle Name" id="form3Example1c" name="middleName" [(ngModel)]="recruiter.middleName" >
+      </div></div>
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+<i class="fas fa-user fa-lg me-3 fa-fw"></i>
+<div class="form-outline flex-fill mb-0">
+      <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Last Name</label>
+        <input type="text" class="form-control" placeholder="Enter the Last Name" id="form3Example1c" name="lastName" [(ngModel)]="recruiter.lastName" >
+      </div></div>
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fa fa-venus-mars fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Gender</label>
+        <input type="text" class="form-control" placeholder="Enter the user Gender" id="form3Example1c" name="gender" [(ngModel)]="recruiter.gender" >
+      </div></div>
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-phone-alt fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Mobile Number</label>
+        <input type="number" class="form-control" placeholder="Enter the Mobile Number" id="form3Example1c" name="mobileNumber" [(ngModel)]="recruiter.mobileNumber" >
+      </div></div>
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Password</label>
+        <input type="text" class="form-control" placeholder="Enter the user password" id="form3Example1c" name="password" [(ngModel)]="recruiter.password" >
+      </div></div>
+
+<!-- ************************************************************************************************************************* -->
+<div class="form-check d-flex justify-content-center mb-5">
+  <input
+    class="form-check-input me-2"
+    type="checkbox"
+    value=""
+    id="form2Example3c"
+  />
+  <label class="form-check-label" for="form2Example3">
+    I agree all statements in <a href="#!">Terms of service</a>
+  </label>
+</div>
+
+      
+
+<!-- ************************************************************************************************************************* -->
+<button type="submit" class="cssbuttons-io-button"> Register
+  <div class="icon">
+    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+  </div>
+</button>
+      
+
+<!-- ************************************************************************************************************************* -->
+
+</form>
+
+</div>
+
+<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
