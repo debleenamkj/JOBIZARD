@@ -1,10 +1,11 @@
+
+
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import * as Stomp from '@stomp/stompjs';
-import * as SockJS from 'sockjs-client';
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 import { ChatroomService } from '../service/chatroom.service';
+
 
 @Component({
   selector: 'app-chatroom',

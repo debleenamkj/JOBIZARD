@@ -21,4 +21,15 @@ public class JwtSecurityTokenGeneratorImpl implements SecurityTokenGenerator
         mapData.put("message","Authentication Successful.");
         return mapData;
     }
+
+    @Override
+    public Map<String, String> generateToken( String emailId )
+    {
+        String jwstToken = Jwts.builder().setSubject(emailId).setIssuedAt(new Date()).signWith(SignatureAlgorithm.HS256,"secretekeyid").compact();
+        Map<String,String> mapData = new HashMap<>();
+        mapData.put("token",jwstToken);
+        mapData.put("message","Authentication Successful.");
+        System.out.println(mapData);
+        return mapData;
+    }
 }
