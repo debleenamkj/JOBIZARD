@@ -22,4 +22,8 @@ export class TrendsService {
     return this.http.get<JSON>("http://localhost:8086/api/v6/salarys/"+jobTitle);
   }
 
+  getTheVergeNews() : Observable<JSON[]>{
+    return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTheVergeNews");
+  }
+
 }

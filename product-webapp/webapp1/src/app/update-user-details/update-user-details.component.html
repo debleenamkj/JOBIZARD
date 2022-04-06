@@ -1,1 +1,272 @@
-<p>update-user-details works!</p>
+<div>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Personal Information" class="PersonalInfoMat">
+      <div class="personalParentdiv ">
+        <p class="PersonalInfoPara">Tell us something about yourself</p>
+        <div class="commondiv">
+          <p class="commonSpace">First Name :</p>
+          <div class="commonInputDiv">
+            <mat-form-field
+              appearance="fill"
+              class="commonFieldSpace firstNameSpace" 
+              style="width: 400px;"
+            >
+              <mat-label>Input</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="commondiv">
+          <p class="commonSpace">Middle Name :</p>
+          <div>
+            <mat-form-field appearance="fill" class="commonFieldSpace"  style="width: 400px;">
+              <mat-label>Input</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="commondiv">
+          <p class="commonSpace">Last Name :</p>
+          <div>
+            <mat-form-field
+              appearance="fill"
+              class="commonFieldSpace lastNameSpace"
+              style="width: 400px;"
+            >
+              <mat-label>Input</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="commondiv">
+          <p class="commonSpace">Gender :</p>
+          <div>
+            <mat-form-field
+              appearance="fill"
+              class="commonFieldSpace genderSpcae"
+              style="width: 400px;"
+            >
+              <mat-label>Input</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="commondiv">
+          <p class="commonSpace">Date of Birth :</p>
+          <div>
+            <mat-form-field appearance="fill" class="commonFieldSpace dobSpace" style="width: 400px;">
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="commondiv">
+          <p class="commonSpace">Mobile Number :</p>
+          <div>
+            <mat-form-field
+              appearance="fill"
+              class="commonFieldSpace mobileSpace"
+              style="width: 400px;"
+            >
+              <mat-label>Input</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- ---------------------------------------------Address------------------------------------------------ -->
+
+    <mat-tab label="Address">
+      <p>Tell us something about yourself</p>
+
+      <div>
+        <p>State</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>City</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Pincode</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Nationality</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+    </mat-tab>
+
+    <!-- ---------------------------------------------Details------------------------------------------------ -->
+    <mat-tab label="Details">
+      <!-- --------------------------------------Academics Certification-------------------------------------- -->
+
+      <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>Academic Certifications</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip
+            *ngFor="let academicsCertification of academicsCertifications"
+            (removed)="remove(academicsCertification)"
+          >
+            {{ academicsCertification.name }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input
+            placeholder="New Certificate..."
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+      </mat-form-field>
+
+      <!-- --------------------------------------Skill Set-------------------------------------- -->
+
+      <!-- <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>Favorite Fruits</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let skillSet of skillSets" (removed)="removeskills(skillSet)">
+            {{ skillSet.name }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input
+            placeholder="New fruit..."
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+      </mat-form-field> -->
+
+      <!-- --------------------------------------Job Preferences-------------------------------------- -->
+
+      <!-- <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>Favorite Fruits</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+            {{ fruit.name }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input
+            placeholder="New fruit..."
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+      </mat-form-field> -->
+
+      <!-- --------------------------------------Achievements-------------------------------------- -->
+    </mat-tab>
+
+    <!-- ---------------------------------------------Education------------------------------------------------ -->
+    <mat-tab label="Education">
+      Tell us something about yourself
+
+      <div>
+        <p>Nationality</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <!-- ---------------------------------------------Courses------------------------------------------------ -->
+      <!-- <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>Favorite Fruits</mat-label>
+        <mat-chip-list #chipList aria-label="Fruit selection">
+          <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+            {{fruit.name}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input placeholder="New fruit..."
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field> -->
+      <!-- -------------------------------------------End of Courses------------------------------------------------ -->
+
+      <div>
+        <p>Nationality</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Nationality</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Nationality</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+
+      <div>
+        <p>Pass Out Year</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput type="date">
+            <!-- <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle> -->
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+      </div>
+
+      <div>
+        <p>Percentage or CGPA :</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Input</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

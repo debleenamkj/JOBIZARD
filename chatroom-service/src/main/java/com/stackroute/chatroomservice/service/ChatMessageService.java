@@ -58,4 +58,8 @@ public class ChatMessageService {
         Update update = Update.update("status", status);
         mongoOperations.updateMulti(query, update, ChatMessage.class);
     }
+
+    public List<ChatMessage> getAllList(){
+        return repository.findAll();
+    }
 }
