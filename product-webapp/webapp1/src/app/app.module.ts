@@ -63,7 +63,7 @@ import { TechnewsComponent } from './technews/technews.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
-import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+
 
 
 
@@ -110,7 +110,7 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
     UpdateUserDetailsComponent,
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
-    RecruitersRegisterComponent,
+    RecruiterRegisterComponent,
     TechnewsComponent
 
   ],

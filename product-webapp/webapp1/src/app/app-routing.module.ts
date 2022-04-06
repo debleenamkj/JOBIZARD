@@ -22,7 +22,7 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
-import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+
 import { TechnewsComponent } from './technews/technews.component';
 import { OrganizationDetails } from './model/organizationDetails';
 
@@ -62,7 +62,7 @@ const routes: Routes = [
 
   // material component
   {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
-  {path:"recruitersRegister",component:RecruitersRegisterComponent},
+  {path:"recruitersRegister",component:RecruiterRegisterComponent},
 
   {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},
