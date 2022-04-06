@@ -50,29 +50,27 @@ export class ChatroomComponent implements OnInit {
       data.filter((e)=>e.senderId == this.senderID);
       
     })
+
+    
   }
 
-  senderId:string = "R123";
-  senderName:string = "EFGH";
-  recipientId:string = "S123";
-  recipientName:string = "ABCD"
-  timestamp:any = Date;
 
   sendMessage(){
 
     console.log(this.text);
-    this.sendChats.senderId = this.senderId;    
-    this.sendChats.senderName = this.senderName;
-    this.sendChats.recipientId = this.recipientId;
-    this.sendChats.recipientName = this.receiverName;
-    this.sendChats.timestamp = this.timestamp;
+    this.sendChats.senderId = "S123";    
+    this.sendChats.senderName = "ABCD";
+    this.sendChats.recipientId = "R123";
+    this.sendChats.recipientName = "EFGH";
+    this.sendChats.timestamp = Date.now().toString();
     this.sendChats.message = this.text;
     console.log(this.sendChats);
     
     this.chatService.postMessages(this.sendChats).subscribe((data)=>{
       console.log(data);
       console.log(this.sendChats);
-      
+      this.text = "";
+      this.ngOnInit();
     })
     
   }

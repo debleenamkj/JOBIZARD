@@ -5,6 +5,6 @@ export class ChatMessage {
         senderName!:string;
         recipientName!:string;
         message!:string;
-        timestamp!:any;
+        timestamp!:string;
 
 }
