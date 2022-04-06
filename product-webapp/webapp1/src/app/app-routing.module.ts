@@ -25,6 +25,8 @@ import { OrganizationDetailsComponent } from './organization-details/organizatio
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 import { TechnewsComponent } from './technews/technews.component';
+import { BusinessnewsComponent } from './businessnews/businessnews.component';
+
 import { OrganizationDetails } from './model/organizationDetails';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 
@@ -35,6 +37,7 @@ const routes: Routes = [
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},
   { path : 'technews', component: TechnewsComponent },
+  { path : 'businessnews', component: BusinessnewsComponent },
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {
