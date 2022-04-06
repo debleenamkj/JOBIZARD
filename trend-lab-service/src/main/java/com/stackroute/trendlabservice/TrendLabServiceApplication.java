@@ -13,18 +13,4 @@ public class TrendLabServiceApplication {
 		SpringApplication.run(TrendLabServiceApplication.class, args);
 	}
 
-//	@Bean
-//	public WebMvcConfigurer corsConf(){
-//		return new WebMvcConfigurer() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/*")
-//						.allowedOrigins("*")
-//						.allowedMethods("*")
-//						.allowedHeaders("*")
-//						.allowCredentials(true);
-//			}
-//		};
-//	}
-
 }

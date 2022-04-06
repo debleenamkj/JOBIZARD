@@ -60,7 +60,7 @@ import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
 import { TechnewsComponent } from './technews/technews.component';
-=======
+
 import { ChatroomComponent } from './chatroom/chatroom.component';
 
 

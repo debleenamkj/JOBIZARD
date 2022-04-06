@@ -23,7 +23,7 @@ export class TrendsService {
   }
 
   getTheVergeNews() : Observable<JSON[]>{
-    return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTheVergeNews");
+    return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTechNews");
   }
 
 }

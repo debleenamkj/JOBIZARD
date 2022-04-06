@@ -12,9 +12,8 @@ export class TechnewsComponent implements OnInit {
   parsedJson:any;
   uri!:string;
   title:any;
-  img:any;
-  dateTime:any;
-  link:any;
+  url:any;
+  source:any;
   articles:Array<string>=[];
 
 
@@ -27,9 +26,8 @@ export class TechnewsComponent implements OnInit {
       this.parsedJson = JSON.parse(this.stringifiedData);
 
       this.title = this.parsedJson[0].title;
-      this.img = this.parsedJson[0].img;
-      this.dateTime = this.parsedJson[0].dateTime;
-      this.link = this.parsedJson[0].link;
+      this.url = this.parsedJson[0].url;
+      this.source = this.parsedJson[0].source;
 
       this.articles=this.stringifiedData;
       console.log(this.articles);
