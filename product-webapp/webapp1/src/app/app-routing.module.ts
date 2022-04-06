@@ -21,6 +21,8 @@ import { SkilltestComponent } from './skilltest/skilltest.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 import { TechnewsComponent } from './technews/technews.component';
+import { OrganizationDetails } from './model/organizationDetails';
+
 
 
 const routes: Routes = [
@@ -36,13 +38,13 @@ const routes: Routes = [
   {
     path:"jobdetail",
     component:JobDetailComponent,
-    
+
   },
   {path:"chatbot",component:ChatbotComponent},
   {
     path:"jobdetail",
     component:JobDetailComponent,
-    
+
   },
   {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:"assesmenttest",component:AssesmentTestPortalComponent},
@@ -50,11 +52,15 @@ const routes: Routes = [
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
 
-  // providing path for register and login 
+  // providing path for register and login
   {path:"register",component:RegisterComponent},
   {path:"jobSeekerRegister",component:JobSeekerRegisterComponent},
   {path:"recruiterRegister",component:RecruiterRegisterComponent},
   {path:"userLogin",component:LoginComponent},
+  // {path:"Organization",component:OrganizationDetails},
+
+
+
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent}
 
