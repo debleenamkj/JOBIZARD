@@ -67,14 +67,11 @@ const routes: Routes = [
 
   {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},
-<<<<<<< HEAD
   {path: "not-found", component:NotFoundComponent},
-=======
   // {path:"Organization",component:OrganizationDetails},
 
 
 
->>>>>>> 0934f84b29f276dc4e2a7f94baf3b815d9721888
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent}
 
