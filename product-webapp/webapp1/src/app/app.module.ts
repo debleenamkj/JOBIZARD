@@ -38,14 +38,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
-<<<<<<< HEAD
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
-=======
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 
->>>>>>> 0934f84b29f276dc4e2a7f94baf3b815d9721888
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
@@ -70,6 +66,7 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+import { ReviewComponent } from './review/review.component';
 
 
 
@@ -106,13 +103,10 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
 
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
-<<<<<<< HEAD
     NotFoundComponent,
 
-=======
     RegisterComponent,
     LoginComponent,
->>>>>>> 0934f84b29f276dc4e2a7f94baf3b815d9721888
 
     AssesmentTestPortalComponent,
     CvTemplate1Component,
@@ -122,7 +116,8 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
     RecruitersRegisterComponent,
-    TechnewsComponent
+    TechnewsComponent,
+    ReviewComponent
 
   ],
   imports: [
@@ -167,11 +162,8 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
     MatSliderModule,
     MatProgressBarModule,
     NgbModule,
-<<<<<<< HEAD
-    MatExpansionModule
-=======
-    MatTabsModule,
->>>>>>> 0934f84b29f276dc4e2a7f94baf3b815d9721888
+    MatExpansionModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
