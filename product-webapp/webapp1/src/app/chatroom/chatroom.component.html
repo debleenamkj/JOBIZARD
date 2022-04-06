@@ -5,12 +5,23 @@
         <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1%;">
             <mat-card>
                 <h2>Chats</h2>
+                <mat-card *ngFor = "let receiver of receiverNames">{{receiver}}</mat-card>
+                
             </mat-card>
         </div>
         <div class="col-xl-9 col-md-8 col-s-12"  style="margin-top: 1%;">
             <mat-card>
-                <h2>Chat with </h2>
+                <h2>Chat with {{receiverName}}</h2>
+                    <span *ngFor="let chat of getChats">
+                        <h3 style="font-weight: bold;">{{chat.senderName}} : </h3>
+                        <p>{{chat.message}}</p>
+                    </span>
                 <hr>
+                <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                    <mat-label>Enter Your Message</mat-label>
+                    <textarea matInput placeholder="Enter a text" [(ngModel)]="text"></textarea>
+                  </mat-form-field>
+                  <button mat-raised-button (click) = "sendMessage()">Send</button>
             </mat-card>
         </div>
     </div>
