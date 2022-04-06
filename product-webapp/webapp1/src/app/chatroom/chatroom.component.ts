@@ -1,6 +1,3 @@
-
-
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
@@ -15,12 +12,16 @@ import { ChatroomService } from '../service/chatroom.service';
 export class ChatroomComponent implements OnInit {
 
   getChats:ChatMessage[]=[];
+
+
+  sendChats: ChatMessage = new ChatMessage;
+
+
   getChatRoom:ChatRoom[]=[];
   senderID:string = "S123";
   receiverID!:string[];
   receiverNames!:string[];
   receiverName:string = "EFGH";
-  senderName!:string;
   messages!:string[];
   text:any;
   sender!:string[];
@@ -32,19 +33,11 @@ export class ChatroomComponent implements OnInit {
       this.getChats = data;
       console.log(data);
       console.log(data.filter((e)=>e.senderId == this.senderID));
-      if(data.filter((e)=>e.senderId == this.senderID)){
       
-      }
       this.receiverNames = data.map((e)=>e.recipientName);
+      this.receiverID = data.filter((e)=>e.recipientName = this.receiverName).map((e)=>e.recipientId);
       
-      console.log(this.receiverName);
-      for(let i = 0;i<this.receiverNames.length;i++){
-      if(this.receiverName = this.receiverNames[i]){
-        this.messages = data.map((e)=>e.message);
-        this.sender = (data.map((e)=>e.senderName)),(data.map((e)=>e.message));
-
-      }
-    }
+      
     })
 
     this.chatService.getChatroom().subscribe((data)=>{
@@ -59,9 +52,28 @@ export class ChatroomComponent implements OnInit {
     })
   }
 
+  senderId:string = "R123";
+  senderName:string = "EFGH";
+  recipientId:string = "S123";
+  recipientName:string = "ABCD"
+  timestamp:any = Date;
+
   sendMessage(){
 
     console.log(this.text);
+    this.sendChats.senderId = this.senderId;    
+    this.sendChats.senderName = this.senderName;
+    this.sendChats.recipientId = this.recipientId;
+    this.sendChats.recipientName = this.receiverName;
+    this.sendChats.timestamp = this.timestamp;
+    this.sendChats.message = this.text;
+    console.log(this.sendChats);
+    
+    this.chatService.postMessages(this.sendChats).subscribe((data)=>{
+      console.log(data);
+      console.log(this.sendChats);
+      
+    })
     
   }
 }
