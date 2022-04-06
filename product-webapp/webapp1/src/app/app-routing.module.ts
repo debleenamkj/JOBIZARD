@@ -21,12 +21,19 @@ import { RegisterComponent } from './register/register.component';
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
+import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+import { TechnewsComponent } from './technews/technews.component';
+import { OrganizationDetails } from './model/organizationDetails';
+
 
 
 const routes: Routes = [
   {path: 'trend',component: TrendLabComponent},
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},
+  { path : 'technews', component: TechnewsComponent },
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {
@@ -35,13 +42,13 @@ const routes: Routes = [
   {
     path:"jobdetail",
     component:JobDetailComponent,
-    
+
   },
   {path:"chatbot",component:ChatbotComponent},
   {
     path:"jobdetail",
     component:JobDetailComponent,
-    
+
   },
   {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:"assesmenttest",component:AssesmentTestPortalComponent},
@@ -49,12 +56,25 @@ const routes: Routes = [
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
 
-  // providing path for register and login 
+  // providing path for register and login
   {path:"register",component:RegisterComponent},
   {path:"jobSeekerRegister",component:JobSeekerRegisterComponent},
   {path:"recruiterRegister",component:RecruiterRegisterComponent},
+
+  // material component
+  {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
+  {path:"recruitersRegister",component:RecruitersRegisterComponent},
+
+  {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},
+<<<<<<< HEAD
   {path: "not-found", component:NotFoundComponent},
+=======
+  // {path:"Organization",component:OrganizationDetails},
+
+
+
+>>>>>>> 0934f84b29f276dc4e2a7f94baf3b815d9721888
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent}
 

@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1")
 public class RegisterController
@@ -117,6 +117,20 @@ public class RegisterController
             return new ResponseEntity<>(registerService.registerNewRecruiter(recruiter), HttpStatus.CREATED);
         } catch (RecruiterAlreadyExistException recruiterAlreadyExistException) {
             throw new RecruiterAlreadyExistException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @PostMapping("/saveOrganizationDetails")
+    public ResponseEntity<?> registerOrganizationDetails(@RequestBody OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
+    {
+        try {
+            return new ResponseEntity<>(registerService.saveOrganizationDetails(organizationDetails), HttpStatus.CREATED);
+        } catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException) {
+            throw new OrganizationDetailsAlreadyExistException();
         } catch (Exception exception) {
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }

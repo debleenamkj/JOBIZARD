@@ -31,15 +31,16 @@ public class Recruiter
     private String emailId;
 
     private String firstName;
-    private String middleName;
-    private String lastName;
 
 
-    private String gender;
-    private long mobileNumber;
+//    private String middleName;
+//    private String lastName;
+//    private String gender;
+
+//    private long mobileNumber;
     private String password;
 
-    private String  role;
+//    private String  role;
 
     private Address addressDetails;
     private OrganizationDetails organizationDetails;
