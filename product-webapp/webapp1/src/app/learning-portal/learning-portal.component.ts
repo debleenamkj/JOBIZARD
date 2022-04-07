@@ -16,13 +16,13 @@ import { CourseSuggestion } from '../model/course-suggestion';
 export class LearningPortalComponent implements OnInit {
   destroyed=new Subject<void>();
   
-  categoryCardsPerSlideMap= new Map([
-    [Breakpoints.XSmall, 1],
-    [Breakpoints.Small, 1],
-    [Breakpoints.Medium, 2],
-    [Breakpoints.Large, 3],
-    [Breakpoints.XLarge,5]
-  ])
+  // categoryCardsPerSlideMap= new Map([
+  //   [Breakpoints.XSmall, 1],
+  //   [Breakpoints.Small, 1],
+  //   [Breakpoints.Medium, 2],
+  //   [Breakpoints.Large, 3],
+  //   [Breakpoints.XLarge,5]
+  // ])
   courseCardsPerSlideMap= new Map([
     [Breakpoints.XSmall, 1],
     [Breakpoints.Small, 1],
@@ -299,21 +299,21 @@ export class LearningPortalComponent implements OnInit {
           })
         })
   
-        this.breakpointObserver.observe([
-          Breakpoints.XSmall,
-          Breakpoints.Small,
-          Breakpoints.Medium,
-          Breakpoints.Large,
-          Breakpoints.XLarge
-        ]).pipe(takeUntil(this.destroyed))
-        .subscribe(result=>{
-          for(const query of Object.keys(result.breakpoints)){
-            if(result.breakpoints[query]){
-              this.responsiveSlideAndCards(this.categoryCardsPerSlideMap.get(query)?? 0,
-                                              this.logoCardsPerSlideMap.get(query)??0); 
-            }
-          }
-        })
+        // this.breakpointObserver.observe([
+        //   Breakpoints.XSmall,
+        //   Breakpoints.Small,
+        //   Breakpoints.Medium,
+        //   Breakpoints.Large,
+        //   Breakpoints.XLarge
+        // ]).pipe(takeUntil(this.destroyed))
+        // .subscribe(result=>{
+        //   for(const query of Object.keys(result.breakpoints)){
+        //     if(result.breakpoints[query]){
+        //       this.responsiveSlideAndCards(this.categoryCardsPerSlideMap.get(query)?? 0,
+        //                                       this.logoCardsPerSlideMap.get(query)??0); 
+        //     }
+        //   }
+        // })
       })
     this.getSourceUrlBySkillTypes().subscribe((response:SourceUrlAggregate[])=>{
       this.courses = response;

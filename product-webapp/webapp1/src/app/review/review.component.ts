@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CompanyDetails } from '../model/company-details';
+import { ReviewFormComponent } from '../review-form/review-form.component';
 
 @Component({
   selector: 'app-review',
@@ -9,7 +11,7 @@ import { CompanyDetails } from '../model/company-details';
 })
 export class ReviewComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public dialog:MatDialog) {
 
     this.getCompanies().subscribe((response: CompanyDetails[])=>{
       this.companies = response;
@@ -20,9 +22,20 @@ export class ReviewComponent implements OnInit {
     })
    }
 
+
+
   ngOnInit(): void {
   }
-  retrieveLogos:any;
+
+  openReviewForm(event:any): void{
+    const dialogRef = this.dialog.open(ReviewFormComponent)
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog Box: $(result)')
+    })
+  }
+
+  
   logoSlideCount:any;
   companies:CompanyDetails[]=[];
 
@@ -31,6 +44,11 @@ export class ReviewComponent implements OnInit {
     return this.http.get<CompanyDetails[]>(this.getAllCompaniesGetRequest);
   }
 
+  retrieveLogos(companies:CompanyDetails[]){
+    companies.forEach(company => {
+      company.retrievedImage = 'data:image/jpeg;base64,'+company.companyLogo;
+    });
+  }
   carouselSlidesAndCards(totalCards:number, cardsPerSlide:number){
     let array:any[]=[];
     let cards:number[]=[];
@@ -63,9 +81,5 @@ export class ReviewComponent implements OnInit {
 
 
 
-   // retrieveLogos(companies:CompanyDetails[]){
-  //   companies.forEach(company => {
-  //     company.retrievedImage = 'data:image/jpeg;base64,'+company.companyLogo;
-  //   });
-  // }
+   
 }
