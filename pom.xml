@@ -37,6 +37,12 @@
         <module>AssessmentService</module>
 
 <!--        <module>assessment-service</module>-->
+
+        <module>AssessmentService</module>
+
+
+        <module>AssessmentService</module>
+
         <module>chatbot-service</module>
         <module>applicationRegisterService</module>
         <module>authenticationService</module>

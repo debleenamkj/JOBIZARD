@@ -14,7 +14,7 @@ h3{
     color: #4E1B5F;
     font-weight: bold;
 }
-button{
+.button{
     
     width: 100%;
     font-size: large;
@@ -39,4 +39,29 @@ mat-label{
     overscroll-behavior-y: contain;
     scroll-snap-align: end;
     background-color: #ae17ea36;
+}
+.sender{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 54%;
+    text-align: right;
+    background-color: #b11783b7;
+    border-radius: 10px;
+    padding: 1%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 45%;
+}
+
+.receiver{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    text-align: left;
+    background-color: #6e25868a;
+    border-radius: 10px;
+    padding: 1%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 45%;
 }
