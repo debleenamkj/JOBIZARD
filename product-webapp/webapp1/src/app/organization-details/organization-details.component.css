@@ -2,6 +2,7 @@
 #imgs{
     background-image: url("src/assets/Register/Cloudy.svg");
     margin: auto;
+    position: fixed;
 }
 
 .cssbuttons-io-button {
