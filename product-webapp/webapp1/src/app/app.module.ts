@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { JobPostingComponent } from './job-posting/job-posting.component';
 import { JobDetailComponent } from './job-detail/job-detail.component';
@@ -24,26 +24,55 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatSelectModule} from '@angular/material/select';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatRippleModule,MatNativeDateModule} from '@angular/material/core';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRippleModule, MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
-import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+
+import { UpdateDetailsComponent } from './update-details/update-details.component';
+
+import { SkilltestComponent } from './skilltest/skilltest.component';
+import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
+import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
+import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
+import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
+import { RegisterComponent } from './register/register.component';
+import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
+import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+
+import { TechnewsComponent } from './technews/technews.component';
+
+import { ChatroomComponent } from './chatroom/chatroom.component';
+import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
+import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+import { ReviewComponent } from './review/review.component';
+import { BusinessnewsComponent } from './businessnews/businessnews.component';
+
+
+
+
 
 
 @NgModule({
@@ -64,7 +93,34 @@ import { LoginComponent } from './login/login.component';
     JobDetailComponent,
     AssesmentPortalComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateDetailsComponent,
+    LoginComponent,
+    SkilltestComponent,
+    ChatroomComponent,
+
+    CvTemplate1Component,
+    CvTemplate2Component,
+    CvTemplate3Component,
+
+    JobSeekerRegisterComponent,
+    RecruiterRegisterComponent,
+    NotFoundComponent,
+
+    RegisterComponent,
+    LoginComponent,
+
+    AssesmentTestPortalComponent,
+    CvTemplate1Component,
+    CvTemplate2Component,
+    CvTemplate3Component,
+    UpdateUserDetailsComponent,
+    OrganizationDetailsComponent,
+    JobSeekersRegisterComponent,
+    RecruitersRegisterComponent,
+    TechnewsComponent,
+    ReviewComponent,
+    BusinessnewsComponent
 
   ],
   imports: [
@@ -106,11 +162,14 @@ import { LoginComponent } from './login/login.component';
     MatCheckboxModule,
     MatRadioModule,
     MatSnackBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatProgressBarModule,
+    NgbModule,
+    MatExpansionModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas:[ CUSTOM_ELEMENTS_SCHEMA]
-
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,81 @@
+#imgs{
+    background-image: url("src/assets/Register/Cloudy.svg");
+    margin: auto;
+}
+
+button {
+    border: none;
+    color:rgb(110,37,134) ;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+    
+   }
+   
+   button:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+                inset -4px -4px 12px #ffffff;
+   }
+
+   button {
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+    font-family: inherit;
+    padding: 0.6em 1.3em;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+   }
+   
+   button:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+   }
+   
+   button:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+   }
+  
+
+   #card1 {
+    position:absolute;
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: rgb(78,27,95);
+    box-shadow: 10px 10px 50px rgb(206, 138, 229),
+    -0.5px -0.5px 0.5px rgb(206, 138, 229);
+   }
+
+   #card2 {
+    position:absolute;
+    width: 190px;
+    height: 254px;
+    border-radius: 30px;
+    background: rgb(78,27,95);
+    box-shadow: 10px 10px 50px rgb(206, 138, 229),
+    -0.5px -0.5px 0.5px rgb(206, 138, 229);
+   }
+
+   #mainCard {
+    
+    width: 1350px;
+    margin-left: 80px;
+    margin-top: 50px;
+    height: 350px;
+    border-radius: 30px;
+    background: rgb(78,27,95);
+    box-shadow: 15px 15px 30px rgb(206, 138, 229),
+                -15px -15px 30px rgb(206, 138, 229);
+   }
+
+
+

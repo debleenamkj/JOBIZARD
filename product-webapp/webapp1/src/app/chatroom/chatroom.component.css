@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 2%;
+    font-size: xx-large;
+}
+h2{
+    text-align: center;
+    color: #4E1B5F;
+}
+h3{
+    
+    color: #4E1B5F;
+    font-weight: bold;
+}
+button{
+    
+    width: 100%;
+    font-size: large;
+    color: white;
+    background-image: linear-gradient(to right, #6E2586,#B11784);
+}
+mat-card-title{
+    line-height: 2rem;
+    color: #4E1B5F;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+}
+mat-label{
+    color: #4E1B5F;
+}
+
+.chatscrolls{
+    height: 355px;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    overscroll-behavior-y: contain;
+    scroll-snap-align: end;
+    background-color: #ae17ea36;
+}

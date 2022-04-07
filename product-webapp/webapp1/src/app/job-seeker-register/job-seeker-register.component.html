@@ -1,0 +1,235 @@
+
+<body>
+<section id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);" >
+  <!-- style="background-color: rgba(223, 181, 237, 1);" -->
+
+<div class="container h-100" style="margin-left: 100px;" >
+    <!-- <br>
+    <br>
+<h1 style="color: rgb(87, 187, 233);">User Register Type JobSeeker</h1> -->
+
+<div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="col-lg-12 col-xl-11">
+    <div class="card text-black" style="border-radius: 25px;">
+      <div class="card-body p-md-5">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+          
+        
+<!-- <mat-form-field appearance="fill">
+  <mat-label>User Register Type</mat-label>
+  <mat-select>
+    <mat-option >
+      <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/jobSeekerRegister">JobSeeker</a>
+    </mat-option>
+
+    <mat-option>
+      <a style="margin-left: 20px; float: right;text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Recruiter</a>
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+    <form class="mx-1 mx-md-4" (ngSubmit)="jobSeekerRegister()">
+
+    
+      <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+          <label for="form3Example1c" class="form-label" style="font-size: 12px;">Email-ID
+            <span class="text-danger">*</span>
+          </label>
+
+        <input type="text" class="form-control"  placeholder="Enter the user Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="jobSeeker.emailId" >
+        
+      </div>
+      </div>
+
+
+      
+
+
+<!-- ************************************************************************************************************************* -->
+      
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+  
+  <div class="form-outline flex-fill mb-0">
+    <label for="exampleFormControlInput1" id="form3Example1c" class="form-label" style="font-size: 12px;">First Name
+      <span class="text-danger">*</span>
+    </label>
+        <input type="text" class="form-control" placeholder="Enter the First Name" id="form3Example1c" name="firstName" [(ngModel)]="jobSeeker.firstName" >
+        
+      </div>
+</div>
+<!-- ************************************************************************************************************************* -->
+
+<!-- <div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Middle Name
+          <label for="form3Example1c" class="form-label">
+            <span class="text-danger">*</span>
+          </label>
+
+        </label>
+        <input type="text" class="form-control" placeholder="Enter the Middle Name" id="form3Example1c" name="middleName" [(ngModel)]="jobSeeker.middleName" >
+      </div>
+</div> -->
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Last Name
+          <label for="form3Example1c" class="form-label">
+            <span class="text-danger">*</span>
+          </label>
+
+        </label>
+        <input type="text" class="form-control" placeholder="Enter the Last Name" id="form3Example1c" name="lastName" [(ngModel)]="jobSeeker.lastName" >
+      </div>
+</div>
+<!-- ************************************************************************************************************************* -->
+
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-calendar-alt fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Date Of Birth
+          <label for="form3Example1c" class="form-label">
+            <span class="text-danger">*</span>
+          </label>
+
+        </label>
+        <input type="date" class="form-control" placeholder="Enter the Date Of Birth" id="form3Example1c" name="dateOfBirth" [(ngModel)]="jobSeeker.dateOfBirth" >
+      </div>
+</div>
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i  class="fa fa-venus-mars fa-lg me-3 fa-fw"></i>
+
+  
+        <!-- <label for="exampleFormControlInput1" id="form3Example1c" style="font-size:12px;margin-top: -20px;"> -->
+          <label for="form3Example1c" class="form-label" style="font-size: 12px;">Gender
+            <span class="text-danger">*</span>
+          </label>
+          <div style="display: inline-block; margin-left:52px;margin-top:15px">
+            <input  type="radio" id="huey" value="Male" name="gender" [(ngModel)]="jobSeeker.gender">
+            <label for="huey" style="padding-right: 18px;font-size: 12px;">Male</label>
+          
+            <input type="radio" id="huey" value="Female" name="gender" [(ngModel)]="jobSeeker.gender" >
+            <label for="huey" style="padding-right: 18px;font-size: 12px;">Female</label>
+          
+            <input type="radio"id="huey" value="Other" name="gender" [(ngModel)]="jobSeeker.gender" >
+            <label for="huey" style="padding-right: 18px;font-size: 12px;">Other</label>
+          </div>
+       
+      </div>
+
+      
+
+
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-phone-alt fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Mobile Number
+          <label for="form3Example1c" class="form-label">
+            <span class="text-danger">*</span>
+          </label>
+
+        </label>
+        <input type="text" value="" maxlength="10" class="form-control" placeholder="Enter the Mobile Number" id="form3Example1c" name="mobileNumber" [(ngModel)]="jobSeeker.mobileNumber" >
+      </div>
+</div>
+
+<!-- ************************************************************************************************************************* -->
+
+<div class="d-flex flex-row align-items-center mb-4">
+  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+        <label for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Password
+          <label for="form3Example1c" class="form-label">
+            <span class="text-danger">*</span>
+          </label>
+
+        </label>
+        <input type="password" class="form-control" placeholder="Enter the user password" id="form3Example1c" name="password" [(ngModel)]="jobSeeker.password" >
+      </div>
+      </div> <br>
+
+<!-- ************************************************************************************************************************* -->
+
+    <div class="d-flex flex-row align-items-center mb-4">
+        <!-- <i style="margin-left:5px;" class="n"></i> -->
+        <img style="size: 8px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
+      <div class="form-outline flex-fill mb-0">
+        <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Upload Image
+          <label for="form3Example1c" class="form-label">
+            <span class="text-danger">*</span>
+          </label>
+ </label>
+        
+        <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="user image" class="form__icon" 
+        id="form3Example1c"  formControlName="userImage" (change)="onImageUpload($event)">
+      </div>
+    </div>
+      
+      <img style="border-radius: 3px;" src="{{uploadImage}}" width="40%"> 
+      <br><br>
+      <!-- <div class="form-check d-flex justify-content-center mb-5">
+        <input
+          class="form-check-input me-2"
+          type="checkbox"
+          value=""
+          id="form2Example3c"
+        />
+        <label class="form-check-label" for="form2Example3">
+          I agree all statements in <a href="#!">Terms of service</a>
+        </label>
+      </div> -->
+
+
+
+<!-- ************************************************************************************************************************* -->
+
+
+    
+      <button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));">Register
+        <div class="icon">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+        </div>
+      </button>
+<!-- ************************************************************************************************************************* -->
+
+      
+
+<!-- ************************************************************************************************************************* -->
+
+
+   
+ 
+</form>
+
+</div>
+
+<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image">
+  
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+</body>
+

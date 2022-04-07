@@ -17,15 +17,19 @@ export class JobPostingComponent implements OnInit {
 
   constructor(private fb:FormBuilder) { }
 
-  post=new jobPost();
-  companyDetailsError="";
+  postImage=new jobPost();
+  companyDetailsError:any;
+  jobDetailsError:any;
+  requirementsError:any;
 
 
   ngOnInit(): void {
   }
 
   isLinear = false;
+
   isEditable = false;
+  jobDescription:string="";
 
   date = new Date();
 
@@ -41,7 +45,7 @@ export class JobPostingComponent implements OnInit {
 
    jobForm = this.fb.group({
     jobTitle:['', Validators.required],
-    jobDescription:['', Validators.required],
+    //jobDescription:['', Validators.required],
     location:['', Validators.required],
     salary:"",
     lastDate:['', Validators.required],
@@ -52,54 +56,59 @@ export class JobPostingComponent implements OnInit {
     experience:['', Validators.required],
     skills:['', Validators.required],
    });
-  
+
    upimage:any;
 onFileChanged(event: any) {
+  console.log("onchange");
   const files = event.target.files[0];
-//  this.upimage =   URL.createObjectURL(event.target.files[0]);
-  // if (files.length === 0)
-  //     return;
-
-  // const mimeType = files[0].type;
-  // if (mimeType.match(/image\/*/) == null) {
-  //    // this.message = "Only images are supported.";
-  //     return;
-  // }
 
   const reader = new FileReader();
-  //this.post.companyLogo = files;
-  reader.readAsDataURL(event.target.files[0]); 
-  reader.onload = (_event) => { 
+  //this.postImage.companyLogo = files;
+  reader.readAsDataURL(event.target.files[0]);
+  reader.onload = (_event) => {
     console.log(reader.result);
-      this.upimage = reader.result; 
+      this.upimage = reader.result;
+      console.log(this.upimage);
   }
 
 }
   preview(){
+    this.companyDetailsError='';
+    this.companyDetailsError=this.companyForm.controls['status'];
+    console.log(this.companyDetailsError);
+    console.log(this.companyForm);
     let div = document.getElementsByClassName('details') as HTMLCollectionOf<HTMLElement>;
     div[0].style.display='block';
-   // console.log(this.post.companyLogo);
-    this.post.companyName=this.companyForm.controls['companyName'].value;
-    this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
-    this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
-    this.post.industryType=this.companyForm.controls['industryType'].value;
-    this.post.companyLogo=this.upimage;
-    // console.log(this.post);
-    // console.log(this.date);
-
-    this.post.eduation= this.requirementsForm.controls['education'].value;
-    this.post.experience= this.requirementsForm.controls['experience'].value;
+    this.postImage.companyName=this.companyForm.controls['companyName'].value;
+    this.postImage.companyEmail=this.companyForm.controls['companyEmail'].value;
+    this.postImage.companyUrl=this.companyForm.controls['companyUrl'].value;
+    this.postImage.industryType=this.companyForm.controls['industryType'].value;
+    this.postImage.companyLogo=this.upimage;
+    this.postImage.eduation= this.requirementsForm.controls['education'].value;
+    this.postImage.experience= this.requirementsForm.controls['experience'].value;
   }
 
-  preview1(date : any){
-    this.post.jobRole=this.jobForm.controls['jobTitle'].value;
-    this.post.jobDescription=this.jobForm.controls['jobDescription'].value;
-    this.post.location=this.jobForm.controls['location'].value;
-    this.post.lastDate=date;
-    this.post.salary=this.jobForm.controls['salary'].value;
+  preview1(){
+    console.log("description");
+    console.log(this.jobForm.value);
+    console.log(this.jobForm.value.lastDate);
+    this.postImage.jobRole=this.jobForm.controls['jobTitle'].value;
+    this.postImage.jobDescription=this.jobForm.value.jobDescription;
+    this.postImage.location=this.jobForm.controls['location'].value;
+    let lastDate=this.jobForm.controls['lastDate'].value;
+    this.postImage.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
+    this.postImage.salary=this.jobForm.controls['salary'].value;
   }
-  company(){ 
-  
+
+  preview2(description:any){
+    this.jobDescription=description;
+  }
+
+  previewdate(date:any){
+      this.postImage.lastDate = date;
+  }
+  company(){
+
     this.companyDetailsError="";
     console.log(this.companyForm);
     // let div = document.getElementsByClassName('b1') as HTMLCollectionOf<HTMLElement>;
@@ -122,7 +131,7 @@ onFileChanged(event: any) {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits: Fruit[] = [{name: 'skills'}];
+  fruits: Fruit[] = [];
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();

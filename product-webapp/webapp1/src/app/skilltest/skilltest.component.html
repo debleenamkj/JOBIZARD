@@ -1,0 +1,64 @@
+<div class="container-fluid" style="padding: 0;" >
+    <header style="padding: 2%; margin: 0;">
+              <section class="timer1 blink" style="float: left; border-radius: 50%; ">
+                <span style="font-size: x-large;">{{counter.min}} : {{counter.sec}}</span>
+              </section>
+              <section style=" display: inline-block; margin-top: 2.5%; width: 40%; margin-left: 20%;">
+                <h1 style="font-size: 350%; font-weight: bold; color:  #4E1B5F; margin-left: 20%;">{{data.name}} Test</h1>
+                <h1 class="warriors" style="margin-left: 23%;">All the best Warriors.....!</h1>
+            </section>
+            <!-- <section style=" display: inline-block; margin-top: 2.5%; width: 70%; margin-left: 2%;">
+                <h1 style="display: inline-block; font-size: 350%; font-weight: bold; color:  #4E1B5F; margin-left: 0%;">{{data.name}} Test</h1>
+                <h2 class="warriors" style="margin-left: 2%; display: inline-block; color: rgb(177,23,132); font-weight: bold; ">All the best Warriors.....!</h2>
+            </section> -->
+           
+        <section style="float: right; width: fit-content; margin-top: 2%;">
+            <button mat-button style="font-size: large; background-color:rgb(177,23,132); color: white;"(click)="end()">Submit Test</button>
+        </section>
+    </header> 
+    <section class="back end" style="color: white; position: relative; width: 25%; padding: 3%; margin-left: 37%; border: #4E1B5F 3px solid; margin-top: 2%;">
+    <p style="font-size: large; font-weight: bold; ">Are you sure want to end the test?</p><br><br>
+    <button class="button " mat-button style="cursor: pointer; color: #4E1B5F; background-color: white; margin-left: 10%;" routerLink="/job-posting" >Yes</button>
+    <button class="button " mat-button style="color: #4E1B5F; background-color: white; margin-left: 10%;" (click)="end_no()">No &nbsp;</button>
+    </section>
+<section class="row">
+    <section class="col-10 questions" style="margin-top: 1%; padding:0 2%; ">
+        <p style="display: inline-block; font-size: 200%; line-height: 35px; margin-bottom: 2%; font-weight: bold;">{{question.qno}}.{{question.question}}</p><br>
+ 
+        
+        <mat-radio-group [(ngModel)]="answers[question.qno]" (change)="option(question.qno)">
+            <mat-radio-button class="options" #option style="font-size: x-large; margin-bottom: 2%;" value="a" *ngIf="question.a">{{question.a}}</mat-radio-button><br>
+            <mat-radio-button class="options" #option style="font-size: x-large; margin-bottom: 2%;" value="b" *ngIf="question.b">{{question.b}}</mat-radio-button><br>
+            <mat-radio-button class="options" #option style="font-size: x-large; margin-bottom: 2%;" value="c" *ngIf="question.c">{{question.c}}</mat-radio-button><br>
+            <mat-radio-button class="options" #option style="font-size: x-large; margin-bottom: 2%;" value="d" *ngIf="question.d">{{question.d}}</mat-radio-button><br><br>
+        </mat-radio-group>
+        <!-- <button mat-button class="button back" (click)="getQuestion(question.qno - 1)">Back</button> -->
+        <button class="button next" mat-button style="margin-left: 1%;" (click)="getQuestion(question.qno + 1); bookmark(question.qno-2)">Mark & Next</button>
+        <button class="button next" mat-button style="float: right; margin-left: 10%;" (click)="getQuestion(question.qno + 1); changeColor(question.qno)">Save & Next</button>
+    </section>
+
+    <footer class="col-2" style="float: right;">
+        
+        <div>
+        <!-- <li *ngFor='let in of ques_counter(Questions.no_of_questions) ;let i = index'>{{i}}</li> -->
+        <div class="ques1" style=" margin-left: 10%;" *ngFor="let ques of no_of_questions">
+            <button class="ques {{ques.qno}}" style=" color: white; float: left; width: 20%; margin-bottom: 2%; margin-left: 1%; border:none; padding:15px 0;" (click)="getQuestion(ques); changeColor(question.qno)">{{ques}}</button>
+        </div>
+        </div><br><br>
+        <div style="margin-left: 10%; margin-top: 55%;  padding:5% 12%; width: 80%; border: 2px solid #4E1B5F;">
+            <article>
+                <article style="float: left; width: 1%; padding: 10px; background-color:#4E1B5F;"></article>
+                <p style="margin-left: 10%; float: left;">Answered</p>
+            </article><br><br>
+            <article>
+                <article style="float: left; width: 1%; padding: 10px; background-color:rgb(177,23,132)"></article>
+                <p style="margin-left: 10%;  float: left;">Unanswered</p>
+            </article><br><br>
+            <article>
+                <article style="float: left; width: 1%; padding: 10px; background-color:#00CED1"></article>
+                <p style="margin-left: 10%;float: left; ">BookMark</p><br>
+            </article>
+        </div>
+    </footer>
+    </section>
+</div>

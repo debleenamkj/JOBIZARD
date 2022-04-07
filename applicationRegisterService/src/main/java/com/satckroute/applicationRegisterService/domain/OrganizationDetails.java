@@ -1,8 +1,6 @@
 package com.satckroute.applicationRegisterService.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,17 +16,27 @@ import java.util.Arrays;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
+@Getter
+@Setter
+@ToString
 public class OrganizationDetails
 {
 
 //    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    private String organizationID;
+
     @Id
-    private String organizationID;
+    private String emailId;
 
     private String organizationName;
     private String organizationSector;
     private String organizationOrigin;
-    private String roleInHiring;
+    private String roleOfHiring;
+    private String contactNumber;
+
+    private String password;
+
     private Address organizationAddress;
 
     @Lob
