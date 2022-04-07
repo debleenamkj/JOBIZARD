@@ -1,3 +1,4 @@
+
 .personalGrandParentDiv{
     display: flex;
 }
@@ -17,7 +18,7 @@
     margin-left: 10px;
     /* margin: auto; */
     padding-left: 60px;
-    font-size: medium;
+    font-size: large;
     border: 7px solid #4E1B5F;
     border-width: 2.5px;
     /* border-color: red; */
@@ -34,19 +35,19 @@
     padding-left: 40px;
 }
 .firstNameSpace{
-    margin-left: 17px;
+    margin-left: 18px;
 }
 .lastNameSpace{
-    margin-left: 17.5px;
+    margin-left: 19px;
 }
 .genderSpcae{
-    margin-left: 44px;
+    margin-left: 48px;
 }
 .dobSpace{
     margin-left: 6px;
 }
 .mobileSpace{
-    margin-left: -15px;
+    margin-left: -16px;
 }
 /* .commonInputDiv{
     length:80px
@@ -83,7 +84,7 @@
     color: whitesmoke;
     padding-left: 30px;
     padding-right: 30px;
-    font-size: large;
+    font-size: 1.20vw;
      margin-left: 40px;
     background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
   }
@@ -99,10 +100,13 @@
       display: flex;
   }
   .stateSpcae{
-      padding-left: 60px;
+      padding-left: 66px;
   }
   .citySpace{
-      padding-left: 70px;
+      padding-left: 78px;
+  }
+  .pincodeSpace{
+      padding-left: 44px;
   }
   .nationalitySpace{
       padding-left: 22px;
@@ -141,7 +145,7 @@
     margin-left: 10px;
     /* margin: auto; */
     padding-left: 60px;
-    font-size: medium;
+    font-size: 1.20vw;
     border: 7px solid #4E1B5F;
     border-width: 2.5px;
     /* border-color: red; */
@@ -149,10 +153,10 @@
     width: 44%;
   }
   .skillsetSpcae{
-      padding-left: 173px;
+      padding-left: 171px;
   }
   .jobPreferencesSpcae{
-      padding-left: 121px;
+      padding-left: 110px;
   }
   .detailsBTN{
       display: flex;
@@ -178,20 +182,20 @@
 
   /* -------------------------Education Details Css-------------------------- */
   .educationSpace{
-      padding-left: 120px;
+      padding-left: 128px;
   }
   .fieldSpace{
-      padding-left: 82px;
+      padding-left: 86px;
   }
   
   .universitySpace{
       padding-left: 39px;
   }
   .courseTypeSpace{
-    padding-left: 100px;
+    padding-left: 108px;
 }
 .passOutYearSpace{
-    padding-left: 88px;
+    padding-left: 94px;
 }
 .percentageSpace{
     margin-left: -5px;
