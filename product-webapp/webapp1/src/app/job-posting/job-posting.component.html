@@ -1,3 +1,4 @@
+
 <mat-stepper color="accent" #stepper>
   <mat-step [stepControl]="companyForm" errorMessage="Fields required." style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
     <ng-template matStepLabel>
@@ -5,15 +6,24 @@
     </ng-template>
     <div class="">
       <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
-    <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3">
-      <div style="margin-left: 2%; height: 120%;">
+   
         <div>
+          <p style="font-size: 150%; display: inline-block; ">Is the company posted before?</p>
+          <mat-radio-group [(ngModel)]="companyPresent" (change)="isPosted()">
+            <mat-radio-button [ngStyle]="{'font-weight': 'lighter','color':'#4E1B5F'}"  style="font-size: large; margin-bottom: 2%; margin-left: 2%; display: inline-block;" value="yes" >Yes</mat-radio-button>
+            <mat-radio-button [ngStyle]="{'font-weight': 'lighter','color':'#4E1B5F'}"  style="font-size: large; margin-bottom: 2%; margin-left: 2%; display: inline-block;" value="no" >No</mat-radio-button>
+        </mat-radio-group>
+        </div>
+      <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3">
+      <div class="companyForm" style="margin-left: 2%; height: 120%;">
+        <div class="companyForm">
           <p style="width:30%; display: inline-block; font-size: 150%">Company Name :</p>
           <mat-form-field color="accent" appearance="fill" style="width: 60%;">
             <mat-label>Company Name</mat-label>
-          <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required (change)="preview()">
+          <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required (change)="preview(); getCompany()">
         </mat-form-field>
       </div>
+      <div class="companyForm">
       <div>
         <p style="width:30%; display: inline-block; font-size: 150%">Company Url :</p>
         <mat-form-field color="accent" appearance="fill" style="width: 60%;">
@@ -32,7 +42,7 @@
       <p style="width:30%; display: inline-block; font-size: 150%">Industry Type :</p>
         <mat-form-field color="accent" appearance="fill" style="width: 60%;">
           <mat-label>Industry Type</mat-label>
-          <input matInput placeholder="Industry Type" style="padding: 0; width: 65%; margin-left: 20px; display: inline-block;"formControlName="industryType" required (change)="preview()">
+          <input matInput placeholder="Industry Type" style="padding: 0 20px; width: 65%; margin-left: 20px; display: inline-block;"formControlName="industryType" required (change)="preview()">
         </mat-form-field>
     </div>
         <div>
@@ -40,8 +50,11 @@
           <input type="file" placeholder="Company logo" style=" padding: 5px; width: 65%;  margin-left: 20px; margin-top: 2%; display: inline-block;" formControlName="companyLogo" (change)="onFileChanged($event)">
         </div>
       </div>
+      </div>
       <div>
-        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" >Next</button>
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()"    [disabled]="!companyForm.valid">Next</button> 
+               
+        <!-- <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" >Next</button> -->
 
         <br>
         <!-- <p>Go to a different step to see the error state</p>
@@ -57,10 +70,10 @@
         <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Company details :</h2>
         <div class="details" style="margin-left: 10%;">
         <img style="margin-left: 30%;" src="{{upimage}}" width="30%"> <br>
-        <p>Company Name : {{postImage.companyName}}</p>
-        <p>Company Email : {{postImage.companyEmail}}</p>
-        <p>Company Url : {{postImage.companyUrl}}</p>
-        <p>Industry Type : {{postImage.industryType}}</p>
+        <p>Company Name : {{post.companyName}}</p>
+        <p>Company Email : {{post.companyEmail}}</p>
+        <p>Company Url : {{post.companyUrl}}</p>
+        <p>Industry Type : {{post.industryType}}</p>
         <br>
         <br>
         </div>
@@ -112,12 +125,12 @@
           <p style="width:30%; display: inline-block; font-size: 150%;">Last date to apply :</p>
           <mat-form-field color="accent" appearance="fill" style="width: 60%;">
           <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker" #date formControlName="lastDate" (dateChange)="preview1()">
+          <input matInput [matDatepicker]="picker" #date formControlName="lastDate" (dateChange)="previewdate()">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field><br>
         </div>
-        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button>
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" [disabled]="!jobForm.valid">Next</button> 
         <button mat-button matStepperPrevious style="font-size: large; margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
         </div>
         <br>
@@ -131,11 +144,11 @@
         <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Job details :</h2>
         <div class="details" style="margin-left: 10%;">
         <br>
-        <p>Job Title : {{postImage.jobRole}}</p>
-        <p>Job Description: {{jobDescription}}</p>
-        <p>Job Location : {{postImage.location}}</p>
-        <p>Salary : {{postImage.salary}}</p>
-        <p>Last date to apply : {{postImage.lastDate}}</p>
+        <p>Job Title : {{details.jobRole}}</p>
+        <p>Job Description: {{details.jobDescription}}</p> 
+        <p>Job Location : {{details.jobLocation}}</p>
+        <p>Salary : {{details.salary}}</p>
+        <p>Last date to apply : {{details.lastDate}}</p>
         <br>
         <br>
         </div>
@@ -184,13 +197,13 @@
                          [matChipInputFor]="chipList"
                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                          [matChipInputAddOnBlur]="addOnBlur"
-                         (matChipInputTokenEnd)="add($event)" style=" margin-left: 20px; display: inline-block;" formControlName="skills" #skills (change)="skillslist(skills.value)">
+                         (matChipInputTokenEnd)="add($event)" style=" margin-left: 20px; display: inline-block;" formControlName="skills" #skills (change)="skillslist(skills.value)" (change)="preview()">
                 </mat-chip-list>
               </mat-form-field>
              </div>
 
               </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button>
+              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" [disabled]="!requirementsForm.valid">Next</button> 
               <button mat-button matStepperPrevious style="font-size: large; margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
               <br>
           </form><br><br>
@@ -203,8 +216,8 @@
           <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Requirements :</h2>
           <div class="details" style="margin-left: 10%;">
           <br>
-          <p>Education : {{postImage.eduation}}</p>
-          <p>Experience Required: {{postImage.experience}}</p>
+          <p>Education : {{details.educationRequired}}</p>
+          <p>Experience Required: {{details.experienceRequired}}</p> 
           <p>Skills Required :</p>
           <ul style="margin-left: 5%;" *ngFor="let fruit of fruits">
             <li>{{fruit.name}}</li>
