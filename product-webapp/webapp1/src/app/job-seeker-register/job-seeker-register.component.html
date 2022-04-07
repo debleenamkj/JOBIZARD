@@ -31,7 +31,7 @@
   </mat-select>
 </mat-form-field> -->
 
-    <form style="padding-right: 10px;" class="mx-1 mx-md-4" (ngSubmit)="jobSeekerRegister()">
+    <form class="mx-1 mx-md-4" (ngSubmit)="jobSeekerRegister()">
 
     
       <div class="d-flex flex-row align-items-center mb-4">
@@ -41,7 +41,7 @@
             <span class="text-danger">*</span>
           </label>
 
-        <input type="text" class="form-control"  placeholder="Enter the user Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="jobSeeker.emailId" onblur="validate(1)">
+        <input type="text" class="form-control"  placeholder="Enter the user Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="jobSeeker.emailId" >
         
       </div>
       </div>
@@ -65,7 +65,7 @@
 </div>
 <!-- ************************************************************************************************************************* -->
 
-<div class="d-flex flex-row align-items-center mb-4">
+<!-- <div class="d-flex flex-row align-items-center mb-4">
   <i class="fas fa-user fa-lg me-3 fa-fw"></i>
   <div class="form-outline flex-fill mb-0">
         <label for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Middle Name
@@ -76,7 +76,7 @@
         </label>
         <input type="text" class="form-control" placeholder="Enter the Middle Name" id="form3Example1c" name="middleName" [(ngModel)]="jobSeeker.middleName" >
       </div>
-</div>
+</div> -->
 <!-- ************************************************************************************************************************* -->
 
 <div class="d-flex flex-row align-items-center mb-4">
@@ -175,7 +175,8 @@
           </label>
  </label>
         
-        <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="user image" class="form__icon" id="form3Example1c"  formControlName="userImage" (change)="onImageUpload($event)">
+        <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="user image" class="form__icon" 
+        id="form3Example1c"  formControlName="userImage" (change)="onImageUpload($event)">
       </div>
     </div>
       

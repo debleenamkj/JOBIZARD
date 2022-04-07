@@ -21,27 +21,42 @@ export class RegisterServiceService {
   }
 
   constructor(private http:HttpClient) { }
-  jobSeekerRegister(jobSeeker:JobSeeker):Observable<object>
+  jobSeekerRegister(jobSeekerData:any)
   {
-    return this.http.post("http://localhost:8098/api/v1/registerJobSeeker",jobSeeker)
+    console.log("in service")
+    return this.http.post("http://localhost:8098/api/v1/jobSeeker",jobSeekerData)
   }
 
   recruiterRegister(recruiter:Recruiter):Observable<object>
   {
-    return this.http.post("http://localhost:8098/api/v1/recruiter",recruiter)
+    return this.http.post("http://localhost:8098/api/v1/registerRecruiter",recruiter)
   }
 
   organizationRegister(organization:OrganizationDetails):Observable<object>
   {
-    return this.http.post("http://localhost:8098/api/v1/organizationDetails",organization)
+    return this.http.post("http://localhost:8098/api/v1/saveOrganizationDetails",organization)
   }
 
 
-  userLogIn(userLogin:any)  // any - jobSeeker and recruiter any one can log-in
+  userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
   {
     // console.log(userLogin);
     return this.http.post("http://localhost:8099/api/v2/login",userLogin)
 
     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
   }
+
+    // upload(file: File) {
+  //   throw new Error('Method not implemented.');
+  // }
+  // url="http://localhost:8089/api/v1";
+  // constructor(private httpclient:HttpClient) { }
+  // registeruser(jobSeeker:JobSeeker):Observable<object>{
+  //   console.log(jobSeeker);
+  //   return this.httpclient.postImage(`${this.url}/register`,jobSeeker);
+  // }
+
+
+
+
 }

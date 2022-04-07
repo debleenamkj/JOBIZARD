@@ -1,0 +1,29 @@
+h1{
+    text-align:center;
+    color:white;
+    font-weight: bold;
+    font-size: xx-large;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.box{
+    padding: 10px 10px;
+}
+.box h5{
+    font-size: 18px;
+}
+button{
+    background-image: linear-gradient(to right, #6E2586,#B11784);
+    
+}
+a{
+    color: white;
+    text-decoration: none;
+}

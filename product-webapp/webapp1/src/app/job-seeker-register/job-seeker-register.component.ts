@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { AnyMxRecord } from 'dns';
 import { JobSeeker } from '../model/jobSeeker';
 import { RegisterServiceService } from '../service/register-service.service';
 
@@ -21,10 +22,13 @@ export class JobSeekerRegisterComponent implements OnInit {
   jobSeeker:JobSeeker = new JobSeeker();
 
   uploadImage:any;
+  uploadImageFile:any;
+
   onImageUpload(event: any)
   {
     console.log("onchange");
-    const files = event.target.files[0];
+    this.uploadImageFile = event.target.files[0];
+
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]); 
     reader.onload = (_event) =>

@@ -1,173 +1,122 @@
-.mat-h1{
-  margin-top:1%;
-  font-size: x-large;
-  font-style:oblique;
-  margin-left: 1%;
-}
 * {
-  margin: 0px;
-  padding: 0px;
+  box-sizing: border-box;
 }
 
-.navbar {
-  width: 60px;
-  display: block;
-  margin: 50px auto;
-  border: 4px solid #e7eeee;
-  padding: 8px 10px;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  margin-right: 95%;
-  margin-top: 1%;
-}
 
-.navbar div {
-  height: 5px !important;
-  background: rgb(7, 6, 6);
-  margin: 7px 0px 7px 0px;
-  /* border-radius: 25px; */
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-}
 
-.two {
-  width: 35px;
-}
-
-.three {
-  width: 50px;
-}
-
-.navbar:hover div {
-  width: 60px;
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
   
 }
-.heading{
-  margin-top:1%
-  
+
+
+.row {margin: 0 -5px;}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-mat-grid-tile {
-  background:  #B11784;
-  margin-left: 4%;
-  border: 5%;
-  border-top-left-radius: 10%;
-  border-bottom-right-radius: 10%;
- 
-  
-}
-.grid1{
-       width: 100%;
-     
-}
-.flip-box {
-  background-color: transparent;
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* padding: 16px; */
+  background-color: #f1f1f1;
+  /* height: 290px;
   width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
+  color: black; */
+  margin-top: 6%;
+  display: inline-block;
+    border-radius: 5px;
+    width:77% ;
+    height:80% ;
+    margin-left:10px;   
+}
+
+
+
+.flip-card {
+  background-color: transparent;
+  width: 280px;
+  height: 290px;
   perspective: 1000px;
 }
 
-.flip-box-inner {
+.flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 0.6s;
   transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-.flip-box:hover .flip-box-inner {
-  transform: rotateX(180deg);
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-.flip-box-front, .flip-box-back {
+.flip-card-front, .flip-card-back {
   position: absolute;
-  width: 110%;
-  height: 105%;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-.flip-box-front {
-  background-color:#6E2586;
+.flip-card-front {
+  background-color: white;
   color: black;
+  
+}
+.flip-card-back {
+  background-color: rgb(250, 212, 250);
+  color: white;
+    transform: rotateY(180deg);  
+  /* transform: rotate3d() */
+  /* transform: rotateX(360deg); */
+}
+.dropbtn {
+  background-image:linear-gradient(to right, #6E2586,#B11784);
+  color: white;
+  /* padding: 16px; */
+  font-size: 10px;
+  /* border:10px; */
+  padding: 15px 12px;
+  text-decoration: inherit;
 }
 
-.flip-box-back {
-  background-color:  #6E2586;
- 
-  transform: rotateX(180deg);
-}
-.box2{
-      margin-left: 50%;
-      margin-top: 1%;
-}
-.box1{
-  margin-left: 4%;
- margin-top: 2%;
-}
-.grid2{
-  margin-top: 4%;
-  margin-left: 3%;
-  margin-bottom: 30%;
-}
-.grid1{
-  margin-left: 3%;
-}
-.firstdiv{
-  border-radius: 15px;
-  background-color: #B11784;
-  display: flex;
-  height: 270px;
-  width: 100%
-  
-  
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.seconddiv{
-  
-  border-radius: 15px;
-  background-image:linear-gradient(to right, #B11784,#6E2586);
-  margin-top: 3%;
-  height:270px;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  /* min-width: 160px; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
-.box3{
-  margin-bottom: 50%;
-  margin-right: 5%;
-  margin-top: 2%;
-}
-.mybtn .button {
-  background-color: #6E2586;
-  border: 7px solid #B11784;
-  width: 150px;
-  color: white;
-  font-size: large;
-  padding: 10px;
-  text-align: center;
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
-  margin-left: 2%;
-  
 }
-.box{
-  margin-left: 45%;
- 
- 
-}
-.div1{
-  margin-left: 45%;
-}
-.div2{
-  margin-left: 85%;
-}
-.div4{
-  margin-left: 45%;
-}
-.div.button1{
-  margin-left: 2%;
-  width: 180px;
-  background-color: #6E2586;
-  color: white;
-  font-size: large;
-  padding: 10px;
-  text-align: center;
-  display: block;
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+ul
+{
+float:left;
+margin:0 5px;
+list-style: none;
 }

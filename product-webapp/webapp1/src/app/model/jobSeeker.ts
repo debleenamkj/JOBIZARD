@@ -2,7 +2,7 @@ export class JobSeeker
 {
     emailId: string="";
     firstName: string="";
-    middleName: string="";
+    // middleName: string="";
     lastName: string="";
     gender: string="";
     dateOfBirth: string="";
@@ -14,7 +14,7 @@ export class JobSeeker
     {
         this.emailId="";
         this.firstName="";
-        this.middleName="";
+        // this.middleName="";
         this.lastName="";
         this.gender="";
         this.dateOfBirth="";

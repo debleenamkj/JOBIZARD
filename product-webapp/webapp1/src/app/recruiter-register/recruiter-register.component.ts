@@ -16,7 +16,16 @@ export class RecruiterRegisterComponent implements OnInit {
   ngOnInit(): void{} 
 
   recruiter:Recruiter = new Recruiter();
-  organization:OrganizationDetails = new OrganizationDetails;
+  // organization:OrganizationDetails = new OrganizationDetails;
+
+  recruiterRegister()
+  {
+    console.log(this.recruiterRegister)
+    this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
+      alert("Recruiter data added successfully")
+      this.router.navigate(["/userLogin"])
+    },error=>alert("Sorry not able to register Recruiter Details."));
+  }
 
   uploadLogo:any;
   onImageUpload(event: any)
@@ -33,22 +42,15 @@ export class RecruiterRegisterComponent implements OnInit {
     }
 }
 
-  recruiterRegister()
-  {
-    console.log(this.recruiterRegister)
-    this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
-      alert("Recruiter data added successfully")
-      this.router.navigate(["/userLogin"])
-    },error=>alert("Sorry not able to register Recruiter Details."));
-  }
+  
 
-  organizationRegister()
-  {
-    console.log(this.organizationRegister)
-    this.registerService.organizationRegister(this.organization).subscribe(data=>{
-      alert("Organization  data added successfully")
-      this.router.navigate(["/userLogin"])
-    },error=>alert("Sorry not able to register Organization Details. "));
-  }
+  // organizationRegister()
+  // {
+  //   console.log(this.organizationRegister)
+  //   this.registerService.organizationRegister(this.organization).subscribe(data=>{
+  //     alert("Organization  data added successfully")
+  //     this.router.navigate(["/userLogin"])
+  //   },error=>alert("Sorry not able to register Organization Details. "));
+  // }
 
 }

@@ -3,14 +3,33 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1%;">
-            <mat-card>
-                <h2>Chats</h2>
+            <mat-card style="background-color: #6E2586;">
+                <h2 style="color: white;">CHATS</h2>
+                <mat-card *ngFor="let receiver of receiverNames" style="color: #6E2586; font-weight: bold; margin-top: 3%;"><button style="background-color: white; text-align: left; background-image: none; color: #6E2586;border: none;">{{receiver}}</button></mat-card>
+                
             </mat-card>
         </div>
-        <div class="col-xl-9 col-md-8 col-s-12"  style="margin-top: 1%;">
-            <mat-card>
-                <h2>Chat with </h2>
+        <div class="col-xl-9 col-md-8 col-s-12"  style="margin-top: 1%; height: 100%; overflow-y: hidden;">
+            <mat-card style="height: 100%;">
+                <h2 style="background-image: linear-gradient(to left, #6E2586,#B11784); color: white; padding: 1%;">Chating with {{recipientName}}</h2>
+                    <div class="chatscrolls">
+                        <span *ngFor="let chat of getChats" style="width: 500px;">
+                            <div *ngIf="chat.senderId==senderId && chat.recipientId==recipientId" style="margin-top: 1%; margin-left: 54%; text-align: right; background-color: #b11783de; border-radius: 10px; padding: 1%; border-top-left-radius: 15px; border-bottom-left-radius: 15px; width: 45%;">
+                                <h3 style="font-weight: bold;">{{chat.senderName}}</h3>
+                                <p>{{chat.message}}</p>
+                            </div>
+                            <div *ngIf="chat.recipientId==recipientId && chat.senderId==senderId" style="margin-left: 1%; text-align: left; background-color: #6e25868a; border-radius: 10px; padding: 1%; border-top-right-radius: 15px; border-bottom-right-radius: 15px; width: 45%;">
+                                <h3 style="font-weight: bold;">{{chat.recipientName}}</h3>       
+                                <p>{{chat.message}}</p>
+                            </div>
+                        </span>
+                    </div>
                 <hr>
+                <mat-form-field appearance="outline" style="width: 100%; background-color: white;">
+                    <mat-label>Enter Your Message</mat-label>
+                    <input matInput placeholder="Enter a text" type="text" [(ngModel)]="text"/>
+                  </mat-form-field>
+                  <button mat-raised-button (click) = "sendMessage()">Send</button>
             </mat-card>
         </div>
     </div>
