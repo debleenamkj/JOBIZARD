@@ -52,6 +52,8 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+
+
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
@@ -97,6 +99,8 @@ import { BusinessnewsComponent } from './businessnews/businessnews.component';
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
+    
+    
     ChatroomComponent,
 
     CvTemplate1Component,
