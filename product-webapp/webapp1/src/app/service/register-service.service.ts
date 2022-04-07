@@ -24,24 +24,24 @@ export class RegisterServiceService {
   jobSeekerRegister(jobSeekerData:any)
   {
     console.log("in service")
-    return this.http.postImage("http://localhost:8098/api/v1/jobSeeker",jobSeekerData)
+    return this.http.post("http://localhost:8098/api/v1/jobSeeker",jobSeekerData)
   }
 
   recruiterRegister(recruiter:Recruiter):Observable<object>
   {
-    return this.http.postImage("http://localhost:8098/api/v1/registerRecruiter",recruiter)
+    return this.http.post("http://localhost:8098/api/v1/registerRecruiter",recruiter)
   }
 
   organizationRegister(organization:OrganizationDetails):Observable<object>
   {
-    return this.http.postImage("http://localhost:8098/api/v1/saveOrganizationDetails",organization)
+    return this.http.post("http://localhost:8098/api/v1/saveOrganizationDetails",organization)
   }
 
 
   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
   {
     // console.log(userLogin);
-    return this.http.postImage("http://localhost:8099/api/v2/login",userLogin)
+    return this.http.post("http://localhost:8099/api/v2/login",userLogin)
 
     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
   }

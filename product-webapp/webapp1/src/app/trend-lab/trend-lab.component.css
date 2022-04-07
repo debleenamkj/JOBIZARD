@@ -20,8 +20,8 @@ p{
     margin-right: 5%;
 }
 img{
-    margin-top: 20px;
-    height: 150px;
+    margin-top: 10px;
+    height: 110px;
 }
 a{
     text-decoration: none;
@@ -35,18 +35,18 @@ a:hover{
     border-radius: 15px;
     background-image: linear-gradient(to right, #6E2586,#B11784);
     display: flex;
-    height: 180px;
+    height: 133px;
 }
 .seconddiv{
     display: flex;
     border-radius: 15px;
     background-image: linear-gradient(to left, #6E2586,#B11784);
     margin-top: 1%;
-    height:180px;
+    height:133px;
 }
 .firstdivone{
-    margin-top: 2%;
+    margin-top: 1%;
 }
 .seconddivtwo{
-    margin-top: 3%;
+    margin-top: 1.5%;
 }

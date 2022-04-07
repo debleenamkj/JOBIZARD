@@ -33,11 +33,11 @@ export class LoginComponent implements OnInit {
   {
     console.log(this.user)
     this.loginService.userLogIn(this.user)
-    .subscribe(data=>{
+    .subscribe(()=>{
       alert("Successfully User is logged in.")
       this.loginService.isloggedIn=true
       this.router.navigate(["/jobdetail"])
-     },error=>{
+     },()=>{
       alert("please check your username and password.")
      this.router.navigate(["/userLogin"])
      this.loginService.isloggedIn=false
