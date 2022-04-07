@@ -17,7 +17,7 @@ public class AuthenticationServiceApplication
 	FilterRegistrationBean jwtFilter(){
 		FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean();
 		filterRegistrationBean.setFilter(new JwtFilter());
-		filterRegistrationBean.addUrlPatterns("/api/user/dis");
+		filterRegistrationBean.addUrlPatterns("/api/v2/dis");
 		return filterRegistrationBean;
 	}
 }

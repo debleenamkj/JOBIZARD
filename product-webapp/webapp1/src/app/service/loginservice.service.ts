@@ -21,7 +21,7 @@
 //   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
 //   {
 //     // console.log(userLogin);
-//     return this.http.post("http://localhost:8099/api/v2/login",userLogin)
+//     return this.http.postImage("http://localhost:8099/api/v2/login",userLogin)
 
 //     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
 //   }

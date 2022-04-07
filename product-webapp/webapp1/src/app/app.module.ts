@@ -38,7 +38,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -69,6 +69,8 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+import { ReviewComponent } from './review/review.component';
+import { BusinessnewsComponent } from './businessnews/businessnews.component';
 
 
 
@@ -107,6 +109,7 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
 
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
+    NotFoundComponent,
 
     RegisterComponent,
     LoginComponent,
@@ -119,7 +122,9 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
     RecruitersRegisterComponent,
-    TechnewsComponent
+    TechnewsComponent,
+    ReviewComponent,
+    BusinessnewsComponent
 
   ],
   imports: [
@@ -165,9 +170,7 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
     MatProgressBarModule,
     NgbModule,
     MatExpansionModule,
-
-    MatTabsModule,
-
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

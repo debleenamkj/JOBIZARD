@@ -79,7 +79,7 @@ export class JobPostingComponent implements OnInit {
     experience:['', Validators.required],
     skills:['', Validators.required],
    });
-  
+
    upimage:any;
 onFileChanged(event: any) {
   console.log("onchange");
@@ -90,7 +90,7 @@ onFileChanged(event: any) {
   reader.readAsDataURL(event.target.files[0]); 
   reader.onload = (_event) => { 
     console.log(reader.result);
-      this.upimage = reader.result; 
+      this.upimage = reader.result;
       console.log(this.upimage);
   }
 
@@ -158,8 +158,8 @@ getCompany(){
       let lastDate=this.jobForm.controls['lastDate'].value;
     this.details.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
   }
-  company(){ 
-  
+  company(){
+
     this.companyDetailsError="";
     console.log(this.companyForm);
     // let div = document.getElementsByClassName('b1') as HTMLCollectionOf<HTMLElement>;

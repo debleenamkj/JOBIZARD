@@ -1,4 +1,5 @@
 package com.stackroute.recruitmentservice.controller;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.recruitmentservice.model.JobPosting;
 import com.stackroute.recruitmentservice.service.JobService;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/recruitment")
 public class JobController {
@@ -18,11 +20,19 @@ public class JobController {
     private JobService jobService;
 
     @PostMapping("/posting")
-    public ResponseEntity<?> saveJobPost(@RequestParam("file") MultipartFile multipartFile, @RequestParam ("jobs") String job) throws IOException {
+    public ResponseEntity<?> saveJobPost(@RequestParam("file") MultipartFile multipartFile,@RequestParam("jobs") String job) throws IOException {
+       // MultipartFile multipartFile = null;
+        System.out.println("in controller");
 //        System.out.println(multipartFile.getBytes());
         JobPosting jobPosting = new ObjectMapper().readValue(job,JobPosting.class);
 //        System.out.println(jobPosting);
         return new ResponseEntity<>(jobService.jobPosting(multipartFile,jobPosting), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/postjob")
+    public ResponseEntity<?> savejob(@RequestParam("jobs") String jobPosting) throws JsonProcessingException {
+        JobPosting job = new ObjectMapper().readValue(jobPosting,JobPosting.class);
+        return new ResponseEntity<>(jobService.addJob(job),HttpStatus.OK);
     }
 
     @DeleteMapping("/deleteJobPost/{companyId}")
@@ -35,8 +45,11 @@ public class JobController {
     public ResponseEntity<?> showAllJobs(){
         return new ResponseEntity<>(jobService.showAllJobs(), HttpStatus.OK);
     }
-    @GetMapping("/showSpecificJob/{companyId}")
-    public ResponseEntity<?> showSpecificJob(@PathVariable String companyId){
-        return new ResponseEntity<>(jobService.specificJob(companyId),HttpStatus.OK);
+
+
+    @GetMapping("/getCompany/{companyName}")
+    public ResponseEntity<?> getCompanyDetails(@PathVariable String companyName)
+    {
+        return new ResponseEntity<>(jobService.getCompany(companyName),HttpStatus.OK);
     }
 }

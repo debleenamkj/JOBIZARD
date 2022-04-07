@@ -24,14 +24,14 @@ export class JobSeekersRegisterComponent {
     gender: ["", Validators.required],
     password:["", Validators.required],
     // userImage:[],
-    
+
 
  // this.jobbseeker.(attribute name)=this.(formgroup name).value.(formgroup control name)
     // country:[null, Validators.required],
     // state: [null, Validators.required],
 
-   
-    
+
+
     // city: [null, Validators.required],
     // postalCode: [null, Validators.compose([
     //   Validators.required, Validators.minLength(6), Validators.maxLength(6)])
@@ -46,11 +46,11 @@ export class JobSeekersRegisterComponent {
 
   ngOnInit(): void { }
 
-  
+
 
   jobSeekerRegister()
   {
-    
+
     this.jobSeeker.emailId = this.registerForm.value.emailId;
     this.jobSeeker.firstName = this.registerForm.value.firstName;
     this.jobSeeker.lastName = this.registerForm.value.lastName;
@@ -68,7 +68,7 @@ export class JobSeekersRegisterComponent {
 
   hide = true;
 
-  
+
   uploadImage:any;
   uploadImageFile:any;
 
@@ -78,11 +78,11 @@ export class JobSeekersRegisterComponent {
     this.uploadImageFile = event.target.files[0];
 
     const reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]); 
+    reader.readAsDataURL(event.target.files[0]);
     reader.onload = (_event) =>
-    { 
+    {
       // console.log(reader.result);
-      this.uploadImage = reader.result; 
+      this.uploadImage = reader.result;
       // console.log(this.uploadImage);
     }
 }
@@ -97,12 +97,12 @@ submit(){
   console.log("gender");
   console.log(this.registerForm.value.gender);
   console.log(this.jobSeeker.gender);
-  
+
   this.jobSeeker.password = this.registerForm.value.password;
   console.log("password");
   console.log(this.registerForm.value.password);
   console.log(this.jobSeeker.password);
-  
+
   console.log(this.jobSeeker)
   console.log("submit method ")
   console.log(this.jobSeeker);
@@ -268,9 +268,9 @@ submit(){
   //   }
   // ]
 
- 
 
-  
+
+
 
 
 }

@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface JobService     {
-    public JobPosting jobPosting(MultipartFile multipartFile,JobPosting jobPosting) throws IOException;
+    JobPosting getCompany(String companyName);
+
+    JobPosting addJob(JobPosting jobPosting);
+
+    public JobPosting jobPosting(MultipartFile multipartFile, JobPosting jobPosting) throws IOException;
 
     Boolean deleteJobPost(String companyId);
 

@@ -53,7 +53,7 @@ export class RegisterServiceService {
   // constructor(private httpclient:HttpClient) { }
   // registeruser(jobSeeker:JobSeeker):Observable<object>{
   //   console.log(jobSeeker);
-  //   return this.httpclient.post(`${this.url}/register`,jobSeeker);
+  //   return this.httpclient.postImage(`${this.url}/register`,jobSeeker);
   // }
 
 

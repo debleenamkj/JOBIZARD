@@ -12,14 +12,14 @@ import { ChatroomService } from '../service/chatroom.service';
 export class ChatroomComponent implements OnInit {
 
   getChats:ChatMessage[]=[];
-
+  getAllChats:ChatMessage[]=[];
 
   sendChats: ChatMessage = new ChatMessage;
 
 
   getChatRoom:ChatRoom[]=[];
   senderID:string = "S123";
-  receiverID!:string[];
+  
   receiverNames!:string[];
   receiverName:string = "EFGH";
   messages!:string[];
@@ -32,12 +32,15 @@ export class ChatroomComponent implements OnInit {
     this.chatService.getMessages().subscribe((data)=>{
       this.getChats = data;
       console.log(data);
-      console.log(data.filter((e)=>e.senderId == this.senderID));
-      
-      this.receiverNames = data.map((e)=>e.recipientName);
-      this.receiverID = data.filter((e)=>e.recipientName = this.receiverName).map((e)=>e.recipientId);
-      
-      
+      // this.getAllChats = data.filter((e)=>e.senderId == this.senderID);
+      // this.receiverNames = data.map((e)=>e.recipientName);
+
+      console.log(data.map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index));
+      this.receiverNames = data.map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index);
+      this.receiverNames.forEach((element,index)=>{
+        if(element==this.senderName) this.receiverNames.splice(index,1);
+     });
+     
     })
 
     this.chatService.getChatroom().subscribe((data)=>{
@@ -45,7 +48,6 @@ export class ChatroomComponent implements OnInit {
       console.log(data);
       console.log(data.filter((e)=>e.senderId == this.senderID));
       console.log(data.map((e)=>e.chatId));
-      this.receiverID = data.map((e)=>e.recipientId);
       
       data.filter((e)=>e.senderId == this.senderID);
       
@@ -53,15 +55,23 @@ export class ChatroomComponent implements OnInit {
 
     
   }
+  senderId = "S123"
+  recipientId = "R124"
+  senderName = "ABCD";
+  recipientName = "IJKL";
 
+  // senderId = "R124"
+  // recipientId = "S123"
+  // senderName = "IJKL";
+  // recipientName = "ABCD";
 
   sendMessage(){
 
     console.log(this.text);
-    this.sendChats.senderId = "S123";    
-    this.sendChats.senderName = "ABCD";
-    this.sendChats.recipientId = "R123";
-    this.sendChats.recipientName = "EFGH";
+    this.sendChats.senderId = this.senderId;    
+    this.sendChats.senderName = this.senderName;
+    this.sendChats.recipientId = this.recipientId;
+    this.sendChats.recipientName = this.recipientName;
     this.sendChats.timestamp = Date.now().toString();
     this.sendChats.message = this.text;
     console.log(this.sendChats);
@@ -74,4 +84,5 @@ export class ChatroomComponent implements OnInit {
     })
     
   }
+
 }
