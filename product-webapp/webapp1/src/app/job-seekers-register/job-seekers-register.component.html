@@ -1,30 +1,31 @@
-<section id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);margin-top: -30px;" >
 
-  <!-- <div class="container h-100" style="margin-left: 100px;" > -->
-    <div class="row d-flex justify-content-center align-items-center h-100" style="position: relative;">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+ <body id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);position:fixed;" >
+  <div style="margin-left:150px;margin-right: 100px;" >
+    
+<form style="margin-top: -15px;"  class="mx-1 mx-md-2" [formGroup]="registerForm" (ngSubmit)="jobSeekerRegister()" >
 
-            
-<form class="mx-1 mx-md-4" [formGroup]="registerForm"  (ngSubmit)="jobSeekerRegister()">
   
-  <mat-card class="shipping-card" >
-    <mat-card-header>
-      <mat-card-title style="color:  rgb(110,37,134);margin-left: 50px;font-weight: bolder;">JOBSEEKER REGISTER PAGE</mat-card-title>
-    <br>
-      <br>
-    </mat-card-header>
+  <mat-card class="shipping-card" id="mat-card" >
+    <div style="font-family: 'Montserrat', sans-serif;">
 
-    <mat-card-content >
+    <!-- <mat-card-header> -->
+      <!-- <mat-card-title style="color:  rgb(110,37,134);margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;">JOBSEEKER REGISTER PAGE
+      </mat-card-title> -->
+    <p style="color:  rgb(110,37,134);margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;font-size: large;">JobSeeker Register Page</p><br>
+
+
+    <!-- </mat-card-header> -->
+
+    <mat-card-content class="col-12">
       
+      <div class="formBorder"></div>
 
       <div class="row">
         <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Email ID" formControlName="emailId">
+          <p style="display:inline-block;width:6.20%;font-weight: 450;font-weight: bold;"> Email ID : </p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25.37%;margin-left: 15px;" class="full-width">
+            <mat-label>Email Id</mat-label>
+            <input  matInput style="display:inline-block;" placeholder="Email ID" formControlName="emailId">
             <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
               Email-ID is <strong>required</strong>
             </mat-error>
@@ -36,17 +37,23 @@
 
       <div class="row">
         <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="First name" formControlName="firstName">
+          <p style="display:inline-block;width:9.68%;font-weight: bold;">User Name :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 15%;" class="full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput style="display:inline-block;" placeholder="First name" formControlName="firstName">
             <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">
               First name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
+       
+          
 
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Last name" formControlName="lastName">
+        <div class="col" style="margin-left: -685px;">
+          <!-- <p style="display:inline-block;width: 9.5%;">Last name :</p> &nbsp;&nbsp; -->
+          <mat-form-field color="accent" appearance="fill" style="width: 15%;" class="full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Last name" formControlName="lastName">
             <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">
               Last name is <strong>required</strong>
             </mat-error>
@@ -58,10 +65,10 @@
 
       <div class="row">
 
-        <div class="col">
-          <mat-form-field appearance="fill">
-            
-            <input matInput matInput placeholder="Date of Birth" formControlName="dateOfBirth" [matDatepicker]="picker">
+        <div class="col-9">
+          <p style="display:inline-block;width: 10%;font-weight: bold;font-size: 13.89px;">Date of birth :</p> &nbsp;&nbsp;
+          <mat-form-field style="width: 33.82%;" appearance="fill">
+            <input matInput style="display:inline-block;" placeholder="Date of Birth" formControlName="dateOfBirth" [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker">
             </mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -70,199 +77,102 @@
             </mat-error>
           </mat-form-field>
         </div>
-  </div>
+      </div>
 
-        <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Mobile Number" formControlName="mobileNumber">
+      <div class="row">
+
+        <div class="col-9" >
+          <p style="display:inline-block;width: 10%;font-weight: bold;">Contact Info :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 33.82%;" class="full-width">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Mobile Number" formControlName="mobileNumber">
             <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">
               Mobile Number is <strong>required</strong>
             </mat-error>
           </mat-form-field>
         </div>
-
       </div>
 
+      <div class="row">
+        <div class="col-9" >
+          <p style="display:inline-block;width: 10%;font-weight: bold;">Password :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 33.82%;" class="full-width">
+            <mat-label>Create your password</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Create your Password" formControlName="password">
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          
+        </mat-form-field>
+      </div>
+</div>
+      
 
       <div class="row">
        
         <div class="col">
-          <br>
-          <mat-radio-group  formControlName="gender" aria-label="Select an gender">
-            <input matInput  placeholder="Gender" >
-            <mat-radio-button style="margin-left: 70px;margin-top:-20px;" value="male">Male</mat-radio-button>
-            <mat-radio-button style="margin-left:145px;margin-top:-30px;" value="female">Female</mat-radio-button>
-            <mat-radio-button style="margin-left:230px;margin-top:-30px;"  value="other">Other</mat-radio-button>
+          
+           <p style="display:inline-block;font-weight: bold;">Gender :</p> &nbsp;&nbsp;
+          <mat-radio-group style="display:inline-block;"  formControlName="gender" aria-label="Select an gender">
+            <input  matInput style="color:black"  >
+            <mat-radio-button style="margin-left: 48px;margin-top:-15px;" value="male">Male</mat-radio-button>
+            <mat-radio-button style="margin-left:150px;margin-top:-30px;" value="female">Female</mat-radio-button>
+            <mat-radio-button style="margin-left:260px;margin-top:-30px;"  value="other">Other</mat-radio-button>
           </mat-radio-group>
-        </div></div>
-
-
-        <br><br>
-        <div class="row">
-      <div class="col">
-        <br>
-        <mat-form-field appearance="fill">
-          
-          <mat-label>Create your password</mat-label>
-          <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
-          
-           <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>   -->
-           <!-- <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Email ID" formControlName="emailId">
-            <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
-              Email-ID is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
         </div>
       </div>
-       -->
-        </mat-form-field>
-      </div>
-</div>
 
 
 <div class="d-flex flex-row align-items-center mb-4">
-  <!-- <i style="margin-left:5px;" class="n"></i> -->
-  <img style="size: 8px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
+ 
+  <img style="size: 8px;margin-top: -35px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
 <div class="form-outline flex-fill mb-0">
-  <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Upload Image
+  <!-- <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Upload Image  -->
+    <p style="display:inline-block;margin-top: 5px;font-weight: bold;">Upload image <!-- <span class="text-danger">*  </span> -->:</p> 
     <label for="form3Example1c" class="form-label">
-      <span class="text-danger">*</span>
+      
     </label>
-</label>
-  
-  <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="user image" class="form__icon" 
+<!-- </label> -->
+
+    
+  <input style="margin-left:12px;margin-top:5px;" type="file" placeholder="user image" class="form__icon" 
   id="form3Example1c"  (change)="onImageUpload($event)">
 </div>
 </div>
 
-<img style="border-radius: 3px;" src="{{uploadImage}}" width="40%"> 
-<br><br>
-      
-
+  
+<img style="border-radius: 3px;margin-left: 250px;margin-top:-75px;" src="{{uploadImage}}" width="8%"> 
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions style="margin-top:-25px">
       
-      <button type="submit" (click)="submit()" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));" >Register
-        <div class="icon">
-          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-        </div>
-      </button>
-
-      <!-- <p>Are you a new client ?
-      </p>
-      <button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));">Login 
+      <button mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;" (click)="submit()">REGISTER</button>
+      
+      <!-- <button type="submit" (click)="submit()" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));" >Register
         <div class="icon">
           <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
         </div>
       </button> -->
-     
+
+      
+      <!-- <button type="submit" class="cssbuttons-io-button" style="text-align: center;background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));padding: 2.5px 160px;border-radius: 15px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;">Register 
+        <div class="icon">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+        </div>
+      </button> -->
+
+      <br><br>
 
 
-       
+      <p style="margin-left: 135px;font-size: 13px;margin-bottom: -40px;">Have an Account ? <a routerLink="/userLogin" href="#"> Login</a></p>
+
+      <img src="assets/draw1.jpeg" style="height: 460px;margin-left: 430px;margin-top: -40%;width: 65%;">
+    
+
+      
     </mat-card-actions>
+  </div>
   </mat-card>
 
 </form>
-
-              </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image ">
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <!-- </div> -->
-</section>
-              
-
-
-
-
-
-
-
-
-      <!-- <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Address" formControlName="address"></textarea>
-            <mat-error *ngIf="addressForm.controls['address'].hasError('required')">
-              Address is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-
-
-      
-      <div class="row" *ngIf="!hasUnitNumber">
-        <div class="col">
-          <button mat-button type="button" (click)="hasUnitNumber = !hasUnitNumber">
-            + Add C/O, Apt, Suite, Unit
-          </button>
-        </div>
-      </div> -->
-
-      <!-- <div class="row" *ngIf="hasUnitNumber">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <textarea matInput placeholder="Address 2" formControlName="address2"></textarea>
-          </mat-form-field>
-        </div>
-      </div> -->
-
-
-                <!-- <mat-form-field class="full-width">
-            <input matInput placeholder="Date of Birth" formControlName="city">
-            <mat-error *ngIf="addressForm.controls['city'].hasError('required')">
-              Date of Birth is <strong>required</strong>
-            </mat-error>
-          </mat-form-field> -->
-
-           <!-- <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput #postalCode maxlength="5" placeholder="Postal Code" type="number" formControlName="postalCode" >
-            <mat-hint align="end">{{postalCode.value.length}} / 5
-
-            </mat-hint>
-          </mat-form-field>
-        </div>
-      </div> -->
-
-    <!-- <div class="row">
-
-      <div class="col">
-        <mat-form-field class="full-width">
-          <input matInput placeholder="Country" formControlName="country">
-          <mat-error *ngIf="addressForm.controls['country'].hasError('required')">
-            Country is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-    
- 
-    <div class="col">
-      <mat-form-field class="full-width">
-        <mat-select placeholder="State" formControlName="state">
-          <mat-option *ngFor="let state of states" [value]="state.abbreviation">
-            {{ state.name }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="addressForm.controls['state'].hasError('required')">
-          State is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-    </div>
-<br> -->
+</div> 
+</body>

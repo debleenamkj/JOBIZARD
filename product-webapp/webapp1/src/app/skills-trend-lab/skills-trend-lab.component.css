@@ -17,8 +17,8 @@ h3{
 button{
     background-image: linear-gradient(to right, #6E2586,#B11784);
     padding: 5px;
-    width: 100px;
-    font-size: large;
+    width: 40%;
+    font-size: x-large;
     color: white;
 }
 mat-card-title{

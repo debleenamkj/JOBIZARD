@@ -1,20 +1,29 @@
+
+.personalGrandParentDiv{
+    display: flex;
+}
 .PersonalInfoMat{
     margin-top: 20px;
-    margin-left: 120px;
+    margin-left: 00px;
     
 }
 .PersonalInfoPara{
     margin-top: 20px;
 }
 .personalParentdiv{
-    
-    margin: auto;
-    padding-left: 80px;
-    font-size: medium;
-    border-style: solid;
-    border-width: 2px;
-    border-color: red;
+    /* margin-top: 320px; */
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 40px;
+    margin-left: 10px;
+    /* margin: auto; */
+    padding-left: 60px;
+    font-size: large;
+    border: 7px solid #4E1B5F;
+    border-width: 2.5px;
+    /* border-color: red; */
     border-radius: 10px;
+    width: 45%;
 }
 .commondiv{
     display: flex;
@@ -26,20 +35,188 @@
     padding-left: 40px;
 }
 .firstNameSpace{
-    margin-left: 15px;
+    margin-left: 18px;
 }
 .lastNameSpace{
-    margin-left: 15px;
+    margin-left: 19px;
 }
 .genderSpcae{
-    margin-left: 40px;
+    margin-left: 48px;
 }
 .dobSpace{
-    margin-left: px;
+    margin-left: 6px;
 }
 .mobileSpace{
-    margin-left: -20px;
+    margin-left: -16px;
 }
-.commonInputDiv{
+/* .commonInputDiv{
     length:80px
+} */
+.custom-form-field {
+    width: 200px;
+    font-size: 14px;
+    margin-top: 3px;
+    margin-bottom: -1.35em;
+  
+    /* mat-datepicker-toggle {
+        font-size: 12px;
+    } */
+  
+    /* input.mat-input-element {
+        padding-bottom: 2px;
+        font-size: 12px;
+        color: $title-color;
+    } */
+  }
+  .personalInfoBTN{
+  display: flex;
+  padding-top: 30px;
+  padding-left: 140px;
+  }
+  .personalInfoSaveBTN{
+    color: whitesmoke;
+      padding-left: 30px;
+      padding-right: 30px;
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+  }
+  .personalInfoNextBTN{
+    color: whitesmoke;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 1.20vw;
+     margin-left: 40px;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+  }
+  .ImageDiv{
+      /* padding-left: 5px; */
+      padding-top: 80px;
+      height: 200px;
+      width: 200px;
+  }
+  
+  /* ----------------------------Address  CSS ------------------------------ */
+  .addressGrandParentDiv{
+      display: flex;
+  }
+  .stateSpcae{
+      padding-left: 66px;
+  }
+  .citySpace{
+      padding-left: 78px;
+  }
+  .pincodeSpace{
+      padding-left: 44px;
+  }
+  .nationalitySpace{
+      padding-left: 22px;
+  }
+  .addressBTN{
+    width: 100%;
+    display: flex;
+    padding-top: 100px;
+    padding-left: 140px;
+
+  }
+  .addressSaveBTN{
+    color: whitesmoke;
+      padding-left: 30px;
+      padding-right: 30px;
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+  }
+  .addressNextBTN{
+    color: whitesmoke;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: large;
+     margin-left: 70%;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+
+  }
+  /* -------------------------details CSS------------------------------------ */
+  .detailsGrandParentDiv{
+      display: flex;
+  }
+  .detailsParentdiv{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 40px;
+    margin-left: 10px;
+    /* margin: auto; */
+    padding-left: 60px;
+    font-size: 1.20vw;
+    border: 7px solid #4E1B5F;
+    border-width: 2.5px;
+    /* border-color: red; */
+    border-radius: 10px;
+    width: 44%;
+  }
+  .skillsetSpcae{
+      padding-left: 171px;
+  }
+  .jobPreferencesSpcae{
+      padding-left: 110px;
+  }
+  .detailsBTN{
+      display: flex;
+      padding-top: 250px;
+      padding-left: 120px;
+  }
+  .detailsSaveBTN{
+    color: whitesmoke;
+      padding-left: 30px;
+      padding-right: 30px;
+    
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+  }
+  .detailsNextBTN{
+    color: whitesmoke;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: large;
+     margin-left: 60px;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+  }
+
+  /* -------------------------Education Details Css-------------------------- */
+  .educationSpace{
+      padding-left: 128px;
+  }
+  .fieldSpace{
+      padding-left: 86px;
+  }
+  
+  .universitySpace{
+      padding-left: 39px;
+  }
+  .courseTypeSpace{
+    padding-left: 108px;
+}
+.passOutYearSpace{
+    padding-left: 94px;
+}
+.percentageSpace{
+    margin-left: -5px;
+}
+.educationBTN{
+    display: flex;
+    padding-top: 40px;
+    padding-left: 140px;
+}
+.educationSaveBTN{
+    color: whitesmoke;
+      padding-left: 30px;
+      padding-right: 30px;
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+}
+.educationNextBTN{
+    color: whitesmoke;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: large;
+     margin-left: 40px;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
 }

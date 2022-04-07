@@ -11,8 +11,8 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
 import { CvGenerationComponent } from './cv-generation/cv-generation.component';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
-import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
-import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+
+
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
@@ -23,13 +23,14 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
-import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+
 import { TechnewsComponent } from './technews/technews.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
 
 import { OrganizationDetails } from './model/organizationDetails';
 import { ReviewComponent } from './review/review.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 
 
 
@@ -43,6 +44,9 @@ const routes: Routes = [
   {path:'job-posting',component:JobPostingComponent},
   {
     path:'cv-generation',component:CvGenerationComponent
+  },
+  {
+    path:'cv-generation1',component:CvTemplate1Component
   },
   {
     path:"jobdetail",
@@ -64,12 +68,12 @@ const routes: Routes = [
 
   // providing path for register and login
   {path:"register",component:RegisterComponent},
-  {path:"jobSeekerRegister",component:JobSeekerRegisterComponent},
-  {path:"recruiterRegister",component:RecruiterRegisterComponent},
+  {path:"jobSeekerRegister",component:JobSeekersRegisterComponent},
+
 
   // material component
   {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
-  {path:"recruitersRegister",component:RecruitersRegisterComponent},
+
 
   {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},

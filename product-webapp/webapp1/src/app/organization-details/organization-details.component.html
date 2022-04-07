@@ -1,135 +1,142 @@
 
-<section id="imgs" class="vh-100" >
-
-    <div class="container h-100" >
-       
+ <body id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);position: fixed;" >
+  <div style="margin-left:150px;margin-right: 100px;" >
     
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-    
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-  
-  
-  
-  
-      <form class="mx-1 mx-md-4" (ngSubmit)="organizationRegister()">
-  
+<form style="margin-top: -15px;"  class="mx-1 mx-md-2" [formGroup]="registerForm" (ngSubmit)="organizationRegister()" >
 
-<!-- ************************************************************************************************************************* -->
-
-  <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-      <label for="form3Example1c" class="form-label">Email-ID</label>
-          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.emailId" >
-        </div>
-        </div>
  
-<!-- ************************************************************************************************************************* -->
   
-  <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-      <label for="form3Example1c" class="form-label">Organization Name</label>
-          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.organizationName" >
-        </div>
-        </div>
-
-<!-- ************************************************************************************************************************* -->
-  
- <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-      <label for="form3Example1c" class="form-label">Organization Sector</label>
-          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.organizationSector" >
-        </div>
-        </div> 
-
-<!-- ************************************************************************************************************************* -->
-  
- <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-      <label for="form3Example1c" class="form-label">organization Origin</label>
-          <input type="text" class="form-control"  placeholder="Enter the Email-ID" id="form3Example1c" name="emailId" [(ngModel)]="organization.organizationOrigin" >
-        </div>
-        </div> 
-
-<!-- ************************************************************************************************************************* -->
-  
-  <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-      <label for="exampleFormControlInput1" id="form3Example1c" class="form-label">Role of Hiring</label>
-          <input type="text" class="form-control" placeholder="Enter the First Name" id="form3Example1c" name="firstName" [(ngModel)]="organization.roleOfHiring">
-        </div></div>
-
-  
-<!-- ************************************************************************************************************************* -->
-
-<div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-          <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Contact Number</label>
-          <input type="text" class="form-control" placeholder="Enter the user password" id="form3Example1c" name="password" [(ngModel)]="organization.contactNumber" >
-        </div></div>
-
-<!-- ************************************************************************************************************************* -->
-
-  <div class="d-flex flex-row align-items-center mb-4">
-    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-    <div class="form-outline flex-fill mb-0">
-          <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Password</label>
-          <input type="text" class="form-control" placeholder="Enter the user password" id="form3Example1c" name="password" [(ngModel)]="organization.password" >
-        </div></div>
-  
-<!-- ************************************************************************************************************************* -->
-  
-<div class="d-flex flex-row align-items-center mb-4">
     
-    <img style="size: 8px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
-    <div class="form-outline flex-fill mb-0">
-    <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c">Organization Logo</label>
-    
-    <input style="margin-left:20px;margin-top:10px;" type="file" placeholder="Recruiter Image" class="form__icon" id="form3Example1c"  formControlName="recruiterImage" [(ngModel)]="organization.organizationLogo" (change)="onUploadLogo($event)">
+  <mat-card class="shipping-card" id="mat-card" >
+    <div style="font-family: 'Montserrat', sans-serif;">
+
+    <p style="color:  rgb(110,37,134);margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;font-size: large;">Recruiter Register Page</p><br>
+
+
+    <mat-card-content class="col-12">
+      
+      <div class="formBorder"></div>
+
+      <div class="row">
+        <div class="col-11">
+          <p style="display:inline-block;width:6.20%;font-weight: bold;">Email ID : </p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25%;margin-left: 15px;" class="full-width">
+            <mat-label>Email Id</mat-label>
+            <input  matInput style="display:inline-block;" placeholder="Email ID" formControlName="emailId">
+            <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
+              Email-ID is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+
+
+      <div class="row">
+        <div class="col-11">
+          <p style="display:inline-block;width:9.68%;font-weight: bold;">Org. name :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25%;" class="full-width">
+            <mat-label>Organization name</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Organization name" formControlName="organizationName">
+            <mat-error *ngIf="registerForm.controls['organizationName'].hasError('required')">
+              Organization name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-11">
+          <p style="display:inline-block;width:9.68%;font-weight: bold;">Org. sector :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25%;" class="full-width">
+            <mat-label>Organization sector</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Organization sector" formControlName="organizationSector">
+            <mat-error *ngIf="registerForm.controls['organizationSector'].hasError('required')">
+              Organization sector is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-11">
+          <p style="display:inline-block;width:9.68%;font-weight: bold;">Role of Hiring :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25%;" class="full-width">
+            <mat-label>Role of Hiring</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Role of Hiring" formControlName="roleOfHiring">
+            <mat-error *ngIf="registerForm.controls['roleOfHiring'].hasError('required')">
+              Role of Hiring<strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-11" >
+          <p style="display:inline-block;width: 10%;font-weight: bold;">Contact no. :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25%;" class="full-width">
+            <mat-label>Contact number</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Contact number" formControlName="contactNumber">
+            <mat-error *ngIf="registerForm.controls['contactNumber'].hasError('required')">
+              Contact number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+
+  <div class="row">
+        <div class="col-11" >
+          <p style="display:inline-block;width: 10%;font-weight: bold;">Password :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 25%;" class="full-width">
+            <mat-label>Create your password</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Create your Password" formControlName="password">
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
   </div>
-  </div>
-  
-  <img style="border-radius: 3px;" src="{{uploadLogo}}" width="40%"> 
-  <br><br>
-  
-  
-  <!-- ************************************************************************************************************************* -->
-  
-  <button type="submit" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));"> Register
-    <div class="icon">
-      <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
-    </div>
-  </button>
         
+
+<div class="d-flex flex-row align-items-center mb-4">
+
+  <img style="size: 8px;margin-top: -35px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
+<div class="form-outline flex-fill mb-0">
   
-  <!-- ************************************************************************************************************************* -->
-  
-  </form>
-  
-  </div>
-  
-  <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-  
-    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image ">
-  
+    <p style="display:inline-block;margin-top: 5px;font-weight: bold;">Upload image <!-- <span class="text-danger">*  </span> -->:</p> 
+    <label for="form3Example1c" class="form-label">
+      
+    </label>
+
     
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  </section>
+  <input style="margin-left:12px;margin-top:5px;" type="file" placeholder="user image" class="form__icon" 
+  id="form3Example1c"  (change)="onImageUpload($event)">
+</div>
+</div>
+
   
-  
+<img style="border-radius: 3px;margin-left: 250px;margin-top:-95px;" src="{{uploadImage}}" width="8%"> 
+    </mat-card-content>
+    <mat-card-actions style="margin-top:-25px">
+      
+
+      <button mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;margin-top: -25px;" (click)="submit()">REGISTER</button>
+
+      <br>
+
+
+      <p style="margin-left: 135px;font-size: 13px;margin-bottom: -55px;">Have an Account ? <a routerLink="/userLogin" href="#"> Login</a></p>
+
+       <img src="assets/draw1.jpeg" style="height: 460px;margin-left: 430px;margin-top: -40%;width: 65%;"> 
+       <!-- <img src="assets/draw1.jpeg" style="height: 460px;margin-left: 430px;margin-top: -60%;width: 55%;">  -->
+      
+    </mat-card-actions><br>
+  </div>
+  </mat-card>
+
+</form>
+</div>
+         
+</body>

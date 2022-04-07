@@ -16,9 +16,9 @@ import org.springframework.web.client.RestTemplate;
 public class TechNewsController {
     @GetMapping("/getTechNews")
     public ResponseEntity<String> getTechNews(){
-        String uri = "https://mrnewsapi.p.rapidapi.com/news/india/tech";
+        String uri = "https://tech-info.p.rapidapi.com/news";
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-RapidAPI-Host", "mrnewsapi.p.rapidapi.com");
+        headers.add("X-RapidAPI-Host", "tech-info.p.rapidapi.com");
         headers.add("X-RapidAPI-Key", "e6f916a48bmsh5d85cf972abfec9p155bcajsn9988020bee77");
         HttpEntity<Object> entity = new HttpEntity<>(headers);
         RestTemplate restTemplate = new RestTemplate();
