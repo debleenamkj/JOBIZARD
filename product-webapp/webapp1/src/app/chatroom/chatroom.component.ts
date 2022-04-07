@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
+
 // import * as Stomp from '@stomp/stompjs';
 // import * as SockJS from 'sockjs-client';
-=======
+
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 import { ChatroomService } from '../service/chatroom.service';
 
->>>>>>> 9a28deb94331e81f196596b5cd1219fd14ffd5bc
+
 
 @Component({
   selector: 'app-chatroom',
@@ -90,7 +90,7 @@ export class ChatroomComponent implements OnInit {
     
   }
 
-<<<<<<< HEAD
+
 //   connect() {
 //     const socket = new SockJS('http://localhost:8090/chat');
 //     this.stompClient = Stomp.Stomp.over(socket);
@@ -126,6 +126,5 @@ export class ChatroomComponent implements OnInit {
   showGreeting(message: string) {
     this.greetings.push(message);
   }
-=======
->>>>>>> 9a28deb94331e81f196596b5cd1219fd14ffd5bc
+
 }
