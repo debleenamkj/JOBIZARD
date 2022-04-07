@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 // import * as Stomp from '@stomp/stompjs';
 // import * as SockJS from 'sockjs-client';
-=======
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 import { ChatroomService } from '../service/chatroom.service';
 
->>>>>>> 9a28deb94331e81f196596b5cd1219fd14ffd5bc
 
 @Component({
   selector: 'app-chatroom',
@@ -90,7 +87,6 @@ export class ChatroomComponent implements OnInit {
     
   }
 
-<<<<<<< HEAD
 //   connect() {
 //     const socket = new SockJS('http://localhost:8090/chat');
 //     this.stompClient = Stomp.Stomp.over(socket);
@@ -106,26 +102,24 @@ export class ChatroomComponent implements OnInit {
 //     });
 //   }
 
-  disconnect() {
-    if (this.stompClient != null) {
-      this.stompClient.disconnect();
-    }
+  // disconnect() {
+  //   if (this.stompClient != null) {
+  //     this.stompClient.disconnect();
+  //   }
 
-    this.setConnected(false);
-    console.log('Disconnected!');
-  }
+  //   this.setConnected(false);
+  //   console.log('Disconnected!');
+  // }
 
-  sendName() {
-    this.stompClient.send(
-      '/chat',
-      {},
-      JSON.stringify({ 'name': this.name })
-    );
-  }
+  // sendName() {
+  //   this.stompClient.send(
+  //     '/chat',
+  //     {},
+  //     JSON.stringify({ 'name': this.name })
+  //   );
+  // }
 
-  showGreeting(message: string) {
-    this.greetings.push(message);
-  }
-=======
->>>>>>> 9a28deb94331e81f196596b5cd1219fd14ffd5bc
+  // showGreeting(message: string) {
+  //   this.greetings.push(message);
+  // }
 }
