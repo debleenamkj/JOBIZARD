@@ -32,11 +32,10 @@
                 </button>
             </section>
         </section>
-        <div style="height: 400px;">
-
+        <div style="height: 22vw;">
             <ngb-carousel style="height: 100%;">
-                <ng-template ngbSlide *ngFor="let slide of categoryTemplate; index as i;">
-                    <div style="width: 80%; height: 400px; margin: auto; display: flex; align-items: center; ">
+                <ng-template style="height: 22vw;" ngbSlide *ngFor="let slide of categoryTemplate; index as i;">
+                    <div style="width: 80%; height: 22vw; margin: auto; display: flex; align-items: center; ">
 
                         <div class="flip-card skill-card-margin " *ngFor="let card of slide; index as j;">
                             <div class="flip-card-inner" >
@@ -49,7 +48,7 @@
                                 </mat-card>
                                 <mat-card class="flip-card-back">
                                     <ul>
-                                        <h1 style="border-bottom: 3px solid white;">
+                                        <h1 style="border-bottom: 0.3vw solid white;">
                                             {{skillAggregate[cardsPerSlide.category*i+j].category}}</h1>
                                         <mat-card-title
                                             *ngFor="let skill of skillAggregate[cardsPerSlide.category*i+j].skillTypes">
@@ -78,7 +77,7 @@
             <div class="parent-container">
                 <ngb-carousel>
                     <ng-template ngbSlide *ngFor="let slide of courseTemplate; index as i">
-                        <div style="width: 80%; height: 200px; display: flex; align-items: center; margin: auto;">
+                        <div style="width: 80%; height: 15vw; display: flex; align-items: center; margin: auto;">
                             <mat-card class="card suggestion-card" *ngFor="let card of slide; index as j;">
                                 <mat-card-title><a href={{suggestion[cardsPerSlide.course*i+j]}}>
                                         <img *ngIf="skillImage" [src]="skillImageLocation+skillImage">
