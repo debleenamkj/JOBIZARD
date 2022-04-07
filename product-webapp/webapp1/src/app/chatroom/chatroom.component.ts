@@ -32,6 +32,9 @@ export class ChatroomComponent implements OnInit {
   today= new Date();
   jstoday = '';
 
+  reg = "{a-zA-Z}"
+
+ re!:string[];
 
   constructor(private chatService:ChatroomService) {
 
@@ -64,6 +67,8 @@ export class ChatroomComponent implements OnInit {
         if(element==this.senderName) this.receiverNames.splice(index,1);
      });
      console.log(this.receiverNames);
+
+     this.re = this.receiverNames.map((e)=>e.charAt(0));
     })
 
     

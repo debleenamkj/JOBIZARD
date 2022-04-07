@@ -43,14 +43,18 @@ mat-label{
 .sender{
     margin-top: 1%;
     margin-bottom: 1%;
-    margin-left: 54%;
+    margin-left: 75%;
+    margin-right: 1%;
     text-align: right;
     background-color: #b11783b7;
     border-radius: 10px;
-    padding: 1%;
+    
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    width: 45%;
+    width: auto;
+    min-width: 10%;
+   
+    
 }
 
 .receiver{
@@ -59,9 +63,13 @@ mat-label{
     margin-left: 1%;
     text-align: left;
     background-color: #6e25868a;
-    border-radius: 10px;
-    padding: 1%;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 45%;
+    border-radius: 8px;
+
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    width: auto;
+    min-width: 10%;
+    display: inline-block;
+
+
 }
