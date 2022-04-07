@@ -1,155 +1,117 @@
-<div style="background-color: rgb(251, 248, 241);">
-<div style="background-color: rgb(251, 248, 241); width: 95%; margin: auto;">
+<div>
+    <div style="  background-color: #4E1B5F; height: initial;">
 
-    <br><br>
-    <div class="parent-container" style="height: 100px;">
-        <h1>Find the best courses</h1>
-        <h3>Hello Warrior, grow your skills and advance your career with jobizard Learning</h3>
-    </div>
-    
-    <br><br><br>
-    <div class="parent-container">
-        <ngb-carousel style="height: 100%; padding: 0px 0px;">
-            <ng-template ngbSlide *ngFor="let skillCategory of skillAggregate; index as s">
-                            <div class="card-block">
-                                <mat-card (click)="carouselClick()" class="card skill-card template-div" *ngIf="skillAggregate[6*s]">
-                
-                                    <br>
-                                     <mat-card-title>{{skillAggregate[6*s].category}}</mat-card-title>
+        <section style="display: flex; align-items: center; justify-content: center; border-bottom: 5px solid white;">
+            <div class="tagline">
+                Hello Warrior, grow your skills and advance your career with jobizard Learning.
+            </div>
+            <section style="display: flex; align-items: center; justify-content: end">
+
+                <div class="search-headline">
+                    Find the best courses
+                </div>
+                <mat-form-field
+                    style=" filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);">
+                    <button matSuffix (click)="queryReSet()" *ngIf="query.value" mat-icon-button>
+                        <mat-icon>close</mat-icon>
+                    </button>
+                    <mat-label style=" color: black; font-size: 1vw; font-weight: 500;">Find Courses</mat-label>
+                    <input matInput [formControl]="query" [matAutocomplete]="auto" class="search-input" type="search">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
+                            style="background-color: white; color: #4E1B5F; font-weight: 700;">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+
+                </mat-form-field>
+                <button mat-icon-button class="search-icon">
+                    <i class="fa-solid 
+                 fa-magnifying-glass
+                  fa-xl" (click)="onSkillTypeClick({target:{innerText: this.query.value}})"></i>
+                </button>
+            </section>
+        </section>
+        <div style="height: 400px;">
+
+            <ngb-carousel style="height: 100%;">
+                <ng-template ngbSlide *ngFor="let slide of categoryTemplate; index as i;">
+                    <div style="width: 80%; height: 400px; margin: auto; display: flex; align-items: center; ">
+
+                        <div class="flip-card skill-card-margin " *ngFor="let card of slide; index as j;">
+                            <div class="flip-card-inner" >
+                                <mat-card
+                                    style="background-image: url(../../assets/learning-portal/{{skillAggregate[cardsPerSlide.category*i+j].image}});"
+                                    class="skill-card flip-card-front">
+                                    <mat-card-title>
+                                        {{skillAggregate[cardsPerSlide.category*i+j].category}}
+                                    </mat-card-title>
                                 </mat-card>
-                                <mat-card class="card skill-card template-div" *ngIf="skillAggregate[6*s+1]">
-                                    
-                                    <br>
-                                    <mat-card-title>{{skillAggregate[6*s+1].category}}</mat-card-title>
-                                </mat-card>
-                                <mat-card class="card skill-card template-div" *ngIf="skillAggregate[6*s+2]">
-                                    
-                                    <br>
-                                    <mat-card-title>{{skillAggregate[6*s+2].category}}</mat-card-title>
-                                </mat-card>
-                                <mat-card class="card skill-card template-div" *ngIf="skillAggregate[6*s+3]">
-                                    
-                                    <br>
-                                    <mat-card-title>{{skillAggregate[6*s+3].category}}</mat-card-title>
-                                </mat-card>
-                                <mat-card class="card skill-card template-div" *ngIf="skillAggregate[6*s+4]">
-                                    
-                                    <br>
-                                    <mat-card-title>{{skillAggregate[6*s+4].category}}</mat-card-title>
-                                </mat-card>
-                                <mat-card class="card skill-card template-div" *ngIf="skillAggregate[6*s+5]">
-                                    
-                                    <br>
-                                    <mat-card-title> {{skillAggregate[6*s+5].category}}</mat-card-title>
+                                <mat-card class="flip-card-back">
+                                    <ul>
+                                        <h1 style="border-bottom: 3px solid white;">
+                                            {{skillAggregate[cardsPerSlide.category*i+j].category}}</h1>
+                                        <mat-card-title
+                                            *ngFor="let skill of skillAggregate[cardsPerSlide.category*i+j].skillTypes">
+                                            <a (click)="onSkillTypeClick($event)">
+                                                <li>{{skill}}</li>
+                                            </a>
+                                        </mat-card-title>
+                                    </ul>
                                 </mat-card>
                             </div>
-            </ng-template>
-        </ngb-carousel>
-    </div>
-
-    <br><br><h2>Recommended for you <a href="">Show all</a></h2><br><br>
-
-    <div class="parent-container">
-        <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let course of courseTemplate; index as i">
-                
-                    <div class="parent-container">
-                        <div class="card-block">
-                            <mat-card class="card suggestion-card template-div" *ngIf="courses[6*i]">
-            
-                                <br>
-                                <mat-card-title>{{courses[6*i]}}</mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="courses[6*i+1]">
-                                
-                                <br>
-                                <mat-card-title>{{courses[6*i+1]}}</mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="courses[6*i+2]">
-                                
-                                <br>
-                                <mat-card-title>{{courses[6*i+2]}}</mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="courses[6*i+3]">
-                                
-                                <br>
-                                <mat-card-title>{{courses[6*i+3]}}</mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="courses[6*i+4]">
-                                
-                                <br>
-                                <mat-card-title>{{courses[6*i+4]}}</mat-card-title>
-                            </mat-card>
-                            <mat-card class="card suggestion-card template-div" *ngIf="courses[6*i+5]">
-                                
-                                <br>
-                                <mat-card-title> {{courses[6*i+5]}}</mat-card-title>
-                            </mat-card>
                         </div>
                     </div>
-               
-            </ng-template>
-        </ngb-carousel>
+                </ng-template>
+            </ngb-carousel>
+        </div>
     </div>
+    <mat-accordion multi>
+        <mat-expansion-panel>
+            <button mat-raised-button (click)="hideCourses()" class="hide-arrow-button">
+                <i class="fa-solid fa-arrow-up-long fa-bounce fa-xl"></i>
+                Hide
+            </button>
+            <br><br>
+            <p style=" margin-left: 2%; font-size: xx-large; margin-bottom: 2%; font-weight: 500; color: #4E1B5F;">
+                Courses Available: {{queryValue}}</p>
+            <div class="parent-container">
+                <ngb-carousel>
+                    <ng-template ngbSlide *ngFor="let slide of courseTemplate; index as i">
+                        <div style="width: 80%; height: 200px; display: flex; align-items: center; margin: auto;">
+                            <mat-card class="card suggestion-card" *ngFor="let card of slide; index as j;">
+                                <mat-card-title><a href={{suggestion[cardsPerSlide.course*i+j]}}>
+                                        <img *ngIf="skillImage" [src]="skillImageLocation+skillImage">
 
-    <br><br><h2>Top Seller <a href="">Show all</a></h2><br><br>
+                                    </a>
+                                </mat-card-title>
+                            </mat-card>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div style=" width: 95%;  margin: auto;">
 
-    <div class="parent-container">
-        <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let logo of logoTemplate; index as j">
-                
+
+        <p
+            style="font-size: xx-large; color: #4E1B5F; margin-left: 1%;margin-top: 5%; margin-bottom: 2%; font-weight: 500;">
+            Top Educators</p>
+
+        <div class="parent-container">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slide of logoTemplate; index as i">
                     <div class="logo-container">
-                        <div class="card-block">
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j].retrievedImage">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j].retrievedImage" alt="company logo">
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+1]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+1].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+2]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+2].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+3]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+3].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+4]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+4].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+5]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+5].retrievedImage" alt="company logo">
-                            
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+6]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+6].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+7]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+7].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            <mat-card class="card company-logo-card template-div" *ngIf="companies[9*j+8]">
-                                <br>
-                                <img mat-card-image [src]="companies[9*j+8].retrievedImage" alt="company logo">
-                                
-                            </mat-card>
-                            
-                        </div>
+                        <mat-card class="card company-logo-card float-left" *ngFor="let card of slide; index as j;">
+                            <div *ngIf="companyLogos[cardsPerSlide.logo*i+j]">
+                                <img [src]="logoLocation + companyLogos[cardsPerSlide.logo*i+j]" alt="company logo">
+                            </div>
+                        </mat-card>
                     </div>
-               
-            </ng-template>
-        </ngb-carousel>
+                </ng-template>
+            </ngb-carousel>
+        </div>
     </div>
-</div>
+
 </div>

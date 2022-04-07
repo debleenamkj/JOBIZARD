@@ -12,7 +12,7 @@ body{
 .cv-template {
   display: flex;
   justify-content: space-around;
-  height: 180%;
+  height: 230%;
   width: 80%;
   color: rgb(83, 83, 83);
   font-family: 'Josefin Sans', sans-serif;
@@ -36,7 +36,7 @@ body{
 }
 .cv-left-side-content{
     background-color: rgb(238, 224, 226);
-    width: 25%;
+    width: 30%;
    
 }
 .cv-left-side-header {
@@ -61,11 +61,12 @@ mat-icon {
 }
 .name-header{
     text-align: center;
+   
 }
 .name-content{
     text-align: center;
     text-transform: uppercase;
-    padding-top: 9%;
+    padding-top: 8%;
     
 }
 .role-content{
@@ -74,12 +75,10 @@ mat-icon {
 }
 .name-header{
     background-color: rgb(234, 234, 234);
-    height: 25%;
+    height: 12%;
 }
 
 .cv-right-side-content {
-  margin: 0%;
-  padding: 0%;
   width: 75%;
 }
 .content-objective{
@@ -88,7 +87,7 @@ mat-icon {
     font-size: 200%;
     color: rgb(108, 105, 105);
     font-weight: bold;
-    padding: 1%;
+    padding: 2%;
     margin: 3%;
 }
 .Exp-header{
@@ -103,6 +102,7 @@ mat-icon {
   text-align: center;
   margin: 20px;
   background-color:rgb(238, 224, 226) ;
+  text-transform: uppercase;
 }
 .exp-content{
   text-align: center;
@@ -114,9 +114,66 @@ mat-icon {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 100%;
   color: rgb(83, 83, 83);
+  padding: 2.5%;
+  margin:0%;
 }
 li{
   text-align:left;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 150%;
+}
+.edu{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(238, 224, 226) ;
+  text-transform: uppercase;
+}
+.ed-details{
+  text-align: left;
+  margin-left: 5%;
+  /* padding-bottom: 25%; */
+}
+.skills-header-container{
+  padding: 8%;
+  margin: 4%;
+  text-align: center;
+  border-style: inset;
+  border-color: rgb(58, 58, 58) transparent transparent transparent;
+}
+.skills-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.skills{
+  margin: 3%;
+  padding-bottom:5%;
+}
+.interests-container{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 350%;
+  color: rgb(83, 83, 83);
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  background-color:rgb(238, 224, 226);
+  text-transform: uppercase;
+}
+.interest-chips{
+  padding: 3%;
+  margin: 2%;
+}
+.lang-container{
+  padding: 8%;
+  margin: 4%;
+  text-align: center;
+  border-style: inset;
+  border-color: rgb(58, 58, 58) transparent transparent transparent;
+}
+.lang-chips{
+  padding: 3%;
+  margin-top: 3%;
 }

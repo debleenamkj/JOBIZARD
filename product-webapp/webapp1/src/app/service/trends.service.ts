@@ -22,8 +22,21 @@ export class TrendsService {
     return this.http.get<JSON>("http://localhost:8086/api/v6/salarys/"+jobTitle);
   }
 
-  getTheVergeNews() : Observable<JSON[]>{
-    return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTheVergeNews");
+  techNewsApiUrl:any="https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
+
+  businessNewsApiUrl:any="https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
+
+  techNews(): Observable<any>
+  {
+    return this.http.get(this.techNewsApiUrl);
   }
+
+  businessNews(): Observable<any>{
+    return this.http.get(this.businessNewsApiUrl);
+  }
+
+  // getTechNews() : Observable<JSON[]>{
+  //   return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTechNews");
+  // }
 
 }

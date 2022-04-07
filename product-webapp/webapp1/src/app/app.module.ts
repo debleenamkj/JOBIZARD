@@ -38,7 +38,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
@@ -52,6 +53,9 @@ import { SkilltestComponent } from './skilltest/skilltest.component';
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
+
+import { NotFoundComponent } from './not-found/not-found.component';
+
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { CvTemplate3Component } from './cv-generation/cv-template3/cv-template3.component';
@@ -60,9 +64,16 @@ import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 
 import { TechnewsComponent } from './technews/technews.component';
+
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+<<<<<<< HEAD
+=======
+import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+import { ReviewComponent } from './review/review.component';
+import { BusinessnewsComponent } from './businessnews/businessnews.component';
+>>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
@@ -92,6 +103,8 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
+    
+    
     ChatroomComponent,
 
     CvTemplate1Component,
@@ -100,6 +113,8 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 
     JobSeekerRegisterComponent,
     RecruiterRegisterComponent,
+    NotFoundComponent,
+
     RegisterComponent,
     LoginComponent,
 
@@ -110,8 +125,15 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateUserDetailsComponent,
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
+<<<<<<< HEAD
     RecruiterRegisterComponent,
     TechnewsComponent
+=======
+    RecruitersRegisterComponent,
+    TechnewsComponent,
+    ReviewComponent,
+    BusinessnewsComponent
+>>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3
 
   ],
   imports: [
@@ -156,7 +178,8 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     MatSliderModule,
     MatProgressBarModule,
     NgbModule,
-    MatTabsModule,
+    MatExpansionModule,
+    MatTabsModule
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],

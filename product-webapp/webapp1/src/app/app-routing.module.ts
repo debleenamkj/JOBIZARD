@@ -14,6 +14,7 @@ import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.co
 import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
 
 import { RegisterComponent } from './register/register.component';
@@ -24,7 +25,12 @@ import { OrganizationDetailsComponent } from './organization-details/organizatio
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 
 import { TechnewsComponent } from './technews/technews.component';
+import { BusinessnewsComponent } from './businessnews/businessnews.component';
+
 import { OrganizationDetails } from './model/organizationDetails';
+import { ReviewComponent } from './review/review.component';
+import { ChatroomComponent } from './chatroom/chatroom.component';
+import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 
 
 
@@ -33,10 +39,14 @@ const routes: Routes = [
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},
   { path : 'technews', component: TechnewsComponent },
+  { path : 'businessnews', component: BusinessnewsComponent },
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {
     path:'cv-generation',component:CvGenerationComponent
+  },
+  {
+    path:'cv-generation1',component:CvTemplate1Component
   },
   {
     path:"jobdetail",
@@ -44,6 +54,7 @@ const routes: Routes = [
 
   },
   {path:"chatbot",component:ChatbotComponent},
+  {path:"chatroom",component:ChatroomComponent},
   {
     path:"jobdetail",
     component:JobDetailComponent,
@@ -66,13 +77,14 @@ const routes: Routes = [
 
   {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},
+  {path: "not-found", component:NotFoundComponent},
   // {path:"Organization",component:OrganizationDetails},
 
 
 
   {path:"update",component:UpdateDetailsComponent},
-  {path:"update-user",component:UpdateUserDetailsComponent}
-
+  {path:"update-user",component:UpdateUserDetailsComponent},
+  {path:"review",component:ReviewComponent}
 ];
 
 @NgModule({

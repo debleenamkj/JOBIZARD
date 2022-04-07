@@ -32,15 +32,28 @@
         <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
+<<<<<<< HEAD
+        <module>AssessmentService</module>
+=======
         <module>assessment-service</module>
         <module>chatbot-service</module>
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
+<<<<<<< HEAD
+
+
+
+
+
+>>>>>>> 54a17e9c0d8349a6502c958eba6665cacfd75aaa
+=======
+>>>>>>> 7d780c1626cabc76f4b862045a4ec01389353e71
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
         <module>chatroom-service</module>
+        <module>post-service</module>
 
 
     </modules>
@@ -134,7 +147,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>post-unit-test</id>
+                        <id>postImage-unit-test</id>
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>

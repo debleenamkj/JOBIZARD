@@ -5,13 +5,18 @@ import com.stackroute.chatroomservice.repository.ChatRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ChatRoomService {
 
-    @Autowired
     private ChatRoomRepository chatRoomRepository;
+
+    @Autowired
+    public ChatRoomService(ChatRoomRepository chatRoomRepository){
+        this.chatRoomRepository = chatRoomRepository;
+    }
 
     public Optional<String> getChatId(String senderId, String recipientId, boolean createIfNotExist){
         return chatRoomRepository.findBySenderIdAndRecipientId(senderId, recipientId).map(ChatRoom::getChatId)
@@ -40,5 +45,9 @@ public class ChatRoomService {
 
                     return Optional.of(chatId);
                 });
+    }
+
+    public List<ChatRoom> getAllChats(){
+        return chatRoomRepository.findAll();
     }
 }
