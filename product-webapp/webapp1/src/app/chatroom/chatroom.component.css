@@ -15,9 +15,8 @@ h3{
     font-weight: bold;
 }
 button{
-    padding: 5px;
     
-    width: 50%;
+    width: 100%;
     font-size: large;
     color: white;
     background-image: linear-gradient(to right, #6E2586,#B11784);
@@ -33,7 +32,11 @@ mat-label{
 }
 
 .chatscrolls{
-    height: 350px;
+    height: 355px;
     overflow-y:scroll;
     overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    overscroll-behavior-y: contain;
+    scroll-snap-align: end;
+    background-color: #ae17ea36;
 }
