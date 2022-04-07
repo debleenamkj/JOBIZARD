@@ -111,7 +111,7 @@ submit(){
   uploadData.append('file',this.uploadImageFile)
   console.log(uploadData.get("jobSeeker"));
   // this.registerService.jobSeekerRegister(uploadData)
-  this.http.postImage("http://localhost:8098/api/v1/jobSeeker",uploadData).subscribe(data=>{
+  this.http.post("http://localhost:8098/api/v1/jobSeeker",uploadData).subscribe(data=>{
     console.log("data added")
     alert("JobSeeker data added successfully")
     this.router.navigate(["/userLogin"])
