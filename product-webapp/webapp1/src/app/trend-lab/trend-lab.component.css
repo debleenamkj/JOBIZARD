@@ -1,21 +1,21 @@
 #mainheading{
-    color: #4E1B5F;
+    color: white;
     font-weight: bold;
     font-size: xx-large;
     text-align: center;
-    margin-top: 2%;
 }
 h2{
     color: white;
     text-align: center;
     font-size:xx-large;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 p{
     text-align: center;
     font-size: 23px;
     line-height: 2rem;
     letter-spacing: 0.1rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     margin-left: 5%;
     margin-right: 5%;
 }
@@ -33,14 +33,14 @@ a:hover{
 }
 .firstdiv{
     border-radius: 15px;
-    background-image: linear-gradient(to right, #6E2586,#B11784);
+    background-image: linear-gradient(to left, #6E2586,white);
     display: flex;
     height: 133px;
 }
 .seconddiv{
     display: flex;
     border-radius: 15px;
-    background-image: linear-gradient(to left, #6E2586,#B11784);
+    background-image: linear-gradient(to left, white,#B11784);
     margin-top: 1%;
     height:133px;
 }
@@ -48,5 +48,5 @@ a:hover{
     margin-top: 1%;
 }
 .seconddivtwo{
-    margin-top: 1.5%;
+    margin-top: 1%;
 }
