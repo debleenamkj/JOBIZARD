@@ -108,6 +108,7 @@
       padding-left: 22px;
   }
   .addressBTN{
+    width: 100%;
     display: flex;
     padding-top: 100px;
     padding-left: 140px;
@@ -125,7 +126,7 @@
     padding-left: 30px;
     padding-right: 30px;
     font-size: large;
-     margin-left: 40px;
+     margin-left: 70%;
     background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
 
   }

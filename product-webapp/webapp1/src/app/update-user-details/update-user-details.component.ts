@@ -35,6 +35,7 @@ export class UpdateUserDetailsComponent implements OnInit {
   academicsCertifications: AcademicsCertification[] = [];
 
   add(event: MatChipInputEvent): void {
+    console.log("acadamic");
     const value = (event.value || '').trim();
 
     // Add our Academics Certifications
@@ -87,6 +88,7 @@ export class UpdateUserDetailsComponent implements OnInit {
   jobPreferences: JobPreferences[] = [];
 
   addJobPreferences(event: MatChipInputEvent): void {
+    console.log("job preferences")
     const value = (event.value || '').trim();
 
     // Add our fruit
