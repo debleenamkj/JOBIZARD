@@ -106,6 +106,7 @@ submit(){
   console.log(this.jobSeeker)
   console.log("submit method ")
   console.log(this.jobSeeker);
+
   const uploadData = new FormData;
   uploadData.append('jobSeeker',JSON.stringify(this.jobSeeker))
   uploadData.append('file',this.uploadImageFile)
@@ -113,7 +114,7 @@ submit(){
   // this.registerService.jobSeekerRegister(uploadData)
   this.http.post("http://localhost:8098/api/v1/jobSeeker",uploadData).subscribe(data=>{
     console.log("data added")
-    alert("JobSeeker data added successfully")
+    alert("Data added successfully")
     this.router.navigate(["/userLogin"])
   })
 }
