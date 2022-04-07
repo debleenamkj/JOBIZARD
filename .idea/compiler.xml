@@ -12,7 +12,7 @@
         <module name="resources-service" />
         <module name="api-gateway" />
         <module name="trend-lab-service" />
-        <module name="assessment-service" />
+        <module name="AssessmentService" />
         <module name="recruitment-service" />
         <module name="eureka-server" />
         <module name="product-webapp" />
@@ -21,11 +21,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="assessment-service" target="11" />
       <module name="CvGeneration" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AssessmentService" options="-parameters" />
       <module name="CvGeneration" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
       <module name="assessment-service" options="-parameters" />

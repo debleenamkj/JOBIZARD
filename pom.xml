@@ -30,7 +30,7 @@
         <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
-        <module>assessment-service</module>
+        <module>AssessmentService</module>
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
     </modules>
