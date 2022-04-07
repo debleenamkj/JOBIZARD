@@ -9,9 +9,14 @@ import { ChatRoom } from '../model/chat-room';
 })
 export class ChatroomService {
 
+
   constructor(private http:HttpClient) { }
 
-  public getMessages() : Observable<ChatMessage[]>{
+  public getMessages(senderId:any,recipientId:any) : Observable<ChatMessage[]>{
+    return this.http.get<ChatMessage[]>("http://localhost:8089/messages/"+senderId+"/"+recipientId);
+  }
+
+  public getAllMessages() : Observable<ChatMessage[]>{
     return this.http.get<ChatMessage[]>("http://localhost:8089/getall");
   }
 

@@ -19,52 +19,62 @@ export class ChatroomComponent implements OnInit {
 
 
   getChatRoom:ChatRoom[]=[];
-  senderID:string = "S123";
-  
   receiverNames!:string[];
-  receiverName:string = "EFGH";
+  
   messages!:string[];
   text:any;
   sender!:string[];
 
+
   constructor(private chatService:ChatroomService) { }
 
   ngOnInit(): void {
-    this.chatService.getMessages().subscribe((data)=>{
+    this.chatService.getMessages(this.senderId,this.recipientId).subscribe((data)=>{
       this.getChats = data;
       console.log(data);
       // this.getAllChats = data.filter((e)=>e.senderId == this.senderID);
-      // this.receiverNames = data.map((e)=>e.recipientName);
+      // this.receiverNames = data.map((e)=>e.recipientName);     
+     
+    })
 
+ 
+
+    this.chatService.getAllMessages().subscribe((data)=>{
       console.log(data.map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index));
       this.receiverNames = data.map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index);
       this.receiverNames.forEach((element,index)=>{
         if(element==this.senderName) this.receiverNames.splice(index,1);
      });
-     
     })
-
     this.chatService.getChatroom().subscribe((data)=>{
       this.getChatRoom = data;
       console.log(data);
-      console.log(data.filter((e)=>e.senderId == this.senderID));
+      console.log(data.filter((e)=>e.senderId == this.senderId));
       console.log(data.map((e)=>e.chatId));
       
-      data.filter((e)=>e.senderId == this.senderID);
+      data.filter((e)=>e.senderId == this.senderId);
       
     })
-
     
   }
+  
+
   // senderId = "S123"
   // recipientId = "R124"
   // senderName = "ABCD";
   // recipientName = "IJKL";
+  // r = 'S123';
+  senderId = "S123"
+  recipientId = "R123"
+  senderName = "ABCD";
+  recipientName = "EFJH";
+  r = 'S123';
 
-  senderId = "R124"
-  recipientId = "S123"
-  senderName = "IJKL";
-  recipientName = "ABCD";
+  // senderId = "R124"
+  // recipientId = "S123"
+  // senderName = "IJKL";
+  // recipientName = "ABCD";
+  // r = 'R124';
 
   sendMessage(){
 
