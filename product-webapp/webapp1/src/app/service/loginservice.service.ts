@@ -28,7 +28,6 @@ export class LoginserviceService
 
 //     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
 //   }
-<<<<<<< HEAD
 
     public loginStatusSubject = new Subject<boolean>();
 
@@ -107,6 +106,4 @@ export class LoginserviceService
     }
 
 }
-=======
 // }
->>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3

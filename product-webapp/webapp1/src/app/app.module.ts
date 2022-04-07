@@ -50,8 +50,7 @@ import { LoginComponent } from './login/login.component';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
-import { JobSeekerRegisterComponent } from './job-seeker-register/job-seeker-register.component';
-import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+
 
 
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -68,15 +67,13 @@ import { TechnewsComponent } from './technews/technews.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
-<<<<<<< HEAD
-=======
-import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+
 import { ReviewComponent } from './review/review.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
->>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
+
 
 
 
@@ -110,9 +107,6 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
-
-    JobSeekerRegisterComponent,
-    RecruiterRegisterComponent,
     NotFoundComponent,
 
     RegisterComponent,
@@ -125,15 +119,10 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateUserDetailsComponent,
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
-<<<<<<< HEAD
-    RecruiterRegisterComponent,
-    TechnewsComponent
-=======
-    RecruitersRegisterComponent,
+    TechnewsComponent,
     TechnewsComponent,
     ReviewComponent,
     BusinessnewsComponent
->>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3
 
   ],
   imports: [
