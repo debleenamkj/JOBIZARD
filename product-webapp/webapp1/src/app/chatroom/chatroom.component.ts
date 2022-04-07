@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import * as Stomp from '@stomp/stompjs';
-import * as SockJS from 'sockjs-client';
+// import * as Stomp from '@stomp/stompjs';
+// import * as SockJS from 'sockjs-client';
 
 @Component({
   selector: 'app-chatroom',
@@ -31,20 +31,20 @@ export class ChatroomComponent implements OnInit {
     }
   }
 
-  connect() {
-    const socket = new SockJS('http://localhost:8090/chat');
-    this.stompClient = Stomp.Stomp.over(socket);
+//   connect() {
+//     const socket = new SockJS('http://localhost:8090/chat');
+//     this.stompClient = Stomp.Stomp.over(socket);
 
-    const _this = this;
-    this.stompClient.connect({}, function (frame: string) {
-      _this.setConnected(true);
-      console.log('Connected: ' + frame);
+//     const _this = this;
+//     this.stompClient.connect({}, function (frame: string) {
+//       _this.setConnected(true);
+//       console.log('Connected: ' + frame);
 
-      _this.stompClient.subscribe('/topic', function (hello: { body: string; }) {
-        _this.showGreeting(JSON.parse(hello.body).greeting);
-      });
-    });
-  }
+//       _this.stompClient.subscribe('/topic', function (hello: { body: string; }) {
+//         _this.showGreeting(JSON.parse(hello.body).greeting);
+//       });
+//     });
+//   }
 
   disconnect() {
     if (this.stompClient != null) {
