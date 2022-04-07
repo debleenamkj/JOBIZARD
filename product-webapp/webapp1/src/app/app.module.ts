@@ -51,7 +51,7 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
 
-import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+
 
 
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -68,12 +68,14 @@ import { TechnewsComponent } from './technews/technews.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
-import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+
+
 import { ReviewComponent } from './review/review.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
+
 
 
 
@@ -109,7 +111,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     CvTemplate3Component,
 
     JobSeekersRegisterComponent,
-    RecruiterRegisterComponent,
+
     NotFoundComponent,
 
     RegisterComponent,
@@ -122,7 +124,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateUserDetailsComponent,
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
-    RecruiterRegisterComponent,
+    TechnewsComponent,
     TechnewsComponent,
     BusinessnewsComponent
 

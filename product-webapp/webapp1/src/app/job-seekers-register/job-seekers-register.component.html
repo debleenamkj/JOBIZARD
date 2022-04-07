@@ -1,12 +1,10 @@
 
- <body id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);" >
+ <body id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);position:fixed;" >
   <div style="margin-left:150px;margin-right: 100px;" >
-  
-    
     
 <form style="margin-top: -15px;"  class="mx-1 mx-md-2" [formGroup]="registerForm" (ngSubmit)="jobSeekerRegister()" >
 
-
+  
   <mat-card class="shipping-card" id="mat-card" >
     <div style="font-family: 'Montserrat', sans-serif;">
 
@@ -105,21 +103,6 @@
               Password is <strong>required</strong>
             </mat-error>
           
-          
-           <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>   -->
-           <!-- <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Email ID" formControlName="emailId">
-            <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
-              Email-ID is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-       -->
         </mat-form-field>
       </div>
 </div>
@@ -141,7 +124,7 @@
 
 
 <div class="d-flex flex-row align-items-center mb-4">
-  <!-- <i style="margin-left:5px;" class="n"></i> -->
+ 
   <img style="size: 8px;margin-top: -35px;" src="https://img.icons8.com/material/24/000000/upload--v1.png"/>
 <div class="form-outline flex-fill mb-0">
   <!-- <label style="font-size:11px;margin-left: 5px;" for="exampleFormControlInput1" class="form-label" id="form3Example1c" style="font-size: 12px;">Upload Image  -->
@@ -162,13 +145,14 @@
     </mat-card-content>
     <mat-card-actions style="margin-top:-25px">
       
+      <button mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;" (click)="submit()">REGISTER</button>
+      
       <!-- <button type="submit" (click)="submit()" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));" >Register
         <div class="icon">
           <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
         </div>
       </button> -->
 
-      <button mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;" (click)="submit()">REGISTER</button>
       
       <!-- <button type="submit" class="cssbuttons-io-button" style="text-align: center;background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));padding: 2.5px 160px;border-radius: 15px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;">Register 
         <div class="icon">
@@ -176,13 +160,12 @@
         </div>
       </button> -->
 
-
       <br><br>
 
 
-      <p style="margin-left: 135px;font-size: 13px;margin-bottom: -40px;">Have an Account ?<a routerLink="/userLogin" href="#">Log in</a></p>
+      <p style="margin-left: 135px;font-size: 13px;margin-bottom: -40px;">Have an Account ? <a routerLink="/userLogin" href="#"> Login</a></p>
 
-      <img src="assets/draw1.jpeg" style="height: 460px;margin-left: 430px;margin-top: -50%;width: 65%;">
+      <img src="assets/draw1.jpeg" style="height: 460px;margin-left: 430px;margin-top: -40%;width: 65%;">
     
 
       
@@ -191,6 +174,5 @@
   </mat-card>
 
 </form>
-</div>  
-         
+</div> 
 </body>
