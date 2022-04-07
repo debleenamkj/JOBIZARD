@@ -27,6 +27,7 @@ import { RecruitersRegisterComponent } from './recruiters-register/recruiters-re
 import { TechnewsComponent } from './technews/technews.component';
 import { OrganizationDetails } from './model/organizationDetails';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 
 
 
@@ -39,6 +40,9 @@ const routes: Routes = [
   {path:'job-posting',component:JobPostingComponent},
   {
     path:'cv-generation',component:CvGenerationComponent
+  },
+  {
+    path:'cv-generation1',component:CvTemplate1Component
   },
   {
     path:"jobdetail",

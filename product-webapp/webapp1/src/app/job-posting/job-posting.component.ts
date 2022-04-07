@@ -111,10 +111,10 @@ getCompany(){
       this.post.companyUrl = this.companyDetails.companyUrl
       this.post.companyEmail = this.companyDetails.companyEmail
       this.post.industryType = this.companyDetails.industryType
-      // let img = this.companyDetails.logo;
-      // this.upimage = 'data:image/jpeg;base64,'+img;
-      // console.log(img);
-      // console.log(this.upimage);
+      let img = this.companyDetails.logo;
+      this.upimage = 'data:image/jpeg;base64,'+img;
+      console.log(img);
+      console.log(this.upimage);
     })
   }
  
