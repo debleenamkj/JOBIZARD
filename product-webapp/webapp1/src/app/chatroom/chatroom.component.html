@@ -1,4 +1,4 @@
-<!-- 
+
 <mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem;"><h1>Chatroom</h1></mat-card>
 <div class="container-fluid">
     <div class="row">
@@ -13,15 +13,29 @@
             <mat-card style="height: 100%;">
                 <h2 style="background-image: linear-gradient(to left, #6E2586,#B11784); color: white; padding: 1%;">Chating with {{recipientName}}</h2>
                     <div class="chatscrolls">
-                        <span *ngFor="let chat of getChats" style="width: 500px;">
-                            <div *ngIf="chat.senderId==senderId " style="margin-top: 1%; margin-left: 54%; text-align: right; background-color: #b11783b7; border-radius: 10px; padding: 1%; border-top-left-radius: 15px; border-bottom-left-radius: 15px; width: 45%;">
-                                <h3 style="font-weight: bold;">{{chat.senderName}}.{{senderId}}.{{chat.senderId}}.{{recipientId}}.{{chat.recipientId}}</h3>
-                                <p>{{chat.message}}</p>
-                            </div>
-                            <div *ngIf="chat.recipientId==recipientId " style="margin-left: 1%; text-align: left; background-color: #6e25868a; border-radius: 10px; padding: 1%; border-top-right-radius: 15px; border-bottom-right-radius: 15px; width: 45%;">
-                                <h3 style="font-weight: bold;">{{chat.recipientName}}</h3>       
-                                <p>{{chat.message}}</p>
-                            </div>
+                        <span *ngFor="let chat of getChats" style="width: 500px;"> 
+                            <!-- {{chat.timestamp | date:'dd-MM-yyyy'}} -->
+                                <div *ngIf="chat.senderId==senderId " class="sender">
+                                    <div style="display:inline-flex;">
+                                        <h3 style="font-weight: bold;  margin-top: 10%; margin-right: 5%;">{{chat.senderName}}</h3> 
+                                        <button mat-mini-fab disabled style="color: white;  background-color: #b11783; font-size: 4.8vh;">
+                                            {{senderInitials}}
+                                        </button>
+                                    </div>
+                                    <p style="color: white; margin-right: 2%;">{{chat.message}}</p>
+                                    <p style="color: rgba(255, 255, 255, 0.499); margin-right: 2%;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</p>
+                                </div>
+                                <div *ngIf="chat.recipientId==r " class="receiver">
+                                    <div style="display:inline-flex;"> 
+                                        <button mat-mini-fab disabled style="color: white; font-size: 4.8vh; background-color: #6E2586;">
+                                        {{receiverInitials}}
+                                      </button>
+                                      <h3 style="font-weight: bold; margin-top: 10%; margin-left: 8%;">{{chat.senderName}}</h3>
+                                    </div>    
+                                    <p style="color: white; margin-left: 2%;">{{chat.message}}</p>
+                                    <p style="color: rgba(255, 255, 255, 0.499); margin-left: 1.5%;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</p>
+                                </div>
+                            
                         </span>
                     </div>
                 <hr>
@@ -29,8 +43,8 @@
                     <mat-label>Enter Your Message</mat-label>
                     <input matInput placeholder="Enter a text" type="text" [(ngModel)]="text"/>
                   </mat-form-field>
-                  <button mat-raised-button (click) = "sendMessage()">Send</button>
+                  <button mat-raised-button (click) = "sendMessage()" class="button">Send</button>
             </mat-card>
         </div>
     </div>
-</div> -->
+</div>

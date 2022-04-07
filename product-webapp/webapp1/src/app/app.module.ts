@@ -53,6 +53,7 @@ import { SkilltestComponent } from './skilltest/skilltest.component';
 
 
 
+
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
@@ -67,6 +68,7 @@ import { TechnewsComponent } from './technews/technews.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
+
 
 import { ReviewComponent } from './review/review.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
@@ -107,6 +109,9 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     CvTemplate1Component,
     CvTemplate2Component,
     CvTemplate3Component,
+
+    JobSeekersRegisterComponent,
+
     NotFoundComponent,
 
     RegisterComponent,
@@ -121,7 +126,6 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     JobSeekersRegisterComponent,
     TechnewsComponent,
     TechnewsComponent,
-    ReviewComponent,
     BusinessnewsComponent
 
   ],

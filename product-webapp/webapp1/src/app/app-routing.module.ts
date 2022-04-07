@@ -12,6 +12,7 @@ import { CvGenerationComponent } from './cv-generation/cv-generation.component';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 
+
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AssesmentTestPortalComponent } from './assesment-test-portal/assesment-test-portal.component';
@@ -67,6 +68,8 @@ const routes: Routes = [
 
   // providing path for register and login
   {path:"register",component:RegisterComponent},
+  {path:"jobSeekerRegister",component:JobSeekersRegisterComponent},
+
 
   // material component
   {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},

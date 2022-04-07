@@ -1,11 +1,5 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-// import * as Stomp from '@stomp/stompjs';
-// import * as SockJS from 'sockjs-client';
-
-
-// import * as Stomp from '@stomp/stompjs';
-// import * as SockJS from 'sockjs-client';
-
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 import { ChatroomService } from '../service/chatroom.service';
@@ -26,52 +20,84 @@ export class ChatroomComponent implements OnInit {
 
 
   getChatRoom:ChatRoom[]=[];
-  senderID:string = "S123";
-  
   receiverNames!:string[];
-  receiverName:string = "EFGH";
+  
   messages!:string[];
   text:any;
   sender!:string[];
 
-  constructor(private chatService:ChatroomService) { }
+  senderInitials!:string;
+  receiverInitials!:string;
+
+  today= new Date();
+  jstoday = '';
+
+
+  constructor(private chatService:ChatroomService) {
+
+    this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
+
+    console.log(this.jstoday);
+    
+    
+   }
 
   ngOnInit(): void {
-    this.chatService.getMessages().subscribe((data)=>{
+    this.chatService.getMessages(this.senderId,this.recipientId).subscribe((data)=>{
       this.getChats = data;
       console.log(data);
       // this.getAllChats = data.filter((e)=>e.senderId == this.senderID);
-      // this.receiverNames = data.map((e)=>e.recipientName);
+      // this.receiverNames = data.map((e)=>e.recipientName); 
+      
+      this.senderInitials = this.senderName.charAt(0);
+      this.receiverInitials = this.recipientName.charAt(0);
+    })
 
+ 
+
+    this.chatService.getAllMessages().subscribe((data)=>{
+
+     
       console.log(data.map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index));
-      this.receiverNames = data.map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index);
+      this.receiverNames = data.filter((e)=>e.senderId == this.senderId).map(item => item.recipientName).filter((value, index, self) => self.indexOf(value) === index);
       this.receiverNames.forEach((element,index)=>{
         if(element==this.senderName) this.receiverNames.splice(index,1);
      });
-     
-    })
-
-    this.chatService.getChatroom().subscribe((data)=>{
-      this.getChatRoom = data;
-      console.log(data);
-      console.log(data.filter((e)=>e.senderId == this.senderID));
-      console.log(data.map((e)=>e.chatId));
-      
-      data.filter((e)=>e.senderId == this.senderID);
-      
+     console.log(this.receiverNames);
     })
 
     
+    
+    this.chatService.getChatroom().subscribe((data)=>{
+      this.getChatRoom = data;
+      console.log(data);
+      console.log(data.filter((e)=>e.senderId == this.senderId));
+      console.log(data.map((e)=>e.chatId));
+      
+      data.filter((e)=>e.senderId == this.senderId);
+      
+    })
+    
   }
-  // senderId = "S123"
-  // recipientId = "R124"
-  // senderName = "ABCD";
-  // recipientName = "IJKL";
+  
 
-  senderId = "R124"
-  recipientId = "S123"
-  senderName = "IJKL";
-  recipientName = "ABCD";
+  senderId = "S123"
+  recipientId = "R124"
+  senderName = "ABCD";
+  recipientName = "IJKL";
+  r = 'S123';
+
+  // senderId = "S123"
+  // recipientId = "R123"
+  // senderName = "ABCD";
+  // recipientName = "EFJH";
+  // r = 'S123';
+
+  // senderId = "R124"
+  // recipientId = "S123"
+  // senderName = "IJKL";
+  // recipientName = "ABCD";
+  // r = 'R124';
 
   sendMessage(){
 
@@ -80,7 +106,7 @@ export class ChatroomComponent implements OnInit {
     this.sendChats.senderName = this.senderName;
     this.sendChats.recipientId = this.recipientId;
     this.sendChats.recipientName = this.recipientName;
-    this.sendChats.timestamp = Date.now().toString();
+    this.sendChats.timestamp = this.jstoday;
     this.sendChats.message = this.text;
     console.log(this.sendChats);
     
@@ -93,42 +119,5 @@ export class ChatroomComponent implements OnInit {
     
   }
 
-
-
-//   connect() {
-//     const socket = new SockJS('http://localhost:8090/chat');
-//     this.stompClient = Stomp.Stomp.over(socket);
-
-//     const _this = this;
-//     this.stompClient.connect({}, function (frame: string) {
-//       _this.setConnected(true);
-//       console.log('Connected: ' + frame);
-
-//       _this.stompClient.subscribe('/topic', function (hello: { body: string; }) {
-//         _this.showGreeting(JSON.parse(hello.body).greeting);
-//       });
-//     });
-//   }
-
-  // disconnect() {
-  //   if (this.stompClient != null) {
-  //     this.stompClient.disconnect();
-  //   }
-
-  //   this.setConnected(false);
-  //   console.log('Disconnected!');
-  // }
-
-  // sendName() {
-  //   this.stompClient.send(
-  //     '/chat',
-  //     {},
-  //     JSON.stringify({ 'name': this.name })
-  //   );
-  // }
-
-  // showGreeting(message: string) {
-  //   this.greetings.push(message);
-  // }
 
 }
