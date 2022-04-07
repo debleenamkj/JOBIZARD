@@ -9,6 +9,9 @@ import java.util.Map;
 public interface SecurityTokenGenerator
 {
     Map<String,String> generateToken(UserLogIn userLogIn);
-    Map<String,String> generateToken( String emailId);
+
+// changes
+//    Map<String,String> generateToken(UserLogIn userLogIn);
+//    Map<String,String> generateToken( String emailId);
 }
 

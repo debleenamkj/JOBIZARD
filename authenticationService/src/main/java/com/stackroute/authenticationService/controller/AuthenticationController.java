@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@CrossOrigin
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/api/v2")
 public class AuthenticationController
@@ -46,6 +46,19 @@ public class AuthenticationController
 
 //---------------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserLogIn userLogIn) throws UserNotFoundException
+    {
+        Map<String,String> map = null;
+        try
+        {
+            UserLogIn userLogIn1= authenticationService.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+            if(userLogIn1.getEmailId().equals(userLogIn.getEmailId()))
+            {
+                map = securityTokenGenerator.generateToken(userLogIn);
+            }
+=======
     @GetMapping("/login")
     public String login(@RequestBody UserLogIn userLogIn) throws UserNotFoundException {
         Map<String, String> map = null;
@@ -83,6 +96,7 @@ public class AuthenticationController
 //                System.out.println("emaiid ");
 //                map = securityTokenGenerator.generateToken(emailId);
 //            }
+>>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3
             return new ResponseEntity<>(map,HttpStatus.OK);
         }
 //        catch (UserNotFoundException ex)
@@ -95,7 +109,70 @@ public class AuthenticationController
         }
     }
 
+//---------------------------------------------------------------------------------------------------------------------
 
+
+<<<<<<< HEAD
+
+// Changes
+//    @GetMapping("/login")
+//    public String login(@RequestBody UserLogIn userLogIn) throws UserNotFoundException {
+//        Map<String, String> map = null;
+//        try {
+//            UserLogIn userLogIn1 = authenticationService.findByEmailIdAndPassword(userLogIn.getEmailId(), userLogIn.getPassword());
+//            if (userLogIn1.getEmailId().equals(userLogIn.getEmailId())) {
+//                map = securityTokenGenerator.generateToken(userLogIn);
+//            }
+//            System.out.println(map);
+//            return map.get("token");
+//
+////            return new ResponseEntity<>(map,HttpStatus.OK);
+//        } catch (UserNotFoundException ex) {
+//            throw new UserNotFoundException();
+//        } catch (Exception ex) {
+//            return "try after sometimes";
+////            return new ResponseEntity<>("Please try after sometime",HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    // Changes
+//    @GetMapping("/login2/{emailId}/{password}")
+//    public ResponseEntity<?> login2(@PathVariable String emailId,@PathVariable String password) throws UserNotFoundException
+//    {
+//        System.out.println("controller");
+//        System.out.println(emailId);
+//        System.out.println(password);
+//        Map<String,String> map = null;
+//        try
+//        {
+//            UserLogIn userLogIn1= authenticationService.findByEmailIdAndPassword(emailId,password);
+//            if(userLogIn1.getEmailId().equals(emailId))
+//            {
+//                System.out.println("emaiid ");
+//                map = securityTokenGenerator.generateToken(emailId);
+//            }
+//            return new ResponseEntity<>(map,HttpStatus.OK);
+//        }
+//        catch (UserNotFoundException ex)
+//        {
+//            throw new UserNotFoundException();
+//        }
+//        catch (Exception ex)
+//        {
+//            return new ResponseEntity<>("Please try after sometime",HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+//
+//    @PostMapping("/login3")
+//    public void login3(@RequestParam String emailId,@RequestParam String password) throws UserNotFoundException
+//    {
+//        System.out.println("Hello");
+//    }
+//
+=======
     @RequestMapping(value = "/login3",method = RequestMethod.GET)
     public void login3()
     {
@@ -126,4 +203,5 @@ public class AuthenticationController
         }
     }
 
+>>>>>>> ae781c1a64fa2eaf6411b8b457b46c885faa92e3
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 import { ChatroomService } from '../service/chatroom.service';
+
 
 
 @Component({
@@ -64,17 +64,17 @@ export class ChatroomComponent implements OnInit {
   // senderName = "ABCD";
   // recipientName = "IJKL";
   // r = 'S123';
-  senderId = "S123"
-  recipientId = "R123"
-  senderName = "ABCD";
-  recipientName = "EFJH";
-  r = 'S123';
+  // senderId = "S123"
+  // recipientId = "R123"
+  // senderName = "ABCD";
+  // recipientName = "EFJH";
+  // r = 'S123';
 
-  // senderId = "R124"
-  // recipientId = "S123"
-  // senderName = "IJKL";
-  // recipientName = "ABCD";
-  // r = 'R124';
+  senderId = "R124"
+  recipientId = "S123"
+  senderName = "IJKL";
+  recipientName = "ABCD";
+  r = 'R124';
 
   sendMessage(){
 
@@ -95,4 +95,6 @@ export class ChatroomComponent implements OnInit {
     })
     
   }
+
+
 }
