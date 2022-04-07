@@ -1,4 +1,5 @@
-<div class="container-fluid" style="padding: 0;" >
+<div class="container-fluid" style="padding: 0; opacity: 1.0;" >
+    <mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">Skill Test</h1></mat-card>
     <header style="padding: 2%; margin: 0;">
               <section class="timer1 blink" style="float: left; border-radius: 50%; ">
                 <span style="font-size: x-large;">{{counter.min}} : {{counter.sec}}</span>
@@ -17,7 +18,7 @@
         </section>
     </header> 
     <section class="back end" style="color: white; position: relative; width: 25%; padding: 3%; margin-left: 37%; border: #4E1B5F 3px solid; margin-top: 2%;">
-    <p style="font-size: large; font-weight: bold; ">Are you sure want to end the test?</p><br><br>
+    <p style="font-size: large; line-height: 140%;">Are you sure to submit the test?</p><br><br>
     <button class="button " mat-button style="cursor: pointer; color: #4E1B5F; background-color: white; margin-left: 10%;" routerLink="/job-posting" >Yes</button>
     <button class="button " mat-button style="color: #4E1B5F; background-color: white; margin-left: 10%;" (click)="end_no()">No &nbsp;</button>
     </section>
@@ -37,7 +38,7 @@
         <button class="button next" mat-button style="float: right; margin-left: 10%;" (click)="getQuestion(question.qno + 1); changeColor(question.qno)">Save & Next</button>
     </section>
 
-    <footer class="col-2" style="float: right;">
+    <section class="col-2 questions" style="float: right;">
         
         <div>
         <!-- <li *ngFor='let in of ques_counter(Questions.no_of_questions) ;let i = index'>{{i}}</li> -->
@@ -59,6 +60,6 @@
                 <p style="margin-left: 10%;float: left; ">BookMark</p><br>
             </article>
         </div>
-    </footer>
+    </section>
     </section>
 </div>

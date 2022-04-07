@@ -8,9 +8,9 @@ export interface AcademicsCertification {
 export interface SkillSet {
   name: string;
 }
-// export interface JobPreferences {
-//   name: string;
-// }
+export interface JobPreferences {
+  name: string;
+}
 // export interface Achievements {
 //   name: string;
 // }
@@ -35,6 +35,7 @@ export class UpdateUserDetailsComponent implements OnInit {
   academicsCertifications: AcademicsCertification[] = [];
 
   add(event: MatChipInputEvent): void {
+    console.log("acadamic");
     const value = (event.value || '').trim();
 
     // Add our Academics Certifications
@@ -64,7 +65,7 @@ export class UpdateUserDetailsComponent implements OnInit {
   addskills(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our fruit
+    // Add our SkillSet
     if (value) {
       this.skillSets.push({name: value});
     }
@@ -78,6 +79,32 @@ export class UpdateUserDetailsComponent implements OnInit {
 
     if (index >= 0) {
       this.skillSets.splice(index, 1);
+    }
+  }
+
+
+  // addOnBlur = true;
+  // readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  jobPreferences: JobPreferences[] = [];
+
+  addJobPreferences(event: MatChipInputEvent): void {
+    console.log("job preferences")
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.jobPreferences.push({name: value});
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removejobPreferences(jobPreference: JobPreferences): void {
+    const index = this.jobPreferences.indexOf(jobPreference);
+
+    if (index >= 0) {
+      this.jobPreferences.splice(index, 1);
     }
   }
 }

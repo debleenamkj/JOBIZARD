@@ -3,27 +3,47 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1%;">
-            <mat-card>
-                <h2>Chats</h2>
-                <mat-card *ngFor = "let receiver of receiverID">{{receiver}}</mat-card>
+            <mat-card style="background-color: #6E2586;">
+                <h2 style="color: white;">CHATS</h2>
+                <mat-card *ngFor="let receiver of receiverNames" style="color: #6E2586; font-weight: bold; margin-top: 3%;"><button style="background-color: white; text-align: left; background-image: none; color: #6E2586;border: none;">{{receiver}}</button></mat-card>
                 
             </mat-card>
         </div>
         <div class="col-xl-9 col-md-8 col-s-12"  style="margin-top: 1%; height: 100%; overflow-y: hidden;">
             <mat-card style="height: 100%;">
-                <h2>Chat with {{receiverName}}</h2>
+                <h2 style="background-image: linear-gradient(to left, #6E2586,#B11784); color: white; padding: 1%;">Chating with {{recipientName}}</h2>
                     <div class="chatscrolls">
-                        <span *ngFor="let chat of getChats">
-                            <h3 style="font-weight: bold;">{{chat.senderName}} : </h3>
-                            <p>{{chat.message}}</p>
+                        <span *ngFor="let chat of getChats" style="width: 500px;"> 
+                            <!-- {{chat.timestamp | date:'dd-MM-yyyy'}} -->
+                                <div *ngIf="chat.senderId==senderId " class="sender">
+                                    <div style="display:inline-flex;">
+                                        <h3 style="font-weight: bold;  margin-top: 10%; margin-right: 5%;">{{chat.senderName}}</h3> 
+                                        <button mat-mini-fab disabled style="color: white;  background-color: #b11783; font-size: 4.8vh;">
+                                            {{senderInitials}}
+                                        </button>
+                                    </div>
+                                    <p style="color: white; margin-right: 2%;">{{chat.message}}</p>
+                                    <p style="color: rgba(255, 255, 255, 0.499); margin-right: 2%;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</p>
+                                </div>
+                                <div *ngIf="chat.recipientId==r " class="receiver">
+                                    <div style="display:inline-flex;"> 
+                                        <button mat-mini-fab disabled style="color: white; font-size: 4.8vh; background-color: #6E2586;">
+                                        {{receiverInitials}}
+                                      </button>
+                                      <h3 style="font-weight: bold; margin-top: 10%; margin-left: 8%;">{{chat.senderName}}</h3>
+                                    </div>    
+                                    <p style="color: white; margin-left: 2%;">{{chat.message}}</p>
+                                    <p style="color: rgba(255, 255, 255, 0.499); margin-left: 1.5%;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</p>
+                                </div>
+                            
                         </span>
                     </div>
                 <hr>
-                <mat-form-field class="example-full-width" appearance="fill" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 100%; background-color: white;">
                     <mat-label>Enter Your Message</mat-label>
-                    <textarea matInput placeholder="Enter a text" [(ngModel)]="text"></textarea>
+                    <input matInput placeholder="Enter a text" type="text" [(ngModel)]="text"/>
                   </mat-form-field>
-                  <button mat-raised-button (click) = "sendMessage()">Send</button>
+                  <button mat-raised-button (click) = "sendMessage()" class="button">Send</button>
             </mat-card>
         </div>
     </div>

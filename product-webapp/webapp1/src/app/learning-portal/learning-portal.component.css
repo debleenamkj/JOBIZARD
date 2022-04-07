@@ -20,15 +20,15 @@
 }
 .skill-card{
     width: 19.4%;
-    min-width: 250px;
+    min-width: 300px;
     height: 100%;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;   
 }
 .skill-card-margin{
-    margin-left: 0.5%;
-    width: 19.4%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .skill-card mat-card-title{
     font-size: xx-large;
@@ -72,11 +72,9 @@ mat-expansion-panel{
 }
 .logo-container{
     width: 100%;
-    
     display: flex;
     justify-content: center;
     height: 150px;
-    overflow-x: auto;
 }
 .company-logo-card{   
     width: 150px;
@@ -130,6 +128,7 @@ mat-card-title{
 .search-headline{
     /* position: relative;
     right: -2%; */
+    
     margin-right: 30px;
     margin-left: auto;
     height: 25px;
@@ -140,20 +139,22 @@ mat-card-title{
 }
 .search-bar{
     background-color: transparent;
+    background-color: white;
     /* border: 3px solid white ; */
     /* transition: width 1s; */
 } 
 /* .search-input:focus{
     width: 500px;
 } */
-/* .search-icon{
+.search-icon{
      filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);
-} */
+}
 .search-input{
     font-size: 1vw;
     text-align: center;
-    caret-color: white;
-    
+    caret-color: black;
+    color: black;
+    font-weight: 500;
     /* border: none;
     outline: none;   */
     
@@ -161,9 +162,11 @@ mat-card-title{
 }
 .flip-card{
     background-color: transparent;
-    height: inherit;
     width: 19.4%;
+    min-width: 300px;
+    height: 100%;
     perspective: 1000px;
+    
 }
 .flip-card-inner{
     position: relative;
@@ -180,7 +183,8 @@ mat-card-title{
 
 .flip-card-front, .flip-card-back{
     position: absolute;
-    width: 100%;
+    width: 19.4%;
+    min-width: 300px;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -191,6 +195,7 @@ mat-card-title{
     text-align: center;
     overflow-y: scroll;
     scrollbar-width: none;
+    color: white;
 }
 .flip-card-back::-webkit-scrollbar{
     display: none;

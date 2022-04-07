@@ -16,7 +16,7 @@ export class RegisterServiceService {
 
   isloggedIn = false;
   loginUrl = '';
-  checkLogin() {
+  checkLogin(){
     this.isloggedIn = true;
   }
 
@@ -34,7 +34,11 @@ export class RegisterServiceService {
 
   organizationRegister(organization:OrganizationDetails):Observable<object>
   {
+<<<<<<< HEAD
     return this.http.post("http://localhost:8098/api/v1/saveOrganizationDetails",organization)
+=======
+    return this.http.post("http://localhost:8098/api/v1/organizationDetails",organization)
+>>>>>>> e9bff6a7fe84a30a35b2fe1913529078c22bc62f
   }
 
 
@@ -45,6 +49,9 @@ export class RegisterServiceService {
 
     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
   }
+
+
+  
 
     // upload(file: File) {
   //   throw new Error('Method not implemented.');

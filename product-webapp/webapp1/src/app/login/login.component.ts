@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // import { LoginserviceService } from '../service/loginservice.service';
 import { RegisterServiceService } from '../service/register-service.service';
+import { TockenInterceptorService } from '../service/tocken-interceptor.service';
 
 @Component({
   selector: 'app-login',
@@ -27,17 +28,17 @@ export class LoginComponent implements OnInit {
 
 
   user:UserLogin =new UserLogin();
- 
+  
   
   userLogin(user:any)
   {
     console.log(this.user)
     this.loginService.userLogIn(this.user)
-    .subscribe(data=>{
+    .subscribe(()=>{
       alert("Successfully User is logged in.")
       this.loginService.isloggedIn=true
       this.router.navigate(["/jobdetail"])
-     },error=>{
+     },()=>{
       alert("please check your username and password.")
      this.router.navigate(["/userLogin"])
      this.loginService.isloggedIn=false

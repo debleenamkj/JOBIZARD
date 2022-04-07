@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OrganizationDetails } from '../model/organizationDetails';
 import { RegisterServiceService } from '../service/register-service.service';
@@ -10,38 +12,79 @@ import { RegisterServiceService } from '../service/register-service.service';
 })
 export class OrganizationDetailsComponent implements OnInit {
 
-  constructor(private registerService : RegisterServiceService , private router : Router) { }
+  organizationDetails:OrganizationDetails = new OrganizationDetails();
 
-  ngOnInit(): void {}
+  registerForm = this.formBuilder.group({
+    emailId: ["", Validators.required],
+    organizationName: ["", Validators.required],
+    organizationSector: ["", Validators.required],
+    organizationOrigin:["", Validators.required],
+    roleOfHiring:["", Validators.required],
+    contactNumber: ["", Validators.required],
+    password:["", Validators.required],
+    // userImage:[],
+  });
 
   
-  organization:OrganizationDetails = new OrganizationDetails;
+
+
+
+  constructor(private formBuilder: FormBuilder ,private registerService : RegisterServiceService , private router : Router,
+    private http:HttpClient )
+  {
+  }
+
+  ngOnInit(): void { }
+
+  
 
   organizationRegister()
   {
+    this.organizationDetails.emailId = this.registerForm.value.emailId;
+    this.organizationDetails.organizationName = this.registerForm.value.organizationName;
+    this.organizationDetails.organizationSector = this.registerForm.value.organizationSector;
+    this.organizationDetails.roleOfHiring = this.registerForm.value.roleOfHiring;
+    this.organizationDetails.contactNumber = this.registerForm.value.contactNumber;
+    this.organizationDetails.password = this.registerForm.value.password;
     console.log(this.organizationRegister)
-    this.registerService.organizationRegister(this.organization).subscribe(data=>{
-      alert("Organization  data added successfully")
-      this.router.navigate(["/userLogin"])
-    },error=>alert("Sorry not able to register Organization Details. "));
   }
 
+  hide = true;
 
+  
+  uploadImage:any;
+  uploadImageFile:any;
 
-  uploadLogo:any;
-
-  onUploadLogo(event: any)
+  onImageUpload(event: any)
   {
     console.log("onchange");
-    const files = event.target.files[0];
+    this.uploadImageFile = event.target.files[0];
+
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]); 
     reader.onload = (_event) =>
     { 
-      console.log(reader.result);
-      this.uploadLogo = reader.result; 
-      console.log(this.uploadLogo);
+      this.uploadImage = reader.result; 
     }
 }
 
-}
+submit(){
+  this.organizationDetails.emailId = this.registerForm.value.emailId;
+  this.organizationDetails.organizationName = this.registerForm.value.organizationName;
+  this.organizationDetails.organizationSector = this.registerForm.value.organizationSector;
+  this.organizationDetails.roleOfHiring = this.registerForm.value.roleOfHiring;
+  this.organizationDetails.contactNumber = this.registerForm.value.contactNumber;
+  
+  this.organizationDetails.password = this.registerForm.value.password;
+
+
+  const uploadData = new FormData;
+  uploadData.append('organizationDetails',JSON.stringify(this.organizationDetails))
+  uploadData.append('file',this.uploadImageFile)
+  console.log(uploadData.get("organizationDetails"));
+  this.http.post("http://localhost:8098/api/v1/organizationDetails",uploadData).subscribe(data=>{
+    console.log("data added")
+    alert("Data added successfully")
+    this.router.navigate(["/userLogin"])
+  })
+}}

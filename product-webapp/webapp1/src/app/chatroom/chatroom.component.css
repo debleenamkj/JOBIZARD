@@ -3,7 +3,7 @@ h1{
     color: white;
     font-weight: bold;
     margin-top: 2%;
-    font-size: xx-large;
+    font-size: 2.5vw;
 }
 h2{
     text-align: center;
@@ -14,10 +14,9 @@ h3{
     color: #4E1B5F;
     font-weight: bold;
 }
-button{
-    padding: 5px;
+.button{
     
-    width: 50%;
+    width: 100%;
     font-size: large;
     color: white;
     background-image: linear-gradient(to right, #6E2586,#B11784);
@@ -33,7 +32,36 @@ mat-label{
 }
 
 .chatscrolls{
-    height: 350px;
+    height: 355px;
     overflow-y:scroll;
     overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    overscroll-behavior-y: contain;
+    scroll-snap-align: end;
+    background-color: #ae17ea36;
+}
+.sender{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 54%;
+    text-align: right;
+    background-color: #b11783b7;
+    border-radius: 10px;
+    padding: 1%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 45%;
+}
+
+.receiver{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    text-align: left;
+    background-color: #6e25868a;
+    border-radius: 10px;
+    padding: 1%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    width: 45%;
 }

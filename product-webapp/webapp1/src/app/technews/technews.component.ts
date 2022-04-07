@@ -53,5 +53,4 @@ export class TechnewsComponent implements OnInit {
         this.techNewsDisplay = result.articles;
       });
   }
-
 }

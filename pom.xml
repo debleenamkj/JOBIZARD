@@ -32,7 +32,17 @@
         <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
-        <module>assessment-service</module>
+        <module>AssessmentService</module>
+
+        <module>AssessmentService</module>
+
+<!--        <module>assessment-service</module>-->
+
+        <module>AssessmentService</module>
+
+
+        <module>AssessmentService</module>
+
         <module>chatbot-service</module>
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
@@ -42,6 +52,7 @@
         <module>chatbot-service</module>
         <module>chatroom-service</module>
         <module>post-service</module>
+
 
     </modules>
 
