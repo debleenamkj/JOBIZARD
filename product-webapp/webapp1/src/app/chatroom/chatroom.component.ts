@@ -106,25 +106,25 @@ export class ChatroomComponent implements OnInit {
 //     });
 //   }
 
-  disconnect() {
-    if (this.stompClient != null) {
-      this.stompClient.disconnect();
-    }
+  // disconnect() {
+  //   if (this.stompClient != null) {
+  //     this.stompClient.disconnect();
+  //   }
 
-    this.setConnected(false);
-    console.log('Disconnected!');
-  }
+  //   this.setConnected(false);
+  //   console.log('Disconnected!');
+  // }
 
-  sendName() {
-    this.stompClient.send(
-      '/chat',
-      {},
-      JSON.stringify({ 'name': this.name })
-    );
-  }
+  // sendName() {
+  //   this.stompClient.send(
+  //     '/chat',
+  //     {},
+  //     JSON.stringify({ 'name': this.name })
+  //   );
+  // }
 
-  showGreeting(message: string) {
-    this.greetings.push(message);
-  }
+  // showGreeting(message: string) {
+  //   this.greetings.push(message);
+  // }
 
 }
