@@ -1,0 +1,71 @@
+
+.joblogo{
+    height: 70px;
+    width: 70px;
+}
+.icontainer{
+    display: flex;
+    
+}
+.iconcontainer{
+    display: flex;
+    margin: auto;
+}
+.headpad{
+    padding-top: 10px;
+    padding-left:60px;
+
+}
+.aboutCompanyparent{
+    margin-left: 80px;
+    width: 60%;
+}
+.aboutCompany{
+    /* margin: 40px; */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 60px;
+    border-radius: 25px;
+    border: 5px solid green;
+    border-style: solid;
+    border-width: 5px;
+}
+.headinggap{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.aboutparent{
+    margin-left: 100px;
+}
+.skillsrequiredparent{
+    margin-left: 100px;
+}
+.rowWise{
+    margin-top: 30px;
+    display: flex;
+}
+.commonPadding{
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+.joblocation{
+    margin-left: 100px;
+}
+.joblocationpara{
+    margin-left: 200px;
+}
+.experience{
+    margin-left: 280px;
+}
+.date{
+    margin-left: 290px;
+}
+.applyButton{
+    max-width: auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 380px;
+    
+}

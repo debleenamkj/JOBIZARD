@@ -1,0 +1,93 @@
+<mat-stepper [linear]="isLinear" #stepper style="background-color: #FBF8F1;">
+  <mat-step [stepControl]="companyForm" style="background-color: #FBF8F1;">
+    
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field> -->
+      <div class="">
+        <div  style="border: #05595B 3px solid; width: 50%; border-radius: 10px; padding: 10px; margin-top: 6%; margin-left: 3%; margin-right: 5%;  display: inline-block; "> <br>
+          <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3">
+            <div style="margin-left: 2%; height: 120%;">
+              
+              <div>
+                <p style="width:30%; display: inline-block; font-size: 150%">Company Name :</p>
+                <mat-form-field appearance="fill" style="width: 60%;">
+                  <mat-label>Company Name</mat-label>
+                <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required>
+              </mat-form-field>
+            </div>
+            <div>
+              <p style="width:30%; display: inline-block; font-size: 150%">Company Url :</p>
+              <mat-form-field appearance="fill" style="width: 60%;">
+                <mat-label>Company Url</mat-label>
+              <input matInput placeholder="Company url" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyUrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <p style="width:30%; display: inline-block; font-size: 150%">Company Email :</p>
+              <mat-form-field appearance="fill" style="width: 60%;">
+                <mat-label>Company Email</mat-label>
+                <input matInput placeholder="Company Email"style="padding:0 20px; width: 100%; border: none; margin-left: 20px; display: inline-block; " formControlName="companyEmail" required>
+              </mat-form-field>
+          </div>
+          <div>
+            <p style="width:30%; display: inline-block; font-size: 150%">Industry Type :</p>
+              <mat-form-field appearance="fill" style="width: 60%;">
+                <mat-label>Industry Type</mat-label>
+                <input matInput placeholder="Industry Type" style="padding: 0; width: 65%; margin-left: 20px; display: inline-block;"formControlName="industryType" required>
+              </mat-form-field>
+          </div>
+              <div>
+                <p style="width:30%; display: inline-block; font-size: 150%">Company logo :</p>
+                <input type="file" placeholder="Company logo" style=" padding: 5px; width: 65%; background-color: #FBF8F1; margin-left: 20px; margin-top: 2%; display: inline-block;" formControlName="companyLogo" (Change)="onFileChanged($event)">
+              </div>
+              <img [src]="upimage" width="20%" height="40%" *ngIf="upimage">
+              </div>
+              <button mat-button matStepperNext style=" margin-top: 6%; background-color: #54BAB9; padding: 0px 25px; border: none; color: white; border-radius: 5px; float: right;" (click)="company()">Next</button> 
+               <button mat-button style=" margin-top: 6%; background-color: #54BAB9; padding: 0px 25px; border: none; color: white; border-radius: 5px; float: right; margin-right: 20px;" (click)="preview()">Preview</button>
+              <br>
+          </form><br><br>
+          </div>
+    
+      <div style="float: right; width: 40%;" class="" >
+        <h1 style="color: #05595B; font-weight: bold; ">Preview :</h1>
+        <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
+          <h2 style="color: #05595B; font-weight: bold; margin-left: 8%;">Company details :</h2>
+          <div class="details" style="margin-left: 20%;">
+          <img style="margin-left: 30%;" src="assets\u1.jpeg" width="30%"> <br><br>
+          <p>Company Name : {{post.companyName}}</p>
+          <p>Company Email : {{post.companyEmail}}</p>
+          <p>Company Url : {{post.companyUrl}}</p>
+          <p>Industry Type : {{post.industryType}}</p>
+          <br>
+          <br>
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+      </div>
+  </mat-step>
+  <mat-step [stepControl]="jobForm" label="Fill out your address">
+    <form [formGroup]="jobForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>

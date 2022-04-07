@@ -1,0 +1,47 @@
+.parent-container{
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+.logo-container{
+    height: 150px;
+    width: 100%;
+    text-align: center;
+}
+.card{  
+    height: 100%;
+    margin: auto;
+    text-align: center;   
+}
+.skill-card{
+    width: 14.3%;
+    margin-left: 2%;
+    border-radius: 30px;
+}
+.suggestion-card{
+    width: 14.3%;
+    margin-left: 2%;
+}
+.company-logo-card{
+    width: 10%;
+    margin-left: 0.9%;
+    border-radius: 50%;
+}
+.mat-card-image{
+    width: 100px;
+    margin: auto;
+}
+.template-div{
+    float: left;
+}
+.card-block{
+    height: 100%;
+    width: 96%;
+    margin: auto;
+}
+mat-card{
+    background-color: rgb(233, 218, 194);
+}
+mat-card-title{
+    font-size: medium;
+}

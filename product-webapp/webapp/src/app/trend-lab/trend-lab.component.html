@@ -1,28 +1,28 @@
 <app-nav-bar></app-nav-bar>
-<center><h1 id="mainheading">Trend Lab</h1></center>
+<h1 id="mainheading">Trend Lab</h1>
 <div class="container">
     <div class="row">
-        <div class="col-xl-12 firstdiv">
-            <div class="col-xl-10 col-md-12 firstdivone">
-                <center>
-                    <h2>Skill Trends</h2>
-                    <p style="color: #54bab9; font-size: large;">Check what is the current demand for your skill</p>
-                </center>
+        <a routerLink="/skills">
+            <div class="col-xl-12 firstdiv">
+                <div class="col-xl-10 col-md-12 firstdivone">
+                        <h2>Skill Trends</h2>
+                        <p style="color: #54bab9; font-size: large;">Check what is the current demand for your skill</p>
+                </div>
+                <div class="col-xl-1 col-md-12 firstdivtwo">
+                    <img src="./assets/skills.png" alt="skills"/>
+                </div>
             </div>
-            <div class="col-xl-1 col-md-12 firstdivtwo">
-                <img src="./assets/skills.png" alt="skills"/>
+        </a>
+        <a routerLink="/">
+            <div class="col-xl-12 seconddiv">
+                <div class="col-xl-2 col-md-12 firstdivtwo">
+                    <img src="./assets/salary.png" style="margin-bottom: 10px; margin-left: 50px;" alt="salary"/>
+                </div>
+                <div class="col-xl-10 col-md-12 seconddivtwo">
+                    <h2>Salary Trends</h2>
+                        <p style="color: #e9dac1; font-size: large;">Check how salary in your role changes with experience</p>
+                </div>
             </div>
-        </div>
-        <div class="col-xl-12 seconddiv">
-            <div class="col-xl-2 col-md-12 firstdivtwo">
-                <img src="./assets/salary.png" style="margin-bottom: 10px; margin-left: 50px;" alt="salary"/>
-            </div>
-            <div class="col-xl-10 col-md-12 seconddivtwo">
-                <center>
-                <h2>Salary Trends</h2>
-                    <p style="color: #e9dac1; font-size: large;">Check how salary in your role changes with experience</p>
-                </center>
-            </div>
-        </div>
+        </a>
     </div>
 </div>

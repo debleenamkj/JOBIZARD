@@ -1,0 +1,141 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body style="background-color: rgb(251, 248, 241); height: 110%;">
+    <div style="padding-top: 2%; margin-left: 8%;">
+      <div style="margin-left: 17%;">
+      <button class="b1" style="border-radius: 50%;padding:0 8px;">1</button>
+      <img  src="assets\line.png" width="20%">
+      <button class="b2" style="border-radius: 50%;padding: 0 8px">2</button>
+      <img src="assets\line.png" width="20%">
+      <button class="b3" style="border-radius: 50%;padding: 0 8px">3</button>
+      <img src="assets\line.png" width="20%">
+      <button class="b4" style="border-radius: 50%;padding: 0 8px">4</button>
+      </div>
+      <div style="margin-left: 13%; color: #05595B; font-size:medium ; font-weight: bold;">
+        <p style="display: inline-block;">Personal details</p>
+        <p style="display: inline-block; margin-left: 11.5%;">Educational details</p>
+        <p style="display: inline-block; margin-left: 9.5%;">Upload Resume</p>
+        <p style="display: inline-block; margin-left: 15%;">Done</p>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div  style="margin-left: 5%;">
+      <h2 style="color: #05595B">Personal Details :</h2>
+      <div class="row">
+      <img class="col-1" src="assets\icons8-person-64.png" style="padding: 40px 20px;"> 
+      <div class="col-9.5" style="border: #05595B 3px solid;  width: 80%; border-radius: 10px; height: fit-content; padding: 10px;">
+      <form >
+      
+      <div class="row">
+      <div class="col" style="margin-left: 2%;">
+      <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Name :</p>
+        <input class="col-6" style="display: inline-block;" placeholder="Name"  >
+    </div>
+    <div class="col" style="margin-left: 2%;">
+      <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Phone number :</p>
+        <input class="col-6" style="display: inline-block;" placeholder="Phone number"  >
+    </div>
+    </div>
+    
+    <div class="row">
+      <div class="col" style="margin-left: 2%;">
+        <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Email-id :</p>
+          <input class="col-6" style="display: inline-block;" placeholder="Email">
+      </div>
+      <div class="col" style="margin-left: 2%;">
+        <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Social Url-1 :</p>
+          <input class="col-6" style="display: inline-block;" placeholder="Social Url"  >
+      </div>
+    </div>
+    <!-- <div style="display: inline-block; margin-left: 40%;">
+    <button style=" background-color: #54BAB9; padding: 5px 15px; border: none; color: white; border-radius: 5px;" (click)="company()">Next</button>
+    </div> -->
+    <div class="row" style=" display: inline-block;">
+        <div class="row col" style="margin-left: 3%; display: inline-block;">
+            <p class="col-5" style="margin-top: 2%; padding: 0; display: inline-block;">Social Url-2 :</p>
+              <input class="col-6" style="margin-left: 8%; display: inline-block;" placeholder="Social Url">
+          </div>
+        <!-- <button style=" background-color: #54BAB9; padding: 0; border: none; color: white; border-radius: 5px;" (click)="requirements()">Next</button> -->
+        </div>
+        <button style=" background-color: #54BAB9; padding: 5px 15px; border: none; color: white; border-radius: 5px; float: right;" (click)="company()">Next</button>
+      </form>
+      </div>
+      </div>
+      </div>
+    
+    
+      <div  style="margin-left: 5%;margin-top: 1%;">
+        <h2 style="color: #05595B">Educational Details :</h2>
+        <div class="row">
+          <img class="col-1" src="assets\icons8-education-64.png" style="padding:20px 20px;"> 
+        <div class="col-9.5" style="border: #05595B 3px solid; height: fit-content; padding: 10px; width: 80%; border-radius: 10px;">
+        <form >
+        
+        <div class="row">
+        <div class="col" style="margin-left: 2%;">
+        <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Degree :</p>
+          <input class="col-6" style="display: inline-block;" placeholder="Degree"  >
+      </div>
+      <div class="col" style="margin-left: 2%;">
+        <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Stream :</p>
+          <input class="col-6" style="display: inline-block;" placeholder="Stream"  >
+      </div>
+      </div>
+      
+      <div class="row" style=" display: inline-block;">
+        <div class="row col" style="margin-left: 8%; display: inline-block;">
+          <p class="col-5" style="margin-top: 2%; padding: 0; display: inline-block;">Skill set :</p>
+            <input class="col-6" style="margin-left: 7%; display: inline-block;" placeholder="Skill set"  >
+        </div>
+        <!-- <button style=" background-color: #54BAB9; padding: 0; border: none; color: white; border-radius: 5px;" (click)="requirements()">Next</button> -->
+        </div>
+        <button style=" background-color: #54BAB9; padding: 5px 15px; border: none; color: white; border-radius: 5px; float: right;" (click)="job()">Next</button>
+      <!-- <div style="display: inline-block; margin-left: 40%;">
+      <button style=" background-color: #54BAB9; padding: 5px 15px; border: none; color: white; border-radius: 5px;" (click)="job()">Next</button>
+      </div> -->
+        </form>
+        </div>
+        </div>
+        </div>
+    
+    
+    
+        <div  style="margin-left: 5%; margin-top: 1%;">
+          <h2 style="color: #05595B">Upload Resume :</h2>
+          <div class="row">
+          <img class="col-1" src="assets\icons8-resume-60.png" style="padding: 30px;"> 
+          <div style="border: #05595B 3px solid; width: 80%; border-radius: 10px; height: fit-content; padding: 10px;">
+          <form >
+          
+          <div class="row">
+          <div class="col" style="margin-left: 2%;">
+          <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Upload Resume :</p>
+            <input type="file" class="col-6" style="display: inline-block;" placeholder="Upload Resume">
+        </div>
+        <div class="col" style="margin-left: 2%;">
+          <p class="col-3" style="margin-top: 2%; padding: 0; display: inline-block;">Experience :</p>
+            <input class="col-6" style="display: inline-block;" placeholder="Experience"  >
+        </div>
+        </div>
+          
+<!--      
+        <div class="row" style=" display: inline-block;">
+        <div class="row-cols-6" style="margin-left: 3%; display: inline-block;">
+          <p class="col-5" style="margin-top: 2%; padding: 0; display: inline-block;">Skills Required :</p>
+            <input class="col-6" style="margin-left: 4.5%; display: inline-block;" placeholder="Skills Required"  >
+        </div>
+        <!-- <button style=" background-color: #54BAB9; padding: 0; border: none; color: white; border-radius: 5px;" (click)="requirements()">Next</button> 
+        </div> -->
+        <button style=" background-color: #54BAB9; padding: 5px 15px; border: none; color: white; border-radius: 5px; float: right;" (click)="requirements()">Next</button>
+          </form>
+          </div>
+          </div>
+          </div>
+          <br>
+        <button style=" background-color: #54BAB9; padding: 7px 20px; border: none; color: white; border-radius: 5px;margin-right: 11%; float:right;" (click)="finish()">Finish</button>
+    </div>
+    </body>
+

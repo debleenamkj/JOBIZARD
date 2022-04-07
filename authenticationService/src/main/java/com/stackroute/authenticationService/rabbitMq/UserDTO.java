@@ -8,6 +8,7 @@ public class UserDTO
 {
     private String emailId;
     private String password;
-    private Role role;
+//   private Role role;
+//    private String role;
 }
 

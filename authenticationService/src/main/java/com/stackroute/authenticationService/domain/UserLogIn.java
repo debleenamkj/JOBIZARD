@@ -15,7 +15,6 @@ import javax.persistence.Id;
 public class UserLogIn
 {
     @Id
-    @Column(name = "emailId", nullable = false)
     private String emailId;
     private String password;
     private Role role;
