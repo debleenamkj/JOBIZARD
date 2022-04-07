@@ -41,7 +41,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
@@ -69,6 +69,7 @@ import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-
 import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
 import { ReviewComponent } from './review/review.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 
 
 
@@ -120,7 +121,8 @@ import { BusinessnewsComponent } from './businessnews/businessnews.component';
     RecruitersRegisterComponent,
     TechnewsComponent,
     ReviewComponent,
-    BusinessnewsComponent
+    BusinessnewsComponent,
+    ReviewFormComponent
 
   ],
   imports: [
@@ -166,7 +168,8 @@ import { BusinessnewsComponent } from './businessnews/businessnews.component';
     MatProgressBarModule,
     NgbModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

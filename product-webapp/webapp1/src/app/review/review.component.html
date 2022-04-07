@@ -1,1 +1,32 @@
-<p>review works!</p>
+<div class="parent-div">
+    <section style="width: 69%; margin-left: 0%; margin-right: auto;">
+        <h1>Get Insight On Companies</h1>
+        <mat-grid-list cols="2" gutterSize="10px" rowHeight="20vw">
+            <mat-grid-tile  (click)="openReviewForm($event)" *ngFor="let company of companies; index as i">
+                <div class="grid-container">
+                    <div  class="grid gridCol1">
+                        <img [src]="company.retrievedImage"  style="width: 100%; height: 100%; object-fit: contain;"  >
+                    </div>
+                    <div class="grid gridCol2">2</div>
+                    <!-- <div class="grid gridCol3">3</div> -->
+                    <div class="grid gridCol4">3</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </section>
+    <section style="width: 30%;">
+        <h1>Recent Reviews</h1>
+        <mat-grid-list cols="1" rowHeight="20vw">
+            <mat-grid-tile (click)="openReviewForm($event)" *ngFor="let company of companies; index as i">
+                <div class="grid-container">
+                    <div class="grid gridCol1">
+                        <img style="width: 100%; height: 100%; object-fit: contain;"  [src]="company.retrievedImage">
+                    </div>
+                    <div class="grid gridCol2">2</div>
+                    <!-- <div class="grid gridCol3">3</div> -->
+                    <div class="grid gridCol4">3</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </section>
+</div>
