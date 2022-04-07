@@ -41,8 +41,8 @@
         </div>
       </div>
       <div>
-        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" >Next</button> 
-               
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" >Next</button>
+
         <br>
         <!-- <p>Go to a different step to see the error state</p>
         <button mat-button matStepperNext>Next</button> -->
@@ -57,10 +57,10 @@
         <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Company details :</h2>
         <div class="details" style="margin-left: 10%;">
         <img style="margin-left: 30%;" src="{{upimage}}" width="30%"> <br>
-        <p>Company Name : {{post.companyName}}</p>
-        <p>Company Email : {{post.companyEmail}}</p>
-        <p>Company Url : {{post.companyUrl}}</p>
-        <p>Industry Type : {{post.industryType}}</p>
+        <p>Company Name : {{postImage.companyName}}</p>
+        <p>Company Email : {{postImage.companyEmail}}</p>
+        <p>Company Url : {{postImage.companyUrl}}</p>
+        <p>Industry Type : {{postImage.industryType}}</p>
         <br>
         <br>
         </div>
@@ -78,7 +78,7 @@
       <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
     <form [formGroup]="jobForm" style="width: 100%; padding: 15px; "class="col-3">
       <div style="margin-left: 2%; height: 120%;">
-                
+
         <div>
           <p style="width:30%; display: inline-block; font-size: 150%;">Job Title :</p>
            <mat-form-field color="accent" appearance="fill" style="width:60%">
@@ -117,7 +117,7 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field><br>
         </div>
-        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button>
         <button mat-button matStepperPrevious style="font-size: large; margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
         </div>
         <br>
@@ -131,11 +131,11 @@
         <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Job details :</h2>
         <div class="details" style="margin-left: 10%;">
         <br>
-        <p>Job Title : {{post.jobRole}}</p>
-        <p>Job Description: {{jobDescription}}</p> 
-        <p>Job Location : {{post.location}}</p>
-        <p>Salary : {{post.salary}}</p>
-        <p>Last date to apply : {{post.lastDate}}</p>
+        <p>Job Title : {{postImage.jobRole}}</p>
+        <p>Job Description: {{jobDescription}}</p>
+        <p>Job Location : {{postImage.location}}</p>
+        <p>Salary : {{postImage.salary}}</p>
+        <p>Last date to apply : {{postImage.lastDate}}</p>
         <br>
         <br>
         </div>
@@ -188,14 +188,14 @@
                 </mat-chip-list>
               </mat-form-field>
              </div>
-         
+
               </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button> 
+              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()">Next</button>
               <button mat-button matStepperPrevious style="font-size: large; margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
               <br>
           </form><br><br>
           </div>
-    
+
       <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
         <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
         <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
@@ -203,8 +203,8 @@
           <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Requirements :</h2>
           <div class="details" style="margin-left: 10%;">
           <br>
-          <p>Education : {{post.eduation}}</p>
-          <p>Experience Required: {{post.experience}}</p> 
+          <p>Education : {{postImage.eduation}}</p>
+          <p>Experience Required: {{postImage.experience}}</p>
           <p>Skills Required :</p>
           <ul style="margin-left: 5%;" *ngFor="let fruit of fruits">
             <li>{{fruit.name}}</li>
@@ -228,7 +228,7 @@
       <button mat-button style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 55px; border: none; color: white; border-radius: 5px; font-size: large;  " (click)="finish()">Finish</button><br><br><br>
       <!-- <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button> -->
-      <h1 style="font-size: xx-large;">Click Finish to post a Job</h1><br><br>
+      <h1 style="font-size: xx-large;">Click Finish to postImage a Job</h1><br><br>
       <h1 class="text finish" style="font-size: 450%; font-weight: bold; padding: 25px;">Job Posted !!!</h1><br>
     </div>
   </mat-step>

@@ -1,29 +1,29 @@
 <div>
     <div style="  background-color: #4E1B5F; height: initial;">
-        
+
         <section style="display: flex; align-items: center; justify-content: center; border-bottom: 5px solid white;">
             <div class="tagline">
                 Hello Warrior, grow your skills and advance your career with jobizard Learning.
             </div>
             <section style="display: flex; align-items: center; justify-content: end">
-            
+
                 <div class="search-headline">
                     Find the best courses
                 </div>
-                <mat-form-field>
+                <mat-form-field
+                    style=" filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);">
                     <button matSuffix (click)="queryReSet()" *ngIf="query.value" mat-icon-button>
-                        <!-- style="filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%); -->
                         <mat-icon>close</mat-icon>
                     </button>
-                    <mat-label style="color: white; font-size: 1vw;">Find Courses</mat-label>
-                    <input matInput [formControl]="query" [matAutocomplete]="auto" class="search-input" type="search"
-                        >
+                    <mat-label style=" color: black; font-size: 1vw; font-weight: 500;">Find Courses</mat-label>
+                    <input matInput [formControl]="query" [matAutocomplete]="auto" class="search-input" type="search">
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" style="background-color: white; color: #4E1B5F; font-weight: 700;" >
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
+                            style="background-color: white; color: #4E1B5F; font-weight: 700;">
                             {{option}}
                         </mat-option>
                     </mat-autocomplete>
-                    
+
                 </mat-form-field>
                 <button mat-icon-button class="search-icon">
                     <i class="fa-solid 
@@ -36,20 +36,21 @@
 
             <ngb-carousel style="height: 100%;">
                 <ng-template ngbSlide *ngFor="let slide of categoryTemplate; index as i;">
+                    <div style="width: 80%; height: 400px; margin: auto; overflow: scroll; display: flex; align-items: center; ">
 
-                    <div style="width: 80%; height: 400px; margin: auto;">
-
-                        <div class="flip-card skill-card-margin float-left" *ngFor="let card of slide; index as j;">
-                            <div class="flip-card-inner">
-                                <mat-card style="background-image: url(../../assets/learning-portal/{{skillAggregate[cardsPerSlide.category*i+j].image}});"
-                                    class="skill-card flip-card-front"
-                                    *ngIf="skillAggregate[cardsPerSlide.category*i+j]">
-                                    <mat-card-title>{{skillAggregate[cardsPerSlide.category*i+j].category}}
+                        <div class="flip-card skill-card-margin " *ngFor="let card of slide; index as j;">
+                            <div class="flip-card-inner" >
+                                <mat-card
+                                    style="background-image: url(../../assets/learning-portal/{{skillAggregate[cardsPerSlide.category*i+j].image}});"
+                                    class="skill-card flip-card-front">
+                                    <mat-card-title>
+                                        {{skillAggregate[cardsPerSlide.category*i+j].category}}
                                     </mat-card-title>
                                 </mat-card>
                                 <mat-card class="flip-card-back">
                                     <ul>
-                                        <h1 style=" border-bottom: 3px solid white;">{{skillAggregate[cardsPerSlide.category*i+j].category}}</h1>
+                                        <h1 style="border-bottom: 3px solid white;">
+                                            {{skillAggregate[cardsPerSlide.category*i+j].category}}</h1>
                                         <mat-card-title
                                             *ngFor="let skill of skillAggregate[cardsPerSlide.category*i+j].skillTypes">
                                             <a (click)="onSkillTypeClick($event)">
@@ -65,37 +66,38 @@
             </ngb-carousel>
         </div>
     </div>
-    <mat-accordion  multi >
-    <mat-expansion-panel>
-        <button mat-raised-button (click)="hideCourses()" class="hide-arrow-button">
-            <i class="fa-solid fa-arrow-up-long fa-bounce fa-xl"></i>
-            Hide
-        </button>
-        <br><br>
-        <p style=" margin-left: 2%; font-size: xx-large; margin-bottom: 2%; font-weight: 500; color: #4E1B5F;">Courses Available: {{queryValue}}</p>
-        <div class="parent-container">
-            <ngb-carousel>
-                <ng-template ngbSlide *ngFor="let slide of courseTemplate; index as i">
-                    <div style="width: 80%; height: 200px; margin: auto; overflow-x: auto;">
-                        <mat-card class="card suggestion-card float-left" *ngFor="let card of slide; index as j;">
-                            <mat-card-title ><a href={{suggestion[cardsPerSlide.course*i+j]}}>
-                                <img *ngIf="skillImage" [src]="skillImageLocation+skillImage">
-                        
-                            </a>
-                            </mat-card-title>
-                        </mat-card>
-                    </div>
-                </ng-template>
-            </ngb-carousel>
-        </div>
-    </mat-expansion-panel>
-</mat-accordion>
-    <div style=" width: 95%;  margin: auto;">
-        <br><br>
-        <p style="font-size: xx-large; margin-bottom: 0%; font-weight: 500;">Recommended for you</p>
-        <br><br>
+    <mat-accordion multi>
+        <mat-expansion-panel>
+            <button mat-raised-button (click)="hideCourses()" class="hide-arrow-button">
+                <i class="fa-solid fa-arrow-up-long fa-bounce fa-xl"></i>
+                Hide
+            </button>
+            <br><br>
+            <p style=" margin-left: 2%; font-size: xx-large; margin-bottom: 2%; font-weight: 500; color: #4E1B5F;">
+                Courses Available: {{queryValue}}</p>
+            <div class="parent-container">
+                <ngb-carousel>
+                    <ng-template ngbSlide *ngFor="let slide of courseTemplate; index as i">
+                        <div style="width: 80%; height: 200px; display: flex; align-items: center; margin: auto;">
+                            <mat-card class="card suggestion-card" *ngFor="let card of slide; index as j;">
+                                <mat-card-title><a href={{suggestion[cardsPerSlide.course*i+j]}}>
+                                        <img *ngIf="skillImage" [src]="skillImageLocation+skillImage">
 
-        <p style="font-size: xx-large; color: #4E1B5F; margin-left: 1%; margin-bottom: 2%; font-weight: 500;">Top Educators</p>
+                                    </a>
+                                </mat-card-title>
+                            </mat-card>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div style=" width: 95%;  margin: auto;">
+
+
+        <p
+            style="font-size: xx-large; color: #4E1B5F; margin-left: 1%;margin-top: 5%; margin-bottom: 2%; font-weight: 500;">
+            Top Educators</p>
 
         <div class="parent-container">
             <ngb-carousel>

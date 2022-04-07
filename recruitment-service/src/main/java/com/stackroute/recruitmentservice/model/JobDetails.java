@@ -14,11 +14,12 @@ public class JobDetails {
 
     private String jobId;
     private String experienceRequired;
+    private String educationRequired;
     private List<String> skillsRequired;
     private String jobRole;
     private Long salary;
     private String lastDate;
-    private List<String>  jobLocation;
+    private String  jobLocation;
     private String jobDescription;
 
 }

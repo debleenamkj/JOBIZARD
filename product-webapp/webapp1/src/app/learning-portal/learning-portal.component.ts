@@ -1,10 +1,10 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { last, map, Observable, startWith } from 'rxjs';
+import { last, map, Observable, startWith, Subject, takeUntil } from 'rxjs';
 import { CompanyDetails } from '../model/company-details';
 import { CourseSuggestion } from '../model/course-suggestion';
 
@@ -14,34 +14,40 @@ import { CourseSuggestion } from '../model/course-suggestion';
   styleUrls: ['./learning-portal.component.css']
 })
 export class LearningPortalComponent implements OnInit {
-
-  constructor(config: NgbCarouselConfig, private http: HttpClient, breakpointObserver:BreakpointObserver) { 
+  destroyed=new Subject<void>();
+  
+  categoryCardsPerSlideMap= new Map([
+    [Breakpoints.XSmall, 1],
+    [Breakpoints.Small, 1],
+    [Breakpoints.Medium, 2],
+    [Breakpoints.Large, 3],
+    [Breakpoints.XLarge,5]
+  ])
+  courseCardsPerSlideMap= new Map([
+    [Breakpoints.XSmall, 1],
+    [Breakpoints.Small, 1],
+    [Breakpoints.Medium, 2],
+    [Breakpoints.Large, 3],
+    [Breakpoints.XLarge,6]
+  ])
+  logoCardsPerSlideMap= new Map([
+    [Breakpoints.XSmall, 2],
+    [Breakpoints.Small, 3],
+    [Breakpoints.Medium, 5],
+    [Breakpoints.Large, 7],
+    [Breakpoints.XLarge,11]
+  ])
+  constructor(config: NgbCarouselConfig, private http: HttpClient,private breakpointObserver:BreakpointObserver) { 
      config.showNavigationArrows = true;
      config.showNavigationIndicators = false;
      config.pauseOnFocus = true;
      config.pauseOnHover = true;
 
+    
+     
     this.requestResource();
-    ////////////////////////////////////////
-    breakpointObserver.observe([
-      Breakpoints.HandsetLandscape,
-      Breakpoints.HandsetPortrait
-    ]).subscribe(result => {
-      if (result.matches) {
-        this.logoTemplate = this.carouselSlidesAndCards(this.companyLogos.length,2)
-        this.cardsPerSlide.logo=2
-      }
-    });
-    breakpointObserver.observe([
-      Breakpoints.WebLandscape
-    ]).subscribe(result => {
-      if(result.matches){
-        this.logoTemplate = this.carouselSlidesAndCards(this.companyLogos.length,10)
-        this.cardsPerSlide.logo=10
-      }
-    });
   }
-//////////////////////////////////////////////////////////////////
+
 
   ngOnInit(): void {
     this.filteredOptions = this.query.valueChanges.pipe(
@@ -49,7 +55,7 @@ export class LearningPortalComponent implements OnInit {
       map(value => this.searchCourses(value)),
     );
   }
-  ///////////////////////////Variables//////////////////////////////////////
+  
   ///////////////////////////Variables//////////////////////////////////////
   @ViewChild(MatAccordion)
   accordion: MatAccordion = new MatAccordion();
@@ -155,7 +161,6 @@ export class LearningPortalComponent implements OnInit {
    * and filters options[] results. 
    */
   searchCourses(queryValue:string) : string[]{
-    console.log(this.query)
      const searchQuery = queryValue.toLowerCase();
      
     return this.options.filter((option)=>
@@ -192,7 +197,26 @@ export class LearningPortalComponent implements OnInit {
     if(this.suggestion){
       this.courseTemplate = this.carouselSlidesAndCards(this.suggestion.length, 5);
       this.cardsPerSlide.course=5;
-    }}
+
+
+      ///////////Responsive//////////////////////////
+      this.breakpointObserver.observe([
+        Breakpoints.XSmall,
+        Breakpoints.Small,
+        Breakpoints.Medium,
+        Breakpoints.Large,
+        Breakpoints.XLarge
+      ]).pipe(takeUntil(this.destroyed))
+      .subscribe(result=>{
+      for(const query of Object.keys(result.breakpoints)){
+        if(result.breakpoints[query]){
+          this.responsiveCourseSlideAndCards(this.courseCardsPerSlideMap.get(query)??0); 
+        }
+      }
+    })
+    /////////////////////////////////////
+  }
+}
     
     skillImageAddOn(skillType:string){
       this.skillImage = this.skilTypeImages.find((image)=>
@@ -201,7 +225,7 @@ export class LearningPortalComponent implements OnInit {
       if(this.skillImage == undefined)
         this.skillImage = this.skilTypeImages[0];
     }
-    /////////////////////////////////////////////////////////////////
+    
   
   carouselSlidesAndCards(totalCards:number, cardsPerSlide:number){
     let array:any[]=[];
@@ -212,6 +236,7 @@ export class LearningPortalComponent implements OnInit {
     for(let i=0; i<cardsPerSlide; i++){
       cards.push(i);
     }
+    
     for(let i=0; i<noOfSlides-1; i++){
       array.push(cards)
     }
@@ -223,9 +248,19 @@ export class LearningPortalComponent implements OnInit {
       }
     }
     array.push(cards);
-    console.log(array)
     return array;
+  }
 
+  responsiveSlideAndCards( categoryCards:number, logoCards:number){
+    
+        this.categoryTemplate = this.carouselSlidesAndCards(this.skillAggregate.length, categoryCards);
+        this.cardsPerSlide.category = categoryCards;
+        this.logoTemplate = this.carouselSlidesAndCards(this.companyLogos.length,logoCards);
+        this.cardsPerSlide.logo=logoCards;
+  }
+  responsiveCourseSlideAndCards(courseCards:number){
+    this.courseTemplate = this.carouselSlidesAndCards(this.suggestion.length, courseCards);
+    this.cardsPerSlide.course = courseCards;
   }
 
 
@@ -238,36 +273,50 @@ export class LearningPortalComponent implements OnInit {
   }
 
   requestResource(){
-    if(this.companyLogos.length>0)
+    if(this.companyLogos.length>0){
       this.logoTemplate = this.carouselSlidesAndCards(this.companyLogos.length,10)
-      this.cardsPerSlide.logo=10;
+      this.cardsPerSlide.logo=10;}
 
-    this.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
-      this.skillAggregate = response;  
-      console.log(this.skillAggregate);
-      if(this.skillAggregate.length > 0){
-        this.categoryTemplate = this.carouselSlidesAndCards(this.skillAggregate.length, 5);
-        this.cardsPerSlide.category=5
-        this.options = this.getAllSkills();
-      }
-      this.categoryImages.forEach(pic=>{
-        this.skillAggregate.forEach(skill=>{
-          if(skill.category.toLowerCase() == pic.toLowerCase().split(".")[0]){
-            var newString:string='';
-            pic.split(" ").forEach(
-              word=>{
-                word=word+'\\ '
-                newString=newString+word
-              })
-              skill.image = '../../assets/learning-portal/'+newString.substring( 0,newString.length-2);
+      this.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
+        this.skillAggregate = response;  
+      
+        if(this.skillAggregate.length > 0){
+          this.categoryTemplate = this.carouselSlidesAndCards(this.skillAggregate.length, 5);
+          this.cardsPerSlide.category=5
+          this.options = this.getAllSkills();
+        }        
+        this.categoryImages.forEach(pic=>{
+          this.skillAggregate.forEach(skill=>{
+            if(skill.category.toLowerCase() == pic.toLowerCase().split(".")[0]){
+              var newString:string='';
+              pic.split(" ").forEach(
+                word=>{
+                  word=word+'\\ '
+                  newString=newString+word
+                })
+                skill.image = '../../assets/learning-portal/'+newString.substring( 0,newString.length-2);
+            }
+          })
+        })
+  
+        this.breakpointObserver.observe([
+          Breakpoints.XSmall,
+          Breakpoints.Small,
+          Breakpoints.Medium,
+          Breakpoints.Large,
+          Breakpoints.XLarge
+        ]).pipe(takeUntil(this.destroyed))
+        .subscribe(result=>{
+          for(const query of Object.keys(result.breakpoints)){
+            if(result.breakpoints[query]){
+              this.responsiveSlideAndCards(this.categoryCardsPerSlideMap.get(query)?? 0,
+                                              this.logoCardsPerSlideMap.get(query)??0); 
+            }
           }
         })
       })
-    })
-
     this.getSourceUrlBySkillTypes().subscribe((response:SourceUrlAggregate[])=>{
       this.courses = response;
-      console.log(this.courses);
     })
   }
 }
@@ -293,31 +342,10 @@ export class SourceUrlAggregate{
   }
 }
 
-  // private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
-  // getCompanies(){
-  //   return this.http.get<CompanyDetails[]>(this.getAllCompaniesGetRequest);
-  // }
 
-// constructor(){
-/*this.getCompanies().subscribe((response: CompanyDetails[])=>{
-      this.companies = response;
-      this.retrieveLogos(this.companies)
-      console.log(this.companies);
-      if(this.companies.length>0)
-      this.logoSlideCount = this.calculateNumberOfSlidesForCarouselTemplate(this.companies.length,8);
-    })*/
   
     
-
-
-
-    // retrieveLogos(companies:CompanyDetails[]){
-  //   companies.forEach(company => {
-  //     company.retrievedImage = 'data:image/jpeg;base64,'+company.companyLogo;
-  //   });
-  // }
-
-  /*groupBySkills(array:any[]): string[]{
+/*groupBySkills(array:any[]): string[]{
     let skills:string[] = [];
     
     for(let i=0; i<array.length; i++ ){
@@ -332,19 +360,6 @@ export class SourceUrlAggregate{
   }*/
 
 
-  // calculateNumberOfSlidesForCarouselTemplate(totalCards:number, cardsPerSlide:number):number[]{
-  //   let template:number[]=[];
-  //   let noOfSlides = Math.floor(totalCards/cardsPerSlide);
-  //   noOfSlides = (totalCards%cardsPerSlide == 0) ? noOfSlides : noOfSlides+1;
-  //   for(let i=0; i<noOfSlides; i++){
-  //     template.push(i);
-  //   }
-  //   return template;
-  // }
-  // calculateNumberOfCardsPerSlide = (totalCards:number):number[]=>{
-  //   let array:number[]=[];
-  //   for(let i=0; i<totalCards; i++){
-  //     array.push(i);
-  //   }
-  //   return array;
-  // }
+   
+
+  
