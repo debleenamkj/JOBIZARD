@@ -13,8 +13,10 @@ public class AuthenticationServiceApplication
 	{
 		SpringApplication.run(AuthenticationServiceApplication.class, args);
 	}
+
 	@Bean
-	FilterRegistrationBean jwtFilter(){
+	FilterRegistrationBean jwtFilter()
+	{
 		FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean();
 		filterRegistrationBean.setFilter(new JwtFilter());
 		filterRegistrationBean.addUrlPatterns("/api/user/dis");

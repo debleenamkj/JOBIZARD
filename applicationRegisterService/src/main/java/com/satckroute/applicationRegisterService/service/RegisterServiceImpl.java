@@ -108,6 +108,7 @@ public class RegisterServiceImpl implements RegisterService
         {
             throw new OrganizationDetailsAlreadyExistException();
         }
+        producer.sendMessage(userDTO);
         return organizationDetailsRepository.save(organizationDetails);
     }
 //---------------------------------------------------------------------------------------------------------------------

@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // import { LoginserviceService } from '../service/loginservice.service';
 import { RegisterServiceService } from '../service/register-service.service';
+import { TockenInterceptorService } from '../service/tocken-interceptor.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
 
 
   user:UserLogin =new UserLogin();
- 
+  
   
   userLogin(user:any)
   {

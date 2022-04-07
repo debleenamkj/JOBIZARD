@@ -15,7 +15,7 @@ import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HttpInterceptor } from '@angular/common/http';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -65,7 +65,7 @@ import { OrganizationDetailsComponent } from './organization-details/organizatio
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
 
 
-
+import { TockenInterceptorService } from './service/tocken-interceptor.service';
 
 
 
@@ -158,7 +158,7 @@ import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-
     NgbModule,
     MatTabsModule,
   ],
-  providers: [],
+  providers: [TockenInterceptorService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

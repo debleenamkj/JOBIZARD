@@ -42,6 +42,7 @@
         <module>chatbot-service</module>
         <module>chatroom-service</module>
 
+
     </modules>
 
     <dependencies>

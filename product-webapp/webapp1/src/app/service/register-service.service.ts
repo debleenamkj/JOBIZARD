@@ -16,7 +16,7 @@ export class RegisterServiceService {
 
   isloggedIn = false;
   loginUrl = '';
-  checkLogin() {
+  checkLogin(){
     this.isloggedIn = true;
   }
 
@@ -45,6 +45,9 @@ export class RegisterServiceService {
 
     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
   }
+
+
+  
 
     // upload(file: File) {
   //   throw new Error('Method not implemented.');
