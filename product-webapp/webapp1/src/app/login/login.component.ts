@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     .subscribe(()=>{
       alert("Successfully User is logged in.")
       this.loginService.isloggedIn=true
-      this.router.navigate(["/jobdetail"])
+      this.router.navigate(["/chatbot"])
      },()=>{
       alert("please check your username and password.")
      this.router.navigate(["/userLogin"])

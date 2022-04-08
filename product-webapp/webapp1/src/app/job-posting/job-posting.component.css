@@ -21,6 +21,10 @@
     color: #6E2586;
 }
 .companyForm{
-    pointer-events: none;
+    pointer-events: all;
 
+}
+.image{
+    background-image: url('Man-Business-Cartoon-Businessman-Business-Man-1351317.png');
+    background-size: cover;
 }

@@ -9,6 +9,7 @@ export class PostJobServiceService {
   constructor(private httpClient:HttpClient) { }
 
   postJob(job:any){
+    console.log("service method called");
     return this.httpClient.post("http://localhost:8090/recruitment/posting",job)
   }
 
