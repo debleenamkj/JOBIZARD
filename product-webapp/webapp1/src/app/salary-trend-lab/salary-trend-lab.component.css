@@ -31,3 +31,6 @@ mat-card-title{
 mat-label{
     color: #4E1B5F;
 }
+img{
+    max-width: 100%;
+}
