@@ -31,6 +31,7 @@ import { OrganizationDetails } from './model/organizationDetails';
 import { ReviewComponent } from './review/review.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
+import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
 
 
 
@@ -84,7 +85,9 @@ const routes: Routes = [
 
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent},
-  {path:"review",component:ReviewComponent}
+  {path:"review",component:ReviewComponent},
+
+  {path:"jobSeeker",component:JobSeekerLandingComponent}
 ];
 
 @NgModule({

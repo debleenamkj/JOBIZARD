@@ -97,7 +97,8 @@ onFileChanged(event: any) {
 }
 
 getCompany(){
-  if(this.companyPresent=='yes'){
+
+  console.log("getcompany")
     this.post.companyName=this.companyForm.controls['companyName'].value;
     this.service.getCompany(this.post.companyName).subscribe(data => {
       console.log(data);
@@ -116,7 +117,7 @@ getCompany(){
       console.log(img);
       console.log(this.upimage);
     })
-  }
+
  
 
   console.log(this.companyForm);
@@ -181,7 +182,7 @@ getCompany(){
      console.log(this.post);
 
      const uploadData = new FormData();
-     if(this.companyDetails==''){
+     if(this.companyDetails==null){
        console.log("company details is null")
       uploadData.append('file', this.file);
       uploadData.append('jobs',JSON.stringify(this.post));
@@ -190,6 +191,7 @@ getCompany(){
       console.log(uploadData);
       this.service.postJob(uploadData).subscribe(data =>{
         console.log(data)
+        console.log("finish posting");
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
       }) 

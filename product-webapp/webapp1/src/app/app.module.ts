@@ -76,6 +76,7 @@ import { ReviewFormComponent } from './review-form/review-form.component';
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
+import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
 
 
 
@@ -130,7 +131,8 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     BusinessnewsComponent,
     ReviewFormComponent,
     TechnewsComponent,
-    BusinessnewsComponent
+    BusinessnewsComponent,
+    JobSeekerLandingComponent
 
   ],
   imports: [

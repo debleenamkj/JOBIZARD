@@ -1,10 +1,14 @@
 <div>
+  
   <mat-tab-group mat-align-tabs="center">
+    
     <mat-tab label="Personal Information" class="PersonalInfoMat">
+      <!-- <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>  -->
       <div class="personalGrandParentDiv">
         <!-- --------------parent Div info------------------------------ -->
         <div class="personalParentdiv">
           <!-- <p class="PersonalInfoPara">Tell us something about yourself</p> -->
+          
 
           <div class="commondiv">
             <p class="commonSpace">First Name :</p>
@@ -51,13 +55,22 @@
           <div class="commondiv">
             <p class="commonSpace">Gender :</p>
             <div>
-              <mat-form-field
+              <!-- <mat-form-field
                 appearance="fill"
                 class="commonFieldSpace genderSpcae custom-form-field"
                 style="width: 400px"
               >
                 <mat-label>Gender</mat-label>
                 <input matInput />
+              </mat-form-field> -->
+              <mat-form-field appearance="fill"
+              class="commonFieldSpace genderSpcae custom-form-field"
+                style="width: 400px">
+                <mat-label>Gender</mat-label>
+                <mat-select>
+                  <mat-option value="one">Male</mat-option>
+                  <mat-option value="two">Female</mat-option>
+                </mat-select>
               </mat-form-field>
             </div>
           </div>
@@ -119,22 +132,73 @@
     <!-- ---------------------------------------------Address------------------------------------------------ -->
 
     <mat-tab label="Address">
+      <!-- <mat-progress-bar mode="determinate" value="50"></mat-progress-bar> -->
       <div class="addressGrandParentDiv">
         <!---------------------------------------- Address----------------------------------- -->
         <div class="personalParentdiv">
+          
           <p>Where Do You Live</p>
+          <br />
+
+          <!-- <div class="commondiv">
+            <p class="commonSpace">Lane :</p>
+            <mat-form-field
+              appearance="fill"
+              class="commonFieldSpace stateSpcae custom-form-field"
+              style="width: 420px"
+            >
+              <mat-label>Lane</mat-label>
+              <input matInput />
+            </mat-form-field>
+          </div> -->
           <br />
 
           <div class="commondiv">
             <p class="commonSpace">State :</p>
-            <mat-form-field
+            <!-- <mat-form-field
               appearance="fill"
               class="commonFieldSpace stateSpcae custom-form-field"
               style="width: 420px"
             >
               <mat-label>State</mat-label>
               <input matInput />
-            </mat-form-field>
+            </mat-form-field> -->
+            <mat-form-field appearance="fill"
+              class="commonFieldSpace stateSpcae custom-form-field"
+                style="width: 420px">
+                <mat-label>State</mat-label>
+                <mat-select>
+                  <mat-option value="one">Andhra Pradesh</mat-option>
+                  <mat-option value="one">Arunachal Pradesh</mat-option>
+                  <mat-option value="one">Assam</mat-option>
+                  <mat-option value="one">Bihar</mat-option>
+                  <mat-option value="one">Chhattisgarh</mat-option>
+                  <mat-option value="one">Goa</mat-option>
+                  <mat-option value="one">Gujarat</mat-option>
+                  <mat-option value="one">Haryana</mat-option>
+                  <mat-option value="one">Himachal Pradesh</mat-option>
+                  <mat-option value="one">Jharkhand</mat-option>
+                  <mat-option value="one">Karnataka</mat-option>
+                  <mat-option value="one">Kerala</mat-option>
+                  <mat-option value="one">Madhya Pradesh</mat-option>
+                  <mat-option value="one">Maharashtra</mat-option>
+                  <mat-option value="one">Manipur</mat-option>
+                  <mat-option value="one">Meghalaya</mat-option>
+                  <mat-option value="one">Mizoram</mat-option>
+                  <mat-option value="two">Nagaland</mat-option>
+                  <mat-option value="two">Odisha</mat-option>
+                  <mat-option value="two">Punjab</mat-option>
+                  <mat-option value="two">Rajasthan</mat-option>
+                  <mat-option value="two">Sikkim</mat-option>
+                  <mat-option value="two">Tamil Nadu</mat-option>
+                  <mat-option value="two">Telangana</mat-option>
+                  <mat-option value="two">Tripura</mat-option>
+                  <mat-option value="two">Uttar Pradesh</mat-option>
+                  <mat-option value="two">Uttarakhand</mat-option>
+                  <mat-option value="two">West Bengal</mat-option>
+                  
+                </mat-select>
+              </mat-form-field>
           </div>
           <br />
           <div class="commondiv">
@@ -206,9 +270,10 @@
 
     <!-- ---------------------------------------------Details------------------------------------------------ -->
     <mat-tab label="Details">
-
+      <!-- <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>  -->
       <div class="detailsGrandParentDiv">
         <div class="detailsParentdiv">
+         
           <!-- --------------------------------------Academics Certification-------------------------------------- -->
          <div class="commondiv">
            <p class="commonSpace">Academic Certifications :</p>
@@ -300,7 +365,40 @@
            </mat-chip-list>
          </mat-form-field>
          </div> 
- 
+         <br />
+          <!-- --------------------------------------Achievements-------------------------------------- -->
+
+          <div class="commondiv">
+            <p class="commonSpace">Achievements :</p>
+    
+          <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace achievementsSpcae custom-form-field"
+           style="width: 460px">
+            <mat-label>Achievements</mat-label>
+            <mat-chip-list #chipList4 aria-label="Job Preference selection">
+              <mat-chip
+                *ngFor="let achievement of achievements"
+                (removed)="removeachievements(achievement)"
+              >
+                {{ achievement.name }}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input
+                placeholder="New fruit..."
+                [matChipInputFor]="chipList4"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addachievements($event)"
+              />
+            </mat-chip-list>
+          </mat-form-field>
+          </div> 
+
+
+
+
+
          <div class="detailsBTN" >
            <div>
              <button mat-raised-button class="detailsSaveBTN">Save</button>
@@ -326,7 +424,7 @@
       
       
 
-      <!-- --------------------------------------Achievements-------------------------------------- -->
+     
     </mat-tab>
 
 
@@ -350,11 +448,12 @@
 
     <!-- ---------------------------------------------Education------------------------------------------------ -->
     <mat-tab label="Education">
-
+      <!-- <mat-progress-bar mode="determinate" value="100"></mat-progress-bar> -->
       <div class="addressGrandParentDiv">
-        <div class="personalParentdiv">
+        <div class="educationParentdiv">
+           
           <div class="commondiv">
-            <p class="commonSpace">Education</p>
+            <p class="commonSpace">Education :</p>
             <mat-form-field
               appearance="fill"
               class="commonFieldSpace educationSpace custom-form-field"
@@ -364,28 +463,40 @@
               <input matInput />
             </mat-form-field>
           </div>
-  
+          <br>
           <!-- ---------------------------------------------Courses------------------------------------------------ -->
-          <!-- <mat-form-field class="example-chip-list" appearance="fill">
-          <mat-label>Favorite Fruits</mat-label>
-          <mat-chip-list #chipList aria-label="Fruit selection">
-            <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
-              {{fruit.name}}
-              <button matChipRemove>
-                <mat-icon>cancel</mat-icon>
-              </button>
-            </mat-chip>
-            <input placeholder="New fruit..."
-                   [matChipInputFor]="chipList"
-                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                   [matChipInputAddOnBlur]="addOnBlur"
-                   (matChipInputTokenEnd)="add($event)">
-          </mat-chip-list>
-          </mat-form-field> -->
+          <div class="commondiv">
+            <p class="commonSpace">Courses :</p>
+            <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace cousrsesSpcae " 
+            style="width: 440px">
+              <mat-label>Courses</mat-label>
+              <mat-chip-list #chipList5 aria-label="Skill Set selection">
+                <mat-chip
+                  *ngFor="let course of courses"
+                  (removed)="removecourses(course)"
+                >
+                  {{ course.name }}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input
+                  placeholder="New skillSet..."
+                  [matChipInputFor]="chipList5"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="addcourses($event)"
+                />
+              </mat-chip-list>
+            </mat-form-field>
+          </div> 
+    
+         
+          
           <!-- -------------------------------------------End of Courses------------------------------------------------ -->
           <br />
           <div class="commondiv">
-            <p class="commonSpace">Stream or Field</p>
+            <p class="commonSpace">Stream or Field :</p>
             <mat-form-field
               appearance="fill"
               class="commonFieldSpace fieldSpace custom-form-field"
@@ -397,7 +508,7 @@
           </div>
           <br />
           <div class="commondiv">
-            <p class="commonSpace">University or Institute</p>
+            <p class="commonSpace">University or Institute :</p>
             <mat-form-field
               appearance="fill"
               class="commonFieldSpace universitySpace custom-form-field"
@@ -409,7 +520,7 @@
           </div>
           <br />
           <div class="commondiv">
-            <p class="commonSpace">Course Type</p>
+            <p class="commonSpace">Course Type :</p>
             <mat-form-field
               appearance="fill"
               class="commonFieldSpace courseTypeSpace custom-form-field"
@@ -421,7 +532,7 @@
           </div>
           <br />
           <div class="commondiv">
-            <p class="commonSpace">Pass Out Year</p>
+            <p class="commonSpace">Pass Out Year :</p>
             <mat-form-field
               appearance="fill"
               class="commonFieldSpace passOutYearSpace custom-form-field"
@@ -451,7 +562,7 @@
               <button mat-raised-button class="educationSaveBTN">Save</button>
             </div>
             <div>
-              <button mat-raised-button class="educationNextBTN">Submit</button>
+              <button mat-raised-button class="educationNextBTN">Next</button>
             </div>
           </div>
           
@@ -467,6 +578,21 @@
 
 
       
+    </mat-tab>
+
+     <!-- ---------------------------------------------Profile Picture------------------------------------------------ -->
+    <mat-tab label="Image">
+      <div class="imageUploadDiv">
+        <p class="imageUploadPara">Upload your Image for Profile Picture</p>
+      <!-- <label for="img">Select image:</label> -->
+      <input class="imageUploadLabel" type="file" id="img" name="img" accept="image/*">
+      </div>
+      <div class="UploadBTN" >
+        <div>
+          <button mat-raised-button class="detailsSaveBTN">Submit</button>
+        </div>
+        
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>
