@@ -8,7 +8,7 @@
               <mat-card-title style="line-height: 120%; letter-spacing: 60%;">Generate the trending skill graph based on how many company is requiring the skill by selecting from the following</mat-card-title><br><br>
             <mat-form-field appearance="fill" style="width: 90%;">
                 <mat-label>Choose Skills</mat-label>
-                <mat-select [(ngModel)]="mySkills">
+                <mat-select [(ngModel)]="mySkills" (ngModelChange)="selectedSkill()">
                     <mat-option value="" disabled selected hidden>{{mySkills}}</mat-option>
                   <mat-option *ngFor="let skills of skill" value="{{skills.onDemandSkills}}">
                     {{skills.onDemandSkills}}
@@ -18,7 +18,7 @@
             <br>
             <mat-form-field appearance="fill" style="width: 90%;">
                 <mat-label>Graph Type</mat-label>
-                <mat-select [(ngModel)]="myGraph">
+                <mat-select [(ngModel)]="myGraph" (ngModelChange)="selectedSkill()">
                   <mat-option *ngFor="let graphs of graphType" value="{{graphs}}">
                     {{graphs}}
                   </mat-option>

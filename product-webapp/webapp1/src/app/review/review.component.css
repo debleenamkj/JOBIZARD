@@ -1,35 +1,86 @@
 .parent-div{
-    width: 90%;
-    height: 89.8vh;
+    width: 100%;
+    height: 93vh;
+    margin: auto;
     display: flex;
-    justify-content: center;
-    position:relative;
-    left: 5%;
-    right: 5%;
-    bottom: 0.1%;
+    flex-direction: column;
+    background-color: aqua; 
     /*top: 1rem; */
 }
-
-div>section{
-    height: 100%;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
-    overflow-y: auto;
+.parent-div>section{
+    width: 100%;
 }
-
+.header-section{
+    background-color: aliceblue;
+    height: 20%;
+}
 section>h1{
+    /* width: fit-content; */
+    /* margin: auto; */
+    /* border-bottom: 2px solid black; */
+    /* padding: 1vw; */
+    /* font-weight: 500; */
+    /* text-shadow: 1px 1px 1px black; */
+    /* overflow: hidden; */
+    /* background-color: #4E1B5F; */
+    padding: 10px;
+    text-transform: uppercase;
     font-size: 2vw;
-    padding: 1vw;
     text-align: center;
-    font-weight: 500;
-    text-shadow: 1px 1px 1px black;
     color: #4E1B5F;
+    font-family: sans-serif;
+    letter-spacing: 4px;
+    background-image: linear-gradient(90deg, rgb(177,23,132), rgb(110,37,134), rgb(177,23,132));
+    background-repeat: no-repeat;
+    background-size: 90%;
+    animation: animate 6s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+     -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
+@keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+    }
+}
+.search-bar{
+    width: 600px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+    background-color: #4E1B5F;
+}
+.company-section{
+    background-color: aqua;
+    height: 50%;
+}
+.review-section{
+    background-color: aliceblue;
+    height: 30%;
+}
+
+
+/* .parent-div>section{
+    height: 93vh;
+    overflow: scroll;
+    
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.2);
+}
+
+
 mat-grid-tile{
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.6);
+    border-radius: 16px;
+    
 }
 mat-grid-tile:hover{
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,1);
     cursor: pointer;
+    
 }
 
 mat-grid-tile>img{
@@ -49,7 +100,7 @@ mat-grid-tile>img{
     align-items: center;
 }
 .gridCol1{
-    /* background-color: antiquewhite; */
+    // background-color: antiquewhite;
     height: 100%;
     top: 0%;
     bottom: auto;
@@ -57,21 +108,25 @@ mat-grid-tile>img{
     right: auto;
 }
 .gridCol2{
-    /* background-color: aquamarine; */
-    left: 50%;
+    // background-color: aquamarine;     left: 50%;
     right: auto;
 }
 .gridCol3{
-    background-color: blueviolet;
+     //background-color: blueviolet;
     top: 50%;
     bottom: auto;
     left: 0%;
     right: auto;
 }
 .gridCol4{
-    /* background-color: brown; */
+    // background-color: brown; 
     top: 50%;
     bottom: auto;
     left: 50%;
     right: auto;
 }
+mat-grid-list{
+    
+    
+}
+*/

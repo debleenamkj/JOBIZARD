@@ -7,11 +7,11 @@
                 <mat-card-title style="line-height: 120%; letter-spacing: 60%;">Generate the trending salary graph based on the average salary and the standard salary in the recent year by selecting from the following</mat-card-title><br><br>
             <mat-form-field appearance="outline" style="width: 90%;">
                 <mat-label>Please Enter a Job Title</mat-label>
-            <input matInput type="text" [(ngModel)]="jobTitle" placeholder="Please Enter a Job Title"/>
+            <input matInput type="text" [(ngModel)]="jobTitle" placeholder="Please Enter a Job Title" required/>
             </mat-form-field>
             <mat-form-field appearance="fill" style="width: 90%; margin-top: 2%;">
                 <mat-label>Graph Type</mat-label>
-                <mat-select [(ngModel)]="myGraph">
+                <mat-select [(ngModel)]="myGraph" (ngModelChange)="selectedTitle()">
                   <mat-option *ngFor="let graphs of graphType" value="{{graphs}}">
                     {{graphs}}
                   </mat-option>

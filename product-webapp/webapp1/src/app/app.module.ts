@@ -104,7 +104,7 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-    
+    AssesmentTestPortalComponent,
     
     ChatroomComponent,
 
