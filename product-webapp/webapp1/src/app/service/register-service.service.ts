@@ -34,11 +34,7 @@ export class RegisterServiceService {
 
   organizationRegister(organization:OrganizationDetails):Observable<object>
   {
-<<<<<<< HEAD
-    return this.http.post("http://localhost:8098/api/v1/saveOrganizationDetails",organization)
-=======
     return this.http.post("http://localhost:8098/api/v1/organizationDetails",organization)
->>>>>>> e9bff6a7fe84a30a35b2fe1913529078c22bc62f
   }
 
 
