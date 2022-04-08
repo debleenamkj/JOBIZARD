@@ -1,1 +1,91 @@
-<p>review works!</p>
+<!-- <div style=" height: 50vh; width: 50vw;  justify-content: center; align-items: center; background-color: aquamarine;">
+    <div style="display: flex; flex-direction: column-reverse; height: 80%; width: 80%; overflow: auto;  background-color: aqua;">
+        <div style=" margin: auto; width: 90%; height: 70%; margin: 5% 5%; background-color: aliceblue;" *ngFor="let company of companies">
+            <img style="width: 200px; height: 200px; object-fit: contain;" [src]="company.retrievedImage">
+        </div>
+    </div>
+</div> -->
+<div class="parent-div">
+    <section class="header-section">
+        <h1>Get Insight On Companies</h1>
+        <div>
+        <form [formGroup]="companyForm" style="background-color: aqua;">
+            <mat-form-field appearance="fill" class="search-bar">
+              <mat-label>Company Name</mat-label>
+              <input type="text"
+                     matInput
+                     formControlName="companyGroup"
+                     [matAutocomplete]="autoGroup">
+                <mat-autocomplete #autoGroup="matAutocomplete">
+                  <mat-optgroup *ngFor="let group of companyGroupOptions | async" [label]="group.letter">
+                    <mat-option *ngFor="let name of group.names" [value]="name">
+                      {{name}}
+                    </mat-option>
+                </mat-optgroup>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+        </div>
+    </section>
+    <section class="company-section" style="display: flex; overflow-x: auto;">
+        <mat-card class="example-card" *ngFor="let company of companies">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{company.companyName}}</mat-card-title>
+              <mat-card-subtitle>subTitle</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="company.retrievedImage"  style="width: 30px; height: 30px; object-fit: contain;">
+            <!-- <img mat-card-image [src]="company.retrievedImage" alt="Photo of a Shiba Inu"> -->
+            <mat-card-content>
+              <p>
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button (click)="openReviewForm($event)">Write Review</button>
+              
+            </mat-card-actions>
+          </mat-card>
+    </section>
+    <section class="review-section">
+        <h1>Recent Reviews</h1>
+    </section>
+</div>
+
+<!-- <div style="display:none; ">
+<div class="parent-div">
+    <section style="background-color: white; width: 69%; margin-left: 0%; margin-right: auto;">
+        <h1>Get Insight On Companies</h1>
+        <h2 style="
+        position: relative; left: 25%; right: auto; width: 30vw; border-radius: 16px; background-image: linear-gradient(to right,#B11784, #6E2586); text-align: center;">
+            Search Bar Here
+        </h2>
+        <mat-grid-list cols="3" gutterSize="10px" rowHeight="13vw"  >
+            <mat-grid-tile  (click)="openReviewForm($event)" *ngFor="let company of companies; index as i" >
+                <div class="grid-container">
+                    <div  class="grid gridCol1">
+                        <img [src]="company.retrievedImage"  style="width: 100%; height: 100%; object-fit: contain;"  >
+                    </div>
+                    <div class="grid gridCol2">2</div>-->
+                     <!-- <div class="grid gridCol3">3</div> -->
+                    <!-- <div class="grid gridCol4">3</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </section>
+    <section style="width: 30%; background-color: pink;">
+        <h1>Recent Reviews</h1>
+        <mat-grid-list gutterSize="10px" cols="1" rowHeight="15vw">
+            <mat-grid-tile  style="background-color: aliceblue;" (click)="openReviewForm($event)" *ngFor="let company of companies; index as i">
+                <div class="grid-container">
+                    <div class="grid gridCol1" style="height: 50%; ">
+                        <img style="width: 100%; padding: 2px; height: 100%; object-fit: contain;"  [src]="company.retrievedImage">
+                    </div>
+                    <div class="grid gridCol2">2</div>
+                    <div class="grid gridCol3">3</div>
+                    <div class="grid gridCol4">4</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </section>
+</div>
+</div> -->

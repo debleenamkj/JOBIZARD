@@ -33,6 +33,9 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
+import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+
+
 
 
 const routes: Routes = [
@@ -86,7 +89,9 @@ const routes: Routes = [
 
   {path:"update",component:UpdateDetailsComponent},
   {path:"update-user",component:UpdateUserDetailsComponent},
-  {path:"review",component:ReviewComponent}
+  {path:"review",component:ReviewComponent},
+
+  {path:"jobSeeker",component:JobSeekerLandingComponent}
 ];
 
 @NgModule({

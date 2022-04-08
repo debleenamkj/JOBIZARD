@@ -5,15 +5,15 @@
       <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Company Details</span>
     </ng-template>
     <div class="">
-      <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
+      <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 1%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
    
-        <div>
+        <!-- <div>
           <p style="font-size: 150%; display: inline-block; ">Is the company posted before?</p>
           <mat-radio-group [(ngModel)]="companyPresent" (change)="isPosted()">
             <mat-radio-button [ngStyle]="{'font-weight': 'lighter','color':'#4E1B5F'}"  style="font-size: large; margin-bottom: 2%; margin-left: 2%; display: inline-block;" value="yes" >Yes</mat-radio-button>
             <mat-radio-button [ngStyle]="{'font-weight': 'lighter','color':'#4E1B5F'}"  style="font-size: large; margin-bottom: 2%; margin-left: 2%; display: inline-block;" value="no" >No</mat-radio-button>
         </mat-radio-group>
-        </div>
+        </div> -->
       <form [formGroup]="companyForm" style="width: 100%; padding: 15px; "class="col-3">
       <div class="companyForm" style="margin-left: 2%; height: 120%;">
         <div class="companyForm">
@@ -47,8 +47,10 @@
     </div>
         <div>
           <p style="width:30%; display: inline-block; font-size: 150%">Company logo :</p>
-          <input type="file" placeholder="Company logo" style=" padding: 5px; width: 65%;  margin-left: 20px; margin-top: 2%; display: inline-block;" formControlName="companyLogo" (change)="onFileChanged($event)">
+          <input type="file" placeholder="Company logo" style=" padding: 5px; width: 30%;  margin-left: 20px; margin-top: 2%; display: inline-block;" formControlName="companyLogo" (change)="onFileChanged($event)">
+          <img  src="{{upimage}}" width="10%"> 
         </div>
+      
       </div>
       </div>
       <div>
@@ -63,10 +65,13 @@
     </form>
     </div>
 
-    <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
-      <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
-      <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
-      <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
+    <div class="image" style="float: right; margin-right: 1%; width: 40%;" class="" >
+      <!-- <img src="assets\job-posting\Man-Business-Cartoon-Businessman-Business-Man-1351317.png" width="100%"> -->
+      <!-- <img src="assets\job-posting\business-calculation.jpg" width="100%"> -->
+      <img src="assets\job-posting\Cartoon-Character-5258645.png" width="93%">
+       <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1>  -->
+      <!-- <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>-->
+       <!-- <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
         <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Company details :</h2>
         <div class="details" style="margin-left: 10%;">
         <img style="margin-left: 30%;" src="{{upimage}}" width="30%"> <br>
@@ -77,13 +82,13 @@
         <br>
         <br>
         </div>
-      </div>
+      </div>  -->
       <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
       <br>
     </div>
     </div>
   </mat-step>
-  <mat-step [stepControl]="jobForm" errorMessage="Fields required." style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
+  <!-- <mat-step [stepControl]="jobForm" errorMessage="Fields required." style="display: inline-block; background-color: rgb(244, 244, 244); width: 100%; font-size: large; color: #4E1B5F;">
     <ng-template matStepLabel>
       <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Job Details</span>
     </ng-template>
@@ -138,7 +143,7 @@
     </div>
 
     <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
-      <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
+      <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> 
       <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
       <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
         <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Job details :</h2>
@@ -153,18 +158,18 @@
         <br>
         </div>
       </div>
-      <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
+      <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> 
       <br>
     </div>
     </div>
-  </mat-step>
+  </mat-step> -->
 
   <mat-step [stepControl]="requirementsForm" >
     <ng-template matStepLabel>
       <span [ngStyle]="{'font-size': '150%','color':'#4E1B5F'}">Requirements</span>
     </ng-template>
       <div class="">
-        <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 3%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
+        <div  style="border: #4E1B5F solid 2px; width: 50%; border-radius: 10px; padding: 10px; margin-top: 6%; margin-left: 3%; margin-right: 0%;  display: inline-block; "> <br>
           <form [formGroup]="requirementsForm" style="width: 100%; padding: 15px; "class="col-3">
             <div style="margin-left: 2%; height: 120%;">
               <div>
@@ -209,9 +214,10 @@
           </form><br><br>
           </div>
 
-      <div style="float: right; margin-right: 5%; width: 40%;" class="" ><br>
+      <div style="float: right; margin-right: 1%; width: 40%;" class="" >
+        <img src="assets\job-posting\Cartoon-Character-5258645.png" width="93%">
         <!-- <h1 class="text" style="font-weight: bold; font-size: xx-large;">Preview :</h1> -->
-        <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
+        <!-- <h1 class="text1" style="font-weight: bold; margin-left: 49%; margin-top: 0%; font-size: xx-large;">Preview </h1>
         <div class="bg" style="float: right; width: 85%; font-size: large;"><br><br>
           <h2 class="text2" style="font-weight: bold; font-size: x-large; margin-left: 8%;">Requirements :</h2>
           <div class="details" style="margin-left: 10%;">
@@ -225,7 +231,7 @@
           <br>
           <br>
           </div>
-        </div>
+        </div> -->
         <!-- <button mat-button style=" margin-top: 2%; background-image: linear-gradient(to right, #6E2586,#B11784); padding: 5px 25px; border: none; color: white; border-radius: 6px; float: right; margin-right: 32%; font-size: large;" (click)="preview()">Preview</button> -->
         <br>
       </div>
@@ -241,7 +247,7 @@
       <button mat-button style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 55px; border: none; color: white; border-radius: 5px; font-size: large;  " (click)="finish()">Finish</button><br><br><br>
       <!-- <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button> -->
-      <h1 style="font-size: xx-large;">Click Finish to postImage a Job</h1><br><br>
+      <h1 style="font-size: xx-large;">Click Finish to post a Job</h1><br><br>
       <h1 class="text finish" style="font-size: 450%; font-weight: bold; padding: 25px;">Job Posted !!!</h1><br>
     </div>
   </mat-step>

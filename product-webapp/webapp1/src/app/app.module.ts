@@ -41,7 +41,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
@@ -72,10 +72,14 @@ import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-
 
 import { ReviewComponent } from './review/review.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
+
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
+
+import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
 
 
 
@@ -103,7 +107,7 @@ import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.c
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-    
+    AssesmentTestPortalComponent,
     
     ChatroomComponent,
 
@@ -126,9 +130,14 @@ import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.c
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
     TechnewsComponent,
+    ReviewComponent,
+    BusinessnewsComponent,
+    ReviewFormComponent,
     TechnewsComponent,
     BusinessnewsComponent,
-    RecruiterlandingComponent
+
+    RecruiterlandingComponent,
+    JobSeekerLandingComponent
 
   ],
   imports: [
@@ -174,7 +183,8 @@ import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.c
     MatProgressBarModule,
     NgbModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],

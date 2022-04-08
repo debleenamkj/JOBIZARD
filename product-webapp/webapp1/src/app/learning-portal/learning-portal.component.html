@@ -1,21 +1,33 @@
 <div>
+    <section style="margin-top: 5px;">
+        <h1 style="width: 99.5%; margin: auto;
+            border-radius: 4px;
+            padding: 16.5px;
+            color: white; text-align: center;
+            font-size: xx-large; font-weight: 600;
+            background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132) );">
+            Learning Portal
+        </h1>
+        <!-- #4E1B5F -->
+        <div class="tagline">
+            Hello Warrior, grow your skills and advance your career with jobizard Learning.
+        </div>
+    </section>
     <div style="  background-color: #4E1B5F; height: initial;">
 
-        <section style="display: flex; align-items: center; justify-content: center; border-bottom: 5px solid white;">
-            <div class="tagline">
-                Hello Warrior, grow your skills and advance your career with jobizard Learning.
-            </div>
-            <section style="display: flex; align-items: center; justify-content: end">
+        <section style="display: flex; justify-content: center; border-bottom: 5px solid white;">
+            <section style="display: flex; align-items: center; margin-left: auto; margin-right: 10%;">
+
 
                 <div class="search-headline">
                     Find the best courses
                 </div>
-                <mat-form-field
-                    style=" filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);">
+                <mat-form-field style=" width: 150px; padding: 5px; 
+                    filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);">
                     <button matSuffix (click)="queryReSet()" *ngIf="query.value" mat-icon-button>
                         <mat-icon>close</mat-icon>
                     </button>
-                    <mat-label style=" color: black; font-size: 1vw; font-weight: 500;">Find Courses</mat-label>
+                    <mat-label style="color: black; font-size:18px; font-weight: 500;">Find Courses</mat-label>
                     <input matInput [formControl]="query" [matAutocomplete]="auto" class="search-input" type="search">
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
@@ -23,7 +35,6 @@
                             {{option}}
                         </mat-option>
                     </mat-autocomplete>
-
                 </mat-form-field>
                 <button mat-icon-button class="search-icon">
                     <i class="fa-solid 
@@ -32,14 +43,15 @@
                 </button>
             </section>
         </section>
-        <div style="height: 400px;">
-
-            <ngb-carousel style="height: 100%;">
-                <ng-template ngbSlide *ngFor="let slide of categoryTemplate; index as i;">
-                    <div style="width: 80%; height: 400px; margin: auto; display: flex; align-items: center; ">
+        <div style="min-height: 300px;height: 22vw;">
+            <ngb-carousel style="height: 300px;">
+                <ng-template style="min-height: 300px; height: 22vw;" ngbSlide
+                    *ngFor="let slide of categoryTemplate; index as i;">
+                    <div
+                        style="width: 80%; min-height: 300px; height: 22vw; margin: auto; display: flex; align-items: center; ">
 
                         <div class="flip-card skill-card-margin " *ngFor="let card of slide; index as j;">
-                            <div class="flip-card-inner" >
+                            <div class="flip-card-inner">
                                 <mat-card
                                     style="background-image: url(../../assets/learning-portal/{{skillAggregate[cardsPerSlide.category*i+j].image}});"
                                     class="skill-card flip-card-front">
@@ -49,7 +61,7 @@
                                 </mat-card>
                                 <mat-card class="flip-card-back">
                                     <ul>
-                                        <h1 style="border-bottom: 3px solid white;">
+                                        <h1 style="border-bottom: 0.3vw solid white;">
                                             {{skillAggregate[cardsPerSlide.category*i+j].category}}</h1>
                                         <mat-card-title
                                             *ngFor="let skill of skillAggregate[cardsPerSlide.category*i+j].skillTypes">
@@ -78,7 +90,7 @@
             <div class="parent-container">
                 <ngb-carousel>
                     <ng-template ngbSlide *ngFor="let slide of courseTemplate; index as i">
-                        <div style="width: 80%; height: 200px; display: flex; align-items: center; margin: auto;">
+                        <div style="width: 80%; height: 15vw; display: flex; align-items: center; margin: auto;">
                             <mat-card class="card suggestion-card" *ngFor="let card of slide; index as j;">
                                 <mat-card-title><a href={{suggestion[cardsPerSlide.course*i+j]}}>
                                         <img *ngIf="skillImage" [src]="skillImageLocation+skillImage">

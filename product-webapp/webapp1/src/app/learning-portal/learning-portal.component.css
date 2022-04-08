@@ -19,9 +19,6 @@
     text-align: center;   
 }
 .skill-card{
-    width: 19.4%;
-    min-width: 300px;
-    height: 100%;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;   
@@ -31,7 +28,7 @@
     margin-right: auto;
 }
 .skill-card mat-card-title{
-    font-size: xx-large;
+    font-size: 1.5vw;
     font-weight: 500;
     background-color: rgba(0,0,0,0.4); /* Black w/opacity/see-through */
     color: white;
@@ -51,16 +48,16 @@
 .suggestion-card{
     display: flex;
     justify-content: center;
-    width: 250px;
-    height: 200px;
+    width: 12vw;
+    height: 10vw;
     margin-left: 2%;
     border-radius: 50px;
     overflow: hidden;
 }
 .suggestion-card img{
-    width: 200px;
-    height: 150px;
-    object-fit: fill;
+    width: 10vw;
+    height: 8vw;
+    object-fit: contain;
 }
 .suggestion-card:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,1);
@@ -111,16 +108,40 @@ mat-card-title{
     color: white;
 }
 .tagline{
-    margin-left: 0%;
+    /* margin-left: 0%;
     margin-right: auto;
     text-align: left;
     width: fit-content;
-    font-size: 1.5vw;
     color: white;
     height: 25px;
     background-image: linear-gradient(to right,#B11784,#4E1B5F);
     overflow: auto;
-    scrollbar-width: none;
+    scrollbar-width: none; */
+    /* background-color: transparent; */
+    font-size: 20px;
+    padding: 1.5vh;
+    line-height: 20px;
+    /* background-color: white; */
+    text-transform: uppercase;
+    text-align: center;
+    color: #4E1B5F;
+    font-family: sans-serif;
+    letter-spacing: 4px;
+    background-image: linear-gradient(90deg, rgb(177,23,132), rgb(110,37,134), rgb(177,23,132));
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 8s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+     -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+    }
 }
 .tagline::-webkit-scrollbar, .search-headline::-webkit-scrollbar{
     display: none;
@@ -128,13 +149,13 @@ mat-card-title{
 .search-headline{
     /* position: relative;
     right: -2%; */
-    
+    padding: 5px;
     margin-right: 30px;
     margin-left: auto;
     height: 25px;
-    font-size: 1.5vw;
+    font-size: 25px;
     color: white;
-    overflow: auto;
+    /* overflow: auto; */
     scrollbar-width: none;
 }
 .search-bar{
@@ -148,9 +169,11 @@ mat-card-title{
 } */
 .search-icon{
      filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%);
-}
+     margin-left: auto;
+     margin-right: 0%;
+    }
 .search-input{
-    font-size: 1vw;
+    font-size: 18px;
     text-align: center;
     caret-color: black;
     color: black;
@@ -162,8 +185,7 @@ mat-card-title{
 }
 .flip-card{
     background-color: transparent;
-    width: 19.4%;
-    min-width: 300px;
+    width: 15.5vw;
     height: 100%;
     perspective: 1000px;
     
@@ -183,8 +205,7 @@ mat-card-title{
 
 .flip-card-front, .flip-card-back{
     position: absolute;
-    width: 19.4%;
-    min-width: 300px;
+    width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -194,27 +215,31 @@ mat-card-title{
     transform: rotateY(180deg);
     text-align: center;
     overflow-y: scroll;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
     color: white;
 }
-.flip-card-back::-webkit-scrollbar{
+/* .flip-card-back::-webkit-scrollbar{
     display: none;
-}
+} */
 .flip-card-back h1{
-    font-weight: bold;
-    font-size: x-large;
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 20px;
 }
 .flip-card-back a li{
-    box-shadow: 1px 1px 1px rgba(0,0,0,0);
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0);
+    border-radius: 8px;
     text-decoration: none;
     color: white;
-    font-size: large;
-    letter-spacing: 2px;
-    line-height: 1.5;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 20px;
     text-align: center;
+    padding: 5px;
 }
 .flip-card-back a li:hover{
-    box-shadow: 1px 1px 1px rgba(0,0,0,1);
+    box-shadow: 1px 1px 1px 1px rgb(249, 249, 249);
 }
 a{
     cursor: pointer;

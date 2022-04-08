@@ -66,4 +66,37 @@ export class SkillsTrendLabComponent implements OnInit {
   
   }
 
+  selectedSkills(event:any){
+    console.log("Hello");
+
+    console.log(event);
+    
+    
+    console.log(this.mySkills);
+
+    this.trendsService.getAllSkills().subscribe((data)=>{
+
+      this.allSkill = data.filter(e=>{return e.onDemandSkills==this.mySkills});
+
+
+      this.allYears = data.filter(e=>e.onDemandSkills==this.mySkills).map((item)=>{
+        return item.year;
+      }).reverse();
+
+      this.allCompanyDemands = data.filter(e=>e.onDemandSkills==this.mySkills).map((item)=>{
+        return item.skillDemandedByCompany;
+      }).reverse();
+    })
+
+    
+    console.log(this.allSkill);
+    console.log(this.allYears);
+    console.log(this.allCompanyDemands);
+    console.log(this.myGraph);
+    
+    
+    this.url = "https://quickchart.io/chart?width=500&height=270&format=img&c={type:'"+this.myGraph+"',data:{labels:["+this.allYears+"],datasets:[{label:'Number of Companies Hiring for "+this.mySkills+"',data:["+this.allCompanyDemands+"]}]}}";
+  
+  }
+
 }
