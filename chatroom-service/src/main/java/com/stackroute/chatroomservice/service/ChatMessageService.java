@@ -52,8 +52,6 @@ public class ChatMessageService {
                 .orElseThrow(() -> new ResourceNotFoundException("Can't find message (" + id + ")"));
     }
 
-
-
     public void updateStatuses(String senderId, String recipientId, MessageStatus status) {
         Query query = new Query(Criteria.where("senderId").is(senderId)
                 .and("recipientId").is(recipientId));

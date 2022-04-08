@@ -41,7 +41,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import {MatDialogModule} from '@angular/material/dialog';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
@@ -51,7 +51,7 @@ import { UpdateDetailsComponent } from './update-details/update-details.componen
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
 
-import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+
 
 
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -68,12 +68,15 @@ import { TechnewsComponent } from './technews/technews.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { OrganizationDetailsComponent } from './organization-details/organization-details.component';
 import { JobSeekersRegisterComponent } from './job-seekers-register/job-seekers-register.component';
-import { RecruitersRegisterComponent } from './recruiters-register/recruiters-register.component';
+
+
 import { ReviewComponent } from './review/review.component';
 import { BusinessnewsComponent } from './businessnews/businessnews.component';
+import { ReviewFormComponent } from './review-form/review-form.component';
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
+
 
 
 
@@ -100,7 +103,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-    
+    AssesmentTestPortalComponent,
     
     ChatroomComponent,
 
@@ -109,7 +112,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     CvTemplate3Component,
 
     JobSeekersRegisterComponent,
-    RecruiterRegisterComponent,
+
     NotFoundComponent,
 
     RegisterComponent,
@@ -122,7 +125,10 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateUserDetailsComponent,
     OrganizationDetailsComponent,
     JobSeekersRegisterComponent,
-    RecruiterRegisterComponent,
+    TechnewsComponent,
+    ReviewComponent,
+    BusinessnewsComponent,
+    ReviewFormComponent,
     TechnewsComponent,
     BusinessnewsComponent
 
@@ -170,7 +176,8 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     MatProgressBarModule,
     NgbModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],

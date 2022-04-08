@@ -32,29 +32,22 @@
         <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
-<<<<<<< HEAD
         <module>AssessmentService</module>
-=======
 
         <module>AssessmentService</module>
 
 <!--        <module>assessment-service</module>-->
->>>>>>> e570f1e278ecd25178595e2e3d6328cce89a672d
+
+        <module>AssessmentService</module>
+
+
+        <module>AssessmentService</module>
+
         <module>chatbot-service</module>
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
         <module>applicationRegisterService</module>
         <module>authenticationService</module>
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
->>>>>>> e570f1e278ecd25178595e2e3d6328cce89a672d
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
         <module>chatroom-service</module>
