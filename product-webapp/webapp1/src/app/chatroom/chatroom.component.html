@@ -4,15 +4,6 @@
     <div class="row">
         <div class="col-xl-3 col-md-4 col-s-12" style="padding-left: 1%; margin-top: 1.5%;">
 
-            <!-- <mat-card style="background-color: #6E2586;">
-                <h2 style="color: white;">CHATS</h2>
-                <mat-card *ngFor="let receiver of receiverNames" style="color: #6E2586; font-weight: bold; margin-top: 3%;"><button mat-mini-fab disabled style="color: white;  background-color: #6E2586; font-size: 2.8vh;">
-                    {{receiver.charAt(0)}}
-                </button><button style="background-color: white; text-align: left; background-image: none; color: #6E2586;border: none; font-size: 1.5vw;" (click)="selectedReceiver(receiver)">{{receiver}}</button>
-                </mat-card>    
-            </mat-card> -->
-
-
             <mat-card style="background-color: #6E2586;">
                 <h2 style="color: white;">CHATS</h2>
                 <mat-card *ngFor="let receiver of receiverNames" style="color: #6E2586; font-weight: bold; margin-top: 3%;"><button mat-mini-fab disabled style="color: white;  background-color: #6E2586; font-size: 2.8vh;">
@@ -25,8 +16,8 @@
             <mat-card style="height: 100%;">
                 <h2 style="background-image: linear-gradient(to left, #6E2586,#B11784); color: white; padding: 1%; text-align: left;"><button mat-mini-fab disabled style="color: white; font-size: 3.5vh;">{{receiverInitials}}</button>   Chating with {{recipientName}}</h2>
                     <div class="chatscrolls">
-                        <span *ngFor="let chat of getChats" > 
-                            <!-- {{chat.timestamp | date:'dd-MM-yyyy'}} -->
+                        <span *ngFor="let chat of getChats; let i = index" > 
+                            <!-- <p *ngIf="!(chat.timestamp == getChats[i-1].timestamp)"> {{chat.timestamp | date:'dd-MM-yyyy'}} </p> -->
                                 <mat-card *ngIf="chat.senderId==senderId " class="sender">
                                     <div class="senderdiv">
                                         <span style="color: white; margin-right: 3%; float: left;font-size: 2.5vh;">{{chat.message}}</span>
@@ -43,9 +34,9 @@
                     </div>
              
                 <div>
-                <mat-form-field appearance="outline" style="width: 67vw; background-color: white;">
+                <mat-form-field appearance="outline" style="width: 66vw; background-color: white;">
                     <mat-label>Enter Your Message</mat-label>
-                    <input matInput placeholder="Enter a text" style="width: 100%;" type="text" [(ngModel)]="text"/>
+                    <input matInput placeholder="Enter a text" type="text" [(ngModel)]="text"/>
                   </mat-form-field>
                   <button mat-fab (click) = "sendMessage()" class="button"><mat-icon >send</mat-icon></button>
                 </div>
