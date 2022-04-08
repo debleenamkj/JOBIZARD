@@ -75,6 +75,7 @@ import { BusinessnewsComponent } from './businessnews/businessnews.component';
 
 
 import { TockenInterceptorService } from './service/tocken-interceptor.service';
+import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 
 
@@ -126,7 +127,8 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     JobSeekersRegisterComponent,
     TechnewsComponent,
     TechnewsComponent,
-    BusinessnewsComponent
+    BusinessnewsComponent,
+    RecruiterlandingComponent
 
   ],
   imports: [

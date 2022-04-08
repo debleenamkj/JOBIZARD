@@ -31,6 +31,7 @@ import { OrganizationDetails } from './model/organizationDetails';
 import { ReviewComponent } from './review/review.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.component';
+import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 
 
@@ -80,6 +81,7 @@ const routes: Routes = [
   {path: "not-found", component:NotFoundComponent},
   // {path:"Organization",component:OrganizationDetails},
 
+  { path:"recruiterLanding", component: RecruiterlandingComponent },
 
 
   {path:"update",component:UpdateDetailsComponent},

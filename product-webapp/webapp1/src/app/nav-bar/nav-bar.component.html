@@ -22,6 +22,11 @@
       </button>
       <span style="color: white; font-size: large; width: 100%;" class="row"><h1 style="font-size: xx-large;" class="col-1">Jobizard</h1>
         <span class="col">
+
+          
+
+
+
         <a style = "margin-left: 20px; float: right; text-decoration: none; color: white"  type="submit" routerLink="/chatbot">ChatBot</a>
         <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/cv">CV Generation</a> -->
         <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/jobdetail">Job Details</a>-->
@@ -37,6 +42,23 @@
         
 
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/userLogin">LogIn</a>
+
+        &nbsp;
+      <!-- <h5>Hi, {{username}}</h5> -->
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="hide=!hide">
+          <mat-icon>settings</mat-icon>
+          <span>My Profile</span>
+        </button>
+       <button mat-menu-item (click)="loggedOut()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+
 
     </span>
       </span>
