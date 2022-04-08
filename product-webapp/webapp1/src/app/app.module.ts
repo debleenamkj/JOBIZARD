@@ -103,7 +103,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
     UpdateDetailsComponent,
     LoginComponent,
     SkilltestComponent,
-    
+    AssesmentTestPortalComponent,
     
     ChatroomComponent,
 

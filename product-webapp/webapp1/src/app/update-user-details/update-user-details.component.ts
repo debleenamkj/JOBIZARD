@@ -11,12 +11,12 @@ export interface SkillSet {
 export interface JobPreferences {
   name: string;
 }
-// export interface Achievements {
-//   name: string;
-// }
-// export interface Courses {
-//   name: string;
-// }
+export interface Achievements {
+  name: string;
+}
+export interface Courses {
+  name: string;
+}
 
 @Component({
   selector: 'app-update-user-details',
@@ -102,6 +102,55 @@ export class UpdateUserDetailsComponent implements OnInit {
 
   removejobPreferences(jobPreference: JobPreferences): void {
     const index = this.jobPreferences.indexOf(jobPreference);
+
+    if (index >= 0) {
+      this.jobPreferences.splice(index, 1);
+    }
+  }
+
+
+  achievements: Achievements[] = [];
+
+  addachievements(event: MatChipInputEvent): void {
+    console.log("achievements")
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.achievements.push({name: value});
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removeachievements(achievement: Achievements): void {
+    const index = this.achievements.indexOf(achievement);
+
+    if (index >= 0) {
+      this.jobPreferences.splice(index, 1);
+    }
+  }
+
+
+
+  courses: Courses[] = [];
+
+  addcourses(event: MatChipInputEvent): void {
+    console.log("courses")
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.courses.push({name: value});
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  removecourses(course: Courses): void {
+    const index = this.courses.indexOf(course);
 
     if (index >= 0) {
       this.jobPreferences.splice(index, 1);

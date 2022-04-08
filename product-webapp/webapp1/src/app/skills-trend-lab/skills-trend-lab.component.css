@@ -27,3 +27,6 @@ mat-card-title{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;
 }
+img{
+    max-width: 100%;
+}

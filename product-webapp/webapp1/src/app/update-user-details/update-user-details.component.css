@@ -158,9 +158,12 @@
   .jobPreferencesSpcae{
       padding-left: 110px;
   }
+  .achievementsSpcae{
+      padding-left: 118px;
+  }
   .detailsBTN{
       display: flex;
-      padding-top: 250px;
+      padding-top: 180px;
       padding-left: 120px;
   }
   .detailsSaveBTN{
@@ -181,9 +184,34 @@
   }
 
   /* -------------------------Education Details Css-------------------------- */
+  .educationParentdiv{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    /* margin: auto; */
+    padding-left: 60px;
+    font-size: large;
+    border: 7px solid #4E1B5F;
+    border-width: 2.5px;
+    /* border-color: red; */
+    border-radius: 10px;
+    width: 45%;
+  }
   .educationSpace{
       padding-left: 128px;
   }
+.coursesParaSpace{
+    
+}
+.cousrsesSpcae{
+    
+    width: 200px;
+    font-size: 14px;
+    margin-top: 3px;
+    padding-left: 140px;
+    margin-bottom: -1.35em;
+}
   .fieldSpace{
       padding-left: 86px;
   }
@@ -198,11 +226,11 @@
     padding-left: 94px;
 }
 .percentageSpace{
-    margin-left: -5px;
+    margin-left: 5px;
 }
 .educationBTN{
     display: flex;
-    padding-top: 40px;
+    padding-top: 10px;
     padding-left: 140px;
 }
 .educationSaveBTN{
@@ -219,4 +247,24 @@
     font-size: large;
      margin-left: 40px;
     background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+}
+
+/* ***************************Image Upload********************************************* */
+.imageUploadDiv{
+    padding-top: 100px;
+    padding-left: 520px;
+}
+.imageUploadPara{
+    
+    font-size: x-large;
+    padding-bottom: 20px;
+}
+.imageUploadLabel{
+    padding-top: 10px;
+    padding-left: 100px;
+}
+.UploadBTN{
+    display: flex;
+    padding-top: 100px;
+    padding-left: 620px;
 }
