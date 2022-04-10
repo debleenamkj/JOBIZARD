@@ -18,14 +18,23 @@ export class SkilltestComponent implements OnInit {
   no_of_questions:any=[];
   answers:any=[];
   bookmarks:any=[]
+  actualAnswers:any;
+  totalQuestions:number=0
 
   ngOnInit(): void {
     let qno =0;
+    this.service.answeredQuestions=0;
+    this.service.unAnsweredQuestions=0;
+    this.service.percentage=0;
     this.service.getQuestions().subscribe(data =>{
       console.log(data);
       this.data = data;
-     this.ques_counter(this.data.no_of_questions);
-     console.log(qno);
+      this.actualAnswers=this.data.answers;
+      console.log(this.actualAnswers);
+      this.totalQuestions=this.data.no_of_questions;
+      console.log(this.actualAnswers);
+      this.ques_counter(this.data.no_of_questions);
+      console.log(qno);
       console.log(this.data)
     })
   this.startTimer();
@@ -113,7 +122,7 @@ changeColor(qno:number){
   counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 15, sec: "5" } // choose whatever you want
+    this.counter = { min: 0, sec: "30" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;
@@ -148,12 +157,16 @@ changeColor(qno:number){
     if(this.counter.min==0 && this.counter.sec=="00")
     {
       setTimeout(() => {
+        console.log(this.answers);
+        this.calculateScores();
         this.router.navigate(['/job-posting'])
       }, 300);
    
     }
     }, 1000)
   }
+
+  
 
   ques_counter(i: number) {
     var arr = new Array();
@@ -165,5 +178,30 @@ changeColor(qno:number){
     this.no_of_questions = arr;
     return arr;
 }
+
+  calculateScores(){
+    let correctAnswers = 0;
+    let answerdQuestion = 0;
+    let unAnswerdQuestion = 0;
+    for (let index = 0; index < this.actualAnswers.length; index++) {
+      if(this.answers[index+1]==''){
+        unAnswerdQuestion++;
+      }
+
+      if(this.actualAnswers[index]==this.answers[index+1]){
+        correctAnswers++;
+      }
+      
+    }
+    let percentage = (correctAnswers/this.totalQuestions)*100;
+    answerdQuestion = this.totalQuestions-unAnswerdQuestion;
+    // console.log(answerdQuestion);
+    // console.log(unAnswerdQuestion);
+    // console.log(correctAnswers);
+    // console.log(percentage);
+    this.service.answeredQuestions=answerdQuestion;
+    this.service.unAnsweredQuestions=unAnswerdQuestion;
+    this.service.percentage=percentage;
+  }
  
 }
