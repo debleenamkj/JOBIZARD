@@ -34,15 +34,15 @@ body{
     position: fixed;
 }
 .skill-container{
-    margin-top: 1.5%;
+    margin-top: 6%;
     /* margin-bottom: 1.5%; */
-    width: 25%;
-    padding-bottom: 0;
+    width: 120%;
+    padding-bottom: 2%;
     padding-top: 2%;
     background-image: linear-gradient(to bottom,rgb(177,23,132),#4E1B5F);
     border: 0px solid white;
     border-radius: 15px;
-    position: fixed;
+    position: relative;
 }
 .profile{
     justify-content: center;
@@ -178,9 +178,9 @@ body{
     font-family: 'Poppins';
     color: #fff;
     font-size: 1.5vw;
-    -webkit-animation: mainFadeIn 3s forwards infinite;
-    -o-animation: mainFadeIn 3s forwards infinite;
-    animation: mainFadeIn 3s forwards infinite;
+    -webkit-animation: mainFadeIn 2s forwards infinite;
+    -o-animation: mainFadeIn 1s forwards infinite;
+    animation: mainFadeIn 2s forwards infinite;
     animation-delay: 1s;
     opacity: 0;
     display: flex;
@@ -210,15 +210,17 @@ body{
 .warriors{
     position: relative;
     font-family: sans-serif;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-weight: bold;
+    /* width: 100%; */
+    margin: 0;
     /* font-size: large; */
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     overflow: hidden;
-    background: linear-gradient(90deg, white, rgb(177,23,132), white);
+    background: linear-gradient(90deg, #4E1B5F, rgb(177,23,132), #4E1B5F);
     background-repeat: no-repeat;
-    background-size: 80%;
-    animation: animate 10s linear infinite;
+    background-size: 100%;
+    /* animation: animate 10s linear infinite; */
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
   }
@@ -232,5 +234,68 @@ body{
     }
   }
 
+  .getReady{
+    font-size: 170%;
+    font-weight: 600;
+  }
+  .myProfile{
+    /* background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+    background-repeat: no-repeat;
+    /* background-size: 80%; */
+    /* animation: animate 10s linear infinite; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0); */
+    color: #4E1B5F;
+  }
+.myProfileButton{
+  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+  color: white;
+  font-size: 130%;
+  padding: 2px 20px;
+}
+
+.blink{
+   /* padding: 30px 9px;
+  border: solid 11px; 
+  border-color: green; */
+  animation: blink 3s steps(1, end) infinite;
+  float: right; 
+  /* color: #4E1B5F; */
+  font-weight:600 ;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.takeTest2 {
+  /* font-family: 'Poppins'; */
+  /* color: #fff; */
+  /* font-size: 1.5vw; */
+  color: rgb(177,23,132);
+  -webkit-animation: mainFadeIn 2s forwards infinite;
+  -o-animation: mainFadeIn 1s forwards infinite;
+  animation: mainFadeIn 2s forwards infinite;
+  animation-delay: 1s;
+  opacity: 0;
+  font-weight: 600;
+  float: right;
+  /* display: flex; */
+  /* align-items: center; */
+  /* padding-left: 55px; */
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  /* padding-left: 30%; */
+  /* width: 100%; */
+  /* margin: 2% 0; */
+  /* position: relative; */
+}
 
 

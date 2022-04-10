@@ -202,6 +202,22 @@ changeColor(qno:number){
     this.service.answeredQuestions=answerdQuestion;
     this.service.unAnsweredQuestions=unAnswerdQuestion;
     this.service.percentage=percentage;
+    let warrior_name="";
+    if(percentage>=90){
+      warrior_name='ninja'
+    }
+    else if(percentage>=80){
+      warrior_name='xxxx'
+    }
+    else if(percentage>=70){
+      warrior_name='yyyy'
+    }
+    else if(percentage>50){
+      warrior_name='zzzz'
+    }
+    let data = {"emailId":"malumalathi032@gmail.com","percentage":percentage+"%","warrior-name":"ninja"}
+
+    
   }
  
 }

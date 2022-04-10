@@ -10,19 +10,23 @@
                 
                 <img src="assets\u1.jpeg" width="30%">
                 <h2 style="margin-bottom: 0;">Malathi V</h2>
-                </div><br>
+               <br>
                 <p style="font-size: 130%;">
                   Hard Worker with smart mind
                 </p>
-                <p style="font-size: 130%;">Complete 65% of your profile</p>
-
-              
-             
-                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+              </div>
+                <div class="updateProfile" *ngIf="profileProgress<100">
+                <p style="font-size: 130%;">Complete {{profileProgress}}% of your profile</p>
+                <mat-progress-bar mode="determinate" [value]=profileProgress></mat-progress-bar>
                 <!-- <button class="update" mat-button >Update Profile</button>  --><br>
                 <div class="role" style="cursor: pointer;">
                   <div class="block"></div>
                   <p class="updateText">Update Profile</p>
+              </div>
+              </div>
+              <div class="myProfile" *ngIf="profileProgress==100" style="text-align: center;">
+                  <p class="getReady">Get ready for the battle Warrior</p>
+                  <button class="myProfileButton" mat-button>My Profile</button>
               </div>
               </mat-card-content>
             </mat-card>
@@ -76,42 +80,43 @@
   <div style="">
     <div class="skill-container">
       <div class="profile">
-        <h1 class="takeTest1" style="color: white; text-align: center; ">Take test to get recruited...!</h1>
+        <h1 class="takeTest1" style="color: white; text-align: center; " *ngIf="notVerifiedSkills.length!=0">Take test to get recruited...!</h1>
           <mat-card class="card" style="margin-top: 5%;">
               <mat-card-content >
-                <!-- <div style="text-align: center;">
-                
-                <img src="assets\u1.jpeg" width="30%">
-                <h2 style="margin-bottom: 0;">Malathi V</h2>
-                </div><br>
-                <p style="font-size: 130%;">
-                  Hard Worker with smart mind
-                </p> -->
-              
-               
-                <div >
-                  <h2 style="color:#4E1B5F ;"> Skills to be verified :</h2>
-                <p style="font-size: 130%; ">Java<mat-icon style=" margin-left:1%" color="accent"> announcement </mat-icon></p>
+                <div *ngIf="notVerifiedSkills.length!=0">
+                <h2 style="color:#4E1B5F ; margin: 0;"> Skills to be verified :</h2>
+                <mat-card style="margin-bottom: 3px; cursor: pointer;" *ngFor="let unverified of notVerifiedSkills">
+                  <p style="font-size: 130%; ">{{unverified}}<mat-icon style=" margin-left:1%" color="accent"> announcement </mat-icon>
+                  <span  class="takeTest2">Take test</span></p>
+                  </mat-card>
+                <!-- <p style="font-size: 130%; ">Java<mat-icon style=" margin-left:1%" color="accent"> announcement </mat-icon></p>
                 <p style="font-size: 130%; ">Spring<mat-icon style="margin-left:1%" color="accent"> announcement </mat-icon></p>
-                <p style="font-size: 130%; ">Angular<mat-icon style="margin-left:1%" color="accent"> announcement </mat-icon></p>
-                <!-- <p  style="font-size: 130%;">Take test to get Recruited</p>
-                <mat-progress-bar mode="determinate" value="40"></mat-progress-bar> -->
-                <button class="takeTest" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); color: white;" mat-button >Take test</button>
+                <p style="font-size: 130%; ">Angular<mat-icon style="margin-left:1%" color="accent"> announcement </mat-icon></p> -->
+
+                <!-- <button class="takeTest" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); color: white;" mat-button (click)="openDialog()">Take test</button> -->
               </div>
-               
+               <br>
                 <div>
                   <h2 style="color:#4E1B5F ;">Verified Skills :</h2>
-                  <p style="font-size: 130%; ">Java-script<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
-                  <p style="font-size: 130%; ">HTML<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
-                  <p style="font-size: 130%; ">CSS<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
-                </div>
 
-              
-                <!-- <button class="update" mat-button >Update Profile</button>  --><br>
-                <!-- <div class="role" style="cursor: pointer;">
-                  <div class="block"></div>
-                  <p class="updateText">Update Profile</p>
-              </div> -->
+                  <div *ngFor="let verified of verifiedSkills">
+                    <p style="font-size: 130%; ">{{verified.name}}<span>{{verified.warrior}}</span>
+                      <!-- <p style="font-size: 130%; ">{{verified.name}}<span>{{verified.warrior}}</span> -->
+                        <!-- <p style="font-size: 130%; ">{{verified.name}}<span>{{verified.warrior}}</span> -->
+                      <!-- <mat-icon style="float: right; color: green;"> check_circle </mat-icon> -->
+                    </p>
+                  </div>
+
+                  <div *ngIf="notVerifiedSkills.length==0">
+                  <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
+                  <br>They are made...
+                  </h1>
+                  <button class="myProfileButton" style="margin-left: 20%;" mat-button>Learn Courses</button>
+                  </div>
+                  <!-- <p style="font-size: 130%; ">Java-script<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
+                  <p style="font-size: 130%; ">HTML<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
+                  <p style="font-size: 130%; ">CSS<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p> -->
+                </div>
               </mat-card-content>
             </mat-card>
        
