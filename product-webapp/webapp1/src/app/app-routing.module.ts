@@ -34,6 +34,7 @@ import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
 
 
 
@@ -69,7 +70,7 @@ const routes: Routes = [
   {path:"test",component:SkilltestComponent},
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
-
+  {path:"search",component:SearchPortalComponent},
   // providing path for register and login
   {path:"register",component:RegisterComponent},
   {path:"jobSeekerRegister",component:JobSeekersRegisterComponent},
