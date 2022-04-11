@@ -80,6 +80,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 
 
@@ -139,6 +140,7 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
 
     RecruiterlandingComponent,
     JobSeekerLandingComponent,
+    SearchPortalComponent,
     TestResultViewComponent
 
   ],

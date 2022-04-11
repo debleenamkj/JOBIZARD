@@ -85,6 +85,7 @@ onFileChanged(event: any) {
   console.log("onchange");
 
   this.file = event.target.files[0];
+  console.log(this.file);
 
   const reader = new FileReader();
   reader.readAsDataURL(event.target.files[0]); 
