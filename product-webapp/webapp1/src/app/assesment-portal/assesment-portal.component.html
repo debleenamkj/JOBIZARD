@@ -75,9 +75,9 @@
 
                 <!-- <button class="dropbtn" style="font-weight: bold;font-size: 13px;margin-bottom: 3%;letter-spacing: 1px;">Computer Science</button> -->
                 <div class="dropdown-content">
-                  <a (click)="openDialog()">Java Test</a>
-                  <a (click)="openDialog()">Spring Test</a>
-                  <a (click)="openDialog()">Angular Test</a>
+                  <a (click)="openDialog();getQuizName('Java Test')">Java Test</a>
+                  <a (click)="openDialog();getQuizName('Spring Test')">Spring Test</a>
+                  <a (click)="openDialog();getQuizName('Angular Test')">Angular Test</a>
                 </div>
             </div>
             </li>
@@ -88,9 +88,9 @@
                   style="color: white;text-decoration:none;">Civil</a></button></li>
 
             <div class="dropdown-content">
-              <a  (click)="openDialog(); getQuizName('aptitude')">Aptitude</a>
-              <a  (click)="openDialog(); getQuizName('barc ce')">Barc CE</a>
-              <a  (click)="openDialog(); getQuizName('gate ce')">Gate CE</a>
+              <a  (click)="openDialog(); ">Aptitude</a>
+              <a  (click)="openDialog(); ">Barc CE</a>
+              <a  (click)="openDialog(); ">Gate CE</a>
             </div>
           </div>
           </li>
