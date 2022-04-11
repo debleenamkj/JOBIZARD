@@ -1,52 +1,55 @@
 <div class="container">
-    <mat-card id="title">Quiz Result</mat-card>
-    <div class="user">
-      <h2
-        style="
-          text-align: center;
-          background-image: linear-gradient(
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.8)
-          );
-        "
-      >
-        User Details
-      </h2>
-      <mat-card>
-        <img id="userimg" src="../../assets/ninja.png" alt="" />
-        <div class="userDetails">
-          <h2>{{ username }}</h2>
-          <h2>{{ CollegeName }}</h2>
-        </div>
-      </mat-card>
-    </div>
-    <div class="result">
-      <div class="resultDetails">
-        <img
-          id="resultimg"
-          src="../../assets/ninja.png"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="result-body">
-          <div class='line'>
-          <h2 class="result-title">
-            Hey {{ username }}, you are our {{ level }}, with Score {{marksGot}}
-          </h2>
+  <mat-card id="title">Quiz Result
+    <button mat-icon-button  style="float: right;"routerLink="/assesmentportal"><mat-icon>output</mat-icon></button>
+  </mat-card>
+  <div class="user">
+    <h2
+      style="
+        text-align: center;
+        background-image: linear-gradient(
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.8)
+        );
+        background-image: linear-gradient(to right, #6e2586, #b11784);
+        font-size: x-large;
+      "
+    >
+      User Details
+    </h2>
+    <div>
+      <img id="userimg" src="../../assets/ninja.png" alt="" />
+      <div class="userDetails">
+        <h2>{{ username }}</h2>
+        <h2>{{ CollegeName }}</h2>
       </div>
-          <mat-card class="result-text">
-            <h2>Correct Answers : {{ correctAnswers }}/{{ TotalQuestions }}</h2>
-            <h2>Questions Attempted :{{ attempted }}/{{ TotalQuestions }}</h2>
-            <h2>Questions UnAttempted :{{ unattempted }}/{{ TotalQuestions }}</h2>
-            <h2>Performance :{{ performance }}</h2>
-          </mat-card>
-          <button type="button" class="btn">PRINT</button>
-          <button type="button" class="btn">HOME</button>
-        </div>
-      </div>
-    </div>
-    <div class="flip-card">
-      <h1>{{ message }}</h1>
     </div>
   </div>
-  
+  <div class="result">
+    <div class="resultDetails">
+      <img
+        id="resultimg"
+        src="../../assets/ninja.png"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="result-body">
+        <div class="flip-card">
+          <h1>{{ message }}</h1>
+        </div>
+        <div class="line">
+          <h2 class="result-title">
+            Hey {{ username }}, you are our {{ level }}, with Score
+            {{ marksGot }}
+          </h2>
+        </div>
+        <div class="result-text">
+          <h2>Correct Answers : {{ correctAnswers }}/{{ TotalQuestions }}</h2>
+          <h2>Questions Attempted :{{ attempted }}/{{ TotalQuestions }}</h2>
+          <h2>Questions UnAttempted :{{ unattempted }}/{{ TotalQuestions }}</h2>
+        </div>
+        <button type="button" class="btn">PRINT</button>
+        <!-- <button type="button" class="btn">HOME</button> -->
+      </div>
+    </div>
+  </div>
+</div>
