@@ -11,6 +11,8 @@ export class SkilltestServiceService {
   unAnsweredQuestions:number=0;
   percentage:number=0;
 
+  quizName:string="";
+
   getQuestions(){
     return this.httpClient.get("http://localhost:3000/test")
   }

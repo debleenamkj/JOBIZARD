@@ -88,9 +88,9 @@
                   style="color: white;text-decoration:none;">Civil</a></button></li>
 
             <div class="dropdown-content">
-              <a (click)="openDialog()">Aptitude</a>
-              <a (click)="openDialog()">Barc CE</a>
-              <a (click)="openDialog()">Gate CE</a>
+              <a  (click)="openDialog(); getQuizName('aptitude')">Aptitude</a>
+              <a  (click)="openDialog(); getQuizName('barc ce')">Barc CE</a>
+              <a  (click)="openDialog(); getQuizName('gate ce')">Gate CE</a>
             </div>
           </div>
           </li>

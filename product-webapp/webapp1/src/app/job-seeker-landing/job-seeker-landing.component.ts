@@ -31,7 +31,7 @@ export class JobSeekerLandingComponent implements OnInit {
         // skill.name=element.name;
         // skill.badge=element.badge;
         // skill.warrior=element.warrior;
-      this.notVerifiedSkills.length=0
+      // this.notVerifiedSkills.length=0
       }
     });
     console.log(this.verifiedSkills);
@@ -64,7 +64,9 @@ export class JobSeekerLandingComponent implements OnInit {
   getTestName(test:any){
     // console.log(test)
     console.log("test Name is"+test);
-    this.service.getTest(test);
+    // this.service.getTest(test);
+    this.service.quizName=test;
+
   }
 
 }

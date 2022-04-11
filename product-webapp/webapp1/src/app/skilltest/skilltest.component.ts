@@ -26,7 +26,10 @@ export class SkilltestComponent implements OnInit {
     this.service.answeredQuestions=0;
     this.service.unAnsweredQuestions=0;
     this.service.percentage=0;
-    this.service.getQuestions().subscribe(data =>{
+   
+    let quizName = this.service.quizName;
+    console.log("quizName :"+quizName);
+    this.service.getTest(quizName).subscribe(data =>{
       console.log(data);
       this.data = data;
       this.actualAnswers=this.data.answers;
@@ -36,7 +39,18 @@ export class SkilltestComponent implements OnInit {
       this.ques_counter(this.data.no_of_questions);
       console.log(qno);
       console.log(this.data)
-    })
+    }) 
+    // this.service.getQuestions().subscribe(data =>{
+    //   console.log(data);
+    //   this.data = data;
+    //   this.actualAnswers=this.data.answers;
+    //   console.log(this.actualAnswers);
+    //   this.totalQuestions=this.data.no_of_questions;
+    //   console.log(this.actualAnswers);
+    //   this.ques_counter(this.data.no_of_questions);
+    //   console.log(qno);
+    //   console.log(this.data)
+    // })
   this.startTimer();
   setTimeout(() => {
     this.getQuestion(1);   
@@ -122,7 +136,7 @@ changeColor(qno:number){
   counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 0, sec: "30" } // choose whatever you want
+    this.counter = { min: 10, sec: "30" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;
