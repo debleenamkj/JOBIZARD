@@ -34,6 +34,7 @@ import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 
 
 
@@ -91,7 +92,8 @@ const routes: Routes = [
   {path:"update-user",component:UpdateUserDetailsComponent},
   {path:"review",component:ReviewComponent},
 
-  {path:"jobSeeker",component:JobSeekerLandingComponent}
+  {path:"jobSeeker",component:JobSeekerLandingComponent},
+  {path:"result",component:TestResultViewComponent}
 ];
 
 @NgModule({

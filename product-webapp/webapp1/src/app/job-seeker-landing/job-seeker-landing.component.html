@@ -85,7 +85,7 @@
               <mat-card-content >
                 <div *ngIf="notVerifiedSkills.length!=0">
                 <h2 style="color:#4E1B5F ; margin: 0;"> Skills to be verified :</h2>
-                <mat-card style="margin-bottom: 3px; cursor: pointer;" *ngFor="let unverified of notVerifiedSkills">
+                <mat-card style="margin-bottom: 3px; cursor: pointer;" *ngFor="let unverified of notVerifiedSkills" (click)="openDialog(); getTestName(unverified)">
                   <p style="font-size: 130%; ">{{unverified}}<mat-icon style=" margin-left:1%" color="accent"> announcement </mat-icon>
                   <span  class="takeTest2">Take test</span></p>
                   </mat-card>

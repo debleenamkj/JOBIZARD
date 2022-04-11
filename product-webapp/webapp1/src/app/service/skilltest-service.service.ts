@@ -14,4 +14,9 @@ export class SkilltestServiceService {
   getQuestions(){
     return this.httpClient.get("http://localhost:3000/test")
   }
+
+  getTest(testName:any){
+    console.log('http://localhost:3000/test/'+testName);
+    return this.httpClient.get("http://localhost:3000/test/"+testName);
+  }
 }
