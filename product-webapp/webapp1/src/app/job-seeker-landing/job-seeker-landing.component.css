@@ -1,9 +1,301 @@
-.card{
-    width: 55%;
+.box{
+    margin: 0 7%; 
+
+    /* background-image: url('modern-6097791_960_720.jpg'); */
+    /* background-image: linear-gradient(to top,rgb(177,23,132),#4E1B5F); */
+    /* background-color: #9C51E0; */
+    /* background-color: rgb(110,37,134); */
+    /* padding-right: 75%;   */
+    /* padding: 0; */
 }
-.posts{
-    margin-left:30%;
+.container{
+    padding: 0;
+    margin: 0;
 }
-.tab{
+body{
+    /* background-image: linear-gradient(to top,rgb(177,23,132),#4E1B5F); */
+    height: 100vh;
+    background-size: auto;
+}
+.post{
+    width: 40%;
+    margin-left: 29.5%;
+}
+.profile-container{
+    
+    margin-top: 1.5%;
+    /* margin-bottom: 1.5%; */
+    width: 25%;
+    padding-bottom: 0;
+    padding-top: 2%;
+    background-image: linear-gradient(to bottom,rgb(177,23,132),#4E1B5F);
+    border: 0px solid white;
+    border-radius: 15px;
+    position: fixed;
+}
+.skill-container{
+    margin-top: 6%;
+    /* margin-bottom: 1.5%; */
+    width: 120%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    background-image: linear-gradient(to bottom,rgb(177,23,132),#4E1B5F);
+    border: 0px solid white;
+    border-radius: 15px;
     position: relative;
 }
+.profile{
+    justify-content: center;
+    margin: 8%;
+    width: 80%;
+}
+
+.card{
+    position:relative;
+    margin-bottom: 20%;
+    margin-left: 3%; 
+}
+.card1{
+    background-color: rgb(110,37,134);
+    margin: 5% 2%;
+    color: white;
+}
+.posts{
+    margin-left:0%;
+       
+        height: 100vh;
+        width: 40vw;
+    z-index: -1;
+    /* position: fixed; */
+    /* overflow: scroll; */
+}
+.tab{
+    /* overflow-y: auto; 
+    position: fixed;  */
+}
+.like1{
+    display: none;
+}
+.container{
+    display: flex;
+}
+.blog{
+    z-index: -1;
+}
+.update{
+    margin-top: 6%;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+    color: white;
+    font-size: 150%;
+}
+    .role {
+      width: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 30px;
+      margin-top: 10px;
+    }
+  
+@keyframes secBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.block {
+    /* padding-top: 4%; */
+    width: 0%;
+    height: inherit;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+    position: absolute;
+    animation: secBlock 5s cubic-bezier(.74, .06, .4, .92) forwards infinite;
+    animation-delay: 0.5s;
+    display: flex;
+  }
+.example-card{
+    margin: 5%;
+}
+.updateText {
+    font-family: 'Poppins';
+    color: #fff;
+    font-size: 150%;
+    -webkit-animation: mainFadeIn 2s forwards infinite;
+    -o-animation: mainFadeIn 2s forwards infinite;
+    animation: mainFadeIn 2s forwards infinite;
+    animation-delay: 1s;
+    opacity: 0;
+    display: flex;
+    /* align-items: center; */
+    padding-left: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+    position: relative;
+  }
+  .takeTest {
+    font-family: 'Poppins';
+    color: #fff;
+    font-size: 150%;
+    -webkit-animation: mainFadeIn 3s forwards infinite;
+    -o-animation: mainFadeIn 3s forwards infinite;
+    animation: mainFadeIn 3s forwards infinite;
+    animation-delay: 1s;
+    opacity: 0;
+    display: flex;
+    /* align-items: center; */
+    /* padding-left: 55px; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    padding-left: 30%;
+    width: 100%;
+    margin: 2% 0;
+    position: relative;
+  }
+
+  .takeTest1 {
+    font-family: 'Poppins';
+    color: #fff;
+    font-size: 1.5vw;
+    -webkit-animation: mainFadeIn 2s forwards infinite;
+    -o-animation: mainFadeIn 1s forwards infinite;
+    animation: mainFadeIn 2s forwards infinite;
+    animation-delay: 1s;
+    opacity: 0;
+    display: flex;
+    /* align-items: center; */
+    /* padding-left: 55px; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    /* padding-left: 30%; */
+    width: 100%;
+    margin: 2% 0;
+    position: relative;
+  }
+.button1{
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 10%;
+    color: #4E1B5F;
+    font-size: 170%;
+}
+.button2{
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 8%;
+    color: #4E1B5F;
+    font-size: 170%;
+}
+.warriors{
+    position: relative;
+    font-family: sans-serif;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    /* width: 100%; */
+    margin: 0;
+    /* font-size: large; */
+    /* letter-spacing: 1px; */
+    overflow: hidden;
+    background: linear-gradient(90deg, #4E1B5F, rgb(177,23,132), #4E1B5F);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* animation: animate 10s linear infinite; */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+    }
+  }
+
+  .getReady{
+    font-size: 170%;
+    font-weight: 600;
+  }
+  .myProfile{
+    /* background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+    background-repeat: no-repeat;
+    /* background-size: 80%; */
+    /* animation: animate 10s linear infinite; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0); */
+    color: #4E1B5F;
+  }
+.myProfileButton{
+  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+  color: white;
+  font-size: 130%;
+  padding: 2px 20px;
+}
+
+.blink{
+   /* padding: 30px 9px;
+  border: solid 11px; 
+  border-color: green; */
+  animation: blink 3s steps(1, end) infinite;
+  float: right; 
+  /* color: #4E1B5F; */
+  font-weight:600 ;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.takeTest2 {
+  /* font-family: 'Poppins'; */
+  /* color: #fff; */
+  /* font-size: 1.5vw; */
+  color: rgb(177,23,132);
+  -webkit-animation: mainFadeIn 2s forwards infinite;
+  -o-animation: mainFadeIn 1s forwards infinite;
+  animation: mainFadeIn 2s forwards infinite;
+  animation-delay: 1s;
+  opacity: 0;
+  font-weight: 600;
+  float: right;
+  /* display: flex; */
+  /* align-items: center; */
+  /* padding-left: 55px; */
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  /* padding-left: 30%; */
+  /* width: 100%; */
+  /* margin: 2% 0; */
+  /* position: relative; */
+}
+
+
