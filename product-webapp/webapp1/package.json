@@ -2,11 +2,7 @@
   "name": "webapp1",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "prefixcss": "postcss -s postcss-scss -u autoprefixer --autoprefixer.browsers \"last 2 versions\" -r src/**/*.scss"
   },
   "private": true,
   "dependencies": {
@@ -41,12 +37,16 @@
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "api-ai-javascript": "^2.0.0-beta.21",
+    "autoprefixer": "^10.4.4",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0",
+    "postcss-scss": "^4.0.3",
     "typescript": "~4.6.2"
   }
 }
