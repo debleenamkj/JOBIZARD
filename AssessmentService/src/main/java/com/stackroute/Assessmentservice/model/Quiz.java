@@ -8,9 +8,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Quiz {
-    private int qId;
+    private int qid;
     private String quizTitle;
     private int numberOfQuestions;
     private List<Questions> questions;
     private List<String> answers;
+
 }
