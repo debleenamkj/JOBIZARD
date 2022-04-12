@@ -113,6 +113,15 @@ public class TrendControllerTest {
         ).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
 
+    @Test
+    public void testExternalApi() throws Exception{
+        mockMvc.perform(
+                get("/api/v6/salarys/dancer")
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+    }
+
     public static String jsonToString(final Object obj)throws JsonProcessingException
     {
         String result=null;
