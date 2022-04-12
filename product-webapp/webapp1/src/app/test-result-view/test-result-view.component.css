@@ -150,7 +150,8 @@ body {
     width: 50%;
     position: absolute;
     margin-left: 470px;
-    margin-top: -290px;
+    margin-top: -300px;
+    /* margin-right: -500px; */
     height: 69vh;
   }
   .flip-card {
@@ -170,5 +171,8 @@ body {
   .result-text {
     position: relative;
     display: inline;
+  }
+  mat-card h2{
+    margin-left: 350px;
   }
 }
