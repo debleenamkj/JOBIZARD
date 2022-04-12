@@ -23,6 +23,7 @@
   <div class="form-outline flex-fill mb-0">
     <label for="form3Example1c" class="form-label">Email-ID</label>
     <input matInput type="text" class="form-control"  placeholder="Enter your Email-Id" id="emailId" name="emailId" [(ngModel)]="user.emailId" required>
+    <mat-error>{{ error }}</mat-error>
   </div>
 </div>
 
@@ -36,9 +37,10 @@
   <div class="form-outline flex-fill mb-0">
         <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Password</label>
         <input matInput type="password" class="form-control" placeholder="Enter your Password" id="password" name="password" [(ngModel)]="user.password" required>
+         <mat-error>{{ error }}</mat-error>
       </div></div>
 
-    
+      <!-- <mat-error>{{ error }}</mat-error> -->
           
       
 

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   });
 
   hasUnitNumber = false;
-    
+  error: string | null = '';
 
 
   user:UserLogin =new UserLogin();
@@ -42,9 +42,10 @@ export class LoginComponent implements OnInit {
       this.loginService.isloggedIn=true
       this.router.navigate(["/chatbot"])
      },()=>{
-      // alert("please check your username and password.")
-     this.router.navigate(["/userLogin"])
-     this.loginService.isloggedIn=false
+      //alert("please check your username and password.")
+    this.error =  "please check your Email-Id or password.";
+    this.router.navigate(["/userLogin"])
+    this.loginService.isloggedIn=false
      }
      );
 
