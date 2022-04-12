@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Random;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/category")
@@ -36,8 +39,9 @@ public class CategoryController {
     }
 
     @GetMapping("/{subCategoryTitle}")
-    public Quiz getQuiz(@PathVariable String subCategoryTitle){
-        return this.service.getQuiz(subCategoryTitle);
+    public List<Quiz> getQuiz(@PathVariable String subCategoryTitle){
+        List<Quiz> quizzes = this.service.getQuiz(subCategoryTitle);
+        return quizzes;
     }
 }
 
