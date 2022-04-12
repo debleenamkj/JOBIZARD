@@ -4,7 +4,7 @@ export class CompanyDetails {
     companyLogo:any;
     retrievedImage?:any;
 
-    constructor(cin:string, companyName:string, companyLogo:File, retrievedImage?:any){
+    constructor(cin:string, companyName:string, companyLogo?:File, retrievedImage?:any){
         this.cin = cin;
         this.companyName=companyName;
         this.companyLogo = companyLogo;

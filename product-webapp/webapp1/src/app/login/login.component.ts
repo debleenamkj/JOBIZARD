@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { LoginserviceService } from '../service/loginservice.service';
 import { RegisterServiceService } from '../service/register-service.service';
 import { TockenInterceptorService } from '../service/tocken-interceptor.service';
+import { RecruiterlandingService } from '../recruiterlanding/recruiterlanding.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { TockenInterceptorService } from '../service/tocken-interceptor.service'
 })
 export class LoginComponent implements OnInit {
 
- constructor(private formBuilder: FormBuilder,private loginService : RegisterServiceService , private router : Router) { }
+ constructor(private formBuilder: FormBuilder,private loginService : RegisterServiceService , private router : Router, private recruiterLanding: RecruiterlandingService) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   });
 
   hasUnitNumber = false;
-    
+  error: string | null = '';
 
 
   user:UserLogin =new UserLogin();
@@ -35,13 +36,16 @@ export class LoginComponent implements OnInit {
     console.log(this.user)
     this.loginService.userLogIn(this.user)
     .subscribe(()=>{
-      alert("Successfully User is logged in.")
+      // alert("Successfully User is logged in.")
+      this.recruiterLanding.email=user.emailId;
+      console.log(this.recruiterLanding.email);
       this.loginService.isloggedIn=true
       this.router.navigate(["/chatbot"])
      },()=>{
-      alert("please check your username and password.")
-     this.router.navigate(["/userLogin"])
-     this.loginService.isloggedIn=false
+      //alert("please check your username and password.")
+    this.error =  "please check your Email-Id or password.";
+    this.router.navigate(["/userLogin"])
+    this.loginService.isloggedIn=false
      }
      );
 
