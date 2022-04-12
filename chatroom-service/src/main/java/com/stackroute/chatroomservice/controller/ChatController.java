@@ -5,6 +5,7 @@ import com.stackroute.chatroomservice.domain.ChatNotification;
 import com.stackroute.chatroomservice.domain.ChatRoom;
 import com.stackroute.chatroomservice.service.ChatMessageService;
 import com.stackroute.chatroomservice.service.ChatRoomService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@Slf4j
 public class ChatController {
 
     private SimpMessagingTemplate messagingTemplate;
@@ -27,6 +29,7 @@ public class ChatController {
 
     @Autowired
     public ChatController(SimpMessagingTemplate messagingTemplate, ChatMessageService chatMessageService, ChatRoomService chatRoomService){
+        log.info("Autowiring of Objects Done");
         this.messagingTemplate = messagingTemplate;
         this.chatMessageService = chatMessageService;
         this.chatRoomService = chatRoomService;
@@ -36,6 +39,7 @@ public class ChatController {
     @SendTo("/topic")
     @PostMapping("/chat")
     public void processMessage(@RequestBody ChatMessage chatMessage){
+        log.debug("Inside ChatController - processMessage");
         var chatId = chatRoomService.getChatId(chatMessage.getSenderId(),chatMessage.getRecipientId(),true);
         chatMessage.setChatId(chatId.get());
         ChatMessage saved = chatMessageService.save(chatMessage);
@@ -45,16 +49,19 @@ public class ChatController {
 
     @GetMapping("/messages/{senderId}/{recipientId}/count")
     public ResponseEntity<Long> countNewMessages(@PathVariable String senderId, @PathVariable String recipientId) {
+        log.debug("Inside ChatController - processMessage");
         return ResponseEntity.ok(chatMessageService.countNewMessages(senderId, recipientId));
     }
 
     @GetMapping("/messages/{senderId}/{recipientId}")
     public ResponseEntity<?> findChatMessages (@PathVariable String senderId, @PathVariable String recipientId) {
+        log.debug("Inside ChatController - findChatMessages");
         return ResponseEntity.ok(chatMessageService.findChatMessages(senderId, recipientId));
     }
 
     @GetMapping("/messages/{id}")
     public ResponseEntity<?> findMessage (@PathVariable String id) {
+        log.debug("Inside ChatController - findMessage");
         return ResponseEntity.ok(chatMessageService.findById(id));
     }
 
@@ -65,11 +72,13 @@ public class ChatController {
 
     @GetMapping("/getall")
     public List<ChatMessage> getAll(){
+        log.debug("Inside ChatController - getAll");
         return chatMessageService.getAllList();
     }
 
     @GetMapping("/getchatroom")
     public List<ChatRoom> getChatroom(){
+        log.debug("Inside ChatController - getChatroom");
         return chatRoomService.getAllChats();
     }
 }

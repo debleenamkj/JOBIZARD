@@ -90,6 +90,7 @@ public class SkillTrendServiceImpl implements SkillTrendService{
 
     @Override
     public List<SkillTrend> getNameOfSkills(){
+        log.debug("Inside SkillTrendServiceImpl - getNameOfSkills");
         List<SkillTrend> skillTrends = skillTrendRepository.findAll();
         List<SkillTrend> uniqueTrends = skillTrends.stream().collect(Collectors.groupingBy(SkillTrend::getOnDemandSkills,Collectors.maxBy(Comparator.comparingLong(SkillTrend::getSkillId)))).values().stream().map(opt -> opt.orElse(null)).collect(Collectors.toList());
         return uniqueTrends;
