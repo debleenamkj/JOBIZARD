@@ -27,36 +27,20 @@
         <h2>{{ username }}</h2>
         <h2>{{ CollegeName }}</h2>
         <div class="flip-card">
-          <h1 style="margin-left: -20px">{{ message }}</h1>
+          <h1 style="margin-left: -25px">{{ message }}</h1>
         </div>
       </div>
     </div>
   </div>
   <div class="result">
-    <!-- <div class="resultDetails"> -->
-      <!-- <img
-        id="resultimg"
-        src="../../assets/ninja.png"
-        class="card-img-top"
-        alt="..."
-      /> -->
-
-      <!-- <div class="line"> -->
-      <!-- <h2 class="result-title">
-            Hey {{ username }}, you are our {{ level }}, with Score
-            {{ marksGot }}
-          </h2> -->
-
-      <!-- <div class="result"> -->
-      <!-- {{ worrior_logo }} -->
       <div class="resultDetails">
         <img
           id="resultimg"
-          src="../../assets/u1.jpeg"
+          src="{{ worrior_logo }}"
           class="card-img-top"
           alt="worrior"
         />
-        <!-- <div class="result-body"> -->
+      
           <div class="result-body">
             <div class="line">
               <h2 class="result-title">
@@ -64,15 +48,7 @@
                 {{ marksGot }}%
               </h2>
             </div>
-            <!-- <mat-card class="result-text">
-            <h2>Correct Answers : {{ correctAnswers }}/{{ TotalQuestions }}</h2> -->
-            <!-- <h2>Questions Attempted :{{ attempted }}/{{ TotalQuestions }}</h2>
-            <h2>Questions UnAttempted :{{ unattempted }}/{{ TotalQuestions }}</h2>
-            <h2>Performance :{{ performance }}</h2>
-          </mat-card>
-          <button type="button" class="btn">PRINT</button>
-          <button type="button" class="btn">HOME</button> -->
-            <!-- </div> -->
+           
             <div class="result-text">
               <span>
                 <h2>Correct Answers</h2>
@@ -94,10 +70,7 @@
               </span>
             </div>
             <button type="button" class="btn">PRINT</button>
-            <!-- <button type="button" class="btn">HOME</button> -->
           </div>
-        <!-- </div> -->
-      <!-- </div> -->
     </div>
   </div>
 </div>
