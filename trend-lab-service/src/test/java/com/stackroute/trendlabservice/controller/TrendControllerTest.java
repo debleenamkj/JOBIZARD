@@ -1,7 +1,6 @@
 package com.stackroute.trendlabservice.controller;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,11 +20,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 public class TrendControllerTest {
@@ -60,6 +61,58 @@ public class TrendControllerTest {
                 );
         verify(service,times(1)).saveSkill(any());
     }
+
+    @Test
+    public void getSkillsTest() throws Exception {
+        List<SkillTrend> skillTrendList = new ArrayList<>();
+        skillTrendList.add(skillTrend);
+        when(service.getAllSkills()).thenReturn(skillTrendList);
+        mockMvc.perform(
+                get("/api/v6/getskills")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(skillTrend))
+        ).andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        skillTrendList.clear();
+
+    }
+
+    @Test
+    public void updateSkills() throws Exception{
+        when(service.updateSkill(any())).thenReturn(skillTrend);
+        mockMvc.perform(
+                put("/api/v6/updateskill")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(skillTrend))
+        ).andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+    }
+
+    @Test
+    public void getNamesTest() throws Exception{
+        List<SkillTrend> skillTrendList = new ArrayList<>();
+        skillTrendList.add(skillTrend);
+        when(service.getNameOfSkills()).thenReturn(skillTrendList);
+        mockMvc.perform(
+                        get("/api/v6/getnames")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(jsonToString(skillTrend))
+                ).andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        skillTrendList.clear();
+    }
+
+    @Test
+    public void deleteSkillTrendTest() throws Exception{
+        when(service.deleteSkill(anyLong())).thenReturn(skillTrend);
+        mockMvc.perform(
+                delete("/api/v6/deleteskills/"+skillTrend.getSkillId())
+                        .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
+    }
+
     public static String jsonToString(final Object obj)throws JsonProcessingException
     {
         String result=null;

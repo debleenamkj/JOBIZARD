@@ -71,7 +71,7 @@ public class TrendController {
         return skillTrendService.getAllSkills();
     }
 
-    @PostMapping("/updateskill")
+    @PutMapping("/updateskill")
     public SkillTrend updateSkills(@RequestBody SkillTrend skillTrend){
         log.debug("Inside TrendController - updateSkills");
         return skillTrendService.updateSkill(skillTrend);
