@@ -1,4 +1,180 @@
-<input matInput placeholder="Search" name="search" class="search" >
-      <button mat-icon-button matSuffix >
-          <mat-icon>search</mat-icon>
-      </button>
+<mat-card style="background-image: linear-gradient(to right, #6E2586, #B11784); margin-top: 0.5rem;"><h1 id="mainheading">Recruiter</h1></mat-card>
+
+<br>
+<mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw;">
+    <mat-card-title style="text-align: center;">Welcome {{recruiter.firstName}}</mat-card-title>
+    <div class="profile-image" style="margin-left: 18px;"><img src="./assets/download (1).png"></div>
+    <mat-card-subtitle style="text-align: center; margin-top: 165px;">{{recruiter.organizationDetails.organizationName}}</mat-card-subtitle>
+    <button class="upb">Update profile</button>
+</mat-card>
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end" style="margin-right: 3vw;">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+
+<!-- <div *ngFor="let getAllJobSeekers of getAllJobSeekersArray" class="container-fluid col-lg-8"> -->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{jobSeeker.firstName}}+{{jobSeeker.lastName}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <mat-chip-list *ngFor="let skills of jobSeeker.skillSet">
+        <mat-chip>{{jobSeeker.skillSet}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);"><mat-icon style="color: white;">check</mat-icon></button>
+      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
+    </mat-card-actions>
+  </mat-card>
+<!-- </div> -->
+  
+
+
+
+
+<!-- <mat-card style="margin-left: 1%;" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="seeker-progile-image"><mat-icon style="font-size:40px;">face</mat-icon></div>
+      <mat-card-title>{{user.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>Seeker 1</h1>
+      <h1>Skills</h1>
+      <ul>
+        <li>
+         Java
+        </li>
+        <li>
+          Angular
+        </li>
+        <li>
+        Spring boot
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);" onclick="interested()"><mat-icon style="color: white;">check</mat-icon></button>
+      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card style="margin-left: 1%;" class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="seeker-progile-image"><mat-icon style="font-size:40px;">face</mat-icon></div>
+      <mat-card-title>{{user.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>Seeker 2</h1>
+      <h1>Skills</h1>
+      <ul>
+        <li>
+         Java
+        </li>
+        <li>
+          Angular
+        </li>
+        <li>
+        Spring boot
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);"><mat-icon style="color: white;">check</mat-icon></button>
+      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card style="margin-left: 1%;" class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="seeker-progile-image"><mat-icon style="font-size:40px;">face</mat-icon></div>
+      <mat-card-title>{{user.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>Seeker 3</h1>
+      <h1>Skills</h1>
+      <ul>
+        <li>
+         Java
+        </li>
+        <li>
+          Angular
+        </li>
+        <li>
+        Spring boot
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);"><mat-icon style="color: white;">check</mat-icon></button>
+      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card style="margin-left: 1%;"class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="seeker-progile-image"><mat-icon style="font-size:40px;">face</mat-icon></div>
+      <mat-card-title>{{user.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>Seeker 4</h1>
+      <h1>Skills</h1>
+      <ul>
+        <li>
+         Java
+        </li>
+        <li>
+          Angular
+        </li>
+        <li>
+        Spring boot
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);"><mat-icon style="color: white;">check</mat-icon></button>
+    
+      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card style="margin-left: 1%;"class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="seeker-progile-image"><mat-icon style="font-size:40px;">face</mat-icon></div>
+      <mat-card-title>{{user.firstName}}</mat-card-title>
+      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>Seeker 5</h1>
+      <h1>Skills</h1>
+      <ul>
+        <li>
+         Java
+        </li>
+        <li>
+          Angular
+        </li>
+        <li>
+        Spring boot
+        </li>
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);"><mat-icon style="color: white;">check</mat-icon></button>
+    
+      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
+    </mat-card-actions> -->
+

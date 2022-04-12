@@ -40,6 +40,11 @@ public interface RegisterService
     boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;
     boolean deleteOrganizationDetails(String organizationEmailId) throws OrganizationDetailsNotFoundException;
 
+    //Recruiter Landing.....................................................
+    Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException;
+    JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException;
+    List<String> getSkillSet(String emailId) throws JobSeekerNotFoundException;
+
 
     //public int generateJobSeekerIdInSequence(String sequenceName);
 }
