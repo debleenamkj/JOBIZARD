@@ -23,12 +23,4 @@ public class Review {
     private String consMessage;
     private Date reviewDate;
     private Ratings companyRatings;
-
-    public enum Ratings {
-        POOR,
-        NOT_BAD,
-        GOOD,
-        VERY_GOOD,
-        EXCELLENT
-    }
 }

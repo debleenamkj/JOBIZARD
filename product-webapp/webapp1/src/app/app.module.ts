@@ -46,7 +46,7 @@ import { LearningPortalComponent } from './learning-portal/learning-portal.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 import { LoginComponent } from './login/login.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
@@ -192,7 +192,8 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     NgbModule,
     MatExpansionModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],
