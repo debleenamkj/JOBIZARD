@@ -8,10 +8,12 @@ import com.stackroute.Assessmentservice.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 @Service
-public class CategoryServiceIMPL implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
@@ -39,9 +41,11 @@ public class CategoryServiceIMPL implements CategoryService {
     }
 
     @Override
-    public Quiz getQuiz(String subcategoryTitle) {
+    public List<Quiz> getQuiz(String subcategoryTitle) {
        Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
-       List<Quiz> quiz =category.getSubCategory().get(0).getQuizList();
-       return quiz.get(0);
+       Random random = new Random();
+        int index=random.nextInt(2);
+        List<Quiz> quiz =category.getSubCategory().get(index).getQuizList();
+        return quiz;
     }
 }

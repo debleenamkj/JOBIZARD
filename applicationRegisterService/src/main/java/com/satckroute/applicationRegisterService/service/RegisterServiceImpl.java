@@ -383,8 +383,10 @@ public class RegisterServiceImpl implements RegisterService
     }
 
     @Override
-    public List<String> getSkillSet(String emailId) throws JobSeekerNotFoundException {
-        if (jobSeekerRegisterRepository.findById(emailId).isEmpty()) {
+    public List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException
+    {
+        if (jobSeekerRegisterRepository.findById(emailId).isEmpty())
+        {
             throw new JobSeekerNotFoundException();
         }
         return List.of(jobSeekerRegisterRepository.findById(emailId).get().getAdditionalDetails().getSkillSet());

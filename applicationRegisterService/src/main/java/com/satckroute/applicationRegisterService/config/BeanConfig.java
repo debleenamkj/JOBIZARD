@@ -13,7 +13,7 @@ public class BeanConfig
     {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean<>();
         filterRegistrationBean.setFilter(new JwtFilter());
-        filterRegistrationBean.addUrlPatterns("/api/v1/**");
+        filterRegistrationBean.addUrlPatterns("/api/v1/**"); // after api/v1 it will take every thing ex. api/v1/jobSeeker
         return filterRegistrationBean;
     }
 }

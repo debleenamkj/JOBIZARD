@@ -1,30 +1,23 @@
-package com.satckroute.applicationRegisterService.domain;
+package com.satckroute.applicationRegisterService.rabbitMQ;
 
+import com.satckroute.applicationRegisterService.domain.Address;
+import com.satckroute.applicationRegisterService.domain.Details;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import javax.persistence.*;
+
+import javax.persistence.Lob;
 import java.util.Date;
 import java.util.List;
 
-@Document
 @Data
 // getter & setter / toString()
 @AllArgsConstructor
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-public class JobSeeker
+public class JobSeekerDTO
 {
-//    @Transient
-//    public static final String SEQUENCE_NAME="user_sequence";
-
-   // private String jobSeekerId;
-
-//    @Column(unique = true)
-    @Id
     private String emailId;
     private String firstName;
     private String lastName;
@@ -44,9 +37,4 @@ public class JobSeeker
 
     @Lob
     private byte[] jobSeekerImage;
-
 }
-
-
-
-

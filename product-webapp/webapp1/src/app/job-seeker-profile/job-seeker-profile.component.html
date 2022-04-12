@@ -55,9 +55,9 @@
                     <li><span style="font-weight: bold;">Education: </span>{{educational.education}}</li>
                     <ul>
                         <li *ngIf="(educational.Courses)">Courses: <ul><li *ngFor="let courses of educational.Courses">{{courses}}</li></ul></li>
-                        <li *ngIf="(educational.Stream)">Stream: {{educational.Stream}}</li>
-                        <li>Passout Year: {{educational.PassYear}}</li>
-                        <li>Percentage: {{educational.Percentage}}</li> 
+                        <li *ngIf="(educational.Stream)">{{educational.Stream}}</li>
+                        <li>{{educational.Percentage}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{educational.PassYear}}</li>
+                     
                     </ul>
                 </ol>
             </mat-card>
