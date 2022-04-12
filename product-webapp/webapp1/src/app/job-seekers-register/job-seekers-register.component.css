@@ -4,12 +4,12 @@ margin: 0vw;
 padding: 0vw;
 }
 
+
 body{
 background-image: url("src/assets/Register/Cloudy.svg");
 margin: auto;
 height: auto;
 width: 100vw;
-
 position: fixed;
 } 
 
@@ -18,7 +18,7 @@ height: 1.5625vh;
 }
 
 #mat-card{
-  border-color: aquamarine;
+  /* border-color: aquamarine; */
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgb(177,23,132), -4px -4px 10px rgb(110,37,134);
 }
@@ -30,7 +30,7 @@ height: 1.5625vh;
   margin-left: 16px;
 }
 
-
+/* 
 .cssbuttons-io-button {
   background: #A370F0;
   color: white;
@@ -89,7 +89,7 @@ height: 1.5625vh;
 
 .full-width {
   width: 100%;
-}
+} */
 
 
 

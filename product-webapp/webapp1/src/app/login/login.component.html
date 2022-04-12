@@ -1,11 +1,16 @@
 
-
-<section id="imgs" class="vh-100">
+<body >
+<section class="vh-100" style="margin-top: -110px;">
   
 
   <div class="row d-flex justify-content-center align-items-center h-100"  style="position: relative;">
-    <div class="col-lg-12 col-xl-11">
-      <div class="card text-black" style="border-radius: 25px;">
+
+    <div class="col-lg-12 col-xl-11" style="border-radius: 10px;
+    box-shadow: 4px 4px 10px rgb(177,23,132), -4px -4px 10px rgb(110,37,134);">
+
+      <div class="card text-black" style="border-radius: 25px;border-radius: 10px;
+      box-shadow: 4px 4px 10px rgb(177,23,132), -4px -4px 10px rgb(110,37,134);">
+
         <div class="card-body p-md-5">
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -14,7 +19,7 @@
 
 
 
-
+              
     <form class="mx-1 mx-md-4" (ngSubmit)="userLogin(user)">
 
 <!-- ************************************************************************************************************************* -->
@@ -23,10 +28,27 @@
   <div class="form-outline flex-fill mb-0">
     <label for="form3Example1c" class="form-label">Email-ID</label>
     <input matInput type="text" class="form-control"  placeholder="Enter your Email-Id" id="emailId" name="emailId" [(ngModel)]="user.emailId" required>
-    <mat-error>{{ error }}</mat-error>
+    <mat-error>{{error}}</mat-error>
   </div>
 </div>
 
+<!-- <div class="row">
+  <div class="col-12">
+    <p style="display:inline-block;width:8%;"> Email ID : </p> &nbsp;&nbsp;
+    <mat-form-field color="accent" appearance="fill" style="width: 16.5%;margin-left: 15px;" class="full-width">
+      <mat-label>Email Id</mat-label>
+      <input  matInput style="display:inline-block;" placeholder="Email ID" formControlName="emailId">
+      <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
+        Email-ID is <strong>required</strong>
+      </mat-error>
+
+      <mat-error *ngIf="registerForm.controls['emailId'].hasError('pattern')">
+        Must be email type <strong>required</strong>
+      </mat-error>
+
+    </mat-form-field>
+  </div>
+</div> -->
 
 
 
@@ -37,10 +59,10 @@
   <div class="form-outline flex-fill mb-0">
         <label for="exampleFormControlInput1" class="form-label" id="form3Example1c">Password</label>
         <input matInput type="password" class="form-control" placeholder="Enter your Password" id="password" name="password" [(ngModel)]="user.password" required>
-         <mat-error>{{ error }}</mat-error>
+      <mat-error>{{error}}</mat-error>
       </div></div>
 
-      <!-- <mat-error>{{ error }}</mat-error> -->
+    
           
       
 
@@ -68,15 +90,21 @@
 
 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image ">
+  <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp" class="img-fluid" alt="Sample image "> -->
 <!-- src="assets/Register/signin-image.jpg" -->
+<img style="height:300px;" src="assets/Register/tech.png" class="img-fluid" alt="Sample image ">
   
 </div>
 </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="height:200px;transform: rotate(180deg);margin-top:-477px;margin-left:477px;border-radius: 10px">
+  <path fill="rgb(110,37,134)" fill-opacity="1" d="M0,64L80,85.3C160,107,320,149,480,186.7C640,224,800,256,960,277.3C1120,299,1280,309,1360,314.7L1440,320L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+</svg>
+
 </div>
 </div>
 </div>
 </div>
 
 </section>
-
+</body>

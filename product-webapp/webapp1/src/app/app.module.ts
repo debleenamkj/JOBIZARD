@@ -82,6 +82,7 @@ import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.c
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
+import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
 
 
@@ -141,7 +142,8 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
     RecruiterlandingComponent,
     JobSeekerLandingComponent,
     SearchPortalComponent,
-    TestResultViewComponent
+    TestResultViewComponent,
+    RecruiterRegisterComponent
 
   ],
   imports: [

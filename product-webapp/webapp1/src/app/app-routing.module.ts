@@ -35,6 +35,7 @@ import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.c
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
+import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
 
 
@@ -79,7 +80,7 @@ const routes: Routes = [
 
   // material component
   {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
-
+  {path:"recruiterRegister",component:RecruiterRegisterComponent},
 
   {path:"organizationRegister",component:OrganizationDetailsComponent},
   {path:"userLogin",component:LoginComponent},
