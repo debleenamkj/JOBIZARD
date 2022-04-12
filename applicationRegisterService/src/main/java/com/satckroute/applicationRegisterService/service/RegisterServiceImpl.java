@@ -364,6 +364,31 @@ public class RegisterServiceImpl implements RegisterService
 //                        JobSeekerIdSequence.class);
 //        return !Objects.isNull(counter) ? counter.getSequenceNumber(): 1;
 //    }
+
+    //Recruiter Landing.....................................................
+    @Override
+    public Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException {
+        if (recruiterRegisterRepository.findById(emailId).isEmpty()) {
+            throw new RecruiterNotFoundException();
+        }
+        return recruiterRegisterRepository.findById(emailId).get();
+    }
+
+    @Override
+    public JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException {
+        if (jobSeekerRegisterRepository.findById(emailId).isEmpty()) {
+            throw new JobSeekerNotFoundException();
+        }
+        return jobSeekerRegisterRepository.findById(emailId).get();
+    }
+
+    @Override
+    public List<String> getSkillSet(String emailId) throws JobSeekerNotFoundException {
+        if (jobSeekerRegisterRepository.findById(emailId).isEmpty()) {
+            throw new JobSeekerNotFoundException();
+        }
+        return List.of(jobSeekerRegisterRepository.findById(emailId).get().getAdditionalDetails().getSkillSet());
+    }
 }
 
 
