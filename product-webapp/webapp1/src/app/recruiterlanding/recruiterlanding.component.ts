@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
 import { JobSeeker } from '../model/jobSeeker';
 import { Recruiter } from '../model/recruiter';
+import {  RecruiterLandingData } from '../model/recruiter-landing-data';
 import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
@@ -22,14 +23,14 @@ export class RecruiterlandingComponent implements OnInit {
   recruiter: Recruiter=new Recruiter;
   jobSeeker: JobSeekerLanding=new JobSeekerLanding;
   getAllJobSeekersArray: Array<Object>=[];
-
+  recruiterLandingData: RecruiterLandingData=new RecruiterLandingData;
   
 
   constructor(private recruiterLanding: RecruiterlandingService) { }
 
   ngOnInit(): void {
-    this.recruiterLanding.getRecruiterProfile().subscribe((d: Recruiter)=>{
-      this.recruiter=d;
+    this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
+      this.recruiterLandingData=d;
     });
 
     
