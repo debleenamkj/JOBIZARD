@@ -19,6 +19,10 @@ export class NavBarComponent {
       shareReplay()
     );
 
+    firstname="Jobsie";
+    lastname="Jobbie";
+    email="jobseeker@gmail.com";
+
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog) {}
 
   hide=false;
