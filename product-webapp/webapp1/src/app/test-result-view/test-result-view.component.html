@@ -8,16 +8,14 @@
     </span>
   </mat-card>
   <!-- <div class="mainDiv"> -->
-    <div class="div1">
-  <h2 class="div1Title">
-        User Details
-      </h2>
-      <span>
-        <img id="userimg" src="../../assets/u1.jpeg" alt="" />
+  <div class="div1">
+    <h2 class="div1Title">User Details</h2>
+    <span>
+      <img id="userimg" src="../../assets/u1.jpeg" alt="" />
       <div class="userDetails">
         <h2>username</h2>
         <h2>Qualification</h2>
-        <h2>BADGE</h2>
+        <h2>{{level}}</h2>
         <h2>.</h2>
         <h2>.</h2>
         <h2>.</h2>
@@ -25,32 +23,31 @@
           <h1 style="margin-left: -25px">{{ message }}</h1>
         </div>
       </div>
-      </span>
-    </div>
-    <div class="div2">
-      <div>
-        <span class="div2Result"><img src="../../assets/u1.jpeg" alt="" />
-          <h2>
-            Hey {{ username }}, you are our {{ level }}, with Score
-            {{ marksGot }}%
-          </h2></span>
-        <div class="div2ResultDetails" >
-          <span >
-            <h2>Questions Attempted</h2>
-            <h2 style="margin-left: 35px;">
-              : {{ attempted }}/{{ TotalQuestions }}
-            </h2>
-          </span>
-          <span>
-            <h2>Questions UnAttempted</h2>
-            <h2>
-              : {{ unattempted }}/{{ TotalQuestions }}
-            </h2>
-          </span>
-        </div>
-        <span> <button type="button" class="btn">PRINT</button>
+    </span>
+  </div>
+  <div class="div2">
+    <div>
+      <span class="div2Result"
+        ><img src="{{worrior_logo}}" alt="" />
+        <h2>
+          Hey {{ username }}, you are our {{ level }}, with Score
+          {{ marksGot }}%
+        </h2></span
+      >
+      <div class="div2ResultDetails">
+        <span>
+          <h2>Questions Attempted</h2>
+          <h2 style="margin-left: 35px">
+            : {{ attempted }}/{{ TotalQuestions }}
+          </h2>
+        </span>
+        <span>
+          <h2>Questions UnAttempted</h2>
+          <h2>: {{ unattempted }}/{{ TotalQuestions }}</h2>
         </span>
       </div>
+      <span> <button type="button" class="btn">PRINT</button> </span>
     </div>
   </div>
+</div>
 <!-- </div> -->

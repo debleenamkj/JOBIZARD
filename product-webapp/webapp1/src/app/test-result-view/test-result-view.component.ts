@@ -35,12 +35,13 @@ export class TestResultViewComponent implements OnInit {
     this.unattempted=this.service.unAnsweredQuestions;
     this.marksGot=this.service.percentage;
 
+    let card = document.getElementsByClassName("flip-card") as HTMLCollectionOf<HTMLElement>;
     if (this.marksGot < 50) {
-      let card = document.getElementsByClassName("flip-card") as HTMLCollectionOf<HTMLElement>;
       card[0].style.backgroundColor='red';
       this.message="FAIL"
     }
       else{
+        card[0].style.backgroundColor='green';
         this.message="PASS"
       }
 
@@ -51,7 +52,7 @@ export class TestResultViewComponent implements OnInit {
   attempted = 0;
   unattempted = 0;
   username = 'USER';
-  level = 'NINJA';
+  level:any;
   Testname = '';
   performance = '';
   TotalQuestions = 10;
