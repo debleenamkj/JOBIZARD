@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   loginForm = this.formBuilder.group({
     emailId: [null, Validators.required],
     password:[null, Validators.required]
+    // role:[this.loginService.role]
   });
 
   hasUnitNumber = false;
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
   
   userLogin(user:any)
   {
+    // console.log(this.loginService.role)
     console.log(this.user)
     this.loginService.userLogIn(this.user)
     .subscribe(()=>{

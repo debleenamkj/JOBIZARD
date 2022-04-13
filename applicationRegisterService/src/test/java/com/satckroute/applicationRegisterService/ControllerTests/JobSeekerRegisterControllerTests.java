@@ -6,6 +6,7 @@ import com.satckroute.applicationRegisterService.controller.RegisterController;
 import com.satckroute.applicationRegisterService.domain.Address;
 import com.satckroute.applicationRegisterService.domain.Details;
 import com.satckroute.applicationRegisterService.domain.JobSeeker;
+import com.satckroute.applicationRegisterService.domain.Role;
 import com.satckroute.applicationRegisterService.exception.JobSeekerAlreadyExistException;
 import com.satckroute.applicationRegisterService.repository.JobSeekerRegisterRepository;
 import com.satckroute.applicationRegisterService.service.RegisterServiceImpl;
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -35,7 +37,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@ExtendWith(SpringExtension.class)
+@ExtendWith(MockitoExtension.class)
 public class JobSeekerRegisterControllerTests
 {
     @Mock
@@ -66,6 +68,7 @@ public class JobSeekerRegisterControllerTests
         Date date = formatter.parse(testDate);
         System.out.println(date);
 
+//        , Role.JOBSEEKER
         jobSeeker = new JobSeeker("emailId@gmail.com","FirstName01","LastName1",
                 "GENDER1",date,"1234567890","Password1",address,details);
 
@@ -107,6 +110,21 @@ public class JobSeekerRegisterControllerTests
 
 //----------------------------------------------------------------------------------------------------------------------
 
+    //positive test case
+    @Test
+    public void saveProductDetailsController() throws Exception
+    {
+        when(registerServiceImpl.registerNewJobSeeker(any())).thenReturn(jobSeeker);
+
+        mockMvc.perform(post("/api/v1/registerJobSeeker")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(jobSeeker)))
+                .andExpect(status()
+                        .isCreated())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl,times(1)).registerNewJobSeeker(any());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
