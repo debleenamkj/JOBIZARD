@@ -1,0 +1,27 @@
+
+    <h1 mat-dialog-title></h1>
+    <div mat-dialog-content  class="mat-typography">
+    
+    <form [formGroup]="postBlog">
+     <p style=" font-size: 130%; "> Add Title </p>
+        <mat-form-field color="accent" appearance="fill" style="width: 100%;">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Add Title..." formControlName="title">
+        </mat-form-field>
+        <p style=" font-size: 130%; margin-top: 4%;">Write Blog </p>
+        <mat-form-field color="accent" appearance="fill" style="width: 100%;">
+          <mat-label>Blog</mat-label>
+          <textarea matInput placeholder="Write your Blog....." formControlName="postBlog"></textarea>
+        </mat-form-field>
+      <p style=" font-size: 130%; margin-top: 4%;">Add description </p>
+      <mat-form-field color="accent" appearance="fill" style="width: 100%;">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Description....." formControlName="description">
+      </mat-form-field>
+      </form>
+    </div>
+    <div mat-dialog-actions style="float: right;">
+      <button mat-button (click)="sendPostBlog()">Post</button>
+    </div>
+    
+    

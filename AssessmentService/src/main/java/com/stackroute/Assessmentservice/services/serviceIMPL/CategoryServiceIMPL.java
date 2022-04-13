@@ -33,11 +33,14 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(int categoryId) {
+    public boolean deleteCategory(int categoryId) {
         Category category = new Category();
+        if (category == null) {
+            return  false;
+        }
         category.setCid(categoryId);
         this.categoryRepository.delete(category);
-
+        return true;
     }
 
     @Override

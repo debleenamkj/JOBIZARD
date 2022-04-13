@@ -13,13 +13,13 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class ExternalApiCallerImpl implements ExternalApiCaller{
 
-    @Value("$com.stackroute.trendlabservice.X-RapidAPI-Host")
+    @Value("${com.stackroute.trendlabservice.X-RapidAPI-Host}")
     private String hostName;
 
-    @Value("$com.stackroute.trendlabservice.X-RapidAPI-Key")
+    @Value("${com.stackroute.trendlabservice.X-RapidAPI-Key}")
     private String hostKey;
 
-    @Value("$com.stackroute.trendlabservice.externalUrl")
+    @Value("${com.stackroute.trendlabservice.externalUrl}")
     private String externalUrl;
 
     @Override

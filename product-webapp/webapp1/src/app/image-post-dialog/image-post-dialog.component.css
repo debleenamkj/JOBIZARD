@@ -1,0 +1,7 @@
+button{
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));
+    color: white;
+    font-size: 1.2vw;
+    padding: 0 35px;
+    float: right;
+}

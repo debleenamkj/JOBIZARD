@@ -1,0 +1,15 @@
+<div mat-dialog-content  class="mat-typography">
+ <form [formGroup]="postImage">
+ <p style="font-size: 150%">Upload an image to post</p>
+    <input type="file" (change)="onFileChanged($event)">
+    <img src="{{upimage}}" width="30%">
+  <p style=" font-size: 150%; margin-top: 8%;">Add description :</p>
+  <mat-form-field color="accent" appearance="fill" style="width: 100%;">
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="Description....." formControlName="description">
+  </mat-form-field>
+  </form> 
+  </div>
+<div mat-dialog-actions style="float: right;">
+  <button mat-button (click)="sendPostImage()">Post</button>
+</div> 

@@ -7,16 +7,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Document
-public class PostImage {
+public class Post {
 
-    private byte[] postImage;
-    private char[] description;
-    private Like like;
-    private List<Review> reviews;
-
+    @Id
+    private String postId;
+    private User user;
+    private PostBlog postBlog;
+    private PostImage postImage;
 }
