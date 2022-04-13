@@ -5,7 +5,6 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
-import { JobSeeker } from '../model/jobSeeker';
 import { RegisterServiceService } from '../service/register-service.service';
 
 @Component({
@@ -21,9 +20,9 @@ export class NavBarComponent {
       shareReplay()
     );
 
-      // role="jobseeker";
+      role="jobseeker";
       // role="recruiter";
-      role="";
+      // role="";
 
   // name="sajal@gmail.com";
   // n1=name.split("@",3);

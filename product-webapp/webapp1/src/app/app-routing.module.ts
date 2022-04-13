@@ -37,6 +37,7 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
 
 
 
@@ -59,6 +60,7 @@ const routes: Routes = [
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
   {path:'result',component:TestResultViewComponent},
+  {path:'search',component:SearchPortalComponent},
 
   // providing path for register and login
   {path:"register",component:RegisterComponent},
