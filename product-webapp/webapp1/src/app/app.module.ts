@@ -82,6 +82,8 @@ import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.c
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
+import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.component';
+import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
 
 
 
@@ -141,7 +143,9 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
     RecruiterlandingComponent,
     JobSeekerLandingComponent,
     SearchPortalComponent,
-    TestResultViewComponent
+    TestResultViewComponent,
+    ImagePostDialogComponent,
+    BlogPostDialogComponent
 
   ],
   imports: [
