@@ -294,6 +294,22 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
+    public JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws JobSeekerNotFoundException, IOException
+    {
+        jobSeeker.setJobSeekerImage(file.getBytes());
+        if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
+        {
+            throw new JobSeekerNotFoundException();
+        }
+        else
+        {
+            return jobSeekerRegisterRepository.save(jobSeeker);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Override
     public Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws RecruiterNotFoundException
     {
         if(recruiterRegisterRepository.findById(emailId).isEmpty())

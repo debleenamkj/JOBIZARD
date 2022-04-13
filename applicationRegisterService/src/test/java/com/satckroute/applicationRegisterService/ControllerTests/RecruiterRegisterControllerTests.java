@@ -1,15 +1,13 @@
 package com.satckroute.applicationRegisterService.ControllerTests;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.satckroute.applicationRegisterService.controller.RegisterController;
-import com.satckroute.applicationRegisterService.domain.Address;
-import com.satckroute.applicationRegisterService.domain.Details;
-import com.satckroute.applicationRegisterService.domain.JobSeeker;
-import com.satckroute.applicationRegisterService.domain.Role;
-import com.satckroute.applicationRegisterService.exception.JobSeekerAlreadyExistException;
-import com.satckroute.applicationRegisterService.exception.JobSeekerNotFoundException;
-import com.satckroute.applicationRegisterService.repository.JobSeekerRegisterRepository;
+import com.satckroute.applicationRegisterService.domain.*;
+import com.satckroute.applicationRegisterService.exception.RecruiterAlreadyExistException;
+import com.satckroute.applicationRegisterService.exception.RecruiterNotFoundException;
+import com.satckroute.applicationRegisterService.repository.RecruiterRegisterRepository;
 import com.satckroute.applicationRegisterService.service.RegisterServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,21 +22,19 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @ExtendWith(MockitoExtension.class)
-public class JobSeekerRegisterControllerTests
+public class RecruiterRegisterControllerTests
 {
     @Mock
     private RegisterServiceImpl registerServiceImpl;
@@ -46,13 +42,13 @@ public class JobSeekerRegisterControllerTests
     @InjectMocks
     private RegisterController registerController;
 
-    private JobSeekerRegisterRepository jobSeekerRegisterRepository;
+    private RecruiterRegisterRepository recruiterRegisterRepository;
 
-    private JobSeeker jobSeeker;
+    private Recruiter recruiter;
     private Address address;
-    private Details details;
+    private OrganizationDetails organizationDetails;
 
-    private List<JobSeeker> jobSeekerList;
+    private List<Recruiter> recruiterList;
 
     //Create a bean
     @Autowired
@@ -61,42 +57,48 @@ public class JobSeekerRegisterControllerTests
 //----------------------------------------------------------------------------------------------------------------------
 
     @BeforeEach
-    public void setUp() throws ParseException {
-        String testDate = "29-Apr-2010,13:00:14 PM";
-        DateFormat formatter = new SimpleDateFormat("d-MMM-yyyy,HH:mm:ss aaa");
-        Date date = formatter.parse(testDate);
-        System.out.println(date);
+    public void setUp() throws ParseException
+    {
+        recruiter = new Recruiter();
+        recruiter.setEmailId("recruiter@gmail.com");
+        recruiter.setFirstName("FirstName1");
+        recruiter.setLastName("LastName1");
+        recruiter.setGender("MALE");
+        recruiter.setMobileNumber("7894560123");
+        recruiter.setPassword("pass123");
+        recruiter.setAddressDetails(address);
+        recruiter.setOrganizationDetails(organizationDetails);
 
-//        , Role.JOBSEEKER
-        jobSeeker = new JobSeeker("emailId@gmail.com", "FirstName01", "LastName1",
-                "GENDER1", date, "1234567890", "Password1", address, details);
-
-        jobSeekerList = Arrays.asList(jobSeeker);
+        recruiterList = Arrays.asList(recruiter);
 
         mockMvc = MockMvcBuilders.standaloneSetup(registerController).build();
         // it allows to register one or more controller without the need to use the full WebApplicationContext
     }
 
-
 //----------------------------------------------------------------------------------------------------------------------
 
     @AfterEach
-    public void tearDown() {
-        jobSeeker = null;
+    public void tearDown()
+    {
+        recruiter = null;
     }
 
 //----------------------------------------------------------------------------------------------------------------------
 
     //converting json data to string
 
-    private static String jsonToString(final Object obj) throws JsonProcessingException {
+    private static String jsonToString(final Object obj) throws JsonProcessingException
+    {
         String output = null;
-        try {
+        try
+        {
             ObjectMapper mapper = new ObjectMapper();
             //ObjectMapper provides functionality for reading and writing JSON from POJO class
             String jsonContent = mapper.writeValueAsString(obj);
             output = jsonContent;
-        } catch (JsonProcessingException e) {
+        }
+        catch (JsonProcessingException e)
+        {
             output = "Error while Conversion.";
         }
         return output;
@@ -104,174 +106,177 @@ public class JobSeekerRegisterControllerTests
 
 //----------------------------------------------------------------------------------------------------------------------
 
-//    registerNewJobSeeker
+
+//    registerNewRecruiter
 
     //positive test case
     @Test
-    public void saveNewJobSeeker() throws Exception {
-        when(registerServiceImpl.registerNewJobSeeker(any())).thenReturn(jobSeeker);
+    public void saveNewRecruiter() throws Exception
+    {
+        when(registerServiceImpl.registerNewRecruiter(any())).thenReturn(recruiter);
 
-        mockMvc.perform(post("/api/v1/registerJobSeeker")
+        mockMvc.perform(post("/api/v1/registerRecruiter")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonToString(jobSeeker)))
+                        .content(jsonToString(recruiter)))
                 .andExpect(status()
                         .isCreated())
                 .andDo(MockMvcResultHandlers.print());
 
-        verify(registerServiceImpl, times(1)).registerNewJobSeeker(any());
+        verify(registerServiceImpl, times(1)).registerNewRecruiter(any());
     }
 
     //negative test case
     @Test
-    public void saveNewJobSeekerFailure() throws Exception {
-        when(registerServiceImpl.registerNewJobSeeker(any())).thenThrow(JobSeekerAlreadyExistException.class);
+    public void saveNewRecruiterFailure() throws Exception {
+        when(registerServiceImpl.registerNewRecruiter(any())).thenThrow(RecruiterAlreadyExistException.class);
 
-        mockMvc.perform(post("/api/v1/registerJobSeeker")
+        mockMvc.perform(post("/api/v1/registerRecruiter")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonToString(jobSeeker)))
+                        .content(jsonToString(recruiter)))
                 .andExpect(status()
                         .isConflict())
                 .andDo(MockMvcResultHandlers.print());
 
         //isConflict()) = @ResponseStatus(code= HttpStatus.CONFLICT,reason = "Product already exist.")
 
-        verify(registerServiceImpl, times(1)).registerNewJobSeeker(any());
+        verify(registerServiceImpl, times(1)).registerNewRecruiter(any());
     }
 //----------------------------------------------------------------------------------------------------------------------
 
-//getAllJobSeeker
+//  getAllRecruiter
 
 
     //positive test case
     @Test
-    public void showAllJobSeeker() throws Exception {
-        when(registerServiceImpl.getAllJobSeeker()).thenReturn(jobSeekerList);
+    public void showAllRecruiter() throws Exception {
+        when(registerServiceImpl.getAllRecruiter()).thenReturn(recruiterList);
 
-        mockMvc.perform(get("/api/v1/getALlJobSeeker")
+        mockMvc.perform(get("/api/v1/getAllRecruiter")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())     // isOk() ref = its is status code of ResponseEntity
                 .andDo(MockMvcResultHandlers.print());
 
-        verify(registerServiceImpl, times(1)).getAllJobSeeker();
+        verify(registerServiceImpl, times(1)).getAllRecruiter();
     }
 
 
     //negative test case
     @Test
-    public void showAllJobSeekerFailure() throws Exception {
-        when(registerServiceImpl.getAllJobSeeker()).thenThrow(JobSeekerNotFoundException.class);
+    public void showAllRecruiterFailure() throws Exception {
+        when(registerServiceImpl.getAllRecruiter()).thenThrow(RecruiterNotFoundException.class);
 
-        mockMvc.perform(get("/api/v1/getALlJobSeeker")
+        mockMvc.perform(get("/api/v1/getAllRecruiter")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isInternalServerError())  // catch
                 .andDo(MockMvcResultHandlers.print());
 
-        verify(registerServiceImpl, times(1)).getAllJobSeeker();
+        verify(registerServiceImpl, times(1)).getAllRecruiter();
     }
 
 
 //----------------------------------------------------------------------------------------------------------------------
 
-//    getAllJobSeekerByFirstName
+//    getAllRecruiterByFirstName
 
     //positive test case
     @Test
-    public void showJobSeekerByFirstName() throws Exception {
-        when(registerServiceImpl.getAllJobSeekerByFirstName(anyString())).thenReturn(jobSeekerList);
+    public void showRecruiterByFirstName() throws Exception {
+        when(registerServiceImpl.getAllRecruiterByFirstName(anyString())).thenReturn(recruiterList);
 
-        mockMvc.perform(get("/api/v1//jobSeeker/getUserByFirstName/FirstName01")
+        mockMvc.perform(get("/api/v1//recruiter/getUserByFirstName/FirstName1")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonToString(jobSeeker)))
+                        .content(jsonToString(recruiter)))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
 
-        verify(registerServiceImpl, times(1)).getAllJobSeekerByFirstName(anyString());
+        verify(registerServiceImpl, times(1)).getAllRecruiterByFirstName(anyString());
     }
 
 
     //negative test case
 //    @Test
-//    public void showJobSeekerByFirstNameFailure() throws Exception {
-//        when(registerServiceImpl.getAllJobSeekerByFirstName(anyString())).thenThrow(JobSeekerNotFoundException.class);
+//    public void showRecruiterByFirstNameFailure() throws Exception {
+//        when(registerServiceImpl.getAllRecruiterByFirstName(anyString())).thenThrow(RecruiterNotFoundException.class);
 //
-//        mockMvc.perform(get("/api/v1//jobSeeker/getUserByFirstName/FirstName01")
+//        mockMvc.perform(get("/api/v1//recruiter/getUserByFirstName/FirstName1")
 //                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(jobSeeker)))
+//                        .content(jsonToString(recruiter)))
 //                .andExpect(status().isNotFound())
 //                .andDo(MockMvcResultHandlers.print());
 //
 //        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
 //
-//        verify(registerServiceImpl, times(1)).getAllJobSeekerByFirstName(anyString());
+//        verify(registerServiceImpl, times(1)).getAllRecruiterByFirstName(anyString());
 //    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
-//    updateJobSeekerDetails
+//    updateRecruiterDetails
 
     //positive test case
     @Test
-    public void updateJobSeekerDetails() throws Exception {
-        when(registerServiceImpl.updateJobSeekerDetails(any(), anyString())).thenReturn(jobSeeker);
+    public void updateRecruiterDetails() throws Exception {
+        when(registerServiceImpl.updateRecruiterDetails(any(), anyString())).thenReturn(recruiter);
 
-        mockMvc.perform(put("/api/v1/jobSeeker/emailId")
+        mockMvc.perform(put("/api/v1/recruiter/emailId")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonToString(jobSeeker)))
+                        .content(jsonToString(recruiter)))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
 
-        verify(registerServiceImpl, times(1)).updateJobSeekerDetails(any(), anyString());
+        verify(registerServiceImpl, times(1)).updateRecruiterDetails(any(), anyString());
     }
 
 
     //negative test case
 //    @Test
-//    public void updateJobSeekerDetailsFailure() throws Exception {
-//        when(registerServiceImpl.updateJobSeekerDetails(any(), anyString())).thenThrow(JobSeekerNotFoundException.class);
+//    public void updateRecruiterDetailsFailure() throws Exception {
+//        when(registerServiceImpl.updateRecruiterDetails(any(), anyString())).thenThrow(RecruiterNotFoundException.class);
 //
-//        mockMvc.perform(put("/api/v1/jobSeeker/emailId")
+//        mockMvc.perform(put("/api/v1/recruiter/emailId")
 //                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(jobSeeker)))
+//                        .content(jsonToString(recruiter)))
 //                .andExpect(status().isNotFound())
 //                .andDo(MockMvcResultHandlers.print());
 //
-//        verify(registerServiceImpl, times(1)).updateJobSeekerDetails(any(), anyString());
+//        verify(registerServiceImpl, times(1)).updateRecruiterDetails(any(), anyString());
 //    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
-//    deleteJobSeekerDetail
+//    deleteRecruiterDetails
 
     //positive test case
     @Test
-    public void deleteJobSeekerDetail() throws Exception
+    public void deleteRecruiterDetail() throws Exception
     {
-        when(registerServiceImpl.deleteJobSeekerDetails(anyString())).thenReturn(true);
+        when(registerServiceImpl.deleteRecruiterDetails(anyString())).thenReturn(true);
 
-        mockMvc.perform(delete("/api/v1/jobSeeker/emailId")
+        mockMvc.perform(delete("/api/v1/recruiter/emailId")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(MockMvcResultHandlers.print());
 
-        verify(registerServiceImpl,times(1)).deleteJobSeekerDetails(anyString());
+        verify(registerServiceImpl,times(1)).deleteRecruiterDetails(anyString());
     }
 
 
     //negative test case
 //    @Test
-//    public void deleteJobSeekerDetailFailure() throws Exception
+//    public void deleteRecruiterDetailFailure() throws Exception
 //    {
-//        when(registerServiceImpl.deleteJobSeekerDetails("email@gmail.com")).thenThrow(JobSeekerNotFoundException.class);
+//        when(registerServiceImpl.deleteRecruiterDetails("recruiter@gmail.com")).thenThrow(RecruiterNotFoundException.class);
 //
-//        mockMvc.perform(delete("/api/v1/product/product/emailId")
+//        mockMvc.perform(delete("/api/v1/recruiter/emailId")
 //                        .contentType(MediaType.APPLICATION_JSON))
 //                .andExpect(status().isNotFound())
 //                .andDo(MockMvcResultHandlers.print());
 //
-//        verify(registerServiceImpl,times(1)).deleteJobSeekerDetails("email@gmail.com");
+//        verify(registerServiceImpl,times(1)).deleteRecruiterDetails("recruiter@gmail.com");
 //    }
+
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
 }
-
