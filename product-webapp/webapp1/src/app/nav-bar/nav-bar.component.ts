@@ -33,6 +33,7 @@ export class NavBarComponent {
   }
 
   openReviewForm(): void {
+    
     const dialogRef = this.dialog.open(RegisterComponent)
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog Box: $(result)')

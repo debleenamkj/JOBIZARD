@@ -11,50 +11,79 @@
     <form [formGroup]="reviewForm" class="review-form">
         <table>
             <tr>
-                <td colspan="2" >
+                <td colspan="2">
                     <div style="display: flex; align-items: center; justify-content: center;">
-                    <img style="margin-left: 0%; margin-right: auto;
-                         width: 100px; height: 100px; object-fit: contain;" 
-                    *ngIf="reviewService.selectedCompany.retrievedImage" 
-                    [src]="reviewService.selectedCompany.retrievedImage">
-                
-                    <h3 style="width: 200px; font-weight: 600;" 
-                    *ngIf="reviewService.selectedCompany.companyName">
-                        {{reviewService.selectedCompany.companyName}}
-                    </h3>
-                </div>
+                        <img style="margin-left: 0%; margin-right: auto;
+                         width: 100px; height: 100px; object-fit: contain;"
+                            *ngIf="reviewService.selectedCompany.retrievedImage"
+                            [src]="reviewService.selectedCompany.retrievedImage">
+
+                        <h3 style="width: 200px; font-weight: 600;" *ngIf="reviewService.selectedCompany.companyName">
+                            {{reviewService.selectedCompany.companyName}}
+                        </h3>
+                    </div>
                 </td>
             </tr>
-            
             <tr>
-                <td colspan="2" rowspan="2">
+                <td style="display: flex; margin-left: 3px;">
+                    <button mat-icon-button (click)="oneStarMethod()" >
+                        <mat-icon #oneStar >
+                        grade</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='primary';
+                    fourStar.color='primary'; fiveStar.color='primary';">
+                        <mat-icon #twoStar >
+                            grade</mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
+                        fourStar.color='primary'; fiveStar.color='primary';">
+                        <mat-icon #threeStar>
+                            grade</mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
+                        fourStar.color='accent'; fiveStar.color='primary';">
+                        <mat-icon #fourStar>
+                            grade</mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
+                        fourStar.color='accent'; fiveStar.color='accent';">
+                        <mat-icon #fiveStar>
+                            grade</mat-icon>
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
                     <h3 class="field-heading">What you do Like? </h3>
                     <mat-form-field appearance="fill" class="text-area">
                         <mat-label>
                             You like...
                         </mat-label>
                         <textarea matInput formControlName="prosMessage" type="text"></textarea>
-                        <mat-error *ngIf="reviewForm.controls['prosMessage'].invalid">{{validateProsMessage()}}</mat-error>
+                        <mat-error *ngIf="reviewForm.controls['prosMessage'].invalid">{{validateProsMessage()}}
+                        </mat-error>
                     </mat-form-field>
                 </td>
             </tr>
             <tr>
-
-            </tr>
-            <tr>
-                <td colspan="2" rowspan="2">
+                <td colspan="2">
                     <h3 class="field-heading">What you don't like? </h3>
                     <mat-form-field appearance="fill" class="text-area">
                         <mat-label>
                             You dislike...
                         </mat-label>
                         <textarea matInput formControlName="consMessage" type="text"></textarea>
-                        <mat-error *ngIf="reviewForm.controls['consMessage'].invalid">{{validateConsMessage()}}</mat-error>
+                        <mat-error *ngIf="reviewForm.controls['consMessage'].invalid">{{validateConsMessage()}}
+                        </mat-error>
                     </mat-form-field>
                 </td>
             </tr>
             <tr>
-                
+
             </tr>
             <tr style="display: none;">
                 <th>
@@ -116,7 +145,14 @@
                     </mat-form-field>
                 </td>
             </tr> -->
-            
+            <tr>
+                <td colspan="2">
+                    <button mat-raised-button [disabled]="formValidation" (click)="postReviewDetails()" type="submit">
+                        Submit
+                    </button>
+                </td>
+            </tr>
         </table>
+
     </form>
 </mat-dialog-content>
