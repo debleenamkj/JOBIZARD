@@ -28,7 +28,7 @@ public class OrganizationDetails
 
     private String organizationName;
     private String organizationSector;
-    private String roleOfHiring;
+//    private String roleOfHiring;
     private String contactNumber;
 
     private String password;
