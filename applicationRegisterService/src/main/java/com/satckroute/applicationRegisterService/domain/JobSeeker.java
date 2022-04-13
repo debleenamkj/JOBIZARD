@@ -31,7 +31,7 @@ public class JobSeeker
 
     private String gender;
     private Date dateOfBirth;
-    private long mobileNumber;
+    private String mobileNumber;
     private String password;
 
 //    private String role;
@@ -45,6 +45,20 @@ public class JobSeeker
     @Lob
     private byte[] jobSeekerImage;
 
+
+    // custom Constructor for test cases
+    public JobSeeker(String emailId, String firstName, String lastName, String gender, Date dateOfBirth, String mobileNumber, String password, Address address, Details additionalDetails)
+    {
+        this.emailId = emailId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.mobileNumber = mobileNumber;
+        this.password = password;
+        this.address = address;
+        this.additionalDetails = additionalDetails;
+    }
 }
 
 

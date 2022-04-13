@@ -70,11 +70,11 @@ export class ReviewComponent implements OnInit {
   });
   companyNameGroups: CompanyNameGroup[] = [];
   companyGroupOptions!: Observable<CompanyNameGroup[]>;
-  
+  searchErrorMessage:string|undefined;
   pageEvent!: PageEvent;
   companies: CompanyDetails[] = [];
   companiesSlice: CompanyDetails[]= [];
-
+  searchError:boolean = false;
   private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
   private getCompanyByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_company";
   private getReviewsByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_reviews"
@@ -104,13 +104,17 @@ export class ReviewComponent implements OnInit {
     }})
     this.getReviewsByCompanyName(this.companyForm.get('companyGroup')?.value)
     .subscribe({ next: response =>{
+      this.searchError=false;
       let a:Review[] = response;
       console.log(a)
     }, 
     error: errorResponse=>{
+      this.searchError=true;
       console.log(errorResponse.error)
-      if(errorResponse.error.status==404)
+      if(errorResponse.error.status==404){
+        this.searchErrorMessage = errorResponse.error.message;
         console.log(errorResponse.error.message)
+      }
       else{
         console.log('Server Error');
       }

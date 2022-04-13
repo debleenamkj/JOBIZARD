@@ -55,62 +55,64 @@ public class RegisterServiceImpl implements RegisterService
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @Override
-    public JobSeeker saveJobSeekerImage(JobSeeker jobSeeker, MultipartFile file) throws JobSeekerImageAlreadyExistException, IOException
-    {
-//        Role role = Role.JOBSEEKER;
-//        jobSeeker.setRole("jobSeeker");
-//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.getRole());//
-        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
-        //jobSeeker.setJobSeekerId(generateJobSeekerIdInSequence(JobSeeker.SEQUENCE_NAME));
-        //jobSeeker.setJobSeekerId(UUID.randomUUID().toString());
-        jobSeeker.setJobSeekerImage(file.getBytes());
-        System.out.println("service");
-        System.out.println(jobSeeker);
-        if(jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
-        {
-            throw new JobSeekerImageAlreadyExistException();
-        }
-        producer.sendMessage(userDTO);//
-        return jobSeekerRegisterRepository.save(jobSeeker);
-    }
 
-
-//---------------------------------------------------------------------------------------------------------------------
-
-    @Override
-    public Recruiter saveRecruiterImage(Recruiter recruiter, MultipartFile file) throws RecruiterImageAlreadyExistException , IOException
-    {
-//        Role role = Role.RECRUITER;
-//        recruiter.setRole("recruiter");
-//        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.getRole());//
-        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
-
-//        recruiter.setRecruiterId(UUID.randomUUID().toString());
-        recruiter.setRecruiterImage(file.getBytes());
-        if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
-        {
-            throw new RecruiterImageAlreadyExistException();
-        }
-        producer.sendMessage(userDTO);
-        return recruiterRegisterRepository.save(recruiter);
-    }
-
-//---------------------------------------------------------------------------------------------------------------------
-
-    @Override
-    public OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails, MultipartFile file) throws OrganizationDetailsAlreadyExistException, IOException
-    {
-//        organizationDetails.setOrganizationID(UUID.randomUUID().toString());
-        UserDTO userDTO = new UserDTO(organizationDetails.getEmailId(),organizationDetails.getPassword());
-        organizationDetails.setOrganizationLogo(file.getBytes());
-        if(organizationDetailsRepository.findById(organizationDetails.getEmailId()).isPresent())
-        {
-            throw new OrganizationDetailsAlreadyExistException();
-        }
-        producer.sendMessage(userDTO);
-        return organizationDetailsRepository.save(organizationDetails);
-    }
+// with images
+//    @Override
+//    public JobSeeker saveJobSeekerImage(JobSeeker jobSeeker, MultipartFile file) throws JobSeekerImageAlreadyExistException, IOException
+//    {
+////        Role role = Role.JOBSEEKER;
+////        jobSeeker.setRole("jobSeeker");
+////        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.getRole());//
+//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
+//        //jobSeeker.setJobSeekerId(generateJobSeekerIdInSequence(JobSeeker.SEQUENCE_NAME));
+//        //jobSeeker.setJobSeekerId(UUID.randomUUID().toString());
+//        jobSeeker.setJobSeekerImage(file.getBytes());
+//        System.out.println("service");
+//        System.out.println(jobSeeker);
+//        if(jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
+//        {
+//            throw new JobSeekerImageAlreadyExistException();
+//        }
+//        producer.sendMessage(userDTO);//
+//        return jobSeekerRegisterRepository.save(jobSeeker);
+//    }
+//
+//
+////---------------------------------------------------------------------------------------------------------------------
+//
+//    @Override
+//    public Recruiter saveRecruiterImage(Recruiter recruiter, MultipartFile file) throws RecruiterImageAlreadyExistException , IOException
+//    {
+////        Role role = Role.RECRUITER;
+////        recruiter.setRole("recruiter");
+////        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.getRole());//
+//        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
+//
+////        recruiter.setRecruiterId(UUID.randomUUID().toString());
+//        recruiter.setRecruiterImage(file.getBytes());
+//        if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
+//        {
+//            throw new RecruiterImageAlreadyExistException();
+//        }
+//        producer.sendMessage(userDTO);
+//        return recruiterRegisterRepository.save(recruiter);
+//    }
+//
+////---------------------------------------------------------------------------------------------------------------------
+//
+//    @Override
+//    public OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails, MultipartFile file) throws OrganizationDetailsAlreadyExistException, IOException
+//    {
+////        organizationDetails.setOrganizationID(UUID.randomUUID().toString());
+//        UserDTO userDTO = new UserDTO(organizationDetails.getEmailId(),organizationDetails.getPassword());
+//        organizationDetails.setOrganizationLogo(file.getBytes());
+//        if(organizationDetailsRepository.findById(organizationDetails.getEmailId()).isPresent())
+//        {
+//            throw new OrganizationDetailsAlreadyExistException();
+//        }
+//        producer.sendMessage(userDTO);
+//        return organizationDetailsRepository.save(organizationDetails);
+//    }
 //---------------------------------------------------------------------------------------------------------------------
 
 //    @Override
@@ -253,11 +255,11 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
-    public List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException
+    public List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException
     {
         if(organizationDetailsRepository.findAllOrganizationByOrganizationName(organizationName).isEmpty())
         {
-            throw new OrganizationDetailsAlreadyExistException();
+            throw new OrganizationDetailsNotFoundException();
         }
         else
         {
@@ -292,6 +294,21 @@ public class RegisterServiceImpl implements RegisterService
         else
         {
             return recruiterRegisterRepository.save(recruiter);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException
+    {
+        if(organizationDetailsRepository.findById(emailId).isEmpty())
+        {
+            throw new OrganizationDetailsNotFoundException();
+        }
+        else
+        {
+            return organizationDetailsRepository.save(organizationDetails);
         }
     }
 
@@ -375,11 +392,8 @@ public class RegisterServiceImpl implements RegisterService
     }
 
     @Override
-    public JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException {
-        if (jobSeekerRegisterRepository.findById(emailId).isEmpty()) {
-            throw new JobSeekerNotFoundException();
-        }
-        return jobSeekerRegisterRepository.findById(emailId).get();
+    public List<JobSeeker> getAllJobSeekers() throws JobSeekerNotFoundException {
+        return jobSeekerRegisterRepository.findAll();
     }
 
     @Override

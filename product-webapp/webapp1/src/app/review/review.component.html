@@ -8,16 +8,20 @@
             background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132) );">
             Get Insight On Companies
         </h1>
-
-        <div>
+    </section>
+    <div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+        <div style=" background-color: aquamarine; margin-left: 0%; margin-right: auto;">
             <form [formGroup]="companyForm" class="search-form">
                 <mat-form-field class="search-bar">
-                    <mat-label style="color: black; font-size:18px; font-weight: 500;">Search by Company name</mat-label>
+                    <mat-label style="color: black; font-size:15px; font-weight: 500;">Search by Company name
+                    </mat-label>
                     <input type="search" style="font-size: 20px" matInput formControlName="companyGroup"
                         [matAutocomplete]="autoGroup">
+                    <mat-error *ngIf="searchError">{{searchErrorMessage}}</mat-error>
                     <mat-autocomplete #autoGroup="matAutocomplete">
                         <mat-optgroup *ngFor="let group of companyGroupOptions | async" [label]="group.letter">
-                            <mat-option *ngFor="let name of group.names" style="color: #4E1B5F; font-weight: 700;" [value]="name">
+                            <mat-option *ngFor="let name of group.names" style="color: #4E1B5F; font-weight: 700;"
+                                [value]="name">
                                 {{name}}
                             </mat-option>
                         </mat-optgroup>
@@ -26,16 +30,17 @@
                         *ngIf="companyForm.controls['companyGroup'].value" matSuffix mat-icon-button>
                         <i class="fa-xl fa-solid fa-xmark"></i>
                     </button>
+
                 </mat-form-field>
                 <button mat-icon-button (click)="querySearch()" class="search-button">
                     <i class="fa-xl fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         </div>
-    </section>
-    <mat-paginator [length]="companies.length" [pageSize]="4" [pageSizeOptions]="[1,2,3,4,5,6,7,8]"
-        (page)="reviewPageChange($event)" aria-label="Select page">
-    </mat-paginator>
+        <mat-paginator style="width: 30%;" [length]="companies.length" [pageSize]="4"
+            [pageSizeOptions]="[1,2,3,4,5,6,7,8]" (page)="reviewPageChange($event)" aria-label="Select page">
+        </mat-paginator>
+    </div>
 
     <section class="review-section" style="position: relative;">
         <mat-card *ngFor="let company of companiesSlice" class="review-card">
@@ -73,12 +78,13 @@
             </mat-card-header>
         </mat-card>
     </section>
-    
 
-    <h1 class="title">Company Ratings</h1>
-    <mat-paginator [length]="companies.length" [pageSize]="4" [pageSizeOptions]="[1,2,3,4,5,6,7,8]"
-        (page)="companyPageChange($event)" aria-label="Select page">
-    </mat-paginator>
+    <div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+        <h1 class="title">Company Ratings</h1>
+        <mat-paginator style="width: 30%;" [length]="companies.length" [pageSize]="4"
+            [pageSizeOptions]="[1,2,3,4,5,6,7,8]" (page)="reviewPageChange($event)" aria-label="Select page">
+        </mat-paginator>
+    </div>
     <section class="review-section">
         <mat-card *ngFor="let company of companiesSlice" class="review-card">
             <mat-card-header class="review-header">
@@ -99,7 +105,7 @@
             </mat-card-header>
         </mat-card>
     </section>
-    
+
 </div>
 
 

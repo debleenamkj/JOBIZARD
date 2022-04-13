@@ -27,13 +27,21 @@
 }
 
 .example-card {
-    max-width: 200px;
+    width: 250px;
     margin-bottom: 50px;
     float: left;
+    margin-right: 20px;
+    align-items: center;
     
 }
 
 .seeker-profile-image{
     height: 50px;
     width: 50px;
+}
+
+.pi{
+    width: 150px;
+    margin-left: 35px;
+    padding-top: 5px;
 }

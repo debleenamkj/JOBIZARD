@@ -38,35 +38,35 @@ public class CategoryRepositoryTest {
         categoryRepository.deleteAll();
     }
 
-    @Test
-    public void givenCategoryToSaveShouldReturnCategory() {
-        categoryRepository.insert(category);
-        Category category1 = categoryRepository.findById(category.getCid()).get();
-        assertNotNull(category1);
-        assertEquals(category.getCid(), category1.getCid());
-    }
+//    @Test
+//    public void givenCategoryToSaveShouldReturnCategory() {
+//        categoryRepository.insert(category);
+//        Category category1 = categoryRepository.findById(category.getCid()).get();
+//        assertNotNull(category1);
+//        assertEquals(category.getCid(), category1.getCid());
+//    }
 
-    @Test
-    public void givenCategoryToDeleteReturnCategory()
-    {
-        categoryRepository.insert(category);
-        Category category1 = categoryRepository.findById(category.getCid()).get();
-
-        categoryRepository.delete(category1);
-        assertEquals(Optional.empty(),categoryRepository.findById(category1.getCid()));
-    }
+//    @Test
+//    public void givenCategoryToDeleteReturnCategory()
+//    {
+//        categoryRepository.insert(category);
+//        Category category1 = categoryRepository.findById(category.getCid()).get();
+//
+//        categoryRepository.delete(category1);
+//        assertEquals(Optional.empty(),categoryRepository.findById(category1.getCid()));
+//    }
 
     @Test
     public void givenCategoryReturnAllTrack()
     {
         categoryRepository.insert(category);
         List<SubCategory> subCategories1 = new ArrayList<SubCategory>();
-        Category category1 =new Category(202,"computer science","java",subCategories1);
+        Category category1 =new Category(103,"computer science","java",subCategories1);
         categoryRepository.insert(category1);
         List<Category> list = categoryRepository.findAll();
         assertEquals("computer science",list.get(1).getCategoryTitle());
-        assertEquals(202,list.get(0).getCid());
-        assertEquals("java",list.get(2).getSubCategoryTitle());
+        assertEquals(103,list.get(0).getCid());
+        assertEquals("java",list.get(1).getSubCategoryTitle());
 
     }
 }

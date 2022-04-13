@@ -63,6 +63,18 @@ export class ReviewFormComponent implements OnInit {
   private postReviewRequest = 'http://localhost:8087/api/v1/resources/saveReview';
   private deleteReviewRequest = 'http://localhost:8087/api/v1/resources/deleteReview';
 
+  formValidation= ()=>{
+    return true
+  }
+  oneStarMethod(){
+    console.log(document.getElementById('oneStart'))
+    // oneStar.color='accent';
+    // twoStar.color='primary'; threeStar.color='primary';
+    //                 fourStar.color='primary'; fiveStar.color='primary';
+  }
+  postReviewDetails(){
+    
+  }
 
   validateProsMessage(){
       if(this.reviewForm.controls['prosMessage'].hasError('required'))

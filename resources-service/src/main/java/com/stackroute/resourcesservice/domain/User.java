@@ -8,11 +8,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 @Data
 @AllArgsConstructor
 public class User {
-    @Indexed(unique = true)
-    private int userId;
-    private int email;
-    private String firstName;
-    private String middleName;
-    private String lastName;
+    public boolean anonymousUser;
+    private String email;
+    private String name;
     private WorkDetails workDetails;
 }

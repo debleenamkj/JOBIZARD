@@ -17,7 +17,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Skill
 {
     private boolean isVerified;
-    @Id
     private String skillName;
     private String level;
     private String percentage;
