@@ -56,8 +56,6 @@ export class TestResultViewComponent implements OnInit {
   performance = '';
   TotalQuestions = 10;
   TotalMarks = 100;
-  TotalTime = '5:00';
-  TotalTimeTaken = '4:45';
   CollegeName = 'NINJA';
   test = false;
   message = 'PASS';
