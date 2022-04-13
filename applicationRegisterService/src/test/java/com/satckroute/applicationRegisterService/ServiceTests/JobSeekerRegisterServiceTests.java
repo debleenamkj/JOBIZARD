@@ -129,7 +129,6 @@ public class JobSeekerRegisterServiceTests
 //  getAllJobSeekerByFirstName
 
 
-
     //positive test case
     @Test
     public void showJobSeekerByFirstName() throws JobSeekerNotFoundException
@@ -141,7 +140,7 @@ public class JobSeekerRegisterServiceTests
 
     //negative test case
     @Test
-    public void showProductByProductCodeFailure()
+    public void showJobSeekerByFirstNameFailure()
     {
         when(jobSeekerRegisterRepository.findAllJobSeekerByFirstName(jobSeeker.getFirstName())).thenReturn(null);
         assertThrows(Exception.class,()->registerServiceImpl.getAllJobSeekerByFirstName(jobSeeker.getFirstName()));

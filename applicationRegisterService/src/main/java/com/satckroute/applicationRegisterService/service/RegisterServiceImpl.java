@@ -255,11 +255,11 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
-    public List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException
+    public List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException
     {
         if(organizationDetailsRepository.findAllOrganizationByOrganizationName(organizationName).isEmpty())
         {
-            throw new OrganizationDetailsAlreadyExistException();
+            throw new OrganizationDetailsNotFoundException();
         }
         else
         {
@@ -392,11 +392,8 @@ public class RegisterServiceImpl implements RegisterService
     }
 
     @Override
-    public JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException {
-        if (jobSeekerRegisterRepository.findById(emailId).isEmpty()) {
-            throw new JobSeekerNotFoundException();
-        }
-        return jobSeekerRegisterRepository.findById(emailId).get();
+    public List<JobSeeker> getAllJobSeekers() throws JobSeekerNotFoundException {
+        return jobSeekerRegisterRepository.findAll();
     }
 
     @Override

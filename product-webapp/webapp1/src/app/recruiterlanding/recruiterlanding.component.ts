@@ -4,6 +4,7 @@ import { JobSeekerLanding } from '../model/job-seeker-landing';
 import { JobSeeker } from '../model/jobSeeker';
 import { Recruiter } from '../model/recruiter';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
+import { Skillset } from '../model/skillset';
 import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
@@ -19,11 +20,13 @@ export class RecruiterlandingComponent implements OnInit {
   // seekerImage?: string;
   // skills: any=[];
 
-  // skillSet: Array<String>=[];
+  skillSet: Array<Skillset>=[];
   recruiter: Recruiter=new Recruiter;
-  jobSeeker: JobSeekerLanding=new JobSeekerLanding;
+  jobSeeker: Array<JobSeekerLanding>=[];
   getAllJobSeekersArray: Array<Object>=[];
   recruiterLandingData: RecruiterLandingData=new RecruiterLandingData;
+
+  
   
 
   constructor(private recruiterLanding: RecruiterlandingService) { }
@@ -34,12 +37,12 @@ export class RecruiterlandingComponent implements OnInit {
     });
 
     
-    this.recruiterLanding.getAllJobSeekers().subscribe((d: JobSeekerLanding)=>{
+    this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
       this.jobSeeker=d;
     });
 
     this.recruiterLanding.getSkillSet().subscribe(d=>{
-      this.jobSeeker.skillSet=d;
+      this.skillSet=d;
     });
   }
 
