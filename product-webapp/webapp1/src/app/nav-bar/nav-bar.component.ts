@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
+import { JobSeeker } from '../model/jobSeeker';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,9 +20,9 @@ export class NavBarComponent {
       shareReplay()
     );
 
-    firstname="Jobsie";
-    lastname="Jobbie";
-    email="jobseeker@gmail.com";
+      // role="jobseeker";
+      // role="recruiter";
+      role="";
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog) {}
 
