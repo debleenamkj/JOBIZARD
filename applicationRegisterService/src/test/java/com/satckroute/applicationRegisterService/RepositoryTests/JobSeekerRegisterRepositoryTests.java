@@ -55,6 +55,7 @@ public class JobSeekerRegisterRepositoryTests
         Date date = formatter.parse(testDate);
         System.out.println(date);
 
+//        ,Role.JOBSEEKER
         jobSeeker = new JobSeeker("emailId@gmail.com","FirstName01","LastName1",
                 "GENDER1",date,"1234567890","Password1",address,details);
 

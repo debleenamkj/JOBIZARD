@@ -8,9 +8,19 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private dialog : MatDialog) { }
 
   ngOnInit(): void {
   }
   
+  openRegisterForm(): void {
+    
+    const dialogRef = this.dialog.open(RegisterComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog Box: $(result)')
+    })
+  }
+
+
 }

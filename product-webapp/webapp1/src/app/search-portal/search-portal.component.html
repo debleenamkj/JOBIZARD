@@ -3,7 +3,23 @@ style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top:
 <h1 style="font-size: xx-large; font-weight:bold; color:white; letter-spacing:1px;">Search Portal</h1>
 </mat-card>
 
-<div class="container mt-0">
+<!-- <mat-card
+style="background-color: aliceblue;"
+> -->
+<h1 style="font-size: xx-large; font-weight:bold; color:rgb(10, 10, 10); letter-spacing:1px;text-align: center;margin-top: 2%;">Find The Perfect Candidate With Us</h1>
+<!-- </mat-card> -->
+<section class="example-section" [formGroup]="skills" style="margin-left: 2%;">
+    <h1>Please Select the Required Skills:</h1>
+    <p><mat-checkbox formControlName="java" color="primary" >Java</mat-checkbox></p>
+    <p><mat-checkbox formControlName="angular" color="primary">Angular</mat-checkbox></p>
+    <p><mat-checkbox formControlName="spring"color="primary">Spring</mat-checkbox></p>
+  </section>
+  
+  <!-- <section class="example-section" [formGroup]="skills">
+    <h2>You chose:</h2>
+    {{skills.value | json}}
+  </section>  -->
+  <!-- <div class="container mt-0">
     <div class="row d-flex justify-content-center" >
         <div class="col-md-9">
             <div class="card p-4 mt-3">
@@ -13,110 +29,4 @@ style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top:
             </div>
         </div>
     </div>
-</div>
-<mat-card style="margin-left: 15%;margin-top: 3%;" class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <!-- <mat-card-title>{{user.firstName}}</mat-card-title>
-      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle> -->
-    </mat-card-header>
-    <mat-card-content>
-      <h1>Sreshthi Singh</h1>
-      <h1>Skills</h1>
-      <ul>
-        <li>
-         Java
-        </li>
-        <li>
-          Angular
-        </li>
-        <li>
-        Spring boot
-        </li>
-      </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black">chat</i></button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card style="margin-top: 3%;" class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <!-- <mat-card-title>{{user.firstName}}</mat-card-title>
-      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle> -->
-    </mat-card-header>
-    <mat-card-content>
-      <h1>Sreshthi Singh</h1>
-      <h1>Skills</h1>
-      <ul>
-        <li>
-         Java
-        </li>
-        <li>
-          Angular
-        </li>
-        <li>
-        Spring boot
-        </li>
-      </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black">chat</i></button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card style="margin-top: 3%;" class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <!-- <mat-card-title>{{user.firstName}}</mat-card-title>
-      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle> -->
-    </mat-card-header>
-    <mat-card-content>
-      <h1>Sreshthi Singh</h1>
-      <h1>Skills</h1>
-      <ul>
-        <li>
-         Java
-        </li>
-        <li>
-          Angular
-        </li>
-        <li>
-        Spring boot
-        </li>
-      </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black">chat</i></button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card style="margin-top: 3%;"class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <!-- <mat-card-title>{{user.firstName}}</mat-card-title>
-      <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle> -->
-    </mat-card-header>
-    <mat-card-content>
-      <h1>Sreshthi Singh</h1>
-      <h1>Skills</h1>
-      <ul>
-        <li>
-         Java
-        </li>
-        <li>
-          Angular
-        </li>
-        <li>
-        Spring boot
-        </li>
-      </ul>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    
-      <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black">chat</i></button>
-    </mat-card-actions>
-  </mat-card>
-  
+</div> -->

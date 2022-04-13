@@ -154,13 +154,18 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker registerNewJobSeeker(JobSeeker jobSeeker) throws JobSeekerAlreadyExistException
     {
+        //,jobSeeker.role.toString()
         UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
+
+        //role
+//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());;
         if (jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
         {
             throw new JobSeekerAlreadyExistException();
         }
         else
         {
+//            System.out.println(jobSeeker);
             producer.sendMessage(userDTO);
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
@@ -171,7 +176,11 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public Recruiter registerNewRecruiter(Recruiter recruiter) throws RecruiterAlreadyExistException
     {
+//        ,recruiter.role.toString()
         UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
+
+        //role
+//        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.role.toString());
         if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
         {
             throw new RecruiterAlreadyExistException();
@@ -188,14 +197,14 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
     {
-        UserDTO userDTO = new UserDTO(organizationDetails.getEmailId(),organizationDetails.getPassword());
+//        UserDTO userDTO = new UserDTO(organizationDetails.getEmailId(),organizationDetails.getPassword());
         if(organizationDetailsRepository.findById(organizationDetails.getEmailId()).isPresent())
         {
             throw new OrganizationDetailsAlreadyExistException();
         }
         else
         {
-            producer.sendMessage(userDTO);
+//            producer.sendMessage(userDTO);
             return organizationDetailsRepository.save(organizationDetails);
         }
     }
@@ -272,6 +281,22 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws JobSeekerNotFoundException
     {
+        if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
+        {
+            throw new JobSeekerNotFoundException();
+        }
+        else
+        {
+            return jobSeekerRegisterRepository.save(jobSeeker);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws JobSeekerNotFoundException, IOException
+    {
+        jobSeeker.setJobSeekerImage(file.getBytes());
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
             throw new JobSeekerNotFoundException();

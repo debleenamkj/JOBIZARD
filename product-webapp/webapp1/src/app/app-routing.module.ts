@@ -83,6 +83,7 @@ const routes: Routes = [
 
   {path:"jobSeeker",component:JobSeekerLandingComponent},
   {path:"jobseekerprofile",component:JobSeekerProfileComponent},
+  {path:'search',component:SearchPortalComponent},
 ];
 
 @NgModule({
