@@ -4,6 +4,7 @@ import com.stackroute.Assessmentservice.Exception.CategoryAlreadyExistsException
 import com.stackroute.Assessmentservice.Exception.SubCategoryNotExistsException;
 import com.stackroute.Assessmentservice.model.Category;
 import com.stackroute.Assessmentservice.model.Quiz;
+import com.stackroute.Assessmentservice.model.SubCategory;
 import com.stackroute.Assessmentservice.repository.CategoryRepository;
 import com.stackroute.Assessmentservice.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class CategoryServiceIMPL implements CategoryService {
     }
 
     @Override
-    public List<Quiz> getQuiz(String subcategoryTitle)throws SubCategoryNotExistsException {
+    public Quiz getQuiz(String subcategoryTitle)throws SubCategoryNotExistsException {
         Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
         if(category==null)
         {
@@ -53,9 +54,11 @@ public class CategoryServiceIMPL implements CategoryService {
         }
         else {
             Random random = new Random();
-            int index = random.nextInt(2);
+            int quizzes = category.getSubCategory().size();
+//            System.out.println(quizzes);
+            int index = random.nextInt(quizzes);
             List<Quiz> quiz = category.getSubCategory().get(index).getQuizList();
-            return quiz;
+            return quiz.get(0);
         }
     }
 }

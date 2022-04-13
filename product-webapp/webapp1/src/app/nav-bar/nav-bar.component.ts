@@ -20,6 +20,9 @@ export class NavBarComponent {
       shareReplay()
     );
 
+      role="jobseeker";
+      // role="recruiter";
+      // role="";
 
   // name="sajal@gmail.com";
   // n1=name.split("@",3);
