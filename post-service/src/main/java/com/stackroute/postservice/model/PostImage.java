@@ -14,11 +14,9 @@ import java.util.List;
 @Document
 public class PostImage {
 
-    @Id
-    private String postId;
     private byte[] postImage;
-    private User user;
-    private int like;
+    private char[] description;
+    private Like like;
     private List<Review> reviews;
 
 }

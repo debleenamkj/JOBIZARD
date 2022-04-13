@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class QuizServiceIMPL implements QuizService {
+public class QuizServiceImpl implements QuizService {
 
     @Autowired
     private QuizRepository quizRepository;

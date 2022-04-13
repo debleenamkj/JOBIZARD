@@ -13,7 +13,7 @@ public interface RecommendationService {
 
     Seeker saveUser(Seeker seeker) throws UserAlreadyExistsException;
 
-    Set<Long> getMatchingJobs(Seeker seeker) throws UserNotFoundException;
+//    Set<Long> getMatchingJobs(Seeker seeker) throws UserNotFoundException;
 
     Set<String> getMatchingJobSeeker(JobDetails job) throws UserNotFoundException;
 }

@@ -14,9 +14,6 @@ import java.util.Arrays;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-@Getter
-@Setter
-@ToString
 public class Education
 {
     @Id

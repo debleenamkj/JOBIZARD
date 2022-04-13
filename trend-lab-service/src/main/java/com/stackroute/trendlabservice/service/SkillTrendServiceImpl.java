@@ -71,7 +71,7 @@ public class SkillTrendServiceImpl implements SkillTrendService{
                 log.error("Inside SkillTrendServiceImpl - saveSkill - SkillTrendNotFoundException");
                 throw new SkillTrendNotFoundException();
             }
-            skillTrendRepository.delete(skillTrend);
+            skillTrendRepository.deleteById(skillId);
         }
         catch (SkillTrendNotFoundException se){
             se.getMessage();
