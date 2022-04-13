@@ -301,4 +301,38 @@ public class RegisterController
         }
 
     }
+
+    //RecruiterLanding..................................................................................
+    @GetMapping("/recruiterProfile/{emailId}")
+    public ResponseEntity<?> getRecruiterProfile(@PathVariable String emailId) throws RecruiterNotFoundException {
+        try {
+            return new ResponseEntity<>(registerService.getRecruiterProfile(emailId), HttpStatus.OK);
+        } catch (RecruiterNotFoundException recruiterNotFoundException) {
+            throw new RecruiterNotFoundException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/jobSeekers/{emailId}")
+    public ResponseEntity<?> getAllJobSeekers(@PathVariable String emailId) throws JobSeekerNotFoundException {
+        try {
+            return new ResponseEntity<>(registerService.getAllJobSeekers(emailId), HttpStatus.OK);
+        } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
+            throw new JobSeekerNotFoundException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+        @GetMapping("/skillSet/{emailId}")
+    public ResponseEntity<?> getSkillSet(@PathVariable String emailId) throws JobSeekerNotFoundException {
+        try {
+            return new ResponseEntity<>(registerService.getSkillSet(emailId), HttpStatus.OK);
+        } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
+            throw new JobSeekerNotFoundException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

@@ -16,9 +16,6 @@ import java.util.Arrays;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-@Getter
-@Setter
-@ToString
 public class OrganizationDetails
 {
 
@@ -31,7 +28,6 @@ public class OrganizationDetails
 
     private String organizationName;
     private String organizationSector;
-    private String organizationOrigin;
     private String roleOfHiring;
     private String contactNumber;
 

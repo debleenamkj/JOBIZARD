@@ -24,7 +24,7 @@ export class RegisterServiceService {
   jobSeekerRegister(jobSeekerData:any)
   {
     console.log("in service")
-    return this.http.post("http://localhost:8098/api/v1/jobSeeker",jobSeekerData)
+    return this.http.post("http://localhost:8098/api/v1/registerJobSeeker",jobSeekerData)
   }
 
   recruiterRegister(recruiter:Recruiter):Observable<object>

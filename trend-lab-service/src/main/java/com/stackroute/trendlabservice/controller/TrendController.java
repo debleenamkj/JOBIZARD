@@ -46,6 +46,7 @@ public class TrendController {
 
     @GetMapping("/salarys/{jobTitle}")
     public ResponseEntity<String> callExternalApiForSalaryTrends(@PathVariable String jobTitle){
+        log.debug("Inside TrendController - callExternalApiForSalaryTrends");
         String url = "https://infosalary.p.rapidapi.com/?job_title=" + jobTitle;
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-RapidAPI-Host", "infosalary.p.rapidapi.com");
@@ -70,7 +71,7 @@ public class TrendController {
         return skillTrendService.getAllSkills();
     }
 
-    @PostMapping("/updateskill")
+    @PutMapping("/updateskill")
     public SkillTrend updateSkills(@RequestBody SkillTrend skillTrend){
         log.debug("Inside TrendController - updateSkills");
         return skillTrendService.updateSkill(skillTrend);
@@ -87,72 +88,6 @@ public class TrendController {
         log.debug("Inside TrendController - getNames");
         return skillTrendService.getNameOfSkills();
     }
-
-    ////////////////////////TechNews/////////////////////////
-
-//    @GetMapping("/technews/gsmarena")
-//    public ResponseEntity<String> getGsmArenaNews() throws IOException, InterruptedException {
-//        String uri = "https://tech-news3.p.rapidapi.com/gsmarena";
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("X-RapidAPI-Host", "tech-news3.p.rapidapi.com");
-//        headers.add("X-RapidAPI-Key", "e6f916a48bmsh5d85cf972abfec9p155bcajsn9988020bee77");
-//        HttpEntity<Object> entity = new HttpEntity<>(headers);
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        return response;
-//    }
-
-//    @GetMapping("/getTheVergeNews")
-//    public ResponseEntity<String> getTheVergeNews(){
-//        System.out.println("in");
-//        String uri = "https://tech-news3.p.rapidapi.com/verge";
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("X-RapidAPI-Host", "tech-news3.p.rapidapi.com");
-//        headers.add("X-RapidAPI-Key", "e6f916a48bmsh5d85cf972abfec9p155bcajsn9988020bee77");
-//        System.out.println("in");
-//        HttpEntity<Object> entity = new HttpEntity<>(headers);
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        System.out.println("in");
-//        return response;
-//
-//    }
-
-//    @GetMapping("/technews/techcrunch")
-//    public ResponseEntity<String> getTechCrunchNews(){
-//        String uri = "https://tech-news3.p.rapidapi.com/techcrunch";
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("X-RapidAPI-Host", "tech-news3.p.rapidapi.com");
-//        headers.add("X-RapidAPI-Key", "e6f916a48bmsh5d85cf972abfec9p155bcajsn9988020bee77");
-//        HttpEntity<Object> entity = new HttpEntity<>(headers);
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        return response;
-//    }
-//
-//    @GetMapping("/technews/wired")
-//    public ResponseEntity<String> getWiredNews(){
-//        String uri = "https://tech-news3.p.rapidapi.com/wired";
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("X-RapidAPI-Host", "tech-news3.p.rapidapi.com");
-//        headers.add("X-RapidAPI-Key", "e6f916a48bmsh5d85cf972abfec9p155bcajsn9988020bee77");
-//        HttpEntity<Object> entity = new HttpEntity<>(headers);
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        return response;
-//    }
-//
-//    @GetMapping("/technews/gizmodo")
-//    public ResponseEntity<String> getGizmodoNews(){
-//        String uri = "https://tech-news3.p.rapidapi.com/gizmodo";
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.add("X-RapidAPI-Host", "tech-news3.p.rapidapi.com");
-//        headers.add("X-RapidAPI-Key", "e6f916a48bmsh5d85cf972abfec9p155bcajsn9988020bee77");
-//        HttpEntity<Object> entity = new HttpEntity<>(headers);
-//        RestTemplate restTemplate = new RestTemplate();
-//        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET,entity,String.class);
-//        return response;
-//    }
 
 }
 

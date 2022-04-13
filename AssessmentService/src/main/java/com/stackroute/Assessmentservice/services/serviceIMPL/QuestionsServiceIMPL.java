@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class QuestionsServiceIMPL implements QuestionsService {
+public class QuestionsServiceImpl implements QuestionsService {
 
     @Autowired
     private QuestionsRepository questionsRepository;
