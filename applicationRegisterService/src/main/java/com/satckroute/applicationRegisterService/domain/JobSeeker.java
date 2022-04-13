@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Document
 @Data
@@ -37,7 +38,7 @@ public class JobSeeker
 //    private Role Role.JOBSEEKER;
 
     private Address address;
-    private Education educationDetails;
+    private List educationDetails; //list
     private String[] languagesKnown;
     private Details additionalDetails;
 

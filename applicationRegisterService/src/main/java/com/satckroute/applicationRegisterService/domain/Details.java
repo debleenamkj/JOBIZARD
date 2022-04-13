@@ -15,10 +15,10 @@ import java.util.Arrays;
 @Getter
 @Setter
 @ToString
-public class Details {
+public class Details
+{
     private String[] academicsCertification;
-    private String[] skillSet;
+    private Skill[] skillSet;
     private String[] jobPreferences;
     private String[] achievements;
-
 }

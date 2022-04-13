@@ -46,7 +46,7 @@ import { LearningPortalComponent } from './learning-portal/learning-portal.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 import { LoginComponent } from './login/login.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
@@ -80,10 +80,12 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.component';
 import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
+import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
 
 
@@ -142,10 +144,15 @@ import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.com
 
     RecruiterlandingComponent,
     JobSeekerLandingComponent,
+    JobSeekerProfileComponent,
     SearchPortalComponent,
     TestResultViewComponent,
+<<<<<<< HEAD
     ImagePostDialogComponent,
     BlogPostDialogComponent
+=======
+    RecruiterRegisterComponent
+>>>>>>> 3479fd358bc4cb1dfe7c37607193305415a15450
 
   ],
   imports: [
@@ -192,7 +199,8 @@ import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.com
     NgbModule,
     MatExpansionModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],

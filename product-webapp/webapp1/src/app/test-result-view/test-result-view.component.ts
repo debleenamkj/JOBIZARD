@@ -30,6 +30,16 @@ export class TestResultViewComponent implements OnInit {
     this.attempted=this.service.answeredQuestions;
     this.unattempted=this.service.unAnsweredQuestions;
     this.marksGot=this.service.percentage;
+
+    if (this.marksGot < 50) {
+      let card = document.getElementsByClassName("flip-card") as HTMLCollectionOf<HTMLElement>;
+      card[0].style.backgroundColor='red';
+      this.message="FAIL"
+    }
+      else{
+        this.message="PASS"
+      }
+
   }
   worrior_logo:any;
   marksGot: number = 0;

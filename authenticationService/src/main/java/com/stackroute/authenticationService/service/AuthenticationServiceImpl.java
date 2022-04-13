@@ -37,6 +37,7 @@ public class AuthenticationServiceImpl implements AuthenticationService
         {
             throw new UserNotFoundException();
         }
+        System.out.println(userLogIn);
         return userLogIn;
     }
 

@@ -3,17 +3,18 @@ import { OrganizationDetails } from "./organizationDetails"
 export class Recruiter
 {
     emailId!: string
-    firstName!: string
-    password!: string
-    recruiterImage!:any
-    organizationDetails!:OrganizationDetails
+    password!:string
+    // firstName!: string
+    // password!: string
+    // recruiterImage!:any
+    // organizationDetails!:OrganizationDetails
     
-    constructor()
-    {
-        this.emailId="";
-        this.firstName="";
-        this.password="";
-    }
+    // constructor()
+    // {
+    //     this.emailId="";
+    //     // this.firstName="";
+    //     // this.password="";
+    // }
 
 
     // organizationDetails!: [{

@@ -152,12 +152,14 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker registerNewJobSeeker(JobSeeker jobSeeker) throws JobSeekerAlreadyExistException
     {
+        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
         if (jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
         {
             throw new JobSeekerAlreadyExistException();
         }
         else
         {
+            producer.sendMessage(userDTO);
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
     }
@@ -167,12 +169,14 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public Recruiter registerNewRecruiter(Recruiter recruiter) throws RecruiterAlreadyExistException
     {
+        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
         if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
         {
             throw new RecruiterAlreadyExistException();
         }
         else
         {
+            producer.sendMessage(userDTO);
             return recruiterRegisterRepository.save(recruiter);
         }
     }
@@ -182,12 +186,14 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
     {
+        UserDTO userDTO = new UserDTO(organizationDetails.getEmailId(),organizationDetails.getPassword());
         if(organizationDetailsRepository.findById(organizationDetails.getEmailId()).isPresent())
         {
             throw new OrganizationDetailsAlreadyExistException();
         }
         else
         {
+            producer.sendMessage(userDTO);
             return organizationDetailsRepository.save(organizationDetails);
         }
     }
@@ -358,6 +364,33 @@ public class RegisterServiceImpl implements RegisterService
 //                        JobSeekerIdSequence.class);
 //        return !Objects.isNull(counter) ? counter.getSequenceNumber(): 1;
 //    }
+
+    //Recruiter Landing.....................................................
+    @Override
+    public Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException {
+        if (recruiterRegisterRepository.findById(emailId).isEmpty()) {
+            throw new RecruiterNotFoundException();
+        }
+        return recruiterRegisterRepository.findById(emailId).get();
+    }
+
+    @Override
+    public JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException {
+        if (jobSeekerRegisterRepository.findById(emailId).isEmpty()) {
+            throw new JobSeekerNotFoundException();
+        }
+        return jobSeekerRegisterRepository.findById(emailId).get();
+    }
+
+    @Override
+    public List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException
+    {
+        if (jobSeekerRegisterRepository.findById(emailId).isEmpty())
+        {
+            throw new JobSeekerNotFoundException();
+        }
+        return List.of(jobSeekerRegisterRepository.findById(emailId).get().getAdditionalDetails().getSkillSet());
+    }
 }
 
 
