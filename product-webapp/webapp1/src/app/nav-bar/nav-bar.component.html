@@ -2,20 +2,14 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'over'"
-      [opened]="(isHandset$ | async) === true" style="background-color: rgba(211, 128, 201, 0.936); text-align: center; align-items: center; justify-content: center; ">
+      [opened]="(isHandset$ | async) === true" style="background-color: rgb(189, 118, 207); text-align: center; align-items: center; justify-content: center; ">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
     <hr>
-    <mat-nav-list style="text-align: center; align-items: center; justify-content: center;">
-      <div style="justify-content: center; align-content: center; text-align: center;">
-        <img src="../assets/u1.jpeg" style="width: 5vw; border-radius: 50%;">
-        <h1 style="margin-top: 5%; color: white;">{{firstname}} {{lastname}}</h1>
-        <h3 style="color: white;">{{email}}</h3>
-        <hr>
-      <button mat-flat-button type="button" routerLink="/assesmentportal" style="border: none; text-align: center; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(211, 156, 128);">Assessment Portal</button>
-      <button mat-flat-button routerLink="/learning" style="border: none; text-align: center;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(211, 156, 128);">Learning Portal</button>
-      <button mat-flat-button routerLink="/trend" style="border: none; text-align: center;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(211, 156, 128);">JobiZone</button>
-      <button mat-flat-button routerLink="/cv-generation" style="border: none; text-align: center; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(211, 156, 128);">Generate Your CV</button>
-    </div>
+    <mat-nav-list style="align-items: center; justify-content: center;">
+      <button mat-list-item type="button" routerLink="/assesmentportal" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Assessment Portal</button>
+      <button mat-list-item routerLink="/learning" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Learning Portal</button>
+      <button mat-list-item routerLink="/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">JobiZone</button>
+      <button mat-list-item routerLink="/cv-generation" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Generate Your CV</button>
     </mat-nav-list>
   </mat-sidenav>
 
