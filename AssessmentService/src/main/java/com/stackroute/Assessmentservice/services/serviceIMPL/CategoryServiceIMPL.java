@@ -1,8 +1,10 @@
 package com.stackroute.Assessmentservice.services.serviceIMPL;
 
 import com.stackroute.Assessmentservice.Exception.CategoryAlreadyExistsException;
+import com.stackroute.Assessmentservice.Exception.SubCategoryNotExistsException;
 import com.stackroute.Assessmentservice.model.Category;
 import com.stackroute.Assessmentservice.model.Quiz;
+import com.stackroute.Assessmentservice.model.SubCategory;
 import com.stackroute.Assessmentservice.repository.CategoryRepository;
 import com.stackroute.Assessmentservice.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceIMPL implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
@@ -44,11 +46,19 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Quiz> getQuiz(String subcategoryTitle) {
-       Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
-       Random random = new Random();
-        int index=random.nextInt(2);
-        List<Quiz> quiz =category.getSubCategory().get(index).getQuizList();
-        return quiz;
+    public Quiz getQuiz(String subcategoryTitle)throws SubCategoryNotExistsException {
+        Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
+        if(category==null)
+        {
+            throw new SubCategoryNotExistsException();
+        }
+        else {
+            Random random = new Random();
+            int quizzes = category.getSubCategory().size();
+//            System.out.println(quizzes);
+            int index = random.nextInt(quizzes);
+            List<Quiz> quiz = category.getSubCategory().get(index).getQuizList();
+            return quiz.get(0);
+        }
     }
 }

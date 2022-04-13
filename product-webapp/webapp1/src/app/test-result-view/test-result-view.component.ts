@@ -14,15 +14,19 @@ export class TestResultViewComponent implements OnInit {
     let worrior = this.service.worrior;
     if(worrior=='beginner'){
       this.worrior_logo=this.service.getbeginner();
+      console.log(this.worrior_logo);
     }
-    else if(worrior=='jobified'){
-      this.worrior_logo = this.service.getjobified();
+    else if(worrior=='saga'){
+      this.worrior_logo = this.service.getsaga();
+      console.log(this.worrior_logo);
     }
     else if(worrior=='gladiator'){
       this.worrior_logo=this.service.getgladiator();
+      console.log(this.worrior_logo);
     }
     else if(worrior=='ninja'){
       this.worrior_logo=this.service.getninja();
+      console.log(this.worrior_logo);
     }
     // this.worrior_logo=this.service.logo;
     console.log(this.worrior_logo);
@@ -52,8 +56,6 @@ export class TestResultViewComponent implements OnInit {
   performance = '';
   TotalQuestions = 10;
   TotalMarks = 100;
-  TotalTime = '5:00';
-  TotalTimeTaken = '4:45';
   CollegeName = 'NINJA';
   test = false;
   message = 'PASS';

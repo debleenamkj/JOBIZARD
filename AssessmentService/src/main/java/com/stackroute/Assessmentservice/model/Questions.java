@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Questions {
     private int quesNo;
     private String question;

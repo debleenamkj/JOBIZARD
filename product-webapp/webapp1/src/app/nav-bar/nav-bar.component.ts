@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
+import { RegisterServiceService } from '../service/register-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,15 +20,24 @@ export class NavBarComponent {
       shareReplay()
     );
 
-    firstname="Jobsie";
-    lastname="Jobbie";
-    email="jobseeker@gmail.com";
+      role="jobseeker";
+      // role="recruiter";
+      // role="";
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog) {}
+  // name="sajal@gmail.com";
+  // n1=name.split("@",3);
+  firstname="Jobsie";
+  lastname="Jobbie";
+  email="jobseeker@gmail.com";
+
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, private loginService : RegisterServiceService) {}
+
 
   hide=false;
 
   loggedOut(){
+    localStorage.setItem('loginId',null)
+    this.loginService.isloggedIn=false
     this.hide=true;
     this.router.navigate(["../userLogin"]);
   }
