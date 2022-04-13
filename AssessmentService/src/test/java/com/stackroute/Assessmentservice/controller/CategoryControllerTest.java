@@ -63,7 +63,7 @@ public class CategoryControllerTest {
         mockMvc.perform(post("/category/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonToString(category1)))
-                .andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
+                .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
         verify(categoryService,times(1)).addCategory(any());
     }
     @Test

@@ -1,6 +1,6 @@
-<mat-card style="background-image: linear-gradient(to right, #6E2586, #B11784); margin-top: 0.5rem;"><h1 id="mainheading">Recruiter</h1></mat-card>
+<mat-card style="background-image: linear-gradient(to right, #6E2586, #B11784); margin-top: 0.5rem; padding-top: 5px; padding-bottom: 5px;"><h1 id="mainheading">Recruiter</h1></mat-card>
 
-<br>
+
 <mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw;">
     <mat-card-title style="text-align: center;">Welcome {{recruiterLandingData.firstName}}</mat-card-title>
     <div class="profile-image" style="margin-left: 18px;"><img src="./assets/download (1).png"></div>
@@ -9,7 +9,7 @@
 </mat-card>
 
 
-<nav aria-label="Page navigation example">
+<!-- <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-end" style="margin-right: 3vw;">
       <li class="page-item disabled">
         <a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -21,26 +21,167 @@
         <a class="page-link" href="#">Next</a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
 
 
 <!-- <div *ngFor="let getAllJobSeekers of getAllJobSeekersArray" class="container-fluid col-lg-8"> -->
-  <mat-card class="example-card">
+  <!-- <mat-card class="example-card" *ngFor="let jobseekers of jobSeeker">
     <mat-card-header>
-      <mat-card-title>{{jobSeeker.firstName}}+{{jobSeeker.lastName}}</mat-card-title>
+      <mat-card-title>{{jobseekers.firstName}}+ +{{jobseekers.lastName}}</mat-card-title>
     </mat-card-header>
     <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <mat-chip-list *ngFor="let skills of jobSeeker.skillSet">
-        <mat-chip>{{jobSeeker.skillSet}}</mat-chip>
+      <mat-chip-list *ngFor="let skills of skillSet">
+        <mat-chip>{{skills.skillName}}</mat-chip>
       </mat-chip-list>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);"><mat-icon style="color: white;">check</mat-icon></button>
       <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button>
     </mat-card-actions>
-  </mat-card>
+  </mat-card> -->
 <!-- </div> -->
+<div class="container-fluid col-lg-9" style="margin-top: -10px;">
+
+  <mat-card class="example-card">
+
+    <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <mat-card-title>Sajal Senapati &nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">Bscit</span></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <h3>Bscit</h3> -->
+      <mat-chip-list>
+        <mat-chip style="padding: 8px;">Java</mat-chip>
+        <mat-chip style="padding: 8px;">HTML</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
+      <i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i>
+      <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
+      <i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i>
+    </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="example-card">
+
+    <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <mat-card-title>Sajal Senapati &nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">Bscit</span></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <h3>Bscit</h3> -->
+      <mat-chip-list>
+        <mat-chip style="padding: 8px;">Java</mat-chip>
+        <mat-chip style="padding: 8px;">HTML</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
+      <i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i>
+      <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
+      <i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i>
+    </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="example-card">
+
+    <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <mat-card-title>Sajal Senapati &nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">Bscit</span></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <h3>Bscit</h3> -->
+      <mat-chip-list>
+        <mat-chip style="padding: 8px;">Java</mat-chip>
+        <mat-chip style="padding: 8px;">HTML</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
+      <i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i>
+      <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
+      <i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i>
+    </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="example-card">
+
+    <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <mat-card-title>Sajal Senapati &nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">Bscit</span></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <h3>Bscit</h3> -->
+      <mat-chip-list>
+        <mat-chip style="padding: 8px;">Java</mat-chip>
+        <mat-chip style="padding: 8px;">HTML</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
+      <i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i>
+      <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
+      <i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i>
+    </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="example-card">
+
+    <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <mat-card-title>Sajal Senapati &nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">Bscit</span></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <h3>Bscit</h3> -->
+      <mat-chip-list>
+        <mat-chip style="padding: 8px;">Java</mat-chip>
+        <mat-chip style="padding: 8px;">HTML</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
+      <i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i>
+      <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
+      <i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i>
+    </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="example-card">
+
+    <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-header>
+      <mat-card-title>Sajal Senapati &nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">Bscit</span></mat-card-title>
+      
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <h3>Bscit</h3> -->
+      <mat-chip-list>
+        <mat-chip style="padding: 8px;">Java</mat-chip>
+        <mat-chip style="padding: 8px;">HTML</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
+      <i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i>
+      <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
+      <i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
   
 
 
