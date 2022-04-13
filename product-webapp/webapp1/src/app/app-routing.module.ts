@@ -37,6 +37,7 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
 
 
 
@@ -97,6 +98,7 @@ const routes: Routes = [
 
   {path:"jobSeeker",component:JobSeekerLandingComponent},
   {path:"jobseekerprofile",component:JobSeekerProfileComponent},
+  {path:'search',component:SearchPortalComponent},
 ];
 
 @NgModule({
