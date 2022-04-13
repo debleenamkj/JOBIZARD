@@ -147,12 +147,9 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     JobSeekerProfileComponent,
     SearchPortalComponent,
     TestResultViewComponent,
-<<<<<<< HEAD
     ImagePostDialogComponent,
-    BlogPostDialogComponent
-=======
+    BlogPostDialogComponent,
     RecruiterRegisterComponent
->>>>>>> 3479fd358bc4cb1dfe7c37607193305415a15450
 
   ],
   imports: [
