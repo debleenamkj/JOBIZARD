@@ -255,11 +255,11 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
-    public List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException
+    public List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException
     {
         if(organizationDetailsRepository.findAllOrganizationByOrganizationName(organizationName).isEmpty())
         {
-            throw new OrganizationDetailsAlreadyExistException();
+            throw new OrganizationDetailsNotFoundException();
         }
         else
         {
