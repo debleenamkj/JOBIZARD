@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { RegisterComponent } from '../register/register.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +19,7 @@ export class NavBarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog) {}
 
   hide=false;
 
@@ -26,6 +28,11 @@ export class NavBarComponent {
     this.router.navigate(["../userLogin"]);
   }
 
-  
+  openReviewForm(): void {
+    const dialogRef = this.dialog.open(RegisterComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Dialog Box: $(result)')
+    })
+  }
 
 }

@@ -44,6 +44,9 @@ export class LoginComponent implements OnInit {
      },()=>{
       //alert("please check your username and password.")
     this.error =  "please check your Email-Id or password.";
+    
+    localStorage.setItem('loginId',this.user.emailId)  // store in local storage
+    console.log('loginId')
     this.router.navigate(["/userLogin"])
     this.loginService.isloggedIn=false
      }

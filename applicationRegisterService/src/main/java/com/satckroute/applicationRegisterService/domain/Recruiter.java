@@ -33,9 +33,9 @@ public class Recruiter
     private String firstName;
 
 
-//    private String middleName;
-//    private String lastName;
-//    private String gender;
+    private String middleName;
+    private String lastName;
+    private String gender;
 
 //    private long mobileNumber;
     private String password;
