@@ -17,9 +17,13 @@ export class SkilltestServiceService {
     return this.httpClient.get("http://localhost:3000/test")
   }
 
-  getTest(testName:any){
-    console.log('http://localhost:8081/category/'+testName);
-    return this.httpClient.get("http://localhost:8081/category/JAVA");
+  // http://localhost:8081/category/java
+  // http://localhost:8081/category/java
+
+  getTest(testName:string){
+    const testname = testName.toLowerCase()
+    console.log('http://localhost:8081/category/'+testName.toLowerCase());
+    return this.httpClient.get("http://localhost:8081/category/"+testName);
   }
   getninja(){
     return 'assets\\warriors_logos\\ninja.png'
@@ -27,10 +31,10 @@ export class SkilltestServiceService {
   getbeginner(){
     return 'assets\\warriors_logos\\beginner.PNG';
   }
-  getjobified(){
+  getsaga(){
     return 'assets\\warriors_logos\\jobified.PNG';
   }
   getgladiator(){
-    return 'assets\\warriors_logos\\gladitor.PNG';
+    return 'assets\\warriors_logos\\gladiator.PNG';
   }
 }
