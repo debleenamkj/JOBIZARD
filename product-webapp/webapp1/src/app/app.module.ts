@@ -83,6 +83,8 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
+import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.component';
+import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 
 
@@ -145,6 +147,8 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     JobSeekerProfileComponent,
     SearchPortalComponent,
     TestResultViewComponent,
+    ImagePostDialogComponent,
+    BlogPostDialogComponent,
     RecruiterRegisterComponent
 
   ],

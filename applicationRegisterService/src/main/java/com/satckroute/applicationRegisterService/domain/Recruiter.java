@@ -33,18 +33,18 @@ public class Recruiter
     private String firstName;
 
 
-    private String middleName;
+//    private String middleName;
     private String lastName;
     private String gender;
 
-//    private long mobileNumber;
+    private String mobileNumber;
     private String password;
 
 //    private String  role;
 
     private Address addressDetails;
     private OrganizationDetails organizationDetails;
-    private String [] languagesKnown;
+//    private String [] languagesKnown;
 
     @Lob
     private byte[] recruiterImage;

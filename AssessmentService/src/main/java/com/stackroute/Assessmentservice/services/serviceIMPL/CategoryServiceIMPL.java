@@ -1,6 +1,7 @@
 package com.stackroute.Assessmentservice.services.serviceIMPL;
 
 import com.stackroute.Assessmentservice.Exception.CategoryAlreadyExistsException;
+import com.stackroute.Assessmentservice.Exception.SubCategoryNotExistsException;
 import com.stackroute.Assessmentservice.model.Category;
 import com.stackroute.Assessmentservice.model.Quiz;
 import com.stackroute.Assessmentservice.repository.CategoryRepository;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceIMPL implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
@@ -33,19 +34,28 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void deleteCategory(int categoryId) {
+    public boolean deleteCategory(int categoryId) {
         Category category = new Category();
+        if (category == null) {
+            return  false;
+        }
         category.setCid(categoryId);
         this.categoryRepository.delete(category);
-
+        return true;
     }
 
     @Override
-    public List<Quiz> getQuiz(String subcategoryTitle) {
-       Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
-       Random random = new Random();
-        int index=random.nextInt(2);
-        List<Quiz> quiz =category.getSubCategory().get(index).getQuizList();
-        return quiz;
+    public List<Quiz> getQuiz(String subcategoryTitle)throws SubCategoryNotExistsException {
+        Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
+        if(category==null)
+        {
+            throw new SubCategoryNotExistsException();
+        }
+        else {
+            Random random = new Random();
+            int index = random.nextInt(2);
+            List<Quiz> quiz = category.getSubCategory().get(index).getQuizList();
+            return quiz;
+        }
     }
 }

@@ -20,10 +20,15 @@ export class NavBarComponent {
       shareReplay()
     );
 
+
   // name="sajal@gmail.com";
   // n1=name.split("@",3);
+  firstname="Jobsie";
+  lastname="Jobbie";
+  email="jobseeker@gmail.com";
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, private loginService : RegisterServiceService) {}
+
 
   hide=false;
 
@@ -35,6 +40,7 @@ export class NavBarComponent {
   }
 
   openReviewForm(): void {
+    
     const dialogRef = this.dialog.open(RegisterComponent)
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog Box: $(result)')

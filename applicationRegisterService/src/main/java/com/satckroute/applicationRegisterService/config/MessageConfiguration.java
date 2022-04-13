@@ -18,7 +18,6 @@ public class MessageConfiguration
     private String firstRegisterQueue="user_queue"; //wait unTill service not available
     private String jobSeekerRegisterQueue="jobSeeker_queue";
 
-
 //---------------------------------------------------------------------------------------------------------------------
 
 

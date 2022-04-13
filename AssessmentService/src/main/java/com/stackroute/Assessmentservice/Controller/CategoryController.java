@@ -1,6 +1,7 @@
 package com.stackroute.Assessmentservice.Controller;
 
 import com.stackroute.Assessmentservice.Exception.CategoryAlreadyExistsException;
+import com.stackroute.Assessmentservice.Exception.SubCategoryNotExistsException;
 import com.stackroute.Assessmentservice.model.Category;
 import com.stackroute.Assessmentservice.model.Quiz;
 import com.stackroute.Assessmentservice.services.CategoryService;
@@ -39,7 +40,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{subCategoryTitle}")
-    public List<Quiz> getQuiz(@PathVariable String subCategoryTitle){
+    public List<Quiz> getQuiz(@PathVariable String subCategoryTitle) throws SubCategoryNotExistsException {
         List<Quiz> quizzes = this.service.getQuiz(subCategoryTitle);
         return quizzes;
     }
