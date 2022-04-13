@@ -62,15 +62,17 @@
         
         
 
-<mat-dialog-content class="mat-typograpy;" >
+<mat-dialog-content class="mat-typograpy;">
 
-        <button style="margin-left: 10px;">
+        <div style="height: 100px;">
+
+        <button [mat-dialog-close]="" cdkFocusInitial style="margin-right: 50px;margin-top:30px;">
                 <a style="color: whitesmoke;text-decoration: none;" routerLink="/jobSeekersRegister">JobSeeker</a>
         </button> 
 
-        <button>
+        <button [mat-dialog-close]="" cdkFocusInitial style="margin-left: 50px;margin-top: 30px;">
                 <a style="color: whitesmoke;text-decoration: none"  routerLink="/recruiterRegister">Recruiter</a>           
         </button>
-
+</div>
 </mat-dialog-content>
         

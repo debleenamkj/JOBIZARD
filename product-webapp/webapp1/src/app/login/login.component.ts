@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   hasUnitNumber = false;
   error: string | null = '';
 
-
+ hide=true;
   user:UserLogin =new UserLogin();
   
   
