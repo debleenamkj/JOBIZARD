@@ -314,10 +314,10 @@ public class RegisterController
         }
     }
 
-    @GetMapping("/jobSeekers/{emailId}")
-    public ResponseEntity<?> getAllJobSeekers(@PathVariable String emailId) throws JobSeekerNotFoundException {
+    @GetMapping("/jobSeekers")
+    public ResponseEntity<?> getAllJobSeekers() throws JobSeekerNotFoundException {
         try {
-            return new ResponseEntity<>(registerService.getAllJobSeekers(emailId), HttpStatus.OK);
+            return new ResponseEntity<>(registerService.getAllJobSeekers(), HttpStatus.OK);
         } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
             throw new JobSeekerNotFoundException();
         } catch (Exception exception) {
@@ -325,7 +325,7 @@ public class RegisterController
         }
     }
 
-        @GetMapping("/skillSet/{emailId}")
+    @GetMapping("/skillSet/{emailId}")
     public ResponseEntity<?> getSkillSet(@PathVariable String emailId) throws JobSeekerNotFoundException {
         try {
             return new ResponseEntity<>(registerService.getSkillSet(emailId), HttpStatus.OK);

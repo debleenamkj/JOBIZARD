@@ -42,7 +42,7 @@ public interface RegisterService
 
     //Recruiter Landing.....................................................
     Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException;
-    JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException;
+    List<JobSeeker> getAllJobSeekers() throws JobSeekerNotFoundException;
     List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException;
 
 
