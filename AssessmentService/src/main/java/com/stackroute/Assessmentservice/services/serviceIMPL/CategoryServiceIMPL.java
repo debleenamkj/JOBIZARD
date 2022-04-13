@@ -40,7 +40,9 @@ public class CategoryServiceIMPL implements CategoryService {
 
     @Override
     public Quiz getQuiz(String subcategoryTitle) {
+        System.out.println(subcategoryTitle);
        Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
+        System.out.println(category);
        List<Quiz> quiz =category.getSubCategory().get(0).getQuizList();
        return quiz.get(0);
     }
