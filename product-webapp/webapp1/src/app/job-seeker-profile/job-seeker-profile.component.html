@@ -1,16 +1,16 @@
 <div class="container-fluid">
-    <mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">{{jobseeker.firstName}}'s Profile</h1></mat-card>
+    <mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">{{firstname}}'s Profile</h1></mat-card>
     <div class="row">
-        <div class="col-xl-4 col-md-6 col-xs-12" style="margin-top: 1%;">
-            <div style="display: flex; ">
-                <img src={{jobseeker.jobSeekerImage}} style="height: 13.5vw;"/>
+        <div class="col-xl-4">
+            <div style="display: flex; margin-top: 4%;">
+                <img src={{url}} style="height: 13.5vw;"/>
                 <div style="display: block; margin-left: 10%; line-height: 3rem; margin-bottom: 4%;">
-                    <h1 style="font-weight: bolder;  color: #6E2586;">{{jobseeker.firstName}} {{jobseeker.lastName}}</h1>
+                    <h1 style="font-weight: bolder;  color: #6E2586;">{{firstname}} {{lastname}}</h1>
                     <div style="font-size: 2rem;">
-                        <span>{{jobseeker.gender}}</span>
-                        <span style="display: block;">{{jobseeker.dateOfBirth}}</span>
-                        <span *ngIf="!(email == null)" style="display: block;">{{jobseeker.emailId}}</span>
-                        <span style="display: block;">{{jobseeker.mobileNumber}}</span>
+                        <span>{{gender}}</span>
+                        <span style="display: block;">{{dob}}</span>
+                        <span *ngIf="!(email == null)" style="display: block;">{{email}}</span>
+                        <span style="display: block;">{{mobile}}</span>
                         <span style="display: block;">{{address.city}}, {{address.state}}</span>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                 </ul>
             </mat-card>
         </div>
-        <div class="col-xl-4 col-md-3" style="height: 100%; font-size: 2rem;  line-height: 3rem; margin-top: 1%;">
-            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
+        <div class="col-xl-4" style="height: 100%; font-size: 2rem;  line-height: 3rem;">
+            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
                 <h1 style="font-weight: bolder; text-align: center; color: #B11784; display: block;"><mat-icon>book</mat-icon> Skills</h1>
                 <div>
                     <ul style="columns: 2; list-style: none; line-height: 3rem; text-align: center;"> 
@@ -48,8 +48,8 @@
             </mat-card>
            
         </div>
-        <div class="col-xl-4" style="font-size: 2rem; height: 20vw; line-height: 3rem; margin-top: 1%;">
-            <mat-card style="display: block;overflow: hidden; overflow-y: scroll;  border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
+        <div class="col-xl-4" style="font-size: 2rem; height: 20vw; line-height: 3rem;">
+            <mat-card style="display: block; overflow: hidden; overflow-y: scroll;  border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
                 <h1 style="font-weight: bolder; text-align: center; color: #B11784;"><mat-icon>school</mat-icon> Educational Details</h1>
                 <ol *ngFor="let educational of educational" style="list-style: none;">
                     <li><span style="font-weight: bold;">Education: </span>{{educational.education}}</li>

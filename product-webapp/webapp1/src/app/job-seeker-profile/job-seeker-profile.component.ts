@@ -9,13 +9,6 @@ import { JobSeeker } from '../model/jobSeeker';
 export class JobSeekerProfileComponent implements OnInit {
 
   constructor() {
-    this.jobseeker.jobSeekerImage = this.url;
-    this.jobseeker.dateOfBirth = this.dob;
-    this.jobseeker.emailId = this.email;
-    this.jobseeker.firstName = this.firstname;
-    this.jobseeker.lastName = this.lastname;
-    this.jobseeker.gender = this.gender;
-    this.jobseeker.mobileNumber = this.mobile;
    }
 
   jobseeker = new JobSeeker();

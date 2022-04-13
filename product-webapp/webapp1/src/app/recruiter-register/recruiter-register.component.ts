@@ -45,7 +45,7 @@ export class RecruiterRegisterComponent {
     this.recruiter.emailId = this.registerForm.value.emailId;
     this.recruiter.password = this.registerForm.value.password;
     console.log(this.recruiter)
-    this.registerService.jobSeekerRegister(this.recruiter).subscribe(data=>{
+    this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
       //alert("JobSeeker data added successfully")
       this.router.navigate(["/userLogin"])
     },error=>alert("Sorry not able to register recruiter Details."));
@@ -87,7 +87,7 @@ export class RecruiterRegisterComponent {
     if(!this.confirm?.invalid && !this.password?.invalid && (this.confirm?.value==this.password?.value))
     {
       this.recruiter={emailId : this.email?.value, password:this.password?.value}
-      this.registerService.jobSeekerRegister(this.recruiter).subscribe(data=>{
+      this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
         this.user=data;
         console.log(data);
          this.router.navigate(['/userLogin']);

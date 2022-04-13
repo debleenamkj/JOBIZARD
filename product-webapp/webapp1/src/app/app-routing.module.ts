@@ -34,9 +34,9 @@ import { CvTemplate1Component } from './cv-generation/cv-template1/cv-template1.
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
-import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 
 
 
