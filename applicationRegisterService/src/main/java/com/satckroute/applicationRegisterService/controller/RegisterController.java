@@ -229,6 +229,24 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
+    @PutMapping("/jobSeeker1/{emailId}")
+    public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker") String emailId, @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
+    {
+//        return responseEntity;
+
+
+        try {
+            JobSeeker jobSeeker1 = new ObjectMapper().readValue(emailId,JobSeeker.class);
+            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetails(jobSeeker1,emailId),HttpStatus.CREATED);
+            return new ResponseEntity<>(registerService.updateJobSeekerDetails(jobSeeker1, emailId), HttpStatus.OK);
+        } catch (JobSeekerNotFoundException e) {
+            throw new JobSeekerNotFoundException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+//---------------------------------------------------------------------------------------------------------------------
+
     @PutMapping("/recruiter/{emailId}")
     public ResponseEntity<?> updateRecruiterDetails(@RequestBody Recruiter recruiter, @PathVariable String emailId) throws RecruiterNotFoundException
     {

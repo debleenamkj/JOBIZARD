@@ -168,3 +168,11 @@ h5 {
   margin: 5% 0% 0% 0%;
   padding: 0%;
 }
+.button{ 
+  margin-top: 2%;
+   background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); 
+   font-size:x-large; 
+   border: none;
+   color: white;
+  border-radius: 6px;   
+}

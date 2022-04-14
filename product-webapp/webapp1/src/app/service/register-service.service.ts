@@ -20,6 +20,10 @@ export class RegisterServiceService {
     this.isloggedIn = true;
   }
 
+  role = '';
+  
+
+
   constructor(private http:HttpClient) { }
   jobSeekerRegister(jobSeekerData:any)
   {

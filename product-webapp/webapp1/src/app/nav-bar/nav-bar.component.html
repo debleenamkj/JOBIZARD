@@ -3,6 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'over'"
       [opened]="(isHandset$ | async) === true" style="background-color: rgb(189, 118, 207); text-align: center; align-items: center; justify-content: center; ">
+   <div *ngIf="role=='jobseeker'">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
@@ -10,7 +11,27 @@
       <button mat-list-item routerLink="/learning" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Learning Portal</button>
       <button mat-list-item routerLink="/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">JobiZone</button>
       <button mat-list-item routerLink="/cv-generation" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Generate Your CV</button>
+      <button mat-list-item routerLink="/review" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Review</button>
     </mat-nav-list>
+  </div>
+
+  <div *ngIf="role=='recruiter'">
+    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
+    <hr>
+    <mat-nav-list style="align-items: center; justify-content: center;">
+      <button mat-list-item routerLink="/job-posting" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Post Jobs</button>
+      <button mat-list-item routerLink="/search" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Search Profiles</button>
+    </mat-nav-list>
+  </div>
+
+  <div *ngIf="role==''">
+    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
+    <hr>
+    <mat-nav-list style="align-items: center; justify-content: center;">
+      <button mat-list-item routerLink="/userLogin" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Login</button>
+      <button mat-list-item (click)="openRegisterForm()" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Register</button>
+    </mat-nav-list>
+  </div>
   </mat-sidenav>
 
 
@@ -49,7 +70,7 @@
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/update-user">Update User</a> 
         
      
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" (click)="openReviewForm()" >Register</a>
+        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" (click)="openRegisterForm()" >Register</a>
 
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeeker">Job Seeker</a>
         
