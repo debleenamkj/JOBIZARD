@@ -1,0 +1,19 @@
+.example-card1{
+    max-width: 400px;
+    /* margin: 7%; */
+    
+  }
+  
+ 
+  .example-card2{
+    max-width: 400px;
+  }
+  
+ 
+  .main{
+      display: flex;
+      justify-content: space-evenly;
+      margin: 5%;
+      
+  }
+  

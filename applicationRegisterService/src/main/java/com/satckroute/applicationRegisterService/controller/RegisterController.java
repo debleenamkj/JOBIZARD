@@ -138,11 +138,16 @@ public class RegisterController
         {
             log.error("RegisterController - registerNewRecruiter"+recruiterAlreadyExistException);
             throw new RecruiterAlreadyExistException();
+
         }
         catch (Exception exception)
         {
             log.error("RegisterController - registerNewRecruiter"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+
+//        } catch (Exception exception) {
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
     }
 

@@ -28,6 +28,7 @@
 
 .example-card {
     width: 250px;
+    /* height: 265px; */
     margin-bottom: 50px;
     float: left;
     margin-right: 20px;
