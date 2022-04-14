@@ -52,10 +52,10 @@ const routes: Routes = [
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {
-    path:'cv-generation',component:CvGenerationComponent
+    path: 'cv-generation', component: CvGenerationComponent
   },
   {
-    path:'cv-template1',component:CvTemplate1Component
+    path: 'cv-generation1', component: CvTemplate1Component
   },
   {
     path:'cv-template2', component:CvTemplate2Component
@@ -79,20 +79,20 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
 
   // material component
-  {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
-  {path:"recruiterRegister",component:RecruiterRegisterComponent},
+  { path: "jobSeekersRegister", component: JobSeekersRegisterComponent },
+  { path: "recruiterRegister", component: RecruiterRegisterComponent },
 
-  {path:"organizationRegister",component:OrganizationDetailsComponent},
-  {path:"userLogin",component:LoginComponent},
-  {path: "not-found", component:NotFoundComponent},
+  { path: "organizationRegister", component: OrganizationDetailsComponent },
+  { path: "userLogin", component: LoginComponent },
+  { path: "not-found", component: NotFoundComponent },
   // {path:"Organization",component:OrganizationDetails},
 
   {path:"recruiterLanding", component: RecruiterlandingComponent},
 
 
-  {path:"update",component:UpdateDetailsComponent},
-  {path:"update-user",component:UpdateUserDetailsComponent},
-  {path:"review",component:ReviewComponent},
+  { path: "update", component: UpdateDetailsComponent },
+  { path: "update-user", component: UpdateUserDetailsComponent },
+  { path: "review", component: ReviewComponent },
 
   {path:"jobSeeker",component:JobSeekerLandingComponent},
   {path:"jobseekerprofile",component:JobSeekerProfileComponent},
