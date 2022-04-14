@@ -34,24 +34,31 @@ export class LoginComponent implements OnInit {
   user1:UserLogin = new UserLogin();
   
   
-  userLogin(user:any)
+  userLogin(data:FormGroup)
   {
+    this.user.emailId=this.loginForm.value.emailId;
+    this.user.password=this.loginForm.value.password;
     // console.log(this.loginService.role)
-    console.log(this.user)
-    // this.loginService.getUserById(this.user.emailId).subscribe(data=>
-    //   {
-    //     // this.user1=data
-    //     console.log(data)
-        
-    //   })
-
-    this.loginService.userLogIn(this.user)
-    .subscribe(()=>{
+    console.log(this.user);
+    
+    this.loginService.userLogIn(this.user).subscribe(()=>{
       // alert("Successfully User is logged in.")
-      this.recruiterLanding.email=user.emailId;
+      this.recruiterLanding.email=this.user.emailId;
       console.log(this.recruiterLanding.email);
       this.loginService.isloggedIn=true
-      this.router.navigate(["/chatbot"])
+      this.loginService.getUserById(this.user.emailId).subscribe((response:any)=>
+      {
+         this.user1=response;
+        console.log(this.user1);
+        if(this.user1.role=="JOBSEEKER"){
+          this.router.navigate(["/jobSeeker"])
+        }
+        else(
+          this.router.navigate(["/recruiterLanding"])
+        )
+        
+      })
+      
      },()=>{
       //alert("please check your username and password.")
     this.error =  "please check your Email-Id or password.";

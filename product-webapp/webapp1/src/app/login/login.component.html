@@ -91,7 +91,7 @@
 
 <body  class="vh-100" style="background-color: rgba(223, 181, 237, 1);position:fixed;" >
 
-  <form style="margin-top: 5vw;"  class="mx-1 mx-md-2" [formGroup]="loginForm" (ngSubmit)="userLogin(user)" >
+  <form style="margin-top: 5vw;"  class="mx-1 mx-md-2" [formGroup]="loginForm"  >
 
     <mat-card class="shipping-card" id="mat-card" >
      
@@ -138,7 +138,7 @@
   <mat-card-actions style="margin-top:-25px">
   
     <br>
-      <button type="submit" mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 55px;margin-top: -25px;">
+      <button type="submit" (click)="userLogin(loginForm)" mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 55px;margin-top: -25px;">
         LOGIN
       </button>
 
