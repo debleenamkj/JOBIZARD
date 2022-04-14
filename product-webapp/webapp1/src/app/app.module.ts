@@ -87,6 +87,7 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -188,7 +189,7 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
     NgbModule,
     MatExpansionModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],

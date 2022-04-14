@@ -53,7 +53,7 @@ const routes: Routes = [
     path:'cv-generation',component:CvGenerationComponent
   },
   {
-    path:'cv-generation1',component:CvTemplate1Component
+    path:'cv-template1',component:CvTemplate1Component
   },
   {
     path:"jobdetail",
