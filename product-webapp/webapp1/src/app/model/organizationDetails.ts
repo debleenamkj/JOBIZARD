@@ -8,6 +8,5 @@ export class OrganizationDetails
     contactNumber!: number
     password!:string
     organizationAddress!: string
-    
     organizationLogo!: any
 }

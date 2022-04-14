@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
 public class Review {
     @Transient
     public static final String sequenceName = "review_id_generation";
@@ -23,12 +22,4 @@ public class Review {
     private String consMessage;
     private Date reviewDate;
     private Ratings companyRatings;
-
-    public enum Ratings {
-        POOR,
-        NOT_BAD,
-        GOOD,
-        VERY_GOOD,
-        EXCELLENT
-    }
 }

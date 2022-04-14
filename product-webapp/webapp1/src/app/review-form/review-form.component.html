@@ -1,16 +1,158 @@
+<mat-dialog-actions style="display: flex; justify-content: right; height: fit-content;">
+    <button mat-icon-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Submit</button> -->
+</mat-dialog-actions>
+
 <h1 mat-dialog-title> Write a Review:</h1>
 
 <mat-dialog-content class="mat-typograpy">
-    <h3 style="padding: 0%; margin-bottom: 0%;">Name: </h3>
-    <mat-form-field>
-        <mat-label>
-            Your name
-        </mat-label>
-        <input matInput type="text">
-    </mat-form-field>
-</mat-dialog-content>
+    <form [formGroup]="reviewForm" class="review-form">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <img style="margin-left: 0%; margin-right: auto;
+                         width: 100px; height: 100px; object-fit: contain;"
+                            *ngIf="reviewService.selectedCompany.retrievedImage"
+                            [src]="reviewService.selectedCompany.retrievedImage">
 
-<mat-dialog-actions >
-    <button mat-button mat-dialog-close>Close</button>
-    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Submit</button> -->
-  </mat-dialog-actions>
+                        <h3 style="width: 200px; font-weight: 600;" *ngIf="reviewService.selectedCompany.companyName">
+                            {{reviewService.selectedCompany.companyName}}
+                        </h3>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="display: flex; margin-left: 3px;">
+                    <button mat-icon-button (click)="oneStarMethod()" >
+                        <mat-icon #oneStar >
+                        grade</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='primary';
+                    fourStar.color='primary'; fiveStar.color='primary';">
+                        <mat-icon #twoStar >
+                            grade</mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
+                        fourStar.color='primary'; fiveStar.color='primary';">
+                        <mat-icon #threeStar>
+                            grade</mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
+                        fourStar.color='accent'; fiveStar.color='primary';">
+                        <mat-icon #fourStar>
+                            grade</mat-icon>
+                    </button>
+                    <button mat-icon-button 
+                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
+                        fourStar.color='accent'; fiveStar.color='accent';">
+                        <mat-icon #fiveStar>
+                            grade</mat-icon>
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <h3 class="field-heading">What you do Like? </h3>
+                    <mat-form-field appearance="fill" class="text-area">
+                        <mat-label>
+                            You like...
+                        </mat-label>
+                        <textarea matInput formControlName="prosMessage" type="text"></textarea>
+                        <mat-error *ngIf="reviewForm.controls['prosMessage'].invalid">{{validateProsMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h3 class="field-heading">What you don't like? </h3>
+                    <mat-form-field appearance="fill" class="text-area">
+                        <mat-label>
+                            You dislike...
+                        </mat-label>
+                        <textarea matInput formControlName="consMessage" type="text"></textarea>
+                        <mat-error *ngIf="reviewForm.controls['consMessage'].invalid">{{validateConsMessage()}}
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr style="display: none;">
+                <th>
+                    <h2>Write Review As: </h2>
+                </th>
+                <th colspan="2">
+                    <mat-radio-group style="display: flex; flex-direction: row;margin: 15px 0;
+                    align-items: flex-start;" aria-label="Select an option">
+                        <mat-radio-button value="Anonymous">
+                            <h3> Anonymous </h3>
+                        </mat-radio-button>
+                        <mat-radio-button value="No Value">
+                            <h3> Log In </h3>
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </th>
+                <th *ngIf="reviewForm.get('firstName')">
+                    {{reviewForm.get('firstName')?.value}}&&{{formRadio}}
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h2>
+                        Your Details:
+                    </h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3 class="field-heading">E-Mail:</h3>
+                    <mat-form-field appearance="fill">
+                        <input disabled matInput value="a@gmail.com" type="text">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <h3 class="field-heading">Name</h3>
+                    <mat-form-field appearance="fill">
+                        <input matInput disabled value="Akash Suneja" type="text">
+                    </mat-form-field>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td>
+                    <h3 class="field-heading">Middle Name:</h3>
+                    <mat-form-field appearance="fill">
+                        <mat-label>
+                            Middle name
+                        </mat-label>
+                        <input disabled matInput value="Suneja" type="text">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <h3 class="field-heading">Last Name: </h3>
+                    <mat-form-field appearance="fill">
+                        <mat-label>
+                            Last name
+                        </mat-label>
+                        <input disabled matInput value="" type="text">
+                    </mat-form-field>
+                </td>
+            </tr> -->
+            <tr>
+                <td colspan="2">
+                    <button mat-raised-button [disabled]="formValidation" (click)="postReviewDetails()" type="submit">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</mat-dialog-content>

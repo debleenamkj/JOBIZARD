@@ -34,9 +34,9 @@ export class SkilltestComponent implements OnInit {
       this.data = data;
       this.actualAnswers=this.data.answers;
       console.log(this.actualAnswers);
-      this.totalQuestions=this.data.no_of_questions;
+      this.totalQuestions=this.data.numberOfQuestions;
       console.log(this.actualAnswers);
-      this.ques_counter(this.data.no_of_questions);
+      this.ques_counter(this.totalQuestions);
       console.log(qno);
       console.log(this.data)
     }) 
@@ -69,7 +69,10 @@ bookmark(qno:number){
 
 
 option(qno:number){
+
   console.log("options in");
+  console.log(qno);
+  console.log(this.answers)
   if(this.answers[qno]==""){
     console.log("optionss");
    
@@ -83,10 +86,12 @@ option(qno:number){
 }
 
 changeColor(qno:number){
+  console.log(this.changeColor)
+  console.log(qno)
   let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
-  if(this.bookmarks[qno-2]=="true"){
+  if(this.bookmarks[qno]=="true"){
     console.log(this.bookmarks[qno]);
-    bookmark[qno-2].style.backgroundColor ='#00CED1';
+    bookmark[qno-1].style.backgroundColor ='#00CED1';
   }
   else if(this.answers[qno-1]!=""){
     setTimeout(() => {
@@ -106,7 +111,7 @@ changeColor(qno:number){
       questions.push(this.data.questions);
 
       for (let index = 0; index < questions[0].length; index++) {
-        if(questions[0][index].qno==qno)
+        if(questions[0][index].quesNo==qno)
         this.question = questions[0][index];
       }
       console.log(this.question); 
@@ -136,7 +141,7 @@ changeColor(qno:number){
   counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 10, sec: "30" } // choose whatever you want
+    this.counter = { min: 1, sec: "00" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;
@@ -173,7 +178,7 @@ changeColor(qno:number){
       setTimeout(() => {
         console.log(this.answers);
         this.calculateScores();
-        this.router.navigate(['/job-posting'])
+        this.router.navigate(['/result'])
       }, 300);
    
     }
@@ -189,6 +194,8 @@ changeColor(qno:number){
         this.answers[index]="";
         this.bookmarks[index]="";
     }
+    console.log("answersss")
+    console.log(this.answers)
     this.no_of_questions = arr;
     return arr;
 }
@@ -213,6 +220,7 @@ changeColor(qno:number){
     console.log("Unanswered Question :"+unAnswerdQuestion);
     console.log("Correct Answers :"+correctAnswers);
     console.log("percentage :"+percentage+"%");
+    
     this.service.answeredQuestions=answerdQuestion;
     this.service.unAnsweredQuestions=unAnswerdQuestion;
     this.service.percentage=percentage;
@@ -224,17 +232,18 @@ changeColor(qno:number){
     }
     else if(percentage>=80){
       
-      warrior_name='xxxx'
+      warrior_name='gladiator'
     }
     else if(percentage>=70){
-      warrior_name='yyyy'
+      warrior_name='saga'
     }
     else if(percentage>50){
-      warrior_name='zzzz'
+      warrior_name='beginner'
     }
+    this.service.worrior=warrior_name;
     let data = {"emailId":"malumalathi032@gmail.com","percentage":percentage+"%","warrior-name":"ninja"}
 
-    
+    console.log("warrior name:"+warrior_name)
   }
  
 }

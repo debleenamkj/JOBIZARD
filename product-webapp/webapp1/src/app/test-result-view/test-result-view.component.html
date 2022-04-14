@@ -1,52 +1,53 @@
 <div class="container">
-    <mat-card id="title">Quiz Result</mat-card>
-    <div class="user">
-      <h2
-        style="
-          text-align: center;
-          background-image: linear-gradient(
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.8)
-          );
-        "
+  <mat-card id="title">
+    <span style="display: flex">
+      <button mat-icon-button routerLink="/assesmentportal">
+        <mat-icon>home</mat-icon>
+      </button>
+      <h2>Quiz Result</h2>
+    </span>
+  </mat-card>
+  <!-- <div class="mainDiv"> -->
+  <div class="div1">
+    <h2 class="div1Title">User Details</h2>
+    <span>
+      <img id="userimg" src="../../assets/u1.jpeg" alt="" />
+      <div class="userDetails">
+        <h2>username</h2>
+        <h2>Qualification</h2>
+        <h2>{{level}}</h2>
+        <h2>.</h2>
+        <h2>.</h2>
+        <h2>.</h2>
+        <div class="flip-card">
+          <h1 style="margin-left: -25px">{{ message }}</h1>
+        </div>
+      </div>
+    </span>
+  </div>
+  <div class="div2">
+    <div>
+      <span class="div2Result"
+        ><img src="{{worrior_logo}}" alt="" />
+        <h2>
+          Hey {{ username }}, you are our {{ level }}, with Score
+          {{ marksGot }}%
+        </h2></span
       >
-        User Details
-      </h2>
-      <mat-card>
-        <img id="userimg" src="../../assets/ninja.png" alt="" />
-        <div class="userDetails">
-          <h2>{{ username }}</h2>
-          <h2>{{ CollegeName }}</h2>
-        </div>
-      </mat-card>
-    </div>
-    <div class="result">
-      <div class="resultDetails">
-        <img
-          id="resultimg"
-          src="../../assets/ninja.png"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="result-body">
-          <div class='line'>
-          <h2 class="result-title">
-            Hey {{ username }}, you are our {{ level }}, with Score {{marksGot}}
+      <div class="div2ResultDetails">
+        <span>
+          <h2>Questions Attempted</h2>
+          <h2 style="margin-left: 35px">
+            : {{ attempted }}/{{ TotalQuestions }}
           </h2>
+        </span>
+        <span>
+          <h2>Questions UnAttempted</h2>
+          <h2>: {{ unattempted }}/{{ TotalQuestions }}</h2>
+        </span>
       </div>
-          <mat-card class="result-text">
-            <h2>Correct Answers : {{ correctAnswers }}/{{ TotalQuestions }}</h2>
-            <h2>Questions Attempted :{{ attempted }}/{{ TotalQuestions }}</h2>
-            <h2>Questions UnAttempted :{{ unattempted }}/{{ TotalQuestions }}</h2>
-            <h2>Performance :{{ performance }}</h2>
-          </mat-card>
-          <button type="button" class="btn">PRINT</button>
-          <button type="button" class="btn">HOME</button>
-        </div>
-      </div>
-    </div>
-    <div class="flip-card">
-      <h1>{{ message }}</h1>
+      <span> <button type="button" class="btn">PRINT</button> </span>
     </div>
   </div>
-  
+</div>
+<!-- </div> -->

@@ -1,91 +1,130 @@
-<!-- <div style=" height: 50vh; width: 50vw;  justify-content: center; align-items: center; background-color: aquamarine;">
-    <div style="display: flex; flex-direction: column-reverse; height: 80%; width: 80%; overflow: auto;  background-color: aqua;">
-        <div style=" margin: auto; width: 90%; height: 70%; margin: 5% 5%; background-color: aliceblue;" *ngFor="let company of companies">
-            <img style="width: 200px; height: 200px; object-fit: contain;" [src]="company.retrievedImage">
-        </div>
-    </div>
-</div> -->
 <div class="parent-div">
     <section class="header-section">
-        <h1>Get Insight On Companies</h1>
-        <div>
-        <form [formGroup]="companyForm" style="background-color: aqua;">
-            <mat-form-field appearance="fill" class="search-bar">
-              <mat-label>Company Name</mat-label>
-              <input type="text"
-                     matInput
-                     formControlName="companyGroup"
-                     [matAutocomplete]="autoGroup">
-                <mat-autocomplete #autoGroup="matAutocomplete">
-                  <mat-optgroup *ngFor="let group of companyGroupOptions | async" [label]="group.letter">
-                    <mat-option *ngFor="let name of group.names" [value]="name">
-                      {{name}}
-                    </mat-option>
-                </mat-optgroup>
-              </mat-autocomplete>
-            </mat-form-field>
-          </form>
+        <h1 style="width: 100%; margin-bottom: 5px;
+            border-radius: 4px;
+            padding: 16.5px;
+            color: white; text-align: center;
+            font-size: xx-large; font-weight: 600;
+            background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132) );">
+            Get Insight On Companies
+        </h1>
+    </section>
+    <div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+        <div style=" background-color: aquamarine; margin-left: 0%; margin-right: auto;">
+            <form [formGroup]="companyForm" class="search-form">
+                <mat-form-field class="search-bar">
+                    <mat-label style="color: black; font-size:15px; font-weight: 500;">Search by Company name
+                    </mat-label>
+                    <input type="search" style="font-size: 20px" matInput formControlName="companyGroup"
+                        [matAutocomplete]="autoGroup">
+                    <mat-error *ngIf="searchError">{{searchErrorMessage}}</mat-error>
+                    <mat-autocomplete #autoGroup="matAutocomplete">
+                        <mat-optgroup *ngFor="let group of companyGroupOptions | async" [label]="group.letter">
+                            <mat-option *ngFor="let name of group.names" style="color: #4E1B5F; font-weight: 700;"
+                                [value]="name">
+                                {{name}}
+                            </mat-option>
+                        </mat-optgroup>
+                    </mat-autocomplete>
+                    <button (click)="companyForm.controls['companyGroup'].setValue('');"
+                        *ngIf="companyForm.controls['companyGroup'].value" matSuffix mat-icon-button>
+                        <i class="fa-xl fa-solid fa-xmark"></i>
+                    </button>
+
+                </mat-form-field>
+                <button mat-icon-button (click)="querySearch()" class="search-button">
+                    <i class="fa-xl fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
         </div>
-    </section>
-    <section class="company-section" style="display: flex; overflow-x: auto;">
-        <mat-card class="example-card" *ngFor="let company of companies">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{company.companyName}}</mat-card-title>
-              <mat-card-subtitle>subTitle</mat-card-subtitle>
+        <mat-paginator style="width: 30%;" [length]="companies.length" [pageSize]="4"
+            [pageSizeOptions]="[1,2,3,4,5,6,7,8]" (page)="reviewPageChange($event)" aria-label="Select page">
+        </mat-paginator>
+    </div>
+
+    <section class="review-section" style="position: relative;">
+        <mat-card *ngFor="let company of companiesSlice" class="review-card">
+            <mat-card-header class="review-header">
+                <div class="mat-title">
+                    <mat-card-title style=" font-size: 21px; line-height: 21px; height: fit-content;">
+                        {{company.companyName}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <i class="fa-solid fa-star" style="position: absolute; left: 0%;"></i>
+                    </mat-card-subtitle>
+                </div>
+                <img [src]="company.retrievedImage" style="width: 120px; height: 120px; object-fit: contain;">
+                <mat-card-actions>
+                    <button mat-raised-button (click)="openReviewForm(company)">Write Review</button>
+                </mat-card-actions>
             </mat-card-header>
-            <img mat-card-image [src]="company.retrievedImage"  style="width: 30px; height: 30px; object-fit: contain;">
-            <!-- <img mat-card-image [src]="company.retrievedImage" alt="Photo of a Shiba Inu"> -->
-            <mat-card-content>
-              <p>
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button (click)="openReviewForm($event)">Write Review</button>
-              
-            </mat-card-actions>
-          </mat-card>
+        </mat-card>
     </section>
+    <section class="review-section" style="position: relative;">
+        <mat-card *ngFor="let company of companiesSlice" class="review-card">
+            <mat-card-header class="review-header">
+                <div class="mat-title">
+                    <mat-card-title style=" font-size: 21px; line-height: 21px; height: fit-content;">
+                        {{company.companyName}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <i class="fa-solid fa-star" style="position: absolute; left: 0%;"></i>
+                    </mat-card-subtitle>
+                </div>
+                <img [src]="company.retrievedImage" style="width: 120px; height: 120px; object-fit: contain;">
+                <mat-card-actions>
+                    <button mat-raised-button (click)="openReviewForm(company)">Write Review</button>
+                </mat-card-actions>
+            </mat-card-header>
+        </mat-card>
+    </section>
+
+    <div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
+        <h1 class="title">Company Ratings</h1>
+        <mat-paginator style="width: 30%;" [length]="companies.length" [pageSize]="4"
+            [pageSizeOptions]="[1,2,3,4,5,6,7,8]" (page)="reviewPageChange($event)" aria-label="Select page">
+        </mat-paginator>
+    </div>
     <section class="review-section">
-        <h1>Recent Reviews</h1>
+        <mat-card *ngFor="let company of companiesSlice" class="review-card">
+            <mat-card-header class="review-header">
+                <div class="mat-title">
+                    <mat-card-title class="company-name">
+                        {{company.companyName}}
+                    </mat-card-title>
+                    <mat-card-subtitle style="padding: 0px 5px; font-size: 20px; width: fit-content; ">
+                        <i style="color: orange;" class="fa-sm fa-solid fa-star"></i>
+                        4.8
+                    </mat-card-subtitle>
+                </div>
+                <img id="company-logo" [src]="company.retrievedImage"
+                    style="width: 120px; height: 120px; object-fit: contain;">
+                <mat-card-actions>
+                    <button mat-raised-button (click)="openReviewForm(company)">Write Review</button>
+                </mat-card-actions>
+            </mat-card-header>
+        </mat-card>
     </section>
+
 </div>
 
-<!-- <div style="display:none; ">
-<div class="parent-div">
-    <section style="background-color: white; width: 69%; margin-left: 0%; margin-right: auto;">
-        <h1>Get Insight On Companies</h1>
-        <h2 style="
-        position: relative; left: 25%; right: auto; width: 30vw; border-radius: 16px; background-image: linear-gradient(to right,#B11784, #6E2586); text-align: center;">
-            Search Bar Here
-        </h2>
-        <mat-grid-list cols="3" gutterSize="10px" rowHeight="13vw"  >
-            <mat-grid-tile  (click)="openReviewForm($event)" *ngFor="let company of companies; index as i" >
-                <div class="grid-container">
-                    <div  class="grid gridCol1">
-                        <img [src]="company.retrievedImage"  style="width: 100%; height: 100%; object-fit: contain;"  >
-                    </div>
-                    <div class="grid gridCol2">2</div>-->
-                     <!-- <div class="grid gridCol3">3</div> -->
-                    <!-- <div class="grid gridCol4">3</div>
+
+<!-- <mat-grid-list cols="5" gutterSize="10px" rowHeight="200px">
+            <mat-grid-tile *ngFor="let company of companies" style="background-color: white;">
+                <mat-card-header style="width:300px;">
+                    <!-- <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>
+                        {{company.companyName}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{company.cin}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img [src]="company.retrievedImage" style="width: 150px; height: 150px; object-fit: contain;">
+                    <mat-card-actions>
+                        <button mat-raised-button (click)="openReviewForm($event)">Write Review</button>
+                    </mat-card-actions>
                 </div>
             </mat-grid-tile>
-        </mat-grid-list>
-    </section>
-    <section style="width: 30%; background-color: pink;">
-        <h1>Recent Reviews</h1>
-        <mat-grid-list gutterSize="10px" cols="1" rowHeight="15vw">
-            <mat-grid-tile  style="background-color: aliceblue;" (click)="openReviewForm($event)" *ngFor="let company of companies; index as i">
-                <div class="grid-container">
-                    <div class="grid gridCol1" style="height: 50%; ">
-                        <img style="width: 100%; padding: 2px; height: 100%; object-fit: contain;"  [src]="company.retrievedImage">
-                    </div>
-                    <div class="grid gridCol2">2</div>
-                    <div class="grid gridCol3">3</div>
-                    <div class="grid gridCol4">4</div>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list>
-    </section>
-</div>
-</div> -->
+        </mat-grid-list> -->
