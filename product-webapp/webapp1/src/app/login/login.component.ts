@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   loginForm = this.formBuilder.group({
+    role:[null,Validators.required],
     emailId: [null, Validators.required],
     password:[null, Validators.required]
     // role:[this.loginService.role]
@@ -28,14 +29,22 @@ export class LoginComponent implements OnInit {
   hasUnitNumber = false;
   error: string | null = '';
 
- hide=true;
+  hide=true;
   user:UserLogin =new UserLogin();
+  user1:UserLogin = new UserLogin();
   
   
   userLogin(user:any)
   {
     // console.log(this.loginService.role)
     console.log(this.user)
+    // this.loginService.getUserById(this.user.emailId).subscribe(data=>
+    //   {
+    //     // this.user1=data
+    //     console.log(data)
+        
+    //   })
+
     this.loginService.userLogIn(this.user)
     .subscribe(()=>{
       // alert("Successfully User is logged in.")
@@ -53,6 +62,8 @@ export class LoginComponent implements OnInit {
     this.loginService.isloggedIn=false
      }
      );
+
+
 
     }
 

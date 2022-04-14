@@ -137,11 +137,11 @@ public class RecruiterRegisterImplTests
     }
 
 //----------------------------------------------------------------------------------------------------------------------
-//    deleteJobSeekerDetails
+//    deleteRecruiterDetails
 
     //positive test case
     @Test
-    public void deleteJobSeekerDetails() throws RecruiterNotFoundException
+    public void deleteRecruiterDetails() throws RecruiterNotFoundException
     {
         when(recruiterRegisterRepository.findById(recruiter.getEmailId())).thenReturn(Optional.ofNullable(recruiter));
         boolean flag = registerServiceImpl.deleteRecruiterDetails(recruiter.getEmailId());
@@ -156,7 +156,7 @@ public class RecruiterRegisterImplTests
 
     //negative test case
     @Test
-    public void deleteJobSeekerDetailsFailure()
+    public void deleteRecruiterDetailsFailure()
     {
         when(recruiterRegisterRepository.findById(recruiter.getEmailId())).thenReturn(Optional.ofNullable(null));
         assertThrows(RecruiterNotFoundException.class,()->registerServiceImpl.deleteRecruiterDetails(recruiter.getEmailId()));

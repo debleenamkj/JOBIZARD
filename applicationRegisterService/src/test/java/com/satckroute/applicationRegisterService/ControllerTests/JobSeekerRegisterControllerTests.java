@@ -190,20 +190,20 @@ public class JobSeekerRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void showJobSeekerByFirstNameFailure() throws Exception {
-//        when(registerServiceImpl.getAllJobSeekerByFirstName(anyString())).thenThrow(JobSeekerNotFoundException.class);
-//
-//        mockMvc.perform(get("/api/v1//jobSeeker/getUserByFirstName/FirstName01")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(jobSeeker)))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
-//
-//        verify(registerServiceImpl, times(1)).getAllJobSeekerByFirstName(anyString());
-//    }
+    @Test
+    public void showJobSeekerByFirstNameFailure() throws Exception {
+        when(registerServiceImpl.getAllJobSeekerByFirstName(anyString())).thenThrow(JobSeekerNotFoundException.class);
+
+        mockMvc.perform(get("/api/v1//jobSeeker/getUserByFirstName/FirstName01")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(jobSeeker)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
+
+        verify(registerServiceImpl, times(1)).getAllJobSeekerByFirstName(anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -225,18 +225,18 @@ public class JobSeekerRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void updateJobSeekerDetailsFailure() throws Exception {
-//        when(registerServiceImpl.updateJobSeekerDetails(any(), anyString())).thenThrow(JobSeekerNotFoundException.class);
-//
-//        mockMvc.perform(put("/api/v1/jobSeeker/emailId")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(jobSeeker)))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        verify(registerServiceImpl, times(1)).updateJobSeekerDetails(any(), anyString());
-//    }
+    @Test
+    public void updateJobSeekerDetailsFailure() throws Exception {
+        when(registerServiceImpl.updateJobSeekerDetails(any(), anyString())).thenThrow(JobSeekerNotFoundException.class);
+
+        mockMvc.perform(put("/api/v1/jobSeeker/emailId")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(jobSeeker)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl, times(1)).updateJobSeekerDetails(any(), anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -258,18 +258,18 @@ public class JobSeekerRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void deleteJobSeekerDetailFailure() throws Exception
-//    {
-//        when(registerServiceImpl.deleteJobSeekerDetails("email@gmail.com")).thenThrow(JobSeekerNotFoundException.class);
-//
-//        mockMvc.perform(delete("/api/v1/product/product/emailId")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        verify(registerServiceImpl,times(1)).deleteJobSeekerDetails("email@gmail.com");
-//    }
+    @Test
+    public void deleteJobSeekerDetailFailure() throws Exception
+    {
+        when(registerServiceImpl.deleteJobSeekerDetails("emailId@gmail.com")).thenThrow(JobSeekerNotFoundException.class);
+
+        mockMvc.perform(delete("/api/v1/jobSeeker/emailId")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl,times(1)).deleteJobSeekerDetails(anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
