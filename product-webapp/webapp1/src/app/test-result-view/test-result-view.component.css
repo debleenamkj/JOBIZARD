@@ -1,6 +1,7 @@
 #title {
   background-image: linear-gradient(to right, #6e2586, #b11784);
   color: white;
+  margin-top: 0.2%;
 }
 mat-card h2 {
   margin-left: 43%;
@@ -78,6 +79,40 @@ mat-card h2 {
     border-right-color: transparent;
   }
 }
+.div2ResultFirst table{
+  /* height: 15vh; */
+  float: right;
+  display: inline-block;
+  text-align: left;
+  position: sticky;
+  /* margin-left: 10%; */
+  border-collapse: collapse; 
+  background-color: #f6f6f6;
+}/* Spacing */
+td, th {
+  border: 1px solid #999;
+  padding: 20px;
+}
+th {
+  background: #999;
+  color: white;
+  border-radius: 0;
+  position: sticky;
+  top: 0;
+  padding: 10px;
+}
+.primary{
+  background-color: #000000
+}
+
+tfoot > tr  {
+  background: black;
+  color: white;
+}
+tbody > tr:hover {
+  background-color: #6e2586;
+}
+
 .div2ResultDetails{
   margin-top: 30px;
 }
@@ -101,7 +136,10 @@ mat-card h2 {
   font-size: x-large;
   border-radius: 5px;
   margin-left: 45%;
-  /* margin-top: 9%; */
+}
+.div2ResultFirst img{
+  margin-left: 31%;
+  display: inline-block;
 }
 
 
