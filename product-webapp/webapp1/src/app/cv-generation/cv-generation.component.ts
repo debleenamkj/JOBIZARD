@@ -16,4 +16,7 @@ export class CvGenerationComponent implements OnInit {
   temp(){
     this.router.navigate(['/cv-template1']);
   }
+  temp1(){
+    this.router.navigate(['/cv-template2']);
+  }
 }

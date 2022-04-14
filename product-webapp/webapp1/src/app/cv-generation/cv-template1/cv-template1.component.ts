@@ -9,6 +9,8 @@ import html2canvas from 'html2canvas';
 })
 export class CvTemplate1Component implements OnInit {
 
+  Name:String="Sajidha Mohammed";
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class CvTemplate1Component implements OnInit {
       const data = document.getElementById('cv-body')!;
       html2canvas(data).then(canvas => {
       // Few necessary setting options
-      var imgWidth = 208;
+      var imgWidth = 205;
       var pageHeight = 200;
       var imgHeight = canvas.height * imgWidth / canvas.width;
       var heightLeft = imgHeight;

@@ -38,6 +38,7 @@ import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profi
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
+import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 
 
 
@@ -55,6 +56,9 @@ const routes: Routes = [
   },
   {
     path:'cv-template1',component:CvTemplate1Component
+  },
+  {
+    path:'cv-template2', component:CvTemplate2Component
   },
   {
     path:"jobdetail",
