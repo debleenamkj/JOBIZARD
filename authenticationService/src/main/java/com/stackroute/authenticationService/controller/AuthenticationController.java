@@ -44,6 +44,7 @@ public class AuthenticationController
         Map<String,String> map = null;
         try
         {
+            //role / , userLogIn.getRole()
             UserLogIn userLogIn1= authenticationService.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
             if(userLogIn1.getEmailId().equals(userLogIn.getEmailId()))
             {
@@ -61,6 +62,33 @@ public class AuthenticationController
         }
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
+    @GetMapping("/find/{emailId}")
+    public ResponseEntity<?> findWithEmail(@RequestBody UserLogIn userLogIn) throws UserNotFoundException
+    {
+        Map<String,String> map = null;
+        try
+        {
+            //role / , userLogIn.getRole()
+            UserLogIn userLogIn1= authenticationService.findByEmailId(userLogIn.getEmailId());
+//            if(userLogIn1.getEmailId().equals(userLogIn.getEmailId()))
+//            {
+//                map = securityTokenGenerator.generateToken(userLogIn);
+//            }
+//            return new ResponseEntity<>(map,HttpStatus.OK);
+            return new ResponseEntity<>(userLogIn,HttpStatus.OK);
+        }
+
+        catch (UserNotFoundException ex)
+        {
+            throw new UserNotFoundException();
+        }
+        catch (Exception ex)
+        {
+            return new ResponseEntity<>("Please try after sometime",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 //---------------------------------------------------------------------------------------------------------------------
 
 //    @PostMapping("/login")

@@ -194,20 +194,20 @@ public class RecruiterRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void showRecruiterByFirstNameFailure() throws Exception {
-//        when(registerServiceImpl.getAllRecruiterByFirstName(anyString())).thenThrow(RecruiterNotFoundException.class);
-//
-//        mockMvc.perform(get("/api/v1//recruiter/getUserByFirstName/FirstName1")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(recruiter)))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
-//
-//        verify(registerServiceImpl, times(1)).getAllRecruiterByFirstName(anyString());
-//    }
+    @Test
+    public void showRecruiterByFirstNameFailure() throws Exception {
+        when(registerServiceImpl.getAllRecruiterByFirstName(anyString())).thenThrow(RecruiterNotFoundException.class);
+
+        mockMvc.perform(get("/api/v1//recruiter/getUserByFirstName/FirstName1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(recruiter)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
+
+        verify(registerServiceImpl, times(1)).getAllRecruiterByFirstName(anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -229,18 +229,18 @@ public class RecruiterRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void updateRecruiterDetailsFailure() throws Exception {
-//        when(registerServiceImpl.updateRecruiterDetails(any(), anyString())).thenThrow(RecruiterNotFoundException.class);
-//
-//        mockMvc.perform(put("/api/v1/recruiter/emailId")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(recruiter)))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        verify(registerServiceImpl, times(1)).updateRecruiterDetails(any(), anyString());
-//    }
+    @Test
+    public void updateRecruiterDetailsFailure() throws Exception {
+        when(registerServiceImpl.updateRecruiterDetails(any(), anyString())).thenThrow(RecruiterNotFoundException.class);
+
+        mockMvc.perform(put("/api/v1/recruiter/emailId")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(recruiter)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl, times(1)).updateRecruiterDetails(any(), anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -262,18 +262,18 @@ public class RecruiterRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void deleteRecruiterDetailFailure() throws Exception
-//    {
-//        when(registerServiceImpl.deleteRecruiterDetails("recruiter@gmail.com")).thenThrow(RecruiterNotFoundException.class);
-//
-//        mockMvc.perform(delete("/api/v1/recruiter/emailId")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        verify(registerServiceImpl,times(1)).deleteRecruiterDetails("recruiter@gmail.com");
-//    }
+    @Test
+    public void deleteRecruiterDetailFailure() throws Exception
+    {
+        when(registerServiceImpl.deleteRecruiterDetails("recruiter@gmail.com")).thenThrow(RecruiterNotFoundException.class);
+
+        mockMvc.perform(delete("/api/v1/recruiter/emailId")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl,times(1)).deleteRecruiterDetails(anyString());
+    }
 
 
 

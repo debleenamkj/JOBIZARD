@@ -29,7 +29,7 @@
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
       <button mat-list-item routerLink="/userLogin" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Login</button>
-      <button mat-list-item (click)="openRegisterForm()" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Register</button>
+      <button mat-list-item routerLink="/jobSeekersRegister" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(189, 118, 207);">Register</button>
     </mat-nav-list>
   </div>
   </mat-sidenav>
@@ -70,7 +70,7 @@
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/update-user">Update User</a> 
         
      
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" (click)="openRegisterForm()" >Register</a>
+        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeekersRegister">Register</a>
 
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeeker">Job Seeker</a>
         

@@ -5,6 +5,7 @@ import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
 import com.satckroute.applicationRegisterService.repository.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -21,6 +22,7 @@ import java.util.UUID;
 import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
 
 @Service
+@Slf4j
 public class RegisterServiceImpl implements RegisterService
 {
 
@@ -40,6 +42,7 @@ public class RegisterServiceImpl implements RegisterService
                                Producer producer, AddressDetailsRepository addressDetailsRepository,
                                EducationDetailsRepository educationDetailsRepository)
     {
+        log.info("Autowiring - RegisterService");
         this.jobSeekerRegisterRepository = jobSeekerRegisterRepository;
         this.recruiterRegisterRepository = recruiterRegisterRepository;
         this.organizationDetailsRepository = organizationDetailsRepository;
@@ -155,10 +158,10 @@ public class RegisterServiceImpl implements RegisterService
     public JobSeeker registerNewJobSeeker(JobSeeker jobSeeker) throws JobSeekerAlreadyExistException
     {
         //,jobSeeker.role.toString()
-        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
+//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
 
         //role
-//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());;
+        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());;
         if (jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
         {
             throw new JobSeekerAlreadyExistException();
@@ -177,10 +180,10 @@ public class RegisterServiceImpl implements RegisterService
     public Recruiter registerNewRecruiter(Recruiter recruiter) throws RecruiterAlreadyExistException
     {
 //        ,recruiter.role.toString()
-        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
+//        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
 
         //role
-//        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.role.toString());
+        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.role.toString());
         if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
         {
             throw new RecruiterAlreadyExistException();
