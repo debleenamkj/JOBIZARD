@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   user1:UserLogin = new UserLogin();
   
   
-  userLogin(data:FormGroup)
+  userLogin()
   {
     this.user.emailId=this.loginForm.value.emailId;
     this.user.password=this.loginForm.value.password;
@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit {
         else(
           this.router.navigate(["/recruiterLanding"])
         )
+        // store in local storage
+        localStorage.setItem('loginId',this.user.emailId)
         
       })
       
@@ -63,7 +65,7 @@ export class LoginComponent implements OnInit {
       //alert("please check your username and password.")
     this.error =  "please check your Email-Id or password.";
     
-    localStorage.setItem('loginId',this.user.emailId)  // store in local storage
+      
     console.log('loginId')
     this.router.navigate(["/userLogin"])
     this.loginService.isloggedIn=false
