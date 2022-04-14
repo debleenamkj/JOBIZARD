@@ -34,14 +34,22 @@ export class TestResultViewComponent implements OnInit {
     let card = document.getElementsByClassName(
       'flip-card'
     ) as HTMLCollectionOf<HTMLElement>;
-    if (this.marksGot <= 49) {
+    let head = document.getElementsByClassName(
+      'head'
+    ) as HTMLCollectionOf<HTMLElement>;
+    
+    if (this.marksGot < 50) {
       card[0].style.backgroundColor = 'red';
       this.message = 'FAIL';
+      this.head ='Not qualified, Re-Take the test'
+      
     } else {
       card[0].style.backgroundColor = 'green';
       this.message = 'PASS';
+      this.head ="Hey " +this.username+ ", you are our " +this.level+ ", with Score " +this.marksGot+ "%";
     }
   }
+  head:any;
   worrior_logo: any;
   marksGot: number = 0;
   correctAnswers = 0;
