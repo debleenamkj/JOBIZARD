@@ -32,7 +32,7 @@ public class MessageConfiguration
     @Bean
     public Queue firstRegisterQueue()
     {
-        return new Queue(firstRegisterQueue);//it takes two parameter string and boolean durable
+        return new Queue(firstRegisterQueue,true);//it takes two parameter string and boolean durable
     }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ public class MessageConfiguration
     @Bean
     public Queue jobSeekerRegisterQueue()
     {
-        return new Queue(jobSeekerRegisterQueue);//it takes two parameter string and boolean durable
+        return new Queue(jobSeekerRegisterQueue,true);//it takes two parameter string and boolean durable
     }
 
 //---------------------------------------------------------------------------------------------------------------------

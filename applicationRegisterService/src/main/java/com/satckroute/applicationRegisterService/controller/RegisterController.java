@@ -118,8 +118,8 @@ public class RegisterController
             return new ResponseEntity<>(registerService.registerNewRecruiter(recruiter), HttpStatus.CREATED);
         } catch (RecruiterAlreadyExistException recruiterAlreadyExistException) {
             throw new RecruiterAlreadyExistException();
-        } catch (Exception exception) {
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        } catch (Exception exception) {
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
