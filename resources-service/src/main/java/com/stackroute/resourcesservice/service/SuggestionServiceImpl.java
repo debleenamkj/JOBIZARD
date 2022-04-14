@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SuggestionServiceImpl implements SuggestionService{
@@ -33,7 +34,7 @@ public class SuggestionServiceImpl implements SuggestionService{
         List<Suggestion> suggestionList;
 
         suggestionList = suggestionsRepository.findBySkillType(skillType);
-        if (suggestionList == null)
+        if (suggestionList == null || suggestionList.size()==0)
             throw new SuggestionNotFoundException();
 
         return suggestionList;
@@ -59,23 +60,24 @@ public class SuggestionServiceImpl implements SuggestionService{
     public List<SourceUrlAggregate> getUrlBySkills() throws SuggestionNotFoundException{
         List<SourceUrlAggregate> list;
         list = suggestionsRepository.groupBySkillTypeAndSourceUrl();
-        if (list.isEmpty())
+        if (list.isEmpty() || list == null)
             throw new SuggestionNotFoundException();
         return list;
     }
 
     @Override
     public Suggestion getSuggestionBySuggestionId(int suggestionId) throws SuggestionNotFoundException {
-        if(suggestionsRepository.findById(suggestionId).isEmpty())
+        Optional<Suggestion> suggestionOptional = suggestionsRepository.findById(suggestionId);
+        if(suggestionOptional.isEmpty())
             throw new SuggestionNotFoundException();
-        return suggestionsRepository.findById(suggestionId).get();
+        return suggestionOptional.get();
     }
 
     @Override
     public List<SkillAggregate> getSkillTypesByCategory() throws SuggestionNotFoundException {
         List<SkillAggregate> skillAggregateList;
         skillAggregateList = suggestionsRepository.groupByCategoryAndSkillType();
-        if (skillAggregateList == null)
+        if (skillAggregateList == null || skillAggregateList.size()==0)
             throw new SuggestionNotFoundException();
         return skillAggregateList;
     }

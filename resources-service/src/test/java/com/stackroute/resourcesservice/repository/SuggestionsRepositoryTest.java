@@ -1,5 +1,7 @@
 package com.stackroute.resourcesservice.repository;
 
+import com.stackroute.resourcesservice.AggregateDTO.SkillAggregate;
+import com.stackroute.resourcesservice.AggregateDTO.SourceUrlAggregate;
 import com.stackroute.resourcesservice.domain.Company;
 import com.stackroute.resourcesservice.domain.Suggestion;
 import org.junit.jupiter.api.AfterEach;
@@ -13,8 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @DataMongoTest
@@ -37,7 +38,6 @@ public class SuggestionsRepositoryTest {
     public void tearDown(){
         suggestionsRepository.deleteById(suggestion.getSuggestionId());
         suggestion = null;
-
     }
 
     @Test
@@ -57,10 +57,31 @@ public class SuggestionsRepositoryTest {
     @Test
     public void givenSkillTypeReturnListOfSuggestions(){
         suggestionsRepository.insert(suggestion);
-        Suggestion suggestion1 = suggestionsRepository.findById(suggestion.getSuggestionId()).get();
         List<Suggestion> suggestionList = List.of(suggestion);
         List<Suggestion> suggestionsFound = suggestionsRepository.findBySkillType(suggestion.getSkillType());
-
+        assertNotNull(suggestionsFound);
         assertEquals(suggestionList, suggestionsFound);
+    }
+    @Test
+    public void addedNewCategoryReturnGroupOfSkillTypes(){
+        SkillAggregate skillAggregate = new SkillAggregate();
+        skillAggregate.setCategory(suggestion.getCategory());
+        skillAggregate.setSkillTypes(List.of(suggestion.getSkillType()));
+
+        suggestionsRepository.insert(suggestion);
+        List<SkillAggregate> skillAggregateList = suggestionsRepository.groupByCategoryAndSkillType();
+        assertNotNull(skillAggregateList);
+        assertTrue(skillAggregateList.contains(skillAggregate));
+    }
+    @Test
+    public void addedNewSkillTypeReturnGroupOfSourceUrl(){
+        SourceUrlAggregate sourceUrlAggregate = new SourceUrlAggregate();
+        sourceUrlAggregate.setSkillType(suggestion.getSkillType());
+        sourceUrlAggregate.setSource(List.of(suggestion.getSourceUrl()));
+
+        suggestionsRepository.insert(suggestion);
+        List<SourceUrlAggregate> sourceUrlAggregateList = suggestionsRepository.groupBySkillTypeAndSourceUrl();
+        assertNotNull(sourceUrlAggregateList);
+        assertTrue(sourceUrlAggregateList.contains(sourceUrlAggregate));
     }
 }

@@ -15,8 +15,9 @@ public interface ReviewService {
 
     List<Review> getAllReviewsByCompanyName(String companyName) throws ReviewNotFoundException, CompanyNotFoundException;
     Review saveReview(Review review, String companyName) throws CompanyNotFoundException, ReviewAlreadyExistsException;
-    Review updateReviewByCompanyName(String companyName, Review review) throws CompanyNotFoundException, ReviewNotFoundException;
+   // Review updateReviewByCompanyName(String companyName, Review review) throws CompanyNotFoundException, ReviewNotFoundException;
     boolean deleteReviewByCompanyNameAndReviewId(String companyName, int reviewId) throws CompanyNotFoundException, ReviewNotFoundException;
+    //Review getReviewByCompanyNameAndReviewId(String companyName, int reviewId) throws CompanyNotFoundException, ReviewNotFoundException;
 
     //List<Review> getAllReviewsByUserEmail(String userEmail)throws UserNotFoundException;
 }
