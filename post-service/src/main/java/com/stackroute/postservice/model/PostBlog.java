@@ -12,10 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @Document
 public class PostBlog {
-    @Id
-    private String postId;
-    private User user;
-    private String postBlog;
-    private int like;
+
+    private char[] title;
+    private char[] description;
+    private char[] postBlog;
+    private Like like;
     private List<Review> reviews;
+
 }

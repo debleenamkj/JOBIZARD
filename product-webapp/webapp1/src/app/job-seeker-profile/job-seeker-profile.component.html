@@ -2,9 +2,9 @@
     <mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">{{firstname}}'s Profile</h1></mat-card>
     <div class="row">
         <div class="col-xl-4">
-            <div style="display: flex; margin-top: 4%;">
+            <div style="display: flex; margin-top: 4%; align-items: center; justify-content: center;">
                 <img src={{url}} style="height: 13.5vw;"/>
-                <div style="display: block; margin-left: 10%; line-height: 3rem; margin-bottom: 4%;">
+                <div style="display: block; margin-left: 2vw; line-height: 3rem; margin-bottom: 4%;">
                     <h1 style="font-weight: bolder;  color: #6E2586;">{{firstname}} {{lastname}}</h1>
                     <div style="font-size: 2rem;">
                         <span>{{gender}}</span>
@@ -23,7 +23,7 @@
         
             <mat-card *ngIf="workexp!=null" style="margin-top: 4%; font-size: 2rem;  height: 15rem; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
                 <h1 style="font-weight: bolder; color: #B11784; text-align: center;">	<mat-icon>business_center</mat-icon> Work Experience</h1>
-                <ul style="list-style: none; margin-bottom: 3%;" *ngFor="let workexp of workexp">
+                <ul style="list-style: none; margin-bottom: 3%;  align-items: center; justify-content: center;" *ngFor="let workexp of workexp">
                     <li>Years: {{workexp.year}} Years</li>
                     <li>Position: {{workexp.position}}</li>
                     <li>Organisation: {{workexp.organisation}}</li>
@@ -55,9 +55,9 @@
                     <li><span style="font-weight: bold;">Education: </span>{{educational.education}}</li>
                     <ul>
                         <li *ngIf="(educational.Courses)">Courses: <ul><li *ngFor="let courses of educational.Courses">{{courses}}</li></ul></li>
-                        <li *ngIf="(educational.Stream)">Stream: {{educational.Stream}}</li>
-                        <li>Passout Year: {{educational.PassYear}}</li>
-                        <li>Percentage: {{educational.Percentage}}</li> 
+                        <li *ngIf="(educational.Stream)">{{educational.Stream}}</li>
+                        <li>{{educational.Percentage}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{educational.PassYear}}</li>
+                     
                     </ul>
                 </ol>
             </mat-card>

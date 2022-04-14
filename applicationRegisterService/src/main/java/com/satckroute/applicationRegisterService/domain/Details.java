@@ -12,13 +12,10 @@ import java.util.Arrays;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-@Getter
-@Setter
-@ToString
-public class Details {
+public class Details
+{
     private String[] academicsCertification;
-    private String[] skillSet;
+    private Skill[] skillSet;
     private String[] jobPreferences;
     private String[] achievements;
-
 }

@@ -11,9 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-@Getter
-@Setter
-@ToString
 public class Address
 {
     @Id
