@@ -40,8 +40,8 @@ public class CategoryController {
     }
 
     @GetMapping("/{subCategoryTitle}")
-    public List<Quiz> getQuiz(@PathVariable String subCategoryTitle) throws SubCategoryNotExistsException {
-        List<Quiz> quizzes = this.service.getQuiz(subCategoryTitle);
+    public Quiz getQuiz(@PathVariable String subCategoryTitle) throws SubCategoryNotExistsException {
+        Quiz quizzes = this.service.getQuiz(subCategoryTitle);
         return quizzes;
     }
 }

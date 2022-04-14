@@ -200,14 +200,14 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/organizationDetails/getOrganizationDetailsName/{organizationName}")
-    public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsAlreadyExistException
+    public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsNotFoundException
     {
         try {
             return new ResponseEntity<>(registerService.getAllOrganizationDetailsByOrganizationName(organizationName), HttpStatus.OK);
         }
-        catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException)
+        catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
         {
-            throw new OrganizationDetailsAlreadyExistException();
+            throw new OrganizationDetailsNotFoundException();
         } catch (Exception exception) {
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -227,6 +227,24 @@ public class RegisterController
         }
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
+    @PutMapping("/jobSeeker1/{emailId}")
+    public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker") String emailId, @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
+    {
+//        return responseEntity;
+
+
+        try {
+            JobSeeker jobSeeker1 = new ObjectMapper().readValue(emailId,JobSeeker.class);
+            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetails(jobSeeker1,emailId),HttpStatus.CREATED);
+            return new ResponseEntity<>(registerService.updateJobSeekerDetails(jobSeeker1, emailId), HttpStatus.OK);
+        } catch (JobSeekerNotFoundException e) {
+            throw new JobSeekerNotFoundException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter/{emailId}")

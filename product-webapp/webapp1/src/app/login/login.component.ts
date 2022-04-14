@@ -22,17 +22,19 @@ export class LoginComponent implements OnInit {
   loginForm = this.formBuilder.group({
     emailId: [null, Validators.required],
     password:[null, Validators.required]
+    // role:[this.loginService.role]
   });
 
   hasUnitNumber = false;
   error: string | null = '';
 
-
+ hide=true;
   user:UserLogin =new UserLogin();
   
   
   userLogin(user:any)
   {
+    // console.log(this.loginService.role)
     console.log(this.user)
     this.loginService.userLogIn(this.user)
     .subscribe(()=>{

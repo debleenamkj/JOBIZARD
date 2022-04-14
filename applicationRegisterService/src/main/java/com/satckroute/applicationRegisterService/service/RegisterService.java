@@ -30,11 +30,15 @@ public interface RegisterService
 
     List<JobSeeker> getAllJobSeekerByFirstName(String firstName) throws JobSeekerNotFoundException;
     List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
-    List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException;
+    List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException;
 
     JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
+    JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws  JobSeekerNotFoundException , IOException;
+
+
     Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws  RecruiterNotFoundException;
     OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException;
+
 
     boolean deleteJobSeekerDetails(String emailId) throws JobSeekerNotFoundException;
     boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;

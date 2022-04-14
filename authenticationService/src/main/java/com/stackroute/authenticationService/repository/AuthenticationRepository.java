@@ -7,5 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AuthenticationRepository extends JpaRepository<UserLogIn , String>
 {
+    //role
+//    ,String role
+//    UserLogIn findByEmailIdAndPasswordAndRole(String emailId,String password,String role);
     UserLogIn findByEmailIdAndPassword(String emailId,String password);
 }

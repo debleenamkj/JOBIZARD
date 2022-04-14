@@ -1,2 +1,29 @@
 <!-- <app-cv-template1></app-cv-template1> -->
-<app-cv-template2></app-cv-template2>
+<!-- <app-cv-template2></app-cv-template2> -->
+<div class="main">
+    <!-- <h1>Your dream job doesn't exist!!!!You must create it so as your resume.Try these modern resumes to stand out of the crowd and land your dream job </h1> -->
+    <div class="template1">
+        <mat-card class="example-card1">
+            <mat-card-header>
+              <mat-card-title>Resume</mat-card-title>
+              <mat-card-subtitle>Template1</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="assets/cv-assests/resume3.jpeg">
+            <mat-card-actions>
+              <button mat-button  style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float:none;" (click)="temp()">Try this resume</button>
+            </mat-card-actions>
+          </mat-card>
+          
+    </div>
+    <div class="template2"></div>
+    <mat-card class="example-card2">
+        <mat-card-header>
+          <mat-card-title>Resume</mat-card-title>
+          <mat-card-subtitle>Template2</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/cv-assests/resume2.png">
+ 
+            <button mat-stroked-button  style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" class="btn-block"><a style="text-decoration: none;color: white;" routerLink="/cv-template1">Try this resume</a></button>
+        
+      </mat-card>
+</div>

@@ -37,11 +37,13 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
 
 
 
 
 const routes: Routes = [
+<<<<<<< HEAD
   { path: 'trend', component: TrendLabComponent },
   { path: 'skills', component: SkillsTrendLabComponent },
   { path: 'salary', component: SalaryTrendLabComponent },
@@ -49,17 +51,31 @@ const routes: Routes = [
   { path: 'businessnews', component: BusinessnewsComponent },
   { path: 'job-apply', component: JobApplyComponent },
   { path: 'job-posting', component: JobPostingComponent },
+=======
+  {path: 'trend',component: TrendLabComponent},
+  {path: 'skills',component: SkillsTrendLabComponent},
+  {path : 'salary',component: SalaryTrendLabComponent},
+  {path : 'technews', component: TechnewsComponent},
+  {path : 'businessnews', component: BusinessnewsComponent},
+  {path:'job-apply',component:JobApplyComponent},
+  {path:'job-posting',component:JobPostingComponent},
+>>>>>>> 683c5641a3ca96a78db9499bd965a79707ab77f0
   {
     path: 'cv-generation', component: CvGenerationComponent
   },
   {
+<<<<<<< HEAD
     path: 'cv-generation1', component: CvTemplate1Component
+=======
+    path:'cv-template1',component:CvTemplate1Component
+>>>>>>> 683c5641a3ca96a78db9499bd965a79707ab77f0
   },
   {
     path: "jobdetail",
     component: JobDetailComponent,
 
   },
+<<<<<<< HEAD
   { path: "chatbot", component: ChatbotComponent },
   { path: "chatroom", component: ChatroomComponent },
   {
@@ -78,6 +94,20 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "jobSeekerRegister", component: JobSeekersRegisterComponent },
 
+=======
+  {path:"chatbot",component:ChatbotComponent},
+  {path:"chatroom",component:ChatroomComponent},
+  {path:"assesmentportal",component:AssesmentPortalComponent},
+  {path:"assesmenttest",component:AssesmentTestPortalComponent},
+  {path:"test",component:SkilltestComponent},
+  {path:'jobdetail',component:JobDetailComponent},
+  {path: 'learning', component:LearningPortalComponent},
+  {path:'result',component:TestResultViewComponent},
+  {path:'search',component:SearchPortalComponent},
+
+  // providing path for register and login
+  {path:"register",component:RegisterComponent},
+>>>>>>> 683c5641a3ca96a78db9499bd965a79707ab77f0
 
   // material component
   { path: "jobSeekersRegister", component: JobSeekersRegisterComponent },
@@ -88,15 +118,25 @@ const routes: Routes = [
   { path: "not-found", component: NotFoundComponent },
   // {path:"Organization",component:OrganizationDetails},
 
+<<<<<<< HEAD
   { path: "recruiterLanding", component: RecruiterlandingComponent },
+=======
+  {path:"recruiterLanding", component: RecruiterlandingComponent},
+>>>>>>> 683c5641a3ca96a78db9499bd965a79707ab77f0
 
 
   { path: "update", component: UpdateDetailsComponent },
   { path: "update-user", component: UpdateUserDetailsComponent },
   { path: "review", component: ReviewComponent },
 
+<<<<<<< HEAD
   { path: "jobSeeker", component: JobSeekerLandingComponent },
   { path: "jobseekerprofile", component: JobSeekerProfileComponent },
+=======
+  {path:"jobSeeker",component:JobSeekerLandingComponent},
+  {path:"jobseekerprofile",component:JobSeekerProfileComponent},
+  {path:'search',component:SearchPortalComponent},
+>>>>>>> 683c5641a3ca96a78db9499bd965a79707ab77f0
 ];
 
 @NgModule({
