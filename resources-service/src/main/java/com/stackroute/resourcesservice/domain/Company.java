@@ -11,7 +11,7 @@ import java.util.List;
 
 @Document(collection = "companyReviews")
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Company {
     @Id
     private String cin;
