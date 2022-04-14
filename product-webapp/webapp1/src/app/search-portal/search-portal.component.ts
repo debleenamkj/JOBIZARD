@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-search-portal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPortalComponent implements OnInit {
   gridColumns = 3;
-  constructor() { }
+  skills:FormGroup;
+  constructor(fb:FormBuilder) {
+    this.skills=fb.group({
+      java:false,
+      spring:false,
+      angular:false
+    })
+   }
 
   ngOnInit(): void {
   }
-
+ 
 }

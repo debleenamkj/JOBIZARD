@@ -118,8 +118,8 @@ public class RegisterController
             return new ResponseEntity<>(registerService.registerNewRecruiter(recruiter), HttpStatus.CREATED);
         } catch (RecruiterAlreadyExistException recruiterAlreadyExistException) {
             throw new RecruiterAlreadyExistException();
-        } catch (Exception exception) {
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        } catch (Exception exception) {
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -200,14 +200,14 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/organizationDetails/getOrganizationDetailsName/{organizationName}")
-    public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsAlreadyExistException
+    public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsNotFoundException
     {
         try {
             return new ResponseEntity<>(registerService.getAllOrganizationDetailsByOrganizationName(organizationName), HttpStatus.OK);
         }
-        catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException)
+        catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
         {
-            throw new OrganizationDetailsAlreadyExistException();
+            throw new OrganizationDetailsNotFoundException();
         } catch (Exception exception) {
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -227,6 +227,24 @@ public class RegisterController
         }
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
+    @PutMapping("/jobSeeker1/{emailId}")
+    public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker") String emailId, @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
+    {
+//        return responseEntity;
+
+
+        try {
+            JobSeeker jobSeeker1 = new ObjectMapper().readValue(emailId,JobSeeker.class);
+            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetails(jobSeeker1,emailId),HttpStatus.CREATED);
+            return new ResponseEntity<>(registerService.updateJobSeekerDetails(jobSeeker1, emailId), HttpStatus.OK);
+        } catch (JobSeekerNotFoundException e) {
+            throw new JobSeekerNotFoundException();
+        } catch (Exception exception) {
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter/{emailId}")
@@ -333,10 +351,10 @@ public class RegisterController
         }
     }
 
-    @GetMapping("/jobSeekers/{emailId}")
-    public ResponseEntity<?> getAllJobSeekers(@PathVariable String emailId) throws JobSeekerNotFoundException {
+    @GetMapping("/jobSeekers")
+    public ResponseEntity<?> getAllJobSeekers() throws JobSeekerNotFoundException {
         try {
-            return new ResponseEntity<>(registerService.getAllJobSeekers(emailId), HttpStatus.OK);
+            return new ResponseEntity<>(registerService.getAllJobSeekers(), HttpStatus.OK);
         } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
             throw new JobSeekerNotFoundException();
         } catch (Exception exception) {
@@ -344,7 +362,7 @@ public class RegisterController
         }
     }
 
-        @GetMapping("/skillSet/{emailId}")
+    @GetMapping("/skillSet/{emailId}")
     public ResponseEntity<?> getSkillSet(@PathVariable String emailId) throws JobSeekerNotFoundException {
         try {
             return new ResponseEntity<>(registerService.getSkillSet(emailId), HttpStatus.OK);

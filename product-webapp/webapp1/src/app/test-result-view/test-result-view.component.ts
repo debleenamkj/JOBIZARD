@@ -14,15 +14,19 @@ export class TestResultViewComponent implements OnInit {
     let worrior = this.service.worrior;
     if(worrior=='beginner'){
       this.worrior_logo=this.service.getbeginner();
+      console.log(this.worrior_logo);
     }
-    else if(worrior=='jobified'){
-      this.worrior_logo = this.service.getjobified();
+    else if(worrior=='saga'){
+      this.worrior_logo = this.service.getsaga();
+      console.log(this.worrior_logo);
     }
     else if(worrior=='gladiator'){
       this.worrior_logo=this.service.getgladiator();
+      console.log(this.worrior_logo);
     }
     else if(worrior=='ninja'){
       this.worrior_logo=this.service.getninja();
+      console.log(this.worrior_logo);
     }
     // this.worrior_logo=this.service.logo;
     console.log(this.worrior_logo);
@@ -31,12 +35,13 @@ export class TestResultViewComponent implements OnInit {
     this.unattempted=this.service.unAnsweredQuestions;
     this.marksGot=this.service.percentage;
 
+    let card = document.getElementsByClassName("flip-card") as HTMLCollectionOf<HTMLElement>;
     if (this.marksGot < 50) {
-      let card = document.getElementsByClassName("flip-card") as HTMLCollectionOf<HTMLElement>;
       card[0].style.backgroundColor='red';
       this.message="FAIL"
     }
       else{
+        card[0].style.backgroundColor='green';
         this.message="PASS"
       }
 
@@ -47,13 +52,11 @@ export class TestResultViewComponent implements OnInit {
   attempted = 0;
   unattempted = 0;
   username = 'USER';
-  level = 'NINJA';
+  level:any;
   Testname = '';
   performance = '';
   TotalQuestions = 10;
   TotalMarks = 100;
-  TotalTime = '5:00';
-  TotalTimeTaken = '4:45';
   CollegeName = 'NINJA';
   test = false;
   message = 'PASS';

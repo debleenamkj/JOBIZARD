@@ -59,4 +59,33 @@ public class AuthenticationController
         {
             return new ResponseEntity<>("Please try after sometime",HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }}
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+//    @PostMapping("/login")
+//    public ResponseEntity<?> login(@RequestBody UserLogIn userLogIn) throws UserNotFoundException
+//    {
+//        Map<String,String> map = null;
+//        try
+//        {
+//            //role
+////            ,userLogIn.getRole()
+//            UserLogIn userLogIn1= authenticationService.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword(),userLogIn.getRole());
+//            if(userLogIn1.getEmailId().equals(userLogIn.getEmailId()))
+//            {
+//                map = securityTokenGenerator.generateToken(userLogIn);
+//            }
+//            return new ResponseEntity<>(map,HttpStatus.OK);
+//        }
+//        catch (UserNotFoundException ex)
+//        {
+//            throw new UserNotFoundException();
+//        }
+//        catch (Exception ex)
+//        {
+//            return new ResponseEntity<>("Please try after sometime",HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+
+}

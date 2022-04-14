@@ -30,11 +30,15 @@ public interface RegisterService
 
     List<JobSeeker> getAllJobSeekerByFirstName(String firstName) throws JobSeekerNotFoundException;
     List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
-    List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException;
+    List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException;
 
     JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
+    JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws  JobSeekerNotFoundException , IOException;
+
+
     Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws  RecruiterNotFoundException;
     OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException;
+
 
     boolean deleteJobSeekerDetails(String emailId) throws JobSeekerNotFoundException;
     boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;
@@ -42,7 +46,7 @@ public interface RegisterService
 
     //Recruiter Landing.....................................................
     Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException;
-    JobSeeker getAllJobSeekers(String emailId) throws JobSeekerNotFoundException;
+    List<JobSeeker> getAllJobSeekers() throws JobSeekerNotFoundException;
     List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException;
 
 

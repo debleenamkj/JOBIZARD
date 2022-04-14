@@ -37,6 +37,8 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
+import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 
 
 
@@ -45,15 +47,18 @@ const routes: Routes = [
   {path: 'trend',component: TrendLabComponent},
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},
-  { path : 'technews', component: TechnewsComponent },
-  { path : 'businessnews', component: BusinessnewsComponent },
+  {path : 'technews', component: TechnewsComponent},
+  {path : 'businessnews', component: BusinessnewsComponent},
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
   {
-    path:'cv-generation',component:CvGenerationComponent
+    path: 'cv-generation', component: CvGenerationComponent
   },
   {
-    path:'cv-generation1',component:CvTemplate1Component
+    path: 'cv-generation1', component: CvTemplate1Component
+  },
+  {
+    path:'cv-template2', component:CvTemplate2Component
   },
   {
     path:"jobdetail",
@@ -62,41 +67,36 @@ const routes: Routes = [
   },
   {path:"chatbot",component:ChatbotComponent},
   {path:"chatroom",component:ChatroomComponent},
-  {
-    path:"jobdetail",
-    component:JobDetailComponent,
-
-  },
   {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:"assesmenttest",component:AssesmentTestPortalComponent},
   {path:"test",component:SkilltestComponent},
   {path:'jobdetail',component:JobDetailComponent},
   {path: 'learning', component:LearningPortalComponent},
   {path:'result',component:TestResultViewComponent},
+  {path:'search',component:SearchPortalComponent},
 
   // providing path for register and login
   {path:"register",component:RegisterComponent},
-  {path:"jobSeekerRegister",component:JobSeekersRegisterComponent},
-
 
   // material component
-  {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
-  {path:"recruiterRegister",component:RecruiterRegisterComponent},
+  { path: "jobSeekersRegister", component: JobSeekersRegisterComponent },
+  { path: "recruiterRegister", component: RecruiterRegisterComponent },
 
-  {path:"organizationRegister",component:OrganizationDetailsComponent},
-  {path:"userLogin",component:LoginComponent},
-  {path: "not-found", component:NotFoundComponent},
+  { path: "organizationRegister", component: OrganizationDetailsComponent },
+  { path: "userLogin", component: LoginComponent },
+  { path: "not-found", component: NotFoundComponent },
   // {path:"Organization",component:OrganizationDetails},
 
-  { path:"recruiterLanding", component: RecruiterlandingComponent },
+  {path:"recruiterLanding", component: RecruiterlandingComponent},
 
 
-  {path:"update",component:UpdateDetailsComponent},
-  {path:"update-user",component:UpdateUserDetailsComponent},
-  {path:"review",component:ReviewComponent},
+  { path: "update", component: UpdateDetailsComponent },
+  { path: "update-user", component: UpdateUserDetailsComponent },
+  { path: "review", component: ReviewComponent },
 
   {path:"jobSeeker",component:JobSeekerLandingComponent},
   {path:"jobseekerprofile",component:JobSeekerProfileComponent},
+  {path:'search',component:SearchPortalComponent},
 ];
 
 @NgModule({
