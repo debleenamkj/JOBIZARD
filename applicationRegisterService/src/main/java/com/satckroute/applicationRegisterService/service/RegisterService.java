@@ -33,8 +33,14 @@ public interface RegisterService
     List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException;
 
     JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
+    JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws  JobSeekerNotFoundException , IOException;
+
+
     Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws  RecruiterNotFoundException;
+    Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws  RecruiterNotFoundException, IOException;
+
     OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException;
+
 
     boolean deleteJobSeekerDetails(String emailId) throws JobSeekerNotFoundException;
     boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;

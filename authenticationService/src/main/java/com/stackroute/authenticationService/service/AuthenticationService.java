@@ -6,5 +6,11 @@ import com.stackroute.authenticationService.exception.UserNotFoundException;
 public interface AuthenticationService
 {
     UserLogIn saveUserDetails(UserLogIn userLogIn);
+    //role
+//    ,String role
     UserLogIn findByEmailIdAndPassword(String emailId,String password) throws UserNotFoundException;
+
+    UserLogIn findByEmailId(String emailId) throws UserNotFoundException;
+
+//    findByEmailId
 }

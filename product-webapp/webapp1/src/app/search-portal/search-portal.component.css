@@ -1,3 +1,7 @@
+.example-section {
+    margin: 12px 0;
+  }
+    
 body {
     background-color: blue
 }
@@ -6,10 +10,10 @@ body {
     border: none;
     background: #eee;
     margin: 0 0;
-    
+    width: 640px;
+    height: 90px;
 }
-
-.search {
+  .search {
     width: 100%;
     margin-bottom: auto;
     margin-top: 3px;
@@ -34,8 +38,7 @@ body {
 .search .search-input {
     padding: 0 10px;
     width: 100%;
-    caret-color: #536bf6;
-    font-size: 19px;
+    caret-color: #536bf6; font-size: 19px;
     font-weight: 300;
     color: black;
     transition: width 0.4s linear
@@ -55,29 +58,6 @@ body {
     position: relative;
     border-radius: 5px
 }
-
 .search-icon:hover {
-    color: #fff !important
+    color: #fff 
 }
-
-a:link {
-    text-decoration: none
-}
-mat-toolbar {
-    justify-content: space-between;
-}
-
-.example-card {
-    max-width: 600px;
-    margin-bottom: 50px;
-    float: left;
-    padding: 20px;
-}
-.example-card {
-    max-width: 500px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80');
-    background-size: cover;
-  }

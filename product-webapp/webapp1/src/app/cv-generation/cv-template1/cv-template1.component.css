@@ -10,6 +10,15 @@ sub {
 body {
   margin: 1%;
 }
+.cv-body{
+  /* display: flex; */
+  justify-content: space-around;
+  height: 170%;
+  margin-left: 10%;
+  width: 80%;
+  color: rgb(83, 83, 83);
+  font-family: 'Josefin Sans', sans-serif;
+}
 *:not(mat-icon) {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
@@ -17,7 +26,7 @@ body {
 }
 .cv-body-header {
   background: rgb(49, 49, 83);
-  height: 250px;
+  height: 200px;
 }
 
 .cv-header-content1 {
@@ -52,6 +61,7 @@ body {
   margin: 0%;
   padding: 0%;
   color: rgb(201, 178, 119);
+  text-transform: uppercase;
 }
 
 .cv-header-content3-right {
@@ -167,4 +177,12 @@ mat-icon {
 h5 {
   margin: 5% 0% 0% 0%;
   padding: 0%;
+}
+.button{ 
+  margin-top: 2%;
+   background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); 
+   font-size:x-large; 
+   border: none;
+   color: white;
+  border-radius: 6px;   
 }

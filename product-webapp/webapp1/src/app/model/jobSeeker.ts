@@ -4,9 +4,15 @@ export class JobSeeker
     
     password: string="";
     
+    //role
+    role:string="";
+
+    // role!:""
+
     constructor()
     {
         this.emailId="";
         this.password="";
+        this.role="";
     }
 }

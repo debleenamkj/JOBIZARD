@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Recruiter } from '../model/recruiter';
 import { passwordMatchValidator } from '../register-validation/registervalidation';
 import { RegisterServiceService } from '../service/register-service.service';
@@ -15,7 +15,8 @@ export class RecruiterRegisterComponent {
   recruiter:Recruiter = new Recruiter();
 
   registerForm =new FormGroup({
-    
+    //role
+    role:new FormControl("RECRUITER"),
     emailId:new FormControl(this.recruiter.emailId,[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
     password: new FormControl('', Validators.compose([
       Validators.minLength(5),
@@ -67,6 +68,13 @@ export class RecruiterRegisterComponent {
   get confirm(){
     return this.registerForm.get('confirm');
   }
+
+  //role
+  get role()
+  {
+    return this.registerForm.get('role');
+  }
+
   user:any={};
 
 
@@ -86,7 +94,8 @@ export class RecruiterRegisterComponent {
   
     if(!this.confirm?.invalid && !this.password?.invalid && (this.confirm?.value==this.password?.value))
     {
-      this.recruiter={emailId : this.email?.value, password:this.password?.value}
+      //role /  role : this.role?.value ,
+      this.recruiter={role : this.role?.value , emailId : this.email?.value, password:this.password?.value}
       this.registerService.recruiterRegister(this.recruiter).subscribe(data=>{
         this.user=data;
         console.log(data);
@@ -97,6 +106,7 @@ export class RecruiterRegisterComponent {
       console.log("Registration failed");
     }
  
+
  }
 
 }

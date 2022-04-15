@@ -39,6 +39,13 @@ type WorkDetails = {
 })
 export class ReviewFormComponent implements OnInit {
 
+  filter ={
+    red:'invert(14%) sepia(94%) saturate(4822%) hue-rotate(357deg) brightness(91%) contrast(126%)',
+    blue:'invert(79%) sepia(70%) saturate(2132%) hue-rotate(129deg) brightness(100%) contrast(109%)',
+    yellow:'invert(87%) sepia(61%) saturate(909%) hue-rotate(359deg) brightness(104%) contrast(100%)',
+    green:'invert(76%) sepia(93%) saturate(522%) hue-rotate(26deg) brightness(97%) contrast(117%)',
+    golden:'invert(72%) sepia(95%) saturate(622%) hue-rotate(359deg) brightness(102%) contrast(106%)'
+  }
   constructor(private formBuilder:FormBuilder, private http:HttpClient,public reviewService:ReviewService) { }
 
   ngOnInit(): void {
@@ -66,11 +73,19 @@ export class ReviewFormComponent implements OnInit {
   formValidation= ()=>{
     return true
   }
-  oneStarMethod(){
-    console.log(document.getElementById('oneStart'))
-    // oneStar.color='accent';
-    // twoStar.color='primary'; threeStar.color='primary';
-    //                 fourStar.color='primary'; fiveStar.color='primary';
+  starColor(
+    one:any,onefilter:string,
+    two:any,twofilter:string,
+    three:any,threefilter:string,
+    four:any,fourfilter:string,
+    five:any,fivefilter:string
+    ){
+    
+    one._elementRef.nativeElement.style.filter = onefilter;
+    two._elementRef.nativeElement.style.filter = twofilter;
+    three._elementRef.nativeElement.style.filter = threefilter;
+    four._elementRef.nativeElement.style.filter = fourfilter;
+    five._elementRef.nativeElement.style.filter = fivefilter;
   }
   postReviewDetails(){
     

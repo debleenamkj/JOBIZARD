@@ -4,7 +4,7 @@ div {
   padding: 10px;  */
 }
 body{
- display: flex;
+ /* display: flex; */
  justify-content: center;
  padding: 0%;
  margin: 2%;
@@ -13,6 +13,7 @@ body{
   display: flex;
   justify-content: space-around;
   height: 230%;
+  margin-left: 10%;
   width: 80%;
   color: rgb(83, 83, 83);
   font-family: 'Josefin Sans', sans-serif;
@@ -176,4 +177,12 @@ li{
 .lang-chips{
   padding: 3%;
   margin-top: 3%;
+}
+.button{ 
+  margin-top: 2%;
+   background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); 
+   font-size:x-large; 
+   border: none;
+   color: white;
+  border-radius: 6px;   
 }

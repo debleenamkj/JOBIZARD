@@ -30,7 +30,8 @@ export class NavBarComponent {
   lastname="Jobbie";
   email="jobseeker@gmail.com";
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, private loginService : RegisterServiceService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
+    private loginService : RegisterServiceService) {}
 
 
   hide=false;
@@ -42,7 +43,7 @@ export class NavBarComponent {
     this.router.navigate(["../userLogin"]);
   }
 
-  openReviewForm(): void {
+  openRegisterForm(): void {
     
     const dialogRef = this.dialog.open(RegisterComponent)
     dialogRef.afterClosed().subscribe(result => {
