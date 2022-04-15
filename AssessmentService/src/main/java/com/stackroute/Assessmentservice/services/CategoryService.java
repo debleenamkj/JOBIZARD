@@ -13,5 +13,5 @@ public interface CategoryService {
     public Category addCategory(Category category) throws CategoryAlreadyExistsException;
     public Category updateCategory(Category category);
     public boolean deleteCategory(int categoryId);
-    public List<Quiz> getQuiz(String subCategoryTitle) throws SubCategoryNotExistsException;
+    public Quiz getQuiz(String subCategoryTitle) throws SubCategoryNotExistsException;
 }

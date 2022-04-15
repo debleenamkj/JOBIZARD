@@ -45,7 +45,7 @@ public class CategoryServiceIMPL implements CategoryService {
     }
 
     @Override
-    public List<Quiz> getQuiz(String subcategoryTitle)throws SubCategoryNotExistsException {
+    public Quiz getQuiz(String subcategoryTitle)throws SubCategoryNotExistsException {
         Category category = this.categoryRepository.findBySubCategoryTitle(subcategoryTitle);
         if(category==null)
         {
@@ -55,7 +55,7 @@ public class CategoryServiceIMPL implements CategoryService {
             Random random = new Random();
             int index = random.nextInt(2);
             List<Quiz> quiz = category.getSubCategory().get(index).getQuizList();
-            return quiz;
+            return quiz.get(0);
         }
     }
 }
