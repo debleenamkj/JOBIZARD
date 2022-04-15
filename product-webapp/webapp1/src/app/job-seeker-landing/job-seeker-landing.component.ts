@@ -99,9 +99,7 @@ export class JobSeekerLandingComponent implements OnInit {
   }
 
   getTestName(test:any){
-    // console.log(test)
     console.log("test Name is"+test);
-    // this.service.getTest(test);
     this.service.quizName=test;
 
   }
@@ -141,7 +139,7 @@ export class JobSeekerLandingComponent implements OnInit {
       }
       this.service1.addLikeInImage(post.postId).subscribe(data => {
         let div = document.getElementsByClassName('icon'+post.postId) as HTMLCollectionOf<HTMLElement>;
-        console.log(div[0].className)
+        console.log(div[0]);
         div[0].style.color='#b01782'
         div[0].style.pointerEvents='none'
         console.log(data)
@@ -178,35 +176,39 @@ export class JobSeekerLandingComponent implements OnInit {
     this.service1.getAllPost().subscribe(data =>{
       this.allPost.push(data);
       this.allPost[0].reverse();
-      console.log(this.allPost)
+      console.log("All post length")
+      console.log(this.allPost[0].length)
      for (let index = 0; index < this.allPost[0].length; index++) {
-
+      console.log("imaagee");
        if(this.allPost[0][index].postImage!=null){
-        console.log("imaagee");
+        
         const img = 'data:image/jpeg;base64,'+this.allPost[0][index].postImage.postImage;
         this.allPost[0][index].postImage.postImage=img;
         
         console.log(img);
-        if(this.allPost[0][index].postImage.like!=null){  
-          const likedUserEmails = this.allPost[0][index].postImage.like.likedUserEmails;
-          for (let index = 0; index < likedUserEmails.length; index++) {
-            if(likedUserEmails[0]==this.service1.loginUser){
-              console.log("matched");
-
-              const postId = this.allPost[0][index].postId;
-              const post1 = "icon"+postId
-              console.log(post1)
-              let div = document.getElementsByClassName(post1) as HTMLCollectionOf<HTMLElement>;
-              console.log(post1)
-              div[0].style.color='red'
-              div[0].style.pointerEvents='none'
-            }
+      //   if(this.allPost[0][index].postImage.like!=null){  
+      //     const likedUserEmails = this.allPost[0][index].postImage.like.likedUserEmails;
+      //     console.log("likedUserEmail")
+      //     console.log(likedUserEmails);
+      //     for (let index = 0; index < likedUserEmails.length; index++) {
+      //       if(likedUserEmails[0]==this.service1.loginUser){
+      //         console.log("matched");
+              
+      //         const postId = this.allPost[0][index].postId;
+      //         const post1 = "icon"+postId
+      //         console.log(post1)
+      //         let div = document.getElementsByClassName('icon') as HTMLCollectionOf<HTMLElement>;
+      //         console.log(div[1])
+      //         div[1].style.backgroundColor='blue'
+      //         // div[0].style.color='red'
+      //         // div[0].style.pointerEvents='none'
+      //       }
             
-          }
-        }
+      //     }
+      //   }
      
-        // console.log(this.allPost[0][index].postImage.postImage)
-       }
+      //   // console.log(this.allPost[0][index].postImage.postImage)
+        }
       else if(this.allPost[0][index].postBlog!=null){
          console.log("hellohii")
         //  console.log(this.allPost[0][index].postBlog.postBlog)

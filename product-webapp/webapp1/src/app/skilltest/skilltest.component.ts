@@ -91,7 +91,7 @@ changeColor(qno:number){
   let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
   if(this.bookmarks[qno]=="true"){
     console.log(this.bookmarks[qno]);
-    bookmark[qno-2].style.backgroundColor ='#00CED1';
+    bookmark[qno-1].style.backgroundColor ='#00CED1';
   }
   else if(this.answers[qno-1]!=""){
     setTimeout(() => {
@@ -141,7 +141,7 @@ changeColor(qno:number){
   counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 0, sec: "40" } // choose whatever you want
+    this.counter = { min: 1, sec: "00" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;
@@ -232,13 +232,12 @@ changeColor(qno:number){
     }
     else if(percentage>=80){
       
-      warrior_name='gladitor'
+      warrior_name='gladiator'
     }
     else if(percentage>=70){
-      warrior_name='jobified'
+      warrior_name='saga'
     }
     else if(percentage>50){
-      console.log("beginner")
       warrior_name='beginner'
     }
     this.service.worrior=warrior_name;

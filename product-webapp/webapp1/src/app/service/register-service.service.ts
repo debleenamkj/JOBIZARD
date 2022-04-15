@@ -20,6 +20,10 @@ export class RegisterServiceService {
     this.isloggedIn = true;
   }
 
+  role = '';
+  
+
+
   constructor(private http:HttpClient) { }
   jobSeekerRegister(jobSeekerData:any)
   {
@@ -46,6 +50,11 @@ export class RegisterServiceService {
     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
   }
 
+
+  getUserById(emailId:string)
+  {
+    return this.http.get("http://localhost:8099/api/v2/find/"+emailId)
+  }
 
   
 

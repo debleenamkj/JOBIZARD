@@ -82,11 +82,11 @@ export class ChatroomComponent implements OnInit {
   }
   
 
-  senderId = "S123"
-  recipientId = "R124"
-  senderName = "ABCD";
-  recipientName = "IJKL";
-  r = 'S123';
+  // senderId = "S123"
+  // recipientId = "R124"
+  // senderName = "ABCD";
+  // recipientName = "IJKL";
+  // r = 'S123';
 
 
   // senderId = "S123"
@@ -95,11 +95,11 @@ export class ChatroomComponent implements OnInit {
   // recipientName = "EFGH";
   // r = 'S123';
 
-  // senderId = "R124"
-  // recipientId = "S123"
-  // senderName = "IJKL";
-  // recipientName = "ABCD";
-  // r = 'R124';
+  senderId = "R124"
+  recipientId = "S123"
+  senderName = "IJKL";
+  recipientName = "ABCD";
+  r = 'R124';
 
   sendMessage(){
 

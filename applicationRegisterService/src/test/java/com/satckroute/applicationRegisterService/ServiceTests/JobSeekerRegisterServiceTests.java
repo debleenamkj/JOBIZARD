@@ -1,11 +1,14 @@
 package com.satckroute.applicationRegisterService.ServiceTests;
 
 
+import com.satckroute.applicationRegisterService.config.Producer;
 import com.satckroute.applicationRegisterService.domain.Address;
 import com.satckroute.applicationRegisterService.domain.Details;
 import com.satckroute.applicationRegisterService.domain.JobSeeker;
+import com.satckroute.applicationRegisterService.domain.Role;
 import com.satckroute.applicationRegisterService.exception.JobSeekerAlreadyExistException;
 import com.satckroute.applicationRegisterService.exception.JobSeekerNotFoundException;
+import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
 import com.satckroute.applicationRegisterService.repository.JobSeekerRegisterRepository;
 import com.satckroute.applicationRegisterService.service.RegisterServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -15,6 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -42,7 +46,10 @@ public class JobSeekerRegisterServiceTests
 
     private List<JobSeeker> jobSeekerList;
 
+    private UserDTO userDTO;
 
+    @Autowired
+    private Producer producer;
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -54,10 +61,14 @@ public class JobSeekerRegisterServiceTests
         Date date = formatter.parse(testDate);
         System.out.println(date);
 
+//        , Role.JOBSEEKER
         jobSeeker = new JobSeeker("emailId@gmail.com","FirstName01","LastName1",
                 "GENDER1",date,"1234567890","Password1",address,details);
 
         jobSeekerList= Arrays.asList(jobSeeker);
+
+//        ,"JOBSEEKER"
+        userDTO = new UserDTO("abc@mail.com","pass123","JOBSEEKER");
     }
 
 
@@ -80,6 +91,7 @@ public class JobSeekerRegisterServiceTests
 //    {
 //        when(jobSeekerRegisterRepository.findById(jobSeeker.getEmailId())).thenReturn(Optional.ofNullable(null));
 //        when(jobSeekerRegisterRepository.save(jobSeeker)).thenReturn(jobSeeker);
+//        when(producer.sendMessage(userDTO)).thenReturn(jobSeeker);
 //
 //        assertEquals(jobSeeker,registerServiceImpl.registerNewJobSeeker(jobSeeker));
 //
@@ -129,7 +141,6 @@ public class JobSeekerRegisterServiceTests
 //  getAllJobSeekerByFirstName
 
 
-
     //positive test case
     @Test
     public void showJobSeekerByFirstName() throws JobSeekerNotFoundException
@@ -141,7 +152,7 @@ public class JobSeekerRegisterServiceTests
 
     //negative test case
     @Test
-    public void showProductByProductCodeFailure()
+    public void showJobSeekerByFirstNameFailure()
     {
         when(jobSeekerRegisterRepository.findAllJobSeekerByFirstName(jobSeeker.getFirstName())).thenReturn(null);
         assertThrows(Exception.class,()->registerServiceImpl.getAllJobSeekerByFirstName(jobSeeker.getFirstName()));

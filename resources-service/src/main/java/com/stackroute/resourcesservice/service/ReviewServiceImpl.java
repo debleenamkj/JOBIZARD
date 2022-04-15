@@ -110,37 +110,27 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review saveReview(Review review, String companyName) throws CompanyNotFoundException, ReviewAlreadyExistsException {
-        List<Review> reviewList;
-        Company company;
-        company = getCompanyByCompanyName(companyName);
 
-        //reviewList = reviewRepository.findReviewByCompanyNameAndReviews_ReviewId(companyName, review.getReviewId());
-        //Condition for saving first Review.
+        Company company;
+        company = reviewRepository.findByCompanyName(companyName);
+        if (company==null)
+            throw new CompanyNotFoundException();
+
+        if(reviewRepository.findReviewByCompanyNameAndReviews_ReviewId(companyName, review.getReviewId()).size()!=0){
+            throw new ReviewAlreadyExistsException();
+        }
         if(company.getReviews() == null){
             company.setReviews(List.of(review));
         }
         else {
-            reviewList = company.getReviews();
-
-            reviewList.forEach(reviewObj->{
-                try {
-                    if (reviewObj.getReviewId() == review.getReviewId()) {
-                        throw new ReviewAlreadyExistsException();
-                    }
-                } catch (ReviewAlreadyExistsException e) {
-                        e.printStackTrace();
-                }
-            });
-
             company.getReviews().add(review);
         }
-
         reviewRepository.save(company);
 
         return review;
     }
 
-    @Override
+  /*  @Override
     public Review updateReviewByCompanyName(String companyName, Review review) throws CompanyNotFoundException, ReviewNotFoundException {
         List<Review> list;
         Company company;
@@ -160,18 +150,20 @@ public class ReviewServiceImpl implements ReviewService {
         reviewRepository.save(company);
 
         return review;
-    }
+    }*/
 
     @Override
     public boolean deleteReviewByCompanyNameAndReviewId(String companyName, int reviewId) throws CompanyNotFoundException, ReviewNotFoundException {
         List<Review> list;
         Company company;
 
-        company = getCompanyByCompanyName(companyName);
+        company = reviewRepository.findByCompanyName(companyName);
+        if(company==null)
+            throw new CompanyNotFoundException();
 
-         list = company.getReviews();
+        list = company.getReviews();
 
-        if(!list.stream().anyMatch((obj)->reviewId == obj.getReviewId()))
+        if(list == null || list.stream().noneMatch((obj)->reviewId == obj.getReviewId()))
             throw new ReviewNotFoundException();
 
         list.removeIf(obj->reviewId == obj.getReviewId());

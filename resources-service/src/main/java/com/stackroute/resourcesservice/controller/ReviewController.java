@@ -6,9 +6,10 @@ import com.stackroute.resourcesservice.exception.CompanyAlreadyExistsException;
 import com.stackroute.resourcesservice.exception.CompanyNotFoundException;
 import com.stackroute.resourcesservice.exception.ReviewAlreadyExistsException;
 import com.stackroute.resourcesservice.exception.ReviewNotFoundException;
-import com.stackroute.resourcesservice.service.SequenceService;
+import com.stackroute.resourcesservice.service.SequenceServiceImpl;
 import com.stackroute.resourcesservice.service.ReviewServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
-import java.util.zip.Inflater;
 
 @CrossOrigin("http://localhost:4200")
 @RestController
@@ -26,12 +25,15 @@ import java.util.zip.Inflater;
 public class ReviewController {
 
     private ReviewServiceImpl reviewService;
-    private SequenceService sequenceService;
+    private SequenceServiceImpl sequenceServiceImpl;
+
+    @Value("$(com.stackroute.resourcesservice.InternalServerError)")
+    private String serverError;
 
     @Autowired
-    public ReviewController(ReviewServiceImpl reviewService, SequenceService sequenceService) {
+    public ReviewController(ReviewServiceImpl reviewService, SequenceServiceImpl sequenceServiceImpl) {
         this.reviewService = reviewService;
-        this.sequenceService = sequenceService;
+        this.sequenceServiceImpl = sequenceServiceImpl;
     }
 
 
@@ -49,7 +51,7 @@ public class ReviewController {
         } catch (CompanyAlreadyExistsException e) {
             throw new CompanyAlreadyExistsException();
         }catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return responseEntity;
@@ -62,7 +64,7 @@ public class ReviewController {
         } catch (CompanyNotFoundException e) {
             throw new CompanyNotFoundException();
         }catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -75,7 +77,7 @@ public class ReviewController {
             throw new CompanyNotFoundException();
         } catch (Exception e){
             System.out.println(e.toString());
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -87,7 +89,7 @@ public class ReviewController {
         } catch (CompanyNotFoundException e) {
             throw new CompanyNotFoundException();
         } catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -98,7 +100,7 @@ public class ReviewController {
         } catch (CompanyNotFoundException e) {
             throw new CompanyNotFoundException();
         } catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -109,7 +111,7 @@ public class ReviewController {
     @PostMapping("saveReview")
     public ResponseEntity<?> saveReviewByCompanyNameAndReviewId(@RequestBody Review review, @RequestParam("companyName") String companyName) throws ReviewAlreadyExistsException, CompanyNotFoundException {
         try{
-            review.setReviewId(sequenceService.getSequenceNumber(Review.sequenceName));
+            review.setReviewId(sequenceServiceImpl.getSequenceNumber(Review.sequenceName));
             System.out.println(Review.sequenceName);
             responseEntity = new ResponseEntity<>(reviewService.saveReview(review, companyName), HttpStatus.CREATED);
         } catch (ReviewAlreadyExistsException ex) {
@@ -119,12 +121,12 @@ public class ReviewController {
         }catch (Exception e){
             System.out.println(e.toString());
             e.printStackTrace();
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
 
-    @PutMapping("updateReview")
+    /*@PutMapping("updateReview")
     public ResponseEntity<?> updateReviewByCompanyNameAndReviewId(@RequestBody Review review, @RequestParam("companyName") String companyName) throws CompanyNotFoundException, ReviewNotFoundException {
         try{
             responseEntity = new ResponseEntity<>(reviewService.updateReviewByCompanyName(companyName, review), HttpStatus.OK);
@@ -133,10 +135,10 @@ public class ReviewController {
         } catch (CompanyNotFoundException ex) {
             throw new CompanyNotFoundException();
         }catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
-    }
+    }*/
 
     @DeleteMapping("deleteReview")
     public ResponseEntity<?> deleteReviewByCompanyNameAndReviewId(@RequestParam("reviewId") int reviewId, @RequestParam("companyName") String companyName) throws CompanyNotFoundException, ReviewNotFoundException {
@@ -147,7 +149,7 @@ public class ReviewController {
         } catch (CompanyNotFoundException ex) {
             throw new CompanyNotFoundException();
         }catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -161,10 +163,24 @@ public class ReviewController {
         } catch (CompanyNotFoundException ex) {
             throw new CompanyNotFoundException();
         }catch (Exception e){
-            responseEntity = new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
+
+   /* @GetMapping("get")
+    public ResponseEntity<?> get(@RequestParam("reviewId") int reviewId, @RequestParam("companyName") String companyName) throws CompanyNotFoundException, ReviewNotFoundException {
+        try {
+            responseEntity = new ResponseEntity<>(reviewService.getReviewByCompanyNameAndReviewId(companyName, reviewId), HttpStatus.OK);
+        } catch (ReviewNotFoundException exception) {
+            throw new ReviewNotFoundException();
+        } catch (CompanyNotFoundException ex) {
+            throw new CompanyNotFoundException();
+        }catch (Exception e){
+            responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }*/
 
 
     public static byte[] compressBytes(byte[] image){

@@ -1,5 +1,5 @@
 <body>
-  <div class="cv-template">
+  <div class="cv-template" id="cv-template">
     <div class="cv-left-side-content">
       <div class="cv-left-side-header">
         <img mat-card-avatar src="assets\sunset.png">
@@ -223,4 +223,8 @@
         </div>
     </div>
   </div>
+  <div style="text-align: center;">
+    <input type="button" class="button" value="Download Pdf" (click)="convertToPDF()"/>
+   </div>
+  
 </body>

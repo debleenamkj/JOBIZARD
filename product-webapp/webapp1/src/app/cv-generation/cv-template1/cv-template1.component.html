@@ -1,5 +1,5 @@
 <body>
-  <div class="cv-body">
+  <div class="cv-body" id="cv-body">
     <div class="cv-body-header">
       <div class="cv-header-content1">
         <span style="border-right-style: solid; padding-right: 1%">S</span
@@ -7,14 +7,14 @@
       </div>
 
       <div class="cv-header-content2">
-        <h1 style="font-size: 320%">Sajidha khan</h1>
+        <h1 style="font-size: 320%">{{cv.response.firstName}}</h1>
       </div>
 
       <div class="cv-header-content3">
         <div class="cv-header-content3-left"></div>
         <div class="cv-header-content3-middle">
           <H3 style="font-size: 120%; font-weight: bold"
-            >FULLSTACK DEVELOPER</H3
+            ></H3
           >
         </div>
         <div class="cv-header-content3-right"></div>
@@ -276,4 +276,9 @@
       </div>
     </div>
   </div>
+  <!-- <div class="icon_image " title="Share As PDF" (click)="exportAsPDF('cv-body');"><img src="assets/img/pdf.png"></div> -->
+   <div style="text-align: center;">
+    <input type="button" class="button" value="Download Pdf" (click)="convertToPDF()"/>
+   </div>
+  
 </body>

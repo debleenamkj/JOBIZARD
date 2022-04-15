@@ -25,33 +25,52 @@
                 </td>
             </tr>
             <tr>
-                <td style="display: flex; margin-left: 3px;">
-                    <button mat-icon-button (click)="oneStarMethod()" >
-                        <mat-icon #oneStar >
-                        grade</mat-icon>
+                <td colspan="2" style="display: flex; margin-left: 3px;">
+                    <button #one mat-icon-button 
+                    (click)="starColor(one,filter.red,
+                    two,'',
+                    three,'',
+                    four,'',
+                    five,''
+                    )">
+                        <i  class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button mat-icon-button (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='primary';
-                    fourStar.color='primary'; fiveStar.color='primary';">
-                        <mat-icon #twoStar >
-                            grade</mat-icon>
+                    <button #two mat-icon-button 
+                    (click)="starColor(one,filter.blue,
+                    two,filter.blue,
+                    three,'',
+                    four,'',
+                    five,''
+                    )">
+                        <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button mat-icon-button 
-                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
-                        fourStar.color='primary'; fiveStar.color='primary';">
-                        <mat-icon #threeStar>
-                            grade</mat-icon>
+                    <button #three mat-icon-button 
+                    (click)="starColor(one,filter.yellow,
+                    two,filter.yellow,
+                    three,filter.yellow,
+                    four,'',
+                    five,''
+                    )">
+                        <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button mat-icon-button 
-                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
-                        fourStar.color='accent'; fiveStar.color='primary';">
-                        <mat-icon #fourStar>
-                            grade</mat-icon>
+                    <button #four mat-icon-button
+                    (click)="starColor(one,filter.green,
+                    two,filter.green,
+                    three,filter.green,
+                    four,filter.green,
+                    five,''
+                    )">
+                    
+                        <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button mat-icon-button 
-                    (click)="oneStar.color='accent'; twoStar.color='accent'; threeStar.color='accent';
-                        fourStar.color='accent'; fiveStar.color='accent';">
-                        <mat-icon #fiveStar>
-                            grade</mat-icon>
+                    <button #five mat-icon-button
+                    (click)="starColor(one,filter.golden,
+                    two,filter.golden,
+                    three,filter.golden,
+                    four,filter.golden,
+                    five,filter.golden
+                    )">
+                        <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
                 </td>
             </tr>

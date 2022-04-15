@@ -28,9 +28,11 @@
 
 .example-card {
     width: 250px;
+    /* height: 265px; */
     margin-bottom: 50px;
     float: left;
-    margin-right: 25px;
+    margin-right: 20px;
+    align-items: center;
     
 }
 
@@ -40,6 +42,7 @@
 }
 
 .pi{
-    width: 100px;
-    margin-left: 50px;
+    width: 150px;
+    margin-left: 35px;
+    padding-top: 5px;
 }
