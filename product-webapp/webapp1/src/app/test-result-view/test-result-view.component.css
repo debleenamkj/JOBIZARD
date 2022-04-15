@@ -3,6 +3,12 @@
   color: white;
   margin-top: 0.2%;
 }
+.table {
+  margin-left: 55%;
+  margin-top: -15%;
+  right: 80%;
+  position: sticky;
+}
 mat-card h2 {
   margin-left: 43%;
   font-size: xx-large;
@@ -14,49 +20,44 @@ mat-card h2 {
   box-shadow: 10px 10px 5px #6e2586;
   border-radius: 5px;
 }
-.div1Title{
+.div1Title {
   text-align: center;
-  background-image: linear-gradient(
-    rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.8)
-  );
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
   background-image: linear-gradient(to right, #6e2586, #b11784);
   font-size: x-large;
 }
-.div2 { 
+.div2 {
   box-shadow: 10px 10px 5px #b11784;
   position: relative;
   width: 65%;
   display: inline-block;
   border-radius: 5px;
 }
-#userimg{
+#userimg {
   position: relative;
   margin-left: 38%;
   height: 20vh;
 }
-.userDetails
-{
+.userDetails {
   font-family: "Courier", Times, serif;
   font-weight: bolder;
   text-align: center;
 }
-.div2 img{
+.div2 img {
   position: relative;
   margin-left: 35%;
   /* margin-top: 20%; */
 }
-.div2Result h2{
+.div2Result h2 {
   position: relative;
   margin-left: 25%;
   margin-top: 60px;
   animation: animated-text 4s steps(29, end) 1s 1 normal both,
-  animated-cursor 600ms steps(29, end) infinite;
+    animated-cursor 600ms steps(29, end) infinite;
   border-right: solid 3px rgba(0, 255, 0, 0.75);
   white-space: nowrap;
   overflow: hidden;
   font-family: "Source Code Pro", monospace;
-
 }
 /* text animation */
 
@@ -79,54 +80,34 @@ mat-card h2 {
     border-right-color: transparent;
   }
 }
-.div2ResultFirst table{
-  /* height: 15vh; */
-  float: right;
-  display: inline-block;
-  text-align: left;
-  position: sticky;
-  /* margin-left: 10%; */
-  border-collapse: collapse; 
-  background-color: #f6f6f6;
-}/* Spacing */
-td, th {
-  border: 1px solid #999;
+/* Spacing */
+td,
+th {
   padding: 20px;
 }
 th {
-  background: #999;
-  color: white;
-  border-radius: 0;
+  background: rgb(210, 209, 209);
   position: sticky;
-  top: 0;
   padding: 10px;
+  text-align: center;
 }
-.primary{
-  background-color: #000000
-}
-
-tfoot > tr  {
-  background: black;
-  color: white;
+.primary {
+  background-color: #000000;
 }
 tbody > tr:hover {
   background-color: #6e2586;
 }
 
-.div2ResultDetails{
+.div2ResultDetails {
   margin-top: 30px;
 }
-.div2ResultDetails span
-{
-  margin-left: 30%;
+.div2ResultDetails1 span {
   display: flex;
 }
-.div2ResultDetails h2
-{
+.div2ResultDetails h2 {
   margin-left: 2%;
 }
-.btn
-{
+.btn {
   margin-bottom: 10px;
   background-image: linear-gradient(to right, #6e2586, #b11784);
   font-family: "Source Code Pro", monospace;
@@ -137,9 +118,7 @@ tbody > tr:hover {
   border-radius: 5px;
   margin-left: 45%;
 }
-.div2ResultFirst img{
+.div2ResultFirst img {
   margin-left: 31%;
   display: inline-block;
 }
-
-
