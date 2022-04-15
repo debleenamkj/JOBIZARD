@@ -37,6 +37,8 @@ public interface RegisterService
 
 
     Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws  RecruiterNotFoundException;
+    Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws  RecruiterNotFoundException, IOException;
+
     OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException;
 
 

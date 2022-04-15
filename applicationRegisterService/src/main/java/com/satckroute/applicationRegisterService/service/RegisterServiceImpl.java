@@ -328,6 +328,22 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
+    public Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws RecruiterNotFoundException, IOException
+    {
+        recruiter.setRecruiterImage(file.getBytes());
+        if(recruiterRegisterRepository.findById(emailId).isEmpty())
+        {
+            throw new RecruiterNotFoundException();
+        }
+        else
+        {
+            return recruiterRegisterRepository.save(recruiter);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Override
     public OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException
     {
         if(organizationDetailsRepository.findById(emailId).isEmpty())
