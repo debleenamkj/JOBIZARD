@@ -1,0 +1,57 @@
+<header style="width: 98.7%;position: fixed;z-index: 1;">
+    <nav class="navbar navbar-light bg-info">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../../assets/logo3.png" alt="" width="80" height="70" class="d-inline-block align-text-top">
+            JOBIZARD
+          </a>
+        </div>
+      </nav>
+</header>
+<div class="parent-div" > 
+    <section style="height: 400px;">
+    <ngb-carousel style="height: 100%;">
+        <ng-template ngbSlide *ngFor="let img of backgroundImages; index as i" 
+        style="height: 100%;">
+          <div class="carousel-caption">
+            <h3>My slide {{i + 1}} title</h3>
+          </div>
+            <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+              <div style="background-image: url({{img}});height: 400px;width: 100%;
+              background-repeat: no-repeat; background-size: cover;background-position: center;"></div>
+                <!-- <img [src]="location+img" alt="My image {{i + 1}} description" style="width: 100%; height: 300px; object-fit: contain;"> -->
+            </div>
+        </ng-template>
+      </ngb-carousel>    
+  </section>
+  <h1 style="font-family: 'Cinzel', serif;font-size:xx-large;margin-top:10px">OUR FEATURES</h1>
+  <section style="display:flex; justify-content: center;margin-top: 10px;">
+      <div class="card-parent" *ngFor="let item of card">
+        <mat-card class="example-card">
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p style="font-size:1.8rem;">
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+          </mat-card>    
+      </div>
+   
+  </section>
+  <h1 style="font-size:xx-large;font-family: 'Permanent Marker', cursive;">Additional features</h1>
+  <section>
+      <div class="div-additional">
+          <img src="../../assets/u1.jpeg" alt="" class="imgleft">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus accusamus nemo quidem culpa, earum fugiat sunt aliquam error provident, repellendus quas et. 
+              Placeat aspernatur sequi molestiae pariatur sunt necessitatibus illum.</p>
+      </div>
+      <div  class="div-additional">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias laborum porro, esse, enim totam possimus quos repellendus nemo officiis natus rerum eveniet earum! 
+            Tenetur, doloremque velit. Exercitationem alias vero accusamus.</p>
+          <img src="" alt="" class="imgright">
+      </div>
+  </section></div>
+ 
+  <footer></footer>
