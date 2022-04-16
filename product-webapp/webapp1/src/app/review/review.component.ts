@@ -25,6 +25,8 @@ export interface Review {
   consMessage?:string;
   reviewDate?:Date;
   companyRatings?:Ratings;
+  companyName?:string;
+  companyLogo?:any;
 };
 enum Ratings{
         POOR = 1,
@@ -59,25 +61,53 @@ export const _filter = (opt: string[], value: string): string[] => {
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  constructor(private reviewService:ReviewService, private http: HttpClient, public dialog: MatDialog, private _formBuilder: FormBuilder) {
+  constructor(public reviewService:ReviewService, private http: HttpClient, public dialog: MatDialog, private _formBuilder: FormBuilder) {
     this.requestResources();
   }
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    
+   }
 
   ////////////Variables/////////////
   companyForm: FormGroup = this._formBuilder.group({
     companyGroup: '',
   });
+  
   companyNameGroups: CompanyNameGroup[] = [];
   companyGroupOptions!: Observable<CompanyNameGroup[]>;
   searchErrorMessage:string|undefined;
   pageEvent!: PageEvent;
   companies: CompanyDetails[] = [];
+  allDetails: CompanyDetails[] = [];
+  reviewHome:Review[]=[];
+  reviewHomeSlice:any;
   companiesSlice: CompanyDetails[]= [];
   searchError:boolean = false;
+  // starDisplay=(rating:Ratings)=>{
+  //   let a:number;
+  //   let array: number[]=[]
+  //   switch(rating){
+  //     case Ratings.POOR:a=1
+  //       break;
+  //       case Ratings.NOT_BAD:a=2
+  //         break;
+  //         case Ratings.GOOD:a=3
+  //           break;
+  //           case Ratings.VERY_GOOD:a=4
+  //             break;
+  //             case Ratings.EXCELLENT:a=5
+  //               break;
+  //     }
+  //     for(let i=0;i<a;i++){
+  //       array.push(i)
+  //   }
+  //   return array;
+  // }
+
   private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
   private getCompanyByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_company";
-  private getReviewsByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_reviews"
+  private getReviewsByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_reviews";
+  private getAllDetailsRequest="http://localhost:8087/api/v1/resources/getAllDetails";
   ///////////////////////////////////////////
   companyPageChange(event:any){
     let start = event.pageSize*event.pageIndex;
@@ -85,14 +115,22 @@ export class ReviewComponent implements OnInit {
   }
   reviewPageChange(event:any){
     let start = event.pageSize*event.pageIndex;
-    this.companiesSlice = this.companies.slice(start,start+event.pageSize)
+    let a = start;
+    let b = event.pageSize;
+    if(this.reviewService.selectedCompany){
+        b--;
+      if(start>0)
+        a--;
+    }
+    this.reviewHomeSlice = this.reviewHome.slice(a,a+b)
+    
   }
   openReviewForm(selectedCompany:CompanyDetails): void {
     this.reviewService.selectedCompany = selectedCompany;
     const dialogRef = this.dialog.open(ReviewFormComponent)
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Dialog Box: $(result)')
+     // console.log('Dialog Box: $(result)')
     })
   }
   querySearch(){
@@ -154,9 +192,9 @@ export class ReviewComponent implements OnInit {
   requestResources() {
     this.getCompanies().subscribe((response: CompanyDetails[]) => {
       this.companies = response;
-      this.retrieveLogos(this.companies)
+      this.retrieveLogos(this.companies);
+      console.log(this.companies)
       this.companiesSlice=this.companies.slice(0,5);
-      console.log(this.companies);
       if (this.companies.length > 0) {
         this.companyNameGroups = this.getCompanyNameGroup();
         this.companyGroupOptions = this.companyForm.get('companyGroup')!.valueChanges.pipe(
@@ -165,6 +203,33 @@ export class ReviewComponent implements OnInit {
         );
       }
     })
+
+    this.getAllDetails().subscribe({
+      next: response=>{
+        
+        this.allDetails=response;
+        this.retrieveLogos(this.allDetails);
+        this.allDetails.forEach(company=>{
+          if(company.reviews!=null){
+            let sliced:any=[];
+            sliced.push(company.reviews);
+            sliced[0].forEach((review:any)=>{
+              this.reviewHome.push(review);
+              this.reviewHome[this.reviewHome.length-1].companyName=company.companyName;
+              this.reviewHome[this.reviewHome.length-1].companyLogo=company.retrievedImage;
+            })
+          }
+        })
+      
+        console.log(this.reviewHome);
+        this.reviewHome = this.reviewHome.reverse();
+        this.reviewHomeSlice = this.reviewHome.slice(0,12)
+      },
+      error: errorResponse=>{
+        
+      }
+    })
+    
   }
 
   getReviewsByCompanyName(companyName:string){
@@ -180,4 +245,11 @@ export class ReviewComponent implements OnInit {
   getCompanies() {
     return this.http.get<CompanyDetails[]>(this.getAllCompaniesGetRequest);
   }
+  getAllDetails(){
+    return this.http.get<CompanyDetails[]>(this.getAllDetailsRequest)
+  }
+}
+
+type sliceReview={
+  array:Review[]
 }

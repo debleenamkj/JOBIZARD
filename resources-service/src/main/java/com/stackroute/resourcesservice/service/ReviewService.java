@@ -20,4 +20,5 @@ public interface ReviewService {
     //Review getReviewByCompanyNameAndReviewId(String companyName, int reviewId) throws CompanyNotFoundException, ReviewNotFoundException;
 
     //List<Review> getAllReviewsByUserEmail(String userEmail)throws UserNotFoundException;
+    List<Company> findAllDetails() throws CompanyNotFoundException;
 }
