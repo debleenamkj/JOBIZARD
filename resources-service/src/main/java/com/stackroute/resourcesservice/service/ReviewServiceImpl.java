@@ -175,6 +175,24 @@ public class ReviewServiceImpl implements ReviewService {
         return true;
     }
 
+    @Override
+    public List<Company> findAllDetails() throws CompanyNotFoundException {
+        List<Company> companyList;
+
+        companyList = reviewRepository.findAll();
+
+        if (companyList==null||companyList.isEmpty())
+            throw new CompanyNotFoundException();
+        companyList.forEach((obj)->{
+            byte[] logo = obj.getCompanyLogo();
+            if ( logo != null){
+                obj.setCompanyLogo(decompressBytes(logo));
+            }
+        });
+
+        return companyList;
+    }
+
 
     public static byte[] decompressBytes(byte[] image){
 

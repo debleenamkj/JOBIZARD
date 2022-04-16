@@ -1,6 +1,7 @@
 package com.stackroute.recommendationservice.service;
 
 import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.JobNotFoundException;
 import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
 import com.stackroute.recommendationservice.exception.UserNotFoundException;
 import com.stackroute.recommendationservice.model.JobDetails;
@@ -118,7 +119,7 @@ public class ServiceTest {
     }
 
     @Test
-    public void getMatchingJobReturnSuccess() throws UserNotFoundException {
+    public void getMatchingJobReturnSuccess() throws JobNotFoundException {
         List<Seeker> seeker1 = null;
         Set<Seeker> seeker2 = new HashSet<>();
         when(jobRepository.findById(jobDetails.getJobId())).thenReturn(Optional.ofNullable((jobDetails)));
