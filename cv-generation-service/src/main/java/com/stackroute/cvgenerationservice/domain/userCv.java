@@ -12,8 +12,6 @@ import javax.persistence.Transient;
 
 @Document
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class userCv {
     @Transient
     public static final String SEQUENCE_NAME="user_sequence";
@@ -23,15 +21,13 @@ public class userCv {
     private String lastName;
     private String email;
     private long phoneNumber;
-    private String links;
+    private String address;
     private String[] careerObjective;
     private String[] education;
     private String[] experience;
-    private String[] certifications;
     private String[] project;
     private String[] skills;
-    private String[] achievements;
-    private String[] personalProfile;
+    private String[] languages;
     private byte[] picture;
 }
 

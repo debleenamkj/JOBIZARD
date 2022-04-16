@@ -11,10 +11,13 @@ import { CvTemplateService } from 'src/app/service/cv-generation/cv-template.ser
 export class CvTemplate1Component implements OnInit {
 
 
-  cv:any;
+  response:any;
   constructor( private cvT: CvTemplateService) { 
-    let cv = this.cvT.getCv();
-    console.log(cv);
+   this.cvT.getCv()
+   .subscribe((response:any)=>{
+    this.response=response;
+    console.log(response);
+   });
   }
 
   ngOnInit(): void {

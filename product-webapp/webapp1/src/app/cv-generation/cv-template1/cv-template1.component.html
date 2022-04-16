@@ -2,20 +2,23 @@
   <div class="cv-body" id="cv-body">
     <div class="cv-body-header">
       <div class="cv-header-content1">
-        <span style="border-right-style: solid; padding-right: 1%">S</span
-        ><span style="padding-left: 1%">K</span>
+        <div class="intials" style="text-align: center;  width: 95%;padding: 1%;">
+          <span style="border-right-style: solid; padding-right: 1%">S</span><span style="padding-left: 1%">K</span>
+        </div>
+
+        <div class="dwnld-button" style=" width: 5%; text-align: end;">
+          <mat-icon class="button" (click)="convertToPDF()">save_alt</mat-icon>
+        </div>
       </div>
 
       <div class="cv-header-content2">
-        <h1 style="font-size: 320%">{{cv.response.firstName}}</h1>
+        <h1 style="font-size: 320%">{{response.firstName}}&nbsp;{{response.lastName}}</h1>
       </div>
 
       <div class="cv-header-content3">
         <div class="cv-header-content3-left"></div>
         <div class="cv-header-content3-middle">
-          <H3 style="font-size: 120%; font-weight: bold"
-            ></H3
-          >
+          <H3 style="font-size: 120%; font-weight: bold">{{response.role}}java developer</H3>
         </div>
         <div class="cv-header-content3-right"></div>
       </div>
@@ -30,13 +33,13 @@
         <div class="cv-header-content4-middle">
           <mat-icon>call</mat-icon>
           <br />
-          <sub>8973241515</sub>
+          <sub>{{response.phoneNumber}}</sub>
         </div>
 
         <div class="cv-header-content4-right">
           <mat-icon>mail</mat-icon>
           <br />
-          <sub>sajidhamohammed321@gmail.com</sub>
+          <sub>{{response.email}}</sub>
         </div>
       </div>
     </div>
@@ -44,133 +47,102 @@
     <div class="cv-body-content">
       <div class="cv-body-side-content">
         <div class="cv-body-side-content-avatar">
-          <img mat-card-avatar src="assets\sunset.png" />
+          <img mat-card-avatar src= "{{'data:image/jpg;base64,' + response.picture}}" />
         </div>
         <div class="cv-body-side-content-edu">
           <div class="cv-body-side-content-edu-header">
-            <h2
-              style="
+            <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
                 font-weight: bolder;
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
-              "
-            >
+              ">
               Education
             </h2>
           </div>
         </div>
 
         <div class="cv-body-side-content-edu-container1">
-          <h3
-            style="
+          <h3 style="
               font-size: 150%;
               text-transform: uppercase;
               font-weight: bold;
               color: rgb(49, 49, 83);
               padding-top: 5%;
               margin: 0%;
-            "
-          >
-            B.tech
+            ">
+            {{response.education}}
           </h3>
-          <h4
-            style="
+          <h4 style="
               font-size: 140%;
               font-weight: bold;
               color: rgb(201, 178, 119);
               padding: 0%;
               margin-bottom: 2%;
-            "
-          >
-            ssiet college/2019
+            ">
+            {{response.college}}
           </h4>
-          <p
-            style="
+          <p style="
               font-size: 130%;
               font-weight: bold;
               color: rgb(109, 109, 109);
               padding-top: 0%;
               margin: 0%;
-            "
-          >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consectetur sapiente animi ratione. Quis quos tenetur vero
-            perferendis minus eius neque dignissimos voluptas. Quod expedita
-            laboriosam temporibus corporis maiores ab cumque.
+            ">
+            {{response.description}}
           </p>
-          <h3
-            style="
+          <h3 style="
               font-size: 150%;
               text-transform: uppercase;
               font-weight: bold;
               color: rgb(49, 49, 83);
               padding-top: 5%;
               margin: 0%;
-            "
-          >
-            high school
+            ">
+            {{response.highschool}}
           </h3>
-          <h4
-            style="
+          <h4 style="
               font-size: 140%;
               font-weight: bold;
               color: rgb(201, 178, 119);
               padding: 0%;
               margin-bottom: 2%;
-            "
-          >
-            lorem college/2015
+            ">
+            {{response.college}}
           </h4>
-          <p
-            style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)"
-          >
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            eligendi ipsam quisquam at, quo mollitia amet fugiat modi ullam
-            beatae sit dolor commodi exercitationem tempore ut veritatis illo
-            culpa aliquid?
+          <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
+            {{response.description}}
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat beatae nisi pariatur alias corporis
+            architecto a eaque mollitia sit tempora sunt earum necessitatibus itaque, aperiam vitae ducimus aspernatur
+            voluptates asperiores!
           </p>
         </div>
 
         <div class="cv-body-side-content-lang-container">
           <div class="cv-body-side-content-lang-header">
-            <h2
-              style="
+            <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
                 font-weight: bolder;
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
-              "
-            >
+              ">
               languages
             </h2>
           </div>
           <div>
             <h5>English</h5>
             <div class="progress" id="progressbar">
-              <div
-                class="progress-bar"
-                aria-valuenow="90"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="background-color: rgb(195, 151, 76); width: 50%"
-                role="progressbar"
-              ></div>
+              <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>
             </div>
           </div>
           <div>
             <h5>Spanish</h5>
             <div class="progress" id="progressbar">
-              <div
-                class="progress-bar"
-                style="background-color: rgb(195, 151, 76); width: 50%"
-                role="progressbar"
-                aria-valuenow="50"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
+              <div class="progress-bar" style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"
+                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
           <div class="cv-body-side-content-lang-container1"></div>
@@ -179,64 +151,56 @@
       <!-- 2nd part starts -->
       <div class="cv-body-main-content">
         <div class="main-career-objective">
-          <p
-            style="font-size: 150%; font-weight: bold; color: rgb(109, 109, 109)"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim porro
-            impedit odit excepturi illo, laboriosam obcaecati aliquid aliquam
-            adipisci nulla maxime culpa nobis perferendis. Magni nobis odio
-            officiis consequuntur cumque.
+          <p style="font-size: 150%; font-weight: bold; color: rgb(109, 109, 109)">
+            {{response.careerobjective}}To secure a challenging position in a reputable organization to expand my
+            learnings, knowledge, and skills.
           </p>
         </div>
 
         <div class="work-experience-container">
           <div class="work-experience-header-container">
-            <h2
-              style="
+            <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
                 font-weight: bolder;
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
-              "
-            >
-              Work Experience
+              ">
+              WorkExperience
             </h2>
           </div>
 
           <div class="work-details">
             <div class="Designation">
-              <h3
-                style="
+              <h3 style="
                   font-size: 150%;
                   text-transform: uppercase;
                   font-weight: bold;
                   color: rgb(49, 49, 83);
                   padding-top: 5%;
                   margin: 0%;
-                "
-              >
-                Graphics Designer
+                ">
+                {{response.designation}} java developer
+
               </h3>
             </div>
             <div class="company-name-with-term">
-              <h4
-                style="
+              <h4 style="
                   font-size: 140%;
                   font-weight: bold;
                   color: rgb(201, 178, 119);
                   padding: 0%;
                   margin-bottom: 2%;
-                "
-              >
-               Lorem Company/jan2019-Feb2020/London
+                ">
+                {{response.company}}tcs/{{response.date}}2021/{{response.place}}/hyderabad
               </h4>
             </div>
             <div class="work-description">
               <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                porro impedit odit excepturi illo, laboriosam obcaecati aliquid
-                aliquam adipisci nulla maxime culpa nobis perferendis
+                {{response.description}}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique tenetur accusantium sunt illum
+                exercitationem odit quaerat expedita aliquid sed aperiam cupiditate, obcaecati sapiente possimus
+                voluptate consectetur ipsa doloribus, molestias consequatur.
               </p>
             </div>
           </div>
@@ -244,31 +208,33 @@
 
         <div class="skills-container">
           <div class="skills-header-container">
-            <h2
-              style="
+            <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
                 font-weight: bolder;
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
-              "
-            >
+              ">
               Skills
             </h2>
           </div>
 
           <div class="skills-detail">
             <div class="skills">
-              <h5>Adobe photoshop</h5>
+              <h5>{{response.skills}}</h5>
               <div class="progress" id="progressbar">
-                <div
-                  class="progress-bar"
-                  aria-valuenow="90"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="background-color: rgb(195, 151, 76); width: 50%"
-                  role="progressbar"
-                ></div>
+                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>
+              </div>
+              <h5>html</h5>
+              <div class="progress" id="progressbar">
+                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>
+              </div>
+              <h5>angular</h5>
+              <div class="progress" id="progressbar">
+                <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>
               </div>
             </div>
           </div>
@@ -276,9 +242,4 @@
       </div>
     </div>
   </div>
-  <!-- <div class="icon_image " title="Share As PDF" (click)="exportAsPDF('cv-body');"><img src="assets/img/pdf.png"></div> -->
-   <div style="text-align: center;">
-    <input type="button" class="button" value="Download Pdf" (click)="convertToPDF()"/>
-   </div>
-  
 </body>
