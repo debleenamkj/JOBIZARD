@@ -10,5 +10,6 @@ public interface AuthenticationRepository extends JpaRepository<UserLogIn , Stri
     //role
 //    ,String role
 //    UserLogIn findByEmailIdAndPasswordAndRole(String emailId,String password,String role);
+    UserLogIn findByEmailId(String emailId);
     UserLogIn findByEmailIdAndPassword(String emailId,String password);
 }

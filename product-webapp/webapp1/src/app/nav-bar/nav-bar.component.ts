@@ -20,8 +20,8 @@ export class NavBarComponent {
       shareReplay()
     );
 
-      role="jobseeker";
-      // role="recruiter";
+      // role="jobseeker";
+      role="recruiter";
       // role="";
 
   // name="sajal@gmail.com";

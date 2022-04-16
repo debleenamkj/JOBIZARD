@@ -51,6 +51,11 @@ export class RegisterServiceService {
   }
 
 
+  getUserById(emailId:string)
+  {
+    return this.http.get("http://localhost:8099/api/v2/find/"+emailId)
+  }
+
   
 
     // upload(file: File) {

@@ -27,24 +27,51 @@
   </div>
   <div class="div2">
     <div>
-      <span class="div2Result"
-        ><img src="{{worrior_logo}}" alt="" />
-        <h2>
-          Hey {{ username }}, you are our {{ level }}, with Score
-          {{ marksGot }}%
+      <span class="div2Result">
+        <img src="{{worrior_logo}}" alt="" />
+        <h2 class="head">
+         {{head}}
         </h2></span
       >
       <div class="div2ResultDetails">
-        <span>
-          <h2>Questions Attempted</h2>
-          <h2 style="margin-left: 35px">
-            : {{ attempted }}/{{ TotalQuestions }}
-          </h2>
-        </span>
-        <span>
-          <h2>Questions UnAttempted</h2>
-          <h2>: {{ unattempted }}/{{ TotalQuestions }}</h2>
-        </span>
+        <div class="div2ResultDetails1">
+          <span>
+            <h2>Questions Attempted</h2>
+            <h2 style="margin-left: 35px">
+              : {{ attempted }}/{{ TotalQuestions }}
+            </h2>
+          </span>
+          <span>
+            <h2>Questions UnAttempted</h2>
+            <h2 style="margin-left: 12px">: {{ unattempted }}/{{ TotalQuestions }}</h2>
+          </span>
+        </div>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <!-- <th colspan="4">October</th> -->
+                  <th colspan= "4">Badges According to Score</th>
+                </tr>
+              </thead>
+            
+              <tbody>
+                <tr>
+                  <td>NINJA</td>
+                  <td>Gladiator</td>
+                  <td>SAGA</td>
+                  <td>Beginner</td>
+                </tr>
+                <tr>
+                  <td>100-90</td>
+                  <td>89-80</td>
+                  <td>79-70</td>
+                  <td>69-60</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
       </div>
       <span> <button type="button" class="btn">PRINT</button> </span>
     </div>

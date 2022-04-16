@@ -1,12 +1,14 @@
 export class UserLogin
 {
+    // role
+    role:string=""
     emailId: string="";
     password: string="";
-    // role:string=""
+    
     constructor()
     {
+        this.role="";
         this.emailId="";
         this.password="";
-        // this.role="";
     }
 }

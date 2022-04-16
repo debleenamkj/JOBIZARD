@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { CvTemplateService } from 'src/app/service/cv-generation/cv-template.service';
 
 @Component({
   selector: 'app-cv-template1',
@@ -9,11 +10,15 @@ import html2canvas from 'html2canvas';
 })
 export class CvTemplate1Component implements OnInit {
 
-  Name:String="Sajidha Mohammed";
 
-  constructor() { }
+  cv:any;
+  constructor( private cvT: CvTemplateService) { 
+    let cv = this.cvT.getCv();
+    console.log(cv);
+  }
 
   ngOnInit(): void {
+ 
   }
   public convertToPDF()
       {
@@ -32,4 +37,5 @@ export class CvTemplate1Component implements OnInit {
       pdf.save('new-file.pdf'); // Generated PDF
       });
       }
+    
 }
