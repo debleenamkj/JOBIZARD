@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Lob;
 import javax.persistence.Transient;
+import java.util.List;
 
 @Document
 @Data
@@ -22,9 +23,9 @@ public class userCv {
     private String email;
     private long phoneNumber;
     private String address;
-    private String[] careerObjective;
-    private String[] education;
-    private String[] experience;
+    private String careerObjective;
+    private List<Experience> experience;
+    private List<Education> education;
     private String[] project;
     private String[] skills;
     private String[] languages;

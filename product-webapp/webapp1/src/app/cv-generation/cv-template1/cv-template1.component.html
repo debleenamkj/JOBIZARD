@@ -27,7 +27,7 @@
         <div class="cv-header-content4-left">
           <mat-icon>place</mat-icon>
           <br />
-          <sub>empire heights</sub>
+          <sub>{{response.address}}</sub>
         </div>
 
         <div class="cv-header-content4-middle">
@@ -72,7 +72,7 @@
               padding-top: 5%;
               margin: 0%;
             ">
-            {{response.education}}
+            {{response.education[0].typeOfdegree}}
           </h3>
           <h4 style="
               font-size: 140%;
@@ -81,7 +81,7 @@
               padding: 0%;
               margin-bottom: 2%;
             ">
-            {{response.college}}
+            {{response.education[0].collegeName}}/{{response.education[0]. duration}}
           </h4>
           <p style="
               font-size: 130%;
@@ -90,7 +90,7 @@
               padding-top: 0%;
               margin: 0%;
             ">
-            {{response.description}}
+            {{response.education[0]. description}}
           </p>
           <h3 style="
               font-size: 150%;
@@ -113,9 +113,6 @@
           </h4>
           <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
             {{response.description}}
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat beatae nisi pariatur alias corporis
-            architecto a eaque mollitia sit tempora sunt earum necessitatibus itaque, aperiam vitae ducimus aspernatur
-            voluptates asperiores!
           </p>
         </div>
 
@@ -152,8 +149,7 @@
       <div class="cv-body-main-content">
         <div class="main-career-objective">
           <p style="font-size: 150%; font-weight: bold; color: rgb(109, 109, 109)">
-            {{response.careerobjective}}To secure a challenging position in a reputable organization to expand my
-            learnings, knowledge, and skills.
+            {{response.careerObjective}}
           </p>
         </div>
 
@@ -166,7 +162,7 @@
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
               ">
-              WorkExperience
+              Work Experience
             </h2>
           </div>
 
@@ -180,7 +176,7 @@
                   padding-top: 5%;
                   margin: 0%;
                 ">
-                {{response.designation}} java developer
+                {{response.experience[0].jobPosition}}
 
               </h3>
             </div>
@@ -192,15 +188,12 @@
                   padding: 0%;
                   margin-bottom: 2%;
                 ">
-                {{response.company}}tcs/{{response.date}}2021/{{response.place}}/hyderabad
+                {{response.experience[0].companyName}}/{{response.experience[0].duration}}/{{response.experience[0].location}}
               </h4>
             </div>
             <div class="work-description">
               <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
-                {{response.description}}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique tenetur accusantium sunt illum
-                exercitationem odit quaerat expedita aliquid sed aperiam cupiditate, obcaecati sapiente possimus
-                voluptate consectetur ipsa doloribus, molestias consequatur.
+                {{response.experience[0].workDescription}}
               </p>
             </div>
           </div>

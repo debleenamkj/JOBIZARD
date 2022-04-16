@@ -77,6 +77,7 @@ public class cvServiceImpl implements cvService{
             existingCv.setExperience(cv.getExperience());
             existingCv.setProject(cv.getProject());
             existingCv.setSkills(cv.getSkills());
+            existingCv.setLanguages(cv.getLanguages());
             existingCv.setPicture(file.getBytes());
             Repository.save(existingCv);
             return existingCv;
