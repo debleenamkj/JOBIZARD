@@ -112,7 +112,6 @@ public class ReviewController {
     public ResponseEntity<?> saveReviewByCompanyNameAndReviewId(@RequestBody Review review, @RequestParam("companyName") String companyName) throws ReviewAlreadyExistsException, CompanyNotFoundException {
         try{
             review.setReviewId(sequenceServiceImpl.getSequenceNumber(Review.sequenceName));
-            System.out.println(Review.sequenceName);
             responseEntity = new ResponseEntity<>(reviewService.saveReview(review, companyName), HttpStatus.CREATED);
         } catch (ReviewAlreadyExistsException ex) {
             throw new ReviewAlreadyExistsException();
@@ -168,19 +167,17 @@ public class ReviewController {
         return responseEntity;
     }
 
-   /* @GetMapping("get")
-    public ResponseEntity<?> get(@RequestParam("reviewId") int reviewId, @RequestParam("companyName") String companyName) throws CompanyNotFoundException, ReviewNotFoundException {
+    @GetMapping("getAllDetails")
+    public ResponseEntity<?> get() throws CompanyNotFoundException{
         try {
-            responseEntity = new ResponseEntity<>(reviewService.getReviewByCompanyNameAndReviewId(companyName, reviewId), HttpStatus.OK);
-        } catch (ReviewNotFoundException exception) {
-            throw new ReviewNotFoundException();
-        } catch (CompanyNotFoundException ex) {
+            responseEntity = new ResponseEntity<>(reviewService.findAllDetails(), HttpStatus.OK);
+        }catch (CompanyNotFoundException ex) {
             throw new CompanyNotFoundException();
         }catch (Exception e){
             responseEntity = new ResponseEntity<>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
-    }*/
+    }
 
 
     public static byte[] compressBytes(byte[] image){

@@ -10,20 +10,20 @@ export interface Review {
   consMessage?:string;
   reviewDate?:Date;
   companyRatings?:Ratings;
+  companyName?:string;
+  companyLogo?:any;
 };
 enum Ratings{
-        POOR = 1,
-        NOT_BAD = 2,
-        GOOD = 3,
-        VERY_GOOD = 4,
-        EXCELLENT = 5
+        POOR = 0,
+        NOT_BAD = 1,
+        GOOD = 2,
+        VERY_GOOD = 3,
+        EXCELLENT = 4
 };
 type User = {
-  userId?:number;
-  email?:number;
-  firstName?:string;
-  middleName?:string;
-  lastName?:string;
+  anonymousUser?:boolean;
+  email?:string;
+  name?:string;
   workDetails?:WorkDetails;
 }
 type WorkDetails = {
@@ -38,7 +38,6 @@ type WorkDetails = {
   styleUrls: ['./review-form.component.css']
 })
 export class ReviewFormComponent implements OnInit {
-
   filter ={
     red:'invert(14%) sepia(94%) saturate(4822%) hue-rotate(357deg) brightness(91%) contrast(126%)',
     blue:'invert(79%) sepia(70%) saturate(2132%) hue-rotate(129deg) brightness(100%) contrast(109%)',
@@ -52,17 +51,14 @@ export class ReviewFormComponent implements OnInit {
   }
 
   reviewForm:FormGroup = this.formBuilder.group({
-    // userId: new FormControl('', Validators.required),
-    // email: ['', Validators.required, Validators.email],
-    // firstName: ['', Validators.required],
-    // middleName: [''],
-    // lastName: [''],
-    currentlyWorking: ['', Validators.required],
-    jobRole: ['', Validators.required],
-    yearsOfExperience: ['', Validators.required],
+    anonymousUser: 'true',
+    email: '',
+    name: '',
+    currentlyWorking: 'false',
+    jobRole: '',
+    yearsOfExperience: '',
     prosMessage: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
     consMessage: ['',[Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-    reviewDate: ['', Validators.required],
     companyRatings: ['', Validators.required]
   })
   formRadio:string='';
@@ -70,10 +66,10 @@ export class ReviewFormComponent implements OnInit {
   private postReviewRequest = 'http://localhost:8087/api/v1/resources/saveReview';
   private deleteReviewRequest = 'http://localhost:8087/api/v1/resources/deleteReview';
 
-  formValidation= ()=>{
+  formValidation(){
     return true
   }
-  starColor(
+  starColor(rating:number,
     one:any,onefilter:string,
     two:any,twofilter:string,
     three:any,threefilter:string,
@@ -86,11 +82,51 @@ export class ReviewFormComponent implements OnInit {
     three._elementRef.nativeElement.style.filter = threefilter;
     four._elementRef.nativeElement.style.filter = fourfilter;
     five._elementRef.nativeElement.style.filter = fivefilter;
-  }
-  postReviewDetails(){
-    
-  }
 
+    let ratingValue:Ratings;
+    switch(rating){
+      
+      case 1:
+        ratingValue = Ratings.POOR;
+        break;
+      case 2:
+        ratingValue = Ratings.NOT_BAD;
+        break;
+      case 3:
+        ratingValue = Ratings.GOOD;
+          break;
+      case 4:
+        ratingValue = Ratings.VERY_GOOD;
+        break;
+      case 5:
+        ratingValue = Ratings.EXCELLENT;
+        break;
+      default:
+          break;
+  }
+  this.reviewForm.controls['companyRatings'].setValue(ratingValue)
+}
+  postReviewDetails(){
+   
+    let review:Review;
+    review = this.reviewForm.value;
+    review.reviewDate = new Date();
+    
+    this.postReview(review, this.reviewService.selectedCompany.companyName)
+          .subscribe({
+            next: response=>{
+              console.log(response);
+            },
+            error: errorResponse=>{
+              console.log(errorResponse);
+            }
+          })
+  }
+  validateRatings(){
+    if(this.reviewForm.controls['companyRatings'].hasError('required'))
+      return 'Select stars to give ratings.'
+    return '';
+  }
   validateProsMessage(){
       if(this.reviewForm.controls['prosMessage'].hasError('required'))
         return 'You must enter a value';
