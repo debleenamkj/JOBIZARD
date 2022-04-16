@@ -319,7 +319,6 @@ public class RegisterController
     @PutMapping("/jobSeeker1/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-//        return responseEntity;
         try
         {
             log.debug("RegisterController - updateJobSeekerDetail");
@@ -357,6 +356,31 @@ public class RegisterController
         catch (Exception exception)
         {
             log.error("RegisterController - updateRecruiterDetails"+exception);
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @PutMapping("/recruiter1/{emailId}")
+    public ResponseEntity<?> updateRecruiterDetail(@RequestParam("recruiter1") String recruiter, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
+    {
+        try
+        {
+            log.debug("RegisterController - updateRecruiterDetail");
+            Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
+            //
+            ResponseEntity responseEntity = new ResponseEntity(registerService.updateRecruiterDetail(recruiter1,emailId,file),HttpStatus.CREATED);
+            return new ResponseEntity<>(registerService.updateRecruiterDetail(recruiter1,emailId,file), HttpStatus.OK);
+        }
+        catch (RecruiterNotFoundException recruiterNotFoundException)
+        {
+            log.error("RegisterController - updateRecruiterDetail"+recruiterNotFoundException);
+            throw new RecruiterNotFoundException();
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - updateRecruiterDetail"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
