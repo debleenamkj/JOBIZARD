@@ -56,7 +56,7 @@ mat-card-content {
  margin: 10px auto;
  width: 100%;
  height: 300px;
- background-color: aqua;
+ background-image:  linear-gradient(to right, #6E2586,rgb(218, 153, 206));
  align-items: center;
  justify-content: center;
 }
@@ -67,15 +67,29 @@ mat-card-content {
 }
 .imgleft{
     margin-left: 10px;
+    
+    background: transparent;
 }
 .imgright{
     margin-right: 10px;
 }
 .div-additional p{
+    color: white;
     font-size: x-large;
     padding: 15px;
     letter-spacing: 3px;
     line-height: 35px;
     font-family: 'M PLUS Rounded 1c', sans-serif;
     /* font-family: 'Pacifico', cursive; */
+}
+
+footer{
+  margin-top: 50px;
+  /* position: sticky; */
+}
+footer div
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
