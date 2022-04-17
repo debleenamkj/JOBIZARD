@@ -192,20 +192,20 @@ public class OrganizationRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void showOrganizationDetailsByOrganizationNameFailure() throws Exception {
-//        when(registerServiceImpl.getAllOrganizationDetailsByOrganizationName(anyString())).thenThrow(OrganizationDetailsNotFoundException.class);
-//
-//        mockMvc.perform(get("/api/v1//organizationDetails/getOrganizationDetailsName/organizationName")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(organizationDetails)))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
-//
-//        verify(registerServiceImpl, times(1)).getAllOrganizationDetailsByOrganizationName(anyString());
-//    }
+    @Test
+    public void showOrganizationDetailsByOrganizationNameFailure() throws Exception {
+        when(registerServiceImpl.getAllOrganizationDetailsByOrganizationName(anyString())).thenThrow(OrganizationDetailsNotFoundException.class);
+
+        mockMvc.perform(get("/api/v1//organizationDetails/getOrganizationDetailsName/organizationName")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(organizationDetails)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        //isNotFound()) = ref @ResponseStatus(code= HttpStatus.*NOT_FOUND*,reason = "Product not exist.")
+
+        verify(registerServiceImpl, times(1)).getAllOrganizationDetailsByOrganizationName(anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -227,18 +227,18 @@ public class OrganizationRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void updateOrganizationDetailsFailure() throws Exception {
-//        when(registerServiceImpl.updateOrganizationDetails(any(), anyString())).thenThrow(OrganizationDetailsNotFoundException.class);
-//
-//        mockMvc.perform(put("/api/v1/organization/emailId")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonToString(organizationDetails)))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        verify(registerServiceImpl, times(1)).updateOrganizationDetails(any(), anyString());
-//    }
+    @Test
+    public void updateOrganizationDetailsFailure() throws Exception {
+        when(registerServiceImpl.updateOrganizationDetails(any(), anyString())).thenThrow(OrganizationDetailsNotFoundException.class);
+
+        mockMvc.perform(put("/api/v1/organization/emailId")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonToString(organizationDetails)))
+                .andExpect(status().isConflict())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl, times(1)).updateOrganizationDetails(any(), anyString());
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -260,18 +260,18 @@ public class OrganizationRegisterControllerTests
 
 
     //negative test case
-//    @Test
-//    public void deleteOrganizationDetailFailure() throws Exception
-//    {
-//        when(registerServiceImpl.deleteOrganizationDetails("organization@gmail.com")).thenThrow(OrganizationDetailsNotFoundException.class);
-//
-//        mockMvc.perform(delete("/api/v1/organizationDetails/emailId")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isNotFound())
-//                .andDo(MockMvcResultHandlers.print());
-//
-//        verify(registerServiceImpl,times(1)).deleteOrganizationDetails("organization@gmail.com");
-//    }
+    @Test
+    public void deleteOrganizationDetailFailure() throws Exception
+    {
+        when(registerServiceImpl.deleteOrganizationDetails("organization@gmail.com")).thenThrow(OrganizationDetailsNotFoundException.class);
+
+        mockMvc.perform(delete("/api/v1/organizationDetails/emailId")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isInternalServerError())
+                .andDo(MockMvcResultHandlers.print());
+
+        verify(registerServiceImpl,times(1)).deleteOrganizationDetails(anyString());
+    }
 
 
 

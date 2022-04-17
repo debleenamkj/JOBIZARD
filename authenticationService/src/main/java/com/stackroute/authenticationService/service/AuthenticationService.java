@@ -9,4 +9,8 @@ public interface AuthenticationService
     //role
 //    ,String role
     UserLogIn findByEmailIdAndPassword(String emailId,String password) throws UserNotFoundException;
+
+    UserLogIn findByEmailId(String emailId) throws UserNotFoundException;
+
+//    findByEmailId
 }

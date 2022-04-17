@@ -5,7 +5,7 @@ export class JobSeeker
     password: string="";
     
     //role
-    // role:string="";
+    role:string="";
 
     // role!:""
 
@@ -13,6 +13,6 @@ export class JobSeeker
     {
         this.emailId="";
         this.password="";
-        // this.role=""
+        this.role="";
     }
 }

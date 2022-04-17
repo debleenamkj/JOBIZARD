@@ -8,18 +8,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.text.ParseException;
-import java.time.Instant;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class AuthenticationRepositoryTests
 {
     @Autowired
@@ -35,6 +32,7 @@ public class AuthenticationRepositoryTests
 
         userLogIn.setEmailId("email@gmail.com");
         userLogIn.setPassword("Email123");
+        userLogIn.setRole("JOBSEEKER");
 
 
     }
@@ -55,23 +53,57 @@ public class AuthenticationRepositoryTests
     public void saveNewUserDetails()
     {
         authenticationRepository.save(userLogIn);
-        UserLogIn userLogIn1  = authenticationRepository.findById(userLogIn.getEmailId()).get();
+        UserLogIn userLogIn1 = authenticationRepository.findById(userLogIn.getEmailId()).get();
         assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
+        assertEquals("email@gmail.com",userLogIn1.getEmailId());
+        assertEquals("Email123",userLogIn1.getPassword());
+        assertEquals("JOBSEEKER",userLogIn1.getRole());
 
     }
 
 
-
-
-
     //negative test case
+    @Test
+    public void saveNewUserDetailsFailure()
+    {
+        authenticationRepository.save(userLogIn);
+        UserLogIn userLogIn1 = authenticationRepository.findById(userLogIn.getEmailId()).get();
+        assertNotNull(userLogIn1);
+//        assertNotEquals(0,userLogIn1.getEmailId());
+//        assertNotEquals(2,user1.getEmail());
+        assertNotEquals("Email@gmail.com",userLogIn.getEmailId());
+        assertNotEquals("EMAIL@GMAIL.COM",userLogIn.getEmailId());
+        assertNotEquals(null,userLogIn.getEmailId());
+
+        assertNotEquals(null,userLogIn.getPassword());
+        assertNotEquals("email123",userLogIn.getPassword());
+        assertNotEquals("EMAIL123",userLogIn.getPassword());
+        assertNotEquals(123,userLogIn.getPassword());
+
+    }
+//----------------------------------------------------------------------------------------------------------------------
+
+//    findByEmailIdAndPassword
+
 //    @Test
-//    public void saveNewUserDetailsFailure()
+//    public void searchByEmailIdAndPassword()
 //    {
-//        jobSeekerRegisterRepository.insert(jobSeeker);
-//        JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).get();
-//        assertNotNull(jobSeeker1);
+//        //role
+//        authenticationRepository.findByEmailIdAndPasswordAndRole(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+////        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+////        assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
+//        assertEquals("email@gmail.com",userLogIn1.getEmailId());
+//        assertEquals("Email123",userLogIn1.getPassword());
+//
+//
+////        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+////        UserLogIn userLogIn2 = authenticationRepository.findById(userLogIn.getEmailId()).get();
+////        List<UserLogIn> list = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+////        assertEquals("FirstName01",list.get(0).getFirstName());
+//
 //    }
+
 //----------------------------------------------------------------------------------------------------------------------
 
 }

@@ -18,5 +18,5 @@ public class JobDetails {
     @Id
     private long jobId;
     private ArrayList skillsRequired;
-    private String jobRole;
+    private String education;
 }

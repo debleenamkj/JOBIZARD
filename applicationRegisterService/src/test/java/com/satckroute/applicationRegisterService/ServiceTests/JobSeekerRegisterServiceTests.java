@@ -68,7 +68,7 @@ public class JobSeekerRegisterServiceTests
         jobSeekerList= Arrays.asList(jobSeeker);
 
 //        ,"JOBSEEKER"
-        userDTO = new UserDTO("abc@mail.com","pass123");
+        userDTO = new UserDTO("abc@mail.com","pass123","JOBSEEKER");
     }
 
 

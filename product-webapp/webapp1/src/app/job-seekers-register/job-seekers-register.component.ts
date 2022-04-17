@@ -20,7 +20,7 @@ export class JobSeekersRegisterComponent {
   registerForm =new FormGroup({
     
     //role
-    // role:new FormControl("JOBSEEKER"),
+    role:new FormControl("JOBSEEKER"),
     emailId:new FormControl(this.jobSeeker.emailId,[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
     password: new FormControl('', Validators.compose([
       Validators.minLength(5),
@@ -83,10 +83,10 @@ export class JobSeekersRegisterComponent {
   user:any={};
   
   //role
-  // get role()
-  // {
-  //   return this.registerForm.get('role');
-  // }
+  get role()
+  {
+    return this.registerForm.get('role');
+  }
 
   submit(){
     this.jobSeeker.emailId = this.registerForm.value.emailId;
@@ -105,7 +105,7 @@ export class JobSeekersRegisterComponent {
     if(!this.confirm?.invalid && !this.password?.invalid && (this.confirm?.value==this.password?.value) )
     {
       //role /  role : this.role?.value , 
-      this.jobSeeker={emailId : this.email?.value,password:this.password?.value}
+      this.jobSeeker={role : this.role?.value ,emailId : this.email?.value,password:this.password?.value}
       this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data=>
         {
           this.user=data;

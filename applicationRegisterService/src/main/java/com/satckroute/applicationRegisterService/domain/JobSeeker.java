@@ -34,7 +34,7 @@ public class JobSeeker
     private String mobileNumber;
     private String password;
 
-//    public Role role;
+    public Role role;
 //    private Role Role.JOBSEEKER;
 
     private Address address;

@@ -71,15 +71,13 @@ public class cvServiceImpl implements cvService{
             existingCv.setLastName(cv.getLastName());
             existingCv.setEmail(cv.getEmail());
             existingCv.setPhoneNumber(cv.getPhoneNumber());
-            existingCv.setLinks(cv.getLinks());
+            existingCv.setAddress(cv.getAddress());
             existingCv.setCareerObjective(cv.getCareerObjective());
             existingCv.setEducation(cv.getEducation());
             existingCv.setExperience(cv.getExperience());
-            existingCv.setCertifications(cv.getCertifications());
             existingCv.setProject(cv.getProject());
             existingCv.setSkills(cv.getSkills());
-            existingCv.setAchievements(cv.getAchievements());
-            existingCv.setPersonalProfile(cv.getPersonalProfile());
+            existingCv.setLanguages(cv.getLanguages());
             existingCv.setPicture(file.getBytes());
             Repository.save(existingCv);
             return existingCv;

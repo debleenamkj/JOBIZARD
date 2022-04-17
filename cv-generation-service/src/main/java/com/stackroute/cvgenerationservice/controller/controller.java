@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1")
 public class controller
@@ -28,8 +28,10 @@ public class controller
     @PostMapping("/userCv")
     public ResponseEntity<?> saveUserCv(userCv user,@RequestParam("cv") String cv, @RequestParam("file") MultipartFile file) throws CvAlreadyExistsException {
         try{
+            System.out.println(user);
             userCv UserCv = new ObjectMapper().readValue(cv,userCv.class);
             service.saveCv(UserCv, file);
+            System.out.println(UserCv);
             ResponseEntity responseEntity = new ResponseEntity("Sucessfully created",HttpStatus.OK);
         }catch (CvAlreadyExistsException e) {
             throw new CvAlreadyExistsException();

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class User {
     public boolean anonymousUser;
     private String email;

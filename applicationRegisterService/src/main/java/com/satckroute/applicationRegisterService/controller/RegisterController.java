@@ -21,15 +21,19 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @RequestMapping("api/v1")
+@Slf4j
 public class RegisterController
 {
     private RegisterService registerService;
     private ResponseEntity responseEntity;
 
     @Autowired
-    public RegisterController(RegisterService registerService) {
+    public RegisterController(RegisterService registerService)
+    {
+        log.info("Autowiring - RegisterService");
         this.registerService = registerService;
     }
+
 
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -102,12 +106,21 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PostMapping("/registerJobSeeker")
-    public ResponseEntity<?> registerNewJobSeeker(@RequestBody JobSeeker jobSeeker) throws JobSeekerAlreadyExistException {
-        try {
+    public ResponseEntity<?> registerNewJobSeeker(@RequestBody JobSeeker jobSeeker) throws JobSeekerAlreadyExistException
+    {
+        try
+        {
+            log.debug("RegisterController - registerNewJobSeeker");
             return new ResponseEntity<>(registerService.registerNewJobSeeker(jobSeeker), HttpStatus.CREATED);
-        } catch (JobSeekerAlreadyExistException jobSeekerAlreadyExistException) {
+        }
+        catch (JobSeekerAlreadyExistException jobSeekerAlreadyExistException)
+        {
+            log.error("RegisterController - registerNewJobSeeker"+jobSeekerAlreadyExistException);
             throw new JobSeekerAlreadyExistException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - registerNewJobSeeker"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -115,13 +128,27 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PostMapping("/registerRecruiter")
-    public ResponseEntity<?> registerNewRecruiter(@RequestBody Recruiter recruiter) throws RecruiterAlreadyExistException {
-        try {
+    public ResponseEntity<?> registerNewRecruiter(@RequestBody Recruiter recruiter) throws RecruiterAlreadyExistException
+    {
+        try
+        {
+            log.debug("RegisterController - registerNewRecruiter");
             return new ResponseEntity<>(registerService.registerNewRecruiter(recruiter), HttpStatus.CREATED);
-        } catch (RecruiterAlreadyExistException recruiterAlreadyExistException) {
+        }
+        catch (RecruiterAlreadyExistException recruiterAlreadyExistException)
+        {
+            log.error("RegisterController - registerNewRecruiter"+recruiterAlreadyExistException);
             throw new RecruiterAlreadyExistException();
+
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - registerNewRecruiter"+exception);
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+
 //        } catch (Exception exception) {
 //            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
     }
 
@@ -130,11 +157,19 @@ public class RegisterController
     @PostMapping("/saveOrganizationDetails")
     public ResponseEntity<?> registerOrganizationDetails(@RequestBody OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
     {
-        try {
+        try
+        {
+            log.debug("RegisterController - registerOrganizationDetails");
             return new ResponseEntity<>(registerService.saveOrganizationDetails(organizationDetails), HttpStatus.CREATED);
-        } catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException) {
+        }
+        catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException)
+        {
+            log.error("RegisterController - registerOrganizationDetails"+organizationDetailsAlreadyExistException);
             throw new OrganizationDetailsAlreadyExistException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - registerOrganizationDetails"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -142,10 +177,16 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/getALlJobSeeker")
-    public ResponseEntity<?> getAllJobSeekerDetails() {
-        try {
+    public ResponseEntity<?> getAllJobSeekerDetails()
+    {
+        try
+        {
+            log.debug("RegisterController - getAllJobSeekerDetails");
             return new ResponseEntity<>(registerService.getAllJobSeeker(), HttpStatus.OK);
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getAllJobSeekerDetails"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -153,10 +194,16 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/getAllRecruiter")
-    public ResponseEntity<?> getAllRecruiter() {
-        try {
+    public ResponseEntity<?> getAllRecruiter()
+    {
+        try
+        {
+            log.debug("RegisterController - getAllRecruiter");
             return new ResponseEntity<>(registerService.getAllRecruiter(), HttpStatus.OK);
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getAllRecruiter"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -164,10 +211,16 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/getAllOrganization")
-    public ResponseEntity<?> getAllOrganization() {
-        try {
+    public ResponseEntity<?> getAllOrganization()
+    {
+        try
+        {
+            log.debug("RegisterController - getAllOrganization");
             return new ResponseEntity<>(registerService.getAllOrganization(), HttpStatus.OK);
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getAllOrganization"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -175,12 +228,21 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/jobSeeker/getUserByFirstName/{firstName}")
-    public ResponseEntity<?> getJobSeekerByFirstName(@PathVariable String firstName) throws JobSeekerNotFoundException {
-        try {
+    public ResponseEntity<?> getJobSeekerByFirstName(@PathVariable String firstName) throws JobSeekerNotFoundException
+    {
+        try
+        {
+            log.debug("RegisterController - getJobSeekerByFirstName");
             return new ResponseEntity<>(registerService.getAllJobSeekerByFirstName(firstName), HttpStatus.OK);
-        } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
+        }
+        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+        {
+            log.error("RegisterController - getJobSeekerByFirstName"+jobSeekerNotFoundException);
             throw new JobSeekerNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getJobSeekerByFirstName"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -189,12 +251,21 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/recruiter/getUserByFirstName/{firstName}")
-    public ResponseEntity<?> getAllRecruiterByFirstName(@PathVariable String firstName) throws RecruiterNotFoundException {
-        try {
+    public ResponseEntity<?> getAllRecruiterByFirstName(@PathVariable String firstName) throws RecruiterNotFoundException
+    {
+        try
+        {
+            log.debug("RegisterController - getAllRecruiterByFirstName");
             return new ResponseEntity<>(registerService.getAllRecruiterByFirstName(firstName), HttpStatus.OK);
-        } catch (RecruiterNotFoundException recruiterNotFoundException) {
+        }
+        catch (RecruiterNotFoundException recruiterNotFoundException)
+        {
+            log.error("RegisterController - getAllRecruiterByFirstName"+recruiterNotFoundException);
             throw new RecruiterNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getAllRecruiterByFirstName"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -204,13 +275,19 @@ public class RegisterController
     @GetMapping("/organizationDetails/getOrganizationDetailsName/{organizationName}")
     public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsNotFoundException
     {
-        try {
+        try
+        {
+            log.debug("RegisterController - getAllOrganizationDetailsByOrganizationName");
             return new ResponseEntity<>(registerService.getAllOrganizationDetailsByOrganizationName(organizationName), HttpStatus.OK);
         }
         catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
         {
+            log.error("RegisterController - getAllOrganizationDetailsByOrganizationName"+organizationDetailsNotFoundException);
             throw new OrganizationDetailsNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getAllOrganizationDetailsByOrganizationName"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -219,12 +296,21 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/jobSeeker/{emailId}")
-    public ResponseEntity<?> updateJobSeekerDetails(@RequestBody JobSeeker jobSeeker, @PathVariable String emailId) throws JobSeekerNotFoundException {
-        try {
+    public ResponseEntity<?> updateJobSeekerDetails(@RequestBody JobSeeker jobSeeker, @PathVariable String emailId) throws JobSeekerNotFoundException
+    {
+        try
+        {
+            log.debug("RegisterController - updateJobSeekerDetails");
             return new ResponseEntity<>(registerService.updateJobSeekerDetails(jobSeeker, emailId), HttpStatus.OK);
-        } catch (JobSeekerNotFoundException e) {
+        }
+        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+        {
+            log.error("RegisterController - updateJobSeekerDetails"+jobSeekerNotFoundException);
             throw new JobSeekerNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - updateJobSeekerDetails"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -234,7 +320,6 @@ public class RegisterController
     @PutMapping("/jobSeeker1/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-//        return responseEntity;
         try
         {
             log.debug("RegisterController - updateJobSeekerDetail");
@@ -261,14 +346,42 @@ public class RegisterController
     {
         try
         {
+            log.debug("RegisterController - updateRecruiterDetails");
             return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter, emailId), HttpStatus.OK);
         }
         catch (RecruiterNotFoundException recruiterNotFoundException)
         {
+            log.error("RegisterController - updateRecruiterDetails"+recruiterNotFoundException);
             throw new RecruiterNotFoundException();
         }
         catch (Exception exception)
         {
+            log.error("RegisterController - updateRecruiterDetails"+exception);
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    @PutMapping("/recruiter1/{emailId}")
+    public ResponseEntity<?> updateRecruiterDetail(@RequestParam("recruiter1") String recruiter, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
+    {
+        try
+        {
+            log.debug("RegisterController - updateRecruiterDetail");
+            Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
+            //
+            ResponseEntity responseEntity = new ResponseEntity(registerService.updateRecruiterDetail(recruiter1,emailId,file),HttpStatus.CREATED);
+            return new ResponseEntity<>(registerService.updateRecruiterDetail(recruiter1,emailId,file), HttpStatus.OK);
+        }
+        catch (RecruiterNotFoundException recruiterNotFoundException)
+        {
+            log.error("RegisterController - updateRecruiterDetail"+recruiterNotFoundException);
+            throw new RecruiterNotFoundException();
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - updateRecruiterDetail"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -280,14 +393,17 @@ public class RegisterController
     {
         try
         {
+            log.debug("RegisterController - updateOrganizationDetails");
             return new ResponseEntity<>(registerService.updateOrganizationDetails(organizationDetails, emailId), HttpStatus.OK);
         }
         catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
         {
+            log.error("RegisterController - updateOrganizationDetails"+organizationDetailsNotFoundException);
             throw new OrganizationDetailsNotFoundException();
         }
         catch (Exception exception)
         {
+            log.error("RegisterController - updateOrganizationDetails"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -296,15 +412,19 @@ public class RegisterController
     @DeleteMapping("/jobSeeker/{emailId}")
     public ResponseEntity<?> deleteJobSeekerDetails (@PathVariable String emailId) throws JobSeekerNotFoundException
     {
-        try {
+        try
+        {
+            log.debug("RegisterController - deleteJobSeekerDetails");
             return new ResponseEntity<>(registerService.deleteJobSeekerDetails(emailId),HttpStatus.OK);
         }
         catch (JobSeekerNotFoundException jobSeekerNotFoundException)
         {
+            log.error("RegisterController - deleteJobSeekerDetails"+jobSeekerNotFoundException);
             throw new JobSeekerNotFoundException();
         }
-        catch(Exception e)
+        catch(Exception exception)
         {
+            log.error("RegisterController - deleteJobSeekerDetails"+exception);
             return new ResponseEntity<>("Try after some time.",HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -315,15 +435,19 @@ public class RegisterController
     @DeleteMapping("/recruiter/{emailId}")
     public ResponseEntity<?> deleteRecruiterDetails (@PathVariable String emailId) throws RecruiterNotFoundException
     {
-        try {
+        try
+        {
+            log.debug("RegisterController - deleteRecruiterDetails");
             return new ResponseEntity<>(registerService.deleteRecruiterDetails(emailId),HttpStatus.OK);
         }
         catch (RecruiterNotFoundException recruiterNotFoundException)
         {
+            log.error("RegisterController - deleteRecruiterDetails"+recruiterNotFoundException);
             throw new RecruiterNotFoundException();
         }
-        catch(Exception e)
+        catch(Exception exception)
         {
+            log.error("RegisterController - deleteRecruiterDetails"+exception);
             return new ResponseEntity<>("Try after some time.",HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -334,50 +458,87 @@ public class RegisterController
     @DeleteMapping("/organizationDetails/{emailId}")
     public ResponseEntity<?> deleteOrganizationDetails (@PathVariable String emailId) throws OrganizationDetailsNotFoundException
     {
-        try {
+        try
+        {
+            log.debug("RegisterController - deleteOrganizationDetails");
             return new ResponseEntity<>(registerService.deleteOrganizationDetails(emailId),HttpStatus.OK);
         }
         catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
         {
+            log.error("RegisterController - deleteOrganizationDetails"+organizationDetailsNotFoundException);
             throw new OrganizationDetailsNotFoundException();
         }
-        catch(Exception e)
+        catch(Exception exception)
         {
+            log.error("RegisterController - deleteOrganizationDetails"+exception);
             return new ResponseEntity<>("Try after some time.",HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
     //RecruiterLanding..................................................................................
     @GetMapping("/recruiterProfile/{emailId}")
-    public ResponseEntity<?> getRecruiterProfile(@PathVariable String emailId) throws RecruiterNotFoundException {
-        try {
+    public ResponseEntity<?> getRecruiterProfile(@PathVariable String emailId) throws RecruiterNotFoundException
+    {
+        try
+        {
+            log.debug("RegisterController - getRecruiterProfile");
             return new ResponseEntity<>(registerService.getRecruiterProfile(emailId), HttpStatus.OK);
-        } catch (RecruiterNotFoundException recruiterNotFoundException) {
+        }
+        catch (RecruiterNotFoundException recruiterNotFoundException)
+        {
+            log.error("RegisterController - getRecruiterProfile"+recruiterNotFoundException);
             throw new RecruiterNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getRecruiterProfile"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+//---------------------------------------------------------------------------------------------------------------------
 
     @GetMapping("/jobSeekers")
-    public ResponseEntity<?> getAllJobSeekers() throws JobSeekerNotFoundException {
-        try {
+    public ResponseEntity<?> getAllJobSeekers() throws JobSeekerNotFoundException
+    {
+        try
+        {
+            log.debug("RegisterController - getAllJobSeekers");
             return new ResponseEntity<>(registerService.getAllJobSeekers(), HttpStatus.OK);
-        } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
+        }
+        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+        {
+            log.error("RegisterController - getAllJobSeekers"+jobSeekerNotFoundException);
             throw new JobSeekerNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getAllJobSeekers"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
     @GetMapping("/skillSet/{emailId}")
-    public ResponseEntity<?> getSkillSet(@PathVariable String emailId) throws JobSeekerNotFoundException {
-        try {
+    public ResponseEntity<?> getSkillSet(@PathVariable String emailId) throws JobSeekerNotFoundException
+    {
+        try
+        {
+            log.debug("RegisterController - getSkillSet");
             return new ResponseEntity<>(registerService.getSkillSet(emailId), HttpStatus.OK);
-        } catch (JobSeekerNotFoundException jobSeekerNotFoundException) {
+        }
+        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+        {
+            log.error("RegisterController - getSkillSet"+jobSeekerNotFoundException);
             throw new JobSeekerNotFoundException();
-        } catch (Exception exception){
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - getSkillSet"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

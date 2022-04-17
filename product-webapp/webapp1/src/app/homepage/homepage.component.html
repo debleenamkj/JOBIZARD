@@ -1,0 +1,73 @@
+<header style="width: 98.7%;position: fixed;z-index: 1;">
+    <nav class="navbar navbar-light bg-info">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../../assets/logo3.png" alt="" width="80" height="70" class="d-inline-block align-text-top">
+            JOBIZARD
+          </a>
+        </div>
+      </nav>
+</header>
+<div class="parent-div" > 
+    <section style="height: 400px;">
+    <ngb-carousel style="height: 100%;">
+        <ng-template ngbSlide *ngFor="let img of backgroundImages; index as i" 
+        style="height: 100%;">
+          <div class="carousel-caption">
+            <h3>My slide {{i + 1}} title</h3>
+          </div>
+            <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+              <div style="background-image: url({{img}});height: 400px;width: 100%;
+              background-repeat: no-repeat; background-size: cover;background-position: center;"></div>
+                <!-- <img [src]="location+img" alt="My image {{i + 1}} description" style="width: 100%; height: 300px; object-fit: contain;"> -->
+            </div>
+        </ng-template>
+      </ngb-carousel>    
+  </section>
+  <h1 style="font-family: 'Cinzel', serif;font-size:xx-large;margin-top:10px">OUR FEATURES</h1>
+  <section style="display:flex; justify-content: center;margin-top: 10px;">
+      <div class="card-parent" *ngFor="let item of card">
+        <mat-card class="example-card">
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p style="font-size:1.8rem;">
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+          </mat-card>    
+      </div>
+   
+  </section>
+  <h1 style="font-size:xx-large;font-family: 'Permanent Marker', cursive;">Additional features</h1>
+  <section>
+      <div class="div-additional">
+          <img src="../../assets/jzi.png" alt="" class="imgleft">
+          <p>JobiZone provides you with tools to enhance your experience like, Skill trends to explore demand for your skills, Salary trends to check how salary in your role changes with experience,
+             a Tech news and Business News section to keep you updated with current headlines.</p>
+      </div>
+      <div  class="div-additional">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias laborum porro, esse, enim totam possimus quos repellendus nemo officiis natus rerum eveniet earum! 
+            Tenetur, doloremque velit. Exercitationem alias vero accusamus.</p>
+          <img src="" alt="" class="imgright">
+      </div>
+  </section></div>
+ 
+   <footer>
+     <div>
+       <p>Follow Us</p>
+       <button mat-icon-button style="filter: invert(50%) sepia(18%) saturate(6088%) hue-rotate(179deg) brightness(103%) contrast(95%)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6.0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9.0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7.0 24.8 11.1 24.8 24.7z"></path></svg></button>
+       <button mat-icon-button><img src="../../assets/Insta.svg" alt="" class=""></button>
+       <!-- <button mat-icon-button></button> -->
+     </div>
+     <div>Contact Us</div>
+     <div></div>
+     <div style="width: 98.7%;height: 50px; border-top: 2px solid black;
+     display: flex; flex-direction: row;"
+     ><button mat-icon-button><i class="fa-solid fa-copyright fa-xl fa-shake"></i>
+    </button> 
+     <p style="margin-top: 10px;margin-bottom:10px">COPYRIGHT © JOBIZARD 2022. ALL RIGHTS RESERVED.</p>
+</div>
+  </footer>

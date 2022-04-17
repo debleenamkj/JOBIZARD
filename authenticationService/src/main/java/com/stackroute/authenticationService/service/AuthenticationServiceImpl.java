@@ -37,10 +37,23 @@ public class AuthenticationServiceImpl implements AuthenticationService
         {
             throw new UserNotFoundException();
         }
-        System.out.println(userLogIn);
+//        System.out.println(userLogIn);
         return userLogIn;
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Override
+    public UserLogIn findByEmailId(String emailId) throws UserNotFoundException
+    {
+        UserLogIn userLogIn= authenticationRepository.findByEmailId(emailId);
+        if(userLogIn == null)
+        {
+            throw new UserNotFoundException();
+        }
+//        System.out.println(userLogIn);
+        return userLogIn;
+    }
 //---------------------------------------------------------------------------------------------------------------------
 
 //    @Override

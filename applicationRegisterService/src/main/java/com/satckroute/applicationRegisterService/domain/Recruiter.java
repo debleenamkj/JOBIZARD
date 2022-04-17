@@ -40,7 +40,7 @@ public class Recruiter
     private String mobileNumber;
     private String password;
 
-//    public Role  role;
+    public Role  role;
 
     private Address addressDetails;
     private OrganizationDetails organizationDetails;
