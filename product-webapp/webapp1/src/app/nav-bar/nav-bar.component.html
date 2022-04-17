@@ -4,7 +4,7 @@
       [mode]="(isHandset$ | async) ? 'over' : 'over'"
       [opened]="(isHandset$ | async) === true" style="background-color: rgb(82, 15, 102); text-align: center; align-items: center; justify-content: center; ">
    <div *ngIf="role=='jobseeker'">
-    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
+    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="height: 8rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
       <button mat-list-item type="button" routerLink="/assesmentportal" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Assessment Portal</button>
@@ -16,7 +16,7 @@
   </div>
 
   <div *ngIf="role=='recruiter'">
-    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
+    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="height: 8rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
       <button mat-list-item routerLink="/job-posting" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Post Jobs</button>
@@ -76,7 +76,8 @@
         &nbsp;
       <!-- <h5>Hi, {{username}}</h5> -->
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu">
-      <mat-icon>person</mat-icon>
+      <img src="../../assets/logo-crop.png" style="height: 8vh;margin-left:10px;margin-top:-20px;position: sticky;" alt="logo">
+        <!-- <mat-icon>person</mat-icon> -->
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/jobseekerprofile">
