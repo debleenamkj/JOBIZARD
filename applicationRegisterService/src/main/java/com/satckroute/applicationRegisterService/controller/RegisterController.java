@@ -6,6 +6,7 @@ import com.satckroute.applicationRegisterService.domain.OrganizationDetails;
 import com.satckroute.applicationRegisterService.domain.Recruiter;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.service.RegisterService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @CrossOrigin
+@Slf4j
 @RestController
 @RequestMapping("api/v1")
 public class RegisterController
@@ -230,18 +232,25 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/jobSeeker1/{emailId}")
-    public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker") String emailId, @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
+    public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
 //        return responseEntity;
-
-
-        try {
-            JobSeeker jobSeeker1 = new ObjectMapper().readValue(emailId,JobSeeker.class);
-            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetails(jobSeeker1,emailId),HttpStatus.CREATED);
-            return new ResponseEntity<>(registerService.updateJobSeekerDetails(jobSeeker1, emailId), HttpStatus.OK);
-        } catch (JobSeekerNotFoundException e) {
+        try
+        {
+            log.debug("RegisterController - updateJobSeekerDetail");
+            JobSeeker jobSeeker1 = new ObjectMapper().readValue(jobSeeker,JobSeeker.class);
+            //
+            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
+            return new ResponseEntity<>(registerService.updateJobSeekerDetail(jobSeeker1, emailId,file), HttpStatus.OK);
+        }
+        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+        {
+            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
             throw new JobSeekerNotFoundException();
-        } catch (Exception exception) {
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - updateJobSeekerDetail"+exception);
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -39,8 +39,7 @@ export class LoginComponent implements OnInit {
     this.loginService.userLogIn(this.user)
     .subscribe(()=>{
       // alert("Successfully User is logged in.")
-      this.recruiterLanding.email=user.emailId;
-      console.log(this.recruiterLanding.email);
+      localStorage.setItem('loginId',this.user.emailId)  // store in local storage
       this.loginService.isloggedIn=true
       this.router.navigate(["/chatbot"])
      },()=>{
@@ -49,6 +48,7 @@ export class LoginComponent implements OnInit {
     
     localStorage.setItem('loginId',this.user.emailId)  // store in local storage
     console.log('loginId')
+    console.log(localStorage.getItem('loginId'))
     this.router.navigate(["/userLogin"])
     this.loginService.isloggedIn=false
      }
