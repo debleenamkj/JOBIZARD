@@ -297,4 +297,20 @@ public class ReviewServiceTest {
         verify(reviewRepository,times(0)).save(any());
     }
 
+    @Test
+    public void givenTrackReturnAllDetails() throws CompanyNotFoundException {
+        List<Company> companyList = new ArrayList<>();
+        companyList.add(company);
+        when(reviewRepository.findAll()).thenReturn(companyList);
+
+        assertEquals(companyList.size(), reviewService.findAllDetails().size());
+        verify(reviewRepository, times(1)).findAll();
+    }
+    @Test
+    public void givenTrackReturnFailure() {
+        when(reviewRepository.findAll()).thenReturn(null);
+
+        assertThrows(CompanyNotFoundException.class,()-> reviewService.findAllDetails());
+        verify(reviewRepository, times(1)).findAll();
+    }
 }

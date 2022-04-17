@@ -18,9 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @CrossOrigin
+@Slf4j
 @RestController
 @RequestMapping("api/v1")
-@Slf4j
 public class RegisterController
 {
     private RegisterService registerService;

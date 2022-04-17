@@ -12,13 +12,14 @@
         <table>
             <tr>
                 <td colspan="2">
-                    <div style="display: flex; align-items: center; justify-content: center;">
-                        <img style="margin-left: 0%; margin-right: auto;
+                    <div style="display: flex; align-items: center;">
+                        <img style="margin-left: 10%; margin-right: auto;
                          width: 100px; height: 100px; object-fit: contain;"
                             *ngIf="reviewService.selectedCompany.retrievedImage"
                             [src]="reviewService.selectedCompany.retrievedImage">
 
-                        <h3 style="width: 200px; font-weight: 600;" *ngIf="reviewService.selectedCompany.companyName">
+                        <h3 style="margin-left: 10%; margin-right: auto; width: 200px; font-weight: 600;"
+                            *ngIf="reviewService.selectedCompany.companyName">
                             {{reviewService.selectedCompany.companyName}}
                         </h3>
                     </div>
@@ -26,17 +27,15 @@
             </tr>
             <tr>
                 <td colspan="2" style="display: flex; margin-left: 3px;">
-                    <button #one mat-icon-button 
-                    (click)="starColor(one,filter.red,
+                    <button #one mat-icon-button (click)="starColor(1,one,filter.red,
                     two,'',
                     three,'',
                     four,'',
                     five,''
                     )">
-                        <i  class="fa-2xl fa-solid fa-star"></i>
+                        <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button #two mat-icon-button 
-                    (click)="starColor(one,filter.blue,
+                    <button #two mat-icon-button (click)="starColor(2,one,filter.blue,
                     two,filter.blue,
                     three,'',
                     four,'',
@@ -44,8 +43,7 @@
                     )">
                         <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button #three mat-icon-button 
-                    (click)="starColor(one,filter.yellow,
+                    <button #three mat-icon-button (click)="starColor(3,one,filter.yellow,
                     two,filter.yellow,
                     three,filter.yellow,
                     four,'',
@@ -53,18 +51,16 @@
                     )">
                         <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button #four mat-icon-button
-                    (click)="starColor(one,filter.green,
+                    <button #four mat-icon-button (click)="starColor(4,one,filter.green,
                     two,filter.green,
                     three,filter.green,
                     four,filter.green,
                     five,''
                     )">
-                    
+
                         <i class="fa-2xl fa-solid fa-star"></i>
                     </button>
-                    <button #five mat-icon-button
-                    (click)="starColor(one,filter.golden,
+                    <button #five mat-icon-button (click)="starColor(5,one,filter.golden,
                     two,filter.golden,
                     three,filter.golden,
                     four,filter.golden,
@@ -74,7 +70,11 @@
                     </button>
                 </td>
             </tr>
-
+            <tr>
+                <mat-error *ngIf="reviewForm.controls['companyRatings'].invalid">
+                    {{validateRatings()}}
+                </mat-error>
+            </tr>
             <tr>
                 <td colspan="2">
                     <h3 class="field-heading">What you do Like? </h3>
@@ -101,49 +101,72 @@
                     </mat-form-field>
                 </td>
             </tr>
-            <tr>
-
-            </tr>
-            <tr style="display: none;">
-                <th>
-                    <h2>Write Review As: </h2>
-                </th>
-                <th colspan="2">
-                    <mat-radio-group style="display: flex; flex-direction: row;margin: 15px 0;
-                    align-items: flex-start;" aria-label="Select an option">
-                        <mat-radio-button value="Anonymous">
-                            <h3> Anonymous </h3>
-                        </mat-radio-button>
-                        <mat-radio-button value="No Value">
-                            <h3> Log In </h3>
-                        </mat-radio-button>
-                    </mat-radio-group>
-                </th>
-                <th *ngIf="reviewForm.get('firstName')">
-                    {{reviewForm.get('firstName')?.value}}&&{{formRadio}}
-                </th>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <h2>
+            <div formGroupName="user">
+                <tr>
+                    <h2 style="margin: 0%;">
                         Your Details:
                     </h2>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3 class="field-heading">E-Mail:</h3>
-                    <mat-form-field appearance="fill">
-                        <input disabled matInput value="a@gmail.com" type="text">
-                    </mat-form-field>
-                </td>
-                <td>
-                    <h3 class="field-heading">Name</h3>
-                    <mat-form-field appearance="fill">
-                        <input matInput disabled value="Akash Suneja" type="text">
-                    </mat-form-field>
-                </td>
-            </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 class="field-heading">E-Mail:</h3>
+                        <mat-form-field appearance="fill">
+                            <input matInput formControlName="email" type="text">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <h3 class="field-heading">Name</h3>
+                        <mat-form-field appearance="fill">
+                            <input matInput formControlName="name" type="text">
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3 class="field-heading">Give Review Anonymusly:</h3>
+                            <mat-radio-group formControlName="anonymousUser"
+                            aria-label="Select an option">
+                                <mat-radio-button style="margin-right: 20px;" value="true">Yes</mat-radio-button>
+                                <mat-radio-button value="false">No</mat-radio-button>
+                            </mat-radio-group>
+                        
+                    </td>
+                </tr>
+                <div formGroupName="workDetails">
+                    <tr>
+                        <td colspan="2">
+                            <h3 class="field-heading">Are You Currently Employed with the Company? </h3>
+
+                            <mat-radio-group formControlName="currentlyWorking" aria-label="Select an option">
+                                <mat-radio-button value="true">Yes Current Employ</mat-radio-button>
+                                <br>
+                                <mat-radio-button value="false">No Former Employ</mat-radio-button>
+                            </mat-radio-group>
+                        </td>
+                    </tr>
+                    <tr *ngIf="reviewForm.get(['user', 'workDetails', 'currentlyWorking']).value=='true'">
+                        <td>
+                            <h3 class="field-heading">Your Job Role: </h3>
+                            <mat-form-field appearance="fill" class="text-area">
+                                <mat-label>
+                                    Job Role
+                                </mat-label>
+                                <input matInput formControlName="jobRole" type="text">
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <h3 class="field-heading">Years Of Experience: </h3>
+                            <mat-form-field appearance="fill" class="text-area">
+                                <mat-label>
+                                    Years
+                                </mat-label>
+                                <input matInput formControlName="yearsOfExperience" type="number">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </div>
+            </div>
+
             <!-- <tr>
                 <td>
                     <h3 class="field-heading">Middle Name:</h3>
@@ -166,8 +189,9 @@
             </tr> -->
             <tr>
                 <td colspan="2">
-                    <button mat-raised-button [disabled]="formValidation" (click)="postReviewDetails()" type="submit">
-                        Submit
+                    <button mat-raised-button mat-dialog-close [disabled]="reviewForm.invalid"
+                        (click)="postReviewDetails()" type="submit">
+                        Submit as Anonymous
                     </button>
                 </td>
             </tr>

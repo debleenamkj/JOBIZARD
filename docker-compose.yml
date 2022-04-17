@@ -117,5 +117,31 @@ services:
     ports:
       - "4200:4200"
 
+  trendLabService:
+    image: trendlabimage
+    build: trend-lab-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    depends_on:
+      - mongodb
+      - api-gateway
+      - eureka-server
+    ports:
+      - 8086:8086
+
+  chatroomService:
+    image: chatroomimage
+    build: chatroom-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    depends_on:
+      - mongodb
+      - api-gateway
+      - eureka-server
+    ports:
+      - 8089:8089
+
 
 
