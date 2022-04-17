@@ -1,6 +1,7 @@
 package com.stackroute.authenticationService.controller;
 
 import com.stackroute.authenticationService.domain.UserLogIn;
+import com.stackroute.authenticationService.exception.UserAlreadyExistException;
 import com.stackroute.authenticationService.exception.UserNotFoundException;
 import com.stackroute.authenticationService.service.AuthenticationService;
 import com.stackroute.authenticationService.service.SecurityTokenGenerator;
@@ -31,9 +32,21 @@ public class AuthenticationController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PostMapping("/userRegister")
-    public ResponseEntity<?> addingUserData(@RequestBody UserLogIn userLogIn)
+    public ResponseEntity<?> addingUserData(@RequestBody UserLogIn userLogIn) throws UserAlreadyExistException
     {
-        return new ResponseEntity<>(authenticationService.saveUserDetails(userLogIn), HttpStatus.CREATED);
+        try
+        {
+            return new ResponseEntity<>(authenticationService.saveUserDetails(userLogIn), HttpStatus.CREATED);
+        }
+        catch (UserAlreadyExistException userAlreadyExistException)
+        {
+            throw new UserAlreadyExistException();
+        }
+        catch (Exception exception)
+        {
+            return new ResponseEntity<>("try after sometime.",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -41,6 +54,7 @@ public class AuthenticationController
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserLogIn userLogIn) throws UserNotFoundException
     {
+
         Map<String,String> map = null;
         try
         {
@@ -48,16 +62,18 @@ public class AuthenticationController
             UserLogIn userLogIn1= authenticationService.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
             if(userLogIn1.getEmailId().equals(userLogIn.getEmailId()))
             {
+                System.out.println(userLogIn.getEmailId());
                 map = securityTokenGenerator.generateToken(userLogIn);
             }
             return new ResponseEntity<>(map,HttpStatus.OK);
         }
-        catch (UserNotFoundException ex)
+        catch (UserNotFoundException userNotFoundException)
         {
             throw new UserNotFoundException();
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
+            exception.printStackTrace();
             return new ResponseEntity<>("Please try after sometime",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -161,7 +161,8 @@ public class RegisterServiceImpl implements RegisterService
 //        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
 
         //role
-        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());;
+        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());
+//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.getRole().toString());
         if (jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
         {
             throw new JobSeekerAlreadyExistException();

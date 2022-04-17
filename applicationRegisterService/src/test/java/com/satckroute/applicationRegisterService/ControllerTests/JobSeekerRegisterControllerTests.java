@@ -179,7 +179,7 @@ public class JobSeekerRegisterControllerTests
     public void showJobSeekerByFirstName() throws Exception {
         when(registerServiceImpl.getAllJobSeekerByFirstName(anyString())).thenReturn(jobSeekerList);
 
-        mockMvc.perform(get("/api/v1//jobSeeker/getUserByFirstName/FirstName01")
+        mockMvc.perform(get("/api/v1/jobSeeker/getUserByFirstName/FirstName01")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonToString(jobSeeker)))
                 .andExpect(status().isOk())
