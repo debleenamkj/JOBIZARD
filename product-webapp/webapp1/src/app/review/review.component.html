@@ -17,7 +17,6 @@
                     </mat-label>
                     <input type="search" style="font-size: 20px" matInput formControlName="companyGroup"
                         [matAutocomplete]="autoGroup">
-                    <mat-error *ngIf="searchError">{{searchErrorMessage}}</mat-error>
                     <mat-autocomplete #autoGroup="matAutocomplete">
                         <mat-optgroup *ngFor="let group of companyGroupOptions | async" [label]="group.letter">
                             <mat-option *ngFor="let name of group.names" style="color: #4E1B5F; font-weight: 700;"
@@ -37,8 +36,9 @@
                 </button>
             </form>
         </div>
-        <mat-paginator style="width: 30%;" [length]="reviewHome.length" [pageSize]="12"
-            [pageSizeOptions]="[1,2,3,4,5,6,7,8,12]" (page)="reviewPageChange($event)" aria-label="Select page">
+        <mat-paginator style="width: 40%;" [length]="reviewHome.length" [pageSize]="12"
+            [pageSizeOptions]="[1,2,3,4,5,6,7,8,12]" (page)="reviewPageChange($event)" 
+            [showFirstLastButtons]="true" aria-label="Select page">
         </mat-paginator>
     </div>
 
@@ -73,6 +73,7 @@
                     </mat-card-title>   
                     <mat-card-subtitle style="padding: 0px 5px; width: fit-content; ">
                         <i style="color: orange;" class="fa-sm fa-solid fa-star"></i>
+                        
                         4.8
                     </mat-card-subtitle>
                 </div>
@@ -88,15 +89,13 @@
                      font-weight: 500; text-align: center;">
                         {{review.user.name}}
                     </h3>
-                    <mat-card-subtitle style="margin-top: 1%; display: flex; justify-content: center;
-                    padding: 0px 5px; width:100%;" >
-                    
-
-                        <i 
-                        style="color: orange; margin-right: 5px;"
-                         class="fa-md fa-solid fa-star"></i>
-                    
-        
+                    <mat-card-subtitle #starParent style="margin-top: 1%; display: flex; justify-content: center;
+                    padding: 0px 5px; width:100%;" *ngIf="review.companyRatings" >
+                        
+                        <i *ngFor="let arr of ratingsLoopArray(review.companyRatings,starParent)"
+                        style=" margin-right: 5px;"
+                         class="fa-lg fa-solid fa-star"></i>
+                        
                     </mat-card-subtitle>
                 </div>
                 <div style=" width: 90%; height: fit-content; position: absolute; top: 53%;">
@@ -119,7 +118,9 @@
     <div style="display: flex; align-items: center; justify-content: flex-end; width: 100%;">
         <h1 class="title">Write A Review</h1>
         <mat-paginator style="width: 30%;" [length]="companies.length" [pageSize]="4"
-            [pageSizeOptions]="[1,2,3,4,5,6,7,8]" (page)="companyPageChange($event)" aria-label="Select page">
+            [pageSizeOptions]="[1,2,3,4,5,6,7,8]" (page)="companyPageChange($event)" 
+            [showFirstLastButtons]="true"
+            aria-label="Select page">
         </mat-paginator>
     </div>
     <section class="company-section">
@@ -144,24 +145,3 @@
     </section>
 
 </div>
-
-
-<!-- <mat-grid-list cols="5" gutterSize="10px" rowHeight="200px">
-            <mat-grid-tile *ngFor="let company of companies" style="background-color: white;">
-                <mat-card-header style="width:300px;">
-                    <!-- <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>
-                        {{company.companyName}}
-                    </mat-card-title>
-                    <mat-card-subtitle>
-                        {{company.cin}}
-                    </mat-card-subtitle>
-                </mat-card-header>
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                    <img [src]="company.retrievedImage" style="width: 150px; height: 150px; object-fit: contain;">
-                    <mat-card-actions>
-                        <button mat-raised-button (click)="openReviewForm($event)">Write Review</button>
-                    </mat-card-actions>
-                </div>
-            </mat-grid-tile>
-        </mat-grid-list> -->

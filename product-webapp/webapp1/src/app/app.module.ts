@@ -91,7 +91,6 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
