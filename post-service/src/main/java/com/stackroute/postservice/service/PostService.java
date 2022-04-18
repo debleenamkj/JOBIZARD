@@ -12,7 +12,7 @@ import java.util.List;
 public interface PostService {
 
 
-    User saveUser(MultipartFile file, User user) throws UserAlreadyExistsException;
+    User saveUser(User user) throws UserAlreadyExistsException;
 
     Post saveImagePost(MultipartFile post, PostImage postImage, String userEmailId) throws UserNotFoundException;
 

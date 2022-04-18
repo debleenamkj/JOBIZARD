@@ -306,9 +306,24 @@ public class RegisterServiceImpl implements RegisterService
         }
         else
         {
+            ArrayList<String> education = new ArrayList<>();
+            ArrayList skills = new ArrayList();
+
+            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
+            for (Education courses:JobSeekerList){
+                education.add(courses.getCourses());
+            }
+            for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
+                skills.add(skill.getSkillName());
+            }
             seeker.setEmail(emailId);
+            seeker.setEducation(education);
+            seeker.setSkillSet(skills);
             user.setUserEmailId(emailId);
-            user.setUserImage(file.getBytes());
+            user.setUserName(jobSeeker.getFirstName()+" "+jobSeeker.getLastName());
+            producer.sendJobSeekerMessage(seeker);
+            producer.posting(user);
+//            user.setUserImage(file.getBytes());
 
             return jobSeekerRegisterRepository.save(jobSeeker);
         }

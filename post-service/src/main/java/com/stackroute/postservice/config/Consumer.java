@@ -14,14 +14,11 @@ public class Consumer {
     private PostService postService;
     private int id;
 
-    @RabbitListener(queues = "user_queue")
-    public void getUser(MultipartFile file, User user) throws UserAlreadyExistsException {
-        postService.saveUser(file,user);
+    @RabbitListener(queues = "post_Queue")
+    public void getUser(User user) throws UserAlreadyExistsException {
+        postService.saveUser(user);
 //        recommendationService.saveUser(seeker);
     }
 
-//    @RabbitListener(queues = "job_queue")
-//    public void getJob(JobDetails job) throws JobAlreadyPresentException {
-//        recommendationService.savejob(job);
-//    }
+
 }
