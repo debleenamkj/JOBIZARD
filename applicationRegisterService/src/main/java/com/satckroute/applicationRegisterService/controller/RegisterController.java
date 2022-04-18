@@ -363,7 +363,7 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter1/{emailId}")
-    public ResponseEntity<?> updateRecruiterDetail(@RequestParam("recruiter1") String recruiter, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
+    public ResponseEntity<?> updateRecruiterDetail(@PathVariable String emailId ,@RequestParam("recruiter1") String recruiter, @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
     {
         try
         {
