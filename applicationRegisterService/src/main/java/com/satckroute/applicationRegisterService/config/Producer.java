@@ -24,6 +24,7 @@ public class Producer
 
     public void sendMessage(UserDTO userDTO)
     {
+
         //covert the (exchange,routing key,object)
         rabbitTemplate.convertAndSend(exchange.getName(),"user_routing",userDTO);
     }
@@ -32,6 +33,7 @@ public class Producer
 
     public void sendJobSeekerMessage(Seeker Seeker)
     {
+        System.out.println("Job seeker");
         //covert the (exchange,routing key,object)
         rabbitTemplate.convertAndSend(exchange.getName(),"jobSeeker_routing",Seeker);
     }

@@ -326,7 +326,7 @@ public class RegisterController
             log.debug("RegisterController - updateJobSeekerDetail");
             JobSeeker jobSeeker1 = new ObjectMapper().readValue(jobSeeker,JobSeeker.class);
             //
-            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
+//            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateJobSeekerDetail(jobSeeker1, emailId,file), HttpStatus.OK);
         }
         catch (JobSeekerNotFoundException jobSeekerNotFoundException)
@@ -372,7 +372,7 @@ public class RegisterController
             log.debug("RegisterController - updateRecruiterDetail");
             Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
             //
-            ResponseEntity responseEntity = new ResponseEntity(registerService.updateRecruiterDetail(recruiter1,emailId,file),HttpStatus.CREATED);
+//            ResponseEntity responseEntity = new ResponseEntity(registerService.updateRecruiterDetail(recruiter1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateRecruiterDetail(recruiter1,emailId,file), HttpStatus.OK);
         }
         catch (RecruiterNotFoundException recruiterNotFoundException)
