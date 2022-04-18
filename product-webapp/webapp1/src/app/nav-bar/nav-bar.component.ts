@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterServiceService } from '../service/register-service.service';
-import { ChatroomComponent } from '../chatroom/chatroom.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -51,5 +50,6 @@ export class NavBarComponent {
       console.log('Dialog Box: $(result)')
     })
   }
+
 
 }

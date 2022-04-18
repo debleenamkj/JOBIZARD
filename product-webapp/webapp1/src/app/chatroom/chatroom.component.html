@@ -21,13 +21,13 @@
                                 <mat-card *ngIf="chat.senderId==senderId " class="sender">
                                     <div class="senderdiv">
                                         <span style="color: white; margin-right: 3%; float: left;font-size: 2.5vh;">{{chat.message}}</span>
-                                        <span style="color: rgba(255, 255, 255, 0.499); margin-right: 2%; white-space: nowrap; font-size: 1.5vh;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</span>
+                                        <span style="color: rgba(255, 255, 255, 0.499); margin-right: 2%; white-space: nowrap; font-size: 1.5vh;">{{chat.timestamp}}</span>
                                     </div>
                                 </mat-card>
 
                                 <mat-card *ngIf="chat.recipientId==senderId " class="receiver"> 
                                     <span style="color: white; margin-left: 3%; font-size: 2.5vh;">{{chat.message}}</span>
-                                    <span style="color: rgba(255, 255, 255, 0.499); margin-left: 2%; float: right; font-size: 1.5vh;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</span>
+                                    <span style="color: rgba(255, 255, 255, 0.499); margin-left: 2%; float: right; font-size: 1.5vh;">{{chat.timestamp}}</span>
                                 </mat-card>
                             
                         </span>
