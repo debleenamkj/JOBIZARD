@@ -136,8 +136,6 @@ export class ChatroomComponent implements OnInit {
     this.sendChats.senderName = senderName;
     this.sendChats.recipientId = receiverId;
     this.sendChats.recipientName = receiverName;
-    this.sendChats.timestamp = this.jstoday;
-    this.sendChats.message = this.text;
     this.chatService.getMessages(senderId,receiverId).subscribe((data)=>{
       this.getChats = data;
       this.getChats.reverse();
