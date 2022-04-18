@@ -3,6 +3,7 @@ package com.stackroute.recommendationservice.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.JobNotFoundException;
 import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
 import com.stackroute.recommendationservice.exception.UserNotFoundException;
 import com.stackroute.recommendationservice.model.JobDetails;
@@ -52,7 +53,7 @@ public class controllerTest {
         ArrayList skills = new ArrayList();
         skills.add("java");
         skills.add("spring");
-        jobDetails = new JobDetails(1001,skills,"software developer");
+        jobDetails = new JobDetails("1001",skills,"software developer");
         ArrayList preferences = new ArrayList();
         preferences.add("software developer");
         preferences.add("software engineer");
@@ -113,7 +114,7 @@ public class controllerTest {
     }
 
     @Test
-    public void matchJobWithJobSeekerReturnSuccess() throws Exception{
+    public void matchJobWithJobSeekerReturnSuccess() throws Exception, JobNotFoundException {
         when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
         mockMvc.perform(post("/api/v1/recommend/match")
                         .contentType(MediaType.APPLICATION_JSON).
@@ -124,7 +125,7 @@ public class controllerTest {
     }
 
     @Test
-    public void matchJobWithJobSeekerReturnFailure() throws Exception {
+    public void matchJobWithJobSeekerReturnFailure() throws Exception, JobNotFoundException {
         when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
         mockMvc.perform(post("/api/v1/recommend/match")
                 .contentType(MediaType.APPLICATION_JSON).
