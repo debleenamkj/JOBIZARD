@@ -4,6 +4,7 @@ import com.satckroute.applicationRegisterService.config.Producer;
 import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.rabbitMQ.JobDetails;
+import com.satckroute.applicationRegisterService.rabbitMQ.Seeker;
 import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
 import com.satckroute.applicationRegisterService.repository.*;
 import lombok.extern.slf4j.Slf4j;
@@ -295,6 +296,7 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
+        Seeker seeker = new Seeker();
         jobSeeker.setJobSeekerImage(file.getBytes());
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
@@ -302,6 +304,8 @@ public class RegisterServiceImpl implements RegisterService
         }
         else
         {
+            seeker.setEmail(emailId);
+
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
     }
@@ -338,6 +342,7 @@ public class RegisterServiceImpl implements RegisterService
             jobDetails.setSkillsRequired((ArrayList) recruiter.getSkillsRequired());
             jobDetails.setEducation(recruiter.getEducationRequired());
 //            ---------- call the producer method
+            producer.sendRecruiter(jobDetails);
             return recruiterRegisterRepository.save(recruiter);
         }
     }

@@ -1,6 +1,7 @@
 package com.satckroute.applicationRegisterService.config;
 
 
+import com.satckroute.applicationRegisterService.rabbitMQ.JobDetails;
 import com.satckroute.applicationRegisterService.rabbitMQ.Recruiter;
 import com.satckroute.applicationRegisterService.rabbitMQ.Seeker;
 import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
@@ -38,10 +39,10 @@ public class Producer
     }
 //---------------------------------------------------------------------------------------------------------------------
 
-    public void sendSDMessage(Recruiter Recruiter)
+    public void sendRecruiter(JobDetails jobDetails)
     {
         //covert the (exchange,routing key,object)
-        rabbitTemplate.convertAndSend(exchange.getName(),"recruiter_routing",Recruiter);
+        rabbitTemplate.convertAndSend(exchange.getName(),"recruiter_routing",jobDetails);
     }
 
 //---------------------------------------------------------------------------------------------------------------------
