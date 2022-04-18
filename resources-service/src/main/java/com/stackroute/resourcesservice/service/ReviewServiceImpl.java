@@ -44,6 +44,12 @@ public class ReviewServiceImpl implements ReviewService {
         company = reviewRepository.findByCompanyName(companyName);
         if(company == null)
             throw new CompanyNotFoundException();
+
+            byte[] logo = company.getCompanyLogo();
+            if ( logo != null){
+                company.setCompanyLogo(decompressBytes(logo));
+            }
+
         return company;
     }
 

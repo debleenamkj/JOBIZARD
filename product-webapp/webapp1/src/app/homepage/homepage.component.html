@@ -1,73 +1,234 @@
-<header style="width: 98.7%;position: fixed;z-index: 1;">
-    <nav class="navbar navbar-light bg-info">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="../../assets/logo3.png" alt="" width="80" height="70" class="d-inline-block align-text-top">
-            JOBIZARD
-          </a>
-        </div>
-      </nav>
+<header style="width: 99.1%; position: fixed; top: 64px; z-index: 1;">
+  <nav class="navbar navbar-expand-lg navbar-light" 
+  style="  background-color: #4E1B5F; border-radius: unset;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/logo3.png" alt="" width="80" height="70" class="d-inline-block align-text-top">
+        JOBIZARD
+      </a>
+    </div>
+    <div style="display: flex; justify-content: center; 
+     margin-right: 5%; margin-left: auto; ">
+      <button mat-raised-button class="nav-button" style=" margin-right: 20px;">
+        Log-In
+      </button>
+      <button mat-raised-button class="nav-button">
+        Register
+      </button>
+    </div>
+  </nav>
 </header>
-<div class="parent-div" > 
-    <section style="height: 400px;">
+<div class="parent-div">
+  <section style="height: 70vh;">
     <ngb-carousel style="height: 100%;">
-        <ng-template ngbSlide *ngFor="let img of backgroundImages; index as i" 
-        style="height: 100%;">
-          <div class="carousel-caption">
-            <h3>My slide {{i + 1}} title</h3>
-          </div>
-            <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
-              <div style="background-image: url({{img}});height: 400px;width: 100%;
+      <ng-template ngbSlide style="height: 100%;">
+        <div class="carousel-caption">
+          <h3 class="tagline">
+            Get Everything from A to Izzard...
+          </h3>
+        </div>
+        <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+          <div style="background-image: url(../../assets/home-page/20.jpg);height: 70vh;width: 100%;
+              background-repeat: repeat-x; background-size: contain;background-position: center;"></div>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide style="height: 100%;">
+        <div class="carousel-caption">
+          <h3 class="tagline">
+            Pull Candidates with Skill from A to Izzard..
+          </h3>
+        </div>
+        <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+          <div style="background-image: url(../../assets/home-page/2.webp);height: 70vh;width: 100%;
+              background-repeat: no-repeat; background-size: cover; background-position-y: -60px; "></div>
+
+        </div>
+      </ng-template>
+      <ng-template ngbSlide style="height: 100%;">
+        <div class="carousel-caption">
+          <h3 class="tagline">
+            Connect Recruiters from Various Vocation.
+          </h3>
+        </div>
+        <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+          <div style="background-image: url( ../../assets/home-page/21.webp);height:70vh;width: 100%;
               background-repeat: no-repeat; background-size: cover;background-position: center;"></div>
-                <!-- <img [src]="location+img" alt="My image {{i + 1}} description" style="width: 100%; height: 300px; object-fit: contain;"> -->
-            </div>
-        </ng-template>
-      </ngb-carousel>    
+        </div>
+      </ng-template>
+    </ngb-carousel>
   </section>
-  <h1 style="font-family: 'Cinzel', serif;font-size:xx-large;margin-top:10px">OUR FEATURES</h1>
-  <section style="display:flex; justify-content: center;margin-top: 10px;">
-      <div class="card-parent" *ngFor="let item of card">
-        <mat-card class="example-card">
-            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p style="font-size:1.8rem;">
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-          </mat-card>    
+  <br><br><br>
+  <section style="width: 85%; margin: auto;">
+
+    <div style="display: flex;">
+      <img style="width: 50%; height: 350px;" src="../../assets/home-page/18.jpg">
+      <div style="margin-left: 20px; width: 600px; height: 350px;">
+        <h2>Title</h2>
+        <p>Problem?</p>
+        <p>Problem?</p>
+        <hr>
+        <div style="height: 5px;"></div>
+        <hr>
+        <p>
+          Provided Solution
+        </p>
       </div>
-   
+    </div>
+    <hr style="margin: 60px auto;">
   </section>
-  <h1 style="font-size:xx-large;font-family: 'Permanent Marker', cursive;">Additional features</h1>
+  <section style="width: 85%; margin: auto;">
+    <h1 class="title">
+      Our Features
+    </h1>
+    <div style="display: flex; justify-content: center;">
+      <mat-card class="example-card" *ngFor="let item of card">
+        <img src="../../assets/home-page/12.webp" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p style="font-size:1.8rem;">
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <hr style="margin: 60px auto;">
+  </section>
+  <section style="width: 85%; margin: auto;">
+    <h1 class="title">
+      About Jobizrad
+    </h1>
+    <div style="display: flex;">
+      <div style="display: flex; flex-direction: column; margin-right: 20px; width: 50%; height: 400px;">
+        <div style="position: relative; top: 10%; width: 100%; height: fit-content;">
+          <div class="about-div">
+            <img src="../../assets/home-page/7.png">
+            <h1>
+              Title
+            </h1>
+            <p>Problem?</p>
+          </div>
+        </div>
+        <div style="position: relative; top: 40%; width: 100%; height: fit-content;">
+          <div class="about-div">
+            <img src="../../assets/home-page/16.png">
+            <h1>
+              Title
+            </h1>
+            <p>Problem?</p>
+          </div>
+        </div>
+        <div style="position: relative;width: 100%; top: 70%; height: fit-content;">
+          <div class="about-div">
+            <img src="../../assets/home-page/17.webp">
+            <h1>
+              Title
+            </h1>
+            <p>Pasda?</p>
+          </div>
+        </div>
+      </div>
+      <img style="width: 50%; height: 400px;" src="../../assets/home-page/18.jpg">
+    </div>
+    <hr style="margin: 60px auto;">
+  </section>
+  
+  <section class="even-more-section">
+    <h1 class="title">
+      Get Spellbound with features like
+    </h1>
+    <div class="even-more">
+      <img src="../../assets/home-page/black-tie-brands.svg">
+      <p>
+        Your dream job doesn't exist you need to create it “. A good resume along will your skills will help you to
+        get
+        your dream job. Try out our resume template to stand out from the crowd. Just fill required fields and the
+        resume will be created for you.
+      </p>
+    </div>
+    <div>
+      <img src="../../assets/home-page/black-tie-brands.svg">
+      <p>
+        Interact with other seeker to stay connected.
+      </p>
+    </div>
+    <div>
+      <img src="../../assets/home-page/black-tie-brands.svg">
+      <p>
+        Search companies to know the insight through reviews and write a review to help other seekers.
+      </p>
+    </div>
+  </section>
+
   <section>
-      <div class="div-additional">
-          <img src="../../assets/jzi.png" alt="" class="imgleft">
-          <p>JobiZone provides you with tools to enhance your experience like, Skill trends to explore demand for your skills, Salary trends to check how salary in your role changes with experience,
-             a Tech news and Business News section to keep you updated with current headlines.</p>
-      </div>
-      <div  class="div-additional">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias laborum porro, esse, enim totam possimus quos repellendus nemo officiis natus rerum eveniet earum! 
-            Tenetur, doloremque velit. Exercitationem alias vero accusamus.</p>
-          <img src="" alt="" class="imgright">
-      </div>
-  </section></div>
- 
-   <footer>
-     <div>
-       <p>Follow Us</p>
-       <button mat-icon-button style="filter: invert(50%) sepia(18%) saturate(6088%) hue-rotate(179deg) brightness(103%) contrast(95%)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6.0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9.0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7.0 24.8 11.1 24.8 24.7z"></path></svg></button>
-       <button mat-icon-button><img src="../../assets/Insta.svg" alt="" class=""></button>
-       <!-- <button mat-icon-button></button> -->
-     </div>
-     <div>Contact Us</div>
-     <div></div>
-     <div style="width: 98.7%;height: 50px; border-top: 2px solid black;
-     display: flex; flex-direction: row;"
-     ><button mat-icon-button><i class="fa-solid fa-copyright fa-xl fa-shake"></i>
-    </button> 
-     <p style="margin-top: 10px;margin-bottom:10px">COPYRIGHT © JOBIZARD 2022. ALL RIGHTS RESERVED.</p>
+    <h1 class="title">
+
+    </h1>
+    
+  </section>
+  <!-- <section>
+    <div class="div-additional">
+      <img src="../../assets/jzi.png" alt="" class="imgleft">
+      <p>JobiZone provides you with tools to enhance your experience like, Skill trends to explore demand for your
+        skills, Salary trends to check how salary in your role changes with experience,
+        a Tech news and Business News section to keep you updated with current headlines.</p>
+    </div>
+    <div class="div-additional">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias laborum porro, esse, enim totam possimus quos
+        repellendus nemo officiis natus rerum eveniet earum!
+        Tenetur, doloremque velit. Exercitationem alias vero accusamus.</p>
+      <img src="" alt="" class="imgright">
+    </div>
+  </section> -->
+
+  <!-- <h1 class="title">
+    Even More
+  </h1> -->
+  
 </div>
-  </footer>
+
+<footer class="footer-basic">
+  <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">Home</a></li>
+    <li class="list-inline-item"><a href="#">Services</a></li>
+    <li class="list-inline-item"><a href="#">About</a></li>
+    <li class="list-inline-item"><a href="#">Terms</a></li>
+    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+  </ul>
+
+  <hr style="margin: 20px auto; width: 60%;">
+
+  <div class="footer-intro">
+    <p>
+      Jobizrad intro
+    </p>
+
+  </div>
+
+  <hr style="margin: 20px auto; width:80%; ">
+  <h2 style=" margin-left: auto; margin-right: auto; width: fit-content;">
+    Follow Us
+  </h2>
+  <div class="social">
+    <a href="">
+      <img src="../../assets/home-page/Facebook.svg" alt="Facebook icon">
+    </a>
+    <a href="#">
+      <img src="../../assets/home-page/Insta.svg" alt="Insta icon">
+    </a>
+    <a href="#">
+      <img src="../../assets/home-page/twitter.svg" alt="Twitter icon">
+    </a>
+    <a href="#">
+      <img style="filter: invert(17%) sepia(79%) saturate(5093%) hue-rotate(356deg) brightness(92%) contrast(124%);"
+        src="../../assets/home-page/youtube.svg" alt="youtube icon">
+    </a>
+  </div>
+  <!-- <div style="border-top: 1px solid black; width: 100%;"></div> -->
+  <p class="copyright">
+    <button mat-icon-button>
+      <i class="fa-solid fa-copyright fa-xl fa-shake"></i>
+    </button>
+    COPYRIGHT © JOBIZARD 2022. ALL RIGHTS RESERVED.
+  </p>
+</footer>
