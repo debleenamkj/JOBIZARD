@@ -4,6 +4,10 @@
 * {
     box-sizing: border-box;
   }
+
+  .seekers{
+    display: flex;
+  }
   
   .row {
     display: flex;

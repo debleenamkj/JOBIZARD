@@ -110,7 +110,7 @@ getCompany(){
       industryType:this.companyDetails.industryType,
       });
       this.post.companyUrl = this.companyDetails.companyUrl
-      this.post.companyEmail = this.companyDetails.companyEmail
+      // this.post.companyEmail = this.companyDetails.companyEmail
       this.post.industryType = this.companyDetails.industryType
       let img = this.companyDetails.logo;
       this.upimage = 'data:image/jpeg;base64,'+img;
@@ -130,7 +130,7 @@ getCompany(){
       this.companyDetailsError=this.companyForm.controls['status'];
       console.log(this.companyDetailsError);
       this.post.companyName=this.companyForm.controls['companyName'].value;
-      this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
+      // this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
       this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
       this.post.industryType=this.companyForm.controls['industryType'].value;
     }
@@ -178,18 +178,19 @@ getCompany(){
     console.log(skills);
     this.details.skillsRequired = skills;
      console.log("finish");
-     this.post.jobDetailsList=[this.details];
+    //  this.post.jobDetailsList=[this.details];
      console.log(this.post);
 
      const uploadData = new FormData();
      if(this.companyDetails==null){
        console.log("company details is null")
       uploadData.append('file', this.file);
-      uploadData.append('jobs',JSON.stringify(this.post));
+      uploadData.append('recruiter1',JSON.stringify(this.post));
+      console.log(uploadData.get('recruiter1'));
       console.log(uploadData.get('file'));
-      console.log(uploadData.get('jobs'));
       console.log(uploadData);
-      this.service.postJob(uploadData).subscribe(data =>{
+      const email = "malu@gmail.com"
+      this.service.postRecruiter(uploadData,email).subscribe(data =>{
         console.log(data)
         console.log("finish posting");
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;

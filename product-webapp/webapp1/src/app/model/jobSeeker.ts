@@ -6,6 +6,7 @@ export class JobSeeker
     
     //role
     role:string="";
+ 
 
     // role!:""
 

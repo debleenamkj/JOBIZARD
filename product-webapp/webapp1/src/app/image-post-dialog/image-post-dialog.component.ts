@@ -53,6 +53,7 @@ export class ImagePostDialogComponent implements OnInit {
 
     this.service.sendImagePost('m1@gmail.com',formData).subscribe(data =>{
       console.log(data);
+      window.location.reload();
     })
     console.log();
 

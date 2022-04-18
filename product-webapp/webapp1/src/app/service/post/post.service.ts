@@ -8,7 +8,7 @@ export class PostService {
 
   constructor(private httpClient:HttpClient) { }
 
-  loginUser='malu@gmail.com';
+  loginUser='m8@gmail.com';
 
   sendImagePost(email:string,data:any){
     return  this.httpClient.post('http://localhost:9093/api/v1/post/image/'+email,data);
