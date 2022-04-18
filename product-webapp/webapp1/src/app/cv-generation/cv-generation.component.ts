@@ -11,7 +11,7 @@ export class CvGenerationComponent implements OnInit {
   constructor(private router : Router) { }
 
   ngOnInit(): void {
-  }
+  } 
   
   temp(){
     this.router.navigate(['/cv-template1']);

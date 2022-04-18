@@ -1,12 +1,9 @@
-package com.stackroute.recommendationservice.config;
+package com.stackroute.cvgenerationservice.config;
 
-import jdk.jfr.Category;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class MessageConfig {
+public class Message {
 
     @Bean
     public Jackson2JsonMessageConverter jackson2JsonMessageConverter(){

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Document
 @Data
-public class userCv {
+public class JobSeeker {
     @Transient
     public static final String SEQUENCE_NAME="user_sequence";
     @Id
@@ -30,5 +30,7 @@ public class userCv {
     private String[] skills;
     private String[] languages;
     private byte[] picture;
+
+
 }
 

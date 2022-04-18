@@ -3,6 +3,9 @@ package com.satckroute.applicationRegisterService.service;
 import com.satckroute.applicationRegisterService.config.Producer;
 import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
+import com.satckroute.applicationRegisterService.rabbitMQ.JobDetails;
+import com.satckroute.applicationRegisterService.rabbitMQ.Seeker;
+import com.satckroute.applicationRegisterService.rabbitMQ.User;
 import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
 import com.satckroute.applicationRegisterService.repository.*;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -245,18 +249,18 @@ public class RegisterServiceImpl implements RegisterService
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @Override
-    public List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException
-    {
-        if(recruiterRegisterRepository.findAllRecruiterByFirstName(firstName).isEmpty())
-        {
-            throw new RecruiterNotFoundException();
-        }
-        else
-        {
-            return recruiterRegisterRepository.findAllRecruiterByFirstName(firstName);
-        }
-    }
+//    @Override
+//    public List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException
+//    {
+//        if(recruiterRegisterRepository.findAllRecruiterByFirstName(firstName).isEmpty())
+//        {
+//            throw new RecruiterNotFoundException();
+//        }
+//        else
+//        {
+//            return recruiterRegisterRepository.findAllRecruiterByFirstName(firstName);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -293,6 +297,8 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
+        Seeker seeker = new Seeker();
+        User user = new User();
         jobSeeker.setJobSeekerImage(file.getBytes());
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
@@ -300,6 +306,25 @@ public class RegisterServiceImpl implements RegisterService
         }
         else
         {
+            ArrayList<String> education = new ArrayList<>();
+            ArrayList skills = new ArrayList();
+
+            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
+            for (Education courses:JobSeekerList){
+                education.add(courses.getCourses());
+            }
+            for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
+                skills.add(skill.getSkillName());
+            }
+            seeker.setEmail(emailId);
+            seeker.setEducation(education);
+            seeker.setSkillSet(skills);
+            user.setUserEmailId(emailId);
+            user.setUserName(jobSeeker.getFirstName()+" "+jobSeeker.getLastName());
+            producer.sendJobSeekerMessage(seeker);
+            producer.posting(user);
+//            user.setUserImage(file.getBytes());
+
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
     }
@@ -325,12 +350,18 @@ public class RegisterServiceImpl implements RegisterService
     public Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws RecruiterNotFoundException, IOException
     {
         recruiter.setLogo(file.getBytes());
+        JobDetails jobDetails = new JobDetails();
         if(recruiterRegisterRepository.findById(emailId).isEmpty())
         {
             throw new RecruiterNotFoundException();
         }
         else
         {
+            jobDetails.setEmailId(emailId);
+            jobDetails.setSkillsRequired((ArrayList) recruiter.getSkillsRequired());
+            jobDetails.setEducation(recruiter.getEducationRequired());
+//            ---------- call the producer method
+            producer.sendRecruiter(jobDetails);
             return recruiterRegisterRepository.save(recruiter);
         }
     }
@@ -446,14 +477,38 @@ public class RegisterServiceImpl implements RegisterService
 
 
     @Override
-    public Recruiter addDetailsInRecruiter(Recruiter recruiter){
-        Recruiter recruiter1 = recruiterRegisterRepository.findById(recruiter.getEmailId()).get();
+    public Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId)
+    {
+
+        Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
                 if(recruiter1!=null){
                     recruiter1.setEducationRequired(recruiter.getEducationRequired());
                     recruiter1.setSkillsRequired(recruiter.getSkillsRequired());
                     recruiterRegisterRepository.save(recruiter1);
                 }
                 return recruiter1;
+
+    }
+
+    @Override
+    public List<JobSeeker> getJobSeekers(List<String> emailid){
+        List<JobSeeker> jobSeekerList = new ArrayList<>();
+        for (String email: emailid){
+            JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(email).get();
+            if(jobSeeker!=null){
+                jobSeekerList.add(jobSeeker);
+            }
+        }
+      return jobSeekerList;
+    }
+
+    @Override
+    public JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException {
+        JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(emailId).get();
+        if(jobSeeker==null){
+            throw new JobSeekerNotFoundException();
+        }
+        return jobSeeker;
     }
 }
 
