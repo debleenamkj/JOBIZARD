@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Lob;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,25 +17,9 @@ import java.util.List;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-public class JobSeekerDTO
+public class Seeker
 {
-    private String emailId;
-    private String firstName;
-    private String lastName;
-
-    private String gender;
-    private Date dateOfBirth;
-    private long mobileNumber;
-    private String password;
-
-//    private String role;
-//    private Role Role.JOBSEEKER;
-
-    private Address address;
-    private List educationDetails; //list
-    private String[] languagesKnown;
-    private Details additionalDetails;
-
-    @Lob
-    private byte[] jobSeekerImage;
+    private String email;
+    private ArrayList education;
+    private ArrayList skillSet;
 }

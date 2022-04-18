@@ -121,7 +121,8 @@ public class PostServiceImpl implements PostService{
 
            if(postImage.getLike().getLikeCount()==0){
                like.setLikeCount(1);
-               likedEmails.add(likedEmailId);
+               likedEmails = postImage.getLike().getLikedUserEmails();
+               likedEmails.set(0,likedEmailId);
            }else {
                like.setLikeCount(postImage.getLike().getLikeCount()+1);
                likedEmails = postImage.getLike().getLikedUserEmails();
@@ -189,7 +190,8 @@ public class PostServiceImpl implements PostService{
             Like like = new Like();
             if(postBlog.getLike().getLikeCount()==0){
                 like.setLikeCount(1);
-                likedEmails.add(likedEmailId);
+                likedEmails = postBlog.getLike().getLikedUserEmails();
+                likedEmails.set(0,likedEmailId);
             }else {
                 like.setLikeCount(postBlog.getLike().getLikeCount()+1);
                 likedEmails = postBlog.getLike().getLikedUserEmails();

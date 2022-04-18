@@ -29,7 +29,7 @@ public interface RegisterService
     List<OrganizationDetails> getAllOrganization() throws Exception;
 
     List<JobSeeker> getAllJobSeekerByFirstName(String firstName) throws JobSeekerNotFoundException;
-    List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
+//    List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
     List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException;
 
     JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
@@ -50,6 +50,14 @@ public interface RegisterService
     Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException;
     List<JobSeeker> getAllJobSeekers() throws JobSeekerNotFoundException;
     List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException;
+
+
+
+    Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId);
+
+    List<JobSeeker> getJobSeekers(List<String> emailid);
+
+    JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException;
 
 
     //public int generateJobSeekerIdInSequence(String sequenceName);

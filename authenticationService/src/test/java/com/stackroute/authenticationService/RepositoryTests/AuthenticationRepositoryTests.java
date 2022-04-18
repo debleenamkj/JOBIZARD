@@ -58,7 +58,6 @@ public class AuthenticationRepositoryTests
         assertEquals("email@gmail.com",userLogIn1.getEmailId());
         assertEquals("Email123",userLogIn1.getPassword());
         assertEquals("JOBSEEKER",userLogIn1.getRole());
-
     }
 
 
@@ -85,25 +84,91 @@ public class AuthenticationRepositoryTests
 
 //    findByEmailIdAndPassword
 
-//    @Test
-//    public void searchByEmailIdAndPassword()
-//    {
-//        //role
-//        authenticationRepository.findByEmailIdAndPasswordAndRole(userLogIn.getEmailId(),userLogIn.getPassword());
-//        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
-////        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
-////        assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
-//        assertEquals("email@gmail.com",userLogIn1.getEmailId());
-//        assertEquals("Email123",userLogIn1.getPassword());
-//
-//
-////        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
-////        UserLogIn userLogIn2 = authenticationRepository.findById(userLogIn.getEmailId()).get();
-////        List<UserLogIn> list = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
-////        assertEquals("FirstName01",list.get(0).getFirstName());
-//
-//    }
+    @Test
+    public void searchByEmailIdAndPassword()
+    {
+        //role
+        authenticationRepository.save(userLogIn);
+        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
+        assertEquals("email@gmail.com",userLogIn1.getEmailId());
+        assertEquals("Email123",userLogIn1.getPassword());
+
+
+//        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn2 = authenticationRepository.findById(userLogIn.getEmailId()).get();
+//        List<UserLogIn> list = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals("FirstName01",list.get(0).getFirstName());
+
+    }
+
+
+    @Test
+    public void searchByEmailIdAndPasswordFailure()
+    {
+        //role
+        authenticationRepository.save(userLogIn);
+        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
+        assertNotEquals("Email@gmail.com",userLogIn1.getEmailId());
+        assertNotEquals("email123",userLogIn1.getPassword());
+
+
+//        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn2 = authenticationRepository.findById(userLogIn.getEmailId()).get();
+//        List<UserLogIn> list = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals("FirstName01",list.get(0).getFirstName());
+
+    }
 
 //----------------------------------------------------------------------------------------------------------------------
+
+
+//    findByEmailIdAndPassword
+
+    @Test
+    public void searchByEmailId()
+    {
+        //role
+        authenticationRepository.save(userLogIn);
+        authenticationRepository.findByEmailId(userLogIn.getEmailId());
+        UserLogIn userLogIn1 = authenticationRepository.findByEmailId(userLogIn.getEmailId());
+//        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
+        assertEquals("email@gmail.com",userLogIn1.getEmailId());
+//        assertEquals("Email123",userLogIn1.getPassword());
+
+
+//        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn2 = authenticationRepository.findById(userLogIn.getEmailId()).get();
+//        List<UserLogIn> list = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals("FirstName01",list.get(0).getFirstName());
+
+    }
+
+
+    @Test
+    public void searchByEmailIdFailure()
+    {
+        //role
+        authenticationRepository.save(userLogIn);
+        authenticationRepository.findByEmailId(userLogIn.getEmailId());
+        UserLogIn userLogIn1 = authenticationRepository.findByEmailId(userLogIn.getEmailId());
+//        UserLogIn userLogIn1 = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals(userLogIn.getEmailId(),userLogIn1.getEmailId());
+        assertNotEquals("Email@gmail.com",userLogIn1.getEmailId());
+//        assertNotEquals("email123",userLogIn1.getPassword());
+
+
+//        authenticationRepository.findByEmailIdAndPassword(userLogIn.getEmailId(),userLogIn.getPassword());
+//        UserLogIn userLogIn2 = authenticationRepository.findById(userLogIn.getEmailId()).get();
+//        List<UserLogIn> list = authenticationRepository.findByEmailIdAndPassword("email@gmail.com","Email123");
+//        assertEquals("FirstName01",list.get(0).getFirstName());
+
+    }
 
 }

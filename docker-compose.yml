@@ -80,6 +80,33 @@ services:
     ports:
       - 8080:8080
 
+  applicationRegisterService:
+    build: applicationRegisterService/
+    container_name: applicationregisterservicecontainer
+    depends_on:
+      - mongodb
+      - rabbitmq
+      - eureka-server
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+    ports:
+      - 8098:8098
+
+  authenticationService:
+    build: authenticationService/
+    container_name: authenticationservicecontainer
+    depends_on:
+      - mysql
+      - rabbitmq
+      - eureka-server
+    network_mode: "host"
+    hostname: localhost
+    restart: always
+    ports:
+        - 8099:8099
+
+
   product-webapp:
     build: product-webapp/
     image: product-webapp
