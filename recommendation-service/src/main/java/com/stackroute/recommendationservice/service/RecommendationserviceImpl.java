@@ -93,6 +93,7 @@ public class RecommendationserviceImpl implements RecommendationService{
             else{
                 ArrayList<String> skills = job.getSkillsRequired();
                 String education = job.getEducation();
+
                 if(!skills.isEmpty())
                 {
                     for(String requiredSkills:skills) {
@@ -126,6 +127,7 @@ public class RecommendationserviceImpl implements RecommendationService{
             log.error("RecommendationserviceImpl - getMachingJobSeeker : "+exception);
             exception.printStackTrace();
         }
+
         return matchingSeeeker;
     }
 
@@ -138,6 +140,7 @@ public class RecommendationserviceImpl implements RecommendationService{
                     log.info("RecommendationserviceImpl - createRelationship : creating RelationShip");
                     Seeker seeker1 = userRepository.createRelation(seeker, jobId);
                     matchingSeeker.add(seeker1.getEmail());
+                    System.out.println(matchingSeeker);
                 }else{
                     log.info("RecommendationserviceImpl - createRelationship : RelationShip already exists");
                     matchingSeeker.add(seeker);

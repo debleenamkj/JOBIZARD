@@ -321,24 +321,24 @@ public class RegisterController
     @PutMapping("/jobSeeker1/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-        try
-        {
+//        try
+//        {
             log.debug("RegisterController - updateJobSeekerDetail");
             JobSeeker jobSeeker1 = new ObjectMapper().readValue(jobSeeker,JobSeeker.class);
             //
 //            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateJobSeekerDetail(jobSeeker1, emailId,file), HttpStatus.OK);
-        }
-        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
-            throw new JobSeekerNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//        }
+//        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
+//            throw new JobSeekerNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
     }
 //---------------------------------------------------------------------------------------------------------------------
 
