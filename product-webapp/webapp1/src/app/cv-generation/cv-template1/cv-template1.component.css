@@ -2,6 +2,7 @@ sub {
   font-size: medium;
   color: aliceblue;
 }
+
 /* div {
   border-style: solid;
   margin: 10px;
@@ -10,21 +11,34 @@ sub {
 body {
   margin: 1%;
 }
+
+.cv-body {
+  /* display: flex; */
+  justify-content: space-around;
+  height: 170%;
+  margin-left: 10%;
+  width: 80%;
+  color: rgb(83, 83, 83);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 *:not(mat-icon) {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
   letter-spacing: 2px;
 }
+
 .cv-body-header {
   background: rgb(49, 49, 83);
-  height: 250px;
+  height: 200px;
 }
 
 .cv-header-content1 {
   text-align: center;
   color: rgb(201, 178, 119);
   text-transform: uppercase;
-  padding: 1%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cv-header-content2 {
@@ -52,6 +66,7 @@ body {
   margin: 0%;
   padding: 0%;
   color: rgb(201, 178, 119);
+  text-transform: uppercase;
 }
 
 .cv-header-content3-right {
@@ -112,21 +127,26 @@ mat-icon {
   text-align: center;
   padding-top: 5%;
 }
+
 .cv-body-side-content {
   padding: 0% 2% 0% 2%;
 }
+
 .cv-body-side-content-edu {
   margin-top: 5%;
   border-style: inset;
   border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
   padding-top: 2.5%;
 }
+
 .cv-body-side-content-edu-header {
   text-transform: uppercase;
 }
+
 #progressbar {
   background-color: rgb(215, 206, 189);
 }
+
 .cv-body-side-content-lang-header {
   margin-top: 5%;
   margin-bottom: 5%;
@@ -134,30 +154,36 @@ mat-icon {
   border-style: inset inset inset inset;
   border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
 }
+
 .cv-body-main-content {
   width: 65%;
   background: whitesmoke;
   padding: 2.5%;
   margin: 0%;
 }
+
 .main-career-objective {
   margin-bottom: 10%;
   text-align: left;
   padding-top: 5%;
 }
+
 .work-experience-container {
   margin-top: 8%;
   margin-bottom: 8%;
 }
+
 .work-experience-header-container {
   border-style: inset;
   border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
   padding-top: 2%;
 }
+
 .skills-container {
   margin-top: 10%;
   margin-bottom: 10%;
 }
+
 .skills-header-container {
   padding-top: 2%;
   border-style: inset;
@@ -168,3 +194,11 @@ h5 {
   margin: 5% 0% 0% 0%;
   padding: 0%;
 }
+
+.button {
+  background-image: linear-gradient(to right, rgb(110, 37, 134), rgb(177, 23, 132));
+  color: azure;
+  position: absolute;
+  
+}
+

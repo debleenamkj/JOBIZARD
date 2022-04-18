@@ -15,7 +15,7 @@ import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule,HttpInterceptor } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor } from '@angular/common/http';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -38,10 +38,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
@@ -86,6 +86,7 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
 import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.component';
 import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -114,7 +115,7 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     LoginComponent,
     SkilltestComponent,
     AssesmentTestPortalComponent,
-    
+
     ChatroomComponent,
 
     CvTemplate1Component,
@@ -149,7 +150,8 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     TestResultViewComponent,
     ImagePostDialogComponent,
     BlogPostDialogComponent,
-    RecruiterRegisterComponent
+    RecruiterRegisterComponent,
+    HomepageComponent
 
   ],
   imports: [
@@ -203,4 +205,4 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

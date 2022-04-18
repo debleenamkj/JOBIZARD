@@ -1,5 +1,5 @@
 <body>
-  <div class="cv-template">
+  <div class="cv-template" id="cv-template">
     <div class="cv-left-side-content">
       <div class="cv-left-side-header">
         <img mat-card-avatar src="assets\sunset.png">
@@ -10,15 +10,15 @@
         </div>
         <div class="num-header">
             <mat-icon> stay_primary_portrait</mat-icon>
-            <span style="font-size: 150%; font-weight: bolder;" >8349848415</span>
+            <span style="font-size: 150%; font-weight: bolder;" >{{response.phoneNumber}}</span>
         </div>
         <div class="mail-hader">
             <mat-icon> mail_outline</mat-icon>
-            <span style="font-size: 150%; font-weight: bolder;" >sajidhamohammed321@gmail.com</span>
+            <span style="font-size: 150%; font-weight: bolder;" >{{response.email}}</span>
         </div>
         <div class="location header">
             <mat-icon> location_on</mat-icon>
-            <span style="font-size: 150%; font-weight: bolder;" >lorem street</span>
+            <span style="font-size: 150%; font-weight: bolder;" >{{response.address}}</span>
         </div>
         <!-- <div class="links-header">
             <mat-icon> location_on</mat-icon>
@@ -96,7 +96,7 @@
     <div class="cv-right-side-content">
         <div class="name-header">
             <div class="name-content">
-                <h1 style="font-size:400%; font-weight: bold; color: rgb(83, 83, 83);">full name</h1> 
+                <h1 style="font-size:400%; font-weight: bold; color: rgb(83, 83, 83);">{{response.firstName}}&nbsp;{{response.lastName}}</h1> 
             </div>
             <div class="role-content">
                 <h2 style="font-size:200%; font-weight: bold;">Role</h2>
@@ -223,4 +223,8 @@
         </div>
     </div>
   </div>
+  <div style="text-align: center;">
+    <input type="button" class="button" value="Download Pdf" (click)="convertToPDF()"/>
+   </div>
+  
 </body>

@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class SkillAggregate {
     @Id
     private String category;

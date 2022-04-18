@@ -9,6 +9,10 @@ import { ChatRoom } from '../model/chat-room';
 })
 export class ChatroomService {
 
+  senderId = "";
+  recipientId = "";
+  senderName = "";
+  recipientName = "";
 
   constructor(private http:HttpClient) { }
 

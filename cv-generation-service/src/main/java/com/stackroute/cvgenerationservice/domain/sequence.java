@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 @Document
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class sequence {
 
     private String id;

@@ -1,6 +1,7 @@
 package com.stackroute.recommendationservice.service;
 
 import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.JobNotFoundException;
 import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
 import com.stackroute.recommendationservice.exception.UserNotFoundException;
 import com.stackroute.recommendationservice.model.JobDetails;
@@ -58,7 +59,7 @@ public class ServiceTest {
         ArrayList skills = new ArrayList();
         skills.add("java");
         skills.add("spring");
-        jobDetails = new JobDetails(1001,skills,"software developer");
+        jobDetails = new JobDetails("1001",skills,"software developer");
         ArrayList preferences = new ArrayList();
         preferences.add("software developer");
         preferences.add("software engineer");
@@ -75,23 +76,23 @@ public class ServiceTest {
 
     @Test
     public void givenJobToRegisterReturnSuccess() throws JobAlreadyPresentException {
-        when(jobRepository.findById(jobDetails.getJobId())).thenReturn(Optional.ofNullable(null));
+        when(jobRepository.findById(jobDetails.getEmailId())).thenReturn(Optional.ofNullable(null));
         when(jobRepository.save(jobDetails)).thenReturn(jobDetails);
 
         JobDetails jobDetails1 = recommendationService.savejob(jobDetails);
         assertEquals(jobDetails1,jobDetails);
         verify(jobRepository,times(1)).save(jobDetails);
-        verify(jobRepository,times(1)).findById(jobDetails1.getJobId());
+        verify(jobRepository,times(1)).findById(jobDetails1.getEmailId());
     }
 
     @Test
     public void givenJobToRegisterReturnFailure() throws JobAlreadyPresentException {
 
-        when(jobRepository.findById(jobDetails.getJobId())).thenReturn(Optional.ofNullable(jobDetails));
+        when(jobRepository.findById(jobDetails.getEmailId())).thenReturn(Optional.ofNullable(jobDetails));
         JobDetails jobDetails1 = recommendationService.savejob(jobDetails);
         assertNotEquals(null,jobDetails);
         verify(jobRepository,times(0)).save(jobDetails);
-        verify(jobRepository,times(1)).findById(jobDetails.getJobId());
+        verify(jobRepository,times(1)).findById(jobDetails.getEmailId());
     }
 
 
@@ -118,10 +119,10 @@ public class ServiceTest {
     }
 
     @Test
-    public void getMatchingJobReturnSuccess() throws UserNotFoundException {
+    public void getMatchingJobReturnSuccess() throws JobNotFoundException {
         List<Seeker> seeker1 = null;
         Set<Seeker> seeker2 = new HashSet<>();
-        when(jobRepository.findById(jobDetails.getJobId())).thenReturn(Optional.ofNullable((jobDetails)));
+        when(jobRepository.findById(jobDetails.getEmailId())).thenReturn(Optional.ofNullable((jobDetails)));
         for(Object skill : seeker.getSkillSet()){
             seeker1 = userRepository.findBySkillSet((String) skill);
             seeker2.addAll(seeker1);
@@ -131,35 +132,35 @@ public class ServiceTest {
         assertEquals(matchSet1,seeker2);
 
         verify(userRepository,times(2)).findBySkillSet("java");
-        verify(jobRepository,times(1)).findById(jobDetails.getJobId());
+        verify(jobRepository,times(1)).findById(jobDetails.getEmailId());
     }
 
     @Test
     public void getMatchingJobReturnfailure() throws UserNotFoundException {
         List<Seeker> seeker1 = null;
         Set<Seeker> seeker2 = new HashSet<>();
-        when(jobRepository.findById(jobDetails.getJobId())).thenReturn(null);
+        when(jobRepository.findById(jobDetails.getEmailId())).thenReturn(null);
         assertNotEquals(null,seeker2);
 
         verify(userRepository,times(0)).findBySkillSet("java");
-        verify(jobRepository,times(0)).findById(jobDetails.getJobId());
+        verify(jobRepository,times(0)).findById(jobDetails.getEmailId());
     }
 
     @Test
     public void createRelationshipReturnSuccess(){
-        when(userRepository.checkRelation(seeker.getEmail(),jobDetails.getJobId())).thenReturn(false);
-        when(userRepository.createRelation(seeker.getEmail(),jobDetails.getJobId())).thenReturn(seeker);
+        when(userRepository.checkRelation(seeker.getEmail(),jobDetails.getEmailId())).thenReturn(false);
+        when(userRepository.createRelation(seeker.getEmail(),jobDetails.getEmailId())).thenReturn(seeker);
 
-        assertEquals(userRepository.createRelation(seeker.getEmail(),jobDetails.getJobId()),seeker);
-        verify(userRepository,times(0)).checkRelation(seeker.getEmail(),jobDetails.getJobId());
-        verify(userRepository,times(1)).createRelation(seeker.getEmail(),jobDetails.getJobId());
+        assertEquals(userRepository.createRelation(seeker.getEmail(),jobDetails.getEmailId()),seeker);
+        verify(userRepository,times(0)).checkRelation(seeker.getEmail(),jobDetails.getEmailId());
+        verify(userRepository,times(1)).createRelation(seeker.getEmail(),jobDetails.getEmailId());
     }
 
     @Test
     public void createRelationshipReturnFailure(){
-        when(userRepository.checkRelation(seeker.getEmail(),jobDetails.getJobId())).thenReturn(true);
+        when(userRepository.checkRelation(seeker.getEmail(),jobDetails.getEmailId())).thenReturn(true);
         assertNotEquals(null,seeker);
-        verify(userRepository,times(0)).checkRelation(seeker.getEmail(),jobDetails.getJobId());
+        verify(userRepository,times(0)).checkRelation(seeker.getEmail(),jobDetails.getEmailId());
     }
 
 

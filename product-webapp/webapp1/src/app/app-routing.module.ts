@@ -38,11 +38,12 @@ import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profi
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
-
-
+import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
+  {path:'home', component:HomepageComponent},
   {path: 'trend',component: TrendLabComponent},
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},
@@ -50,8 +51,20 @@ const routes: Routes = [
   {path : 'businessnews', component: BusinessnewsComponent},
   {path:'job-apply',component:JobApplyComponent},
   {path:'job-posting',component:JobPostingComponent},
-  {path:'cv-generation',component:CvGenerationComponent},
-  {path:'cv-generation1',component:CvTemplate1Component},
+  {
+    path: 'cv-generation', component: CvGenerationComponent
+  },
+  {
+    path: 'cv-template1', component:CvTemplate1Component
+  },
+  {
+    path:'cv-template2', component:CvTemplate2Component
+  },
+  {
+    path:"jobdetail",
+    component:JobDetailComponent,
+
+  },
   {path:"chatbot",component:ChatbotComponent},
   {path:"chatroom",component:ChatroomComponent},
   {path:"assesmentportal",component:AssesmentPortalComponent},
@@ -66,23 +79,24 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
 
   // material component
-  {path:"jobSeekersRegister",component:JobSeekersRegisterComponent},
-  {path:"recruiterRegister",component:RecruiterRegisterComponent},
+  { path: "jobSeekersRegister", component: JobSeekersRegisterComponent },
+  { path: "recruiterRegister", component: RecruiterRegisterComponent },
 
-  {path:"organizationRegister",component:OrganizationDetailsComponent},
-  {path:"userLogin",component:LoginComponent},
-  {path: "not-found", component:NotFoundComponent},
+  { path: "organizationRegister", component: OrganizationDetailsComponent },
+  { path: "userLogin", component: LoginComponent },
+  { path: "not-found", component: NotFoundComponent },
   // {path:"Organization",component:OrganizationDetails},
 
   {path:"recruiterLanding", component: RecruiterlandingComponent},
 
 
-  {path:"update",component:UpdateDetailsComponent},
-  {path:"update-user",component:UpdateUserDetailsComponent},
-  {path:"review",component:ReviewComponent},
+  { path: "update", component: UpdateDetailsComponent },
+  { path: "update-user", component: UpdateUserDetailsComponent },
+  { path: "review", component: ReviewComponent },
 
   {path:"jobSeeker",component:JobSeekerLandingComponent},
   {path:"jobseekerprofile",component:JobSeekerProfileComponent},
+  {path:'search',component:SearchPortalComponent},
 ];
 
 @NgModule({

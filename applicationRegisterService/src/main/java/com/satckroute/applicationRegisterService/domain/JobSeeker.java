@@ -34,11 +34,11 @@ public class JobSeeker
     private String mobileNumber;
     private String password;
 
-//    private String role;
+    public Role role;
 //    private Role Role.JOBSEEKER;
 
     private Address address;
-    private List educationDetails; //list
+    private List<Education> educationDetails; //list
     private String[] languagesKnown;
     private Details additionalDetails;
 
@@ -47,8 +47,9 @@ public class JobSeeker
 
 
     // custom Constructor for test cases
-    public JobSeeker(String emailId, String firstName, String lastName, String gender, Date dateOfBirth, String mobileNumber, String password, Address address, Details additionalDetails)
-    {
+
+    public JobSeeker(String emailId, String firstName, String lastName, String gender, Date dateOfBirth, String mobileNumber,
+                     String password,  Address address, Details additionalDetails) {
         this.emailId = emailId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,6 +57,7 @@ public class JobSeeker
         this.dateOfBirth = dateOfBirth;
         this.mobileNumber = mobileNumber;
         this.password = password;
+//        this.role = role;
         this.address = address;
         this.additionalDetails = additionalDetails;
     }

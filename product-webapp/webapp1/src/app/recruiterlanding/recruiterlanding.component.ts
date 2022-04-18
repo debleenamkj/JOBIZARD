@@ -1,10 +1,10 @@
-import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ChatroomComponent } from '../chatroom/chatroom.component';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
-import { JobSeeker } from '../model/jobSeeker';
-import { Recruiter } from '../model/recruiter';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
-import { Skillset } from '../model/skillset';
+import { ChatroomService } from '../service/chatroom.service';
 import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
@@ -20,31 +20,47 @@ export class RecruiterlandingComponent implements OnInit {
   // seekerImage?: string;
   // skills: any=[];
 
-  skillSet: Array<Skillset>=[];
-  recruiter: Recruiter=new Recruiter;
+  
   jobSeeker: Array<JobSeekerLanding>=[];
-  getAllJobSeekersArray: Array<Object>=[];
-  recruiterLandingData: RecruiterLandingData=new RecruiterLandingData;
+  recruiterLandingData:RecruiterLandingData;
+  jobSeekerSlice: Array<JobSeekerLanding>=[];
+  images:any[]=[];
 
-  
-  
-
-  constructor(private recruiterLanding: RecruiterlandingService) { }
+  // constructor(private recruiterLanding: RecruiterlandingService) { }
+  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomService, private router: Router) { }
 
   ngOnInit(): void {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
       this.recruiterLandingData=d;
+      localStorage.setItem('companyName',this.recruiterLandingData.companyName)
     });
 
-    
     this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
       this.jobSeeker=d;
-    });
-
-    this.recruiterLanding.getSkillSet().subscribe(d=>{
-      this.skillSet=d;
+      this.getImages(this.jobSeeker);
+      this.jobSeekerSlice=d.slice(0,8);
+      console.log(this.jobSeeker);
     });
   }
 
-  
+  pageChange(event:any){
+    let start = event.pageSize*event.pageIndex;
+    this.jobSeekerSlice = this.jobSeeker.slice(start,start+8)
+  }
+
+  getImages(jobSeeker: JobSeekerLanding[]){
+    jobSeeker.forEach(d => {
+      d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
+    });
+  }
+
+  onClick(recipientEmail:any,recipientName:any){
+    this.chat.senderId = this.recruiterLandingData.emailId;
+    this.chat.senderName = this.recruiterLandingData.companyName;
+    this.chat.recipientId = recipientEmail;
+    this.chat.recipientName = recipientName;
+    this.router.navigate(['/chatroom']);
+  }
+
+
 }

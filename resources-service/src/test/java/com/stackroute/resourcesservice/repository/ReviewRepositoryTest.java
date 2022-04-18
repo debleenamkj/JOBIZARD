@@ -31,10 +31,19 @@ public class ReviewRepositoryTest {
 
     @BeforeEach
     public void setUp(){
-        company = new Company("c1","NIIT",null,null);
-        workDetails = new WorkDetails(false,"","");
-        user = new User(true,"","",workDetails );
+        company = new Company();
+        company.setCin("c1");
+        company.setCompanyName("NIIT");
+
+        workDetails = new WorkDetails();
+        workDetails.setCurrentlyWorking(false);
+
+        user = new User();
+        user.setAnonymousUser(true);
+        user.setWorkDetails(workDetails);
+
         date = new Date();
+
         review=new Review();
         review.setReviewId(0);
         review.setReviewDate(date);
@@ -64,6 +73,7 @@ public class ReviewRepositoryTest {
     public void givenCompanyToDeleteReturnDeleteProduct(){
         reviewRepository.insert(company);
         Company company1 = reviewRepository.findById(company.getCin()).get();
+        assertNotNull(company1);
         reviewRepository.deleteById(company1.getCin());
         assertEquals(Optional.empty(), reviewRepository.findById(company1.getCin()));
     }
@@ -71,12 +81,14 @@ public class ReviewRepositoryTest {
     public void givenCompanyNameReturnCompany(){
         reviewRepository.insert(company);
         Company company1 = reviewRepository.findById(company.getCin()).get();
+        assertNotNull(company1);
         Company companyFound = reviewRepository.findByCompanyName(company1.getCompanyName());
+        assertNotNull(companyFound);
         assertEquals(companyFound.getCompanyName(), company1.getCompanyName());
     }
-   /* @Test
+   @Test
     public void givenCompanyNameAndReviews_ReviewIdReturnReview(){
-        Review review2 = new Review();// = new Review(2,null,"aa","bb",null,null);
+        Review review2 = new Review();
         review2.setReviewId(2);
         review2.setReviewDate(date);
         review2.setCompanyRatings(rating);
@@ -87,17 +99,31 @@ public class ReviewRepositoryTest {
         company.setReviews(List.of(review,review2));
         reviewRepository.insert(company);
         Company company1 = reviewRepository.findById(company.getCin()).get();
+        assertNotNull(company1);
 
-        Review reviewFound = reviewRepository.findReviewByCompanyNameAndReviews_ReviewId(company1.getCompanyName(), review2.getReviewId()).get(0);
+        List<Company> companyList = reviewRepository.findReviewByCompanyNameAndReviews_ReviewId(company1.getCompanyName(), review2.getReviewId());
+        assertNotNull(companyList);
+
+        Company company = companyList.get(0);
+        assertNotNull(company);
+
+        List<Review> reviewListFound = company.getReviews();
+        assertNotNull(reviewListFound);
+
+        Review reviewFound = reviewListFound.get(0);
+        assertNotNull(reviewFound);
 
         assertEquals(review2, reviewFound);
-    }*/
+    }
 
 
     @Test
     public void findAllCompaniesReturnCompaniesWithNullReviewList(){
         List<Company> companies = reviewRepository.findAllCompanyDetails();
+        assertNotNull(companies);
+
         List<Company> companyList = reviewRepository.findAll();
+        assertNotNull(companyList);
 
         assertEquals(companies.size(), companyList.size());
         companies.forEach((companyObj)->{

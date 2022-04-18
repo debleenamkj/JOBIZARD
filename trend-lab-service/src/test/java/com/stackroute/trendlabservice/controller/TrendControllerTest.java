@@ -10,9 +10,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+
 import com.stackroute.trendlabservice.model.SkillTrend;
 import com.stackroute.trendlabservice.service.SkillTrendService;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -113,14 +114,14 @@ public class TrendControllerTest {
         ).andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
     }
 
-    @Test
-    public void testExternalApi() throws Exception{
-        mockMvc.perform(
-                get("/api/v6/salarys/dancer")
-                        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isOk())
-                .andDo(MockMvcResultHandlers.print());
-    }
+//    @Test
+//    public void testExternalApi() throws Exception{
+//        mockMvc.perform(
+//                get("/api/v6/salarys/dancer")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//        ).andExpect(status().isOk())
+//                .andDo(MockMvcResultHandlers.print());
+//    }
 
     public static String jsonToString(final Object obj)throws JsonProcessingException
     {

@@ -32,24 +32,39 @@ public class PostServiceImpl implements PostService{
     }
 
 
-
-
     @Override
-    public User saveUser(MultipartFile file, User user) throws UserAlreadyExistsException {
+    public User saveUser( User user) throws UserAlreadyExistsException {
         try {
             if (userRepository.findById(user.getUserEmailId()).isPresent()) {
                 throw new UserAlreadyExistsException();
             }
-            byte[] userImage = compressBytes(file.getBytes());
-            user.setUserImage(userImage);
+//            byte[] userImage = compressBytes(file.getBytes());
+//            user.setUserImage(userImage);
         }
         catch (UserAlreadyExistsException e){
             System.out.println(e.toString());
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return userRepository.save(user);
     }
+
+//    @Override
+//    public User saveUser(MultipartFile file, User user) throws UserAlreadyExistsException {
+//        try {
+//            if (userRepository.findById(user.getUserEmailId()).isPresent()) {
+//                throw new UserAlreadyExistsException();
+//            }
+//            byte[] userImage = compressBytes(file.getBytes());
+//            user.setUserImage(userImage);
+//        }
+//        catch (UserAlreadyExistsException e){
+//            System.out.println(e.toString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return userRepository.save(user);
+//    }
     @Override
     public Post saveImagePost(MultipartFile post, PostImage postImage,String userEmailId) throws UserNotFoundException {
         byte[] postImg = new byte[0];
@@ -59,10 +74,15 @@ public class PostServiceImpl implements PostService{
             if(user==null){
                 throw new UserNotFoundException();
             }
-//            postImg = compressBytes(post.getBytes());
-//            postImage.setUser(user);
             postImg = post.getBytes();
             postImage.setPostImage(postImg);
+            Like like = new Like();
+            like.setLikeCount(0);
+//            like.setLikedUserEmails();
+            ArrayList likedEmails = new ArrayList();
+            likedEmails.add("");
+            like.setLikedUserEmails(likedEmails);
+            postImage.setLike(like);
             post1.setPostImage(postImage);
             post1.setUser(user);
 
@@ -81,7 +101,16 @@ public class PostServiceImpl implements PostService{
                 throw new UserNotFoundException();
             }
 
+            Like like = new Like();
+            like.setLikeCount(0);
+//            like.setLikedUserEmails();
+            ArrayList likedEmails = new ArrayList();
+            likedEmails.add("");
+            like.setLikedUserEmails(likedEmails);
+            postBlog.setLike(like);
+
             post.setPostBlog(postBlog);
+
             post.setUser(user);
 
         } catch (Exception e) {
@@ -104,10 +133,13 @@ public class PostServiceImpl implements PostService{
                throw new ImageNotFoundException();
            }
            Like like = new Like();
-           like.setLikeCount(postImage.getLike().getLikeCount()+1);
-           if(postImage.getLike().getLikedUserEmails()==null){
-               likedEmails.add(likedEmailId);
+
+           if(postImage.getLike().getLikeCount()==0){
+               like.setLikeCount(1);
+               likedEmails = postImage.getLike().getLikedUserEmails();
+               likedEmails.set(0,likedEmailId);
            }else {
+               like.setLikeCount(postImage.getLike().getLikeCount()+1);
                likedEmails = postImage.getLike().getLikedUserEmails();
                likedEmails.add(likedEmailId);
            }
@@ -171,9 +203,10 @@ public class PostServiceImpl implements PostService{
                 throw new ImageNotFoundException();
             }
             Like like = new Like();
-            if(postBlog.getLike()==null){
+            if(postBlog.getLike().getLikeCount()==0){
                 like.setLikeCount(1);
-                likedEmails.add(likedEmailId);
+                likedEmails = postBlog.getLike().getLikedUserEmails();
+                likedEmails.set(0,likedEmailId);
             }else {
                 like.setLikeCount(postBlog.getLike().getLikeCount()+1);
                 likedEmails = postBlog.getLike().getLikedUserEmails();
