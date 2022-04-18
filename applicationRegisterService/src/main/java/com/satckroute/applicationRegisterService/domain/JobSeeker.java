@@ -38,7 +38,7 @@ public class JobSeeker
 //    private Role Role.JOBSEEKER;
 
     private Address address;
-    private List educationDetails; //list
+    private List<Education> educationDetails; //list
     private String[] languagesKnown;
     private Details additionalDetails;
 
