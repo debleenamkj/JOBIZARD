@@ -80,9 +80,9 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
-<<<<<<< HEAD
+
 import { AddSkillComponent } from './add-skill/add-skill.component';
-=======
+
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
@@ -90,7 +90,7 @@ import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.
 import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { HomepageComponent } from './homepage/homepage.component';
->>>>>>> fb62a25cf5383e85371988a6534b1fbdf150a3e5
+
 
 
 
@@ -149,9 +149,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 
     RecruiterlandingComponent,
     JobSeekerLandingComponent,
-<<<<<<< HEAD
-    AddSkillComponent
-=======
     JobSeekerProfileComponent,
     SearchPortalComponent,
     TestResultViewComponent,
@@ -159,7 +156,6 @@ import { HomepageComponent } from './homepage/homepage.component';
     BlogPostDialogComponent,
     RecruiterRegisterComponent,
     HomepageComponent
->>>>>>> fb62a25cf5383e85371988a6534b1fbdf150a3e5
 
   ],
   imports: [
