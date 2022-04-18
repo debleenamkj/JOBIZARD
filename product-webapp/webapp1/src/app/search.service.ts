@@ -9,7 +9,7 @@ export class SearchService {
 
   private baseUrl = 'http://localhost:8083/api/v1/recommend/match';
   private url='http://localhost:8098/api/v1/getALlJobSeeker';
-
+  private url1='http://localhost:8085/api/v1/sendemail';
   constructor(private http: HttpClient) { }
 
   
@@ -18,6 +18,9 @@ export class SearchService {
   }
   getDetail(): Observable<any> {
     return this.http.get(`${this.url}`);
+  }
+  sendEmail(data1:any):Observable<any>{
+    return this.http.post(`${this.url1}`,data1);
   }
 }
 

@@ -14,6 +14,9 @@ export class SearchPortalComponent implements OnInit {
   emailList: Observable<Search[]>;
   gridColumns = 3;
   skills:FormGroup;
+  // jobSeeker: Array<Jobseeker>=[];
+  // jobSeekerSlice: Array<JobSeekerLanding>=[];
+  // images:any[]=[];
   
   constructor(fb:FormBuilder, private service:SearchService) {
     this.skills=fb.group({
@@ -42,6 +45,9 @@ export class SearchPortalComponent implements OnInit {
 
     this.service.getEmail(value).subscribe(data=>{console.log(data)})
     console.log("--" +JSON.stringify(this.emailList)); 
+    
+  }
+  sendEmail(){
     
   }
 

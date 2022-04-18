@@ -1,189 +1,32 @@
 <mat-card
 style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;width: 98%; ">
-<h1 style="font-size: xx-large; font-weight:bold; color:white; letter-spacing:1px;">Job Seeker Recommendation Portal</h1>
+<h1 style="font-size: xx-large; font-weight:bold; color:white; letter-spacing:1px;">Search Portal</h1>
 </mat-card>
 
-
- <mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw;height: 100%;width:12%;margin-top: 1%;background-color: aliceblue;">
-  <div class="d-flex flex-column mb-2" style="height: 66%; ">
-    <div class="p-2">
-      <section class="example-section" [formGroup]="skills" style="margin-left: 1%;">
-        <h1 style="font-size: larger;font-weight: bold;"> Required Skills:</h1>
-        <p><mat-checkbox formControlName="java" color="primary" >Java</mat-checkbox></p>
-        <p><mat-checkbox formControlName="angular" color="primary">Angular</mat-checkbox></p>
-        <p><mat-checkbox formControlName="spring"color="primary">Spring</mat-checkbox></p>
-      </section>
-      <button type="submit" onclick=" getEmail()">click me
-      <!-- <section class="example-section" [formGroup]="skills">
-        <h4>You chose:</h4>
-        {{skills.value | json}}
-      </section> -->
-      </button>
-    </div>
-    <div class="p-3">
-      <section class="example-section" [formGroup]="skills" style="margin-left: 1%;">
-        <h1 style="font-size: larger;font-weight: bold;"> Education :</h1>
-        <p><mat-checkbox formControlName="B.Tech" color="primary" >B.Tech</mat-checkbox></p>
-        <p><mat-checkbox formControlName="BSC" color="primary">B.SC</mat-checkbox></p>
-        <p><mat-checkbox formControlName="BCA"color="primary">BCA</mat-checkbox></p>
-      </section>
-    </div>
-  </div>
-</mat-card>
-
-
-
-    
-<mat-paginator [length]="100"
-            [pageSize]="10"
-            [pageSizeOptions]="[5, 10, 25, 100]"
-            aria-label="Select page">
-</mat-paginator>
-
-
-<div class="container-fluid col-lg-9" style="margin-top: -10px;" >
-
-<mat-card class="example-card">
-  <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-header>
-    <mat-card-title>Sreshthi Singh 
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">Java</mat-chip>
-      <mat-chip style="padding: 8px;">Angular</mat-chip>
-    </mat-chip-list>
-    <h2>Education Details:</h2>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">B.Tech</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-  </mat-card-actions>
-
- 
-</mat-card>
-
-<mat-card class="example-card">
-  <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-header>
-    <mat-card-title>Sreshthi Singh 
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">Java</mat-chip>
-      <mat-chip style="padding: 8px;">Angular</mat-chip>
-    </mat-chip-list>
-    <h2>Education :</h2>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">B.Tech</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card">
-  <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-header>
-    <mat-card-title>Sreshthi Singh 
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">Java</mat-chip>
-      <mat-chip style="padding: 8px;">Angular</mat-chip>
-    </mat-chip-list>
-    <h2>Education Details:</h2>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">B.Tech</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-  </mat-card-actions>
-</mat-card>
-
-<mat-card class="example-card">
-  <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-header>
-    <mat-card-title>Sreshthi Singh 
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">Java</mat-chip>
-      <mat-chip style="padding: 8px;">Angular</mat-chip>
-    </mat-chip-list>
-    <h2>Education Details:</h2>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">B.Tech</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-  </mat-card-actions>
- 
-</mat-card>
-
-<mat-card class="example-card">
-   <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-header>
-    <mat-card-title>Sreshthi Singh 
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">Java</mat-chip>
-      <mat-chip style="padding: 8px;">Angular</mat-chip>
-    </mat-chip-list>
-    <h2>Education Details:</h2>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">B.Tech</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-  </mat-card-actions>
+<!-- <mat-card
+style="background-color: aliceblue;"
+> -->
+<h1 style="font-size: xx-large; font-weight:bold; color:rgb(10, 10, 10); letter-spacing:1px;text-align: center;margin-top: 2%;">Find The Perfect Candidate With Us</h1>
+<!-- </mat-card> -->
+<section class="example-section" [formGroup]="skills" style="margin-left: 2%;">
+    <h1>Please Select the Required Skills:</h1>
+    <p><mat-checkbox formControlName="java" color="primary" >Java</mat-checkbox></p>
+    <p><mat-checkbox formControlName="angular" color="primary">Angular</mat-checkbox></p>
+    <p><mat-checkbox formControlName="spring"color="primary">Spring</mat-checkbox></p>
+  </section>
   
-</mat-card>
-
-<mat-card class="example-card">
-  <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-header>
-    <mat-card-title>Sreshthi Singh 
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">Java</mat-chip>
-      <mat-chip style="padding: 8px;">Angular</mat-chip>
-    </mat-chip-list>
-    <h2>Education Details:</h2>
-    <mat-chip-list>
-      <mat-chip style="padding: 8px;">B.Tech</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-  </mat-card-actions>
-  
-</mat-card>
-
-</div>
-
-
-
-
-
-
+  <!-- <section class="example-section" [formGroup]="skills">
+    <h2>You chose:</h2>
+    {{skills.value | json}}
+  </section>  -->
+  <!-- <div class="container mt-0">
+    <div class="row d-flex justify-content-center" >
+        <div class="col-md-9">
+            <div class="card p-4 mt-3">
+                <div class="d-flex justify-content-center px-5">
+                    <div class="search" > <input type="text" class="search-input" placeholder="Search for skills.." name=""> <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
