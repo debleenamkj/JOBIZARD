@@ -8,8 +8,8 @@ import org.springframework.data.annotation.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-
+public class User
+{
     private String userEmailId;
     private String userName;
     private byte[] userImage;
