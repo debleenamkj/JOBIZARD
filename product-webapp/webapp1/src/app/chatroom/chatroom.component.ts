@@ -62,10 +62,10 @@ export class ChatroomComponent implements OnInit {
 
 
     this.receiverNames = res;
-    console.log(this.receiverNames);
-    this.receiverNames.forEach((element,index)=>{
-          if(element.senderId!=this.senderId) {this.receiverNames.splice(index,1);}
-       });
+    // console.log(this.receiverNames);
+    // this.receiverNames.forEach((element,index)=>{
+    //       if(element.senderId!=this.senderId) {this.receiverNames.splice(index,1);}
+    //    });
     })
 
     

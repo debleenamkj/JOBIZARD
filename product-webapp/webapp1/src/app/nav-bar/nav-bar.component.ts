@@ -24,8 +24,9 @@ export class NavBarComponent {
       role="recruiter";
       // role="";
 
-  // name="sajal@gmail.com";
-  // n1=name.split("@",3);
+  emailId: string;
+  name: string;
+
   firstname="Jobsie";
   lastname="Jobbie";
   email="jobseeker@gmail.com";
@@ -49,6 +50,11 @@ export class NavBarComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('Dialog Box: $(result)')
     })
+  }
+
+  getUsername():any{
+    this.emailId=localStorage.getItem('loginId');
+    let name = this.emailId.split('@');
   }
 
 
