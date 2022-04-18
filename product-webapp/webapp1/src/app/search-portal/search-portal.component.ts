@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { Observable } from 'rxjs';
+import { EmailRequest } from '../model/email-request';
 import { Search } from '../search';
 import { SearchService } from '../search.service';
 
@@ -25,7 +26,7 @@ export class SearchPortalComponent implements OnInit {
       angular:false
     })
    }
-   matchedEmailList:any;
+   matchedEmailList: string[];
    jobSeekersList:any[]=[];
    buttonTitle:string = "Hide";
    visible:boolean = true;
@@ -42,9 +43,24 @@ export class SearchPortalComponent implements OnInit {
     "skillsRequired":["java","angular"],
     "education":"B.tech"
     }
+    let details=new JobDetails(" ",[],"");
+    // details.skillsRequired=[];
+    // localStorage.setItem('loginId',"ss@gmail.com")
+    details.emailId=localStorage.getItem('loginId');
+    let v1 = this.skills.value;
+    if(v1.java==true){
+      details.skillsRequired.push("Java")
+    }
+    if(v1.angular==true){
+      details.skillsRequired.push("Angular")
+    }
+    if(v1.spring==true){
+      details.skillsRequired.push("Spring")
+    }
+    console.log(details)
     this.matchedEmailList=["vishnu2@gmail.com","vishnu21@gmail.com","rs@gmail.com","vishnu23@gmail.com"]
     
-    this.service.getEmail(value).subscribe(data=>{
+    this.service.getEmail(value).subscribe((data:string[])=>{
       // this.matchedEmailList=data;
       console.log(this.matchedEmailList)
       // console.log(this.matchedEmailList.length)
@@ -87,8 +103,26 @@ export class SearchPortalComponent implements OnInit {
       //   this.jobSeekersList[index].jobSeekerImage=img;
       // }
   }
-  sendEmail(){
-    
+  sendEmail(jobseeker:any){
+    let details = new EmailRequest(jobseeker.emailId,localStorage.getItem('companyName'))
+    this.service.sendEmail(details).subscribe(d=>{
+      console.log(d)
+    })
   }
 
+
+}
+
+export class JobDetails{
+  emailId: string;
+  skillsRequired: string[];
+  education: string;
+
+  constructor(emailId: string,
+    skillsRequired: string[],
+    education: string){
+    this.emailId = emailId
+    this.skillsRequired = skillsRequired
+    this.education = education
+  }
 }

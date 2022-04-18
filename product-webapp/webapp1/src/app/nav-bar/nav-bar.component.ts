@@ -32,7 +32,9 @@ export class NavBarComponent {
   email="jobseeker@gmail.com";
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
-    private loginService : RegisterServiceService) {}
+    private loginService : RegisterServiceService) {
+      this.getUsername()
+    }
 
 
   hide=false;
@@ -52,9 +54,12 @@ export class NavBarComponent {
     })
   }
 
-  getUsername():any{
+  getUsername(){
     this.emailId=localStorage.getItem('loginId');
-    let name = this.emailId.split('@');
+    console.log(this.emailId)
+    // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
+    this.name = this.emailId.split('@',2)[0];
+    console.log(this.name);
   }
 
 
