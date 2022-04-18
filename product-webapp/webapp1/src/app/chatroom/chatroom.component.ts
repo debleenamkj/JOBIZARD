@@ -82,6 +82,11 @@ export class ChatroomComponent implements OnInit {
   }
   
 
+  senderId = this.chatService.senderId;
+  recipientId = this.chatService.recipientId;
+  senderName = this.chatService.senderName;
+  recipientName = this.chatService.recipientName;
+
   // senderId = "S123"
   // recipientId = "R124"
   // senderName = "ABCD";
@@ -93,10 +98,11 @@ export class ChatroomComponent implements OnInit {
   // senderName = "ABCD";
   // recipientName = "EFGH";
 
-  senderId = "R124";
-  recipientId = "S123"
-  senderName = "IJKL";
-  recipientName = "ABCD";
+  // senderId = "R124";
+  // recipientId = "S123"
+  // senderName = "IJKL";
+  // recipientName = "ABCD";
+
 
   sendMessage(){
 
