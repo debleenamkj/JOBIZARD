@@ -48,6 +48,7 @@ export class ChatroomComponent implements OnInit {
       this.receiverInitials = this.recipientName.charAt(0);
     })
 
+    this.receiverInitials = this.recipientName.charAt(0);
 
     this.chatService.getAllMessages().subscribe((data)=>{
      var res: any[] = [];
