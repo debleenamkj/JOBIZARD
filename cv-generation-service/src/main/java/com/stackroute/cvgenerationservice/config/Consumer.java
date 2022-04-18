@@ -6,17 +6,21 @@ import com.stackroute.cvgenerationservice.exception.CvNotFoundException;
 import com.stackroute.cvgenerationservice.service.cvService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+@Component
 public class Consumer {
 
     @Autowired
     private cvService CvService;
 
     @RabbitListener(queues = "cvGeneration_queue")
-    public void getCv(JobSeeker cv, MultipartFile file) throws CvAlreadyExistsException, CvNotFoundException, IOException {
+    public void getCv(JobSeeker cv) throws CvAlreadyExistsException, CvNotFoundException, IOException {
+        System.out.println(cv);
+        MultipartFile file = null;
         CvService.saveCv(cv,file);
     }
 }

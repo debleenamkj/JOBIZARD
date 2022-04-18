@@ -323,6 +323,7 @@ public class RegisterServiceImpl implements RegisterService
             user.setUserName(jobSeeker.getFirstName()+" "+jobSeeker.getLastName());
             producer.sendJobSeekerMessage(seeker);
             producer.posting(user);
+            producer.cvGeneration(jobSeeker);
 //            user.setUserImage(file.getBytes());
 
             return jobSeekerRegisterRepository.save(jobSeeker);
