@@ -247,18 +247,18 @@ public class RegisterServiceImpl implements RegisterService
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @Override
-    public List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException
-    {
-        if(recruiterRegisterRepository.findAllRecruiterByFirstName(firstName).isEmpty())
-        {
-            throw new RecruiterNotFoundException();
-        }
-        else
-        {
-            return recruiterRegisterRepository.findAllRecruiterByFirstName(firstName);
-        }
-    }
+//    @Override
+//    public List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException
+//    {
+//        if(recruiterRegisterRepository.findAllRecruiterByFirstName(firstName).isEmpty())
+//        {
+//            throw new RecruiterNotFoundException();
+//        }
+//        else
+//        {
+//            return recruiterRegisterRepository.findAllRecruiterByFirstName(firstName);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -453,7 +453,9 @@ public class RegisterServiceImpl implements RegisterService
 
 
     @Override
-    public Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId){
+    public Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId)
+    {
+
         Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
                 if(recruiter1!=null){
                     recruiter1.setEducationRequired(recruiter.getEducationRequired());
@@ -461,6 +463,7 @@ public class RegisterServiceImpl implements RegisterService
                     recruiterRegisterRepository.save(recruiter1);
                 }
                 return recruiter1;
+
     }
 
     @Override

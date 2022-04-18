@@ -16,7 +16,7 @@ import java.util.List;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-public class JobSeekerDTO
+public class Seeker
 {
     private String emailId;
     private String firstName;

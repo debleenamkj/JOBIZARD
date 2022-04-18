@@ -251,25 +251,25 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @GetMapping("/recruiter/getUserByFirstName/{firstName}")
-    public ResponseEntity<?> getAllRecruiterByFirstName(@PathVariable String firstName) throws RecruiterNotFoundException
-    {
-        try
-        {
-            log.debug("RegisterController - getAllRecruiterByFirstName");
-            return new ResponseEntity<>(registerService.getAllRecruiterByFirstName(firstName), HttpStatus.OK);
-        }
-        catch (RecruiterNotFoundException recruiterNotFoundException)
-        {
-            log.error("RegisterController - getAllRecruiterByFirstName"+recruiterNotFoundException);
-            throw new RecruiterNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - getAllRecruiterByFirstName"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/recruiter/getUserByFirstName/{firstName}")
+//    public ResponseEntity<?> getAllRecruiterByFirstName(@PathVariable String firstName) throws RecruiterNotFoundException
+//    {
+//        try
+//        {
+//            log.debug("RegisterController - getAllRecruiterByFirstName");
+//            return new ResponseEntity<>(registerService.getAllRecruiterByFirstName(firstName), HttpStatus.OK);
+//        }
+//        catch (RecruiterNotFoundException recruiterNotFoundException)
+//        {
+//            log.error("RegisterController - getAllRecruiterByFirstName"+recruiterNotFoundException);
+//            throw new RecruiterNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - getAllRecruiterByFirstName"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -544,6 +544,10 @@ public class RegisterController
         }
     }
 
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
     @PostMapping("/match/jobSeeker")
     public List<JobSeeker> getJobseekers(@RequestBody List<String> emailId){
         return registerService.getJobSeekers(emailId);
@@ -555,9 +559,11 @@ public class RegisterController
     }
 
     @PutMapping("/recruiter/add/{emailId}")
-    public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException {
+    public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException
+    {
         Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
         return registerService.addDetailsInRecruiter(recruiter1,emailId);
     }
+
 
 }

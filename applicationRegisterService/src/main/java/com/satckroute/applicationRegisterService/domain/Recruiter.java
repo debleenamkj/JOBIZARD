@@ -39,14 +39,14 @@ public class Recruiter
     private String mobileNumber;
     private Address addressDetails;
     private OrganizationDetails organizationDetails;
-//    private String [] languagesKnown;
+    private String [] languagesKnown;
 
     @Lob
     private byte[] recruiterImage;
 
 //--------------This part is needed------------
     private String password;
-    public Role  role;
+    public Role role;
     private String companyName;
     private String companyUrl;
     private String industryType;
