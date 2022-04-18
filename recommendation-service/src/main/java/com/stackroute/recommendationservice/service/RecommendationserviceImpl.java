@@ -39,7 +39,7 @@ public class RecommendationserviceImpl implements RecommendationService{
     {
         log.debug("In RecommendationserviceImpl - savejob");
         try{
-            if(jobRepository.findById(job.getJobId()).isPresent())
+            if(jobRepository.findById(job.getEmailId()).isPresent())
             {
                 log.error("RecommendationserviceImpl - savejob : JobAlreadyPresentException");
                 throw new JobAlreadyPresentException();
@@ -85,7 +85,7 @@ public class RecommendationserviceImpl implements RecommendationService{
         Set<String> matchingJobSeekers = new HashSet<>();
         Set<String> matchingSeeeker = new HashSet<>();
         try{
-            if(jobRepository.findById(job.getJobId()).isEmpty())
+            if(jobRepository.findById(job.getEmailId()).isEmpty())
             {
                 log.error("RecommendationserviceImpl - getMachingJobSeeker : JobNotFoundException");
                 throw new JobNotFoundException();
@@ -106,12 +106,18 @@ public class RecommendationserviceImpl implements RecommendationService{
                         }
                     }
                 }
-                if(education!=null){
-
+                if(education!=null)
+                {
+                    List<Seeker> seeker1 = userRepository.findByEducation(education);
+                    if(seeker1!=null){
+                        for (Seeker seeker2: seeker1){
+                            matchingJobSeekers.add(seeker2.getEmail());
+                        }
+                    }
                 }
 
                 if(!matchingJobSeekers.isEmpty()){
-                    matchingSeeeker = createRelationships1(job.getJobId(),matchingJobSeekers);
+                    matchingSeeeker = createRelationships1(job.getEmailId(),matchingJobSeekers);
                 }else{
                     log.error("RecommendationserviceImpl - getMachingJobSeeker : User skill set is empty");
                 }
@@ -123,7 +129,7 @@ public class RecommendationserviceImpl implements RecommendationService{
         return matchingSeeeker;
     }
 
-    public Set<String> createRelationships1(Long jobId,Set<String> matchingSeekers){
+    public Set<String> createRelationships1(String jobId,Set<String> matchingSeekers){
         Set<String> matchingSeeker = new HashSet<>();
         log.debug("In RecommendationserviceImpl - createRelationships1");
         try {

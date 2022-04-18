@@ -4,6 +4,7 @@
     flex-direction: column;
     /* background-color: aqua;  */
 }
+
 .header-section{
     display: flex;
     flex-direction: column;
@@ -99,6 +100,7 @@
     width: 15px;
 }
 
+
 .company-name{
     font-size: 19px;
     line-height: 19px;
@@ -129,6 +131,7 @@
     left: auto;
 }
 .company-section{
+    overflow: hidden;
     background-color: aliceblue;
     height: 230px;
 }

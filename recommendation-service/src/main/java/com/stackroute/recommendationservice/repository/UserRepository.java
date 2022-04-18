@@ -14,11 +14,14 @@ public interface UserRepository extends Neo4jRepository<Seeker,String> {
 
 
     @Query("MATCH(u1:Seeker{email:$email}),(j:JobDetails{jobId:$job}) CREATE(u1)-[:from]->(j) RETURN u1")
-    Seeker createRelation(String email, Long job);
+    Seeker createRelation(String email, String job);
 
     @Query("MATCH(j:Seeker) WHERE $requiredSkills IN j.skillSet RETURN j")
     List<Seeker> findBySkillSet(String requiredSkills);
 
     @Query("MATCH(j:JobDetails {jobId: $job}), (u1:Seeker {email:$email}) RETURN EXISTS((u1)-[:from]-(j))")
-    boolean checkRelation(String email, Long job);
+    boolean checkRelation(String email, String job);
+
+    @Query("MATCH(j:Seeker) WHERE $education IN j.education RETURN j")
+    List<Seeker> findByEducation(String education);
 }

@@ -86,7 +86,7 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
 import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.component';
 import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
-
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -150,7 +150,8 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
     TestResultViewComponent,
     ImagePostDialogComponent,
     BlogPostDialogComponent,
-    RecruiterRegisterComponent
+    RecruiterRegisterComponent,
+    HomepageComponent
 
   ],
   imports: [

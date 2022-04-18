@@ -39,11 +39,11 @@ import { TestResultViewComponent } from './test-result-view/test-result-view.com
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
-
-
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 const routes: Routes = [
+  {path:'home', component:HomepageComponent},
   {path: 'trend',component: TrendLabComponent},
   {path: 'skills',component: SkillsTrendLabComponent},
   {path : 'salary',component: SalaryTrendLabComponent},

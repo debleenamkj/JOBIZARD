@@ -91,7 +91,7 @@ public class JobSeekerRegisterServiceTests
 //    {
 //        when(jobSeekerRegisterRepository.findById(jobSeeker.getEmailId())).thenReturn(Optional.ofNullable(null));
 //        when(jobSeekerRegisterRepository.save(jobSeeker)).thenReturn(jobSeeker);
-//        when(producer.sendMessage(userDTO)).thenReturn(jobSeeker);
+////        when(producer.sendMessage(userDTO)).thenReturn(jobSeeker);
 //
 //        assertEquals(jobSeeker,registerServiceImpl.registerNewJobSeeker(jobSeeker));
 //

@@ -17,6 +17,6 @@ import java.util.ArrayList;
 public class Seeker {
   @Id
   private String email;
-  private ArrayList jobPreferences;
+  private ArrayList education;
   private ArrayList skillSet;
 }

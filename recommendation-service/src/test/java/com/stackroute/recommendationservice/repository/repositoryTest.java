@@ -53,7 +53,7 @@ public class repositoryTest {
         ArrayList skills = new ArrayList();
         skills.add("java");
         skills.add("spring");
-        jobDetails = new JobDetails(1001,skills,"software developer");
+        jobDetails = new JobDetails("1001",skills,"software developer");
         ArrayList preferences = new ArrayList();
         preferences.add("software developer");
         preferences.add("software engineer");
@@ -79,8 +79,8 @@ public class repositoryTest {
         System.out.println(jobDetails);
         jobRepository.save(jobDetails);
         System.out.println(jobDetails);
-        JobDetails jobDetails1 = jobRepository.findById(jobDetails.getJobId()).get();
-        assertEquals(jobDetails1.getJobId(),jobDetails.getJobId());
+        JobDetails jobDetails1 = jobRepository.findById(jobDetails.getEmailId()).get();
+        assertEquals(jobDetails1.getEmailId(),jobDetails.getEmailId());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class repositoryTest {
         System.out.println(jobDetails);
         jobRepository.save(jobDetails);
         System.out.println(jobDetails);
-        JobDetails jobDetails1 = jobRepository.findById(jobDetails.getJobId()).get();
+        JobDetails jobDetails1 = jobRepository.findById(jobDetails.getEmailId()).get();
         assertNotEquals(null,jobDetails);
     }
 
@@ -131,7 +131,7 @@ public class repositoryTest {
     public void createRelationshipShouldReturnSuccess(){
         userRepository.save(seeker);
         jobRepository.save(jobDetails);
-        Seeker seeker1 = userRepository.createRelation(seeker.getEmail(),jobDetails.getJobId());
+        Seeker seeker1 = userRepository.createRelation(seeker.getEmail(),jobDetails.getEmailId());
         assertEquals(seeker1.getEmail(),seeker.getEmail());
     }
 
@@ -139,7 +139,7 @@ public class repositoryTest {
     public void createRelationshipShouldReturnFailure(){
         userRepository.save(seeker);
         jobRepository.save(jobDetails);
-        Seeker seeker1 = userRepository.createRelation(seeker.getEmail(),jobDetails.getJobId());
+        Seeker seeker1 = userRepository.createRelation(seeker.getEmail(),jobDetails.getEmailId());
         assertNotEquals(null,seeker.getEmail());
     }
 
@@ -147,8 +147,8 @@ public class repositoryTest {
     public void checkRelationshipExistsReturnTrue(){
         userRepository.save(seeker);
         jobRepository.save(jobDetails);
-        userRepository.createRelation(seeker.getEmail(),jobDetails.getJobId());
-        boolean result = userRepository.checkRelation(seeker.getEmail(),jobDetails.getJobId());
+        userRepository.createRelation(seeker.getEmail(),jobDetails.getEmailId());
+        boolean result = userRepository.checkRelation(seeker.getEmail(),jobDetails.getEmailId());
         assertEquals(result,true);
     }
 
@@ -156,8 +156,8 @@ public class repositoryTest {
     public void checkRelationshipExistsReturnFalse(){
         userRepository.save(seeker);
         jobRepository.save(jobDetails);
-        userRepository.createRelation(seeker.getEmail(),jobDetails.getJobId());
-        boolean result = userRepository.checkRelation(seeker.getEmail(),jobDetails.getJobId());
+        userRepository.createRelation(seeker.getEmail(),jobDetails.getEmailId());
+        boolean result = userRepository.checkRelation(seeker.getEmail(),jobDetails.getEmailId());
         assertNotEquals(result,false);
     }
 }
