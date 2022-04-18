@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -446,14 +447,35 @@ public class RegisterServiceImpl implements RegisterService
 
 
     @Override
-    public Recruiter addDetailsInRecruiter(Recruiter recruiter){
-        Recruiter recruiter1 = recruiterRegisterRepository.findById(recruiter.getEmailId()).get();
+    public Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId){
+        Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
                 if(recruiter1!=null){
                     recruiter1.setEducationRequired(recruiter.getEducationRequired());
                     recruiter1.setSkillsRequired(recruiter.getSkillsRequired());
                     recruiterRegisterRepository.save(recruiter1);
                 }
                 return recruiter1;
+    }
+
+    @Override
+    public List<JobSeeker> getJobSeekers(List<String> emailid){
+        List<JobSeeker> jobSeekerList = new ArrayList<>();
+        for (String email: emailid){
+            JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(email).get();
+            if(jobSeeker!=null){
+                jobSeekerList.add(jobSeeker);
+            }
+        }
+      return jobSeekerList;
+    }
+
+    @Override
+    public JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException {
+        JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(emailId).get();
+        if(jobSeeker==null){
+            throw new JobSeekerNotFoundException();
+        }
+        return jobSeeker;
     }
 }
 
