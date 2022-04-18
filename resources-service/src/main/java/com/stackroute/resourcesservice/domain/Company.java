@@ -11,12 +11,12 @@ import java.util.List;
 
 @Document(collection = "companyReviews")
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Company {
     @Id
     private String cin;
-    @Indexed(unique = true)
     private String companyName;
     private byte[] companyLogo;
     private List<Review> reviews;
+
 }

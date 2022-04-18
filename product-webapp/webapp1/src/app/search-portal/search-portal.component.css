@@ -1,0 +1,71 @@
+
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+  }
+  .column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px; 
+  }
+  .p-2{
+     
+      height: 100%;
+      margin-left: 1%;
+      margin-right: 1%;
+      background-color:antiquewhite
+  }
+  .p-3{
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color:beige;
+  
+  }
+  .example-card {
+    width: 270px;
+    float: left;
+    align-items: center;
+    height: 350px;
+    margin-left: 6%;
+    margin-bottom: 20px;
+    
+}
+
+
+.pi{
+    width: 140px;
+    margin-left: 30px;
+    padding-top: 3px;
+}
+#mainheading{
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.rfc{
+  width: 300px;
+  height: 75vh;
+  float: left;
+  margin-right: 10px;
+}
+
+.profile-image {
+  height: 50px;
+  width: 50px;
+}
+
+.upb{
+  border: none;
+  padding: 10px 10px;
+  border-radius: 18px;
+  background-image: linear-gradient(to right, #6E2586, #B11784);
+  color: white;
+  margin-left: 80px;
+}

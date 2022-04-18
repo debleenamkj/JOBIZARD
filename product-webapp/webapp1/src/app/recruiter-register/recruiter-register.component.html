@@ -1,0 +1,192 @@
+
+<body  class="vh-100" style="background-color: rgba(223, 181, 237, 1);position:fixed;" >
+  <!-- <div style="margin-left:150px;margin-right: 100px;" >
+     -->
+     
+<form  style="margin-top: 5vw;"  class="mx-1 mx-md-2" [formGroup]="registerForm" (ngSubmit)="recruiterRegister()" >
+
+  
+  <mat-card class="shipping-card" id="mat-card" >
+     <!--style="background-color: rgba(223, 181, 237, 1);" give color to whole form -->
+    <div style="font-family: 'Montserrat', sans-serif;margin-left: 3vw;" >
+<!-- content alignment div  style="margin-left: 3vw;" -->
+
+
+    <!-- <mat-card-header> -->
+      <!-- <mat-card-title style="color:  rgb(110,37,134);margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;">JOBSEEKER REGISTER PAGE
+      </mat-card-title> -->
+    <p style="color:  rgb(110,37,134);margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;font-size: large;"> Register Page</p><br>
+
+
+    <!-- </mat-card-header> -->
+
+    <mat-card-content class="col-12" style="margin-top: 5px;" >
+      <!-- margin / gap btwn textbox and JobSeeker Register Page <p> tag -->
+
+
+
+      <div class="row">
+        <div class="col-12">
+
+        <!-- <p style="display:inline-block;width:8%;">User Type :</p> &nbsp;&nbsp;
+        <mat-form-field color="accent" appearance="fill" style="width: 16.5%;margin-left: 15px;" class="full-width"> 
+        <mat-label>User Register Type</mat-label>
+        <mat-select >   
+        <mat-option>
+           <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/jobSeekersRegister">JobSeeker</a>
+         </mat-option>
+         <mat-option>
+           <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Recruiter</a>
+         </mat-option>
+        </mat-select>
+        </mat-form-field> -->
+    
+        <p style="display:inline-block;width:8%;">User Type :</p> &nbsp;&nbsp;
+          <mat-radio-group style="display:inline-block;"  >
+            <input  matInput style="color:black"  >
+            <mat-radio-button style="margin-left: 15px;margin-top:-15px;" routerLink="/jobSeekersRegister" value="jobSeeker">JOBSEEKR</mat-radio-button>
+            <mat-radio-button [checked]="true"  style="margin-left:150px;margin-top:-30px;" routerLink="/recruiterRegister" value="recruiter">RECRUITER</mat-radio-button>
+          </mat-radio-group>
+       </div>
+       </div>
+
+       <br>
+
+      <div class="row">
+        <div class="col-12">
+          <p style="display:inline-block;width:8%;"> Email ID : </p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 16.5%;margin-left: 15px;" class="full-width">
+            <mat-label>Email Id</mat-label>
+            <input  matInput style="display:inline-block;" placeholder="Email ID" formControlName="emailId">
+            <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
+              Email-ID is <strong>required</strong>
+            </mat-error>
+
+            <mat-error *ngIf="registerForm.controls['emailId'].hasError('pattern')">
+              Must be email type <strong>required</strong>
+            </mat-error>
+
+          </mat-form-field>
+        </div>
+      </div>
+      
+
+<!-- 
+      <div class="row">
+        <div class="col-9" >
+          <p style="display:inline-block;width: 10%;font-weight: bold;">Password :</p> &nbsp;&nbsp;
+          <mat-form-field color="accent" appearance="fill" style="width: 33.82%;" class="full-width">
+            <mat-label>Create your password</mat-label>
+            <input matInput style="display:inline-block;" placeholder="Create your Password" formControlName="password">
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          
+        </mat-form-field>
+      </div>
+</div> -->
+      
+<div class="row">
+  <div class="col-12" >
+    <p style="width:9%; display: inline-block;">Create Password :</p> &nbsp;&nbsp;
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" formControlName="password" #pass required>
+      <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+      <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+<!-- 
+      <mat-error *ngIf="registerForm.controls['password'].hasError('minLength') ">
+        Password must be at least 5 characters long
+        </mat-error> -->
+
+      <mat-error *ngIf="registerForm.controls['password'].hasError('pattern') ">
+      Password should have atleast one uppercase , lowercase character and min of length 5  <strong>required</strong>
+      </mat-error>
+
+
+  </mat-form-field>
+</div>
+</div>
+
+
+
+<div class="row">
+<div class="col-12" >
+    <p style="width:9%; display: inline-block;">Confirm Password :</p> &nbsp;&nbsp;
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your confirm password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your confirm password" formControlName="confirm" #confirm required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+          <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+         Confirm Password is <strong>required</strong>
+          </mat-error>
+
+          <!-- <mat-error *ngIf="registerForm.controls['password'].hasError('')">
+            Confirm Password must match 
+            </mat-error> -->
+            <div *ngIf="registerForm.get('confirmPassword')?.errors?.['passmatching']">Passwords must match
+            </div>
+      </mat-form-field>
+</div>
+</div>
+
+    
+      
+
+
+
+   </mat-card-content>
+    <mat-card-actions style="margin-top:-25px">
+      <br>
+      <button [disabled]="!registerForm.valid" mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;" (click)="submit()">REGISTER</button>
+      
+      <!-- <button type="submit" (click)="submit()" class="cssbuttons-io-button" style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));" >Register
+        <div class="icon">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+        </div>
+      </button> -->
+
+      
+      <!-- <button type="submit" class="cssbuttons-io-button" style="text-align: center;background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));padding: 2.5px 160px;border-radius: 15px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;">Register 
+        <div class="icon">
+          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+        </div>
+      </button> -->
+
+      <br><br>
+
+
+      <p style="margin-left: 135px;font-size: 13px;margin-bottom: -40px;">Have an Account ? <a routerLink="/userLogin" href="#"> Login</a></p>
+<br>
+
+    </mat-card-actions>
+  </div>
+
+  <img style="height:350px;margin-top:-380px;margin-left:600px;position: absolute;" src="assets/Register/tech.png" class="img-fluid" alt="Sample image ">
+
+  <!-- <img style="height:350px;margin-top:-345px;margin-left:550px;position: absolute;" src="assets/Register/contact-header-mobile.png" class="img-fluid" alt="Sample image "> -->
+  <!-- <img style="height:350px;margin-top:-340px;margin-left:550px;position: absolute;" src="assets/Register/4x.png" class="img-fluid" alt="Sample image "> -->
+  <!-- <img style="height:350px;margin-top:-340px;margin-left:550px;position: absolute;" src="assets/Register/Contact.png" class="img-fluid" alt="Sample image "> -->
+  
+  </mat-card>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="height:200px;transform: rotate(180deg);margin-top:-785px;margin-left:606px;border-radius: 10px">
+    <path fill="rgb(110,37,134)" fill-opacity="1" d="M0,64L80,85.3C160,107,320,149,480,186.7C640,224,800,256,960,277.3C1120,299,1280,309,1360,314.7L1440,320L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+  </svg>
+ 
+
+    
+
+</form>
+
+
+<!-- </div> -->
+</body>

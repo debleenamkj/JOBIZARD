@@ -77,12 +77,9 @@ public class JobServiceImpl implements JobService{
 //        producer.sendMessageToRabbitTemplate(jobPostingDTO);
         Optional<JobPosting> job1 = jobRepository.findByCompanyName(jobPosting.getCompanyName());
         if(job1.isPresent()){
-            System.out.println(job1.get());
             List<JobDetails> jobList = job1.get().getJobDetailsList();
             jobList.addAll(jobPosting.getJobDetailsList());
-           // jobList.add(jobPosting.getJobDetailsList());
             job1.get().setJobDetailsList(jobList);
-            System.out.println(job1.get().getJobDetailsList());
             jobRepository.save(job1.get());
             return job1.get();
         }

@@ -3,7 +3,9 @@ package com.stackroute.recommendationservice.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stackroute.recommendationservice.exception.JobAlreadyPresentException;
+import com.stackroute.recommendationservice.exception.JobNotFoundException;
 import com.stackroute.recommendationservice.exception.UserAlreadyExistsException;
+import com.stackroute.recommendationservice.exception.UserNotFoundException;
 import com.stackroute.recommendationservice.model.JobDetails;
 import com.stackroute.recommendationservice.model.Seeker;
 import com.stackroute.recommendationservice.service.RecommendationService;
@@ -51,7 +53,7 @@ public class controllerTest {
         ArrayList skills = new ArrayList();
         skills.add("java");
         skills.add("spring");
-        jobDetails = new JobDetails(1001,skills,"software developer");
+        jobDetails = new JobDetails("1001",skills,"software developer");
         ArrayList preferences = new ArrayList();
         preferences.add("software developer");
         preferences.add("software engineer");
@@ -77,6 +79,18 @@ public class controllerTest {
         verify(recommendationService,times(1)).saveUser(any());
     }
 
+
+    @Test
+    public void saveJobSeekerReturnFailure() throws Exception{
+        when(recommendationService.saveUser(any())).thenThrow(UserAlreadyExistsException.class);
+        mockMvc.perform(post("/api/v1/recommend/user")
+                        .contentType(MediaType.APPLICATION_JSON).
+                        content(jsonToString(seeker)))
+                .andExpect(status().isConflict())
+                .andDo(print());
+        verify(recommendationService,times(1)).saveUser(any());
+    }
+
     @Test
     public void saveJobDetailsReturnSucces() throws Exception, JobAlreadyPresentException {
         when(recommendationService.savejob(any())).thenReturn(jobDetails);
@@ -89,13 +103,34 @@ public class controllerTest {
     }
 
     @Test
-    public void matchJobWithJobSeekerReturnSuccess() throws Exception{
+    public void saveJobDetailsReturnFailure() throws Exception, JobAlreadyPresentException {
+        when(recommendationService.savejob(any())).thenThrow(JobAlreadyPresentException.class);
+        mockMvc.perform(post("/api/v1/recommend/job")
+                        .contentType(MediaType.APPLICATION_JSON).
+                        content(jsonToString(seeker)))
+                .andExpect(status().isConflict())
+                .andDo(print());
+        verify(recommendationService,times(1)).savejob(any());
+    }
+
+    @Test
+    public void matchJobWithJobSeekerReturnSuccess() throws Exception, JobNotFoundException {
         when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
-        mockMvc.perform(post("/api/v1/recommend/match1")
+        mockMvc.perform(post("/api/v1/recommend/match")
                         .contentType(MediaType.APPLICATION_JSON).
                         content(jsonToString(seeker)))
                 .andExpect(status().isOk())
                 .andDo(print());
+        verify(recommendationService,times(1)).getMatchingJobSeeker(any());
+    }
+
+    @Test
+    public void matchJobWithJobSeekerReturnFailure() throws Exception, JobNotFoundException {
+        when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
+        mockMvc.perform(post("/api/v1/recommend/match")
+                .contentType(MediaType.APPLICATION_JSON).
+                content(jsonToString(seeker)))
+                .andExpect(status().isOk());
         verify(recommendationService,times(1)).getMatchingJobSeeker(any());
     }
 

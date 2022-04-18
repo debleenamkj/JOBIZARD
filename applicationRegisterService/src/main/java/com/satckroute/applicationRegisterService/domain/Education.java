@@ -14,14 +14,10 @@ import java.util.Arrays;
 // parameterised Constructor
 @NoArgsConstructor
 // Default Constructor
-@Getter
-@Setter
-@ToString
 public class Education
 {
     @Id
-    private String education;
-    private String [] courses;
+    private String courses;
     private String streamOrField;
     private String universityOrInstitute;
     private String courseType;

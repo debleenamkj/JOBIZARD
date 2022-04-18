@@ -1,31 +1,23 @@
 .parent-div{
-    width: 100%;
-    height: 93vh;
     margin: auto;
     display: flex;
     flex-direction: column;
-    background-color: aqua; 
-    /*top: 1rem; */
+    /* background-color: aqua;  */
 }
-.parent-div>section{
-    width: 100%;
-}
+
 .header-section{
-    background-color: aliceblue;
-    height: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: black; */
+    padding: 5px;
 }
-section>h1{
-    /* width: fit-content; */
-    /* margin: auto; */
-    /* border-bottom: 2px solid black; */
-    /* padding: 1vw; */
-    /* font-weight: 500; */
-    /* text-shadow: 1px 1px 1px black; */
-    /* overflow: hidden; */
-    /* background-color: #4E1B5F; */
-    padding: 10px;
+.title{
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     text-transform: uppercase;
-    font-size: 2vw;
+    font-size: 30px;
     text-align: center;
     color: #4E1B5F;
     font-family: sans-serif;
@@ -46,22 +38,176 @@ section>h1{
       background-position: 500%;
     }
 }
-.search-bar{
-    width: 600px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    
-    background-color: #4E1B5F;
+.search-form{
+    width: 80vw;
+    min-width: 320px;
+    max-width: 440px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    /* background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132) ); */
 }
-.company-section{
-    background-color: aqua;
-    height: 50%;
+
+.search-bar, .search-button{
+    margin-left: auto;
+}
+.search-button{
+    margin-right: 5px;
+    align-self: center;
+    color: black;
+}
+.search-bar{
+    margin-right: -20px;
+    width: 80%;
+    height: fit-content;
+    text-align: center;
+    font-size: 10px;
+    color: black;
+    /* filter: invert(100%) sepia(0%) saturate(5%) hue-rotate(186deg) brightness(102%) contrast(100%); */
+    background-color: transparent;
 }
 .review-section{
     background-color: aliceblue;
-    height: 30%;
+    overflow: hidden;
+    height: 480px;
 }
+.review-card{
+    margin: 5px;
+    height: 230px;
+    display: inline-block;
+    
+    /* background-color: aqua; */
+}
+
+.review-header{
+    width: 275px;
+    min-width: 275px;
+    height: 100%;
+}
+.review-text{
+    width: 275px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    scrollbar-width: 0px;
+    font-size: 15px;
+     line-height: 15px;
+     font-weight: 400;
+}
+
+.review-text::-webkit-scrollbar{
+    width: 15px;
+}
+
+
+.company-name{
+    font-size: 19px;
+    line-height: 19px;
+    height: fit-content;
+}
+
+.review-card img{
+    position: absolute;
+    left: 15px;
+    right: auto;
+    top: 0px;
+    bottom: auto;
+}
+.mat-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 150px;
+    min-width: 125px;
+    height: 170px; 
+}
+.review-card mat-card-actions{
+    position: absolute;
+    bottom: -10px;
+    right:25px;
+    top: auto;
+    left: auto;
+}
+.company-section{
+    overflow: hidden;
+    background-color: aliceblue;
+    height: 210px;
+}
+.company-card{
+    margin: 5px;
+    height: 200px;
+    display: inline-block;
+    /* background-color: aqua; */
+}
+.company-header{
+    width: 275px;
+    min-width: 275px;
+    height: 100%;
+}
+.company-card mat-card-actions{
+    position: absolute;
+    bottom: -10px;
+    right:25px;
+    top: auto;
+    left: auto;
+}
+.company-card img{
+    position: absolute;
+    left: auto;
+    right: 15px;
+    top: 0px;
+    bottom: auto;
+}
+/*.company-section{
+    background-color: aqua;
+    height: 410px;
+    width: 100vw;
+    overflow-x: auto;
+    flex-direction: row;
+    
+}
+.company-card{
+    margin-left: 20px;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+}
+.company-card img{
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+}
+.company-card mat-card-actions{
+    height: fit-content;
+    width: fit-content;
+    margin-top: auto;
+    margin-bottom: 10%;
+    margin-right: 0%;
+    margin-left: auto;
+}
+
+.mat-content{
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 0%;
+    margin-top: auto;
+    // background-color: antiquewhite; 
+}
+mat-grid-tile{
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    width: fit-content;
+}
+
+
+*/
+
 
 
 /* .parent-div>section{

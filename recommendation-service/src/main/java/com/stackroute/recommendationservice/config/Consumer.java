@@ -16,13 +16,13 @@ public class Consumer {
     private RecommendationService recommendationService;
     private int id;
 
-//    @RabbitListener(queues = "seeker_queue")
-//    public void getUser(Seeker seeker) throws UserAlreadyExistsException {
-//        recommendationService.saveUser(seeker);
-//    }
-//
-//    @RabbitListener(queues = "job_queue")
-//    public void getJob(JobDetails job) throws JobAlreadyPresentException {
-//        recommendationService.savejob(job);
-//    }
+    @RabbitListener(queues = "jobSeeker_queue")
+    public void getUser(Seeker seeker) throws UserAlreadyExistsException {
+        recommendationService.saveUser(seeker);
+    }
+
+    @RabbitListener(queues = "recruiter_queue")
+    public void getJob(JobDetails job) throws JobAlreadyPresentException {
+        recommendationService.savejob(job);
+    }
 }

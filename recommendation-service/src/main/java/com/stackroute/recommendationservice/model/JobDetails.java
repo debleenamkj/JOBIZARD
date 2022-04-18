@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Data
 public class JobDetails {
     @Id
-    private long jobId;
+    private String emailId;
     private ArrayList skillsRequired;
-    private String jobRole;
+    private String education;
 }

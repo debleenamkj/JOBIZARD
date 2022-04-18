@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Lob;
 import java.util.Arrays;
+import java.util.List;
 
 
 @Document
@@ -30,22 +31,26 @@ public class Recruiter
     @Id
     private String emailId;
 
+//    ------------------------ Not required -----------------
     private String firstName;
-
-
-//    private String middleName;
-//    private String lastName;
-//    private String gender;
-
-//    private long mobileNumber;
-    private String password;
-
-//    private String  role;
-
+    private String middleName;
+    private String lastName;
+    private String gender;
+    private String mobileNumber;
     private Address addressDetails;
     private OrganizationDetails organizationDetails;
     private String [] languagesKnown;
 
     @Lob
     private byte[] recruiterImage;
+
+//--------------This part is needed------------
+    private String password;
+    public Role role;
+    private String companyName;
+    private String companyUrl;
+    private String industryType;
+    private byte[] logo;
+    private String educationRequired;
+    private List<String> skillsRequired;
 }

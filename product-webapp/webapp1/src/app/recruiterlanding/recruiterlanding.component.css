@@ -1,4 +1,50 @@
-input{
-    width: 80%;
+#mainheading{
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.rfc{
+    width: 300px;
+    height: 75vh;
+    float: left;
+    margin-right: 10px;
+}
+
+.profile-image {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    margin: auto;
+    
+
+}
+
+.upb{
+    border: none;
+    padding: 10px 10px;
+    border-radius: 18px;
+    background-image: linear-gradient(to right, #6E2586, #B11784);
+    color: white;
+    margin-left: 70px;
+    font-size: large;
+}
+
+.example-card {
+    width: 250px;
+    /* height: 265px; */
+    margin-bottom: 15px;
+    float: left;
+    margin-right: 20px;
     align-items: center;
+}
+
+
+.pi{
+    width: 150px;
+    height: 150px;
+    object-fit:contain;
+    margin: auto;
+    padding-top: 5px;
 }

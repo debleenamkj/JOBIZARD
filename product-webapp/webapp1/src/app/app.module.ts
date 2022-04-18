@@ -15,7 +15,7 @@ import { TrendLabComponent } from './trend-lab/trend-lab.component';
 import { SkillsTrendLabComponent } from './skills-trend-lab/skills-trend-lab.component';
 import { SalaryTrendLabComponent } from './salary-trend-lab/salary-trend-lab.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule,HttpInterceptor } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor } from '@angular/common/http';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -38,15 +38,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LearningPortalComponent } from './learning-portal/learning-portal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 import { LoginComponent } from './login/login.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
@@ -80,7 +80,17 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+<<<<<<< HEAD
 import { AddSkillComponent } from './add-skill/add-skill.component';
+=======
+import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
+import { SearchPortalComponent } from './search-portal/search-portal.component';
+import { TestResultViewComponent } from './test-result-view/test-result-view.component';
+import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.component';
+import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
+import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
+import { HomepageComponent } from './homepage/homepage.component';
+>>>>>>> fb62a25cf5383e85371988a6534b1fbdf150a3e5
 
 
 
@@ -109,7 +119,7 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
     LoginComponent,
     SkilltestComponent,
     AssesmentTestPortalComponent,
-    
+
     ChatroomComponent,
 
     CvTemplate1Component,
@@ -139,7 +149,17 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
 
     RecruiterlandingComponent,
     JobSeekerLandingComponent,
+<<<<<<< HEAD
     AddSkillComponent
+=======
+    JobSeekerProfileComponent,
+    SearchPortalComponent,
+    TestResultViewComponent,
+    ImagePostDialogComponent,
+    BlogPostDialogComponent,
+    RecruiterRegisterComponent,
+    HomepageComponent
+>>>>>>> fb62a25cf5383e85371988a6534b1fbdf150a3e5
 
   ],
   imports: [
@@ -186,11 +206,12 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
     NgbModule,
     MatExpansionModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents:[UpdateUserDetailsComponent]
 })
-export class AppModule {}
+export class AppModule { }

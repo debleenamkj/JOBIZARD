@@ -19,7 +19,6 @@ export interface Fruit {
   styleUrls: ['./job-posting.component.css']
 })
 export class JobPostingComponent implements OnInit {
-
   constructor(private fb:FormBuilder,private service:PostJobServiceService) { }
 
   file:any
@@ -85,6 +84,7 @@ onFileChanged(event: any) {
   console.log("onchange");
 
   this.file = event.target.files[0];
+  console.log(this.file);
 
   const reader = new FileReader();
   reader.readAsDataURL(event.target.files[0]); 

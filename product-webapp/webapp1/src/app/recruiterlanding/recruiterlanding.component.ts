@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ChatroomComponent } from '../chatroom/chatroom.component';
+import { JobSeekerLanding } from '../model/job-seeker-landing';
+import {  RecruiterLandingData } from '../model/recruiter-landing-data';
+import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
   selector: 'app-recruiterlanding',
@@ -7,9 +12,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecruiterlandingComponent implements OnInit {
 
-  constructor() { }
+  // recruiterName?: string;
+  // recruiterImage?: string;
+  // seekerName?: string;
+  // seekerImage?: string;
+  // skills: any=[];
+
+  
+  jobSeeker: Array<JobSeekerLanding>=[];
+  recruiterLandingData:RecruiterLandingData;
+  jobSeekerSlice: Array<JobSeekerLanding>=[];
+  images:any[]=[];
+
+  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomComponent) { }
 
   ngOnInit(): void {
+    this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
+      this.recruiterLandingData=d;
+      console.log(this.recruiterLandingData.logo)
+      // this.getLogo(this.recruiterLandingData)
+    });
+
+    this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
+      this.jobSeeker=d;
+      this.getImages(this.jobSeeker);
+      this.jobSeekerSlice=d.slice(0,8);
+      console.log(this.jobSeeker);
+    });
   }
+
+  pageChange(event:any){
+    let start = event.pageSize*event.pageIndex;
+    this.jobSeekerSlice = this.jobSeeker.slice(start,start+8)
+  }
+
+  getImages(jobSeeker: JobSeekerLanding[]){
+    jobSeeker.forEach(d => {
+      d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
+    });
+  }
+
+  onChat(reciever: any){
+    this.chat.selectedReceiver
+  }
+
 
 }

@@ -11,9 +11,10 @@ import java.util.List;
 
 public interface RegisterService
 {
-    JobSeeker saveJobSeekerImage(JobSeeker jobSeeker, MultipartFile file) throws JobSeekerImageAlreadyExistException, IOException;
-    Recruiter saveRecruiterImage(Recruiter recruiter, MultipartFile file) throws RecruiterImageAlreadyExistException, IOException;
-    OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails , MultipartFile file) throws OrganizationDetailsAlreadyExistException , IOException;
+// with images
+//    JobSeeker saveJobSeekerImage(JobSeeker jobSeeker, MultipartFile file) throws JobSeekerImageAlreadyExistException, IOException;
+//    Recruiter saveRecruiterImage(Recruiter recruiter, MultipartFile file) throws RecruiterImageAlreadyExistException, IOException;
+//    OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails , MultipartFile file) throws OrganizationDetailsAlreadyExistException , IOException;
 
 //    Address saveAddressDetails(Address address) throws Exception;
 //    Details saveExtraDetails(Details details) throws Exception;
@@ -21,7 +22,6 @@ public interface RegisterService
 
     JobSeeker registerNewJobSeeker(JobSeeker jobSeeker) throws JobSeekerAlreadyExistException;
     Recruiter registerNewRecruiter(Recruiter recruiter) throws RecruiterAlreadyExistException;
-
     OrganizationDetails saveOrganizationDetails(OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException;
 
     List<JobSeeker> getAllJobSeeker() throws Exception;
@@ -29,16 +29,35 @@ public interface RegisterService
     List<OrganizationDetails> getAllOrganization() throws Exception;
 
     List<JobSeeker> getAllJobSeekerByFirstName(String firstName) throws JobSeekerNotFoundException;
-    List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
-    List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsAlreadyExistException;
-
+//    List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
+    List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException;
 
     JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
+    JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws  JobSeekerNotFoundException , IOException;
+
+
     Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws  RecruiterNotFoundException;
+    Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws  RecruiterNotFoundException, IOException;
+
+    OrganizationDetails updateOrganizationDetails(OrganizationDetails organizationDetails, String emailId) throws OrganizationDetailsNotFoundException;
+
 
     boolean deleteJobSeekerDetails(String emailId) throws JobSeekerNotFoundException;
     boolean deleteRecruiterDetails(String emailId) throws RecruiterNotFoundException;
     boolean deleteOrganizationDetails(String organizationEmailId) throws OrganizationDetailsNotFoundException;
+
+    //Recruiter Landing.....................................................
+    Recruiter getRecruiterProfile(String emailId) throws RecruiterNotFoundException;
+    List<JobSeeker> getAllJobSeekers() throws JobSeekerNotFoundException;
+    List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException;
+
+
+
+    Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId);
+
+    List<JobSeeker> getJobSeekers(List<String> emailid);
+
+    JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException;
 
 
     //public int generateJobSeekerIdInSequence(String sequenceName);

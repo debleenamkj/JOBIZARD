@@ -1,9 +1,9 @@
-<body>
+<!-- 
+        
+        <body>
 <section id="imgs" class="vh-100" style="background-color: rgba(223, 181, 237, 1);margin-top: -15px;">
        
-                <!-- <br>
-                <br>
-            <h1 style="color: rgb(87, 187, 233);">User Register Type JobSeeker</h1> -->
+                
             <br>
             <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(70, 6, 110);align-items: center;">SELECT USER TYPE</p>
 
@@ -21,8 +21,7 @@
         <div id="card2" style="margin-left:900px;margin-top: 46px;">
                 
                 <button style="margin-top:96px;margin-left: 33px;">
-                        <!-- <a style="color: whitesmoke;text-decoration: none"  routerLink="/recruiterRegister">Recruiter</a>  -->
-                        <a style="color: whitesmoke;text-decoration: none"  routerLink="/organizationRegister">Recruiter</a>           
+                        <a style="color: whitesmoke;text-decoration: none"  routerLink="/Register">Recruiter</a>           
                 </button>
         </div>
   
@@ -31,4 +30,180 @@
 
 
 </section>
-</body>
+</body>  -->
+
+ <!-- 2nd 
+        
+        <div class="card">
+        <div class="picture">
+          <p>IMAGE</p>
+        </div>
+        <div class="name">
+          <p>USER</p>
+        </div>
+        <div class="jobtitle">
+          <p>Register type</p>
+        </div>
+        <div class="buttons">
+          <div class="button1">
+                <button style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));border-radius: 5px;">
+                        <a style="color: whitesmoke;text-decoration: none" routerLink="/jobSeekersRegister">JobSeeker</a>
+                </button> 
+          </div>
+          <div class="button2">
+                <button style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));border-radius: 5px;">
+                        <a style="color: whitesmoke;text-decoration: none"  routerLink="/organizationRegister">Recruiter</a>           
+                </button>
+          </div>
+        </div>
+      </div>
+
+-->
+        
+        
+<!-- Dialog Box -->
+ <mat-dialog-content class="mat-typograpy;">
+
+        <div style="height: 100px;">
+
+        <button [mat-dialog-close]="" cdkFocusInitial style="margin-right: 50px;margin-top:30px;">
+                <a style="color: whitesmoke;text-decoration: none;" routerLink="/jobSeekersRegister">JobSeeker</a>
+        </button> 
+
+        <button [mat-dialog-close]="" cdkFocusInitial style="margin-left: 50px;margin-top: 30px;">
+                <a style="color: whitesmoke;text-decoration: none"  routerLink="/recruiterRegister">Recruiter</a>           
+        </button>
+</div>
+</mat-dialog-content> 
+        
+
+
+<!-- 
+<body  class="vh-100" style="background-color: rgba(223, 181, 237, 1);position:fixed;" >
+
+      <form style="margin-top: 5vw;"  class="mx-1 mx-md-2" [formGroup]="registerForm" (ngSubmit)="jobSeekerRegister()" >
+      
+        <mat-card class="shipping-card" id="mat-card" >
+          
+          <div style="font-family: 'Montserrat', sans-serif;margin-left: 3vw;" >
+     
+        
+          <p style="color:  rgb(110,37,134);margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;font-size: large;">JobSeeker Register Page</p><br>
+      
+               
+          <mat-card-content class="col-12" style="margin-top: 5px;" >
+           
+            <div class="formBorder"></div>
+      
+
+            <div class="row">
+                <div class="col-12">
+                <p style="display:inline-block;width:8%;">User Type :</p> &nbsp;&nbsp;
+                <mat-form-field color="accent" appearance="fill" style="width: 16.5%;margin-left: 15px;" class="full-width"> 
+            <mat-label>User Register Type</mat-label>
+            
+            <mat-select >
+                 
+              <mat-option style="align-content:center;" >
+                   <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/jobSeekersRegister">JobSeeker</a>
+                 </mat-option>
+             
+                 <mat-option>
+                   <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Recruiter</a>
+                 </mat-option>
+               </mat-select>
+
+               </mat-form-field>
+            
+               </div>
+               </div>
+
+
+            <div class="row">
+              <div class="col-12">
+                <p style="display:inline-block;width:8%;"> Email ID : </p> &nbsp;&nbsp;
+                <mat-form-field color="accent" appearance="fill" style="width: 16.5%;margin-left: 15px;" class="full-width">
+                  <mat-label>Email Id</mat-label>
+                  <input  matInput style="display:inline-block;" placeholder="Email ID" formControlName="emailId">
+                  <mat-error *ngIf="registerForm.controls['emailId'].hasError('required')">
+                    Email-ID is <strong>required</strong>
+                  </mat-error>
+      
+                  <mat-error *ngIf="registerForm.controls['emailId'].hasError('pattern')">
+                    Must be email type <strong>required</strong>
+                  </mat-error>
+      
+                </mat-form-field>
+              </div>
+            </div>
+            
+               
+      <div class="row">
+        <div class="col-12" >
+          <p style="width:9%; display: inline-block;">Create Password :</p> &nbsp;&nbsp;
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" formControlName="password" #pass required>
+            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+      
+            <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+     
+            <mat-error *ngIf="registerForm.controls['password'].hasError('pattern') ">
+            Password should have atleast one uppercase , lowercase character and min of length 5  <strong>required</strong>
+            </mat-error>
+      
+      
+        </mat-form-field>
+      </div>
+      </div>
+          
+      <div class="row">
+      <div class="col-12" >
+          <p style="width:9%; display: inline-block;">Confirm Password :</p> &nbsp;&nbsp;
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your confirm password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your confirm password" formControlName="confirm" #confirm required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+      
+                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">
+               Confirm Password is <strong>required</strong>
+                </mat-error>
+      
+                                  <div *ngIf="registerForm.get('confirmPassword')?.errors?.['passmatching']">Passwords must match
+                  </div>
+            </mat-form-field>
+      </div>
+      </div>
+        
+                  
+         </mat-card-content>
+          <mat-card-actions style="margin-top:-25px">
+            <br>
+            <button [disabled]="!registerForm.valid" mat-button style=" background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 2.5px 55px;border-radius: 5px;color: white; font-size: large;height: 40px; width: 380px;margin-left: 13px;" (click)="submit()">REGISTER</button>
+            
+           <br><br>
+      
+      
+            <p style="margin-left: 135px;font-size: 13px;margin-bottom: -40px;">Have an Account ? <a routerLink="/userLogin" href="#"> Login</a></p>
+      <br>
+      
+          </mat-card-actions>
+        </div>
+      
+        <img style="height:350px;margin-top:-340px;margin-left:550px;position: absolute;" src="assets/Register/tech.png" class="img-fluid" alt="Sample image ">
+       
+        </mat-card>
+      
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="height:200px;transform: rotate(180deg);margin-top:-658px;margin-left:606px;border-radius: 10px">
+          <path fill="rgb(110,37,134)" fill-opacity="1" d="M0,64L80,85.3C160,107,320,149,480,186.7C640,224,800,256,960,277.3C1120,299,1280,309,1360,314.7L1440,320L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+        </svg>
+       
+      </form>
+    
+      </body> -->
