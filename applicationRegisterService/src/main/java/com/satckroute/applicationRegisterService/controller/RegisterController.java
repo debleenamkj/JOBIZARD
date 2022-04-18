@@ -21,7 +21,6 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @RequestMapping("api/v1")
-@Slf4j
 public class RegisterController
 {
     private RegisterService registerService;
