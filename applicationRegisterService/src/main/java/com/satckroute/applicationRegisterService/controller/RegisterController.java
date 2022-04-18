@@ -1,5 +1,6 @@
 package com.satckroute.applicationRegisterService.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.satckroute.applicationRegisterService.domain.JobSeeker;
 import com.satckroute.applicationRegisterService.domain.OrganizationDetails;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin
 @Slf4j
@@ -542,10 +544,28 @@ public class RegisterController
         }
     }
 
+
 //---------------------------------------------------------------------------------------------------------------------
 
 
 
+
+
+    @PostMapping("/match/jobSeeker")
+    public List<JobSeeker> getJobseekers(@RequestBody List<String> emailId){
+        return registerService.getJobSeekers(emailId);
+    }
+
+    @GetMapping("/{emailId}")
+    public JobSeeker getJobseeker(@PathVariable String emailId) throws JobSeekerNotFoundException {
+        return registerService.getJobseeker(emailId);
+    }
+
+    @PutMapping("/recruiter/add/{emailId}")
+    public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException {
+        Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
+        return registerService.addDetailsInRecruiter(recruiter1,emailId);
+    }
 
 
 }

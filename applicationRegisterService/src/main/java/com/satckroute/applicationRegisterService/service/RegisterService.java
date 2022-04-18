@@ -53,7 +53,11 @@ public interface RegisterService
 
 
 
-    Recruiter addDetailsInRecruiter(Recruiter recruiter);
+    Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId);
+
+    List<JobSeeker> getJobSeekers(List<String> emailid);
+
+    JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException;
 
 
     //public int generateJobSeekerIdInSequence(String sequenceName);
