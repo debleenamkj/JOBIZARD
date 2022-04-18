@@ -50,7 +50,10 @@ border: none;
 color: white; 
 border-radius: 6px;
 }
-
+.next1{
+  background-image: linear-gradient(to left, rgb(110,37,134),rgb(177,23,132));
+  float: right;
+}
 .warriors{
   position: relative;
   font-family: sans-serif;
@@ -75,6 +78,19 @@ border-radius: 6px;
   }
 }
 
+.title{
+  font-size: 350%; font-weight: bold;
+}
+.heading{
+  width: 70%; 
+}
+.end-button{
+  font-size: large;
+}
+.ques1{
+  font-size: 200%;
+}
+
 .shine{
   margin-top: 1%;
   position: absolute;
@@ -93,6 +109,9 @@ border-radius: 6px;
   text-decoration: none;
   white-space: nowrap;
 }
+.options{
+  font-size: x-large;
+}
 @keyframes shine{
   0%{
     background-position: 0}
@@ -100,4 +119,58 @@ border-radius: 6px;
     background-position: 180px}
   100%{
     background-position: 180px}
+}
+
+
+@media only screen and (max-width: 400px) {
+  .timer1, .blink{
+    padding: 20px 5px;
+    border: solid 11px;
+    border-color: green;
+}
+.title{
+  font-size: 150%; font-weight: bold;
+}
+.heading{
+  width: 40%; 
+}
+.warriors{
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: small;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(177,23,132), rgb(110,37,134), rgb(177,23,132));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 6s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+.end-button{
+  font-size: small;
+}
+.ques1{
+  font-size: 150%;
+}
+.options{
+  font-size: 150%;
+}
+.button{
+  margin-top: 1%;
+  padding: 3px 15px;
+  font-size: small; 
+  border: none; 
+  color: white; 
+  border-radius: 6px;
+  }
+  .next1{
+    background-image: linear-gradient(to left, rgb(110,37,134),rgb(177,23,132));
+    float: right;
+  }
+  .buttons{
+    margin-bottom: 6%;
+  }
+
 }

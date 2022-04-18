@@ -1,10 +1,10 @@
 export class jobPosting{
     companyName:string="";
     companyUrl:string="";
-    companyEmail:string="";
+    // companyEmail:string="";
     industryType:string="";
     // companyLogo:any;
-    jobDetailsList:any;
+    // jobDetailsList:any;
     // jobRole:string="";
     // salary:any="";
     // jobDescription:string="";
@@ -18,7 +18,7 @@ export class jobPosting{
     constructor(){
         this.companyName="";
         this.companyUrl="";
-        this.companyEmail="";
+        // this.companyEmail="";
         this.industryType="";
         // this.companyLogo="";
         // this.jobRole="";

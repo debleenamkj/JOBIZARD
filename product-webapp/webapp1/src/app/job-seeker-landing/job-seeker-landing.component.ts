@@ -50,6 +50,16 @@ export class JobSeekerLandingComponent implements OnInit {
     this.getPosts()
     
   }
+
+  click : boolean = false;
+
+  onButtonClick(){
+    this.click = !this.click;
+  }
+
+
+
+
   comments:any;
   postBlog:any;
   allPost:any[]=[];
@@ -106,7 +116,7 @@ export class JobSeekerLandingComponent implements OnInit {
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(ImagePostDialogComponent, {
-      width: '30%',
+      width: '500px',
       data: {name: 'malathi'},
     });
 
@@ -118,7 +128,7 @@ export class JobSeekerLandingComponent implements OnInit {
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(BlogPostDialogComponent, {
-      width: '30%',
+      width: '500px',
       data: {name: 'malathi'},
     });
 
@@ -128,38 +138,123 @@ export class JobSeekerLandingComponent implements OnInit {
     });
   }
 
+  openProfile(){
+    let div = document.getElementsByClassName("skill") as HTMLCollectionOf<HTMLElement>;
+    div[0].style.display="block"
+    // let div1 = document.getElementsByClassName("profile-box") as HTMLCollectionOf<HTMLElement>;
+    // div[0].style.display="none"
+    console.log(div[0])
+  }
+
   addLike(post:any){
+    let flag = false;
+    let flag1 = false;
     if(post.postImage!=null){
-      const like=post.postImage.like.likeCount+1;
-      for (let index = 0; index < this.allPost[0].length; index++) {
-        if(this.allPost[0][index].postId==post.postId){
-          this.allPost[0][index].postImage.like.likeCount=like;
+      if(post.postImage.like.likeCount!=0){
+        const like=post.postImage.like.likeCount+1;
+        const likedUserEmails = post.postImage.like.likedUserEmails;
+            console.log("likedUserEmail")
+            console.log(likedUserEmails);
+            for (let index = 0; index < likedUserEmails.length; index++) {
+              if(likedUserEmails[index]==this.service1.loginUser){
+                console.log("userr");
+                console.log(likedUserEmails[0]);
+                flag = true;
+              }
+            }
+
+            if(flag==false){
+              for (let index = 0; index < this.allPost[0].length; index++) {
+                if(this.allPost[0][index].postId==post.postId){
+                  this.allPost[0][index].postImage.like.likeCount=like;
+                  likedUserEmails.push(this.service1.loginUser);
+                  this.allPost[0][index].postImage.like.like=likedUserEmails;
+                  this.allPost[0][index]=post;
+                }
+                
+              }
+              this.service1.addLikeInImage(post.postId).subscribe(data => {
+                console.log(data)
+              });
+              let div = document.getElementsByClassName("like"+post.postId) as HTMLCollectionOf<HTMLElement>;
+              console.log(div[0])
+              div[0].ariaDisabled="true"
+              // console.log(div[0].className)
+              // div[0].style.color='#b01782'
+              div[0].style.pointerEvents='none'
+              // this.getPosts();
+            }    
+      }else{
+        console.log("likkkee  00")
+        const like = 1;
+        for (let index = 0; index < this.allPost[0].length; index++) {
+          if(this.allPost[0][index].postId==post.postId){
+            this.allPost[0][index].postImage.like.likeCount=like;
+            this.allPost[0][index].postImage.like.like=this.service1.loginUser;
+          }
+          
         }
-        
-      }
-      this.service1.addLikeInImage(post.postId).subscribe(data => {
-        let div = document.getElementsByClassName('icon'+post.postId) as HTMLCollectionOf<HTMLElement>;
-        console.log(div[0]);
+        this.service1.addLikeInImage(post.postId).subscribe(data => {
+          console.log(data)
+        });
+        let div = document.getElementsByClassName("like"+post.postId) as HTMLCollectionOf<HTMLElement>;
+        console.log(div[0])
+        // console.log(div[0].className)
         div[0].style.color='#b01782'
         div[0].style.pointerEvents='none'
-        console.log(data)
-      });
+
+      }
+     
+     
     }
     else if(post.postBlog!=null){
-      const like=post.postBlog.like.likeCount+1
-      for (let index = 0; index < this.allPost[0].length; index++) {
-        // const element = array[index];
-        if(this.allPost[0][index].postId==post.postId){
-          this.allPost[0][index].postBlog.like.likeCount=like;
+      if(post.postBlog.like.likeCount!=0){
+        const like=post.postBlog.like.likeCount+1;
+        const likedUserEmails = post.postBlog.like.likedUserEmails;
+            console.log(likedUserEmails);
+            for (let index = 0; index < likedUserEmails.length; index++) {
+              if(likedUserEmails[index]==this.service1.loginUser){
+                flag1 = true;
+                console.log("likedUserEmail")
+              }
+            }
+
+            if(flag1==false){
+              for (let index = 0; index < this.allPost[0].length; index++) {
+                if(this.allPost[0][index].postId==post.postId){
+                  this.allPost[0][index].postBlog.like.likeCount=like;
+                  likedUserEmails.push(this.service1.loginUser);
+                  this.allPost[0][index].postImage.like.like=likedUserEmails;
+                }
+                
+              }
+              this.service1.addLikeInBlog(post.postId).subscribe(data => {
+                let div = document.getElementsByClassName(post.postId) as HTMLCollectionOf<HTMLElement>;
+                // console.log(div[0].className)
+                // div[0].style.color='#b01782'
+                div[0].style.pointerEvents='none'
+                console.log(data)
+              });
+            }    
+      }else{
+        const like = 1;
+        console.log("like")
+        for (let index = 0; index < this.allPost[0].length; index++) {
+          if(this.allPost[0][index].postId==post.postId){
+            this.allPost[0][index].postBlog.like.likeCount=1;
+            this.allPost[0][index].postImage.like.like=this.service1.loginUser;
+          }
+          
         }
+        this.service1.addLikeInBlog(post.postId).subscribe(data => {
+          console.log(data)
+          let div = document.getElementsByClassName(post.postId) as HTMLCollectionOf<HTMLElement>;
+          // console.log(div[0].className)
+          // div[0].style.color='#b01782'
+          div[0].style.pointerEvents='none'
+        });
+
       }
-      this.service1.addLikeInBlog(post.postId).subscribe(data => {
-        let div = document.getElementsByClassName('icon'+post.postId) as HTMLCollectionOf<HTMLElement>;
-        console.log(div[0].className)
-        div[0].style.color='#b01782'
-        div[0].style.pointerEvents='none'
-        console.log(data)
-      });
     }
     
   }
