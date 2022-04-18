@@ -13,7 +13,7 @@ import java.util.List;
 
 @Document
 @Data
-public class userCv {
+public class JobSeeker {
     @Transient
     public static final String SEQUENCE_NAME="user_sequence";
     @Id

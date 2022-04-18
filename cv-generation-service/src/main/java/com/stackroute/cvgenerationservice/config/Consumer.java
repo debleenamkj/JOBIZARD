@@ -1,6 +1,6 @@
 package com.stackroute.cvgenerationservice.config;
 
-import com.stackroute.cvgenerationservice.domain.userCv;
+import com.stackroute.cvgenerationservice.domain.JobSeeker;
 import com.stackroute.cvgenerationservice.exception.CvAlreadyExistsException;
 import com.stackroute.cvgenerationservice.exception.CvNotFoundException;
 import com.stackroute.cvgenerationservice.service.cvService;
@@ -16,7 +16,7 @@ public class Consumer {
     private cvService CvService;
 
     @RabbitListener(queues = "cvGeneration_queue")
-    public void getCv(userCv cv, MultipartFile file) throws CvAlreadyExistsException, CvNotFoundException, IOException {
+    public void getCv(JobSeeker cv, MultipartFile file) throws CvAlreadyExistsException, CvNotFoundException, IOException {
         CvService.saveCv(cv,file);
     }
 }
