@@ -3,6 +3,7 @@ package com.satckroute.applicationRegisterService.service;
 import com.satckroute.applicationRegisterService.config.Producer;
 import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
+import com.satckroute.applicationRegisterService.rabbitMQ.JobDetails;
 import com.satckroute.applicationRegisterService.rabbitMQ.UserDTO;
 import com.satckroute.applicationRegisterService.repository.*;
 import lombok.extern.slf4j.Slf4j;
@@ -326,12 +327,17 @@ public class RegisterServiceImpl implements RegisterService
     public Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws RecruiterNotFoundException, IOException
     {
         recruiter.setLogo(file.getBytes());
+        JobDetails jobDetails = new JobDetails();
         if(recruiterRegisterRepository.findById(emailId).isEmpty())
         {
             throw new RecruiterNotFoundException();
         }
         else
         {
+            jobDetails.setEmailId(emailId);
+            jobDetails.setSkillsRequired((ArrayList) recruiter.getSkillsRequired());
+            jobDetails.setEducation(recruiter.getEducationRequired());
+//            ---------- call the producer method
             return recruiterRegisterRepository.save(recruiter);
         }
     }
