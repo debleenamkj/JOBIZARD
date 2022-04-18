@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 // Default Constructor
 public class Address
 {
-    @Id
     private String state;
     private String city;
     private int pinCode;
