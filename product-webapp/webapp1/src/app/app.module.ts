@@ -80,6 +80,7 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+import { AddSkillComponent } from './add-skill/add-skill.component';
 
 
 
@@ -137,7 +138,8 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
     BusinessnewsComponent,
 
     RecruiterlandingComponent,
-    JobSeekerLandingComponent
+    JobSeekerLandingComponent,
+    AddSkillComponent
 
   ],
   imports: [
@@ -189,5 +191,6 @@ import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landi
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents:[UpdateUserDetailsComponent]
 })
 export class AppModule {}
