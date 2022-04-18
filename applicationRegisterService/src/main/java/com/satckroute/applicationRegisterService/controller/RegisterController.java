@@ -553,10 +553,14 @@ public class RegisterController
         return registerService.getJobSeekers(emailId);
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
     @GetMapping("/{emailId}")
     public JobSeeker getJobseeker(@PathVariable String emailId) throws JobSeekerNotFoundException {
         return registerService.getJobseeker(emailId);
     }
+
+//---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter/add/{emailId}")
     public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException
@@ -565,5 +569,6 @@ public class RegisterController
         return registerService.addDetailsInRecruiter(recruiter1,emailId);
     }
 
+//---------------------------------------------------------------------------------------------------------------------
 
 }
