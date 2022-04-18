@@ -52,5 +52,9 @@ public interface RegisterService
     List<Skill> getSkillSet(String emailId) throws JobSeekerNotFoundException;
 
 
+
+    Recruiter addDetailsInRecruiter(Recruiter recruiter);
+
+
     //public int generateJobSeekerIdInSequence(String sequenceName);
 }

@@ -1,17 +1,31 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
+
 import { ReviewService } from '../service/review/review.service';
 
-export interface Review {
+export class Review {
   reviewId?:number;
-  user?:User;
   prosMessage?:string;
   consMessage?:string;
   reviewDate?:Date;
   companyRatings?:Ratings;
   companyName?:string;
   companyLogo?:any;
+  user?:User;
+  constructor(reviewId?:number,user?:User,prosMessage?:string,consMessage?:string,
+    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any){
+      this.reviewDate=reviewDate;
+      this.reviewId=reviewId;
+      this.prosMessage=prosMessage;
+      this.consMessage=consMessage;
+      this.user=user;
+      this.companyRatings=companyRatings;
+      this.companyName = companyName;
+      this.companyLogo=companyLogo;
+    }
 };
 enum Ratings{
         POOR = 0,
@@ -45,21 +59,25 @@ export class ReviewFormComponent implements OnInit {
     green:'invert(76%) sepia(93%) saturate(522%) hue-rotate(26deg) brightness(97%) contrast(117%)',
     golden:'invert(72%) sepia(95%) saturate(622%) hue-rotate(359deg) brightness(102%) contrast(106%)'
   }
-  constructor(private formBuilder:FormBuilder, private http:HttpClient,public reviewService:ReviewService) { }
+  constructor(private formBuilder:FormBuilder, private http:HttpClient,private alert:MatSnackBar  ,public reviewService:ReviewService) { }
 
   ngOnInit(): void {
   }
 
   reviewForm:FormGroup = this.formBuilder.group({
-    anonymousUser: 'true',
-    email: '',
-    name: '',
-    currentlyWorking: 'false',
-    jobRole: '',
-    yearsOfExperience: '',
     prosMessage: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
     consMessage: ['',[Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-    companyRatings: ['', Validators.required]
+    companyRatings: ['', [Validators.required]],
+    user:this.formBuilder.group({
+      anonymousUser: ['false', Validators.required],
+      email: [{value: 'a@gmail.com',disabled: true}],
+      name: [{value: 'Akash Suneja',disabled:true}],
+      workDetails: this.formBuilder.group({
+        currentlyWorking: ['false', [Validators.required]],
+        jobRole: [''],
+        yearsOfExperience: ['']
+      })
+    })
   })
   formRadio:string='';
 
@@ -111,16 +129,27 @@ export class ReviewFormComponent implements OnInit {
     let review:Review;
     review = this.reviewForm.value;
     review.reviewDate = new Date();
-    
-    this.postReview(review, this.reviewService.selectedCompany.companyName)
-          .subscribe({
-            next: response=>{
-              console.log(response);
-            },
-            error: errorResponse=>{
-              console.log(errorResponse);
-            }
-          })
+    let horizontalPosition:MatSnackBarHorizontalPosition='center';
+    let verticalPosition:MatSnackBarVerticalPosition='top'; 
+    console.log(review)
+    // this.postReview(review, this.reviewService.selectedCompany.companyName)
+    //       .subscribe({
+    //         next: response=>{
+    //           console.log(response);
+    //           this.alert.open('Successfully submitted!!!','close',{
+    //             horizontalPosition: horizontalPosition,
+    //             verticalPosition: verticalPosition,
+    //             duration:5000
+    //           })
+    //         },
+    //         error: errorResponse=>{
+    //           this.alert.open(errorResponse.message ,'close',{
+    //             horizontalPosition: horizontalPosition,
+    //             verticalPosition: verticalPosition,
+    //             duration:5000
+    //           })
+    //         }
+    //       })
   }
   validateRatings(){
     if(this.reviewForm.controls['companyRatings'].hasError('required'))

@@ -18,9 +18,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @CrossOrigin
+@Slf4j
 @RestController
 @RequestMapping("api/v1")
-@Slf4j
 public class RegisterController
 {
     private RegisterService registerService;
@@ -363,7 +363,7 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter1/{emailId}")
-    public ResponseEntity<?> updateRecruiterDetail(@RequestParam("recruiter1") String recruiter, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
+    public ResponseEntity<?> updateRecruiterDetail(@PathVariable String emailId ,@RequestParam("recruiter1") String recruiter, @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
     {
         try
         {

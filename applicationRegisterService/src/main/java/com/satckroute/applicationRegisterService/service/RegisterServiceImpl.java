@@ -8,18 +8,11 @@ import com.satckroute.applicationRegisterService.repository.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
-
-import static org.springframework.data.mongodb.core.FindAndModifyOptions.options;
 
 @Service
 @Slf4j
@@ -161,7 +154,8 @@ public class RegisterServiceImpl implements RegisterService
 //        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword());
 
         //role
-        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());;
+        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.role.toString());
+//        UserDTO userDTO = new UserDTO(jobSeeker.getEmailId(),jobSeeker.getPassword(),jobSeeker.getRole().toString());
         if (jobSeekerRegisterRepository.findById(jobSeeker.getEmailId()).isPresent())
         {
             throw new JobSeekerAlreadyExistException();
@@ -330,7 +324,7 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public Recruiter updateRecruiterDetail(Recruiter recruiter, String emailId, MultipartFile file) throws RecruiterNotFoundException, IOException
     {
-        recruiter.setRecruiterImage(file.getBytes());
+        recruiter.setLogo(file.getBytes());
         if(recruiterRegisterRepository.findById(emailId).isEmpty())
         {
             throw new RecruiterNotFoundException();
@@ -448,6 +442,18 @@ public class RegisterServiceImpl implements RegisterService
             throw new JobSeekerNotFoundException();
         }
         return List.of(jobSeekerRegisterRepository.findById(emailId).get().getAdditionalDetails().getSkillSet());
+    }
+
+
+    @Override
+    public Recruiter addDetailsInRecruiter(Recruiter recruiter){
+        Recruiter recruiter1 = recruiterRegisterRepository.findById(recruiter.getEmailId()).get();
+                if(recruiter1!=null){
+                    recruiter1.setEducationRequired(recruiter.getEducationRequired());
+                    recruiter1.setSkillsRequired(recruiter.getSkillsRequired());
+                    recruiterRegisterRepository.save(recruiter1);
+                }
+                return recruiter1;
     }
 }
 
