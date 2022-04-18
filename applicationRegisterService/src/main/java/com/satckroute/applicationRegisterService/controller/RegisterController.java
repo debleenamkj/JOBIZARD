@@ -249,25 +249,25 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @GetMapping("/recruiter/getUserByFirstName/{firstName}")
-    public ResponseEntity<?> getAllRecruiterByFirstName(@PathVariable String firstName) throws RecruiterNotFoundException
-    {
-        try
-        {
-            log.debug("RegisterController - getAllRecruiterByFirstName");
-            return new ResponseEntity<>(registerService.getAllRecruiterByFirstName(firstName), HttpStatus.OK);
-        }
-        catch (RecruiterNotFoundException recruiterNotFoundException)
-        {
-            log.error("RegisterController - getAllRecruiterByFirstName"+recruiterNotFoundException);
-            throw new RecruiterNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - getAllRecruiterByFirstName"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/recruiter/getUserByFirstName/{firstName}")
+//    public ResponseEntity<?> getAllRecruiterByFirstName(@PathVariable String firstName) throws RecruiterNotFoundException
+//    {
+//        try
+//        {
+//            log.debug("RegisterController - getAllRecruiterByFirstName");
+//            return new ResponseEntity<>(registerService.getAllRecruiterByFirstName(firstName), HttpStatus.OK);
+//        }
+//        catch (RecruiterNotFoundException recruiterNotFoundException)
+//        {
+//            log.error("RegisterController - getAllRecruiterByFirstName"+recruiterNotFoundException);
+//            throw new RecruiterNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - getAllRecruiterByFirstName"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -541,4 +541,11 @@ public class RegisterController
             return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 }

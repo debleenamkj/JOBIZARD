@@ -37,4 +37,12 @@ public class Producer
     }
 //---------------------------------------------------------------------------------------------------------------------
 
+//    public void sendSDMessage(JobSeekerDTO jobSeekerDTO)
+//    {
+//        //covert the (exchange,routing key,object)
+//        rabbitTemplate.convertAndSend(exchange.getName(),"jobSeeker_routing",jobSeekerDTO);
+//    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
 }

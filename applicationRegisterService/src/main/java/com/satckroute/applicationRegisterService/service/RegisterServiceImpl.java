@@ -245,18 +245,18 @@ public class RegisterServiceImpl implements RegisterService
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @Override
-    public List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException
-    {
-        if(recruiterRegisterRepository.findAllRecruiterByFirstName(firstName).isEmpty())
-        {
-            throw new RecruiterNotFoundException();
-        }
-        else
-        {
-            return recruiterRegisterRepository.findAllRecruiterByFirstName(firstName);
-        }
-    }
+//    @Override
+//    public List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException
+//    {
+//        if(recruiterRegisterRepository.findAllRecruiterByFirstName(firstName).isEmpty())
+//        {
+//            throw new RecruiterNotFoundException();
+//        }
+//        else
+//        {
+//            return recruiterRegisterRepository.findAllRecruiterByFirstName(firstName);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -446,14 +446,16 @@ public class RegisterServiceImpl implements RegisterService
 
 
     @Override
-    public Recruiter addDetailsInRecruiter(Recruiter recruiter){
+    public Recruiter addDetailsInRecruiter(Recruiter recruiter)
+    {
         Recruiter recruiter1 = recruiterRegisterRepository.findById(recruiter.getEmailId()).get();
-                if(recruiter1!=null){
-                    recruiter1.setEducationRequired(recruiter.getEducationRequired());
-                    recruiter1.setSkillsRequired(recruiter.getSkillsRequired());
-                    recruiterRegisterRepository.save(recruiter1);
-                }
-                return recruiter1;
+        if(recruiter1!=null)
+        {
+            recruiter1.setEducationRequired(recruiter.getEducationRequired());
+            recruiter1.setSkillsRequired(recruiter.getSkillsRequired());
+            recruiterRegisterRepository.save(recruiter1);
+        }
+        return recruiter1;
     }
 }
 

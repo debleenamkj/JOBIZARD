@@ -17,6 +17,7 @@ public class MessageConfiguration
     private String exchangeName="user_exchange";
     private String firstRegisterQueue="user_queue"; //wait unTill service not available
     private String jobSeekerRegisterQueue="jobSeeker_queue";
+//    private String  sdQueue="sd_Queue";
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -44,6 +45,13 @@ public class MessageConfiguration
     }
 
 //---------------------------------------------------------------------------------------------------------------------
+//
+//    @Bean
+//    public Queue sdQueue()
+//    {
+//        return new Queue(sdQueue,true);//it takes two parameter string and boolean durable
+//    }
+////---------------------------------------------------------------------------------------------------------------------
 
     //to convert the object data to binary format so that RabbitMQ will accept it, so we are using the library Jackson2JsonMessageConvertor
     @Bean
@@ -86,6 +94,18 @@ public class MessageConfiguration
         //binding Queue with exchange
         return BindingBuilder.bind(jobSeekerRegisterQueue()).to(exchange).with("jobSeeker_routing");
     }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+//    //create a Binding Bean
+//    @Bean
+//    public Binding bindingSDDetails(Queue sdQueue, DirectExchange exchange)
+//    {
+//        //binding builder from amqp.core
+//        //with() is for defining routing key whereas the user_routing is the routing key and during consuming we need to use this routing key
+//        //binding Queue with exchange
+//        return BindingBuilder.bind(sdQueue()).to(exchange).with("sd_routing");
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
