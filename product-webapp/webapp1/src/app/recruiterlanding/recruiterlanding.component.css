@@ -13,8 +13,12 @@
 }
 
 .profile-image {
-    height: 50px;
-    width: 50px;
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    margin: auto;
+    
+
 }
 
 .upb{
@@ -23,7 +27,8 @@
     border-radius: 18px;
     background-image: linear-gradient(to right, #6E2586, #B11784);
     color: white;
-    margin-left: 80px;
+    margin-left: 70px;
+    font-size: large;
 }
 
 .example-card {

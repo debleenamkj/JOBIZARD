@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ChatroomComponent } from '../chatroom/chatroom.component';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
 import { RecruiterlandingService } from './recruiterlanding.service';
@@ -23,11 +24,13 @@ export class RecruiterlandingComponent implements OnInit {
   jobSeekerSlice: Array<JobSeekerLanding>=[];
   images:any[]=[];
 
-  constructor(private recruiterLanding: RecruiterlandingService) { }
+  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomComponent) { }
 
   ngOnInit(): void {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
       this.recruiterLandingData=d;
+      console.log(this.recruiterLandingData.logo)
+      // this.getLogo(this.recruiterLandingData)
     });
 
     this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
@@ -47,6 +50,10 @@ export class RecruiterlandingComponent implements OnInit {
     jobSeeker.forEach(d => {
       d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
     });
+  }
+
+  onChat(reciever: any){
+    this.chat.selectedReceiver
   }
 
 

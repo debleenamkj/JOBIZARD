@@ -38,6 +38,11 @@ export class ReviewComponent implements OnInit {
   reviewHome:Review[]=[];
   reviewHomeSlice:any;
   starDisplay:number[]=[];
+  searchExists:boolean=false;
+  searchedCompany:CompanyDetails;
+  searchedReviews:Review[]=[];
+  searchedReviewsSlice:Review[]=[];
+  
 
   private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
   private getCompanyByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_company";
@@ -52,12 +57,18 @@ export class ReviewComponent implements OnInit {
     let start = event.pageSize*event.pageIndex;
     let a = start;
     let b = event.pageSize;
-    if(this.reviewService.selectedCompany){
+    
+    if(this.searchExists){
+      if(this.reviewService.selectedCompany){
         a--;
       if(start>0)
         b--;
+      }
+      this.searchedReviewsSlice=this.searchedReviews.slice(a,a+b);
     }
-    this.reviewHomeSlice = this.reviewHome.slice(a,a+b)
+    else
+      this.reviewHomeSlice = this.reviewHome.slice(a,a+b);
+
     
   }
   openReviewForm(selectedCompany:CompanyDetails): void {
@@ -74,30 +85,45 @@ export class ReviewComponent implements OnInit {
     let horizontalPosition:MatSnackBarHorizontalPosition='center';
     this.getCompanyByCompanyName(this.companyForm.get('companyGroup')?.value)
     .subscribe({next: response=>{
-      console.log(response);
+console.log(response);
+      this.searchedCompany = response;
+      this.searchedCompany.retrievedImage = 'data:image/jpeg;base64,'+this.searchedCompany.companyLogo;
+
+
+      this.getReviewsByCompanyName(this.companyForm.get('companyGroup')?.value)
+      .subscribe({ next: response =>{
+        this.searchedReviews = response;
+        this.searchedReviews.forEach((review)=>{
+          review.companyLogo = this.searchedCompany.retrievedImage;
+          review.companyName = this.searchedCompany.companyName;
+        })
+
+        this.searchedReviewsSlice=this.searchedReviews.slice(0,12);
+  console.log(this.searchedReviews);
+        this.searchExists=true;
+      }, 
+      error: errorResponse=>{
+        let message:string;
+        this.searchExists=false;
+        if(errorResponse.error.status==404){
+         message = errorResponse.error.message;
+        }
+        else{
+          message = 'Server Error';
+        }
+        this.alert.open(message,'close',{
+          verticalPosition: verticalPosition,
+          horizontalPosition: horizontalPosition,
+          duration: 5000
+        })
+      }
+    })
+
+
     },error: errorResponse=>{
 
     }})
-    this.getReviewsByCompanyName(this.companyForm.get('companyGroup')?.value)
-    .subscribe({ next: response =>{
-      let a:Review[] = response;
-console.log(a)
-    }, 
-    error: errorResponse=>{
-      let message:string;
-      if(errorResponse.error.status==404){
-       message = errorResponse.error.message;
-      }
-      else{
-        message = 'Server Error';
-      }
-      this.alert.open(message,'close',{
-        verticalPosition: verticalPosition,
-        horizontalPosition: horizontalPosition,
-        duration: 5000
-      })
-    }
-  })
+    
   }
   retrieveLogos(companies: CompanyDetails[]) {
     companies.forEach(company => {
@@ -257,11 +283,9 @@ enum Ratings{
         EXCELLENT = 5
 };
 type User = {
-  userId?:number;
-  email?:number;
-  firstName?:string;
-  middleName?:string;
-  lastName?:string;
+  anonymousUser?:boolean;
+  email?:string;
+  name?:string;
   workDetails?:WorkDetails;
 }
 type WorkDetails = {

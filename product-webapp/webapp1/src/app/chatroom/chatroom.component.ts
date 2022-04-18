@@ -86,20 +86,17 @@ export class ChatroomComponent implements OnInit {
   // recipientId = "R124"
   // senderName = "ABCD";
   // recipientName = "IJKL";
-  // r = 'S123';
 
 
   // senderId = "S123"
   // recipientId = "R123"
   // senderName = "ABCD";
   // recipientName = "EFGH";
-  // r = 'S123';
 
-  senderId = "R124"
+  senderId = "R124";
   recipientId = "S123"
   senderName = "IJKL";
   recipientName = "ABCD";
-  r = 'R124';
 
   sendMessage(){
 
@@ -130,6 +127,20 @@ export class ChatroomComponent implements OnInit {
       this.getChats.reverse();
       this.recipientName = receiver.recipientName;
       this.receiverInitials = receiver.recipientName.charAt(0);
+    })
+    
+  }
+
+  chatMethod(senderId:string,senderName:string,receiverId:string,receiverName:string){
+    this.sendChats.senderId = senderId;    
+    this.sendChats.senderName = senderName;
+    this.sendChats.recipientId = receiverId;
+    this.sendChats.recipientName = receiverName;
+    this.chatService.getMessages(senderId,receiverId).subscribe((data)=>{
+      this.getChats = data;
+      this.getChats.reverse();
+      this.recipientName = receiverName;
+      this.receiverInitials = receiverName.charAt(0);
     })
     
   }

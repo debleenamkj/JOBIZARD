@@ -1,9 +1,12 @@
-import { OrganizationDetails } from "./organizationDetails"
+import { Byte } from "@angular/compiler/src/util";
+
 
 export class RecruiterLandingData
 {
     
     firstName!: string
-   
-    organizationDetails!:OrganizationDetails
+    companyName!: string
+    logo!: Byte[]
+    logoImage!: any
+
 }

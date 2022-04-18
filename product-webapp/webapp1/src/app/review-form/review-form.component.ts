@@ -132,24 +132,24 @@ export class ReviewFormComponent implements OnInit {
     let horizontalPosition:MatSnackBarHorizontalPosition='center';
     let verticalPosition:MatSnackBarVerticalPosition='top'; 
     console.log(review)
-    // this.postReview(review, this.reviewService.selectedCompany.companyName)
-    //       .subscribe({
-    //         next: response=>{
-    //           console.log(response);
-    //           this.alert.open('Successfully submitted!!!','close',{
-    //             horizontalPosition: horizontalPosition,
-    //             verticalPosition: verticalPosition,
-    //             duration:5000
-    //           })
-    //         },
-    //         error: errorResponse=>{
-    //           this.alert.open(errorResponse.message ,'close',{
-    //             horizontalPosition: horizontalPosition,
-    //             verticalPosition: verticalPosition,
-    //             duration:5000
-    //           })
-    //         }
-    //       })
+    this.postReview(review, this.reviewService.selectedCompany.companyName)
+          .subscribe({
+            next: response=>{
+              console.log(response);
+              this.alert.open('Successfully submitted!!!','close',{
+                horizontalPosition: horizontalPosition,
+                verticalPosition: verticalPosition,
+                duration:5000
+              })
+            },
+            error: errorResponse=>{
+              this.alert.open(errorResponse.message ,'close',{
+                horizontalPosition: horizontalPosition,
+                verticalPosition: verticalPosition,
+                duration:5000
+              })
+            }
+          })
   }
   validateRatings(){
     if(this.reviewForm.controls['companyRatings'].hasError('required'))
