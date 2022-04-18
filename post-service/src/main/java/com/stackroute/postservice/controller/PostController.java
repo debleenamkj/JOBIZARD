@@ -27,9 +27,9 @@ public class PostController {
     }
 
     @PostMapping("/saveUser")
-    public ResponseEntity<?> saveUser(@RequestParam("file1") MultipartFile file, @RequestParam("user") String user) throws JsonProcessingException, UserAlreadyExistsException {
+    public ResponseEntity<?> saveUser( @RequestParam("user") String user) throws JsonProcessingException, UserAlreadyExistsException {
         User user1 = new ObjectMapper().readValue(user,User.class);
-        return new ResponseEntity<>(postService.saveUser(file,user1), HttpStatus.CREATED);
+        return new ResponseEntity<>(postService.saveUser(user1), HttpStatus.CREATED);
     }
 
     @PostMapping("/image/{userEmailId}")

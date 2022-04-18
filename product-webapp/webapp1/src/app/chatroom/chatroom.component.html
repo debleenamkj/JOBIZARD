@@ -25,7 +25,7 @@
                                     </div>
                                 </mat-card>
 
-                                <mat-card *ngIf="chat.recipientId==r " class="receiver"> 
+                                <mat-card *ngIf="chat.recipientId==senderId " class="receiver"> 
                                     <span style="color: white; margin-left: 3%; font-size: 2.5vh;">{{chat.message}}</span>
                                     <span style="color: rgba(255, 255, 255, 0.499); margin-left: 2%; float: right; font-size: 1.5vh;">{{chat.timestamp | date:'hh:mm a':'+0530'}}</span>
                                 </mat-card>

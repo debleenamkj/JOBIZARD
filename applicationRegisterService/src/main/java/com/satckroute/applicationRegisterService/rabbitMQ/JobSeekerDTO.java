@@ -2,20 +2,13 @@ package com.satckroute.applicationRegisterService.rabbitMQ;
 
 import com.satckroute.applicationRegisterService.domain.Address;
 import com.satckroute.applicationRegisterService.domain.Details;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.satckroute.applicationRegisterService.domain.Role;
+;
 
 import javax.persistence.Lob;
 import java.util.Date;
 import java.util.List;
 
-@Data
-// getter & setter / toString()
-@AllArgsConstructor
-// parameterised Constructor
-@NoArgsConstructor
-// Default Constructor
 public class JobSeekerDTO
 {
     private String emailId;
@@ -24,14 +17,13 @@ public class JobSeekerDTO
 
     private String gender;
     private Date dateOfBirth;
-    private long mobileNumber;
+    private String mobileNumber;
     private String password;
 
-//    private String role;
-//    private Role Role.JOBSEEKER;
+    public Role role;
 
     private Address address;
-    private List educationDetails; //list
+    private List educationDetails;
     private String[] languagesKnown;
     private Details additionalDetails;
 
