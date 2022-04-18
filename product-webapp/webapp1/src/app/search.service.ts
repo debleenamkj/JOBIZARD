@@ -22,6 +22,10 @@ export class SearchService {
   sendEmail(data1:any):Observable<any>{
     return this.http.post(`${this.url1}`,data1);
   }
+
+  getJobSeeker(emailId:string){
+    return this.http.get("http://localhost:8098/api/v1/"+emailId);
+  }
 }
 
   
