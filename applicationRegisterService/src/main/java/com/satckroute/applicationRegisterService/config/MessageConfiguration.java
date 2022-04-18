@@ -18,6 +18,7 @@ public class MessageConfiguration
     private String firstRegisterQueue="user_queue"; //wait unTill service not available
     private String jobSeekerRegisterQueue="jobSeeker_queue";
     private String  recruiterRegisterQueue="recruiter_queue";
+    private String postingQueue = "post_Queue";
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -52,6 +53,13 @@ public class MessageConfiguration
         return new Queue(recruiterRegisterQueue,true);//it takes two parameter string and boolean durable
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
+    @Bean
+    public Queue postingQueue()
+    {
+        return new Queue(postingQueue,true);//it takes two parameter string and boolean durable
+    }
 ////---------------------------------------------------------------------------------------------------------------------
 
     //to convert the object data to binary format so that RabbitMQ will accept it, so we are using the library Jackson2JsonMessageConvertor
@@ -98,7 +106,7 @@ public class MessageConfiguration
 
 //---------------------------------------------------------------------------------------------------------------------
 
-//    //create a Binding Bean
+    //create a Binding Bean
     @Bean
     public Binding bindingSDDetails(Queue recruiterRegisterQueue, DirectExchange exchange)
     {
@@ -106,6 +114,18 @@ public class MessageConfiguration
         //with() is for defining routing key whereas the user_routing is the routing key and during consuming we need to use this routing key
         //binding Queue with exchange
         return BindingBuilder.bind(recruiterRegisterQueue()).to(exchange).with("recruiter_routing");
+    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
+    //create a Binding Bean
+    @Bean
+    public Binding bindingPostingDetails(Queue recruiterRegisterQueue, DirectExchange exchange)
+    {
+        //binding builder from amqp.core
+        //with() is for defining routing key whereas the user_routing is the routing key and during consuming we need to use this routing key
+        //binding Queue with exchange
+        return BindingBuilder.bind(recruiterRegisterQueue()).to(exchange).with("post_routing");
     }
 
 //---------------------------------------------------------------------------------------------------------------------

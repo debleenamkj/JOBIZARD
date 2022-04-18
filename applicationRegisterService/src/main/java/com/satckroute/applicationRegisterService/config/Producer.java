@@ -47,4 +47,12 @@ public class Producer
 
 //---------------------------------------------------------------------------------------------------------------------
 
+//    public void posting(JobDetails jobDetails)
+//    {
+//        //covert the (exchange,routing key,object)
+//        rabbitTemplate.convertAndSend(exchange.getName(),"post_routing",jobDetails);
+//    }
+
+//---------------------------------------------------------------------------------------------------------------------
+
 }
