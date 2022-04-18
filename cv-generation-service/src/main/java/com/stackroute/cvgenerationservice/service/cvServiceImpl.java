@@ -91,4 +91,12 @@ public class cvServiceImpl implements cvService{
         userCv cv=Repository.findById(cvId).get();
         return cv;
     }
+
+    @Override
+    public userCv findByEmail(String email) throws CvNotFoundException {
+        userCv cv = Repository.findByEmail(email);
+        return cv;
+    }
+
+
 }

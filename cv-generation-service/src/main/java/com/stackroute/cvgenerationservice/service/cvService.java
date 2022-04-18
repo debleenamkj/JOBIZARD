@@ -13,4 +13,5 @@ public interface cvService {
     public void deleteCv(int cvId) throws CvNotFoundException;
     userCv updateCv(int cvId,userCv cv,MultipartFile file) throws CvNotFoundException, IOException;
     userCv findCvByCvId(int cvId) throws CvNotFoundException;
+    userCv findByEmail(String email) throws CvNotFoundException;
 }

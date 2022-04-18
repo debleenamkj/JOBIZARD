@@ -30,5 +30,7 @@ public class userCv {
     private String[] skills;
     private String[] languages;
     private byte[] picture;
+
+
 }
 

@@ -82,5 +82,15 @@ public class controller
         }
         return responseEntity;
     }
+    @GetMapping("/cvByEmail/{email}")
+    public ResponseEntity<?> cvByEmailid(@PathVariable String email) throws CvNotFoundException {
+
+        userCv cv=service.findByEmail(email);
+
+        if(cv!=null)
+            return new ResponseEntity<userCv>(cv,HttpStatus.OK);
+
+        return new ResponseEntity<String>("NotFound",HttpStatus.CONFLICT);
+    }
 
 }
