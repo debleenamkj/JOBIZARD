@@ -447,7 +447,9 @@ public class RegisterServiceImpl implements RegisterService
 
 
     @Override
-    public Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId){
+    public Recruiter addDetailsInRecruiter(Recruiter recruiter,String emailId)
+    {
+
         Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
                 if(recruiter1!=null){
                     recruiter1.setEducationRequired(recruiter.getEducationRequired());

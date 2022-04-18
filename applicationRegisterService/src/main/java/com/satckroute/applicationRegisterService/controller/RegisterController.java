@@ -548,9 +548,6 @@ public class RegisterController
 //---------------------------------------------------------------------------------------------------------------------
 
 
-
-
-
     @PostMapping("/match/jobSeeker")
     public List<JobSeeker> getJobseekers(@RequestBody List<String> emailId){
         return registerService.getJobSeekers(emailId);
@@ -562,7 +559,8 @@ public class RegisterController
     }
 
     @PutMapping("/recruiter/add/{emailId}")
-    public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException {
+    public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException
+    {
         Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
         return registerService.addDetailsInRecruiter(recruiter1,emailId);
     }
