@@ -16,7 +16,7 @@ public class Consumer {
     private RecommendationService recommendationService;
     private int id;
 
-    @RabbitListener(queues = "seeker_queue")
+    @RabbitListener(queues = "jobSeeker_queue")
     public void getUser(Seeker seeker) throws UserAlreadyExistsException {
         recommendationService.saveUser(seeker);
     }
