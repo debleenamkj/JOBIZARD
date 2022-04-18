@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
             word=word+'\\ '
             newString=newString+word
           })
-          image= '../../assets/learning-portal/'+newString.substring( 0,newString.length-2);
+          image= '../../assets/home-page/'+newString.substring( 0,newString.length-2);
           this.backgroundImages.push(image);
           console.log(image);
           console.log(this.backgroundImages);
@@ -32,9 +32,8 @@ export class HomepageComponent implements OnInit {
    
   }
 
-  images:string[]=["Banking And Finance.jpg","Fin Tech.jpg","Math & Logic.jpg"];
+  images:string[]=["18.jpg","19.jpg","14.png","15.jpg"];
   backgroundImages:string[]=[];
   // location:string="../../assets/learning-portal/"
-  card:any[]=["1","2","3"]
-
+  card:any[]=["../../assets/home-page/12.webp","2","3"]
 }
