@@ -36,12 +36,13 @@ export class SearchPortalComponent implements OnInit {
   }
   getEmailList() {
     let value={
-      "jobId":123455,
-      "skillsRequired":["angular"],
-      "jobRole":"developer"
+      "emailId":"s4@gmail.com",
+      "skillsRequired":["angular,java"],
+      "education":"b.tech"
     
       
     }
+    
 
     this.service.getEmail(value).subscribe(data=>{console.log(data)})
     console.log("--" +JSON.stringify(this.emailList)); 
