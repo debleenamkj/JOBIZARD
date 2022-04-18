@@ -33,7 +33,7 @@ export class NavBarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
     private loginService : RegisterServiceService) {
-      this.getUsername()
+      // this.getUsername()
     }
 
 
@@ -54,13 +54,13 @@ export class NavBarComponent {
     })
   }
 
-  getUsername(){
-    this.emailId=localStorage.getItem('loginId');
-    console.log(this.emailId)
-    // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
-    this.name = this.emailId.split('@',2)[0];
-    console.log(this.name);
-  }
+  // getUsername(){
+  //   this.emailId=localStorage.getItem('loginId');
+  //   console.log(this.emailId)
+  //   // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
+  //   this.name = this.emailId.split('@',2)[0];
+  //   console.log(this.name);
+  // }
 
 
 }
