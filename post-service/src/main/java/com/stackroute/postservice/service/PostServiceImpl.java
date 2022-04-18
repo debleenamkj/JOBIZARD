@@ -32,24 +32,39 @@ public class PostServiceImpl implements PostService{
     }
 
 
-
-
     @Override
-    public User saveUser(MultipartFile file, User user) throws UserAlreadyExistsException {
+    public User saveUser( User user) throws UserAlreadyExistsException {
         try {
             if (userRepository.findById(user.getUserEmailId()).isPresent()) {
                 throw new UserAlreadyExistsException();
             }
-            byte[] userImage = compressBytes(file.getBytes());
-            user.setUserImage(userImage);
+//            byte[] userImage = compressBytes(file.getBytes());
+//            user.setUserImage(userImage);
         }
         catch (UserAlreadyExistsException e){
             System.out.println(e.toString());
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return userRepository.save(user);
     }
+
+//    @Override
+//    public User saveUser(MultipartFile file, User user) throws UserAlreadyExistsException {
+//        try {
+//            if (userRepository.findById(user.getUserEmailId()).isPresent()) {
+//                throw new UserAlreadyExistsException();
+//            }
+//            byte[] userImage = compressBytes(file.getBytes());
+//            user.setUserImage(userImage);
+//        }
+//        catch (UserAlreadyExistsException e){
+//            System.out.println(e.toString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return userRepository.save(user);
+//    }
     @Override
     public Post saveImagePost(MultipartFile post, PostImage postImage,String userEmailId) throws UserNotFoundException {
         byte[] postImg = new byte[0];

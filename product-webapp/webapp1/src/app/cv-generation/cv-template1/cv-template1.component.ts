@@ -18,6 +18,11 @@ export class CvTemplate1Component implements OnInit {
     this.response=response;
     console.log(response);
    });
+   this.cvT.getByEmail()
+   .subscribe((response:any)=>{
+     this.response=response;
+     console.log(response);
+   });
   }
 
   ngOnInit(): void {
@@ -40,5 +45,7 @@ export class CvTemplate1Component implements OnInit {
       pdf.save('new-file.pdf'); // Generated PDF
       });
       }
+
+      
     
 }
