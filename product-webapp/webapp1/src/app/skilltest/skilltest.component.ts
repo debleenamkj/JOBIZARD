@@ -141,7 +141,7 @@ changeColor(qno:number){
   counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 3, sec: "00" } // choose whatever you want
+    this.counter = { min: 1, sec: "00" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;

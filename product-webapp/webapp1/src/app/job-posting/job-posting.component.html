@@ -12,7 +12,7 @@
           <p  style="width:30%; display: inline-block; ">Company Name :</p>
           <mat-form-field color="accent" appearance="fill" style="width: 60%;">
             <mat-label>Company Name</mat-label>
-          <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required (change)="preview(); getCompany()">
+          <input matInput placeholder="Company name" style="padding: 0 20px; width: 100%;  margin-left: 20px; display: inline-block;" formControlName="companyName" required (change)="preview();">
         </mat-form-field>
       </div>
       <div class="companyForm">
@@ -76,13 +76,13 @@
                 <input matInput placeholder="Eduaction" style="margin-left: 20px; display: inline-block;" formControlName="education" required (change)="preview()">
               </mat-form-field><br>
               </div>
-              <div>
+              <!-- <div>
                 <p style="width:30%; display: inline-block; ">Experience Required :</p>
               <mat-form-field color="accent" appearance="fill" style="width: 60%;">
                 <mat-label>Experience</mat-label>
                 <input matInput placeholder="Experience Required" style="margin-left: 20px; display: inline-block;" formControlName="experience" required (change)="preview()">
               </mat-form-field>
-              </div>
+              </div> -->
               <div>
                 <p style="width:30%; display: inline-block;  margin-top: 4%;">Skills Required :</p>
               <mat-form-field color="accent" class="example-chip-list" appearance="fill" style="width:60%">
@@ -103,9 +103,9 @@
                 </mat-chip-list>
               </mat-form-field>
              </div>
-
+<!-- [disabled]="!requirementsForm.valid" -->
               </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" [disabled]="!requirementsForm.valid">Next</button> 
+              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" >Next</button> 
               <button mat-button matStepperPrevious style="font-size: large; margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
               <br>
           </form><br><br>

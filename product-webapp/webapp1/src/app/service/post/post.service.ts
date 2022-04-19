@@ -37,4 +37,8 @@ export class PostService {
   addReviewInBlog(postId:string,data:any){
     return this.httpClient.put('http://localhost:9093/api/v1/post/addReviews/blog/'+postId,data)
   }
+
+  getSeeker(emailId:any){
+    return this.httpClient.get('http://localhost:8098/api/v1/'+emailId)
+  }
 }

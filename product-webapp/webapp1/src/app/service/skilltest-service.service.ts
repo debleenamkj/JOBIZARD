@@ -37,4 +37,8 @@ export class SkilltestServiceService {
   getgladiator(){
     return 'assets\\warriors_logos\\gladiator.PNG';
   }
+
+  sendMarks(email:string,skill:any){
+    return this.httpClient.put("http://localhost:8098/api/v1/marks/"+email,skill)
+  }
 }

@@ -1,8 +1,10 @@
 export class jobPosting{
     companyName:string="";
     companyUrl:string="";
-    // companyEmail:string="";
+    emailId:string="";
     industryType:string="";
+    skillsRequired:any=[]
+    educationRequired:string=""
     // companyLogo:any;
     // jobDetailsList:any;
     // jobRole:string="";
@@ -20,6 +22,9 @@ export class jobPosting{
         this.companyUrl="";
         // this.companyEmail="";
         this.industryType="";
+        this.skillsRequired=""
+        this.educationRequired=""
+        this.emailId=""
         // this.companyLogo="";
         // this.jobRole="";
         // this.salary="";

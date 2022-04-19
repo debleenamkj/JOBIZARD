@@ -26,18 +26,41 @@ export class JobSeekerLandingComponent implements OnInit {
   ngOnInit(): void {
     // let file = new File('src\assets\1.jpg','')
 
-    let skill = {name:"",warrior:"",badge:""}
+    this.getJobSeeker();
+
+    setTimeout(() => {
+      
+    let skill = {name:"",level:""}
     let count =0;
+    console.log(this.skills)
     this.skills.forEach((element: any) => {
-      if(element.verified=='false'){
-        this.notVerifiedSkills.push(element.name)
+      console.log("element");
+      console.log(element);
+      
+      if(element.isVerified==false){
+        console.log("not")
+        this.notVerifiedSkills.push(element.skillName)
         count++;
       }
-      else if(element.verified=='true'){
-        let skill = {name:element.name,warrior:element.warrior,badge:element.badge}
+      else if(element.isVerified==true){
+        let skill = {name:element.skillName,level:element.level,logo:""}
         if(skill.name!=""){
+          if (skill.level == 'beginner') {
+            skill.logo = this.service.getbeginner();
+            
+          } else if (skill.level == 'saga') {
+            skill.logo = this.service.getsaga();
+            
+          } else if (skill.level == 'gladiator') {
+            skill.logo = this.service.getgladiator();
+            
+          } else if (skill.level == 'ninja') {
+            skill.logo = this.service.getninja();
+            
+          }
           // console.log(skill)
           this.verifiedSkills.push(skill);
+          
           count++;
         }
         // skill.name=element.name;
@@ -46,11 +69,16 @@ export class JobSeekerLandingComponent implements OnInit {
       // this.notVerifiedSkills.length=0
       }
     });
+    console.log("hreklooooooooo")
+          console.log(this.verifiedSkills)
+    }, 500);
+
     
     this.getPosts()
     
   }
 
+  jobSeeker:any;
   click : boolean = false;
 
   onButtonClick(){
@@ -89,16 +117,17 @@ export class JobSeekerLandingComponent implements OnInit {
   verifiedSkills = new Array();
   notVerifiedSkills= new Array();
   profileProgress:number=60;
-  skills:any=[{name:"java",verified:"false",warrior:"",badge:""},
-              {name:"spring",verified:"false",warrior:"",badge:""},
-              {name:"angular",verified:"false",warrior:"",badge:""},
-              {name:"JavaScript",verified:"true",warrior:"",badge:""},
-              {name:"HTML",verified:"true",warrior:"",badge:""},
-              {name:"CSS",verified:"true",warrior:"",badge:""},
-              // {name:"JavaScript",verified:"true",warrior:"",badge:""},
-              // {name:"HTML",verified:"true",warrior:"",badge:""},
-              // {name:"CSS",verified:"true",warrior:"",badge:""}
-            ]
+  skills:any;
+  // [{name:"java",verified:"false",warrior:"",badge:""},
+  //             {name:"spring",verified:"false",warrior:"",badge:""},
+  //             {name:"angular",verified:"false",warrior:"",badge:""},
+  //             {name:"JavaScript",verified:"true",warrior:"",badge:""},
+  //             {name:"HTML",verified:"true",warrior:"",badge:""},
+  //             {name:"CSS",verified:"true",warrior:"",badge:""},
+  //             // {name:"JavaScript",verified:"true",warrior:"",badge:""},
+  //             // {name:"HTML",verified:"true",warrior:"",badge:""},
+  //             // {name:"CSS",verified:"true",warrior:"",badge:""}
+  //           ]
 
   openDialog() {
     const dialogRef = this.dialog.open(AssesmentTestPortalComponent);
@@ -333,6 +362,18 @@ export class JobSeekerLandingComponent implements OnInit {
       console.log(index+1)
      }
   });
+}
+
+getJobSeeker(){
+  this.service1.getSeeker("vishnu28@gmail.com").subscribe(data =>{
+    console.log(data);
+    this.jobSeeker=data;
+    const img = 'data:image/jpeg;base64,'+this.jobSeeker.jobSeekerImage;
+    this.jobSeeker.jobSeekerImage=img;
+    console.log(this.jobSeeker.jobSeekerImage)
+    this.skills=this.jobSeeker.additionalDetails.skillSet;
+    console.log(this.skills)
+  })
 }
 
 
