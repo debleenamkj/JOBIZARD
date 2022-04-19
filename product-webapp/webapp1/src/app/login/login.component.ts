@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
         }
         // store in local storage
         localStorage.setItem('loginId',this.user.emailId)
-        localStorage.setItem('role',this.user1.role);
+        localStorage.setItem('role',this.user1.role)
+        
       })
       
      },()=>{

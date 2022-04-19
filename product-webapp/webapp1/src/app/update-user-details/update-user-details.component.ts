@@ -7,6 +7,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { UserDetailsService } from '../service/user-details.service';
+import { details } from '../model/details';
 
 //************************************** interface declared of ts components of chips********************************
 
@@ -48,9 +49,42 @@ export class UpdateUserDetailsComponent implements OnInit {
 
   // ************************** Starting of Chips components code *************************************
 
+  details=new details();
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   academicsCertifications: AcademicsCertification[] = [];
+
+  userDetailsInfo(){  
+    console.log(this.addDetailsInfoForm);
+
+    let academic = new Array();
+    this.academicsCertifications.forEach(element => {
+      academic.push(element.name);
+    });
+    console.log("---------Academic-------- ");
+    console.log(this.academicsCertifications);
+    console.log(academic);
+    
+    let skill = new Array();
+    this.skillSets.forEach(element => {
+      let skill1 = {isVerified:false,skillName:element.name,level:"",percentage:""}
+      console.log(skill1);
+      skill.push(skill1);
+    });
+    console.log("---------skills-------- ");
+    console.log(this.skillSets);
+    console.log(skill);
+
+    this.details.academicCertification=academic;  
+    this.details.skillSet=skill;
+    this.details.jobPreference=this.addDetailsInfoForm.value.jobPreference; 
+    this.details.achievements=this.addDetailsInfoForm.value.achievements;
+    console.log(this.achievementOf);
+       
+    console.log(this.userdetails3);
+      
+    this.save3();  
+  } 
 
   add(event: MatChipInputEvent): void {
     console.log("acadamic");
@@ -183,6 +217,23 @@ export class UpdateUserDetailsComponent implements OnInit {
 //   public tabChanged(tabChangeEvent: MatTabChangeEvent): void {
 //     this.selectedIndex = tabChangeEvent.index;
 // }
+file:any
+upimage:any
+onFileChanged(event: any) {
+  console.log("onchange");
+
+  this.file = event.target.files[0];
+  console.log(this.file);
+
+  const reader = new FileReader();
+  reader.readAsDataURL(event.target.files[0]); 
+  reader.onload = (_event) => { 
+    console.log(reader.result);
+      this.upimage = reader.result;
+      console.log(this.upimage);
+  }
+
+}
 
 selectedIndex:number=0;
 clickMe(){
@@ -202,6 +253,7 @@ selectedIndexChange(val: number){
 // ************************************************* Model Class implementation *********************************
 
 userdetails1 = new UserDetails();
+email:string="";
 
 addPersonalInfoForm = this.fb.group({
   firstName:['', Validators.required],
@@ -222,8 +274,19 @@ addPersonalInfoForm = this.fb.group({
   this.userdetails1.dateOfBirth=this.addPersonalInfoForm.value.dateOfBirth;  
   this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
   this.userdetails1.objective=this.addPersonalInfoForm.value.objective;
-  this.userdetails1.profilePicture=this.addPersonalInfoForm.value.profilePicture;    
+  // this.userdetails1.profilePicture=this.addPersonalInfoForm.value.profilePicture;
+  
+  let uploadData = new FormData();
+  uploadData.append('jobSeeker1',JSON.stringify(this.userdetails1));
+  uploadData.append('file',this.file);
+
+  this.email = localStorage.getItem('loginId');
+  console.log(this.email);
     
+  this.userDetails.updateUserWithImage(this.email,uploadData).subscribe( data =>{
+    console.log(data);
+  })
+  
   console.log(this.userdetails1);
     
   this.save();  
@@ -264,11 +327,11 @@ addContactInfoForm = this.fb.group({
 
   this.userdetails2.mobileNumber=this.addContactInfoForm.value.mobileNumber;
      
-  this.userdetails2.lane=this.addContactInfoForm.value.lane;  
-  this.userdetails2.state=this.addContactInfoForm.value.state;  
-  this.userdetails2.city=this.addContactInfoForm.value.city;  
-  this.userdetails2.pincode=this.addContactInfoForm.value.pincode;  
-  this.userdetails2.nationality=this.addContactInfoForm.value.nationality;  
+  // this.userdetails2.lane=this.addContactInfoForm.value.lane;  
+  // this.userdetails2.state=this.addContactInfoForm.value.state;  
+  // this.userdetails2.city=this.addContactInfoForm.value.city;  
+  // this.userdetails2.pincode=this.addContactInfoForm.value.pincode;  
+  // this.userdetails2.nationality=this.addContactInfoForm.value.nationality;  
     
   console.log(this.userdetails2);
     
@@ -295,19 +358,7 @@ addDetailsInfoForm = this.fb.group({
  });
 
 
- userDetailsInfo(){  
-  console.log(this.addDetailsInfoForm);
-   
-  this.userdetails3.academicCertification=this.addDetailsInfoForm.value.academicCertification;  
-  this.userdetails3.skillSet=this.addDetailsInfoForm.value.skillSet;
-  this.userdetails3.jobPreference=this.addDetailsInfoForm.value.jobPreference; 
-  this.userdetails3.achievements=this.addDetailsInfoForm.value.achievements;
-  console.log(this.achievementOf);
-     
-  console.log(this.userdetails3);
-    
-  this.save3();  
-} 
+
 
 
 save3() {  
