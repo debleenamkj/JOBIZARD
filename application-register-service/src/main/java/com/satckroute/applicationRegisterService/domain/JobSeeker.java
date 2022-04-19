@@ -41,6 +41,7 @@ public class JobSeeker
     private List<Education> educationDetails; //list
     private String[] languagesKnown;
     private Details additionalDetails;
+    private char[] objective;
 
     @Lob
     private byte[] jobSeekerImage;

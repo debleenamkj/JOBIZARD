@@ -32,6 +32,8 @@ public interface RegisterService
 //    List<Recruiter> getAllRecruiterByFirstName(String firstName) throws RecruiterNotFoundException;
     List<OrganizationDetails> getAllOrganizationDetailsByOrganizationName(String organizationName) throws OrganizationDetailsNotFoundException;
 
+    JobSeeker updateEducationDetails(String email, Education education) throws JobSeekerNotFoundException;
+
     JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws  JobSeekerNotFoundException;
     JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws  JobSeekerNotFoundException , IOException;
 
