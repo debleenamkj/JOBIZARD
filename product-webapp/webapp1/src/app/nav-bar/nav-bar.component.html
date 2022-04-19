@@ -3,7 +3,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'over'"
       [opened]="(isHandset$ | async) === true" style="background-color: rgb(82, 15, 102); text-align: center; align-items: center; justify-content: center; ">
-   <div *ngIf="role=='jobseeker'">
+   <div *ngIf="role=='JOBSEEKER'">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="height: 8rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
@@ -15,7 +15,7 @@
     </mat-nav-list>
   </div>
 
-  <div *ngIf="role=='recruiter'">
+  <div *ngIf="role=='RECRUITER'">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="height: 8rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
@@ -25,14 +25,14 @@
     </mat-nav-list>
   </div>
 
-  <div *ngIf="role==''">
+  <!-- <div *ngIf="">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
       <button mat-list-item routerLink="/userLogin" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Login</button>
       <button mat-list-item (click)="openRegisterForm()" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Register</button>
     </mat-nav-list>
-  </div>
+  </div> -->
   </mat-sidenav>
 
 
@@ -44,7 +44,7 @@
        style="background-color: #4E1B5F; color: white;" 
        aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
+        (click)="drawer.toggle()" *ngIf="role == 'RECRUITER' || role == 'JOBSEEKER'"
       ><mat-icon>menu</mat-icon></button>
       <!-- *ngIf="isHandset$ | async" -->
 
