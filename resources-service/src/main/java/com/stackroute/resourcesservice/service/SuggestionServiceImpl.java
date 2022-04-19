@@ -6,6 +6,7 @@ import com.stackroute.resourcesservice.exception.SuggestionNotFoundException;
 import com.stackroute.resourcesservice.AggregateDTO.SkillAggregate;
 import com.stackroute.resourcesservice.AggregateDTO.SourceUrlAggregate;
 import com.stackroute.resourcesservice.repository.SuggestionsRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +14,20 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class SuggestionServiceImpl implements SuggestionService{
 
     private SuggestionsRepository suggestionsRepository;
 
     @Autowired
     public SuggestionServiceImpl(SuggestionsRepository suggestionsRepository) {
+        log.info("Autowiring suggestion repository");
         this.suggestionsRepository = suggestionsRepository;
     }
 
     @Override
     public Suggestion saveSuggestion(Suggestion suggestion) throws SuggestionAlreadyExistsException {
+        log.debug("inside service.saveSuggestion");
         if (suggestionsRepository.findById(suggestion.getSuggestionId()).isPresent())
             throw new SuggestionAlreadyExistsException();
         return suggestionsRepository.save(suggestion);

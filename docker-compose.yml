@@ -153,6 +153,16 @@ services:
       - eureka-server
     ports:
       - 8085:8085
-
-
+  resources-service:
+    image: resource-image
+    build: resources-service/
+    container_name: resource-container
+    hostname: localhost
+    network_mode: host
+    restart: always
+    ports:
+      - 8087:8087
+    depends_on:
+      - mongodb
+      - eureka-server
 
