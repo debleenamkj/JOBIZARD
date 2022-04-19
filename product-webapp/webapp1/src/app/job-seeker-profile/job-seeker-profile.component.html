@@ -8,7 +8,7 @@
                     <h1 style="font-weight: bolder;  color: #6E2586;">{{firstname}} {{lastname}}</h1>
                     <div style="font-size: 2rem;">
                         <span>{{gender}}</span>
-                        <span style="display: block;">{{dob}}</span>
+                        <span style="display: block;">{{dob | date:'dd-MM-yyyy'}}</span>
                         <span *ngIf="!(email == null)" style="display: block;">{{email}}</span>
                         <span style="display: block;">{{mobile}}</span>
                         <span style="display: block;">{{address.city}}, {{address.state}}</span>

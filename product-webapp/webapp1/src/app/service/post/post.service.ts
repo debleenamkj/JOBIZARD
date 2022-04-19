@@ -10,6 +10,8 @@ export class PostService {
 
   loginUser='m8@gmail.com';
 
+  selectedSeekerEmail="a@a.com";
+
   sendImagePost(email:string,data:any){
     return  this.httpClient.post('http://localhost:9093/api/v1/post/image/'+email,data);
   }
