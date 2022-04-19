@@ -1,4 +1,4 @@
-/* /* .addressGrandParentDiv{
+.addressGrandParentDiv{
     display: flex;
 }
 
@@ -26,8 +26,8 @@
         font-size: 12px;
         color: $title-color;
     } */
-  /* } */
-/* .educationSpace{
+   } 
+ .educationSpace{
     padding-left: 106px;
 }
 .cousrsesSpcae{
@@ -80,4 +80,4 @@
     font-size: large;
      margin-left: 40px;
     background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
-}   */
+}  
