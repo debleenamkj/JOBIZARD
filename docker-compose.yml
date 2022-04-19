@@ -80,7 +80,7 @@ services:
     ports:
       - 8080:8080
 
-  applicationRegisterService:
+  application-register-service:
     build: application-register-service/
     container_name: applicationregisterservicecontainer
     depends_on:
@@ -93,7 +93,7 @@ services:
     ports:
       - 8098:8098
 
-  authenticationService:
+  authentication-service:
     build: authentication-service/
     container_name: authenticationservicecontainer
     depends_on:
@@ -117,7 +117,7 @@ services:
     ports:
       - "4200:4200"
 
-  trendLabService:
+  trend-lab-service:
     image: trendlabimage
     build: trend-lab-service/
     restart: always
@@ -130,7 +130,7 @@ services:
     ports:
       - 8086:8086
 
-  chatroomService:
+  chatroom-service:
     image: chatroomimage
     build: chatroom-service/
     restart: always
@@ -165,4 +165,18 @@ services:
     depends_on:
       - mongodb
       - eureka-server
+  assessment-service:
+    image: assessmentservice
+    build: assessment-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    depends_on:
+      - mongodb
+      - api-gateway
+      - eureka-server
+    ports:
+      - 8081:8081
+
+
 

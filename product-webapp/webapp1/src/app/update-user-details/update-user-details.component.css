@@ -314,8 +314,10 @@
     padding-bottom: 20px;
 }
 .imageUploadLabel{
+    width: 70%;
     padding-top: 15px;
-    padding-left: 100px;
+    /* padding-left: 100px; */
+    margin-left: 10%;
 }
 .UploadBTN{
     display: flex;

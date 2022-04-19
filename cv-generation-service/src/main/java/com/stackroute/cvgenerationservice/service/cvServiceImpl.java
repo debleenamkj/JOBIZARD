@@ -69,7 +69,7 @@ public class cvServiceImpl implements cvService{
         if(existingCv != null) {
             existingCv.setFirstName(cv.getFirstName());
             existingCv.setLastName(cv.getLastName());
-            existingCv.setEmail(cv.getEmail());
+            existingCv.setEmailId(cv.getEmailId());
             existingCv.setPhoneNumber(cv.getPhoneNumber());
             existingCv.setAddress(cv.getAddress());
             existingCv.setCareerObjective(cv.getCareerObjective());

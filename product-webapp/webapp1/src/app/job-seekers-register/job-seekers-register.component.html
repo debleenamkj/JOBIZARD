@@ -3,7 +3,7 @@
   <!-- <div style="margin-left:150px;margin-right: 100px;" >
      -->
      
-<form style="margin-top: 5vw;"  class="mx-1 mx-md-2" [formGroup]="registerForm" (ngSubmit)="submit()" >
+<form style="margin-top: 5vw;"  class="mx-1 mx-md-2" [formGroup]="registerForm">
 
   
   <mat-card class="shipping-card" id="mat-card" >
@@ -31,14 +31,14 @@
     <mat-label>User Register Type</mat-label>
     <mat-select >
          <mat-option style="align-content:center;" >
-           <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/jobSeekersRegister">JobSeeker</a>
+           <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/navbar/jobSeekersRegister">JobSeeker</a>
          </mat-option>
          <mat-option>
-           <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/recruiterRegister">Recruiter</a>
+           <a style="text-decoration: none; color: black"  color="primary" type="submit" routerLink="/navbar/recruiterRegister">Recruiter</a>
          </mat-option>
        </mat-select>
        </mat-form-field> -->
-       <p style="display:inline-block;width:8%;">User type :</p> &nbsp;&nbsp;
+       <p style="display:inline-block;width:8%;">User Type :</p> &nbsp;&nbsp;
           <mat-radio-group style="display:inline-block;"  >
             <input  matInput style="color:black"  >
             <mat-radio-button [checked]="true" style="margin-left: 15px;margin-top:-15px;" routerLink="/jobSeekersRegister" value="jobSeeker">JOBSEEKER</mat-radio-button>

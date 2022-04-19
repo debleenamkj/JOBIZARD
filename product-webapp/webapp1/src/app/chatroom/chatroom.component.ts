@@ -52,9 +52,9 @@ export class ChatroomComponent implements OnInit {
 
     this.chatService.getAllMessages().subscribe((data)=>{
      var res: any[] = [];
-   data.filter(function(item){
-      var i = res.findIndex(x=>x.recipientId == item.recipientId);
-      if(i<=-1){
+   data.filter((item) =>{
+      var i = res.findIndex(x=>(x.recipientId == item.recipientId));
+      if(i<=-1 && item.senderId == this.senderId){
         res.push(item);
       }
       return null;
@@ -99,11 +99,16 @@ export class ChatroomComponent implements OnInit {
   // senderName = "ABCD";
   // recipientName = "IJKL";
 
-
   // senderId = "S123"
-  // recipientId = "R123"
-  // senderName = "ABCD";
-  // recipientName = "EFGH";
+  // recipientId = ""
+  // senderName = "";
+  // recipientName = "";
+
+
+  // senderId = "R123"
+  // recipientId = "S123"
+  // senderName = "EFGH";
+  // recipientName = "ABCD";
 
   // senderId = "R124";
   // recipientId = "S123"
