@@ -50,13 +50,16 @@ export class LoginComponent implements OnInit {
          this.user1=response;
         console.log(this.user1);
         if(this.user1.role=="JOBSEEKER"){
+          localStorage.setItem('role',"JOBSEEKER");
           this.router.navigate(["/jobSeeker"])
         }
-        else(
+        else{
+          localStorage.setItem('role',"RECRUITER");
           this.router.navigate(["/recruiterLanding"])
-        )
+        }
         // store in local storage
         localStorage.setItem('loginId',this.user.emailId)
+        localStorage.setItem('role',this.user1.role)
         
       })
       

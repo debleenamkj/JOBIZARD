@@ -16,7 +16,7 @@ export class PostJobServiceService {
 
   postRecruiter(job:any,emailId:string){
     console.log("service method called");
-    return this.httpClient.put('http://localhost:8098/api/v1/recruiter1/'+emailId,job);
+    return this.httpClient.put('http://localhost:8098/api/v1/recruiterWithImage/'+emailId,job);
   }
 
   getRecruiter(emailId:string){

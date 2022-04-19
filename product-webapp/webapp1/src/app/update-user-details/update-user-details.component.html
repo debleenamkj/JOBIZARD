@@ -129,7 +129,8 @@
                   <mat-label>Mobile Number</mat-label>
                   <input matInput />
                 </mat-form-field> -->
-                <input class="imageUploadLabel" type="file" id="img" name="img" formControlName="profilePicture" accept="image/*">
+                <input class="imageUploadLabel" type="file" id="img" name="img" (change)="onFileChanged($event)" formControlName="profilePicture" accept="image/*">
+                <img style="float: right;" src="{{upimage}}" width="20%">
               </div>
             </div>
             
