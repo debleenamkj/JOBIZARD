@@ -13,7 +13,6 @@ export class RecruiterlandingService {
 
   getRecruiterProfile():any{
     this.emailId=localStorage.getItem('loginId')
-    console.log(this.emailId);
     return this.httpCLient.get("http://localhost:8098/api/v1/recruiterProfile/"+this.emailId);
   }
 

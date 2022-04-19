@@ -22,9 +22,42 @@
 }
 .companyForm{
     pointer-events: all;
+    
 
 }
-.image{
-    background-image: url('Man-Business-Cartoon-Businessman-Business-Man-1351317.png');
-    background-size: cover;
+p{
+    font-size: 150%;
 }
+.image1{
+    /* background-image: url('Man-Business-Cartoon-Businessman-Business-Man-1351317.png'); */
+    /* background-size: cover; */
+    /* /* float: right; */
+    display: inline-block; 
+    width: 40%;
+    
+    
+}
+.requirements{
+    width: 50%;
+}
+
+@media only screen and (max-width: 400px) {
+   
+    .image1 {
+       display: none;
+    }
+    .company{
+        font-size: 120%;
+    }
+    p{
+        font-size: 100%;
+        line-height: 130%;
+    }
+    .requirements{
+        width: 100%;
+    }
+    .finish{
+        display:none;
+        line-height: 120%;
+     }
+  }

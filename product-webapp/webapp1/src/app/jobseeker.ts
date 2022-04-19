@@ -1,7 +1,6 @@
 import { Byte } from "@angular/compiler/src/util";
 
-export class JobSeekerLanding {
-    emailId: string;
+export class Jobseeker {
     firstName: string;
     lastName: string;
     jobSeekerImage: Byte[];
@@ -14,3 +13,5 @@ export class JobSeekerLanding {
         this.additionalDetails;
     }
 }
+
+

@@ -6,8 +6,10 @@ import { CompanyDetails } from 'src/app/model/company-details';
 })
 export class ReviewService {
   [x: string]: CompanyDetails;
-
+  
   constructor() { }
 
   selectedCompany!:CompanyDetails;
+  companyName!:any;
+  to! :any;
 }

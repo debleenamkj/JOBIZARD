@@ -296,7 +296,7 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/jobSeeker/{emailId}")
+    @PutMapping("/jobSeekerWithoutImage/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetails(@RequestBody JobSeeker jobSeeker, @PathVariable String emailId) throws JobSeekerNotFoundException
     {
         try
@@ -318,31 +318,31 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/jobSeeker1/{emailId}")
+    @PutMapping("/jobSeekerWithImage/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-        try
-        {
+//        try
+//        {
             log.debug("RegisterController - updateJobSeekerDetail");
             JobSeeker jobSeeker1 = new ObjectMapper().readValue(jobSeeker,JobSeeker.class);
             //
 //            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateJobSeekerDetail(jobSeeker1, emailId,file), HttpStatus.OK);
-        }
-        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
-            throw new JobSeekerNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//        }
+//        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
+//            throw new JobSeekerNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
     }
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/recruiter/{emailId}")
+    @PutMapping("/recruiterWithoutImage/{emailId}")
     public ResponseEntity<?> updateRecruiterDetails(@RequestBody Recruiter recruiter, @PathVariable String emailId) throws RecruiterNotFoundException
     {
         try
@@ -364,7 +364,7 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/recruiter1/{emailId}")
+    @PutMapping("/recruiterWithImage/{emailId}")
     public ResponseEntity<?> updateRecruiterDetail(@PathVariable String emailId ,@RequestParam("recruiter1") String recruiter, @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
     {
         try
@@ -553,10 +553,14 @@ public class RegisterController
         return registerService.getJobSeekers(emailId);
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
     @GetMapping("/{emailId}")
     public JobSeeker getJobseeker(@PathVariable String emailId) throws JobSeekerNotFoundException {
         return registerService.getJobseeker(emailId);
     }
+
+//---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter/add/{emailId}")
     public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException
@@ -565,5 +569,6 @@ public class RegisterController
         return registerService.addDetailsInRecruiter(recruiter1,emailId);
     }
 
+//---------------------------------------------------------------------------------------------------------------------
 
 }
