@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { SkillTrend } from '../model/skill-trend';
 import { TrendsService } from '../service/trends.service';
 
@@ -20,7 +19,7 @@ export class SkillsTrendLabComponent implements OnInit {
   graphType:string []=["bar","pie","line","doughnut","polarArea","radar","horizontalBar","violin","sparkline"];
   myGraph = "pie";
 
-  constructor(private trendsService:TrendsService, private router: Router) { }
+  constructor(private trendsService:TrendsService) { }
 
   ngOnInit(): void {
     this.trendsService.getSkills().subscribe((data)=>{

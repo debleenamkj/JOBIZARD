@@ -120,7 +120,7 @@ export class SearchPortalComponent implements OnInit {
     this.chat.senderName = localStorage.getItem('companyName')
     this.chat.recipientId = recipientEmail;
     this.chat.recipientName = recipientName;
-    this.router.navigate(['/chatroom']);
+    this.router.navigate(['/navbar/chatroom']);
   }
   sendEmail(jobseeker: any) {
     localStorage.setItem('companyName', "Netflix")

@@ -19,4 +19,12 @@ export class UserDetailsService {
   updateUserWithImage(email:string,data:any){
     return this.http.put(this.baseUrl+"jobSeekerWithImage/"+email,data);
   }
+
+  updateUserWithoutImage(email:string,data:any){
+    return this.http.put(this.baseUrl+'jobSeekerWithoutImage/'+email,data);
+  }
+
+  getJobSeeker(email:string){
+    return this.http.get(this.baseUrl+email);
+  }
 }
