@@ -13,7 +13,7 @@ export class AssesmentTestPortalComponent  {
 
  startTest(){
   // let quizName = this.service.quizName;
-  this.router.navigate(['/test']);
+  this.router.navigate(['/navbar/test']);
  }
 
 }

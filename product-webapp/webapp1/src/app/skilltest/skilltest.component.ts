@@ -127,7 +127,7 @@ changeColor(qno:number){
 
   end_yes(){
     setTimeout(() => {
-      this.router.navigate(['/job-posting'])
+      this.router.navigate(['/navbar/job-posting'])
     }, 300);
   }
   end_no(){
@@ -178,7 +178,7 @@ changeColor(qno:number){
       setTimeout(() => {
         console.log(this.answers);
         this.calculateScores();
-        this.router.navigate(['/result'])
+        this.router.navigate(['/navbar/result'])
       }, 300);
    
     }

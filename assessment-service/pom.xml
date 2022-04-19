@@ -8,10 +8,17 @@
 		<version>1.0.0</version>
 	</parent>
 	<groupId>com.stackroute</groupId>
+<<<<<<< HEAD
 	<artifactId>assessmentservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>assessmentservice</name>
 	<description>assessmentservice project for Spring Boot</description>
+=======
+	<artifactId>assessment-service</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>assessment-service</name>
+	<description>Assessmentservice project for Spring Boot</description>
+>>>>>>> 3a608307c6805e5125934f040ee9d68f7a46791c
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.2</spring-cloud.version>

@@ -1,38 +1,37 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  <mat-sidenav #drawer class="sidenav"
       [mode]="(isHandset$ | async) ? 'over' : 'over'"
       [opened]="(isHandset$ | async) === true" style="background-color: rgb(82, 15, 102); text-align: center; align-items: center; justify-content: center; ">
-   <div *ngIf="role=='jobseeker'">
-    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="height: 8rem;"></mat-toolbar>
+   <div *ngIf="role=='JOBSEEKER'" style="margin-top: 10%;">
+    <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="width: 15rem; margin-bottom: 5%;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
-      <button mat-list-item type="button" routerLink="/assesmentportal" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Assessment Portal</button>
-      <button mat-list-item routerLink="/learning" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Learning Portal</button>
-      <button mat-list-item routerLink="/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">JobiZone</button>
-      <button mat-list-item routerLink="/cv-generation" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Generate Your CV</button>
-      <button mat-list-item routerLink="/review" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Review</button>
+      <button mat-list-item type="button" routerLink="/navbar/assesmentportal" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Assessment Portal</button>
+      <button mat-list-item routerLink="/navbar/learning" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Learning Portal</button>
+      <button mat-list-item routerLink="/navbar/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">JobiZone</button>
+      <button mat-list-item routerLink="/navbar/cv-generation" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Generate Your CV</button>
+      <button mat-list-item routerLink="/navbar/review" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Review</button>
     </mat-nav-list>
   </div>
 
-  <div *ngIf="role=='recruiter'">
+  <div *ngIf="role=='RECRUITER'">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/logo3.png" style="height: 8rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
-      <button mat-list-item routerLink="/job-posting" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Post Jobs</button>
-      <button mat-list-item routerLink="/search" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Search Profiles</button>
-      <button mat-list-item routerLink="/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">JobiZone</button>
+      <button mat-list-item routerLink="/navbar/job-posting" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Post Jobs</button>
+      <button mat-list-item routerLink="/navbar/search" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Search Profiles</button>
+      <button mat-list-item routerLink="/navbar/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">JobiZone</button>
     </mat-nav-list>
   </div>
 
-  <div *ngIf="role==''">
+  <!-- <div *ngIf="">
     <mat-toolbar style="justify-content: center; align-items: center; text-align: center;"><img src="../assets/bn.png" style="height: 4.5rem;"></mat-toolbar>
     <hr>
     <mat-nav-list style="align-items: center; justify-content: center;">
       <button mat-list-item routerLink="/userLogin" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Login</button>
       <button mat-list-item (click)="openRegisterForm()" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Register</button>
     </mat-nav-list>
-  </div>
+  </div> -->
   </mat-sidenav>
 
 
@@ -44,7 +43,7 @@
        style="background-color: #4E1B5F; color: white;" 
        aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
+        (click)="drawer.toggle()" *ngIf="role == 'RECRUITER' || role == 'JOBSEEKER'"
       ><mat-icon>menu</mat-icon></button>
       <!-- *ngIf="isHandset$ | async" -->
 
@@ -71,23 +70,30 @@
         <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/chatroom">Chatroom</a> 
         <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/jobdetail">Job Details</a> -->
         <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/chatroom">Chatroom</a> -->
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/test">Skill Test</a>
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/update-user">Update User</a> 
+        <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/navbar/test">Skill Test</a>
+        <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/navbar/update-user">Update User</a>  -->
         
      
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeekersRegister">Register</a>
+        <!-- <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeekersRegister">Register</a>
 
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeeker">Job Seeker</a>
+        <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/navbar/jobSeeker">Job Seeker</a>
         
+<<<<<<< HEAD
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/userLogin">LogIn</a>
+=======
+        <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/userLogin">LogIn</a> -->
+
+        <img src="../../assets/logo-crop.png" style="height: 8vh;margin-left:10px;margin-top:-20px;position: sticky;" alt="logo">
       
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu">      
+>>>>>>> 3a608307c6805e5125934f040ee9d68f7a46791c
+      
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu" *ngIf="!hide">      
       &nbsp;
       <h5 style="position: absolute; top:5px; width: fit-content;left: 40px;">Hi, {{name}}</h5>
       <mat-icon>person</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/jobseekerprofile">
+        <button mat-menu-item routerLink="/navbar/jobseekerprofile">
           <mat-icon>settings</mat-icon>
           <span>My Profile</span>
         </button>

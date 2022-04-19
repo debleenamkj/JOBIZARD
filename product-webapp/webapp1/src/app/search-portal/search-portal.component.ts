@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmailRequest } from '../model/email-request';
 import { Search } from '../search';
 import { SearchService } from '../search.service';
+import { ChatroomService } from '../service/chatroom.service';
 
 @Component({
   selector: 'app-search-portal',
@@ -21,7 +23,7 @@ export class SearchPortalComponent implements OnInit {
   // jobSeekerSlice: Array<JobSeekerLanding>=[];
   // images:any[]=[];
 
-  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar) {
+  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar,private chat:ChatroomService,private router:Router) {
 
   }
   matchedEmailList: string[];
@@ -113,7 +115,13 @@ export class SearchPortalComponent implements OnInit {
     //   this.jobSeekersList[index].jobSeekerImage=img;
     // }
   }
-
+  onClick(recipientEmail:any,recipientName:any){
+    this.chat.senderId = localStorage.getItem('loginId')
+    this.chat.senderName = localStorage.getItem('companyName')
+    this.chat.recipientId = recipientEmail;
+    this.chat.recipientName = recipientName;
+    this.router.navigate(['/navbar/chatroom']);
+  }
   sendEmail(jobseeker: any) {
     localStorage.setItem('companyName', "Netflix")
     let details = new EmailRequest(jobseeker.emailId, localStorage.getItem('companyName'))
@@ -144,20 +152,16 @@ export class JobDetails {
   emailId: string;
   skillsRequired: string[];
   education: string;
-
+  
   constructor(emailId: string,
     skillsRequired: string[],
     education: string) {
     this.emailId = emailId
     this.skillsRequired = skillsRequired
     this.education = education
+    
   }
-  // onClick(recipientEmail:any,recipientName:any){
-  //   this.chat.senderId = this.recruiterLandingData.emailId;
-  //   this.chat.senderName = this.recruiterLandingData.companyName;
-  //   this.chat.recipientId = recipientEmail;
-  //   this.chat.recipientName = recipientName;
-  //   this.router.navigate(['/chatroom']);
-  // }
+ 
 
 }
+
