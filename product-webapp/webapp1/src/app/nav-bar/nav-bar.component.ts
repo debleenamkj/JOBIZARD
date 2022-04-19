@@ -7,6 +7,7 @@ import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterServiceService } from '../service/register-service.service';
 
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -21,9 +22,9 @@ export class NavBarComponent {
       map(result => result.matches),
       shareReplay()
     );
-
+  
     role = localStorage.getItem('role');
-      // role="RECRUITER";
+      // role="JOBSEEKER";
       // role="";
 
   emailId: string;
@@ -33,6 +34,11 @@ export class NavBarComponent {
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
     private loginService : RegisterServiceService) {
       // this.getUsername()
+      console.log("*************")
+      console.log('role')
+      console.log(this.role);
+      
+      
     }
 
 
@@ -40,6 +46,7 @@ export class NavBarComponent {
 
   loggedOut(){
     localStorage.setItem('loginId',null)
+    localStorage.setItem('role',null)
     this.loginService.isloggedIn=false
     this.hide=true;
     this.router.navigate(["../userLogin"]);
