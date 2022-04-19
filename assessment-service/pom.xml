@@ -11,7 +11,7 @@
 	<artifactId>assessment-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>assessment-service</name>
-	<description>Assessmentservice project for Spring Boot</description>
+	<description>Assessment Service project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
