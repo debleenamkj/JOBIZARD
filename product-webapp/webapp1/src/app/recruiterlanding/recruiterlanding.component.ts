@@ -62,7 +62,7 @@ export class RecruiterlandingComponent implements OnInit {
     this.chat.senderName = this.recruiterLandingData.companyName;
     this.chat.recipientId = recipientEmail;
     this.chat.recipientName = recipientName;
-    this.router.navigate(['/chatroom']);
+    this.router.navigate(['/navbar/chatroom']);
   }
 
   sendEmail(emailId:any){
