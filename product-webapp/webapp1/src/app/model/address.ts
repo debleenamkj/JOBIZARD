@@ -1,17 +1,17 @@
 export class address{
     // public mobileNumber:string="";
-    public lane:string="";
-    public state:string="";
-    public city:string="";
-    public pincode:string="";
-    public nationality:string="";
+    public lane:any="";
+    public state:any="";
+    public city:any="";
+    public pincode:number=0;
+    public nationality:any="";
 
     constructor(){
         // this.mobileNumber="",
         this.lane="",
         this.state="",
         this.city="",
-        this.pincode="",
+        this.pincode=0,
         this.nationality=""
     }
 }
