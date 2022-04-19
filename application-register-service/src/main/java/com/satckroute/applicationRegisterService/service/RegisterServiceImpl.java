@@ -317,6 +317,7 @@ public class RegisterServiceImpl implements RegisterService
             return jobSeekerRegisterRepository.save(jobSeeker);
 
         }
+
     }
 
 //---------------------------------------------------------------------------------------------------------------------

@@ -365,7 +365,10 @@ export class JobSeekerLandingComponent implements OnInit {
 }
 
 getJobSeeker(){
-  this.service1.getSeeker("vishnu28@gmail.com").subscribe(data =>{
+
+  let email=localStorage.getItem('loginId')
+
+  this.service1.getSeeker(email).subscribe(data =>{
     console.log(data);
     this.jobSeeker=data;
     const img = 'data:image/jpeg;base64,'+this.jobSeeker.jobSeekerImage;
