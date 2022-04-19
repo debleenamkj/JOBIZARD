@@ -43,8 +43,37 @@ export class UpdateUserDetailsComponent implements OnInit {
     )
      { }
 
+     seekerDetails:any;
+     email:string="";
   ngOnInit(): void {
+      this.email = localStorage.getItem('loginId');
       this.updateDetails = this.fb.group({})
+      this.userDetails.getJobSeeker(this.email).subscribe( data =>{
+        this.seekerDetails = data;
+        this.addPersonalInfoForm.patchValue({
+          firstName:this.seekerDetails.firstName,
+          lastName:this.seekerDetails.lastName,
+          gender:this.seekerDetails.gender,
+          dateOfBirth:this.seekerDetails.dateOfBirth,
+          objective:this.seekerDetails.objective,
+        })
+        this.addContactInfoForm.patchValue({
+          mobileNumber:this.seekerDetails.mobileNumber,
+          lane:this.seekerDetails.lane,
+          state:this.seekerDetails.state,
+          city:this.seekerDetails.city,
+          pincode:this.seekerDetails.pincode,
+          nationality:this.seekerDetails.nationality,
+        })
+
+
+        // this.addDetailsInfoForm.patchValue({
+        //   academicCertification:[],
+        //   skillSet:[],
+        //   jobPreference:[],
+        //   achievements:[],
+        // })
+      })
   }
 
   // ************************** Starting of Chips components code *************************************
@@ -253,7 +282,7 @@ selectedIndexChange(val: number){
 // ************************************************* Model Class implementation *********************************
 
 userdetails1 = new UserDetails();
-email:string="";
+
 
 addPersonalInfoForm = this.fb.group({
   firstName:['', Validators.required],
