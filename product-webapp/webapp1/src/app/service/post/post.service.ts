@@ -8,7 +8,7 @@ export class PostService {
 
   constructor(private httpClient:HttpClient) { }
 
-  loginUser='malu@gmail.com';
+  loginUser='m8@gmail.com';
 
   sendImagePost(email:string,data:any){
     return  this.httpClient.post('http://localhost:9093/api/v1/post/image/'+email,data);
@@ -36,5 +36,9 @@ export class PostService {
 
   addReviewInBlog(postId:string,data:any){
     return this.httpClient.put('http://localhost:9093/api/v1/post/addReviews/blog/'+postId,data)
+  }
+
+  getSeeker(emailId:any){
+    return this.httpClient.get('http://localhost:8098/api/v1/'+emailId)
   }
 }

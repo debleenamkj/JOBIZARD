@@ -1,10 +1,14 @@
 package com.stackroute.recruitmentservice.service;
 
 import com.stackroute.recruitmentservice.config.Producer;
+import com.stackroute.recruitmentservice.exception.CompanyNotFound;
+import com.stackroute.recruitmentservice.exception.JobsNotFound;
 import com.stackroute.recruitmentservice.model.JobDetails;
 import com.stackroute.recruitmentservice.model.JobPosting;
 import com.stackroute.recruitmentservice.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,7 +26,12 @@ public class JobServiceImpl implements JobService{
     private JobRepository jobRepository;
 
     @Autowired
-     Producer producer;
+    private Producer producer;
+
+//    @Autowired
+//    JobServiceImpl (Producer producer){
+//        producer =this.producer;
+//    }
 
     @Override
     public JobPosting getCompany(String companyName)
@@ -31,7 +40,7 @@ public class JobServiceImpl implements JobService{
         try {
             if(job1.isEmpty())
             {
-                System.out.println("Job not present");
+                throw new JobsNotFound();
             }
             job1.get().setLogo(decompressBytes(job1.get().getLogo()));
         }catch (Exception e)
@@ -128,27 +137,54 @@ public class JobServiceImpl implements JobService{
         boolean flag = false;
 //        JobPosting jobPosting = jobRepository.findById(companyId).get();
 //    JobPosting posting = jobRepository.delete(jobPosting );
-
-       if(jobRepository.findById(companyId).isEmpty() ) {
+        try {
+            if(jobRepository.findById(companyId).isEmpty() ) {
 //           jobRepository.deleteById(companyId);
-           System.out.println("No such id");
-       }else {
-           flag = true;
-           jobRepository.deleteById(companyId);
-       }
-       return flag;
+                throw new JobsNotFound();
+            }else {
+                flag = true;
+                jobRepository.deleteById(companyId);
+            }
+        } catch (JobsNotFound e) {
+            e.printStackTrace();
+        }
+
+        return flag;
     }
     @Override
-    public Iterable<JobPosting> showAllJobs(){
-        return  jobRepository.findAll();
+    public Iterable<JobPosting> showAllJobs() {
+        try {
+            if(jobRepository.findAll().isEmpty()  ){
+
+                throw new JobsNotFound();
+            }else{
+                return  jobRepository.findAll();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null ;
     }
     @Override
     public List<JobPosting> findBySkills(String skill){
         return jobRepository.findByJobDetailsList(skill);
     }
     @Override
-    public Optional<JobPosting> specificJob(String companyId){
-        return jobRepository.findById(companyId);
+    public Optional<JobPosting> specificJob(String companyId) {
+        try {
+            if(jobRepository.findById(companyId).isEmpty()){
+                throw new JobsNotFound();
+            }else{
+
+                return jobRepository.findById(companyId);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return Optional.empty();
+
     }
 
 }

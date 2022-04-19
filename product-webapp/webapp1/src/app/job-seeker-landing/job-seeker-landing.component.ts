@@ -26,18 +26,41 @@ export class JobSeekerLandingComponent implements OnInit {
   ngOnInit(): void {
     // let file = new File('src\assets\1.jpg','')
 
-    let skill = {name:"",warrior:"",badge:""}
+    this.getJobSeeker();
+
+    setTimeout(() => {
+      
+    let skill = {name:"",level:""}
     let count =0;
+    console.log(this.skills)
     this.skills.forEach((element: any) => {
-      if(element.verified=='false'){
-        this.notVerifiedSkills.push(element.name)
+      console.log("element");
+      console.log(element);
+      
+      if(element.isVerified==false){
+        console.log("not")
+        this.notVerifiedSkills.push(element.skillName)
         count++;
       }
-      else if(element.verified=='true'){
-        let skill = {name:element.name,warrior:element.warrior,badge:element.badge}
+      else if(element.isVerified==true){
+        let skill = {name:element.skillName,level:element.level,logo:""}
         if(skill.name!=""){
+          if (skill.level == 'beginner') {
+            skill.logo = this.service.getbeginner();
+            
+          } else if (skill.level == 'saga') {
+            skill.logo = this.service.getsaga();
+            
+          } else if (skill.level == 'gladiator') {
+            skill.logo = this.service.getgladiator();
+            
+          } else if (skill.level == 'ninja') {
+            skill.logo = this.service.getninja();
+            
+          }
           // console.log(skill)
           this.verifiedSkills.push(skill);
+          
           count++;
         }
         // skill.name=element.name;
@@ -46,10 +69,25 @@ export class JobSeekerLandingComponent implements OnInit {
       // this.notVerifiedSkills.length=0
       }
     });
+    console.log("hreklooooooooo")
+          console.log(this.verifiedSkills)
+    }, 500);
+
     
     this.getPosts()
     
   }
+
+  jobSeeker:any;
+  click : boolean = false;
+
+  onButtonClick(){
+    this.click = !this.click;
+  }
+
+
+
+
   comments:any;
   postBlog:any;
   allPost:any[]=[];
@@ -79,16 +117,17 @@ export class JobSeekerLandingComponent implements OnInit {
   verifiedSkills = new Array();
   notVerifiedSkills= new Array();
   profileProgress:number=60;
-  skills:any=[{name:"java",verified:"false",warrior:"",badge:""},
-              {name:"spring",verified:"false",warrior:"",badge:""},
-              {name:"angular",verified:"false",warrior:"",badge:""},
-              {name:"JavaScript",verified:"true",warrior:"",badge:""},
-              {name:"HTML",verified:"true",warrior:"",badge:""},
-              {name:"CSS",verified:"true",warrior:"",badge:""},
-              // {name:"JavaScript",verified:"true",warrior:"",badge:""},
-              // {name:"HTML",verified:"true",warrior:"",badge:""},
-              // {name:"CSS",verified:"true",warrior:"",badge:""}
-            ]
+  skills:any;
+  // [{name:"java",verified:"false",warrior:"",badge:""},
+  //             {name:"spring",verified:"false",warrior:"",badge:""},
+  //             {name:"angular",verified:"false",warrior:"",badge:""},
+  //             {name:"JavaScript",verified:"true",warrior:"",badge:""},
+  //             {name:"HTML",verified:"true",warrior:"",badge:""},
+  //             {name:"CSS",verified:"true",warrior:"",badge:""},
+  //             // {name:"JavaScript",verified:"true",warrior:"",badge:""},
+  //             // {name:"HTML",verified:"true",warrior:"",badge:""},
+  //             // {name:"CSS",verified:"true",warrior:"",badge:""}
+  //           ]
 
   openDialog() {
     const dialogRef = this.dialog.open(AssesmentTestPortalComponent);
@@ -106,7 +145,7 @@ export class JobSeekerLandingComponent implements OnInit {
 
   openDialog1(): void {
     const dialogRef = this.dialog.open(ImagePostDialogComponent, {
-      width: '30%',
+      width: '500px',
       data: {name: 'malathi'},
     });
 
@@ -118,7 +157,7 @@ export class JobSeekerLandingComponent implements OnInit {
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(BlogPostDialogComponent, {
-      width: '30%',
+      width: '500px',
       data: {name: 'malathi'},
     });
 
@@ -128,38 +167,123 @@ export class JobSeekerLandingComponent implements OnInit {
     });
   }
 
+  openProfile(){
+    let div = document.getElementsByClassName("skill") as HTMLCollectionOf<HTMLElement>;
+    div[0].style.display="block"
+    // let div1 = document.getElementsByClassName("profile-box") as HTMLCollectionOf<HTMLElement>;
+    // div[0].style.display="none"
+    console.log(div[0])
+  }
+
   addLike(post:any){
+    let flag = false;
+    let flag1 = false;
     if(post.postImage!=null){
-      const like=post.postImage.like.likeCount+1;
-      for (let index = 0; index < this.allPost[0].length; index++) {
-        if(this.allPost[0][index].postId==post.postId){
-          this.allPost[0][index].postImage.like.likeCount=like;
+      if(post.postImage.like.likeCount!=0){
+        const like=post.postImage.like.likeCount+1;
+        const likedUserEmails = post.postImage.like.likedUserEmails;
+            console.log("likedUserEmail")
+            console.log(likedUserEmails);
+            for (let index = 0; index < likedUserEmails.length; index++) {
+              if(likedUserEmails[index]==this.service1.loginUser){
+                console.log("userr");
+                console.log(likedUserEmails[0]);
+                flag = true;
+              }
+            }
+
+            if(flag==false){
+              for (let index = 0; index < this.allPost[0].length; index++) {
+                if(this.allPost[0][index].postId==post.postId){
+                  this.allPost[0][index].postImage.like.likeCount=like;
+                  likedUserEmails.push(this.service1.loginUser);
+                  this.allPost[0][index].postImage.like.like=likedUserEmails;
+                  this.allPost[0][index]=post;
+                }
+                
+              }
+              this.service1.addLikeInImage(post.postId).subscribe(data => {
+                console.log(data)
+              });
+              let div = document.getElementsByClassName("like"+post.postId) as HTMLCollectionOf<HTMLElement>;
+              console.log(div[0])
+              div[0].ariaDisabled="true"
+              // console.log(div[0].className)
+              // div[0].style.color='#b01782'
+              div[0].style.pointerEvents='none'
+              // this.getPosts();
+            }    
+      }else{
+        console.log("likkkee  00")
+        const like = 1;
+        for (let index = 0; index < this.allPost[0].length; index++) {
+          if(this.allPost[0][index].postId==post.postId){
+            this.allPost[0][index].postImage.like.likeCount=like;
+            this.allPost[0][index].postImage.like.like=this.service1.loginUser;
+          }
+          
         }
-        
-      }
-      this.service1.addLikeInImage(post.postId).subscribe(data => {
-        let div = document.getElementsByClassName('icon'+post.postId) as HTMLCollectionOf<HTMLElement>;
-        console.log(div[0]);
+        this.service1.addLikeInImage(post.postId).subscribe(data => {
+          console.log(data)
+        });
+        let div = document.getElementsByClassName("like"+post.postId) as HTMLCollectionOf<HTMLElement>;
+        console.log(div[0])
+        // console.log(div[0].className)
         div[0].style.color='#b01782'
         div[0].style.pointerEvents='none'
-        console.log(data)
-      });
+
+      }
+     
+     
     }
     else if(post.postBlog!=null){
-      const like=post.postBlog.like.likeCount+1
-      for (let index = 0; index < this.allPost[0].length; index++) {
-        // const element = array[index];
-        if(this.allPost[0][index].postId==post.postId){
-          this.allPost[0][index].postBlog.like.likeCount=like;
+      if(post.postBlog.like.likeCount!=0){
+        const like=post.postBlog.like.likeCount+1;
+        const likedUserEmails = post.postBlog.like.likedUserEmails;
+            console.log(likedUserEmails);
+            for (let index = 0; index < likedUserEmails.length; index++) {
+              if(likedUserEmails[index]==this.service1.loginUser){
+                flag1 = true;
+                console.log("likedUserEmail")
+              }
+            }
+
+            if(flag1==false){
+              for (let index = 0; index < this.allPost[0].length; index++) {
+                if(this.allPost[0][index].postId==post.postId){
+                  this.allPost[0][index].postBlog.like.likeCount=like;
+                  likedUserEmails.push(this.service1.loginUser);
+                  this.allPost[0][index].postImage.like.like=likedUserEmails;
+                }
+                
+              }
+              this.service1.addLikeInBlog(post.postId).subscribe(data => {
+                let div = document.getElementsByClassName(post.postId) as HTMLCollectionOf<HTMLElement>;
+                // console.log(div[0].className)
+                // div[0].style.color='#b01782'
+                div[0].style.pointerEvents='none'
+                console.log(data)
+              });
+            }    
+      }else{
+        const like = 1;
+        console.log("like")
+        for (let index = 0; index < this.allPost[0].length; index++) {
+          if(this.allPost[0][index].postId==post.postId){
+            this.allPost[0][index].postBlog.like.likeCount=1;
+            this.allPost[0][index].postImage.like.like=this.service1.loginUser;
+          }
+          
         }
+        this.service1.addLikeInBlog(post.postId).subscribe(data => {
+          console.log(data)
+          let div = document.getElementsByClassName(post.postId) as HTMLCollectionOf<HTMLElement>;
+          // console.log(div[0].className)
+          // div[0].style.color='#b01782'
+          div[0].style.pointerEvents='none'
+        });
+
       }
-      this.service1.addLikeInBlog(post.postId).subscribe(data => {
-        let div = document.getElementsByClassName('icon'+post.postId) as HTMLCollectionOf<HTMLElement>;
-        console.log(div[0].className)
-        div[0].style.color='#b01782'
-        div[0].style.pointerEvents='none'
-        console.log(data)
-      });
     }
     
   }
@@ -238,6 +362,18 @@ export class JobSeekerLandingComponent implements OnInit {
       console.log(index+1)
      }
   });
+}
+
+getJobSeeker(){
+  this.service1.getSeeker("vishnu28@gmail.com").subscribe(data =>{
+    console.log(data);
+    this.jobSeeker=data;
+    const img = 'data:image/jpeg;base64,'+this.jobSeeker.jobSeekerImage;
+    this.jobSeeker.jobSeekerImage=img;
+    console.log(this.jobSeeker.jobSeekerImage)
+    this.skills=this.jobSeeker.additionalDetails.skillSet;
+    console.log(this.skills)
+  })
 }
 
 
