@@ -75,10 +75,31 @@ export class UpdateUserDetailsComponent implements OnInit {
     console.log(this.skillSets);
     console.log(skill);
 
+    let jobPreference = new Array();
+    this.jobPreferences.forEach(element =>{
+      jobPreference.push(element.name);
+    });
+    console.log("---------jobPreference-------- ");
+    console.log(this.jobPreferences);
+    console.log(jobPreference);
+
+
+
+    let achievement = new Array();
+    this.achievementOf.forEach(element => {
+      achievement.push(element.name);
+    });
+    console.log("---------achievement-------- ");
+    console.log(this.achievementOf);
+    console.log(achievement);
+
+
+
+
     this.details.academicCertification=academic;  
     this.details.skillSet=skill;
-    this.details.jobPreference=this.addDetailsInfoForm.value.jobPreference; 
-    this.details.achievements=this.addDetailsInfoForm.value.achievements;
+    this.details.jobPreference=jobPreference; 
+    this.details.achievements=achievement;
     console.log(this.achievementOf);
        
     console.log(this.userdetails3);
@@ -272,7 +293,7 @@ addPersonalInfoForm = this.fb.group({
   this.userdetails1.lastName=this.addPersonalInfoForm.value.lastName; 
   this.userdetails1.gender=this.addPersonalInfoForm.value.gender;  
   this.userdetails1.dateOfBirth=this.addPersonalInfoForm.value.dateOfBirth;  
-  this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
+  // this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
   this.userdetails1.objective=this.addPersonalInfoForm.value.objective;
   // this.userdetails1.profilePicture=this.addPersonalInfoForm.value.profilePicture;
   
