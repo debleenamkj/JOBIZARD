@@ -315,6 +315,7 @@ public class RegisterServiceImpl implements RegisterService
             JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(emailId).get();
             jobSeeker.setJobSeekerImage(jobSeeker1.getJobSeekerImage());
             return jobSeekerRegisterRepository.save(jobSeeker);
+
         }
     }
 
