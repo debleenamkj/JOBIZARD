@@ -1,9 +1,11 @@
 package com.stackroute.cvgenerationservice.config;
 
+import com.stackroute.cvgenerationservice.Dto.JobSeekerDTO;
 import com.stackroute.cvgenerationservice.domain.JobSeeker;
 import com.stackroute.cvgenerationservice.exception.CvAlreadyExistsException;
 import com.stackroute.cvgenerationservice.exception.CvNotFoundException;
 import com.stackroute.cvgenerationservice.service.cvService;
+import com.stackroute.cvgenerationservice.service.cvServiceImpl;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -21,6 +21,11 @@ spring:
             allowedHeaders: "*"
             exposedHeaders: "*"
       routes:
+        - id: assessmentservice
+          uri: lb://assessmentservice
+          predicates:
+            - Path=/assessmentservice/**
+
         - id: authentication-service
           uri: lb://authentication-service
           predicates:
@@ -73,12 +78,12 @@ spring:
             - RewritePath=/post-service(?<segment>/?.*), $\{segment}
 
 
-        - id: product-webapp
-          uri: lb://product-webapp
-          predicates:
-            - Path=/**
-          filters:
-            - RewritePath=(?<segment>/?.*), $\{segment}
+#        - id: product-webapp
+#          uri: lb://product-webapp
+#          predicates:
+#            - Path=/**
+#          filters:
+#            - RewritePath=(?<segment>/?.*), $\{segment}
 
 
         - id: recommendation-service
@@ -110,6 +115,7 @@ spring:
             - Path=/trend-lab-service/**
           filters:
             - RewritePath=/trend-lab-service(?<segment>/?.*), $\{segment}
+
 
 
 management:
