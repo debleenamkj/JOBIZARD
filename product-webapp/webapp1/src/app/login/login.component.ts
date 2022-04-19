@@ -76,33 +76,4 @@ export class LoginComponent implements OnInit {
 
     }
 
-    // Credentials={
-    //   emailId:'',
-    //   password:''
-    // }
-
-    // onSubmit(){
-    //   console.log("form is submitted")
-    //   if((this.Credentials.emailId!=''&&this.Credentials.password!='')&&(this.Credentials.emailId!=null&&this.Credentials.password!=null)){
-    //     //token generate
-    //     this.loginService.generateToken(this.Credentials).subscribe(
-    //        (response:any)=>{
-    //          //if token generated successfully
-    //             console.log(response.token);
-    //             this.loginService.loginuser(response.token);
-    //             alert("Welcome Back !! ")
-    //             window.location.href="/profiles"
-    //        },
-    //        error=>{
-    //              alert("The credentials entered are incorrect .Please try again!!")
-    //              window.location.href="/register"
-    //              alert("please register if not registered")
-    //              console.log(error);
-    //        }
-    //      )
-    //   }else{
-    //     alert("Fields are empty. Kindly enter username and password");
-    //   }
-    // }
-
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.satckroute.applicationRegisterService.domain.JobSeeker;
 import com.satckroute.applicationRegisterService.domain.OrganizationDetails;
 import com.satckroute.applicationRegisterService.domain.Recruiter;
+import com.satckroute.applicationRegisterService.domain.Skill;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.service.RegisterService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin("*")
 @Slf4j
 @RestController
 @RequestMapping("api/v1")
@@ -133,6 +134,7 @@ public class RegisterController
     {
         try
         {
+
             log.debug("RegisterController - registerNewRecruiter");
             return new ResponseEntity<>(registerService.registerNewRecruiter(recruiter), HttpStatus.CREATED);
         }
@@ -296,7 +298,7 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/jobSeeker/{emailId}")
+    @PutMapping("/jobSeekerWithoutImage/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetails(@RequestBody JobSeeker jobSeeker, @PathVariable String emailId) throws JobSeekerNotFoundException
     {
         try
@@ -318,37 +320,38 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/jobSeeker1/{emailId}")
+    @PutMapping("/jobSeekerWithImage/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-        try
-        {
+//        try
+//        {
             log.debug("RegisterController - updateJobSeekerDetail");
             JobSeeker jobSeeker1 = new ObjectMapper().readValue(jobSeeker,JobSeeker.class);
             //
-            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
+//            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateJobSeekerDetail(jobSeeker1, emailId,file), HttpStatus.OK);
-        }
-        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
-            throw new JobSeekerNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//        }
+//        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
+//            throw new JobSeekerNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
     }
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/recruiter/{emailId}")
-    public ResponseEntity<?> updateRecruiterDetails(@RequestBody Recruiter recruiter, @PathVariable String emailId) throws RecruiterNotFoundException
+    @PutMapping("/recruiterWithoutImage/{emailId}")
+    public ResponseEntity<?> updateRecruiterDetails(@RequestParam("jobs") String recruiter, @PathVariable String emailId) throws RecruiterNotFoundException
     {
         try
         {
+            Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
             log.debug("RegisterController - updateRecruiterDetails");
-            return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter, emailId), HttpStatus.OK);
+            return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter1, emailId), HttpStatus.OK);
         }
         catch (RecruiterNotFoundException recruiterNotFoundException)
         {
@@ -364,7 +367,7 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PutMapping("/recruiter1/{emailId}")
+    @PutMapping("/recruiterWithImage/{emailId}")
     public ResponseEntity<?> updateRecruiterDetail(@PathVariable String emailId ,@RequestParam("recruiter1") String recruiter, @RequestParam("file") MultipartFile file) throws RecruiterNotFoundException, IOException
     {
         try
@@ -372,7 +375,7 @@ public class RegisterController
             log.debug("RegisterController - updateRecruiterDetail");
             Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
             //
-            ResponseEntity responseEntity = new ResponseEntity(registerService.updateRecruiterDetail(recruiter1,emailId,file),HttpStatus.CREATED);
+//            ResponseEntity responseEntity = new ResponseEntity(registerService.updateRecruiterDetail(recruiter1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateRecruiterDetail(recruiter1,emailId,file), HttpStatus.OK);
         }
         catch (RecruiterNotFoundException recruiterNotFoundException)
@@ -553,10 +556,14 @@ public class RegisterController
         return registerService.getJobSeekers(emailId);
     }
 
+//---------------------------------------------------------------------------------------------------------------------
+
     @GetMapping("/{emailId}")
     public JobSeeker getJobseeker(@PathVariable String emailId) throws JobSeekerNotFoundException {
         return registerService.getJobseeker(emailId);
     }
+
+//---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiter/add/{emailId}")
     public Recruiter addDetailsInRecruiter(@PathVariable String emailId,@RequestParam("recruiter") String recruiter) throws JsonProcessingException
@@ -565,5 +572,10 @@ public class RegisterController
         return registerService.addDetailsInRecruiter(recruiter1,emailId);
     }
 
+//---------------------------------------------------------------------------------------------------------------------
 
+    @PutMapping("/marks/{emailId}")
+    public JobSeeker updateMarks(@PathVariable String emailId,@RequestBody Skill skill) throws JobSeekerNotFoundException {
+        return registerService.updateDetails(emailId,skill);
+    }
 }

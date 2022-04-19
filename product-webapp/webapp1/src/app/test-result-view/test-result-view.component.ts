@@ -31,6 +31,8 @@ export class TestResultViewComponent implements OnInit {
     this.unattempted = this.service.unAnsweredQuestions;
     this.marksGot = this.service.percentage;
 
+    
+
     let card = document.getElementsByClassName(
       'flip-card'
     ) as HTMLCollectionOf<HTMLElement>;
@@ -42,13 +44,22 @@ export class TestResultViewComponent implements OnInit {
       card[0].style.backgroundColor = 'red';
       this.message = 'FAIL';
       this.head ='Not qualified, Re-Take the test'
+      this.skill={isVerified:false,skillName:this.service.quizName,level:worrior,percentage:this.service.percentage}
       
     } else {
       card[0].style.backgroundColor = 'green';
       this.message = 'PASS';
       this.head ="Hey " +this.username+ ", you are our " +this.level+ ", with Score " +this.marksGot+ "%";
+      this.skill={isVerified:true,skillName:this.service.quizName,level:worrior,percentage:this.service.percentage}
     }
+
+    console.log(this.skill)
+    this.service.sendMarks("vishnu28@gmail.com",this.skill).subscribe(data =>{
+      console.log(data);
+    })
   }
+
+  skill:any;
   head:any;
   worrior_logo: any;
   marksGot: number = 0;

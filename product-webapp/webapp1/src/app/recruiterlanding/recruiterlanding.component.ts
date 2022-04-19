@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ChatroomComponent } from '../chatroom/chatroom.component';
+import { EmailRequest } from '../model/email-request';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
+import { SearchService } from '../search.service';
+import { ChatroomService } from '../service/chatroom.service';
 import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
@@ -20,17 +25,17 @@ export class RecruiterlandingComponent implements OnInit {
 
   
   jobSeeker: Array<JobSeekerLanding>=[];
-  recruiterLandingData:RecruiterLandingData;
+  recruiterLandingData= new RecruiterLandingData();
   jobSeekerSlice: Array<JobSeekerLanding>=[];
   images:any[]=[];
 
-  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomComponent) { }
+  // constructor(private recruiterLanding: RecruiterlandingService) { }
+  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomService, private router: Router, private service: SearchService, private alert: MatSnackBar) { }
 
   ngOnInit(): void {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
       this.recruiterLandingData=d;
-      console.log(this.recruiterLandingData.logo)
-      // this.getLogo(this.recruiterLandingData)
+      localStorage.setItem('companyName',this.recruiterLandingData.companyName)
     });
 
     this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
@@ -52,8 +57,31 @@ export class RecruiterlandingComponent implements OnInit {
     });
   }
 
-  onChat(reciever: any){
-    this.chat.selectedReceiver
+  onClick(recipientEmail:any,recipientName:any){
+    this.chat.senderId = this.recruiterLandingData.emailId;
+    this.chat.senderName = this.recruiterLandingData.companyName;
+    this.chat.recipientId = recipientEmail;
+    this.chat.recipientName = recipientName;
+    this.router.navigate(['/chatroom']);
+  }
+
+  sendEmail(emailId:any){
+    let details = new EmailRequest(emailId,this.recruiterLandingData.companyName)
+    let message: string="";
+    this.service.sendEmail(details).subscribe({next:d=>{
+      console.log(d)
+      message=d.message
+      this.alert.open(message,'close',{
+        duration: 5000
+      })
+    },
+    error:er=>{
+      console.log(er)
+      message=er.error.text
+      this.alert.open(message,'close',{
+        duration: 5000
+      })
+    }})
   }
 
 

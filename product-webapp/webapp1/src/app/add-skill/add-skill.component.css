@@ -1,0 +1,83 @@
+/* /* .addressGrandParentDiv{
+    display: flex;
+}
+
+.commondiv{
+    display: flex;
+}
+.commonSpace{
+    padding-top: 20px;
+}
+.commonFieldSpace{
+    padding-left: 40px;
+}
+.custom-form-field {
+    width: 200px;
+    font-size: 14px;
+    margin-top: 3px;
+    margin-bottom: -1.35em;
+  
+    /* mat-datepicker-toggle {
+        font-size: 12px;
+    } */
+  
+    /* input.mat-input-element {
+        padding-bottom: 2px;
+        font-size: 12px;
+        color: $title-color;
+    } */
+  /* } */
+/* .educationSpace{
+    padding-left: 106px;
+}
+.cousrsesSpcae{
+    padding-left: 105px;
+    margin-bottom: -20px;
+}
+.fieldSpace{
+    padding-left: 64px;
+}
+.universitySpace{
+    padding-left: 27px;
+}
+.courseTypeSpace{
+    padding-left: 80px;
+}
+.passOutYearSpace{
+    padding-left: 70px;
+}
+.percentageSpace{
+    padding-left: 31px;
+}
+
+
+  .educationAddBTN{
+      margin-top: 30px;
+      padding-top: 30px;
+    margin-right: 30px;
+    color: whitesmoke;
+      padding-left: 30px;
+      padding-right: 30px;
+    height: auto;
+    width: auto;
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+}
+.educationSaveBTN{
+    color: whitesmoke;
+    
+    margin-right: 30px;
+    margin-top: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+}
+.educationNextBTN{
+    color: whitesmoke;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: large;
+     margin-left: 40px;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
+}   */

@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterServiceService } from '../service/register-service.service';
-import { ChatroomComponent } from '../chatroom/chatroom.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -25,14 +24,17 @@ export class NavBarComponent {
       role="recruiter";
       // role="";
 
-  // name="sajal@gmail.com";
-  // n1=name.split("@",3);
+  emailId: string;
+  name: string;
+
   firstname="Jobsie";
   lastname="Jobbie";
   email="jobseeker@gmail.com";
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
-    private loginService : RegisterServiceService) {}
+    private loginService : RegisterServiceService) {
+      // this.getUsername()
+    }
 
 
   hide=false;
@@ -51,5 +53,14 @@ export class NavBarComponent {
       console.log('Dialog Box: $(result)')
     })
   }
+
+  // getUsername(){
+  //   this.emailId=localStorage.getItem('loginId');
+  //   console.log(this.emailId)
+  //   // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
+  //   this.name = this.emailId.split('@',2)[0];
+  //   console.log(this.name);
+  // }
+
 
 }

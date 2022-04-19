@@ -1,6 +1,7 @@
 package com.satckroute.applicationRegisterService.config;
 
 
+import com.satckroute.applicationRegisterService.domain.JobSeeker;
 import com.satckroute.applicationRegisterService.rabbitMQ.*;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -23,6 +24,8 @@ public class Producer
 
     public void sendMessage(UserDTO userDTO)
     {
+
+
         //covert the (exchange,routing key,object)
         rabbitTemplate.convertAndSend(exchange.getName(),"user_routing",userDTO);
     }
@@ -31,6 +34,7 @@ public class Producer
 
     public void sendJobSeekerMessage(Seeker Seeker)
     {
+        System.out.println("Job seeker");
         //covert the (exchange,routing key,object)
         rabbitTemplate.convertAndSend(exchange.getName(),"jobSeeker_routing",Seeker);
     }
@@ -52,7 +56,7 @@ public class Producer
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    public void cvGeneration(JobSeekerDTO jobSeekerDTO)
+    public void cvGeneration(JobSeeker jobSeekerDTO)
     {
         //covert the (exchange,routing key,object)
         rabbitTemplate.convertAndSend(exchange.getName(),"cvGeneration_routing",jobSeekerDTO);
