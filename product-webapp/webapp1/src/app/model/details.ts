@@ -1,13 +1,13 @@
 export class details{
-        public academicCertification:string[]=[];
+        public academicsCertification:string[]=[];
        public skillSet:string[]=[];
-       public jobPreference:string[]=[];
+       public jobPreferences:string[]=[];
        public achievements:string[]=[]
 
        constructor(){
-        this.academicCertification=[],
+        this.academicsCertification=[],
         this.skillSet=[],
-        this.jobPreference=[],
+        this.jobPreferences=[],
         this.achievements=[]
        }
 }

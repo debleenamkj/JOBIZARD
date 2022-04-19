@@ -8,6 +8,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { UserDetailsService } from '../service/user-details.service';
 import { details } from '../model/details';
+import { address } from '../model/address';
 
 //************************************** interface declared of ts components of chips********************************
 
@@ -47,8 +48,10 @@ export class UpdateUserDetailsComponent implements OnInit {
      email:string="";
   ngOnInit(): void {
       this.email = localStorage.getItem('loginId');
+      console.log(this.email)
       this.updateDetails = this.fb.group({})
       this.userDetails.getJobSeeker(this.email).subscribe( data =>{
+        console.log(data)
         this.seekerDetails = data;
         this.addPersonalInfoForm.patchValue({
           firstName:this.seekerDetails.firstName,
@@ -57,14 +60,72 @@ export class UpdateUserDetailsComponent implements OnInit {
           dateOfBirth:this.seekerDetails.dateOfBirth,
           objective:this.seekerDetails.objective,
         })
+        console.log("---------personal form ------------")
+        console.log(this.addPersonalInfoForm);
+        
         this.addContactInfoForm.patchValue({
           mobileNumber:this.seekerDetails.mobileNumber,
-          lane:this.seekerDetails.lane,
-          state:this.seekerDetails.state,
-          city:this.seekerDetails.city,
-          pincode:this.seekerDetails.pincode,
-          nationality:this.seekerDetails.nationality,
+          lane:this.seekerDetails.address.lane,
+          state:this.seekerDetails.address.state,
+          city:this.seekerDetails.address.city,
+          pincode:this.seekerDetails.address.pincode,
+          nationality:this.seekerDetails.address.nationality,
         })
+      
+        this.seekerDetails.additionalDetails.academicsCertification.forEach((element: any)  => {
+          this.academicsCertifications.push({name:element})
+        })
+        this.seekerDetails.additionalDetails.skillSet.forEach((element: any) => {
+          this.skillSets.push({name:element.skillName})
+        });
+        this.seekerDetails.additionalDetails.jobPreferences.forEach((element: any) => {
+          this.jobPreferences.push({name:element})
+        });
+        this.seekerDetails.additionalDetails.achievements.forEach((element: any) => {
+          this.achievementOf.push({name:element})
+        });
+        
+        let jobPreference = new Array();
+        this.jobPreferences.forEach(element =>{
+          jobPreference.push(element.name);
+        });
+        console.log("---------jobPreference-------- ");
+        console.log(this.jobPreferences);
+        console.log(jobPreference);
+    
+    
+    
+        let achievement = new Array();
+        this.achievementOf.forEach(element => {
+          achievement.push(element.name);
+        });
+
+
+        this.addDetailsInfoForm.patchValue({
+          academicCertification:[],
+          skillSet:[],
+          jobPreference:[],
+          achievements:[],
+        })
+        this.updateDetails.emailId=this.seekerDetails.emailId;
+        this.userdetails1.firstName=this.seekerDetails.firstName;  
+        this.userdetails1.lastName=this.seekerDetails.lastName; 
+        this.userdetails1.gender=this.seekerDetails.gender;  
+        this.userdetails1.dateOfBirth=this.seekerDetails.dateOfBirth;  
+        // this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
+        this.userdetails1.objective=this.seekerDetails.objective;
+      
+        this.userdetails2.mobileNumber=this.seekerDetails.mobileNumber;
+           
+        // this.address.lane=this.seekerDetails.address.lane;
+        console.log(this.addContactInfoForm.value.state);
+          
+        // this.address.state=this.seekerDetails.address.state;  
+        // this.address.city=this.seekerDetails.address.city;  
+        // this.address.pincode=this.seekerDetails.address.pincode;  
+        // this.address.nationality=this.seekerDetails.address.nationality;
+        
+        this.userdetails1.address=this.seekerDetails.address
 
 
         // this.addDetailsInfoForm.patchValue({
@@ -84,15 +145,44 @@ export class UpdateUserDetailsComponent implements OnInit {
   academicsCertifications: AcademicsCertification[] = [];
 
   userDetailsInfo(){  
+    console.log(this.addPersonalInfoForm);
+  this.userdetails1.emailId=this.email
+  console.log(this.userdetails1.emailId)
+  this.userdetails1.firstName=this.addPersonalInfoForm.value.firstName;
+  // console.log("----firstName ------")
+  // console.log(this.userdetails1.firstName);
+   
+  this.userdetails1.lastName=this.addPersonalInfoForm.value.lastName; 
+  this.userdetails1.gender=this.addPersonalInfoForm.value.gender;  
+  this.userdetails1.dateOfBirth=this.addPersonalInfoForm.value.dateOfBirth;  
+  // this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
+  this.userdetails1.objective=this.addPersonalInfoForm.value.objective;
+
+  this.userdetails1.mobileNumber=this.addContactInfoForm.value.mobileNumber;
+     
+  this.address.lane=this.addContactInfoForm.value.lane;
+  console.log(this.addContactInfoForm.value.state);
+    
+  this.address.state=this.addContactInfoForm.value.state;  
+  this.address.city=this.addContactInfoForm.value.city;  
+  console.log("pincode---------")
+  console.log(this.addContactInfoForm.value.pincode);
+
+  this.address.pincode=this.addContactInfoForm.value.pincode;  
+  console.log(this.address.pincode);
+  this.address.nationality=this.addContactInfoForm.value.nationality;
+  
+  this.userdetails1.address=this.address
+  console.log(this.userdetails1);
     console.log(this.addDetailsInfoForm);
 
     let academic = new Array();
     this.academicsCertifications.forEach(element => {
       academic.push(element.name);
     });
-    console.log("---------Academic-------- ");
-    console.log(this.academicsCertifications);
-    console.log(academic);
+    // console.log("---------Academic-------- ");
+    // console.log(this.academicsCertifications);
+    // console.log(academic);
     
     let skill = new Array();
     this.skillSets.forEach(element => {
@@ -100,17 +190,17 @@ export class UpdateUserDetailsComponent implements OnInit {
       console.log(skill1);
       skill.push(skill1);
     });
-    console.log("---------skills-------- ");
-    console.log(this.skillSets);
-    console.log(skill);
+    // console.log("---------skills-------- ");
+    // console.log(this.skillSets);
+    // console.log(skill);
 
     let jobPreference = new Array();
     this.jobPreferences.forEach(element =>{
       jobPreference.push(element.name);
     });
-    console.log("---------jobPreference-------- ");
-    console.log(this.jobPreferences);
-    console.log(jobPreference);
+    // console.log("---------jobPreference-------- ");
+    // console.log(this.jobPreferences);
+    // console.log(jobPreference);
 
 
 
@@ -118,17 +208,20 @@ export class UpdateUserDetailsComponent implements OnInit {
     this.achievementOf.forEach(element => {
       achievement.push(element.name);
     });
-    console.log("---------achievement-------- ");
-    console.log(this.achievementOf);
-    console.log(achievement);
-
-
-
-
-    this.details.academicCertification=academic;  
+    // console.log("---------achievement-------- ");
+    // console.log(this.achievementOf);
+    // console.log(achievement);
+    this.details.academicsCertification=academic;  
+    console.log(academic)
+    console.log(this.details.academicsCertification);
     this.details.skillSet=skill;
-    this.details.jobPreference=jobPreference; 
+    this.details.jobPreferences=jobPreference; 
     this.details.achievements=achievement;
+    this.userdetails1.additionalDetails=this.details;
+    console.log(this.userdetails1);
+    this.userDetails.updateUserWithoutImage(this.email,this.userdetails1).subscribe( data =>{
+      console.log(data);
+    })
     console.log(this.achievementOf);
        
     console.log(this.userdetails3);
@@ -318,6 +411,7 @@ addPersonalInfoForm = this.fb.group({
 
  userdetails(){  
   console.log(this.addPersonalInfoForm);
+  this.userdetails1.emailId=this.email
   this.userdetails1.firstName=this.addPersonalInfoForm.value.firstName;  
   this.userdetails1.lastName=this.addPersonalInfoForm.value.lastName; 
   this.userdetails1.gender=this.addPersonalInfoForm.value.gender;  
@@ -344,8 +438,8 @@ addPersonalInfoForm = this.fb.group({
 
 
 save() {  
-  this.userDetails.updateUserDetails(this.userdetails1)  
-    .subscribe(data => console.log(data));  
+  // this.userDetails.updateUserDetails(this.userdetails1)  
+  //   .subscribe(data => console.log(data));  
 }
 
 addskillOnClick(){
@@ -370,19 +464,44 @@ addContactInfoForm = this.fb.group({
   
  });
 
+ address=new address();
 
  userContactdetails(){  
-  console.log(this.addContactInfoForm);
-  
+   console.log("in user contact details---------------");
+   
+  console.log(this.addPersonalInfoForm);
+  this.userdetails1.emailId=this.email
+  console.log(this.userdetails1.emailId)
+  this.userdetails1.firstName=this.addPersonalInfoForm.value.firstName;
+  // console.log("----firstName ------")
+  // console.log(this.userdetails1.firstName);
+   
+  this.userdetails1.lastName=this.addPersonalInfoForm.value.lastName; 
+  this.userdetails1.gender=this.addPersonalInfoForm.value.gender;  
+  this.userdetails1.dateOfBirth=this.addPersonalInfoForm.value.dateOfBirth;  
+  // this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
+  this.userdetails1.objective=this.addPersonalInfoForm.value.objective;
 
-  this.userdetails2.mobileNumber=this.addContactInfoForm.value.mobileNumber;
+  this.userdetails1.mobileNumber=this.addContactInfoForm.value.mobileNumber;
      
-  // this.userdetails2.lane=this.addContactInfoForm.value.lane;  
-  // this.userdetails2.state=this.addContactInfoForm.value.state;  
-  // this.userdetails2.city=this.addContactInfoForm.value.city;  
-  // this.userdetails2.pincode=this.addContactInfoForm.value.pincode;  
-  // this.userdetails2.nationality=this.addContactInfoForm.value.nationality;  
+  this.address.lane=this.addContactInfoForm.value.lane;
+  console.log(this.addContactInfoForm.value.state);
     
+  this.address.state=this.addContactInfoForm.value.state;  
+  this.address.city=this.addContactInfoForm.value.city;  
+  console.log("pincode---------")
+  console.log(this.addContactInfoForm.value.pincode);
+
+  this.address.pincode=this.addContactInfoForm.value.pincode;  
+  console.log(this.address.pincode);
+  this.address.nationality=this.addContactInfoForm.value.nationality;
+  
+  this.userdetails1.address=this.address
+  console.log(this.userdetails1);
+  
+  this.userDetails.updateUserWithoutImage(this.email,this.userdetails1).subscribe( data =>{
+    console.log(data);
+  })
   console.log(this.userdetails2);
     
   this.save2();  
@@ -390,8 +509,8 @@ addContactInfoForm = this.fb.group({
 
 
 save2() {  
-  this.userDetails.updateUserDetails(this.userdetails2)  
-    .subscribe(data => console.log(data));  
+  // this.userDetails.updateUserDetails(this.userdetails2)  
+  //   .subscribe(data => console.log(data));  
 }
 
 
@@ -412,8 +531,8 @@ addDetailsInfoForm = this.fb.group({
 
 
 save3() {  
-  this.userDetails.updateUserDetails(this.userdetails3)  
-    .subscribe(data => console.log(data));  
+  // this.userDetails.updateUserDetails(this.userdetails3)  
+  //   .subscribe(data => console.log(data));  
 }
 
 
