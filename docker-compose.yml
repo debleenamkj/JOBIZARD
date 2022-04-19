@@ -142,6 +142,17 @@ services:
       - eureka-server
     ports:
       - 8089:8089
+  email-service:
+    image: emailservice
+    build: email-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    depends_on:
+      - api-gateway
+      - eureka-server
+    ports:
+      - 8085:8085
 
 
 

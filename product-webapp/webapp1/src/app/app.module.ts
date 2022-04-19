@@ -48,6 +48,7 @@ import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.co
 import { LoginComponent } from './login/login.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
+// import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
 
@@ -80,6 +81,9 @@ import { TockenInterceptorService } from './service/tocken-interceptor.service';
 import { RecruiterlandingComponent } from './recruiterlanding/recruiterlanding.component';
 
 import { JobSeekerLandingComponent } from './job-seeker-landing/job-seeker-landing.component';
+
+
+
 import { JobSeekerProfileComponent } from './job-seeker-profile/job-seeker-profile.component';
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { TestResultViewComponent } from './test-result-view/test-result-view.component';
@@ -87,6 +91,8 @@ import { ImagePostDialogComponent } from './image-post-dialog/image-post-dialog.
 import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.component';
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AddSkillsComponent } from './add-skills/add-skills.component';
+
 
 
 
@@ -151,7 +157,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ImagePostDialogComponent,
     BlogPostDialogComponent,
     RecruiterRegisterComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddSkillsComponent
 
   ],
   imports: [
@@ -164,6 +171,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     MatButtonModule,
     LayoutModule,
     FormsModule,
+    // FormBuilder,
+    // FormGroup,
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
@@ -204,5 +213,6 @@ import { HomepageComponent } from './homepage/homepage.component';
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents:[UpdateUserDetailsComponent]
 })
 export class AppModule { }

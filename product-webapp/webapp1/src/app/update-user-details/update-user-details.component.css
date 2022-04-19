@@ -46,8 +46,8 @@
 .dobSpace{
     margin-left: 6px;
 }
-.mobileSpace{
-    margin-left: -16px;
+.objectiveSpace{
+    margin-left: 31px;
 }
 /* .commonInputDiv{
     length:80px
@@ -99,22 +99,43 @@
   .addressGrandParentDiv{
       display: flex;
   }
+.addressParentdiv{
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+    /* margin: auto; */
+    padding-left: 60px;
+    font-size: large;
+    border: 7px solid #4E1B5F;
+    border-width: 2.5px;
+    /* border-color: red; */
+    border-radius: 10px;
+    width: 45%;
+}
+.mobileSpace{
+    padding-left: 24px;
+}
+.laneSpace{
+    padding-left: 108px;
+}
   .stateSpcae{
-      padding-left: 66px;
+    padding-left: 104px;
   }
   .citySpace{
-      padding-left: 78px;
+      padding-left: 115px;
   }
   .pincodeSpace{
-      padding-left: 44px;
+      padding-left: 79px;
   }
   .nationalitySpace{
-      padding-left: 22px;
+      padding-left: 57px;
   }
+  
   .addressBTN{
     width: 100%;
     display: flex;
-    padding-top: 100px;
+    padding-top: 60px;
     padding-left: 140px;
 
   }
@@ -185,8 +206,8 @@
 
   /* -------------------------Education Details Css-------------------------- */
   .educationParentdiv{
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     margin-top: 20px;
     margin-left: 10px;
     /* margin: auto; */
@@ -201,8 +222,11 @@
   .educationSpace{
       padding-left: 128px;
   }
-.coursesParaSpace{
+/* .coursesParaSpace{
     
+} */
+.commonSpace1{
+    padding-top: 10px;
 }
 .cousrsesSpcae{
     
@@ -228,10 +252,40 @@
 .percentageSpace{
     margin-left: 5px;
 }
+/* ******************************************************** */
+.posteducationAddBTN{
+    margin-left: 200px;
+}
+.graduationeducationAddBTN{
+    margin-left: 240px;
+}
+.highereducationAddBTN{
+    margin-left: 103px;
+}
+.senioreducationAddBTN{
+    margin-left: 105px;
+}
+.othereducationAddBTN{
+    margin-left: 270px;
+}
+.Other2educationAddBTN{
+    margin-left: 270px;
+}
+/* ******************************************************** */
 .educationBTN{
     display: flex;
     padding-top: 10px;
-    padding-left: 140px;
+    padding-left: 80px;
+}
+.educationAddBTN{
+    height: 40px;
+    margin-right: 40px;
+    color: whitesmoke;
+      padding-left: 30px;
+      padding-right: 30px;
+    
+    font-size: large;
+    background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132))
 }
 .educationSaveBTN{
     color: whitesmoke;
@@ -260,7 +314,7 @@
     padding-bottom: 20px;
 }
 .imageUploadLabel{
-    padding-top: 10px;
+    padding-top: 15px;
     padding-left: 100px;
 }
 .UploadBTN{

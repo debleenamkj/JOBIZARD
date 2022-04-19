@@ -31,6 +31,7 @@ export class JobPostingComponent implements OnInit {
   companyDetails:any=null;
 
   ngOnInit(): void {
+    this.getCompany()
   }
 
   isLinear = false;
@@ -75,7 +76,6 @@ export class JobPostingComponent implements OnInit {
 
    requirementsForm = this.fb.group({
     education:['', Validators.required],
-    experience:['', Validators.required],
     skills:['', Validators.required],
    });
 
@@ -100,18 +100,41 @@ getCompany(){
 
   console.log("getcompany")
     this.post.companyName=this.companyForm.controls['companyName'].value;
-    this.service.getCompany(this.post.companyName).subscribe(data => {
+
+
+
+    let email="rkgg@gmail.com";
+    this.service.getRecruiter(email).subscribe(data => {
       console.log(data);
       this.companyDetails = data;
       this.companyForm.patchValue({
+      companyName:this.companyDetails.companyName,
       companyUrl:this.companyDetails.companyUrl,
-      companyEmail:this.companyDetails.companyEmail,
       companyLogo:this.companyDetails.log,
       industryType:this.companyDetails.industryType,
       });
+      this.requirementsForm.patchValue({
+      education:this.companyDetails.educationRequired,
+      // skills:this.companyDetails.skillsRequired,
+      })
+      this.companyDetails.skillsRequired.forEach((element: any) => {
+        this.fruits.push({name: element})
+      });
       this.post.companyUrl = this.companyDetails.companyUrl
-      this.post.companyEmail = this.companyDetails.companyEmail
+      this.post.emailId = this.companyDetails.emailId
       this.post.industryType = this.companyDetails.industryType
+      this.post.companyName=this.companyDetails.companyName;
+      this.post.educationRequired=this.companyDetails.educationRequired;
+      let skills = new Array();
+      this.fruits.forEach(element => {
+      console.log("in for")
+      console.log(element.name);
+      skills.push(element.name);
+    });
+    console.log(skills);
+    this.post.skillsRequired = skills;
+    
+      
       let img = this.companyDetails.logo;
       this.upimage = 'data:image/jpeg;base64,'+img;
       console.log(img);
@@ -130,24 +153,24 @@ getCompany(){
       this.companyDetailsError=this.companyForm.controls['status'];
       console.log(this.companyDetailsError);
       this.post.companyName=this.companyForm.controls['companyName'].value;
-      this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
+      // this.post.companyEmail=this.companyForm.controls['companyEmail'].value;
       this.post.companyUrl=this.companyForm.controls['companyUrl'].value;
       this.post.industryType=this.companyForm.controls['industryType'].value;
     }
   
     //this.post.companyLogo=this.upimage;
-    this.details.educationRequired= this.requirementsForm.controls['education'].value;
-    this.details.experienceRequired= this.requirementsForm.controls['experience'].value;
+    this.post.educationRequired= this.requirementsForm.controls['education'].value;
+    // this.details.experienceRequired= this.requirementsForm.controls['experience'].value;
   }
 
   preview1(){
     console.log("description");
     console.log(this.jobForm.value);
     console.log(this.jobForm.value.lastDate);
-    this.details.jobRole=this.jobForm.controls['jobTitle'].value;
-    //this.details.jobDescription=this.jobForm.value.jobDescription;
-    this.details.jobLocation=this.jobForm.controls['location'].value;
-    this.details.salary=this.jobForm.controls['salary'].value;
+    // this.details.jobRole=this.jobForm.controls['jobTitle'].value;
+    // //this.details.jobDescription=this.jobForm.value.jobDescription;
+    // this.details.jobLocation=this.jobForm.controls['location'].value;
+    // this.details.salary=this.jobForm.controls['salary'].value;
   }
 
   preview2(description:any){
@@ -176,30 +199,38 @@ getCompany(){
       skills.push(element.name);
     });
     console.log(skills);
-    this.details.skillsRequired = skills;
+    this.post.skillsRequired = skills;
      console.log("finish");
-     this.post.jobDetailsList=[this.details];
+    //  this.post.jobDetailsList=[this.details];
      console.log(this.post);
+     
+     
+     const email = "m4@gmail.com"
+     this.post.emailId=email;
 
      const uploadData = new FormData();
-     if(this.companyDetails==null){
+     if(this.file!=null){
        console.log("company details is null")
       uploadData.append('file', this.file);
-      uploadData.append('jobs',JSON.stringify(this.post));
+      uploadData.append('recruiter1',JSON.stringify(this.post));
+      console.log(uploadData.get('recruiter1'));
       console.log(uploadData.get('file'));
-      console.log(uploadData.get('jobs'));
       console.log(uploadData);
-      this.service.postJob(uploadData).subscribe(data =>{
+      
+      this.service.postRecruiter(uploadData,email).subscribe(data =>{
         console.log(data)
         console.log("finish posting");
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
       }) 
      }
-     else if (this.companyDetails!=null){
+     else if (this.file==null){
       console.log("company details is present")
       uploadData.append('jobs',JSON.stringify(this.post));
-      this.service.postJob1(uploadData).subscribe(data =>{
+      
+      
+      let email = "rkgg@gmail.com"
+      this.service.updateRecruiter(email,uploadData).subscribe(data =>{
         console.log(data)
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';

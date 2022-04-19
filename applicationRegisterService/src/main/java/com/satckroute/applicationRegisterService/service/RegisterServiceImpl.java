@@ -180,6 +180,7 @@ public class RegisterServiceImpl implements RegisterService
 //        ,recruiter.role.toString()
 //        UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword());
 
+
         //role
         UserDTO userDTO = new UserDTO(recruiter.getEmailId(),recruiter.getPassword(),recruiter.role.toString());
         if(recruiterRegisterRepository.findById(recruiter.getEmailId()).isPresent())
@@ -510,6 +511,38 @@ public class RegisterServiceImpl implements RegisterService
             throw new JobSeekerNotFoundException();
         }
         return jobSeeker;
+    }
+
+    @Override
+    public JobSeeker updateDetails(String emaild, Skill skill) throws JobSeekerNotFoundException {
+        JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(emaild).get();
+        if(jobSeeker==null){
+            throw new JobSeekerNotFoundException();
+        }
+        Details details = new Details();
+        Skill[] skillSet=jobSeeker.getAdditionalDetails().getSkillSet();
+        String[] academicsCertification=jobSeeker.getAdditionalDetails().getAcademicsCertification();
+        String[] jobPreferences=jobSeeker.getAdditionalDetails().getJobPreferences();
+        String[] achievements=jobSeeker.getAdditionalDetails().getAchievements();
+        details.setAchievements(achievements);
+        details.setAcademicsCertification(academicsCertification);
+        details.setJobPreferences(jobPreferences);
+
+//        for (Skill skill1: skillSet) {
+//            if(skill1.getSkillName().equalsIgnoreCase(skill.getSkillName())){
+//                skill1 = skill;
+//            }
+//        }
+
+        for (int i=0;i< skillSet.length;i++){
+            if(skillSet[i].getSkillName().equalsIgnoreCase(skill.getSkillName())){
+                skillSet[i] = skill;
+            }
+        }
+        details.setSkillSet(skillSet);
+        jobSeeker.setAdditionalDetails(details);
+
+        return jobSeekerRegisterRepository.save(jobSeeker);
     }
 }
 

@@ -1,5 +1,7 @@
 package com.stackroute.recruitmentservice.service;
 
+import com.stackroute.recruitmentservice.exception.CompanyNotFound;
+import com.stackroute.recruitmentservice.exception.JobsNotFound;
 import com.stackroute.recruitmentservice.model.JobPosting;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,10 +18,10 @@ public interface JobService     {
 
     Boolean deleteJobPost(String companyId);
 
-    Iterable<JobPosting> showAllJobs();
+    Iterable<JobPosting> showAllJobs() throws CompanyNotFound;
 
     List<JobPosting> findBySkills(String skill);
 
-    Optional<JobPosting> specificJob(String companyId);
+    Optional<JobPosting> specificJob(String companyId) throws JobsNotFound;
 //    public JobPosting deleteJobPost(String companyId);
 }

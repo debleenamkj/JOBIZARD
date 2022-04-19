@@ -23,7 +23,7 @@ export class SkilltestServiceService {
   getTest(testName:string){
     const testname = testName.toLowerCase()
     console.log('http://localhost:8081/category/'+testName.toLowerCase());
-    return this.httpClient.get("http://localhost:8081/category/"+testName);
+    return this.httpClient.get("http://localhost:8081/category/java");
   }
   getninja(){
     return 'assets\\warriors_logos\\ninja.png'
@@ -36,5 +36,9 @@ export class SkilltestServiceService {
   }
   getgladiator(){
     return 'assets\\warriors_logos\\gladiator.PNG';
+  }
+
+  sendMarks(email:string,skill:any){
+    return this.httpClient.put("http://localhost:8098/api/v1/marks/"+email,skill)
   }
 }

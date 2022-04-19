@@ -25,6 +25,7 @@ public class Producer
     public void sendMessage(UserDTO userDTO)
     {
 
+
         //covert the (exchange,routing key,object)
         rabbitTemplate.convertAndSend(exchange.getName(),"user_routing",userDTO);
     }

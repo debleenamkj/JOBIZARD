@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.satckroute.applicationRegisterService.domain.JobSeeker;
 import com.satckroute.applicationRegisterService.domain.OrganizationDetails;
 import com.satckroute.applicationRegisterService.domain.Recruiter;
+import com.satckroute.applicationRegisterService.domain.Skill;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.service.RegisterService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin("*")
 @Slf4j
 @RestController
 @RequestMapping("api/v1")
@@ -133,6 +134,7 @@ public class RegisterController
     {
         try
         {
+
             log.debug("RegisterController - registerNewRecruiter");
             return new ResponseEntity<>(registerService.registerNewRecruiter(recruiter), HttpStatus.CREATED);
         }
@@ -321,34 +323,35 @@ public class RegisterController
     @PutMapping("/jobSeekerWithImage/{emailId}")
     public ResponseEntity<?> updateJobSeekerDetail(@RequestParam("jobSeeker1") String jobSeeker, @PathVariable String emailId , @RequestParam("file") MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-        try
-        {
+//        try
+//        {
             log.debug("RegisterController - updateJobSeekerDetail");
             JobSeeker jobSeeker1 = new ObjectMapper().readValue(jobSeeker,JobSeeker.class);
             //
 //            ResponseEntity responseEntity = new ResponseEntity(registerService.updateJobSeekerDetail(jobSeeker1,emailId,file),HttpStatus.CREATED);
             return new ResponseEntity<>(registerService.updateJobSeekerDetail(jobSeeker1, emailId,file), HttpStatus.OK);
-        }
-        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
-            throw new JobSeekerNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - updateJobSeekerDetail"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+//        }
+//        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+jobSeekerNotFoundException);
+//            throw new JobSeekerNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - updateJobSeekerDetail"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
     }
 //---------------------------------------------------------------------------------------------------------------------
 
     @PutMapping("/recruiterWithoutImage/{emailId}")
-    public ResponseEntity<?> updateRecruiterDetails(@RequestBody Recruiter recruiter, @PathVariable String emailId) throws RecruiterNotFoundException
+    public ResponseEntity<?> updateRecruiterDetails(@RequestParam("jobs") String recruiter, @PathVariable String emailId) throws RecruiterNotFoundException
     {
         try
         {
+            Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
             log.debug("RegisterController - updateRecruiterDetails");
-            return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter, emailId), HttpStatus.OK);
+            return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter1, emailId), HttpStatus.OK);
         }
         catch (RecruiterNotFoundException recruiterNotFoundException)
         {
@@ -571,4 +574,8 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
+    @PutMapping("/marks/{emailId}")
+    public JobSeeker updateMarks(@PathVariable String emailId,@RequestBody Skill skill) throws JobSeekerNotFoundException {
+        return registerService.updateDetails(emailId,skill);
+    }
 }
