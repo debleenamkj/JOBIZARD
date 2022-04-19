@@ -81,7 +81,7 @@ services:
       - 8080:8080
 
   applicationRegisterService:
-    build: applicationRegisterService/
+    build: application-register-service/
     container_name: applicationregisterservicecontainer
     depends_on:
       - mongodb
@@ -94,7 +94,7 @@ services:
       - 8098:8098
 
   authenticationService:
-    build: authenticationService/
+    build: authentication-service/
     container_name: authenticationservicecontainer
     depends_on:
       - mysql

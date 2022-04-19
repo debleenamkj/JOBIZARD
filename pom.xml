@@ -32,12 +32,10 @@
         <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
-        <module>AssessmentService</module>
+        <module>assessment-service</module>
         <module>chatbot-service</module>
-        <module>applicationRegisterService</module>
-        <module>authenticationService</module>
-        <module>applicationRegisterService</module>
-        <module>authenticationService</module>
+        <module>application-register-service</module>
+        <module>authentication-service</module>
         <module>cv-generation-service</module>
         <module>chatbot-service</module>
         <module>chatroom-service</module>
