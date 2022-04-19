@@ -33,7 +33,8 @@ public class JobSeeker
     private Date dateOfBirth;
     private String mobileNumber;
     private String password;
-
+    private JobSeekerProgress seekerProgress;
+    private int progress;
     public Role role;
 //    private Role Role.JOBSEEKER;
 
