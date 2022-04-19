@@ -153,6 +153,18 @@ services:
       - eureka-server
     ports:
       - 8085:8085
+  assessment-service:
+    image: assessmentservice
+    build: assessment-service/
+    restart: always
+    hostname: localhost
+    network_mode: host
+    depends_on:
+      - mongodb
+      - api-gateway
+      - eureka-server
+    ports:
+      - 8081:8081
 
 
 
