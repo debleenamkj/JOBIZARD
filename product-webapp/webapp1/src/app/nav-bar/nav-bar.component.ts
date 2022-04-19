@@ -14,14 +14,16 @@ import { RegisterServiceService } from '../service/register-service.service';
 })
 export class NavBarComponent {
 
+  
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
-      // role="jobseeker";
-      role="recruiter";
+    role = localStorage.getItem('role');
+      // role="RECRUITER";
       // role="";
 
   emailId: string;
