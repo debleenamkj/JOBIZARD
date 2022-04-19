@@ -103,7 +103,7 @@ getCompany(){
 
 
 
-    let email="rkgg@gmail.com";
+    let email=localStorage.getItem('loginId');
     this.service.getRecruiter(email).subscribe(data => {
       console.log(data);
       this.companyDetails = data;
@@ -183,7 +183,10 @@ getCompany(){
     this.details.lastDate = lastDate.getFullYear()+'-'+(lastDate.getMonth()+1)+'-'+lastDate.getDate();
   }
   company(){
-
+    this.post.companyUrl = this.companyForm.value.companyUrl
+    this.post.emailId = this.companyDetails.emailId
+    this.post.industryType = this.companyForm.value.industryType
+    this.post.companyName=this.companyForm.value.companyName
     this.companyDetailsError="";
     console.log(this.companyForm);
     // let div = document.getElementsByClassName('b1') as HTMLCollectionOf<HTMLElement>;
@@ -205,7 +208,7 @@ getCompany(){
      console.log(this.post);
      
      
-     const email = "m4@gmail.com"
+     const email = localStorage.getItem('loginId');
      this.post.emailId=email;
 
      const uploadData = new FormData();
@@ -229,7 +232,7 @@ getCompany(){
       uploadData.append('jobs',JSON.stringify(this.post));
       
       
-      let email = "rkgg@gmail.com"
+      let email = localStorage.getItem('loginId');
       this.service.updateRecruiter(email,uploadData).subscribe(data =>{
         console.log(data)
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;

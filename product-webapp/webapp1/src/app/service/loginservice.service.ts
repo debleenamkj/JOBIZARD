@@ -19,6 +19,8 @@ export class LoginserviceService
 //   }
 
 
+role="";
+
   constructor(private http:HttpClient) { }
 
 //   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
