@@ -1,6 +1,5 @@
 <header style="width: 99.1%; position: fixed; top: 64px; z-index: 1;">
-  <nav class="navbar navbar-expand-lg navbar-light" 
-  style="  background-color: #4E1B5F; border-radius: unset;">
+  <nav class="navbar navbar-expand-lg navbar-light" style="  background-color: #4E1B5F; border-radius: unset;">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../../assets/logo3.png" alt="" width="80" height="70" class="d-inline-block align-text-top">
@@ -51,7 +50,7 @@
           </h3>
         </div>
         <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
-          <div style="background-image: url( ../../assets/home-page/21.webp);height:70vh;width: 100%;
+          <div style="background-image: url( ../../assets/home-page/23.webp);height:70vh;width: 100%;
               background-repeat: no-repeat; background-size: cover;background-position: center;"></div>
         </div>
       </ng-template>
@@ -60,19 +59,49 @@
   <br><br><br>
   <section style="width: 85%; margin: auto;">
 
-    <div style="display: flex;">
-      <img style="width: 50%; height: 350px;" src="../../assets/home-page/18.jpg">
+    <div style="display: flex; justify-content: center;">
+      <img style="width: 50%; height: 350px; object-fit: cover; " src="../../assets/home-page/19.jpg">
       <div style="margin-left: 20px; width: 600px; height: 350px;">
-        <h2>Title</h2>
-        <p>Problem?</p>
-        <p>Problem?</p>
+        <h2 style="font-size: x-large;">
+          Searching for jobs?</h2>
+        <p style="font-size: large; letter-spacing: 2px;font-weight: 500;">
+          Trending Skills is not easy to find?</p>
+        <p style="font-size: medium; letter-spacing: 2px;font-weight: 500">
+          Weak in the skill you possess?</p>
         <hr>
         <div style="height: 5px;"></div>
         <hr>
-        <p>
-          Provided Solution
+        <p style="font-size: large; line-height: 30px; letter-spacing: 1px; ">
+          Get your profile selected based on your skills, just register and
+          add your details to let recruiters know about you.
+          Hone your skills and assess to know your weaknesses with our
+          assessment tests suited for you according to the latest trends
+          , and learn which skills recruiters demand.
         </p>
       </div>
+    </div>
+    <hr style="margin: 60px auto;">
+  </section>
+  <section style="width: 85%; margin: auto;">
+    <div style="display: flex; justify-content: center;">
+      <div style="margin-right: 20px; width: 600px; height: 350px;">
+        <h2 style="font-size: x-large;">
+          Need to fill the vacancy?</h2>
+        <p style="font-size: large; letter-spacing: 2px;font-weight: 500;">
+          Are candidate's not proficient in mentioned skills? </p>
+        <p style="font-size: medium; letter-spacing: 2px;font-weight: 500">
+          Hiring process takes lot of time? </p>
+        <hr>
+        <div style="height: 5px;"></div>
+        <hr>
+        <p style="font-size: large; line-height: 30px; letter-spacing: 1px; ">
+          Post Jobs and see profile of potential candidates, true to their mentioned skills.
+          Relevant candidates information with the verified skills, so that you don,t need to
+          test their skills to check their proficiency. Just select and start hiring.
+        </p>
+      </div>
+      <img style="width: 50%; height: 350px; object-fit: cover; object-position: 50% 30%;"
+        src="../../assets/home-page/24.webp">
     </div>
     <hr style="margin: 60px auto;">
   </section>
@@ -80,14 +109,35 @@
     <h1 class="title">
       Our Features
     </h1>
-    <div style="display: flex; justify-content: center;">
-      <mat-card class="example-card" *ngFor="let item of card">
-        <img src="../../assets/home-page/12.webp" alt="Photo of a Shiba Inu">
+    <div style="display: flex; justify-content: center; ">
+      <mat-card class="example-card">
+        <img src="../../assets/home-page/jzi.png"
+          style="background-image: linear-gradient(to right, #6E2586,rgb(218, 153, 206))">
         <mat-card-content>
           <p style="font-size:1.8rem;">
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+            Getting the latest information on demanding skills and other related news
+            made available, so you don't need to look for various platforms and only use Jobizard
+            to tay updated about industry new with detailed stats.
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="example-card">
+        <img src="../../assets/home-page/22.png">
+        <mat-card-content>
+          <p style="font-size:1.8rem;">
+            Recruitment made easier than ever, no need to worry about hiring skilled
+            candidates, Verified and assesed profiles are made available through our search filters
+            designed to suit your expectations from the candidates.
+          </p>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="example-card">
+        <img src="../../assets/home-page/resume.png">
+        <mat-card-content>
+          <p style="font-size:1.8rem;">
+            "Your dream job doesn't exist you need to create it “. A good resume along will your skills will help you to
+            get your dream job. Try out our resume template to stand out from the crowd. Just fill required fields and
+            the resume will be created for you.
           </p>
         </mat-card-content>
       </mat-card>
@@ -104,27 +154,33 @@
           <div class="about-div">
             <img src="../../assets/home-page/7.png">
             <h1>
-              Title
+              Post Jobs
             </h1>
-            <p>Problem?</p>
+            <p style="font-size: medium;"> Post the jobs vacant in your firm on a click, and get relevant candidates.
+            </p>
           </div>
         </div>
         <div style="position: relative; top: 40%; width: 100%; height: fit-content;">
           <div class="about-div">
             <img src="../../assets/home-page/16.png">
             <h1>
-              Title
+              Hire
             </h1>
-            <p>Problem?</p>
+            <p style="font-size: medium;">
+              Hire candidates on click of a button who best suit your vacancy requirements.
+            </p>
           </div>
         </div>
         <div style="position: relative;width: 100%; top: 70%; height: fit-content;">
           <div class="about-div">
             <img src="../../assets/home-page/17.webp">
             <h1>
-              Title
+              Skilled Candidates
             </h1>
-            <p>Pasda?</p>
+            <p style="font-size: medium;">
+              Candidates on our Jobizard earn badges which tells how much skilles they are in the mentioned skills,
+              which will make your selection process unnecessary.
+            </p>
           </div>
         </div>
       </div>
@@ -132,59 +188,81 @@
     </div>
     <hr style="margin: 60px auto;">
   </section>
-  
-  <section class="even-more-section">
+
+
+
+  <section style="width: 85%; margin: auto;">
     <h1 class="title">
       Get Spellbound with features like
     </h1>
-    <div class="even-more">
-      <img src="../../assets/home-page/black-tie-brands.svg">
-      <p>
-        Your dream job doesn't exist you need to create it “. A good resume along will your skills will help you to
-        get
-        your dream job. Try out our resume template to stand out from the crowd. Just fill required fields and the
-        resume will be created for you.
-      </p>
-    </div>
-    <div>
-      <img src="../../assets/home-page/black-tie-brands.svg">
-      <p>
-        Interact with other seeker to stay connected.
-      </p>
-    </div>
-    <div>
-      <img src="../../assets/home-page/black-tie-brands.svg">
-      <p>
-        Search companies to know the insight through reviews and write a review to help other seekers.
-      </p>
-    </div>
+    <div style="display: flex; height: 600px;">
+      <div style="margin-right:3%; width: 30%; height: 100%;">
+        <section class="even-more-section">
+
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Create resume in various templates and stop worrying about resume-creation.
+            </p>
+          </div>
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Interact with other seeker to stay connected.
+            </p>
+          </div>
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Filter candidates according to skills and education so you get relevant candidates. 
+            </p>
+          </div>
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Get business news and tech news, so that you can always stay updated in the industry.  
+            </p>
+          </div>
+          
+        </section>
+      </div>
+      <img src="../../assets/home-page/14.png" style="width: 30%; height: 100%;">
+      <div style="margin-left: 3%;width: 30%; height: 100%;">
+        <section class="even-more-section">
+
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Our Chatbot will help you guide through our platform.
+            </p>
+          </div>
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Know the current salary trend and the demand of kills in the detailed graphical representation.
+            </p>
+          </div>
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Search companies to know the insight through reviews and write a review to help other seekers.
+            </p>
+          </div>
+          <div>
+            <img src="../../assets/home-page/black-tie-brands.svg">
+            <p>
+              Search for courses according to the skills you want to learn or hone your skills with our recommended
+              courses through top-educators. 
+            </p>
+          </div>
+      
   </section>
+</div>
+</div>
+</section>
 
-  <section>
-    <h1 class="title">
 
-    </h1>
-    
-  </section>
-  <!-- <section>
-    <div class="div-additional">
-      <img src="../../assets/jzi.png" alt="" class="imgleft">
-      <p>JobiZone provides you with tools to enhance your experience like, Skill trends to explore demand for your
-        skills, Salary trends to check how salary in your role changes with experience,
-        a Tech news and Business News section to keep you updated with current headlines.</p>
-    </div>
-    <div class="div-additional">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias laborum porro, esse, enim totam possimus quos
-        repellendus nemo officiis natus rerum eveniet earum!
-        Tenetur, doloremque velit. Exercitationem alias vero accusamus.</p>
-      <img src="" alt="" class="imgright">
-    </div>
-  </section> -->
 
-  <!-- <h1 class="title">
-    Even More
-  </h1> -->
-  
 </div>
 
 <footer class="footer-basic">
@@ -224,11 +302,88 @@
         src="../../assets/home-page/youtube.svg" alt="youtube icon">
     </a>
   </div>
-  <!-- <div style="border-top: 1px solid black; width: 100%;"></div> -->
+
   <p class="copyright">
     <button mat-icon-button>
       <i class="fa-solid fa-copyright fa-xl fa-shake"></i>
     </button>
     COPYRIGHT © JOBIZARD 2022. ALL RIGHTS RESERVED.
   </p>
-</footer>
+</footer> -->
+<!-- <section>
+    <div class="div-additional">
+      <img src="../../assets/jzi.png" alt="" class="imgleft">
+      <p>JobiZone provides you with tools to enhance your experience like, Skill trends to explore demand for your
+        skills, Salary trends to check how salary in your role changes with experience,
+        a Tech news and Business News section to keep you updated with current headlines.</p>
+    </div>
+    <div class="div-additional">
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias laborum porro, esse, enim totam possimus quos
+        repellendus nemo officiis natus rerum eveniet earum!
+        Tenetur, doloremque velit. Exercitationem alias vero accusamus.</p>
+      <img src="" alt="" class="imgright">
+    </div>
+  </section> -->
+<!-- /***//////////////*//////////
+
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light" style="  background-color: transparent; border-radius: unset; 
+  position: fixed; z-index: 1; width: 80%; 
+  left: 10%;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/logo3.png" alt="" width="80" height="70" class="d-inline-block align-text-top">
+      JOBIZARD
+    </a>
+  </div>
+  <div style="display: flex; justify-content: center; 
+     margin-right: 5%; margin-left: auto; ">
+    <button mat-raised-button style=" margin-right: 20px;">
+      Log-In
+    </button>
+    <button mat-raised-button>
+      Register
+    </button>
+  </div>
+</nav>
+
+<section style="height: 70vh;">
+  <ngb-carousel style="height: 100%;">
+    <ng-template ngbSlide style="height: 100%;">
+      <div class="carousel-caption">
+        <h1>
+          Get Everything from A to Izzard...
+        </h1>
+      </div>
+      <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+        <div style="height: 70vh;width: 100%;
+           background-color: rgb(60, 3,71); ">
+          <img src="../../assets/home-page/20.jpg" alt="" style="width: 400px; height: 400px; ">
+        </div>
+      </div>
+      <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+        <div style="background-image: url();height: 70vh;width: 100%;
+            background-repeat: no-repeat; background-size: cover; background-position-y: -60px; ">
+          <img src="../../assets/home-page/2.webp">
+        </div>
+
+      </div>
+    </ng-template>
+    <ng-template ngbSlide style="height: 100%;">
+      <div class="carousel-caption">
+        <h3 class="tagline">
+          Connect Recruiters from Various Vocation.
+        </h3>
+      </div>
+      <div class="picsum-img-wrapper" style="height: 100%;width: 100%;">
+        <div style="background-image: url( ../../assets/home-page/21.webp);height:70vh;width: 100%;
+            background-repeat: no-repeat; background-size: cover;background-position: center;"></div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</section> -->
