@@ -41,13 +41,14 @@ public class RecommendationserviceImpl implements RecommendationService{
         try{
             if(jobRepository.findById(job.getEmailId()).isPresent())
             {
-                log.error("RecommendationserviceImpl - savejob : JobAlreadyPresentException");
-                throw new JobAlreadyPresentException();
+                  jobRepository.save(job);
+//                log.error("RecommendationserviceImpl - savejob : JobAlreadyPresentException");
+//                throw new JobAlreadyPresentException();
             }
             else {
                 jobRepository.save(job);
             }
-        }catch (JobAlreadyPresentException exception){
+        }catch (Exception exception){
             log.error("RecommendationserviceImpl - savejob : "+exception);
             exception.printStackTrace();
         }
@@ -63,13 +64,14 @@ public class RecommendationserviceImpl implements RecommendationService{
         try {
             if(userRepository.findById(seeker.getEmail()).isPresent())
             {
-                log.error("RecommendationserviceImpl - saveUser : UserAlreadyExistsException");
-                throw new UserAlreadyExistsException();
+//                log.error("RecommendationserviceImpl - saveUser : UserAlreadyExistsException");
+//                throw new UserAlreadyExistsException();
+                userRepository.save(seeker);
             }
             else {
                 userRepository.save(seeker);
             }
-        }catch (UserAlreadyExistsException exception)
+        }catch (Exception exception)
         {
             log.error("RecommendationserviceImpl - saveUser : "+exception);
             exception.printStackTrace();

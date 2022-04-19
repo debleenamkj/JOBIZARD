@@ -89,7 +89,7 @@ export class ChatroomComponent implements OnInit {
   }
   
 
-  senderId = this.chatService.senderId;
+  senderId = localStorage.getItem('loginId');
   recipientId = this.chatService.recipientId;
   senderName = this.chatService.senderName;
   recipientName = this.chatService.recipientName;

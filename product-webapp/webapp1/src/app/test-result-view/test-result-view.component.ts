@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../service/post/post.service';
 import { SkilltestServiceService } from '../service/skilltest-service.service';
 
 @Component({
@@ -7,9 +8,17 @@ import { SkilltestServiceService } from '../service/skilltest-service.service';
   styleUrls: ['./test-result-view.component.css'],
 })
 export class TestResultViewComponent implements OnInit {
-  constructor(private service: SkilltestServiceService) {}
+  constructor(private service: SkilltestServiceService,private service1:PostService) {}
 
   ngOnInit(): void {
+
+    this.service1.getSeeker(localStorage.getItem('loginId')).subscribe( data =>{
+      this.username=data;
+      console.log(this.username);
+      
+    })
+
+    this.Testname=this.service.quizName;
     let worrior = this.service.worrior;
     if (worrior == 'beginner') {
       this.worrior_logo = this.service.getbeginner();
@@ -49,12 +58,13 @@ export class TestResultViewComponent implements OnInit {
     } else {
       card[0].style.backgroundColor = 'green';
       this.message = 'PASS';
-      this.head ="Hey " +this.username+ ", you are our " +this.level+ ", with Score " +this.marksGot+ "%";
+      this.head ="Hey " +this.username.firstName+ ", you are our " +this.level+ ", with Score " +this.marksGot+ "%";
       this.skill={isVerified:true,skillName:this.service.quizName,level:worrior,percentage:this.service.percentage}
     }
 
     console.log(this.skill)
-    this.service.sendMarks("vishnu28@gmail.com",this.skill).subscribe(data =>{
+    let email = localStorage.getItem('loginId')
+    this.service.sendMarks(email,this.skill).subscribe(data =>{
       console.log(data);
     })
   }
@@ -66,7 +76,7 @@ export class TestResultViewComponent implements OnInit {
   correctAnswers = 0;
   attempted = 0;
   unattempted = 0;
-  username = 'USER';
+  username :any;
   level: any;
   Testname = '';
   TotalQuestions = 10;

@@ -237,7 +237,7 @@ changeColor(qno:number){
     else if(percentage>=70){
       warrior_name='saga'
     }
-    else if(percentage>50){
+    else if(percentage>=50){
       warrior_name='beginner'
     }
     this.service.worrior=warrior_name;
