@@ -78,13 +78,15 @@
 
         <a style="margin-left: 20px; float: right;text-decoration: none; color: white" color="primary" type="submit" routerLink="/jobSeeker">Job Seeker</a>
         
-        <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/userLogin">LogIn</a> -->
+        <a style="margin-left: 20px; float: right;text-decoration: none; color: white"  color="primary" type="submit" routerLink="/userLogin">LogIn</a>
 
-        &nbsp;
-      <!-- <h5>Hi, {{username}}</h5> -->
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu">
-      <img src="../../assets/logo-crop.png" style="height: 8vh;margin-left:10px;margin-top:-20px;position: sticky;" alt="logo">
-        <!-- <mat-icon>person</mat-icon> -->
+        <img src="../../assets/logo-crop.png" style="height: 8vh;margin-left:10px;margin-top:-20px;position: sticky;" alt="logo">
+      
+      
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu">      
+      &nbsp;
+      <h5 style="position: absolute; top:5px; width: fit-content;left: 40px;">Hi, {{name}}</h5>
+      <mat-icon>person</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/jobseekerprofile">

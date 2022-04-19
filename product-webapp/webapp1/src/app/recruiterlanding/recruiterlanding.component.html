@@ -41,18 +41,18 @@
   <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi">
   <mat-card-header>
-    <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;">{{jobseekers.additionalDetails.academicsCertification}}</span></mat-card-title>
+    <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp;&nbsp;<span style="font-weight: normal; font-size: 15px;">{{jobseekers.additionalDetails.academicsCertification}}</span></mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list *ngFor="let skills of jobseekers.additionalDetails.skillSet">
-      <mat-chip style="display:inline-flex">{{skills.skillName}}</mat-chip>
+    <mat-chip-list *ngFor="let skills of jobseekers.additionalDetails.skillSet" style="display:inline-flex; margin: 2px;">
+      <mat-chip>{{skills.skillName}}</mat-chip>
     </mat-chip-list>
   </mat-card-content>
   <mat-card-actions>
     <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
-    <button><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button>
+    <button (click)="sendEmail(jobseekers.emailId)" style="margin-left: 3px; border: none; background-color: white;"><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button>
     <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
-    <button (click)="onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)"><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i></button>
+    <button (click)="onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)" style="margin-left: 150px; border: none; background-color: white;"><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159);">chat</i></button>
   </mat-card-actions>
 </mat-card>
 </div>

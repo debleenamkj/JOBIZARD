@@ -15,8 +15,20 @@ style="background-color: aliceblue;"
     <p><mat-checkbox formControlName="java" color="primary" >Java</mat-checkbox></p>
     <p><mat-checkbox formControlName="angular" color="primary">Angular</mat-checkbox></p>
     <p><mat-checkbox formControlName="spring"color="primary">Spring</mat-checkbox></p>
+     
   </section>
+</section>
+  <section class="example-section" [formGroup]="educationgroup" style="margin-left: 2%;">
+    <h1>Please Select the Required Skills:</h1>
+    <mat-radio-group formControlName="education"
+    aria-label="Select an option">
+        <mat-radio-button value="b.tech">B.Tech</mat-radio-button>
+        <mat-radio-button value="bsc">BSc</mat-radio-button>
+        <mat-radio-button value="bca">BCA</mat-radio-button>
+    </mat-radio-group>
+    <button (click)="getEmailList()">Filter</button>
   </section>
+  
   
   <!-- <section class="example-section" [formGroup]="skills">
     <h2>You chose:</h2>
@@ -37,22 +49,27 @@ style="background-color: aliceblue;"
 <div class="container-fluid col-lg-9">
     <mat-card class="example-card" *ngFor="let jobseekers of jobSeekersList">
       <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-      <img mat-card-image src="{{jobseekers.jobSeekerImage}}" class="pi">
+      <img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi">
       <mat-card-header>
         <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;"></span></mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <!-- <mat-chip-list *ngFor="let skills of jobseekers.additionalDetails.skillSet">
-          <mat-chip style="display:inline-flex">{{skills.skillName}}</mat-chip>
-        </mat-chip-list> -->
+        <mat-chip-list *ngFor="let skills of jobseekers.additionalDetails.skillSet">
+          <mat-chip style="padding: 8px;">{{skills.skillName}}</mat-chip>
+        </mat-chip-list>
+        <h2>Education Details:</h2>
+        <mat-chip-list *ngFor="let course of jobseekers.educationDetails">
+          <mat-chip style="padding: 8px;">{{course.courses}}</mat-chip>
+        </mat-chip-list>
       </mat-card-content>
+     
       <mat-card-actions>
         <!-- <button mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784); padding: 0px;"><mat-icon style="color: white;">check</mat-icon></button> -->
-        <button><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button>
+        <button (click)="sendEmail(jobseekers)"><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button>
         <!-- <button mat-button style="color: white;">  <i class="material-icons" style="font-size:40px;color:black">chat</i></button> -->
         <button ><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159); margin-left: 20px;">chat</i></button>
       </mat-card-actions>
     </mat-card>
     </div>
-
+    <!-- "onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)" -->
 </div>

@@ -1,257 +1,311 @@
 <div>
   
-  <mat-tab-group mat-align-tabs="center">
-    
-    <mat-tab label="Personal Information" class="PersonalInfoMat">
-      <!-- <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>  -->
-      <div class="personalGrandParentDiv">
-        <!-- --------------parent Div info------------------------------ -->
-        <div class="personalParentdiv">
-          <!-- <p class="PersonalInfoPara">Tell us something about yourself</p> -->
-          
+  <mat-tab-group mat-align-tabs="center" (selectedIndexChange)="selectedIndexChange($event)" [selectedIndex]="selectedIndex"> 
+    <!--  -->
 
-          <div class="commondiv">
-            <p class="commonSpace">First Name :</p>
-            <div class="commonInputDiv">
-              <mat-form-field
-                appearance="fill"
-                class="commonFieldSpace firstNameSpace custom-form-field"
-                style="width: 400px"
-              >
-                <mat-label>first Name</mat-label>
-                <input matInput />
-              </mat-form-field>
+    <form [formGroup]="addPersonalInfoForm" >
+
+      <mat-tab label="Personal Information" class="PersonalInfoMat">
+        <!-- <mat-progress-bar mode="determinate" value="25"></mat-progress-bar>  -->
+        <div class="personalGrandParentDiv">
+          <!-- --------------parent Div info------------------------------ -->
+          <div class="personalParentdiv">
+            <!-- <p class="PersonalInfoPara">Tell us something about yourself</p> -->
+            
+  
+            <div class="commondiv">
+              <p class="commonSpace">First Name :</p>
+              <div class="commonInputDiv">
+                <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace firstNameSpace custom-form-field"
+                  style="width: 400px"
+                  
+                >
+                  <mat-label>first Name</mat-label>
+                  <input matInput formControlName="firstName" />
+                </mat-form-field>
+              </div>
+            </div>
+            <br />
+            <!-- <div class="commondiv">
+              <p class="commonSpace">Middle Name :</p>
+              <div>
+                <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace custom-form-field"
+                  style="width: 400px"
+                >
+                  <mat-label>Middle Name</mat-label>
+                  <input matInput />
+                </mat-form-field>
+              </div>
+            </div> -->
+            <!-- <br /> -->
+            <div class="commondiv">
+              <p class="commonSpace">Last Name :</p>
+              <div>
+                <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace lastNameSpace custom-form-field"
+                  style="width: 400px"
+                  
+                >
+                  <mat-label>Last Name</mat-label>
+                  <input matInput formControlName="lastName" />
+                </mat-form-field>
+              </div>
+            </div>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Gender :</p>
+              <div>
+                <!-- <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace genderSpcae custom-form-field"
+                  style="width: 400px"
+                >
+                  <mat-label>Gender</mat-label>
+                  <input matInput />
+                </mat-form-field> -->
+                <mat-form-field appearance="fill"
+                class="commonFieldSpace genderSpcae custom-form-field"
+                  style="width: 400px"
+                  >
+                  <mat-label>Gender</mat-label>
+                  <mat-select formControlName="gender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Date of Birth :</p>
+              <div>
+                <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace dobSpace custom-form-field"
+                  style="width: 400px"
+                  
+                >
+                  <mat-label>Choose your dob</mat-label>
+                  <input matInput [matDatepicker]="picker"formControlName="dateOfBirth" />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker ></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Objective :</p>
+              <div>
+                <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace objectiveSpace custom-form-field"
+                  style="width: 400px"
+                  
+                >
+                  <mat-label>Objective</mat-label>
+                  <textarea matInput formControlName="objective"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Profile Picture :</p>
+              <div>
+                <!-- <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace mobileSpace custom-form-field"
+                  style="width: 400px"
+                >
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput />
+                </mat-form-field> -->
+                <input class="imageUploadLabel" type="file" id="img" name="img" formControlName="profilePicture" accept="image/*">
+              </div>
+            </div>
+            
+            <!-- ---------------------Buttons Div---------------------------------------- -->
+            <div class="personalInfoBTN">
+              <div>
+                <button mat-raised-button (click)="userdetails()"    class="personalInfoSaveBTN">
+                  Save
+                </button>
+              </div>
+              <div>
+                <button mat-raised-button class="personalInfoNextBTN" (click)="clickMe()">
+                  Next
+                </button>
+              </div>
             </div>
           </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Middle Name :</p>
-            <div>
+          <!-- ------------End of parent Div info------------------------------ -->
+          <!-- ------------Start of Image Div ------------------------------ -->
+          <div class="ImageDiv">
+            <img src="assets/update-details/new_skills.jpg" alt="" />
+          </div>
+        </div>
+      </mat-tab>
+
+
+    </form> 
+
+    
+
+    <!-- ---------------------------------------------Contact------------------------------------------------ -->
+
+
+
+    <form [formGroup]="addContactInfoForm">
+
+
+      <mat-tab label="Contact">
+        <!-- <mat-progress-bar mode="determinate" value="50"></mat-progress-bar> -->
+        <div class="addressGrandParentDiv">
+          <!---------------------------------------- Contact----------------------------------- -->
+          <div class="addressParentdiv">
+            
+            <div class="commondiv">
+              <p class="commonSpace">Mobile Number :</p>
+              <div>
+                <mat-form-field
+                  appearance="fill"
+                  class="commonFieldSpace mobileSpace custom-form-field"
+                  style="width: 336px"
+                  
+                >
+                  <mat-label>Mobile Number</mat-label>
+                  <input matInput formControlName="mobileNumber" />
+                </mat-form-field>
+              </div>
+            </div>
+            
+            <br />
+  
+             <div class="commondiv">
+              <p class="commonSpace">Lane :</p>
               <mat-form-field
                 appearance="fill"
-                class="commonFieldSpace custom-form-field"
-                style="width: 400px"
+                class="commonFieldSpace laneSpace  custom-form-field"
+                style="width: 420px"
               >
-                <mat-label>Middle Name</mat-label>
-                <input matInput />
+                <mat-label>Lane</mat-label>
+                <input matInput  formControlName="lane" />
               </mat-form-field>
-            </div>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Last Name :</p>
-            <div>
-              <mat-form-field
-                appearance="fill"
-                class="commonFieldSpace lastNameSpace custom-form-field"
-                style="width: 400px"
-              >
-                <mat-label>Last Name</mat-label>
-                <input matInput />
-              </mat-form-field>
-            </div>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Gender :</p>
-            <div>
+            </div> 
+            <br />
+  
+            <div class="commondiv">
+              <p class="commonSpace">State :</p>
               <!-- <mat-form-field
                 appearance="fill"
-                class="commonFieldSpace genderSpcae custom-form-field"
-                style="width: 400px"
+                class="commonFieldSpace stateSpcae custom-form-field"
+                style="width: 420px"
               >
-                <mat-label>Gender</mat-label>
+                <mat-label>State</mat-label>
                 <input matInput />
               </mat-form-field> -->
               <mat-form-field appearance="fill"
-              class="commonFieldSpace genderSpcae custom-form-field"
-                style="width: 400px">
-                <mat-label>Gender</mat-label>
-                <mat-select>
-                  <mat-option value="one">Male</mat-option>
-                  <mat-option value="two">Female</mat-option>
-                </mat-select>
-              </mat-form-field>
+                class="commonFieldSpace stateSpcae custom-form-field"
+                  style="width: 418px">
+                  <mat-label>State</mat-label>
+                  <mat-select formControlName="state" >
+                    <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+                    <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
+                    <mat-option value="Assam">Assam</mat-option>
+                    <mat-option value="Bihar">Bihar</mat-option>
+                    <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
+                    <mat-option value="Goa">Goa</mat-option>
+                    <mat-option value="Gujarat">Gujarat</mat-option>
+                    <mat-option value="Haryana">Haryana</mat-option>
+                    <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+                    <mat-option value="Jharkhand">Jharkhand</mat-option>
+                    <mat-option value="Karnataka">Karnataka</mat-option>
+                    <mat-option value="Kerala">Kerala</mat-option>
+                    <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+                    <mat-option value="Maharashtra">Maharashtra</mat-option>
+                    <mat-option value="Manipur">Manipur</mat-option>
+                    <mat-option value="Meghalaya">Meghalaya</mat-option>
+                    <mat-option value="Mizoram">Mizoram</mat-option>
+                    <mat-option value="Nagaland">Nagaland</mat-option>
+                    <mat-option value="Odisha">Odisha</mat-option>
+                    <mat-option value="Punjab">Punjab</mat-option>
+                    <mat-option value="Rajasthan">Rajasthan</mat-option>
+                    <mat-option value="Sikkim">Sikkim</mat-option>
+                    <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+                    <mat-option value="Telangana">Telangana</mat-option>
+                    <mat-option value="Tripura">Tripura</mat-option>
+                    <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+                    <mat-option value="Uttarakhand">Uttarakhand</mat-option>
+                    <mat-option value="West Bengal">West Bengal</mat-option>
+                    
+                  </mat-select>
+                </mat-form-field>
             </div>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Date of Birth :</p>
-            <div>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">City :</p>
               <mat-form-field
                 appearance="fill"
-                class="commonFieldSpace dobSpace custom-form-field"
-                style="width: 400px"
+                class="commonFieldSpace citySpace custom-form-field"
+                style="width: 430px"
               >
-                <mat-label>Choose your dob</mat-label>
-                <input matInput [matDatepicker]="picker" />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="picker"
-                ></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" />
               </mat-form-field>
             </div>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Mobile Number :</p>
-            <div>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Pincode :</p>
               <mat-form-field
                 appearance="fill"
-                class="commonFieldSpace mobileSpace custom-form-field"
-                style="width: 400px"
+                class="commonFieldSpace  pincodeSpace custom-form-field"
+                style="width: 396px"
               >
-                <mat-label>Mobile Number</mat-label>
-                <input matInput />
+                <mat-label>Pincode</mat-label>
+                <input matInput formControlName="pincode" />
               </mat-form-field>
             </div>
-          </div>
-          <!-- ---------------------Buttons Div---------------------------------------- -->
-          <div class="personalInfoBTN">
-            <div>
-              <button mat-raised-button class="personalInfoSaveBTN">
-                Save
-              </button>
-            </div>
-            <div>
-              <button mat-raised-button class="personalInfoNextBTN">
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- ------------End of parent Div info------------------------------ -->
-        <!-- ------------Start of Image Div ------------------------------ -->
-        <div class="ImageDiv">
-          <img src="assets/update-details/new_skills.jpg" alt="" />
-        </div>
-      </div>
-    </mat-tab>
-
-    <!-- ---------------------------------------------Address------------------------------------------------ -->
-
-    <mat-tab label="Address">
-      <!-- <mat-progress-bar mode="determinate" value="50"></mat-progress-bar> -->
-      <div class="addressGrandParentDiv">
-        <!---------------------------------------- Address----------------------------------- -->
-        <div class="personalParentdiv">
-          
-          <p>Where Do You Live</p>
-          <br />
-
-          <!-- <div class="commondiv">
-            <p class="commonSpace">Lane :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace stateSpcae custom-form-field"
-              style="width: 420px"
-            >
-              <mat-label>Lane</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div> -->
-          <br />
-
-          <div class="commondiv">
-            <p class="commonSpace">State :</p>
-            <!-- <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace stateSpcae custom-form-field"
-              style="width: 420px"
-            >
-              <mat-label>State</mat-label>
-              <input matInput />
-            </mat-form-field> -->
-            <mat-form-field appearance="fill"
-              class="commonFieldSpace stateSpcae custom-form-field"
-                style="width: 420px">
-                <mat-label>State</mat-label>
-                <mat-select>
-                  <mat-option value="one">Andhra Pradesh</mat-option>
-                  <mat-option value="one">Arunachal Pradesh</mat-option>
-                  <mat-option value="one">Assam</mat-option>
-                  <mat-option value="one">Bihar</mat-option>
-                  <mat-option value="one">Chhattisgarh</mat-option>
-                  <mat-option value="one">Goa</mat-option>
-                  <mat-option value="one">Gujarat</mat-option>
-                  <mat-option value="one">Haryana</mat-option>
-                  <mat-option value="one">Himachal Pradesh</mat-option>
-                  <mat-option value="one">Jharkhand</mat-option>
-                  <mat-option value="one">Karnataka</mat-option>
-                  <mat-option value="one">Kerala</mat-option>
-                  <mat-option value="one">Madhya Pradesh</mat-option>
-                  <mat-option value="one">Maharashtra</mat-option>
-                  <mat-option value="one">Manipur</mat-option>
-                  <mat-option value="one">Meghalaya</mat-option>
-                  <mat-option value="one">Mizoram</mat-option>
-                  <mat-option value="two">Nagaland</mat-option>
-                  <mat-option value="two">Odisha</mat-option>
-                  <mat-option value="two">Punjab</mat-option>
-                  <mat-option value="two">Rajasthan</mat-option>
-                  <mat-option value="two">Sikkim</mat-option>
-                  <mat-option value="two">Tamil Nadu</mat-option>
-                  <mat-option value="two">Telangana</mat-option>
-                  <mat-option value="two">Tripura</mat-option>
-                  <mat-option value="two">Uttar Pradesh</mat-option>
-                  <mat-option value="two">Uttarakhand</mat-option>
-                  <mat-option value="two">West Bengal</mat-option>
-                  
-                </mat-select>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Nationality :</p>
+              <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace nationalitySpace custom-form-field"
+                style="width: 376px"
+              >
+                <mat-label>Nationality</mat-label>
+                <input matInput formControlName="nationality" />
               </mat-form-field>
+            </div>
+  
+            <div class="addressBTN" >
+              <div>
+                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()">Save</button>
+              </div>
+              <div >
+                <button mat-raised-button class="addressNextBTN"  >Next</button>
+              </div>
+            </div>
           </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">City :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace citySpace custom-form-field"
-              style="width: 430px"
-            >
-              <mat-label>City</mat-label>
-              <input matInput />
-            </mat-form-field>
+          <!-- ------------Start of Image Div ------------------------------ -->
+          <div class="ImageDiv">
+            <img src="assets/update-details/new_skills.jpg" alt="" />
           </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Pincode :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace  pincodeSpace custom-form-field"
-              style="width: 400px"
-            >
-              <mat-label>Pincode</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Nationality :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace nationalitySpace custom-form-field"
-              style="width: 380px"
-            >
-              <mat-label>Nationality</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
+        </div>
+      </mat-tab>
 
-          <div class="addressBTN" >
-            <div>
-              <button mat-raised-button class="addressSaveBTN">Save</button>
-            </div>
-            <div >
-              <button mat-raised-button class="addressNextBTN" >Next</button>
-            </div>
-          </div>
-        </div>
-        <!-- ------------Start of Image Div ------------------------------ -->
-        <div class="ImageDiv">
-          <img src="assets/update-details/new_skills.jpg" alt="" />
-        </div>
-      </div>
-    </mat-tab>
+    </form>
+
+    
 
 
 
@@ -269,163 +323,176 @@
 
 
     <!-- ---------------------------------------------Details------------------------------------------------ -->
-    <mat-tab label="Details">
-      <!-- <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>  -->
-      <div class="detailsGrandParentDiv">
-        <div class="detailsParentdiv">
-         
-          <!-- --------------------------------------Academics Certification-------------------------------------- -->
-         <div class="commondiv">
-           <p class="commonSpace">Academic Certifications :</p>
-           <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace academicSpcae custom-form-field" 
-           style="width: 380px">
-             <mat-label>Academic Certifications</mat-label>
-             <mat-chip-list #chipList aria-label="Academic Certifications selection">
-               <mat-chip
-                 *ngFor="let academicsCertification of academicsCertifications"
-                 (removed)="remove(academicsCertification)"
-               >
-                 {{ academicsCertification.name }}
-                 <button matChipRemove>
-                   <mat-icon>cancel</mat-icon>
-                 </button>
-               </mat-chip>
-               <input
-                 placeholder="New Certificate..."
-                 [matChipInputFor]="chipList"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="add($event)"
-               />
-             </mat-chip-list>
-           </mat-form-field>
-         </div>
-   
-         
-   
-         
-         <br />
-         <!-- --------------------------------------Skill Set-------------------------------------- -->
-         
-   
-          <div class="commondiv">
-           <p class="commonSpace">Skill Set :</p>
-           <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace skillsetSpcae custom-form-field" 
-           style="width: 510px">
-             <mat-label>Skill Set</mat-label>
-             <mat-chip-list #chipList1 aria-label="Skill Set selection">
-               <mat-chip
-                 *ngFor="let skillSet of skillSets"
-                 (removed)="removeskills(skillSet)"
-               >
-                 {{ skillSet.name }}
-                 <button matChipRemove>
-                   <mat-icon>cancel</mat-icon>
-                 </button>
-               </mat-chip>
-               <input
-                 placeholder="New skillSet..."
-                 [matChipInputFor]="chipList1"
-                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                 [matChipInputAddOnBlur]="addOnBlur"
-                 (matChipInputTokenEnd)="addskills($event)"
-               />
-             </mat-chip-list>
-           </mat-form-field>
-         </div> 
-   
-        
-         <br />
-         <!-- --------------------------------------Job Preferences-------------------------------------- -->
-   
- 
-         <div class="commondiv">
-           <p class="commonSpace">Job Preference :</p>
-   
-         <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace jobPreferencesSpcae custom-form-field"
-          style="width: 452px">
-           <mat-label>Job Preference</mat-label>
-           <mat-chip-list #chipList3 aria-label="Job Preference selection">
-             <mat-chip
-               *ngFor="let jobPreference of jobPreferences"
-               (removed)="removejobPreferences(jobPreference)"
-             >
-               {{ jobPreference.name }}
-               <button matChipRemove>
-                 <mat-icon>cancel</mat-icon>
-               </button>
-             </mat-chip>
-             <input
-               placeholder="New fruit..."
-               [matChipInputFor]="chipList3"
-               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-               [matChipInputAddOnBlur]="addOnBlur"
-               (matChipInputTokenEnd)="addJobPreferences($event)"
-             />
-           </mat-chip-list>
-         </mat-form-field>
-         </div> 
-         <br />
-          <!-- --------------------------------------Achievements-------------------------------------- -->
 
-          <div class="commondiv">
-            <p class="commonSpace">Achievements :</p>
-    
-          <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace achievementsSpcae custom-form-field"
-           style="width: 460px">
-            <mat-label>Achievements</mat-label>
-            <mat-chip-list #chipList4 aria-label="Job Preference selection">
-              <mat-chip
-                *ngFor="let achievement of achievements"
-                (removed)="removeachievements(achievement)"
-              >
-                {{ achievement.name }}
-                <button matChipRemove>
-                  <mat-icon>cancel</mat-icon>
-                </button>
-              </mat-chip>
-              <input
-                placeholder="New fruit..."
-                [matChipInputFor]="chipList4"
-                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="addachievements($event)"
-              />
-            </mat-chip-list>
-          </mat-form-field>
-          </div> 
+    <form [formGroup]="addDetailsInfoForm">
 
-
-
-
-
-         <div class="detailsBTN" >
-           <div>
-             <button mat-raised-button class="detailsSaveBTN">Save</button>
+      <mat-tab label="Details">
+        <!-- <mat-progress-bar mode="determinate" value="75"></mat-progress-bar>  -->
+        <div class="detailsGrandParentDiv">
+          <div class="detailsParentdiv">
+           
+            <!-- --------------------------------------Academics Certification-------------------------------------- -->
+           <div class="commondiv">
+             <p class="commonSpace">Academic Certifications :</p>
+             <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace academicSpcae custom-form-field" 
+             style="width: 380px">
+               <mat-label>Academic Certifications</mat-label>
+               <mat-chip-list #chipList aria-label="Academic Certifications selection">
+                 <mat-chip
+                   *ngFor="let academicsCertification of academicsCertifications"
+                   (removed)="remove(academicsCertification)"
+                 >
+                   {{ academicsCertification.name }}
+                   <button matChipRemove>
+                     <mat-icon>cancel</mat-icon>
+                   </button>
+                 </mat-chip>
+                 <input
+                   placeholder="New Certificate..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)"
+                   formControlName="academicCertification"
+                 />
+               </mat-chip-list>
+             </mat-form-field>
            </div>
-           <div>
-             <button mat-raised-button class="detailsNextBTN">Next</button>
-           </div>
-         </div>
-   
- 
-        </div>
-
-
-       
-        <div class="ImageDiv">
+     
+           
+     
+           
+           <br />
+           <!-- --------------------------------------Skill Set-------------------------------------- -->
+           
+     
+            <div class="commondiv">
+             <p class="commonSpace">Skill Set :</p>
+             <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace skillsetSpcae custom-form-field" 
+             style="width: 510px">
+               <mat-label>Skill Set</mat-label>
+               <mat-chip-list #chipList1 aria-label="Skill Set selection">
+                 <mat-chip
+                   *ngFor="let skillSet of skillSets"
+                   (removed)="removeskills(skillSet)"
+                 >
+                   {{ skillSet.name }}
+                   <button matChipRemove>
+                     <mat-icon>cancel</mat-icon>
+                   </button>
+                 </mat-chip>
+                 <input
+                   placeholder="New skillSet..."
+                   [matChipInputFor]="chipList1"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="addskills($event)"
+                   formControlName="skillSet"
+                 />
+               </mat-chip-list>
+             </mat-form-field>
+           </div> 
+     
           
-          <img src="assets/update-details/new_skills.jpg" alt="" />
-        
+           <br />
+           <!-- --------------------------------------Job Preferences-------------------------------------- -->
+     
+   
+           <div class="commondiv">
+             <p class="commonSpace">Job Preference :</p>
+     
+           <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace jobPreferencesSpcae custom-form-field"
+            style="width: 452px">
+             <mat-label>Job Preference</mat-label>
+             <mat-chip-list #chipList3 aria-label="Job Preference selection">
+               <mat-chip
+                 *ngFor="let jobPreference of jobPreferences"
+                 (removed)="removejobPreferences(jobPreference)"
+               >
+                 {{ jobPreference.name }}
+                 <button matChipRemove>
+                   <mat-icon>cancel</mat-icon>
+                 </button>
+               </mat-chip>
+               <input
+                 placeholder="New fruit..."
+                 [matChipInputFor]="chipList3"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="addJobPreferences($event)"
+                 formControlName="jobPreference"
+               />
+             </mat-chip-list>
+           </mat-form-field>
+           </div> 
+           <br />
+            <!-- --------------------------------------Achievements-------------------------------------- -->
+  
+            <div class="commondiv">
+              <p class="commonSpace">Achievements :</p>
+      
+            <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace achievementsSpcae custom-form-field"
+             style="width: 460px">
+              <mat-label>Achievements</mat-label>
+              <mat-chip-list #chipList4 aria-label="Job Preference selection">
+                <mat-chip
+                  *ngFor="let achievement of achievementOf"
+                  (removed)="removeachievements(achievement)"
+                >
+                  {{ achievement.name }}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input
+                  placeholder="New fruit..."
+                  [matChipInputFor]="chipList4"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="addachievements($event)"
+                  formControlName="achievements"
+                />
+              </mat-chip-list>
+            </mat-form-field>
+            </div> 
+  
+  
+  
+  
+  
+           <div class="detailsBTN" >
+             <div>
+               <button mat-raised-button class="detailsSaveBTN"  (click)="userDetailsInfo()">Save</button>
+             </div>
+             <div>
+               <button mat-raised-button class="detailsNextBTN" >Next</button>
+             </div>
+           </div>
+     
+   
+          </div>
+  
+  
+         
+          <div class="ImageDiv">
+            
+            <img src="assets/update-details/new_skills.jpg" alt="" />
+          
+          </div>
         </div>
-      </div>
-     
+       
+  
+        
+        
+  
+       
+      </mat-tab>
 
-      
-      
+    </form>
 
-     
-    </mat-tab>
+
+
+    
 
 
 
@@ -447,152 +514,186 @@
 
 
     <!-- ---------------------------------------------Education------------------------------------------------ -->
-    <mat-tab label="Education">
-      <!-- <mat-progress-bar mode="determinate" value="100"></mat-progress-bar> -->
-      <div class="addressGrandParentDiv">
-        <div class="educationParentdiv">
-           
-          <div class="commondiv">
-            <p class="commonSpace">Education :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace educationSpace custom-form-field"
-              style="width: 428px"
-            >
-              <mat-label>Education</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <br>
-          <!-- ---------------------------------------------Courses------------------------------------------------ -->
-          <div class="commondiv">
-            <p class="commonSpace">Courses :</p>
-            <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace cousrsesSpcae " 
-            style="width: 440px">
-              <mat-label>Courses</mat-label>
-              <mat-chip-list #chipList5 aria-label="Skill Set selection">
-                <mat-chip
-                  *ngFor="let course of courses"
-                  (removed)="removecourses(course)"
-                >
-                  {{ course.name }}
-                  <button matChipRemove>
-                    <mat-icon>cancel</mat-icon>
-                  </button>
-                </mat-chip>
-                <input
-                  placeholder="New skillSet..."
-                  [matChipInputFor]="chipList5"
-                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                  [matChipInputAddOnBlur]="addOnBlur"
-                  (matChipInputTokenEnd)="addcourses($event)"
-                />
-              </mat-chip-list>
-            </mat-form-field>
-          </div> 
-    
-         
-          
-          <!-- -------------------------------------------End of Courses------------------------------------------------ -->
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Stream or Field :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace fieldSpace custom-form-field"
-              style="width: 388px"
-            >
-              <mat-label>Stream or Field</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">University or Institute :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace universitySpace custom-form-field"
-              style="width: 340px"
-            >
-              <mat-label>University or Institute</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Course Type :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace courseTypeSpace custom-form-field"
-              style="width: 411px"
-            >
-              <mat-label>Course Type</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Pass Out Year :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace passOutYearSpace custom-form-field"
-              style="width: 398px"
-            >
-              <mat-label>Choose a date</mat-label>
-              <input matInput type="date" />
-              <!-- <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle> -->
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-          </div>
-          <br />
-          <div class="commondiv">
-            <p class="commonSpace">Percentage or CGPA :</p>
-            <mat-form-field
-              appearance="fill"
-              class="commonFieldSpace percentageSpace custom-form-field"
-              style="width: 345px"
-            >
-              <mat-label>Percentage or CGPA</mat-label>
-              <input matInput />
-            </mat-form-field>
-          </div>
+    <form action="">
 
-          <div class="educationBTN">
-            <div>
-              <button mat-raised-button class="educationSaveBTN">Save</button>
+      <mat-tab label="Education">
+        <!-- <mat-progress-bar mode="determinate" value="100"></mat-progress-bar> -->
+        <div class="addressGrandParentDiv">
+          <div class="educationParentdiv">
+
+
+
+            <div class="commondiv">
+              <p class="commonSpace1">Post Graduation :</p>
+              <button mat-raised-button class="educationAddBTN  posteducationAddBTN" (click)="addskillOnClick()">Add +</button>
+              <!-- <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace educationSpace custom-form-field"
+                style="width: 428px"
+              >
+                <mat-label>Education</mat-label>
+                <input matInput />
+              </mat-form-field> -->
             </div>
-            <div>
-              <button mat-raised-button class="educationNextBTN">Next</button>
+            <br>
+            <br>
+            <div class="commondiv">
+              <p class="commonSpace1">Graduation :</p>
+              <button mat-raised-button class="educationAddBTN graduationeducationAddBTN " (click)="addskillOnClick()">Add +</button>
+              <!-- <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace educationSpace custom-form-field"
+                style="width: 428px"
+              >
+                <mat-label>Education</mat-label>
+                <input matInput />
+              </mat-form-field> -->
             </div>
-          </div>
-          
-        </div>
-        <!-- ------------Start of Image Div ------------------------------ -->
-        <!-- <div class="ImageDiv">
-          <img src="assets/update-details/new_skills.jpg" alt="" />
-        </div> -->
-        <div class="ImageDiv">
-          <img src="assets/update-details/new_skills.jpg" alt="" />
-        </div>
-      </div>
-
-
+            <br>
+            <br>
+            <!-- ---------------------------------------------Courses------------------------------------------------ -->
+            <div class="commondiv">
+              <p class="commonSpace1">Higher Secondary Education  :</p>
+              <button mat-raised-button class="educationAddBTN highereducationAddBTN" (click)="addskillOnClick()">Add +</button>
+              <!-- <mat-form-field class="example-chip-list" appearance="fill" class="commonFieldSpace cousrsesSpcae " 
+              style="width: 440px">
+                <mat-label>Higher Secondary Education </mat-label>
+                <mat-chip-list #chipList5 aria-label="Skill Set selection">
+                  <mat-chip
+                    *ngFor="let course of courseOf"
+                    (removed)="removecourses(course)"
+                  >
+                    {{ course.name }}
+                    <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip>
+                  <input
+                    placeholder="New skillSet..."
+                    [matChipInputFor]="chipList5"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="addcourses($event)"
+                  />
+                </mat-chip-list>
+              </mat-form-field> -->
+            </div> 
       
-    </mat-tab>
+           
+            
+            <!-- -------------------------------------------End of Courses------------------------------------------------ -->
+            <br />
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace1">Senior Secondary Education  :</p>
+              <button mat-raised-button class="educationAddBTN senioreducationAddBTN" (click)="addskillOnClick()">Add +</button>
+              <!-- <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace fieldSpace custom-form-field"
+                style="width: 388px"
+              >
+                <mat-label>Stream or Field</mat-label>
+                <input matInput />
+              </mat-form-field> -->
+            </div>
+            <br />
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace1">Other 1 :</p>
+              <button mat-raised-button class="educationAddBTN othereducationAddBTN" (click)="addskillOnClick()">Add +</button>
+              <!-- <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace universitySpace custom-form-field"
+                style="width: 340px"
+              >
+                <mat-label>University or Institute</mat-label>
+                <input matInput />
+              </mat-form-field> -->
+            </div>
+            <br />
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace1">Other 2 :</p>
+              <button mat-raised-button class="educationAddBTN Other2educationAddBTN" (click)="addskillOnClick()">Add +</button>
+              <!-- <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace courseTypeSpace custom-form-field"
+                style="width: 411px"
+              >
+                <mat-label>Course Type</mat-label>
+                <input matInput />
+              </mat-form-field> -->
+            </div>
+            
+            <!-- <div class="commondiv">
+              <p class="commonSpace">Pass Out Year :</p>
+              <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace passOutYearSpace custom-form-field"
+                style="width: 398px"
+              >
+                <mat-label>Choose a date</mat-label>
+                <input matInput type="date" />
+                <!-- <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle> -->
+                <!-- <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <br />
+            <div class="commondiv">
+              <p class="commonSpace">Percentage or CGPA :</p>
+              <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace percentageSpace custom-form-field"
+                style="width: 345px"
+              >
+                <mat-label>Percentage or CGPA</mat-label>
+                <input matInput />
+              </mat-form-field> -->
+            <!-- </div>  -->
+<!--   
+            <div class="educationBTN">
+              <div>
+                <button mat-raised-button class="educationAddBTN" (click)="addskillOnClick()">Add +</button>
+              </div>
+              <div>
+                <button mat-raised-button class="educationSaveBTN">Save</button>
+              </div>
+              <div>
+                <button mat-raised-button class="educationNextBTN">Next</button>
+              </div>
+            </div> -->
+            
+          </div>
+          <!-- ------------Start of Image Div ------------------------------ -->
+          <!-- <div class="ImageDiv">
+            <img src="assets/update-details/new_skills.jpg" alt="" />
+          </div> -->
+          <div class="ImageDiv">
+            <img src="assets/update-details/new_skills.jpg" alt="" />
+          </div>
+        </div>
+  
+  
+        
+      </mat-tab>
+
+    </form>
+    
+    
 
      <!-- ---------------------------------------------Profile Picture------------------------------------------------ -->
-    <mat-tab label="Image">
+     <!-- <mat-tab label="Image">
       <div class="imageUploadDiv">
-        <p class="imageUploadPara">Upload your Image for Profile Picture</p>
-      <!-- <label for="img">Select image:</label> -->
-      <input class="imageUploadLabel" type="file" id="img" name="img" accept="image/*">
+        <p class="imageUploadPara">Upload your Image for Profile Picture</p> 
+      <label for="img">Select image:</label>
+      <input class="imageUploadLabel" type="file" id="img" name="img" accept="image/*"> 
       </div>
       <div class="UploadBTN" >
         <div>
           <button mat-raised-button class="detailsSaveBTN">Submit</button>
         </div>
         
-      </div>
-    </mat-tab>
+      </div> 
+    </mat-tab> -->
   </mat-tab-group>
 </div>

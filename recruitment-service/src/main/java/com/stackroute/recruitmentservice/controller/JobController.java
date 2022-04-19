@@ -1,6 +1,8 @@
 package com.stackroute.recruitmentservice.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stackroute.recruitmentservice.exception.CompanyNotFound;
+import com.stackroute.recruitmentservice.exception.JobsNotFound;
 import com.stackroute.recruitmentservice.model.JobPosting;
 import com.stackroute.recruitmentservice.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/recruitment")
 public class JobController {
-
+    private ResponseEntity responseEntity;
     @Autowired
     private JobService jobService;
 
@@ -36,20 +38,39 @@ public class JobController {
     }
 
     @DeleteMapping("/deleteJobPost/{companyId}")
-    public ResponseEntity<?> deleteJobPost(@PathVariable String companyId){
+    public ResponseEntity<?> deleteJobPost(@PathVariable String companyId) {
 //        jobService.deleteJobPost(companyId);
-        return new ResponseEntity<>(jobService.deleteJobPost(companyId), HttpStatus.OK);
+
+
+        ResponseEntity<Boolean> responseEntity;
+        try {
+            responseEntity =   new ResponseEntity<>(jobService.deleteJobPost(companyId), HttpStatus.OK);
+        } catch (Exception e){
+            responseEntity = new ResponseEntity("Error try again after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
     }
 
     @GetMapping("/showAllJobs")
-    public ResponseEntity<?> showAllJobs(){
-        return new ResponseEntity<>(jobService.showAllJobs(), HttpStatus.OK);
+    public ResponseEntity<?> showAllJobs() {
+
+        try {
+            responseEntity = new ResponseEntity<>(jobService.showAllJobs(), HttpStatus.OK);
+        } catch (Exception e){
+            responseEntity = new ResponseEntity("Error try again after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
     }
 
 
     @GetMapping("/getCompany/{companyName}")
-    public ResponseEntity<?> getCompanyDetails(@PathVariable String companyName)
-    {
-        return new ResponseEntity<>(jobService.getCompany(companyName),HttpStatus.OK);
+    public ResponseEntity<?> getCompanyDetails(@PathVariable String companyName) {
+
+        try {
+            responseEntity =  new ResponseEntity<>(jobService.getCompany(companyName),HttpStatus.OK);
+        } catch (Exception e){
+            responseEntity = new ResponseEntity("Error try again after some time",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
     }
 }

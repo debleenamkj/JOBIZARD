@@ -9,4 +9,12 @@ export class RecruiterLandingData
     logo!: Byte[]
     logoImage!: any
 
+    constructor( emailId?: string, firstName?: string, companyName?: string, logo?: Byte[], logoImage?: any){
+        this.emailId=emailId
+        this.firstName=firstName
+        this.companyName=companyName
+        this.logo=logo
+        this.logoImage=logoImage
+    }
+
 }

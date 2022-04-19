@@ -14,7 +14,7 @@ export class SearchService {
 
   
   getEmail(data:any): Observable<any> {
-    return this.http.post(`${this.baseUrl}`,data);
+    return this.http.post<string[]>(`${this.baseUrl}`,data);
   }
   getDetail(): Observable<any> {
     return this.http.get(`${this.url}`);
