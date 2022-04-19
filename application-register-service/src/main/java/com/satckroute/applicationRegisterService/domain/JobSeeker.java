@@ -33,7 +33,8 @@ public class JobSeeker
     private Date dateOfBirth;
     private String mobileNumber;
     private String password;
-
+    private JobSeekerProgress seekerProgress;
+    private int progress;
     public Role role;
 //    private Role Role.JOBSEEKER;
 
@@ -41,6 +42,7 @@ public class JobSeeker
     private List<Education> educationDetails; //list
     private String[] languagesKnown;
     private Details additionalDetails;
+    private char[] objective;
 
     @Lob
     private byte[] jobSeekerImage;
