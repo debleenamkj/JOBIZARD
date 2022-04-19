@@ -21,6 +21,6 @@ public class Education
     private String streamOrField;
     private String universityOrInstitute;
     private String courseType;
-    private int passingOutYear;
+    private String passingOutYear;
     private float percentageOrCgpa;
 }
