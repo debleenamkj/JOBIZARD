@@ -99,6 +99,11 @@ export class ChatroomComponent implements OnInit {
   // senderName = "ABCD";
   // recipientName = "IJKL";
 
+  // senderId = "S123"
+  // recipientId = ""
+  // senderName = "";
+  // recipientName = "";
+
 
   // senderId = "R123"
   // recipientId = "S123"

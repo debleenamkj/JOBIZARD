@@ -28,10 +28,7 @@ export class NavBarComponent {
 
   emailId: string;
   name: string;
-
-  firstname="Jobsie";
-  lastname="Jobbie";
-  email="jobseeker@gmail.com";
+  
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
     private loginService : RegisterServiceService) {
