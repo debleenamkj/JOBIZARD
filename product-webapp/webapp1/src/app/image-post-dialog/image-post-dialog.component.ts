@@ -51,7 +51,7 @@ export class ImagePostDialogComponent implements OnInit {
     this.post.like={likeCount:0}
     formData.append('post',JSON.stringify(this.post));
 
-    this.service.sendImagePost('m1@gmail.com',formData).subscribe(data =>{
+    this.service.sendImagePost(localStorage.getItem('loginId'),formData).subscribe(data =>{
       console.log(data);
       window.location.reload();
     })
