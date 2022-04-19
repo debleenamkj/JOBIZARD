@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
          this.user1=response;
         console.log(this.user1);
         if(this.user1.role=="JOBSEEKER"){
-          localStorage.setItem('role',"JOBSEEKER");
           this.router.navigate(["/jobSeeker"])
         }
         else{
@@ -69,6 +68,7 @@ export class LoginComponent implements OnInit {
     
       
     console.log('loginId')
+    
     console.log(localStorage.getItem('loginId'))
     this.router.navigate(["/userLogin"])
     this.loginService.isloggedIn=false
