@@ -101,20 +101,20 @@ export class ChatroomComponent implements OnInit {
   // recipientId = this.chatService.recipientId;
   // senderName = this.chatService.senderName;
   // recipientName = this.chatService.recipientName;
-  // senderId = localStorage.getItem('loginId');
-  // recipientId = this.chatService.recipientId;
-  // senderName = this.chatService.senderName;
-  // recipientName = this.chatService.recipientName;
+  senderId = localStorage.getItem('loginId');
+  recipientId = this.chatService.recipientId;
+  senderName = this.chatService.senderName;
+  recipientName = this.chatService.recipientName;
 
   // senderId = "S123"
   // recipientId = "R124"
   // senderName = "ABCD";
   // recipientName = "IJKL";
 
-  senderId = "S123"
-  recipientId = "R125"
-  senderName = "ABCD";
-  recipientName = "MNOP";
+  // senderId = "S123"
+  // recipientId = "R125"
+  // senderName = "ABCD";
+  // recipientName = "MNOP";
 
   // senderId = "R125"
   // recipientId = ""
