@@ -1,20 +1,20 @@
 export class AddSkill {
     
-    public course: string="";
-    public stream: string="";
-    public university: string="";
+    public courses: string="";
+    public streamOrField: string="";
+    public universityOrInstitute: string="";
     public courseType: string="";
-    public passOutYear: string="";
+    public passingOutYear: string="";
     public percentageOrCgpa: string="";
   
 
     constructor(){
         
-        this.course="";
-        this.stream="";
-        this.university="";
+        this.courses="";
+        this.streamOrField="";
+        this.universityOrInstitute="";
         this.courseType="";
-        this.passOutYear="";
+        this.passingOutYear="";
         this.percentageOrCgpa="";
     }
 }

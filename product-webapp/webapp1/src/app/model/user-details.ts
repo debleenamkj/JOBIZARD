@@ -4,7 +4,9 @@ import { details } from "./details";
 
 // public user:UserLogin
 export class UserDetails {
-
+    public seekerProgress:any
+    public progress:number=0
+    public emailId:string=""
     public firstName:string="";
        public lastName:string="";
        public gender:string="";
@@ -17,7 +19,7 @@ export class UserDetails {
     //    public city:string="";
     //    public pincode:string="";
     //    public nationality:string="";
-    // public address:any;
+    public address:any;
     public additionalDetails:details;
 
     //    public academicCertification:string[]=[];
@@ -25,6 +27,9 @@ export class UserDetails {
     //    public jobPreference:string[]=[];
     //    public achievements:string[]=[]
     constructor(){
+        this.seekerProgress=""
+        this.progress=0;
+        this.emailId=""
         this.firstName="",
         this.lastName="",
         this.gender="",
@@ -37,7 +42,7 @@ export class UserDetails {
         // this.city="",
         // this.pincode="",
         // this.nationality="",
-        // this.address=""
+        this.address=null
         this.additionalDetails=null
         // this.academicCertification=[],
         // this.skillSet=[],

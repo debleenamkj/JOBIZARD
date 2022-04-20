@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card id="title">
     <span style="display: flex">
-      <button mat-icon-button routerLink="/assesmentportal">
+      <button mat-icon-button routerLink="/navbar/assesmentportal">
         <mat-icon>home</mat-icon>
       </button>
       <h2>Quiz Result</h2>
@@ -10,15 +10,15 @@
   <!-- <div class="mainDiv"> -->
   <div class="div1">
     <h2 class="div1Title">User Details</h2>
-    <span>
-      <img id="userimg" src="../../assets/u1.jpeg" alt="" />
+    <span> 
+      <img style="object-fit: contain; width: 50%; height: 50%; margin-left: 23%;" id="userimg" src="data:image/jpeg;base64,{{username.jobSeekerImage}}"  width="40%" height="100%" />
       <div class="userDetails">
-        <h2>username</h2>
-        <h2>Qualification</h2>
+        <h2>{{username.firstName}}</h2>
+        <h2>{{Testname}}</h2>
         <h2>{{level}}</h2>
+        <!-- <h2>.</h2>
         <h2>.</h2>
-        <h2>.</h2>
-        <h2>.</h2>
+        <h2>.</h2> -->
         <div class="flip-card">
           <h1 style="margin-left: -25px">{{ message }}</h1>
         </div>
@@ -66,7 +66,7 @@
                   <td>100-90</td>
                   <td>89-80</td>
                   <td>79-70</td>
-                  <td>69-60</td>
+                  <td>69-50</td>
                 </tr>
               </tbody>
             </table>

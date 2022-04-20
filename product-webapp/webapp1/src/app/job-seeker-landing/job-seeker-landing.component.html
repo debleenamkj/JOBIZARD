@@ -1,7 +1,7 @@
 <body>
   <div class="notify" style="text-align: center;">
-    <button class="mobile" style=" " *ngIf="profileProgress<100" mat-button routerLink="/jobseekerprofile">Profile</button>
-    <button class="mobile" style=" width: 30%;" *ngIf="profileProgress==100" mat-button routerLink="/jobseekerprofile">My Profile</button>
+    <button class="mobile" style=" " *ngIf="profileProgress<100" mat-button routerLink="/navbar/jobseekerprofile">Profile</button>
+    <button class="mobile" style=" width: 30%;" *ngIf="profileProgress==100" mat-button routerLink="/navbar/jobseekerprofile">My Profile</button>
     <button class="mobile" style=" width: 30%;" *ngIf="notVerifiedSkills.length!=0" mat-button (click)="openProfile()">Take test</button>
     <span style="float: right; margin-top: 3%; margin-right: 3%; ">
     <a style="margin-right: 10%; color: white; font-size: 200%; text-decoration: underline;" (click)="openDialog1()">Post</a>
@@ -30,7 +30,7 @@
                 <p style="font-size: 130%;">Complete {{profileProgress}}% of your profile</p>
                 <mat-progress-bar mode="determinate" [value]=profileProgress></mat-progress-bar>
                 <!-- <button class="update" mat-button >Update Profile</button>  --><br>
-                <div class="role" style="cursor: pointer;">
+                <div class="role" style="cursor: pointer;" routerLink="/navbar/update-user">
                   <div class="block"></div>
                   <p class="updateText">Update Profile</p>
               </div>
@@ -83,7 +83,7 @@
                   <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
                   <br>They are made...
                   </h1>
-                  <button class="myProfileButton"  style="margin-left: 20%;" mat-button routerLink="/learning">Learn Courses</button>
+                  <button class="myProfileButton"  style="margin-left: 20%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
                   </div>
                   <!-- <p style="font-size: 130%; ">Java-script<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
                   <p style="font-size: 130%; ">HTML<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
@@ -221,7 +221,7 @@
                   <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
                   <br>They are made...
                   </h1>
-                  <button class="myProfileButton" style="margin-left: 20%;" mat-button routerLink="/learning">Learn Courses</button>
+                  <button class="myProfileButton" style="margin-left: 20%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
                   </div>
                   <!-- <p style="font-size: 130%; ">Java-script<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
                   <p style="font-size: 130%; ">HTML<mat-icon style="float: right; color: green;"> check_circle </mat-icon></p>
@@ -230,10 +230,10 @@
               </mat-card-content>
             </mat-card>
        
-            <mat-card class="jobizone" routerLink="/skills">Today, more than ever the workforce needs to reevaluate their skills. Check what is the current demand for your skill</mat-card>
-            <mat-card class="jobizone" routerLink="/salary">Check how salary in your role changes with experience</mat-card>
-            <mat-card class="jobizone" routerLink="/technews">Your daily dose of technology news!!! Be up-to-date with all the current news about tech</mat-card>
-            <mat-card class="jobizone" routerLink="/businessnews">All your business related headlines right here!!!</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/skills">Today, more than ever the workforce needs to reevaluate their skills. Check what is the current demand for your skill</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/salary">Check how salary in your role changes with experience</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/technews">Your daily dose of technology news!!! Be up-to-date with all the current news about tech</mat-card>
+            <mat-card class="jobizone" routerLink="/navbar/businessnews">All your business related headlines right here!!!</mat-card>
       </div>
   </div>
   </div>

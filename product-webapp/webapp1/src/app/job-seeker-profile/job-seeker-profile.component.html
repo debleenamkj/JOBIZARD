@@ -8,7 +8,7 @@
                     <h1 style="font-weight: bolder;  color: #6E2586;">{{firstname}} {{lastname}}</h1>
                     <div style="font-size: 2rem;">
                         <span>{{gender}}</span>
-                        <span style="display: block;">{{dob}}</span>
+                        <span style="display: block;">{{dob | date:'dd-MM-yyyy'}}</span>
                         <span *ngIf="!(email == null)" style="display: block;">{{email}}</span>
                         <span style="display: block;">{{mobile}}</span>
                         <span style="display: block;">{{address.city}}, {{address.state}}</span>
@@ -21,12 +21,10 @@
                 <span style="font-size: 2rem;">{{objective}}</span>
             </mat-card>
         
-            <mat-card *ngIf="workexp!=null" style="margin-top: 4%; font-size: 2rem;  height: 15rem; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
-                <h1 style="font-weight: bolder; color: #B11784; text-align: center;">	<mat-icon>business_center</mat-icon> Work Experience</h1>
-                <ul style="list-style: none; margin-bottom: 3%;  align-items: center; justify-content: center;" *ngFor="let workexp of workexp">
-                    <li>Years: {{workexp.year}} Years</li>
-                    <li>Position: {{workexp.position}}</li>
-                    <li>Organisation: {{workexp.organisation}}</li>
+            <mat-card *ngIf="academicCertification!=null" style="margin-top: 4%; font-size: 2rem;  height: 15rem; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
+                <h1 style="font-weight: bolder; color: #B11784; text-align: center;">	<mat-icon> local_library</mat-icon> Academic Certification</h1>
+                <ul style="list-style: none; margin-bottom: 3%; text-align: center;">
+                    <li *ngFor="let certificate of academicCertification">{{certificate}}</li>
                 </ul>
             </mat-card>
         </div>
@@ -35,7 +33,7 @@
                 <h1 style="font-weight: bolder; text-align: center; color: #B11784; display: block;"><mat-icon>book</mat-icon> Skills</h1>
                 <div>
                     <ul style="columns: 2; list-style: none; line-height: 3rem; text-align: center;"> 
-                        <li *ngFor = "let skill of skills">{{skill}}</li>
+                        <li *ngFor = "let skill of skills"><mat-icon *ngIf="(skill.isVerified || skill.verified)" style="color: green;">verified_user</mat-icon>{{skill.skillName}}</li>
                     </ul>
                 </div>
             </mat-card>
@@ -52,11 +50,11 @@
             <mat-card style="display: block; overflow: hidden; overflow-y: scroll;  border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
                 <h1 style="font-weight: bolder; text-align: center; color: #B11784;"><mat-icon>school</mat-icon> Educational Details</h1>
                 <ol *ngFor="let educational of educational" style="list-style: none;">
-                    <li><span style="font-weight: bold;">Education: </span>{{educational.education}}</li>
+                    <li><span style="font-weight: bold;">Education: </span>{{educational.courses}}</li>
                     <ul>
-                        <li *ngIf="(educational.Courses)">Courses: <ul><li *ngFor="let courses of educational.Courses">{{courses}}</li></ul></li>
-                        <li *ngIf="(educational.Stream)">{{educational.Stream}}</li>
-                        <li>{{educational.Percentage}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{educational.PassYear}}</li>
+                        <li *ngIf="(educational.courses)">Course Type: {{educational.courseType}} </li>
+                        <li *ngIf="(educational.streamOrField)">{{educational.streamOrField}}</li>
+                        <li>{{educational.percentageOrCgpa}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{educational.passingOutYear | date:'yyyy'}}</li>
                      
                     </ul>
                 </ol>

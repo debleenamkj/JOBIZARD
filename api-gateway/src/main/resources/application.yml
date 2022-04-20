@@ -7,6 +7,20 @@ eureka:
 
 server:
   port: 8080
+ribbon:
+  ReadTimeout: 60000
+
+#  spring:
+#    cloud:
+#      gateway:
+#        globalcors:
+#          corsConfigurations:
+#            '[/**]':
+#              allowedOrigins: "*"
+#              allowedMethods:
+#                - GET
+#                - POST
+
 
 spring:
   application:
@@ -21,6 +35,11 @@ spring:
             allowedHeaders: "*"
             exposedHeaders: "*"
       routes:
+        - id: assessment-service
+          uri: lb://assessment-service
+          predicates:
+            - Path=/assessment-service/**
+
         - id: authentication-service
           uri: lb://authentication-service
           predicates:
@@ -110,6 +129,7 @@ spring:
             - Path=/trend-lab-service/**
           filters:
             - RewritePath=/trend-lab-service(?<segment>/?.*), $\{segment}
+
 
 
 management:
