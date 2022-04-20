@@ -281,14 +281,69 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
+    public JobSeeker updateEducationDetails(String email, Education education) throws JobSeekerNotFoundException {
+        List<Education> educationList = new ArrayList<>();
+        JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(email).get();
+        if(jobSeeker1==null){
+            throw new JobSeekerNotFoundException();
+        }
+        else{
+            if(jobSeeker1.getEducationDetails()!=null){
+                educationList.addAll(jobSeeker1.getEducationDetails());
+                educationList.add(education);
+                System.out.println(educationList);
+            }else if(jobSeeker1.getEducationDetails()==null){
+                educationList.add(education);
+
+            }
+            jobSeeker1.setEducationDetails(educationList);
+            if (jobSeeker1.getProgress() < 100) {
+                jobSeeker1.setProgress(jobSeeker1.getProgress()+25);
+            }
+
+            System.out.println(jobSeeker1);
+        }
+        return jobSeekerRegisterRepository.save(jobSeeker1);
+    }
+
+    @Override
     public JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws JobSeekerNotFoundException
     {
+        Seeker seeker = new Seeker();
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
             throw new JobSeekerNotFoundException();
         }
         else
         {
+            JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(emailId).get();
+            jobSeeker.setJobSeekerImage(jobSeeker1.getJobSeekerImage());
+            jobSeeker.setProgress(jobSeeker.getSeekerProgress().getAdditionalInfo()+jobSeeker.getSeekerProgress().getContactInfo()+jobSeeker.getSeekerProgress().getPersonalInfo());
+
+            ArrayList<String> education = new ArrayList<>();
+            ArrayList skills = new ArrayList();
+
+
+//            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
+            if(jobSeeker.getEducationDetails()!=null){
+                for (Education courses:jobSeeker.getEducationDetails()){
+                    education.add(courses.getCourses());
+                }
+            }
+
+            if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
+                for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
+                    skills.add(skill.getSkillName());
+                }
+            }
+
+            if(education!=null && skills!=null){
+                seeker.setEmail(emailId);
+                seeker.setEducation(education);
+                seeker.setSkillSet(skills);
+                producer.sendJobSeekerMessage(seeker);
+            }
+
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
 
@@ -299,7 +354,7 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker updateJobSeekerDetail(JobSeeker jobSeeker, String emailId, MultipartFile file) throws JobSeekerNotFoundException, IOException
     {
-        Seeker seeker = new Seeker();
+
         User user = new User();
         jobSeeker.setJobSeekerImage(file.getBytes());
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
@@ -308,22 +363,11 @@ public class RegisterServiceImpl implements RegisterService
         }
         else
         {
-            ArrayList<String> education = new ArrayList<>();
-            ArrayList skills = new ArrayList();
 
-            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
-            for (Education courses:JobSeekerList){
-                education.add(courses.getCourses());
-            }
-            for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
-                skills.add(skill.getSkillName());
-            }
-            seeker.setEmail(emailId);
-            seeker.setEducation(education);
-            seeker.setSkillSet(skills);
+            jobSeeker.setProgress(jobSeeker.getSeekerProgress().getAdditionalInfo()+jobSeeker.getSeekerProgress().getContactInfo()+jobSeeker.getSeekerProgress().getPersonalInfo());
             user.setUserEmailId(emailId);
             user.setUserName(jobSeeker.getFirstName()+" "+jobSeeker.getLastName());
-            producer.sendJobSeekerMessage(seeker);
+
             producer.posting(user);
             producer.cvGeneration(jobSeeker);
 //            user.setUserImage(file.getBytes());
@@ -337,12 +381,15 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws RecruiterNotFoundException
     {
+
         if(recruiterRegisterRepository.findById(emailId).isEmpty())
         {
             throw new RecruiterNotFoundException();
         }
         else
         {
+            Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
+            recruiter.setLogo(recruiter1.getLogo());
             return recruiterRegisterRepository.save(recruiter);
         }
     }

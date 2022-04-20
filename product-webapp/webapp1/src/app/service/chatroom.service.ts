@@ -9,7 +9,7 @@ import { ChatRoom } from '../model/chat-room';
 })
 export class ChatroomService {
 
-  senderId = "";
+  senderId = localStorage.getItem('loginId');
   recipientId = "";
   senderName = "";
   recipientName = "";

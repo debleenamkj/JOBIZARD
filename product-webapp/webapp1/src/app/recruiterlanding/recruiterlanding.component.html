@@ -5,7 +5,7 @@
     <mat-card-title style="text-align: center; font-size: 30px;">Welcome Recruiter</mat-card-title>
     <img mat-card-image class="profile-image" src="data:image/jpeg;base64,{{recruiterLandingData.logo}}">
     <mat-card-subtitle style="text-align: center; margin-top: 30px; font-size: 40px; font-weight: 400; color: black; margin-bottom: 30px;">{{recruiterLandingData.companyName}}</mat-card-subtitle>
-    <button class="upb">Update profile</button>
+    <button class="upb" routerLink="/navbar/job-posting">Update profile</button>
 </mat-card>
 
 <mat-paginator style="margin-top: -10px;"
@@ -37,7 +37,8 @@
 <!-- </div> -->
 
 <div class="container-fluid col-lg-9">
-<mat-card class="example-card" *ngFor="let jobseekers of jobSeekerSlice">
+<div *ngFor="let jobseekers of jobSeekerSlice">
+<mat-card class="example-card" *ngIf="getProgress(jobseekers)">
   <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
   <img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi">
   <mat-card-header>
@@ -45,7 +46,8 @@
   </mat-card-header>
   <mat-card-content>
     <mat-chip-list *ngFor="let skills of jobseekers.additionalDetails.skillSet" style="display:inline-flex; margin: 2px;">
-      <mat-chip>{{skills.skillName}}</mat-chip>
+      <mat-chip *ngIf="skills.isVerified" style="background-color: green">{{skills.skillName}}</mat-chip>
+      <mat-chip *ngIf="!skills.isVerified" style="background-color: red">{{skills.skillName}}</mat-chip>
     </mat-chip-list>
   </mat-card-content>
   <mat-card-actions>
@@ -55,4 +57,5 @@
     <button (click)="onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)" style="margin-left: 150px; border: none; background-color: white;"><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159);">chat</i></button>
   </mat-card-actions>
 </mat-card>
+</div>
 </div>
