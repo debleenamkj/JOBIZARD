@@ -7,6 +7,7 @@ export class JobSeekerLanding {
     jobSeekerImage: Byte[];
     seekerProfileImage: any;
     additionalDetails: any;
+    progress: number;
 
     constructor() {
         this.firstName;

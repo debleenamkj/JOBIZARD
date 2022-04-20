@@ -175,7 +175,7 @@ educationFilter(education:string,s2:boolean){
     this.chat.senderName = localStorage.getItem('companyName')
     this.chat.recipientId = recipientEmail;
     this.chat.recipientName = recipientName;
-    this.router.navigate(['/chatroom']);
+    this.router.navigate(['/navbar/chatroom']);
   }
   //for emailservice
   sendEmail(jobseeker: any) {

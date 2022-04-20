@@ -2,10 +2,7 @@ package com.satckroute.applicationRegisterService.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.satckroute.applicationRegisterService.domain.JobSeeker;
-import com.satckroute.applicationRegisterService.domain.OrganizationDetails;
-import com.satckroute.applicationRegisterService.domain.Recruiter;
-import com.satckroute.applicationRegisterService.domain.Skill;
+import com.satckroute.applicationRegisterService.domain.*;
 import com.satckroute.applicationRegisterService.exception.*;
 import com.satckroute.applicationRegisterService.service.RegisterService;
 import lombok.extern.slf4j.Slf4j;
@@ -295,6 +292,26 @@ public class RegisterController
         }
     }
 
+    @PutMapping("/jobSeeker/education/{emailId}")
+    public ResponseEntity<?> updateJobSeekerEducation(@RequestBody Education education, @PathVariable String emailId) throws JobSeekerNotFoundException
+    {
+        System.out.println(education);
+        try
+        {
+            log.debug("RegisterController - updateJobSeekerDetails");
+            return new ResponseEntity<>(registerService.updateEducationDetails(emailId,education), HttpStatus.OK);
+        }
+        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+        {
+            log.error("RegisterController - updateJobSeekerDetails"+jobSeekerNotFoundException);
+            throw new JobSeekerNotFoundException();
+        }
+        catch (Exception exception)
+        {
+            log.error("RegisterController - updateJobSeekerDetails"+exception);
+            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -303,6 +320,7 @@ public class RegisterController
     {
         try
         {
+            System.out.println(jobSeeker);
             log.debug("RegisterController - updateJobSeekerDetails");
             return new ResponseEntity<>(registerService.updateJobSeekerDetails(jobSeeker, emailId), HttpStatus.OK);
         }
@@ -349,6 +367,7 @@ public class RegisterController
     {
         try
         {
+            System.out.println(recruiter);
             Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
             log.debug("RegisterController - updateRecruiterDetails");
             return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter1, emailId), HttpStatus.OK);

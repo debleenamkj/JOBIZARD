@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterServiceService } from '../service/register-service.service';
 import { TockenInterceptorService } from '../service/tocken-interceptor.service';
 import { RecruiterlandingService } from '../recruiterlanding/recruiterlanding.service';
+import { LoginserviceService } from '../service/loginservice.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ import { RecruiterlandingService } from '../recruiterlanding/recruiterlanding.se
 })
 export class LoginComponent implements OnInit {
 
- constructor(private formBuilder: FormBuilder,private loginService : RegisterServiceService , private router : Router, private recruiterLanding: RecruiterlandingService) { }
+ constructor(private formBuilder: FormBuilder,private loginService : RegisterServiceService , private login:LoginserviceService,private router : Router, private recruiterLanding: RecruiterlandingService) { }
 
   ngOnInit(): void {
   }
@@ -50,14 +51,18 @@ export class LoginComponent implements OnInit {
          this.user1=response;
         console.log(this.user1);
         if(this.user1.role=="JOBSEEKER"){
-          this.router.navigate(["/jobSeeker"])
+     
+          // localStorage.setItem('role',"JOBSEEKER");
+          this.router.navigate(["/navbar/jobSeeker"])
         }
         else{
-          localStorage.setItem('role',"RECRUITER");
-          this.router.navigate(["/recruiterLanding"])
+      
+          // localStorage.setItem('role',"RECRUITER");
+          this.router.navigate(["/navbar/recruiterLanding"])
         }
         // store in local storage
-        localStorage.setItem('loginId',this.user.emailId)
+        this.login.role = this.user1.role;
+        localStorage.setItem('loginId',this.user1.emailId)
         localStorage.setItem('role',this.user1.role)
         
       })

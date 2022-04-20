@@ -8,6 +8,7 @@ import { JobSeekerLanding } from '../model/job-seeker-landing';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
 import { SearchService } from '../search.service';
 import { ChatroomService } from '../service/chatroom.service';
+import { PostService } from '../service/post/post.service';
 import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
@@ -30,7 +31,7 @@ export class RecruiterlandingComponent implements OnInit {
   images:any[]=[];
 
   // constructor(private recruiterLanding: RecruiterlandingService) { }
-  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomService, private router: Router, private service: SearchService, private alert: MatSnackBar) { }
+  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomService, private router: Router, private service: SearchService, private alert: MatSnackBar,private post:PostService) { }
 
   ngOnInit(): void {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
@@ -59,12 +60,17 @@ export class RecruiterlandingComponent implements OnInit {
     });
   }
 
+  jobseeker(emailId:any){
+    this.post.selectedSeekerEmail = emailId;
+    this.router.navigate(['/navbar/jobseekerprofile']);
+  }
+
   onClick(recipientEmail:any,recipientName:any){
     this.chat.senderId = this.recruiterLandingData.emailId;
     this.chat.senderName = this.recruiterLandingData.companyName;
     this.chat.recipientId = recipientEmail;
     this.chat.recipientName = recipientName;
-    this.router.navigate(['/chatroom']);
+    this.router.navigate(['/navbar/chatroom']);
   }
 
   sendEmail(emailId:any){
@@ -86,5 +92,8 @@ export class RecruiterlandingComponent implements OnInit {
     }})
   }
 
+  getProgress(jobseekers:any):boolean{
+    return true;
+  }
 
 }
