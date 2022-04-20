@@ -309,6 +309,7 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws JobSeekerNotFoundException
     {
+        System.out.println("In service");
         Seeker seeker = new Seeker();
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
@@ -328,21 +329,22 @@ public class RegisterServiceImpl implements RegisterService
             if(jobSeeker.getEducationDetails()!=null){
                 for (Education courses:jobSeeker.getEducationDetails()){
                     education.add(courses.getCourses());
+                    System.out.println(education);
                 }
             }
 
             if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
                 for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
                     skills.add(skill.getSkillName());
+                    System.out.println(skills);
                 }
             }
 
-            if(education!=null && skills!=null){
                 seeker.setEmail(emailId);
                 seeker.setEducation(education);
                 seeker.setSkillSet(skills);
                 producer.sendJobSeekerMessage(seeker);
-            }
+
 
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
@@ -388,8 +390,13 @@ public class RegisterServiceImpl implements RegisterService
         }
         else
         {
+            JobDetails jobDetails = new JobDetails();
             Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
             recruiter.setLogo(recruiter1.getLogo());
+            jobDetails.setEmailId(emailId);
+            jobDetails.setSkillsRequired((ArrayList) recruiter.getSkillsRequired());
+            jobDetails.setEducation(recruiter.getEducationRequired());
+            producer.sendRecruiter(jobDetails);
             return recruiterRegisterRepository.save(recruiter);
         }
     }

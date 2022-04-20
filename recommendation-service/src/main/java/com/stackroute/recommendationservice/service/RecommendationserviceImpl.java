@@ -138,6 +138,7 @@ public class RecommendationserviceImpl implements RecommendationService{
         log.debug("In RecommendationserviceImpl - createRelationships1");
         try {
             for (String seeker:matchingSeekers) {
+                System.out.println(this.userRepository.checkRelation(seeker,jobId));
                 if(!(this.userRepository.checkRelation(seeker,jobId))) {
                     log.info("RecommendationserviceImpl - createRelationship : creating RelationShip");
                     Seeker seeker1 = userRepository.createRelation(seeker, jobId);

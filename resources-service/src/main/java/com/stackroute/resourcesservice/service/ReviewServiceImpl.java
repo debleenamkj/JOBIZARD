@@ -4,6 +4,7 @@ import com.stackroute.resourcesservice.domain.Company;
 import com.stackroute.resourcesservice.domain.Review;
 import com.stackroute.resourcesservice.exception.*;
 import com.stackroute.resourcesservice.repository.ReviewRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +16,14 @@ import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 
 @Service
+@Slf4j
 public class ReviewServiceImpl implements ReviewService {
 
     private ReviewRepository reviewRepository;
 
     @Autowired
     public ReviewServiceImpl(ReviewRepository reviewRepository) {
+        log.info("Autowiring-ReviewRepository");
         this.reviewRepository = reviewRepository;
     }
 
@@ -200,7 +203,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
 
-    public static byte[] decompressBytes(byte[] image){
+    public static byte[] decompressBytes(byte[] image) {
 
         Inflater inflater = new Inflater();
         inflater.setInput(image);
@@ -209,6 +212,7 @@ public class ReviewServiceImpl implements ReviewService {
         byte[] buffer = new byte[1024];
 
         try{
+            log.debug("ReviewServiceImpl - decompressBytes");
             while (!inflater.finished()){
                 int count = inflater.inflate(buffer);
 
@@ -216,11 +220,13 @@ public class ReviewServiceImpl implements ReviewService {
             }
             outputStream.close();
         } catch (DataFormatException e) {
+            log.error("ReviewServiceImpl - decompressBytes");
             System.out.println(e.toString());
         } catch (IOException e) {
+            log.error("ReviewServiceImpl - decompressBytes");
             System.out.println(e.toString());
         }
-
+        log.info("ReviewServiceImpl - decompressBytes- DecompressedByteSizeInfo: "+outputStream.toByteArray().length);
         return outputStream.toByteArray();
     }
 
