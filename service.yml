@@ -1,0 +1,102 @@
+version: "2"
+services:
+
+
+  api-gateway:
+    build: api-gateway/
+    container_name: api-gateway
+
+    restart: always
+
+    hostname: localhost
+    ports:
+      - 8080:8080
+
+  application-register-service:
+    build: application-register-service/
+    container_name: application-register-service
+
+    hostname: localhost
+    restart: always
+    ports:
+      - 8098:8098
+
+  authentication-service:
+    build: authentication-service/
+    container_name: authentication-service
+
+    hostname: localhost
+    restart: always
+    ports:
+      - 8099:8099
+
+
+  product-webapp:
+    build: product-webapp/
+    image: product-webapp
+    restart: always
+    container_name: product-webapp
+
+    hostname: localhost
+    ports:
+      - 4200:4200
+
+  trend-lab-service:
+    build: trend-lab-service/
+    container_name:   trend-lab-service
+    restart: always
+    hostname: localhost
+
+    ports:
+      - 8086:8086
+
+  chatroom-service:
+
+    build: chatroom-service/
+    container_name: chatroom-service
+    restart: always
+    hostname: localhost
+    ports:
+      - 8089:8089
+
+  email-service:
+
+    build: email-service/
+    container_name: email-service
+    restart: always
+    hostname: localhost
+
+    ports:
+      - 8085:8085
+
+  assessment-service:
+    image: assessmentservice
+    build: assessment-service/
+    restart: always
+    hostname: localhost
+
+    ports:
+      - 8081:8081
+
+  post-service:
+    image: postservice
+    build: post-service/
+    restart: always
+
+    ports:
+      - 9093:9093
+
+  recommendation-service:
+    image: recommendationservice
+    build: recommendation-service/
+    restart: always
+    ports:
+      - 8083:8083
+
+  resources-service:
+    build: resources-service/
+    restart: always
+    ports:
+      - 8087:8087
+
+

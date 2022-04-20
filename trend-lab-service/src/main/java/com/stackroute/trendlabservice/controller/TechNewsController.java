@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/api/v2")
-@CrossOrigin
+//@CrossOrigin
 public class TechNewsController {
     @GetMapping("/getTechNews")
     public ResponseEntity<String> getTechNews(){

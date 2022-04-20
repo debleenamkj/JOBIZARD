@@ -1,0 +1,55 @@
+version: "2"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    hostname: localhost
+
+    ports:
+      - 3306:3306
+
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Password'
+      MYSQL_DATABASE: authuser
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongo-container
+
+    hostname: localhost
+    ports:
+      - 27017:27017
+
+  neo4j:
+    image: neo4j:4.2.3
+    container_name: neo4j
+    restart: always
+
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      NEO4J_AUTH: neo4j/password
+
+
+
+
+  eureka-server:
+    build: eureka-server/
+    container_name: eureka-server
+    restart: always
+    #    network_mode: host
+    hostname: localhost
+    ports:
+      - 8761:8761
