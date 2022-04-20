@@ -29,7 +29,7 @@ export class BlogPostDialogComponent implements OnInit {
      this.post.postBlog=this.postBlog.value.postBlog;
      const formData = new FormData();
      formData.append('post',JSON.stringify(this.post));
-     this.service.sendBlogPost('m@gmail.com',formData).subscribe(data=>{
+     this.service.sendBlogPost(localStorage.getItem('loginId'),formData).subscribe(data=>{
        console.log(data);
        window.location.reload();
      });

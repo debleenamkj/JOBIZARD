@@ -8,7 +8,7 @@ export class PostService {
 
   constructor(private httpClient:HttpClient) { }
 
-  loginUser='m8@gmail.com';
+  loginUser=localStorage.getItem('loginId');
 
   selectedSeekerEmail="a@a.com";
 

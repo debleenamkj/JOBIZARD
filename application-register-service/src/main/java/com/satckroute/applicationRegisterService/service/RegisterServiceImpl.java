@@ -281,16 +281,43 @@ public class RegisterServiceImpl implements RegisterService
 //---------------------------------------------------------------------------------------------------------------------
 
     @Override
+    public JobSeeker updateEducationDetails(String email, Education education) throws JobSeekerNotFoundException {
+        List<Education> educationList = new ArrayList<>();
+        JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(email).get();
+        if(jobSeeker1==null){
+            throw new JobSeekerNotFoundException();
+        }
+        else{
+            if(jobSeeker1.getEducationDetails()!=null){
+                educationList.addAll(jobSeeker1.getEducationDetails());
+                educationList.add(education);
+                System.out.println(educationList);
+            }else if(jobSeeker1.getEducationDetails()==null){
+                educationList.add(education);
+
+            }
+            jobSeeker1.setEducationDetails(educationList);
+            System.out.println(jobSeeker1);
+        }
+        return jobSeekerRegisterRepository.save(jobSeeker1);
+    }
+
+    @Override
     public JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws JobSeekerNotFoundException
     {
+
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
             throw new JobSeekerNotFoundException();
         }
         else
         {
+            JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(emailId).get();
+            jobSeeker.setJobSeekerImage(jobSeeker1.getJobSeekerImage());
             return jobSeekerRegisterRepository.save(jobSeeker);
+
         }
+
     }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -307,22 +334,28 @@ public class RegisterServiceImpl implements RegisterService
         }
         else
         {
-            ArrayList<String> education = new ArrayList<>();
-            ArrayList skills = new ArrayList();
-
-            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
-            for (Education courses:JobSeekerList){
-                education.add(courses.getCourses());
-            }
-            for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
-                skills.add(skill.getSkillName());
-            }
-            seeker.setEmail(emailId);
-            seeker.setEducation(education);
-            seeker.setSkillSet(skills);
+//            ArrayList<String> education = new ArrayList<>();
+//            ArrayList skills = new ArrayList();
+//
+//            if(jobSeeker.getEducationDetails()!=null){
+//                ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
+//                for (Education courses:JobSeekerList){
+//                    education.add(courses.getCourses());
+//                }
+//            }
+//            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
+//            for (Education courses:JobSeekerList){
+//                education.add(courses.getCourses());
+//            }
+//            for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
+//                skills.add(skill.getSkillName());
+//            }
+//            seeker.setEmail(emailId);
+//            seeker.setEducation(education);
+//            seeker.setSkillSet(skills);
             user.setUserEmailId(emailId);
             user.setUserName(jobSeeker.getFirstName()+" "+jobSeeker.getLastName());
-            producer.sendJobSeekerMessage(seeker);
+//            producer.sendJobSeekerMessage(seeker);
             producer.posting(user);
             producer.cvGeneration(jobSeeker);
 //            user.setUserImage(file.getBytes());
@@ -336,12 +369,15 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public Recruiter updateRecruiterDetails(Recruiter recruiter, String emailId) throws RecruiterNotFoundException
     {
+
         if(recruiterRegisterRepository.findById(emailId).isEmpty())
         {
             throw new RecruiterNotFoundException();
         }
         else
         {
+            Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
+            recruiter.setLogo(recruiter1.getLogo());
             return recruiterRegisterRepository.save(recruiter);
         }
     }

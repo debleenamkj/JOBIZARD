@@ -13,7 +13,7 @@ export class JobSeekerProfileComponent implements OnInit {
    }
 
   jobseeker = new JobSeeker();
-   url = "../assets/u1.jpeg";
+   url = "";
 
   firstname = "";
   lastname="";
@@ -25,17 +25,16 @@ export class JobSeekerProfileComponent implements OnInit {
   dob="";
   address={city:"",state:""};
   gender="";
-  educational=[{education:"B.Tech",Courses:["DBMS","OS","Networking"],Stream:"Computer Science and Engineering",CourseType:"Graduation",PassYear:"2019",Percentage:"85%"},{education:"Higher Secondary",Stream:"Science",CourseType:"Higher Secondary",PassYear:"2015",Percentage:"75%"},{education:"Senior Secondary",CourseType:"Senior Secondary",PassYear:"2013",Percentage:"90%"}];
-  jobpreference=["Software Tester","Software Developer","Quality Analyst","Web Developer","Database Administrator"];
-
-  workexp=[{year:"5",position:"Full Stack Software Developer",organisation:"Stackroute, NIIT"},];
+  academicCertification: any=[];
+  educational:any;
   
-  objective="To secure a challenging position in a reputable organization to expand my learnings, knowledge, and skills.";
+  objective="";
 
-  skills=["Core Java","Angular","Springboot","Bootstrap","Javascript","Networking","Content Writing","MySQL","Mongo Database","Neo4J"];
+  skills:any;
 
-  achievements=["Won 2nd Price in Hackathon","Lead TechMantra Successfully","Won 1st Prize for Robotics in IIT","1st Prize in Content Writing"];
+  achievements: any []=[];
 
+  verifiedSkills = new Array();
   ngOnInit(): void {
 
     this.post.getSeeker(this.email).subscribe((data)=>{
@@ -48,6 +47,12 @@ export class JobSeekerProfileComponent implements OnInit {
       this.dob = this.data.dateOfBirth;
       this.address.city = this.data.address.city;
       this.address.state = this.data.address.state;
+      this.achievements = this.data.additionalDetails.achievements;
+      this.academicCertification = this.data.additionalDetails.academicsCertification;
+      this.objective = this.data.objective;
+      this.url='data:image/jpeg;base64,' + this.data.jobSeekerImage;
+      this.skills = this.data.additionalDetails.skillSet;
+      this.educational = this.data.educationDetails;
      } )
   }
 

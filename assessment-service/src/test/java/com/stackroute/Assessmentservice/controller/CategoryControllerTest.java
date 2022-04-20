@@ -60,7 +60,7 @@ public class CategoryControllerTest {
     @Test
     public void givenCategoryToSaveReturnSaveCategorySuccess() throws Exception {
         when(categoryService.addCategory(any())).thenReturn(category1);
-        mockMvc.perform(post("/category/")
+        mockMvc.perform(post("/assessmentservice/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonToString(category1)))
                 .andExpect(status().isOk()).andDo(MockMvcResultHandlers.print());
@@ -69,7 +69,7 @@ public class CategoryControllerTest {
     @Test
     public void givenCategoryToSaveReturnSaveCategoryFailure() throws Exception {
         when(categoryService.addCategory(any())).thenThrow(CategoryAlreadyExistsException.class);
-        mockMvc.perform(post("/category/")
+        mockMvc.perform(post("/assessmentservice/")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonToString(category1)))
                 .andExpect(status().isConflict()).andDo(MockMvcResultHandlers.print());

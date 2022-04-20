@@ -15,6 +15,7 @@ public class Address
 {
     private String state;
     private String city;
-    private int pinCode;
+    private String lane;
+    private int pincode;
     private String nationality;
 }

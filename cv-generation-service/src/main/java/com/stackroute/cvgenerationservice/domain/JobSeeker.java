@@ -20,7 +20,7 @@ public class JobSeeker {
     private int cvId;
     private String firstName;
     private String lastName;
-    private String email;
+    private String emailId;
     private long phoneNumber;
     private String address;
     private String careerObjective;

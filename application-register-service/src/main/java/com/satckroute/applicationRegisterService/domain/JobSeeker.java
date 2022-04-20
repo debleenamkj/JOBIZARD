@@ -25,7 +25,7 @@ public class JobSeeker
 
 //    @Column(unique = true)
     @Id
-    private String emailId;
+        private String emailId;
     private String firstName;
     private String lastName;
 
@@ -41,6 +41,7 @@ public class JobSeeker
     private List<Education> educationDetails; //list
     private String[] languagesKnown;
     private Details additionalDetails;
+    private char[] objective;
 
     @Lob
     private byte[] jobSeekerImage;

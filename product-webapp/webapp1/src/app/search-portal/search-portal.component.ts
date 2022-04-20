@@ -53,7 +53,7 @@ export class SearchPortalComponent implements OnInit {
     }
     let details = new JobDetails(" ", [], "");
     // details.skillsRequired=[];
-    localStorage.setItem('loginId', "s4@gmail.com")
+    // localStorage.setItem('loginId', "s4@gmail.com")
     details.emailId = localStorage.getItem('loginId');
     let v1 = this.skills.value;
     if (v1.java == true) {
