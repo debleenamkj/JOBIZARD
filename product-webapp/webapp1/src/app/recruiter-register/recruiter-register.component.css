@@ -13,17 +13,17 @@
   position: fixed;
   } 
   
+
   .form__icon{
   height: 1.5625vh;
   }
   
+
   #mat-card{
     /* border-color: aquamarine; */
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgb(177,23,132), -4px -4px 10px rgb(110,37,134);
   }
-  
-  
   
   
   .mat-radio-button ~ .mat-radio-button {
@@ -36,15 +36,18 @@
   margin: 30px 20px;
 }
 
+
 .mat-radio-button {
   display: block;
   margin: 5px 0;
 }
 
+
 .row {
   display: flex;
   flex-direction: row;
 }
+
 
 .col {
   flex: 1;
