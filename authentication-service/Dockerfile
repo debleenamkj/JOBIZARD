@@ -1,6 +1,6 @@
 FROM openjdk
-WORKDIR usr/src
+WORKDIR usr/lib
 EXPOSE 8099
-ADD ./target/authenticationService-0.0.1-SNAPSHOT.jar /usr/src/authenticationService-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","authenticationService-0.0.1-SNAPSHOT.jar"]
+ADD ./target/authentication-service-0.0.1-SNAPSHOT.jar /usr/lib/authentication-service-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","authentication-service-0.0.1-SNAPSHOT.jar"]
 

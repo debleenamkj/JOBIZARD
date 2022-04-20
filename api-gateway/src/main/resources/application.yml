@@ -7,6 +7,20 @@ eureka:
 
 server:
   port: 8080
+ribbon:
+  ReadTimeout: 60000
+
+  spring:
+    cloud:
+      gateway:
+        globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowedMethods:
+                - GET
+                - POST
+
 
 spring:
   application:
