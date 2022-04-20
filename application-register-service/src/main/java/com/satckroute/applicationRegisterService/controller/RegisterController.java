@@ -595,6 +595,7 @@ public class RegisterController
 
     @PutMapping("/marks/{emailId}")
     public JobSeeker updateMarks(@PathVariable String emailId,@RequestBody Skill skill) throws JobSeekerNotFoundException {
+        System.out.println(skill);
         return registerService.updateDetails(emailId,skill);
     }
 }

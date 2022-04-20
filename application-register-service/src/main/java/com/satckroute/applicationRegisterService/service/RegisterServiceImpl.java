@@ -561,6 +561,8 @@ public class RegisterServiceImpl implements RegisterService
 
     @Override
     public JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException {
+        System.out.println(emailId);
+        System.out.println("get jobseeker");
         JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(emailId).get();
         if(jobSeeker==null){
             throw new JobSeekerNotFoundException();
@@ -596,7 +598,7 @@ public class RegisterServiceImpl implements RegisterService
         }
         details.setSkillSet(skillSet);
         jobSeeker.setAdditionalDetails(details);
-
+        System.out.println(jobSeeker);
         return jobSeekerRegisterRepository.save(jobSeeker);
     }
 }
