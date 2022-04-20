@@ -166,6 +166,17 @@ services:
     ports:
       - 8081:8081
 
-
+  post-service:
+    image: postservice
+    build: post-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongodb
+      - eureka-server
+      - rabbitmq
+      - api-gateway
+    ports:
+      - 9093:9093
 
 
