@@ -10,7 +10,7 @@ export class PostService {
 
   loginUser=localStorage.getItem('loginId');
 
-  selectedSeekerEmail="a@a.com";
+  selectedSeekerEmail=localStorage.getItem('loginId');
 
   sendImagePost(email:string,data:any){
     return  this.httpClient.post('http://localhost:9093/api/v1/post/image/'+email,data);

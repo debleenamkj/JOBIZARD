@@ -52,7 +52,7 @@
                 <ol *ngFor="let educational of educational" style="list-style: none;">
                     <li><span style="font-weight: bold;">Education: </span>{{educational.courses}}</li>
                     <ul>
-                        <li *ngIf="(educational.courses)">Course Type: {{educational.courseType}} </li>
+                        <li *ngIf="(educational.courseType)">Course Type: {{educational.courseType}} </li>
                         <li *ngIf="(educational.streamOrField)">{{educational.streamOrField}}</li>
                         <li>{{educational.percentageOrCgpa}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{educational.passingOutYear | date:'yyyy'}}</li>
                      
