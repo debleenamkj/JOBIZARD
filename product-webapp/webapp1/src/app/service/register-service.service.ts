@@ -51,7 +51,7 @@ export class RegisterServiceService {
   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
   {
     // console.log(userLogin);
-    return this.http.post("http://localhost:8099/api/v2/login",userLogin)
+    return this.http.post(this.baseUrl1+ "/api/v2/login",userLogin)
 
     // return this.http.get("http://localhost:8099/api/v2/login",userLogin)
   }
@@ -59,7 +59,7 @@ export class RegisterServiceService {
 
   getUserById(emailId:string)
   {
-    return this.http.get(this.baseUrl + "/api/v2/find/"+emailId)
+    return this.http.get(this.baseUrl1 + "/api/v2/find/"+emailId)
   }
 
   
