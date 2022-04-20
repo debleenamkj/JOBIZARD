@@ -84,8 +84,10 @@ export class RecruiterlandingComponent implements OnInit {
     }})
   }
 
-  getProgress(jobseekers:any):boolean{
-    return true;
+  filterCards(jobseekers:any):boolean{
+    if(jobseekers.additionalDetails.skillSet && jobseekers.seekerProfileImage && jobseekers.firstName && jobseekers.lastName && jobseekers.additionalDetails.academicsCertification.length!=0){
+      return true;
+    }
+    return false;
   }
-
 }
