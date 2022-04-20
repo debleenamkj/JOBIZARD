@@ -42,12 +42,11 @@
         <span class="col">
         <img src="../../assets/logo-crop.png" style="height: 8vh;margin-left:10px;margin-top:-20px;position: sticky;" alt="logo">
       
-      
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu" *ngIf="!hide">      
-      &nbsp;
-      <h5 style="position: absolute; top:5px; width: fit-content;left: 40px;">Hi, {{name}}</h5>
+      <div style="display: flex;position: absolute; top:10px; right: 30px; align-items: center;">
+      <h5 style="margin-left: auto; margin-right: 2px; width: fit-content;">Hi, {{name}}</h5>
+      <button mat-icon-button class="example-icon" style="margin-right: 0px; margin-left: auto;" aria-label="Example icon-button with share icon" [matMenuTriggerFor]="menu" *ngIf="!hide">
       <mat-icon>person</mat-icon>
-      </button>
+      </button></div>
       <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="/navbar/jobseekerprofile">
           <mat-icon>settings</mat-icon>
