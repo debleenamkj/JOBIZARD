@@ -21,14 +21,14 @@ services:
     ports:
       - 8098:8098
 
-  authentication-service:
-    build: authentication-service/
-    container_name: authentication-service
-
-    hostname: localhost
-    restart: always
-    ports:
-      - 8099:8099
+#  authentication-service:
+#    build: authentication-service/
+#    container_name: authentication-service
+#
+#    hostname: localhost
+#    restart: always
+#    ports:
+#      - 8099:8099
 
 
   product-webapp:
