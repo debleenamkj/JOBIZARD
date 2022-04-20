@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JobSeeker } from '../model/jobSeeker';
+import { PostService } from '../service/post/post.service';
 
 @Component({
   selector: 'app-job-seeker-profile',
@@ -8,31 +9,51 @@ import { JobSeeker } from '../model/jobSeeker';
 })
 export class JobSeekerProfileComponent implements OnInit {
 
-  constructor() {
+  constructor(private post:PostService) {
    }
 
   jobseeker = new JobSeeker();
-   url = "../assets/u1.jpeg";
+   url = "";
 
-  firstname = "Jobsie";
-  lastname="Jobbie";
-  email="jobseeker@gmail.com";
-  mobile=9876543210;
-  dob="01-01-1990"
-  address={street:"jobizrd",city:"Kolkata",state:"West Bengal",pincode:"123456",nationality:"Indian"};
-  gender="Female";
-  educational=[{education:"B.Tech",Courses:["DBMS","OS","Networking"],Stream:"Computer Science and Engineering",CourseType:"Graduation",PassYear:"2019",Percentage:"85%"},{education:"Higher Secondary",Stream:"Science",CourseType:"Higher Secondary",PassYear:"2015",Percentage:"75%"},{education:"Senior Secondary",CourseType:"Senior Secondary",PassYear:"2013",Percentage:"90%"}];
-  jobpreference=["Software Tester","Software Developer","Quality Analyst","Web Developer","Database Administrator"];
+  firstname = "";
+  lastname="";
+  // email="jobseeker@gmail.com";
 
-  workexp=[{year:"5",position:"Full Stack Software Developer",organisation:"Stackroute, NIIT"},];
+  email = this.post.selectedSeekerEmail;
+  mobile="";
+  data:any;
+  dob="";
+  address={city:"",state:""};
+  gender="";
+  academicCertification: any=[];
+  educational:any;
   
-  objective="To secure a challenging position in a reputable organization to expand my learnings, knowledge, and skills.";
+  objective="";
 
-  skills=["Core Java","Angular","Springboot","Bootstrap","Javascript","Networking","Content Writing","MySQL","Mongo Database","Neo4J"];
+  skills:any;
 
-  achievements=["Won 2nd Price in Hackathon","Lead TechMantra Successfully","Won 1st Prize for Robotics in IIT","1st Prize in Content Writing"];
+  achievements: any []=[];
 
+  verifiedSkills = new Array();
   ngOnInit(): void {
+
+    this.post.getSeeker(this.email).subscribe((data)=>{
+    console.log(data);
+      this.data = data.valueOf();      
+      this.mobile = this.data.mobileNumber;
+      this.firstname = this.data.firstName;
+      this.lastname = this.data.lastName;
+      this.gender = this.data.gender;
+      this.dob = this.data.dateOfBirth;
+      this.address.city = this.data.address.city;
+      this.address.state = this.data.address.state;
+      this.achievements = this.data.additionalDetails.achievements;
+      this.academicCertification = this.data.additionalDetails.academicsCertification;
+      this.objective = this.data.objective;
+      this.url='data:image/jpeg;base64,' + this.data.jobSeekerImage;
+      this.skills = this.data.additionalDetails.skillSet;
+      this.educational = this.data.educationDetails;
+     } )
   }
 
 }
