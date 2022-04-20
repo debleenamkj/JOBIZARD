@@ -59,7 +59,7 @@ export class RegisterServiceService {
 
   getUserById(emailId:string)
   {
-    return this.http.get(this.baseUrl + "/api/v2/find/"+emailId)
+    return this.http.get(this.baseUrl1 + "/api/v2/find/"+emailId)
   }
 
   
