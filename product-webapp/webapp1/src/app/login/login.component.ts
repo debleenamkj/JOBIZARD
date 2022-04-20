@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { LoginserviceService } from '../service/loginservice.service';
 import { RegisterServiceService } from '../service/register-service.service';
 import { TockenInterceptorService } from '../service/tocken-interceptor.service';
-import { RecruiterlandingService } from '../recruiterlanding/recruiterlanding.service';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 import { LoginserviceService } from '../service/loginservice.service';
 
 @Component({

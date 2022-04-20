@@ -9,7 +9,7 @@ import {  RecruiterLandingData } from '../model/recruiter-landing-data';
 import { SearchService } from '../search.service';
 import { ChatroomService } from '../service/chatroom.service';
 import { PostService } from '../service/post/post.service';
-import { RecruiterlandingService } from './recruiterlanding.service';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
   selector: 'app-recruiterlanding',
