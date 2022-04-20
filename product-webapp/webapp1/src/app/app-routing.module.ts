@@ -48,8 +48,10 @@ const routes: Routes = [
   { path: "recruiterRegister", component: RecruiterRegisterComponent },
   {path:"register",component:RegisterComponent},
   { path: "userLogin", component: LoginComponent },
+  {path: 'job-seeker', component: JobSeekerLandingComponent},
   {path:"navbar",component: NavBarComponent,
     children:[
+      {path: 'job-seeker', component: JobSeekerLandingComponent},
       {path: 'trend',component: TrendLabComponent},
       {path: 'skills',component: SkillsTrendLabComponent},
       {path : 'salary',component: SalaryTrendLabComponent},

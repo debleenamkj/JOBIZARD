@@ -24,10 +24,10 @@ export class NavBarComponent {
       shareReplay()
     );
   
-    role = localStorage.getItem('role');
+    // role = localStorage.getItem('role');
 
     // role=this.login.role;
-      // role="JOBSEEKER";
+      role="JOBSEEKER";
       // role="";
 
   emailId: string;

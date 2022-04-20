@@ -8,6 +8,7 @@ import { JobSeekerLanding } from '../model/job-seeker-landing';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
 import { SearchService } from '../search.service';
 import { ChatroomService } from '../service/chatroom.service';
+import { PostService } from '../service/post/post.service';
 import { RecruiterlandingService } from './recruiterlanding.service';
 
 @Component({
@@ -30,12 +31,14 @@ export class RecruiterlandingComponent implements OnInit {
   images:any[]=[];
 
   // constructor(private recruiterLanding: RecruiterlandingService) { }
-  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomService, private router: Router, private service: SearchService, private alert: MatSnackBar) { }
+  constructor(private recruiterLanding: RecruiterlandingService, private chat: ChatroomService, private router: Router, private service: SearchService, private alert: MatSnackBar,private post:PostService) { }
 
   ngOnInit(): void {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
       this.recruiterLandingData=d;
       localStorage.setItem('companyName',this.recruiterLandingData.companyName)
+      console.log(this.recruiterLandingData);
+      
     });
 
     this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
@@ -55,6 +58,11 @@ export class RecruiterlandingComponent implements OnInit {
     jobSeeker.forEach(d => {
       d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
     });
+  }
+
+  jobseeker(emailId:any){
+    this.post.selectedSeekerEmail = emailId;
+    this.router.navigate(['/navbar/jobseekerprofile']);
   }
 
   onClick(recipientEmail:any,recipientName:any){

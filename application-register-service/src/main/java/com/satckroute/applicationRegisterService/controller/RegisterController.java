@@ -367,6 +367,7 @@ public class RegisterController
     {
         try
         {
+            System.out.println(recruiter);
             Recruiter recruiter1 = new ObjectMapper().readValue(recruiter,Recruiter.class);
             log.debug("RegisterController - updateRecruiterDetails");
             return new ResponseEntity<>(registerService.updateRecruiterDetails(recruiter1, emailId), HttpStatus.OK);
