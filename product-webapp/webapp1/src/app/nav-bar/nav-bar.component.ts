@@ -24,10 +24,10 @@ export class NavBarComponent {
       shareReplay()
     );
   
-    role = localStorage.getItem('role');
+    // role = localStorage.getItem('role');
 
     // role=this.login.role;
-      // role="JOBSEEKER";
+      role="JOBSEEKER";
       // role="";
 
   emailId: string;
@@ -36,7 +36,7 @@ export class NavBarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private router: Router , private dialog : MatDialog, 
     private loginService : RegisterServiceService, private login:LoginserviceService) {
-      // this.getUsername()
+      this.getUsername()
       console.log("*************")
       console.log('role')
       console.log(this.role);
@@ -63,13 +63,13 @@ export class NavBarComponent {
     })
   }
 
-  // getUsername(){
-  //   this.emailId=localStorage.getItem('loginId');
-  //   console.log(this.emailId)
-  //   // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
-  //   this.name = this.emailId.split('@',2)[0];
-  //   console.log(this.name);
-  // }
+  getUsername(){
+    this.emailId=localStorage.getItem('loginId');
+    console.log(this.emailId)
+    // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
+    this.name = this.emailId.split('@',2)[0];
+    console.log(this.name);
+  }
 
 
 }

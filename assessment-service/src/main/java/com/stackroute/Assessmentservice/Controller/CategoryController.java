@@ -14,7 +14,7 @@ import java.util.Random;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/assessmentservice")
+@RequestMapping(value = "/category")
 public class CategoryController {
     @Autowired
     private CategoryService service;
