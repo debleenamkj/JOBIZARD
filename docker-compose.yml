@@ -6,14 +6,14 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
-
+#        - 7000:7000
 
   mysql:
     image: mysql:latest
     container_name: mysql
     restart: always
     hostname: localhost
-    network_mode: "host"
+    network_mode: host
     ports:
       - 3306:3306
     #    cap_add:
@@ -37,7 +37,7 @@ services:
     image: neo4j:4.2.3
     container_name: neo4j
     restart: always
-    network_mode: "host"
+    network_mode: host
     ports:
       - 7474:7474
       - 7687:7687
@@ -46,25 +46,25 @@ services:
 
 
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
-    container_name: elasticsearch
-    environment:
-      - node.name=elasticsearch
-      - cluster.name=elasticsearch
-      - discovery.type=single-node
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ports:
-      - 9200:9200
-      - 9300:9300
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+#    container_name: elasticsearch
+#    environment:
+#      - node.name=elasticsearch
+#      - cluster.name=elasticsearch
+#      - discovery.type=single-node
+#      - bootstrap.memory_lock=true
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    ports:
+#      - 9200:9200
+#      - 9300:9300
 
 
   eureka-server:
     build: eureka-server/
     container_name: eureka-server
     restart: always
-    network_mode: "host"
+    network_mode: host
     hostname: localhost
     ports:
       - 8761:8761
@@ -82,10 +82,9 @@ services:
 
   application-register-service:
     build: application-register-service/
-    container_name: applicationregisterservicecontainer
+    container_name: application-register-service
     depends_on:
       - mongodb
-      - rabbitmq
       - eureka-server
     network_mode: "host"
     hostname: localhost
@@ -95,12 +94,11 @@ services:
 
   authentication-service:
     build: authentication-service/
-    container_name: authenticationservicecontainer
+    container_name: authentication-service
     depends_on:
       - mysql
-      - rabbitmq
       - eureka-server
-    network_mode: "host"
+    network_mode: host
     hostname: localhost
     restart: always
     ports:
@@ -112,59 +110,49 @@ services:
     image: product-webapp
     restart: always
     container_name: product-webapp
-    network_mode: "host"
+    network_mode: host
     hostname: localhost
     ports:
-      - "4200:4200"
+      - 4200:4200
 
   trend-lab-service:
-    image: trendlabimage
+#    image: trendlabimage
     build: trend-lab-service/
+    container_name:   trend-lab-service
     restart: always
     hostname: localhost
     network_mode: host
     depends_on:
       - mongodb
-      - api-gateway
       - eureka-server
     ports:
       - 8086:8086
 
   chatroom-service:
-    image: chatroomimage
+#    image: chatroomimage
     build: chatroom-service/
+    container_name: chatroom-service
     restart: always
     hostname: localhost
     network_mode: host
     depends_on:
       - mongodb
-      - api-gateway
       - eureka-server
     ports:
       - 8089:8089
+
   email-service:
-    image: emailservice
+#    image: emailservice
     build: email-service/
+    container_name: email-service
     restart: always
     hostname: localhost
     network_mode: host
     depends_on:
-      - api-gateway
       - eureka-server
     ports:
       - 8085:8085
-  resources-service:
-    image: resource-image
-    build: resources-service/
-    container_name: resource-container
-    hostname: localhost
-    network_mode: host
-    restart: always
-    ports:
-      - 8087:8087
-    depends_on:
-      - mongodb
-      - eureka-server
+
   assessment-service:
     image: assessmentservice
     build: assessment-service/
@@ -173,10 +161,30 @@ services:
     network_mode: host
     depends_on:
       - mongodb
-      - api-gateway
       - eureka-server
     ports:
       - 8081:8081
 
+  post-service:
+    image: postservice
+    build: post-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongodb
+      - eureka-server
+    ports:
+      - 9093:9093
+
+  recommendation-service:
+    image: recommendationservice
+    build: recommendation-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - neo4j
+      - eureka-server
+    ports:
+      - 8083:8083
 
 

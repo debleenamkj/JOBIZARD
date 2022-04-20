@@ -6,9 +6,15 @@
 
             <mat-card style="background-color: #6E2586;">
                 <h2 style="color: white;">CHATS</h2>
-                <mat-card *ngFor="let receiver of receiverNames" style="color: #6E2586; font-weight: bold; margin-top: 3%;"><button mat-mini-fab disabled style="color: white;  background-color: #6E2586; font-size: 2.8vh;">
+                <mat-card *ngFor="let receiver of receiverNames" style="color: #6E2586; font-weight: bold; margin-top: 3%;">
+                    <button *ngIf="receiver.senderId==senderId" mat-mini-fab disabled style="color: white;  background-color: #6E2586; font-size: 2.8vh;">
                     {{receiver.recipientName.charAt(0)}}
-                </button><button style="background-color: white; text-align: left; background-image: none; color: #6E2586;border: none; font-size: 2.5vh;" (click)="selectedReceiver(receiver)">{{receiver.recipientName}}</button>
+                </button>
+                <button *ngIf="receiver.senderId==senderId" style="background-color: white; text-align: left; background-image: none; color: #6E2586;border: none; font-size: 2.5vh;" (click)="selectedReceiver(receiver)">{{receiver.recipientName}}</button>
+                
+                <button mat-mini-fab disabled style="color: white;  background-color: #6E2586; font-size: 2.8vh;" *ngIf="receiver.senderId!=senderId">
+                    {{receiver.senderName.charAt(0)}}
+                </button><button *ngIf="receiver.senderId!=senderId" style="background-color: white; text-align: left; background-image: none; color: #6E2586;border: none; font-size: 2.5vh;" (click)="selectedReceiver(receiver)">{{receiver.senderName}}</button>
                 </mat-card>    
             </mat-card>
         </div>

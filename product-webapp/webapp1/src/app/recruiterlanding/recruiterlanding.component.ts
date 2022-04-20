@@ -6,10 +6,10 @@ import { ChatroomComponent } from '../chatroom/chatroom.component';
 import { EmailRequest } from '../model/email-request';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
-import { SearchService } from '../search.service';
+import { SearchService } from '../service/search.service';
 import { ChatroomService } from '../service/chatroom.service';
 import { PostService } from '../service/post/post.service';
-import { RecruiterlandingService } from './recruiterlanding.service';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
   selector: 'app-recruiterlanding',
@@ -37,6 +37,8 @@ export class RecruiterlandingComponent implements OnInit {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
       this.recruiterLandingData=d;
       localStorage.setItem('companyName',this.recruiterLandingData.companyName)
+      console.log(this.recruiterLandingData);
+      
     });
 
     this.recruiterLanding.getAllJobSeekers().subscribe(d=>{
@@ -90,8 +92,10 @@ export class RecruiterlandingComponent implements OnInit {
     }})
   }
 
-  getProgress(jobseekers:any):boolean{
-    return true;
+  filterCards(jobseekers:any):boolean{
+    if(jobseekers.additionalDetails.skillSet && jobseekers.seekerProfileImage && jobseekers.firstName && jobseekers.lastName && jobseekers.additionalDetails.academicsCertification.length!=0){
+      return true;
+    }
+    return false;
   }
-
 }

@@ -58,12 +58,21 @@ export class TestResultViewComponent implements OnInit {
     } else {
       card[0].style.backgroundColor = 'green';
       this.message = 'PASS';
-      this.head ="Hey " +this.username.firstName+ ", you are our " +this.level+ ", with Score " +this.marksGot+ "%";
+      // this.head ="Hey " +this.username.firstName+ ", you are our " +this.level+ ", with Score " +this.marksGot+ "%";
+      this.head =" you are our " +this.level+ ", with Score " +this.marksGot+ "%";
+
       this.skill={isVerified:true,skillName:this.service.quizName,level:worrior,percentage:this.service.percentage}
     }
 
+    console.log("skillss");
+    console.log(this.service.quizName);
+    
     console.log(this.skill)
     let email = localStorage.getItem('loginId')
+    console.log("skilllsss");
+    
+    console.log(this.skill);
+    
     this.service.sendMarks(email,this.skill).subscribe(data =>{
       console.log(data);
     })

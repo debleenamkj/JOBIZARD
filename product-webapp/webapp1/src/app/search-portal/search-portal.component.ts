@@ -4,8 +4,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EmailRequest } from '../model/email-request';
+import { jobDetails } from '../model/jobDetails';
+import { RecruiterDetails } from '../model/recruiter-details';
 import { Search } from '../search';
-import { SearchService } from '../search.service';
+import { SearchService } from '../service/search.service';
 import { ChatroomService } from '../service/chatroom.service';
 
 @Component({
@@ -16,80 +18,86 @@ import { ChatroomService } from '../service/chatroom.service';
 
 export class SearchPortalComponent implements OnInit {
   emailList: Observable<Search[]>;
+  recruiterData= new RecruiterDetails();
   gridColumns = 3;
-  // skills:FormGroup;
-  // education:FormGroup;
-  // jobSeeker: Array<Jobseeker>=[];
-  // jobSeekerSlice: Array<JobSeekerLanding>=[];
-  // images:any[]=[];
-
-  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar,private chat:ChatroomService,private router:Router) {
-
+  skillsFilter:string[]=[]
+  educationStringFilter:string=""
+  filterSkill:searchObject[]=[]
+  jobSeeker:Array<jobDetails>[]=[]
+  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar, private chat: ChatroomService, private router: Router,private jobSeekerLanding:SearchService) {
+    console.log(this.jobSeekersList);
+    console.log(this.skills);
+    
   }
   matchedEmailList: string[];
   jobSeekersList: any[] = [];
-  buttonTitle: string = "Hide";
-  visible: boolean = true;
+  jobSeekersListSlice:any[]=[];
   skills: FormGroup = this.fb.group({
-    java: "",
-    spring: "",
-    angular: ""
+    s1:"",s2:"",s3:""
   })
-  educationgroup: FormGroup = this.fb.group({
-    education: ""
-  })
-  showhideUtility() {
-    this.visible = this.visible ? false : true;
-    this.buttonTitle = this.visible ? "Hide" : "Show";
-  }
   ngOnInit(): void {
-    // this.getEmailList();
+    // this.getEmailList()
+    this.jobSeekerLanding.getRecruiter().subscribe((d: RecruiterDetails)=>{
+      this.recruiterData=d;
+      this.recruiterData.skillsRequired.forEach(skill=>{
+        this.filterSkill.push({isExist:true,skillname:skill.toLowerCase()})
+      })
+      localStorage.setItem('companyName',this.recruiterData.companyName)
+      this.skillsFilter=this.recruiterData.skillsRequired
+      this.educationStringFilter=this.recruiterData.educationRequired
+      this.getJobSeekersList(new JobDetails(this.recruiterData.emailId,this.recruiterData.skillsRequired,this.recruiterData.educationRequired))
+    });
   }
-  getEmailList() {
-    let value = {
-      "emailId": "s4@gmail.com",
-      "skillsRequired": ["angular,java"],
-      "education": "b.tech"
-    }
-    let details = new JobDetails(" ", [], "");
-    // details.skillsRequired=[];
-    // localStorage.setItem('loginId', "s4@gmail.com")
-    details.emailId = localStorage.getItem('loginId');
-    let v1 = this.skills.value;
-    if (v1.java == true) {
-      details.skillsRequired.push("java")
-    }
-    if (v1.angular == true) {
-      details.skillsRequired.push("angular")
-    }
-    if (v1.spring == true) {
-      details.skillsRequired.push("spring")
-    }
-
-    details.education = this.educationgroup.get("education").value;
-    console.log("************")
-    console.log(details)
-    //  this.matchedEmailList=["vishnu2@gmail.com","vishnu21@gmail.com","rs@gmail.com","vishnu23@gmail.com"]
-
-    this.service.getEmail(details).subscribe((data: string[]) => {
-      this.matchedEmailList = data;
-      console.log("************")
-      console.log(this.matchedEmailList)
-      console.log(this.matchedEmailList.length)
-      this.matchedEmailList.forEach((element: any) => {
-        this.service.getJobSeeker(element).subscribe(data => {
-          console.log(data)
-          this.jobSeekersList.push(data);
-          this.getImages(this.jobSeekersList);
-
+  trial(){
+ this.recruiterData.skillsRequired
+}
+pageChange(event:any){
+  let start = event.pageSize*event.pageIndex;
+  this.jobSeekersListSlice = this.jobSeekersList.slice(start,start+6)
+    
+}
+skillFilter(skill:string,s1:boolean){
+  skill=skill.toLowerCase()
+  console.log("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+      if(s1){
+        this.filterSkill.forEach(e=>{
+          if(e.skillname==skill){
+            e.isExist=true;
+          }
         })
+      
+      }
+     else{
+      this.filterSkill.forEach(e=>{
+        if(e.skillname==skill){
+          e.isExist=false;
+        }
+    
+      })
+    }
+      console.log(this.skillsFilter);
+ 
+ this.getJobSeekersList(new JobDetails(this.recruiterData.emailId,this.skillsFilter,this.educationStringFilter))
 
-      });
-    })
+}
+educationFilter(education:string,s2:boolean){
+  
+  if(s2){
+    this.educationStringFilter=education.toLowerCase()
+  }
+  else{
+    this.educationStringFilter=""
+  }
+  this.getJobSeekersList(new JobDetails(this.recruiterData.emailId,this.skillsFilter,this.educationStringFilter))
+}
+  getEmailList() {
+    
+    let details = new JobDetails(this.recruiterData.emailId, this.recruiterData.skillsRequired, this.recruiterData.educationRequired);
+    this.getJobSeekersList(details)
     console.log("-------------------------job seeker");
     console.log(this.jobSeekersList)
     this.display()
-    // console.log("--" +JSON.stringify(this.emailList)); 
+
   }
 
   getImages(jobSeeker: any) {
@@ -97,9 +105,62 @@ export class SearchPortalComponent implements OnInit {
       d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
     });
   }
+  getJobSeekersList(details:JobDetails){
+    details=new JobDetails(this.recruiterData.emailId,[],this.educationStringFilter)
+
+    this.filterSkill.forEach(e=>{
+      if(e.isExist){
+        details.skillsRequired.push(e.skillname)
+      }
+    })
+    details.education=details.education.toLowerCase()
+   details.skillsRequired=details.skillsRequired.map(d=>{return d.toLowerCase()})
+    // if(details.education==""&&details.skillsRequired==[]){
+       
+    // }
+    console.log("**************************************************************");
+    console.log(details)
+    this.service.getEmail(details).subscribe((data: string[]) => {
+      this.matchedEmailList = data;
+      if(data==null){
+            this.alert.open("No Recommendation Available",'close',{ 
+              duration: 5000
+             })
+      }
+      else{
+        this.jobSeekersList=[]
+        let i=0;
+
+        this.matchedEmailList.forEach((element: any) => {
+          console.log(element)
+          this.service.getJobSeeker(element).subscribe({next:data => {
+            console.log(data)
+            this.jobSeekersList.push(data);
+            this.getImages(this.jobSeekersList);
+            if(this.jobSeekersList.length!=0){
+              this.jobSeekersListSlice=this.jobSeekersList.slice(0,6)
+            }
+           else{
+             this.jobSeekersListSlice=[]
+           }
+          }, error:errorresponse=> {                
+            console.log(++i+" "+errorresponse.message)
+          } 
+        }
+          )
+  
+         });
+      }
+      console.log("************")
+      console.log(this.matchedEmailList)
+      console.log(this.matchedEmailList.length)
+
+    })
+    
+  }
 
   display() {
-    console.log("-------------------------display----------------")
+
     console.log(this.jobSeekersList)
     this.jobSeekersList.forEach(element => {
       console.log("helloo")
@@ -107,23 +168,18 @@ export class SearchPortalComponent implements OnInit {
       console.log(img)
       element.jobSeekerImage = img;
     });
-    // console.log(this.jobSeekersList.length)
-    // for (let index = 0; index < this.jobSeekersList.length; index++) {
-    //   console.log("helloo")
-    //   const img = 'data:image/jpeg;base64,'+this.jobSeekersList[index].jobSeekerImage
-    //   console.log(img)
-    //   this.jobSeekersList[index].jobSeekerImage=img;
-    // }
+    //for chat service
   }
-  onClick(recipientEmail:any,recipientName:any){
+  onClick(recipientEmail: any, recipientName: any) {
     this.chat.senderId = localStorage.getItem('loginId')
     this.chat.senderName = localStorage.getItem('companyName')
     this.chat.recipientId = recipientEmail;
     this.chat.recipientName = recipientName;
     this.router.navigate(['/navbar/chatroom']);
   }
+  //for emailservice
   sendEmail(jobseeker: any) {
-    localStorage.setItem('companyName', "Netflix")
+    
     let details = new EmailRequest(jobseeker.emailId, localStorage.getItem('companyName'))
     let message: string = ""
     this.service.sendEmail(details).subscribe({
@@ -152,16 +208,24 @@ export class JobDetails {
   emailId: string;
   skillsRequired: string[];
   education: string;
-  
+
   constructor(emailId: string,
     skillsRequired: string[],
     education: string) {
     this.emailId = emailId
     this.skillsRequired = skillsRequired
     this.education = education
-    
+
   }
- 
+  
+
 
 }
+type searchObject={
+  skillname?:string;
+  isExist?:boolean
+
+}
+
+
 

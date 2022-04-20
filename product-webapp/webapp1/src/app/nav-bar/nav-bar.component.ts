@@ -24,10 +24,10 @@ export class NavBarComponent {
       shareReplay()
     );
   
-    // role = localStorage.getItem('role');
+    role = localStorage.getItem('role');
 
     // role=this.login.role;
-      role="JOBSEEKER";
+      // role="JOBSEEKER";
       // role="";
 
   emailId: string;
@@ -52,7 +52,7 @@ export class NavBarComponent {
     localStorage.setItem('role',null)
     this.loginService.isloggedIn=false
     this.hide=true;
-    this.router.navigate(["../userLogin"]);
+    this.router.navigate(["../"]);
   }
 
   openRegisterForm(): void {
@@ -70,6 +70,4 @@ export class NavBarComponent {
     this.name = this.emailId.split('@',2)[0];
     console.log(this.name);
   }
-
-
 }

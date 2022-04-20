@@ -86,8 +86,8 @@ export class ReviewFormComponent implements OnInit {
   formRadio:string='';
   emailId:string=localStorage.getItem('loginId');
   name:string=''
-  private postReviewRequest = this.reviewService.baseUrl+'/api/v1/resources/saveReview';
-  private deleteReviewRequest = this.reviewService.baseUrl+'/api/v1/resources/deleteReview';
+  // private postReviewRequest = this.reviewService.baseUrl+'/api/v1/resources/saveReview';
+  // private deleteReviewRequest = this.reviewService.baseUrl+'/api/v1/resources/deleteReview';
 
   
 
@@ -165,7 +165,7 @@ export class ReviewFormComponent implements OnInit {
     let horizontalPosition:MatSnackBarHorizontalPosition='center';
     let verticalPosition:MatSnackBarVerticalPosition='top'; 
     console.log(review)
-    this.postReview(review, this.reviewService.selectedCompany.companyName)
+    this.reviewService.postReview(review, this.reviewService.selectedCompany.companyName)
           .subscribe({
             next: response=>{
               console.log(response);
@@ -204,14 +204,5 @@ export class ReviewFormComponent implements OnInit {
     return '' ;
   }
   
-  postReview( review:Review, companyName:string){
-    return this.http.post<Review>(this.postReviewRequest, review, 
-      {params:new HttpParams().append('companyName', companyName)});
-  }
-  deleteReview(reviewId:number, companyName:string){
-    let param = new HttpParams();
-    param = param.append("reviewId", reviewId);
-    param = param.append("companyName", companyName);
-    return this.http.delete<boolean>( this.deleteReviewRequest,{params: param});
-  }
+  
 }

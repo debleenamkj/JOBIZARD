@@ -38,9 +38,9 @@
 
 <div class="container-fluid col-lg-9">
 <div *ngFor="let jobseekers of jobSeekerSlice">
-<mat-card class="example-card" *ngIf="getProgress(jobseekers)">
+<mat-card class="example-card" *ngIf="filterCards(jobseekers)">
   <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-  <img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi">
+  <a (click)="jobseeker(jobseekers.emailId)"><img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi"></a>
   <mat-card-header>
     <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp;&nbsp;<span style="font-weight: normal; font-size: 15px;">{{jobseekers.additionalDetails.academicsCertification}}</span></mat-card-title>
   </mat-card-header>
@@ -59,3 +59,24 @@
 </mat-card>
 </div>
 </div>
+
+<!-- chatbot -->
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="JOLLY"
+  agent-id="935bf166-bd85-4e40-930a-f6638e092aa8"
+  language-code="en"
+></df-messenger>
+
+<style>
+  df-messenger {
+   --df-messenger-bot-message: #878fac;
+   --df-messenger-button-titlebar-color: #6E2586;
+   --df-messenger-chat-background-color: #fafafa;
+   --df-messenger-font-color: white;
+   --df-messenger-send-icon: #878fac;
+   --df-messenger-user-message: #479b3d;
+  }
+</style>   

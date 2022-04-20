@@ -2,6 +2,8 @@ package com.stackroute.chatroomservice.service;
 
 import com.stackroute.chatroomservice.domain.ChatMessage;
 import com.stackroute.chatroomservice.domain.MessageStatus;
+import com.stackroute.chatroomservice.dto.ReceiverIdGroup;
+import com.stackroute.chatroomservice.dto.SenderIdGroup;
 import com.stackroute.chatroomservice.exception.ResourceNotFoundException;
 import com.stackroute.chatroomservice.repository.ChatMessageRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -75,4 +77,14 @@ public class ChatMessageService {
         log.debug("Inside ChatMessageService - getAllList");
         return repository.findAll();
     }
+
+//    public SenderIdGroup getSenderMessages(String chatId){
+//        List<SenderIdGroup> senderList = repository.groupByChatIdAndSenderId();
+//        return senderList.stream().filter(o->chatId == o.getChatId()).;
+//
+//    }
+
+//    public ReceiverIdGroup getRecipientMessages(){
+//
+//    }
 }
