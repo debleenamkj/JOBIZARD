@@ -9,6 +9,7 @@ import { AddSkillsComponent } from '../add-skills/add-skills.component';
 import { UserDetailsService } from '../service/user-details.service';
 import { details } from '../model/details';
 import { address } from '../model/address';
+import { progress } from '../model/progress';
 
 //************************************** interface declared of ts components of chips********************************
 
@@ -46,6 +47,8 @@ export class UpdateUserDetailsComponent implements OnInit {
 
      seekerDetails:any;
      email:string="";
+progress=new progress();
+
   ngOnInit(): void {
       this.email = localStorage.getItem('loginId');
       console.log(this.email)
@@ -144,8 +147,12 @@ export class UpdateUserDetailsComponent implements OnInit {
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   academicsCertifications: AcademicsCertification[] = [];
 
-  userDetailsInfo(){  
-    console.log(this.addPersonalInfoForm);
+  userDetailsInfo(){ 
+  this.progress.personalInfo=25;
+  this.progress.contactInfo=25;
+  this.progress.additionalInfo=25;
+
+  console.log(this.addPersonalInfoForm);
   this.userdetails1.emailId=this.email
   console.log(this.userdetails1.emailId)
   this.userdetails1.firstName=this.addPersonalInfoForm.value.firstName;
@@ -218,6 +225,8 @@ export class UpdateUserDetailsComponent implements OnInit {
     this.details.jobPreferences=jobPreference; 
     this.details.achievements=achievement;
     this.userdetails1.additionalDetails=this.details;
+
+    this.userdetails1.seekerProgress=this.progress;
     console.log(this.userdetails1);
     this.userDetails.updateUserWithoutImage(this.email,this.userdetails1).subscribe( data =>{
       console.log(data);
@@ -411,6 +420,7 @@ addPersonalInfoForm = this.fb.group({
 
  userdetails(){  
   console.log(this.addPersonalInfoForm);
+  this.progress.personalInfo=25;
   this.userdetails1.emailId=this.email
   this.userdetails1.firstName=this.addPersonalInfoForm.value.firstName;  
   this.userdetails1.lastName=this.addPersonalInfoForm.value.lastName; 
@@ -418,6 +428,7 @@ addPersonalInfoForm = this.fb.group({
   this.userdetails1.dateOfBirth=this.addPersonalInfoForm.value.dateOfBirth;  
   // this.userdetails1.mobileNumber=this.addPersonalInfoForm.value.mobileNumber;
   this.userdetails1.objective=this.addPersonalInfoForm.value.objective;
+  this.userdetails1.seekerProgress=this.progress
   // this.userdetails1.profilePicture=this.addPersonalInfoForm.value.profilePicture;
   
   let uploadData = new FormData();
@@ -468,10 +479,12 @@ addContactInfoForm = this.fb.group({
 
  userContactdetails(){  
    console.log("in user contact details---------------");
-   
+   this.progress.personalInfo=25;
+   this.progress.contactInfo=25;
   console.log(this.addPersonalInfoForm);
   this.userdetails1.emailId=this.email
   console.log(this.userdetails1.emailId)
+  
   this.userdetails1.firstName=this.addPersonalInfoForm.value.firstName;
   // console.log("----firstName ------")
   // console.log(this.userdetails1.firstName);
@@ -497,6 +510,8 @@ addContactInfoForm = this.fb.group({
   this.address.nationality=this.addContactInfoForm.value.nationality;
   
   this.userdetails1.address=this.address
+  this.userdetails1.seekerProgress=this.progress
+  
   console.log(this.userdetails1);
   
   this.userDetails.updateUserWithoutImage(this.email,this.userdetails1).subscribe( data =>{

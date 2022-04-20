@@ -25,7 +25,7 @@ public class JobSeeker
 
 //    @Column(unique = true)
     @Id
-    private String emailId;
+        private String emailId;
     private String firstName;
     private String lastName;
 
@@ -33,7 +33,8 @@ public class JobSeeker
     private Date dateOfBirth;
     private String mobileNumber;
     private String password;
-
+    private JobSeekerProgress seekerProgress;
+    private int progress;
     public Role role;
 //    private Role Role.JOBSEEKER;
 
