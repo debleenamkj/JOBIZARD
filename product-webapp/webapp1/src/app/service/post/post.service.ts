@@ -11,11 +11,12 @@ export class PostService {
   loginUser=localStorage.getItem('loginId');
 
   sendImagePost(email:string,data:any){
-    return  this.httpClient.post('http://localhost:9093/api/v1/post/image/'+email,data);
+    console.log(this.loginUser);
+    return  this.httpClient.post('http://localhost:9093/api/v1/post/image/'+this.loginUser,data);
   }
 
   sendBlogPost(email:string,data:any){
-    return this.httpClient.post('http://localhost:9093/api/v1/post/blog/m1@gmail.com',data);
+    return this.httpClient.post('http://localhost:9093/api/v1/post/blog/'+this.loginUser,data);
   }
 
   addReviewInImage(postId:string,data:any){
