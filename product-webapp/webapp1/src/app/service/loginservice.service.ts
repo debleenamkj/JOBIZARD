@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 // import { UserLogin } from '../model/userLogin';
@@ -23,6 +24,9 @@ role="";
 
   constructor(private http:HttpClient) { }
 
+//   baseUrl=environment.apiBaseUrl + '/authentication-service'
+baseUrl:'http://localhost:8099'
+
 //   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
 //   {
 //     // console.log(userLogin);
@@ -37,7 +41,7 @@ role="";
     //generate token
     public generateToken(loginData: any)
     {
-        return this.http.post("http://localhost:8099/api/v2/login", loginData);
+        return this.http.post(this.baseUrl + "/api/v2/login", loginData);
     }
   
 

@@ -12,13 +12,12 @@
       </div>
 
       <div class="cv-header-content2">
-        <h1 style="font-size: 320%">{{response.firstName}}&nbsp;{{response.lastName}}</h1>
+        <h1 style="font-size: 320%">{{res.firstName}}&nbsp;{{res.lastName}}</h1>
       </div>
-
       <div class="cv-header-content3">
         <div class="cv-header-content3-left"></div>
         <div class="cv-header-content3-middle">
-          <H3 style="font-size: 120%; font-weight: bold">{{response.role}}java developer</H3>
+          <H3 style="font-size: 120%; font-weight: bold">{{res.role}}</H3>
         </div>
         <div class="cv-header-content3-right"></div>
       </div>
@@ -27,19 +26,19 @@
         <div class="cv-header-content4-left">
           <mat-icon>place</mat-icon>
           <br />
-          <sub>{{response.address}}</sub>
+          <sub>{{res.address.state}},{{res.address.city}}</sub>
         </div>
 
         <div class="cv-header-content4-middle">
           <mat-icon>call</mat-icon>
           <br />
-          <sub>{{response.phoneNumber}}</sub>
+          <sub>{{res.mobileNumber}}</sub>
         </div>
 
         <div class="cv-header-content4-right">
           <mat-icon>mail</mat-icon>
           <br />
-          <sub>{{response.email}}</sub>
+          <sub>{{res.emailId}}</sub>
         </div>
       </div>
     </div>
@@ -47,10 +46,10 @@
     <div class="cv-body-content">
       <div class="cv-body-side-content">
         <div class="cv-body-side-content-avatar">
-          <img mat-card-avatar src= "{{'data:image/jpg;base64,' + response.picture}}" />
+          <img mat-card-avatar src="{{'data:image/jpg;base64,' + res.jobSeekerImage}}" />
         </div>
         <div class="cv-body-side-content-edu">
-          <div class="cv-body-side-content-edu-header">
+          <div class="cv-body-side-content-edu-header" >
             <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
@@ -71,8 +70,8 @@
               color: rgb(49, 49, 83);
               padding-top: 5%;
               margin: 0%;
-            ">
-            {{response.education[0].typeOfdegree}}
+            " >
+            {{res.educationDetails[0].courses}}
           </h3>
           <h4 style="
               font-size: 140%;
@@ -81,7 +80,7 @@
               padding: 0%;
               margin-bottom: 2%;
             ">
-            {{response.education[0].collegeName}}/{{response.education[0]. duration}}
+            {{res.educationDetails[0].universityOrInstitute}}/{{res.educationDetails[0].passingOutYear}}
           </h4>
           <p style="
               font-size: 130%;
@@ -90,7 +89,7 @@
               padding-top: 0%;
               margin: 0%;
             ">
-            {{response.education[0]. description}}
+            {{res.educationDetails[0].percentageOrCgpa}}
           </p>
           <h3 style="
               font-size: 150%;
@@ -100,7 +99,7 @@
               padding-top: 5%;
               margin: 0%;
             ">
-            {{response.highschool}}
+            {{res.educationDetails[1].courses}}
           </h3>
           <h4 style="
               font-size: 140%;
@@ -109,10 +108,10 @@
               padding: 0%;
               margin-bottom: 2%;
             ">
-            {{response.college}}
+             {{res.educationDetails[1].universityOrInstitute}}/{{res.educationDetails[1].passingOutYear}}
           </h4>
           <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
-            {{response.description}}
+            {{res.educationDetails[1].percentageOrCgpa}}
           </p>
         </div>
 
@@ -129,18 +128,10 @@
             </h2>
           </div>
           <div>
-            <h5>English</h5>
-            <div class="progress" id="progressbar">
-              <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>
-            </div>
-          </div>
-          <div>
-            <h5>Spanish</h5>
-            <div class="progress" id="progressbar">
-              <div class="progress-bar" style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"
-                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+          <mat-chip-list >
+            <mat-chip>{{res.languagesKnown[0]}}</mat-chip>
+            <mat-chip>{{res.languagesKnown[1]}}</mat-chip>
+          </mat-chip-list>
           </div>
           <div class="cv-body-side-content-lang-container1"></div>
         </div>
@@ -149,7 +140,7 @@
       <div class="cv-body-main-content">
         <div class="main-career-objective">
           <p style="font-size: 150%; font-weight: bold; color: rgb(109, 109, 109)">
-            {{response.careerObjective}}
+            {{res.objective}}
           </p>
         </div>
 
@@ -176,7 +167,7 @@
                   padding-top: 5%;
                   margin: 0%;
                 ">
-                {{response.experience[0].jobPosition}}
+                {{res.experience[0].jobPosition}}
 
               </h3>
             </div>
@@ -188,12 +179,12 @@
                   padding: 0%;
                   margin-bottom: 2%;
                 ">
-                {{response.experience[0].companyName}}/{{response.experience[0].duration}}/{{response.experience[0].location}}
+                {{res.experience[0].companyName}}/{{res.experience[0].duration}}/{{res.experience[0].location}}
               </h4>
             </div>
             <div class="work-description">
               <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
-                {{response.experience[0].workDescription}}
+                {{res.experience[0].workDescription}}
               </p>
             </div>
           </div>
@@ -214,7 +205,7 @@
 
           <div class="skills-detail">
             <div class="skills">
-              <h5>{{response.skills}}</h5>
+              <h5>{{res.skills}}</h5>
               <div class="progress" id="progressbar">
                 <div class="progress-bar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
                   style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>

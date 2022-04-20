@@ -40,7 +40,7 @@
 <div *ngFor="let jobseekers of jobSeekerSlice">
 <mat-card class="example-card" *ngIf="filterCards(jobseekers)">
   <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-  <img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi">
+  <a (click)="jobseeker(jobseekers.emailId)"><img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi"></a>
   <mat-card-header>
     <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp;&nbsp;<span style="font-weight: normal; font-size: 15px;">{{jobseekers.additionalDetails.academicsCertification}}</span></mat-card-title>
   </mat-card-header>

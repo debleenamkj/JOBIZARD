@@ -1,5 +1,6 @@
 export class ChatMessage {
 
+        chatId!:string;
         senderId!:string;
         recipientId!:string;
         senderName!:string;

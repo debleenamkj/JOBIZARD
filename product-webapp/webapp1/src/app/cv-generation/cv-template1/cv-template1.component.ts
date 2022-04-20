@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { CvTemplateService } from 'src/app/service/cv-generation/cv-template.service';
+import { PostService } from 'src/app/service/post/post.service';
+
+
 
 @Component({
   selector: 'app-cv-template1',
@@ -11,17 +13,19 @@ import { CvTemplateService } from 'src/app/service/cv-generation/cv-template.ser
 export class CvTemplate1Component implements OnInit {
 
 
-  response:any;
-  constructor( private cvT: CvTemplateService) { 
-   this.cvT.getCv()
+  res:any;
+  count: number[] = [,0,1, 2, 3];
+  emailId:any="as@gmail.com";
+  constructor( private post: PostService) { 
+  //  this.cvT.getCv()
+  //  .subscribe((response:any)=>{
+  //   this.response=response;
+  //   console.log(response);
+  //  });
+   this.post.getSeeker(this.emailId)
    .subscribe((response:any)=>{
-    this.response=response;
-    console.log(response);
-   });
-   this.cvT.getByEmail()
-   .subscribe((response:any)=>{
-     this.response=response;
-     console.log(response);
+     this.res=response;
+     console.log(this.res);
    });
   }
 
