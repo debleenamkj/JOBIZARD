@@ -138,8 +138,11 @@ export class JobSeekerLandingComponent implements OnInit {
   }
 
   getTestName(test:any){
-    console.log("test Name is"+test);
+    console.log("test Name is");
+    console.log(test);
     this.service.quizName=test;
+    console.log(this.service.quizName);
+    
 
   }
 

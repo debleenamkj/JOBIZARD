@@ -93,7 +93,7 @@ import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.com
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
-
+import { environment } from 'src/environments/environment';
 
 
 

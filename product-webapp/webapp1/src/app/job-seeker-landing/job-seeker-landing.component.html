@@ -27,19 +27,19 @@
                 </p>
               </div>
                 <div class="updateProfile" *ngIf="profileProgress<100">
-                <p style="font-size: 130%;" *ngIf="!jobSeeker.progress">Complete 2% of your profile</p>
-                <p style="font-size: 130%;" *ngIf="jobSeeker.progress && jobSeeker.progress>0">Complete {{jobSeeker.progress}}% of your profile</p>
+                <p style="font-size: 130%;" *ngIf="!jobSeeker.progress">Completed 2% of your profile</p>
+                <p style="font-size: 130%;" *ngIf="jobSeeker.progress && jobSeeker.progress>0">Completed {{jobSeeker.progress}}% of your profile</p>
                 <mat-progress-bar mode="determinate" *ngIf="!jobSeeker.progress" value=2></mat-progress-bar>
                 <mat-progress-bar mode="determinate" *ngIf="jobSeeker.progress && jobSeeker.progress>0" [value]=jobSeeker.progress></mat-progress-bar>
                 <!-- <button class="update" mat-button >Update Profile</button>  --><br>
-                <div class="role" style="cursor: pointer;" routerLink="/navbar/update-user">
+                <div class="role" *ngIf="jobSeeker.progress<100" style="cursor: pointer;" routerLink="/navbar/update-user">
                   <div class="block"></div>
                   <p class="updateText">Update Profile</p>
               </div>
               </div>
-              <div class="myProfile" *ngIf="profileProgress==100" style="text-align: center;">
+              <div class="myProfile" *ngIf="jobSeeker.progress==100" style="text-align: center;">
                   <p class="getReady">Get ready for the battle Warrior</p>
-                  <button class="myProfileButton" mat-button>My Profile</button>
+                  <button class="myProfileButton" mat-button routerLink="/navbar/jobseekerprofile">My Profile</button>
               </div>
               </mat-card-content>
             </mat-card>
