@@ -84,5 +84,8 @@ export class RecruiterlandingComponent implements OnInit {
     }})
   }
 
+  getProgress(jobseekers:any):boolean{
+    return true;
+  }
 
 }
