@@ -49,6 +49,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   { path: "userLogin", component: LoginComponent },
   {path: 'job-seeker', component: JobSeekerLandingComponent},
+  { path: "review", component: ReviewComponent },
   {path:"navbar",component: NavBarComponent,
     children:[
       {path: 'job-seeker', component: JobSeekerLandingComponent},

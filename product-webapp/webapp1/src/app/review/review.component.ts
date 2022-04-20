@@ -44,10 +44,10 @@ export class ReviewComponent implements OnInit {
   searchedReviewsSlice:Review[]=[];
   
 
-  private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
-  private getCompanyByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_company";
-  private getReviewsByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_reviews";
-  private getAllDetailsRequest="http://localhost:8087/api/v1/resources/getAllDetails";
+  private getAllCompaniesGetRequest = this.reviewService.baseUrl+"api/v1/resources/get_all_companies";
+  private getCompanyByCompanyNameRequest=this.reviewService.baseUrl+"/api/v1/resources/get_company";
+  private getReviewsByCompanyNameRequest=this.reviewService.baseUrl+"/api/v1/resources/get_reviews";
+  private getAllDetailsRequest=this.reviewService.baseUrl+"/api/v1/resources/getAllDetails";
   ///////////////////////////////////////////
   companyPageChange(event:any){
     let start = event.pageSize*event.pageIndex;

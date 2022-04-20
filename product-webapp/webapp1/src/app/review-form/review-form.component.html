@@ -126,8 +126,8 @@
                         <h3 class="field-heading">Give Review Anonymusly:</h3>
                             <mat-radio-group formControlName="anonymousUser"
                             aria-label="Select an option">
-                                <mat-radio-button style="margin-right: 20px;" value="true">Yes</mat-radio-button>
-                                <mat-radio-button value="false">No</mat-radio-button>
+                                <mat-radio-button (change)="setUserName()"style="margin-right: 20px;" value="true">Yes</mat-radio-button>
+                                <mat-radio-button (change)="setUserName()"value="false">No</mat-radio-button>
                             </mat-radio-group>
                         
                     </td>
@@ -189,9 +189,13 @@
             </tr> -->
             <tr>
                 <td colspan="2">
-                    <button mat-raised-button mat-dialog-close [disabled]="reviewForm.invalid"
+                    <button *ngIf="reviewForm.get(['user', 'anonymousUser']).value=='true'" mat-raised-button mat-dialog-close [disabled]="reviewForm.invalid"
                         (click)="postReviewDetails()" type="submit">
-                        Submit as Anonymous
+                        Submit As Anonymous
+                    </button>
+                    <button *ngIf="reviewForm.get(['user', 'anonymousUser']).value=='false'" mat-raised-button mat-dialog-close [disabled]="reviewForm.invalid"
+                        (click)="postReviewDetails()" type="submit">
+                        Submit
                     </button>
                 </td>
             </tr>
