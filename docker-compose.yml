@@ -4,9 +4,9 @@ services:
     image: rabbitmq:3-management
     container_name: rabbitmq
     ports:
-#      - 15672:15672
-#      - 5672:5672
-        - 7000:7000
+      - 15672:15672
+      - 5672:5672
+#        - 7000:7000
 
   mysql:
     image: mysql:latest
@@ -15,7 +15,7 @@ services:
     hostname: localhost
 #    network_mode: host
     ports:
-      - 3305:3305
+      - 3306:3306
     #    cap_add:
     #      - SYS_NICE
     environment:
@@ -31,7 +31,7 @@ services:
 #    network_mode: host
     hostname: localhost
     ports:
-      - 27018:27018
+      - 27017:27017
 
   neo4j:
     image: neo4j:4.2.3
@@ -69,16 +69,16 @@ services:
     ports:
       - 8761:8761
 
-  api-gateway:
-    build: api-gateway/
-    container_name: api-gateway
-    depends_on:
-      - eureka-server
-    restart: always
-#    network_mode: "host"
-    hostname: localhost
-    ports:
-      - 8080:8080
+#  api-gateway:
+#    build: api-gateway/
+#    container_name: api-gateway
+#    depends_on:
+#      - eureka-server
+#    restart: always
+##    network_mode: "host"
+#    hostname: localhost
+#    ports:
+#      - 8080:8080
 
   application-register-service:
     build: application-register-service/
