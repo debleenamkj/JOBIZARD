@@ -3,17 +3,15 @@ package com.stackroute.chatroomservice.controller;
 import com.stackroute.chatroomservice.domain.ChatMessage;
 import com.stackroute.chatroomservice.domain.ChatNotification;
 import com.stackroute.chatroomservice.domain.ChatRoom;
+import com.stackroute.chatroomservice.dto.SenderIdGroup;
 import com.stackroute.chatroomservice.service.ChatMessageService;
 import com.stackroute.chatroomservice.service.ChatRoomService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -81,4 +79,11 @@ public class ChatController {
         log.debug("Inside ChatController - getChatroom");
         return chatRoomService.getAllChats();
     }
+
+
+
+//    @GetMapping("/messagegroup/{chatId}")
+//    public SenderIdGroup getMesssages(@PathVariable String chatId){
+//        return chatMessageService.getSenderMessages(chatId);
+//    }
 }

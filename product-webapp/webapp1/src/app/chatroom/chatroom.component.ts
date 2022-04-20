@@ -4,8 +4,6 @@ import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 import { ChatroomService } from '../service/chatroom.service';
 
-
-
 @Component({
   selector: 'app-chatroom',
   templateUrl: './chatroom.component.html',
@@ -51,30 +49,44 @@ export class ChatroomComponent implements OnInit {
     this.receiverInitials = this.recipientName.charAt(0);
 
     this.chatService.getAllMessages().subscribe((data)=>{
-     var res: any[] = [];
-   data.filter((item) =>{
-      var i = res.findIndex(x=>(x.recipientId == item.recipientId));
-      if(i<=-1 && item.senderId == this.senderId){
-        res.push(item);
-      }
-      return null;
-    });
+  
+      // .forEach((e)=>{
+      //   if(!stringArray.includes("e.senderId+'_'+this.senderId")){
+      //     stringArray.push(e.senderId);
+      //   }
+      // });
+      
+      let stringArray:any[]=[]; 
+      data.filter((e)=> e.senderId == this.senderId || e.recipientId == this.senderId).forEach((e)=>{
+        
+        if(!stringArray.includes(e.chatId)){
+         
+          
+          stringArray.push(e.chatId);
+          this.receiverNames.push(e);
+        }
+      });
+      
+      
+      
+
+  //    var res: any[] = [];
+  //  data.filter((item) =>{
+  //     var i = res.findIndex(x=>(x.recipientId == item.recipientId));
+  //     if(i<=-1 && item.senderId == this.senderId || item.recipientId == this.senderId){
+  //       res.push(item);
+  //     }
+  //     return null;
+  //   });
     
+  //   this.receiverNames = res;
 
-
-    this.receiverNames = res;
-
-    console.log("*********");
-
-    const key = 'senderId'
+  //   this.receiverNames.forEach((e)=>{
+  //     if(e.recipientId == this.senderId){
+  //       this.receiverNames.splice(this.receiverNames.indexOf(e),1);
+  //     }
+  //   })
     
-    console.log(data.filter((e)=>(e.senderId==this.senderId||e.recipientId==this.senderId)).filter((e)=>e.senderName||e.recipientName).filter((item) =>{
-      var i = res.findIndex(x=>(x.recipientId == item.recipientId || x.senderId == item.senderId || x.senderId == item.recipientId || item.senderId == x.recipientId));
-      if(i<=-1){
-        res.push(item);
-      }
-      return null;
-    }));
     
     // console.log(this.receiverNames);
     // this.receiverNames.forEach((element,index)=>{
@@ -102,14 +114,11 @@ export class ChatroomComponent implements OnInit {
   }
   
 
-  // senderId = this.chatService.senderId;
-  // recipientId = this.chatService.recipientId;
-  // senderName = this.chatService.senderName;
-  // recipientName = this.chatService.recipientName;
-  // senderId = localStorage.getItem('loginId');
-  // recipientId = this.chatService.recipientId;
-  // senderName = this.chatService.senderName;
-  // recipientName = this.chatService.recipientName;
+
+  senderId = localStorage.getItem('loginId');
+  recipientId = this.chatService.recipientId;
+  senderName = this.chatService.senderName;
+  recipientName = this.chatService.recipientName;
 
   // senderId = "S123"
   // recipientId = "R124"
@@ -121,10 +130,15 @@ export class ChatroomComponent implements OnInit {
   // senderName = "ABCD";
   // recipientName = "MNOP";
 
-  senderId = "R125"
-  recipientId = ""
-  senderName = "";
-  recipientName = "";
+  // senderId = "R124"
+  // recipientId = "R125"
+  // senderName = "IJKL";
+  // recipientName = "MNOP";
+
+  // senderId = "S123"
+  // recipientId = ""
+  // senderName = "";
+  // recipientName = "";
 
 
   // senderId = "R123"
@@ -170,6 +184,8 @@ export class ChatroomComponent implements OnInit {
     if(this.senderId == receiver.senderId){
     this.recipientName = receiver.receiverNames;
     this.chatService.getMessages(this.senderId,receiver.recipientId).subscribe((data)=>{
+      this.recipientId = receiver.recipientId;
+      this.senderName = receiver.senderName;
       this.getChats = data;
       this.getChats.reverse();
       this.recipientName = receiver.recipientName;
@@ -182,7 +198,8 @@ export class ChatroomComponent implements OnInit {
       this.getChats = data;
       console.log(data);
       console.log(receiver.recipientId,receiver.senderId);
-      
+      this.recipientId = receiver.senderId;
+      this.senderName = receiver.recipientName;
       this.getChats.reverse();
       this.recipientName = receiver.senderName;
       this.receiverInitials = receiver.senderName.charAt(0);
