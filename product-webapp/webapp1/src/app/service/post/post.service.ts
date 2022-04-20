@@ -42,6 +42,8 @@ export class PostService {
   }
 
   getSeeker(emailId:any){
+    console.log("seeekkerrr");
+    
     return this.httpClient.get('http://localhost:8098/api/v1/'+emailId)
   }
 }
