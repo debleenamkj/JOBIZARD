@@ -25,21 +25,27 @@ export class RegisterServiceService {
 
 
   constructor(private http:HttpClient) { }
+
+    // baseUrl=environment.apiBaseUrl + '/application-register-service'
+    // baseUrl1=environment.apiBaseUrl + '/authentication-service'
+    baseUrl='http://localhost:8098'
+    baseUrl1='http://localhost:8099'
+
   jobSeekerRegister(jobSeekerData:any)
   {
     console.log("in service")
-    return this.http.post("http://localhost:8098/api/v1/registerJobSeeker",jobSeekerData)
+    return this.http.post(this.baseUrl + "/api/v1/registerJobSeeker",jobSeekerData)
   }
 
   recruiterRegister(recruiter:Recruiter):Observable<object>
   {
-    return this.http.post("http://localhost:8098/api/v1/registerRecruiter",recruiter)
+    return this.http.post(this.baseUrl + "/api/v1/registerRecruiter",recruiter)
   }
 
-  organizationRegister(organization:OrganizationDetails):Observable<object>
-  {
-    return this.http.post("http://localhost:8098/api/v1/organizationDetails",organization)
-  }
+  // organizationRegister(organization:OrganizationDetails):Observable<object>
+  // {
+  //   return this.http.post("http://localhost:8098/api/v1/organizationDetails",organization)
+  // }
 
 
   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
@@ -53,7 +59,7 @@ export class RegisterServiceService {
 
   getUserById(emailId:string)
   {
-    return this.http.get("http://localhost:8099/api/v2/find/"+emailId)
+    return this.http.get(this.baseUrl + "/api/v2/find/"+emailId)
   }
 
   
