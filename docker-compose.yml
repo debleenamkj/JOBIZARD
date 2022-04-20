@@ -191,4 +191,17 @@ services:
     ports:
       - 9093:9093
 
+  recommendation-service:
+    image: recommendationservice
+    build: recommendation-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - neo4j
+      - eureka-server
+      - rabbitmq
+      - api-gateway
+    ports:
+      - 8083:8083
+
 

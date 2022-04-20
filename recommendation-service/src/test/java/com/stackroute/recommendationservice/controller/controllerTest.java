@@ -91,49 +91,49 @@ public class controllerTest {
         verify(recommendationService,times(1)).saveUser(any());
     }
 
-    @Test
-    public void saveJobDetailsReturnSucces() throws Exception, JobAlreadyPresentException {
-        when(recommendationService.savejob(any())).thenReturn(jobDetails);
-        mockMvc.perform(post("/api/v1/recommend/job")
-                        .contentType(MediaType.APPLICATION_JSON).
-                        content(jsonToString(seeker)))
-                .andExpect(status().isCreated())
-                .andDo(print());
-        verify(recommendationService,times(1)).savejob(any());
-    }
-
-    @Test
-    public void saveJobDetailsReturnFailure() throws Exception, JobAlreadyPresentException {
-        when(recommendationService.savejob(any())).thenThrow(JobAlreadyPresentException.class);
-        mockMvc.perform(post("/api/v1/recommend/job")
-                        .contentType(MediaType.APPLICATION_JSON).
-                        content(jsonToString(seeker)))
-                .andExpect(status().isConflict())
-                .andDo(print());
-        verify(recommendationService,times(1)).savejob(any());
-    }
-
-    @Test
-    public void matchJobWithJobSeekerReturnSuccess() throws Exception, JobNotFoundException {
-        when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
-        mockMvc.perform(post("/api/v1/recommend/match")
-                        .contentType(MediaType.APPLICATION_JSON).
-                        content(jsonToString(seeker)))
-                .andExpect(status().isOk())
-                .andDo(print());
-        verify(recommendationService,times(1)).getMatchingJobSeeker(any());
-    }
-
-    @Test
-    public void matchJobWithJobSeekerReturnFailure() throws Exception, JobNotFoundException {
-        when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
-        mockMvc.perform(post("/api/v1/recommend/match")
-                .contentType(MediaType.APPLICATION_JSON).
-                content(jsonToString(seeker)))
-                .andExpect(status().isOk());
-        verify(recommendationService,times(1)).getMatchingJobSeeker(any());
-    }
-
+//    @Test
+//    public void saveJobDetailsReturnSucces() throws Exception, JobAlreadyPresentException {
+//        when(recommendationService.savejob(any())).thenReturn(jobDetails);
+//        mockMvc.perform(post("/api/v1/recommend/job")
+//                        .contentType(MediaType.APPLICATION_JSON).
+//                        content(jsonToString(seeker)))
+//                .andExpect(status().isCreated())
+//                .andDo(print());
+//        verify(recommendationService,times(1)).savejob(any());
+//    }
+//
+//    @Test
+//    public void saveJobDetailsReturnFailure() throws Exception, JobAlreadyPresentException {
+//        when(recommendationService.savejob(any())).thenThrow(JobAlreadyPresentException.class);
+//        mockMvc.perform(post("/api/v1/recommend/job")
+//                        .contentType(MediaType.APPLICATION_JSON).
+//                        content(jsonToString(seeker)))
+//                .andExpect(status().isConflict())
+//                .andDo(print());
+//        verify(recommendationService,times(1)).savejob(any());
+//    }
+//
+//    @Test
+//    public void matchJobWithJobSeekerReturnSuccess() throws Exception, JobNotFoundException {
+//        when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
+//        mockMvc.perform(post("/api/v1/recommend/match")
+//                        .contentType(MediaType.APPLICATION_JSON).
+//                        content(jsonToString(seeker)))
+//                .andExpect(status().isOk())
+//                .andDo(print());
+//        verify(recommendationService,times(1)).getMatchingJobSeeker(any());
+//    }
+//
+//    @Test
+//    public void matchJobWithJobSeekerReturnFailure() throws Exception, JobNotFoundException {
+//        when(recommendationService.getMatchingJobSeeker(any())).thenReturn(matchSet);
+//        mockMvc.perform(post("/api/v1/recommend/match")
+//                .contentType(MediaType.APPLICATION_JSON).
+//                content(jsonToString(seeker)))
+//                .andExpect(status().isOk());
+//        verify(recommendationService,times(1)).getMatchingJobSeeker(any());
+//
+//  }
 
     private static String jsonToString(final Object ob) throws JsonProcessingException {
         String result;
