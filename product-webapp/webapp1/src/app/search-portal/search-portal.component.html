@@ -1,58 +1,57 @@
-<!-- <mat-card
-style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;width: 98%; ">
-<h1 style="font-size: xx-large; font-weight:bold; color:white; letter-spacing:1px;">Job Seeker Recommendation Portal</h1>
-</mat-card> -->
-<mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">Job Seeker Recommendation Portal</h1></mat-card>
 
-<h1 style="text-align: center;font-weight: bolder;font-size: x-large;">Find The Perfect Candidate</h1>
-<mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw;height:80%;width:12%;margin: top 1%;background-color: aliceblue;">
-  <div class="d-flex flex-column mb-2" style="height: 66%; ">
+<mat-card style="background-image: linear-gradient(to right, #6E2586,#B11784); margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">Job Seeker Recommendation Portal</h1></mat-card>
+<!-- <mat-card style="background-color: antiquewhite; margin-top: 0.5rem; margin-left:0.5rem; margin-right: 0.5rem; text-align: center;"><h1 style="font-size: xx-large; font-weight: bold; color: white;">Job Seeker Recommendation Portal</h1></mat-card> -->
+
+<h1 style="text-align: center;font-weight: bolder;font-size: x-large;margin-top: 0.5%;color: black;">Find The Perfect Candidate With Us... </h1>
+<mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw;height:68%;width:12%; background-color: rgb(25, 85, 138);margin-top:0.1em;">
+  <div class="d-flex flex-column mb-2" style="height: 90%; " > 
     <div class="p-2">
-      <section class="example-section" [formGroup]="skills" style="margin-left: 2%;">
-        <h1> Required Skills:</h1>
-        <p><mat-checkbox formControlName="java" color="primary" >Java</mat-checkbox></p>
-        <p><mat-checkbox formControlName="angular" color="primary">Angular</mat-checkbox></p>
-        <p><mat-checkbox formControlName="spring"color="primary">Spring</mat-checkbox></p>
-         
+     
+      <section class="example-section"  *ngIf="recruiterData" style="margin-left: 2%;">
+        <h1 style="font-weight: bold;text-align: center;"> Required Skills:</h1>
+        <mat-checkbox [checked]="true" (change)="skillFilter(skill,$event.checked)" *ngFor="let skill of recruiterData.skillsRequired;index as i;"  color="primary" >
+        {{recruiterData.skillsRequired[i]}}  </mat-checkbox>
       </section>
+    
     </div>
     <div class="p-3">
-    
-    <section class="example-section" [formGroup]="educationgroup" style="margin-left: 2%;">
-      <h1>Education Details</h1>
-      <mat-radio-group formControlName="education"
-      aria-label="Select an option">
-          <mat-radio-button  value="b.tech">B.Tech</mat-radio-button>
-          <mat-radio-button value="bsc">BSc</mat-radio-button>
-          <mat-radio-button value="bca">BCA</mat-radio-button>
-      </mat-radio-group>
-      <button (click)="getEmailList()">Filter</button>
-    </section>
+      <section class="example-section"  *ngIf="recruiterData" style="margin-left: 2%;">
+        <h1 style="font-weight: bold;text-align: center;"> Education Details:</h1>
+        <mat-checkbox [checked]="true" (change)="educationFilter(recruiterData.educationRequired,$event.checked)"  color="primary" >
+        {{recruiterData.educationRequired}}  </mat-checkbox>
+      </section>
     </div>
   </div>
 </mat-card>
-<div class="container-fluid col-lg-9" style="margin-top: -10px;" >
-<mat-card class="example-card" *ngFor="let jobseekers of jobSeekersList" style="height: 440px;">
+<mat-paginator style="margin-top: -10px;"
+              [length]="jobSeekersList.length"
+              [pageSize]="6"
+              [hidePageSize]="true"
+              [showFirstLastButtons]="true"
+              (page)="pageChange($event)"
+              aria-label="Select page">
+</mat-paginator>
+<div class="container-fluid col-lg-9" style="margin-top: -10px;" *ngIf="matchedEmailList.length!=0" >
+<mat-card class="example-card"  *ngFor="let jobseekers of jobSeekersListSlice" style="height: 350px;" >
   <img mat-card-image src="{{jobseekers.seekerProfileImage}}" class="pi">
   <mat-card-header>
     <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;margin-top:0.2%;"></span></mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-chip-list *ngFor="let skills of jobseekers.additionalDetails.skillSet">
+    <mat-chip-list style="display: inline-flex;" *ngFor="let skills of jobseekers.additionalDetails.skillSet">
       <mat-chip style="padding: 8px;">{{skills.skillName}}</mat-chip>
     </mat-chip-list>
     <h2>Education Details:</h2>
-    <mat-chip-list *ngFor="let course of jobseekers.educationDetails">
+    <mat-chip-list style="display: inline-flex;" *ngFor="let course of jobseekers.educationDetails">
       <mat-chip style="padding: 8px;">{{course.courses}}</mat-chip>
     </mat-chip-list>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="sendEmail(jobseekers)" mat-raised-button style="background-image: linear-gradient(to right, #6E2586,#B11784);">Interested</button>
-    <button (click)="onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)" mat-button style="color: white;">  <i class="material-icons" style="font-size:48px;color:black"><a href="http://localhost:4200/chatroom" style="text-decoration: none;color: black;">chat</a></i></button>
-
+    <button (click)="sendEmail(jobseekers)" style="margin-left: 3px; border: none; background-color: white;"><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button>
+    <button (click)="onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)" style="margin-left: 150px; border: none; background-color: white;"><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159);">chat</i></button>
   </mat-card-actions>
 </mat-card>
 </div>
 
-  
 
+<!-- *ngFor="let value of recruiters" -->

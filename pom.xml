@@ -33,11 +33,9 @@
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
-        <module>chatbot-service</module>
         <module>application-register-service</module>
         <module>authentication-service</module>
         <module>cv-generation-service</module>
-        <module>chatbot-service</module>
         <module>chatroom-service</module>
         <module>post-service</module>
 
@@ -78,6 +76,19 @@
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
 
     </dependencies>
