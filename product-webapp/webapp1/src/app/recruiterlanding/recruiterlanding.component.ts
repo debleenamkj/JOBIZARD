@@ -36,6 +36,8 @@ export class RecruiterlandingComponent implements OnInit {
     this.recruiterLanding.getRecruiterProfile().subscribe((d: RecruiterLandingData)=>{
       this.recruiterLandingData=d;
       localStorage.setItem('companyName',this.recruiterLandingData.companyName)
+      console.log(this.recruiterLandingData);
+      
     });
 
     this.recruiterLanding.getAllJobSeekers().subscribe(d=>{

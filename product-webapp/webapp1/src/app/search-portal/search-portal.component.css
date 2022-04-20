@@ -22,12 +22,12 @@
       height: 100%;
       margin-left: 1%;
       margin-right: 1%;
-      background-color:antiquewhite
+      background-color:rgb(250, 234, 212)
   }
   .p-3{
     margin-left: 1%;
     margin-right: 1%;
-    background-color:beige;
+    background-color:rgb(248, 242, 242);
   
   }
   .example-card {
@@ -37,7 +37,7 @@
     height: 350px;
     margin-left: 6%;
     margin-bottom: 20px;
-    
+  
 }
 
 
@@ -55,7 +55,7 @@
 
 .rfc{
   width: 300px;
-  height: 75vh;
+  height: 70vh;
   float: left;
   margin-right: 10px;
 }
