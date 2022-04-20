@@ -69,23 +69,22 @@ services:
     ports:
       - 8761:8761
 
-#  api-gateway:
-#    build: api-gateway/
-#    container_name: api-gateway
-#    depends_on:
-#      - eureka-server
-#    restart: always
-##    network_mode: "host"
-#    hostname: localhost
-#    ports:
-#      - 8080:8080
+  api-gateway:
+    build: api-gateway/
+    container_name: api-gateway
+    depends_on:
+      - eureka-server
+    restart: always
+#    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8080:8080
 
   application-register-service:
     build: application-register-service/
     container_name: application-register-service
     depends_on:
       - mongodb
-      - rabbitmq
       - eureka-server
 #    network_mode: host
     hostname: localhost
@@ -98,7 +97,6 @@ services:
     container_name: authentication-service
     depends_on:
       - mysql
-      - rabbitmq
       - eureka-server
 #    network_mode: host
     hostname: localhost
@@ -126,7 +124,6 @@ services:
 #    network_mode: host
     depends_on:
       - mongodb
-#      - api-gateway
       - eureka-server
     ports:
       - 8086:8086
@@ -140,7 +137,6 @@ services:
 #    network_mode: host
     depends_on:
       - mongodb
-#      - api-gateway
       - eureka-server
     ports:
       - 8089:8089
@@ -153,7 +149,6 @@ services:
     hostname: localhost
 #    network_mode: host
     depends_on:
-#      - api-gateway
       - eureka-server
     ports:
       - 8085:8085
@@ -166,7 +161,6 @@ services:
 #    network_mode: host
     depends_on:
       - mongodb
-#      - api-gateway
       - eureka-server
     ports:
       - 8081:8081
@@ -175,12 +169,10 @@ services:
     image: postservice
     build: post-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - mongodb
       - eureka-server
-      - rabbitmq
-      - api-gateway
     ports:
       - 9093:9093
 
@@ -188,12 +180,10 @@ services:
     image: recommendationservice
     build: recommendation-service/
     restart: always
-    network_mode: host
+#    network_mode: host
     depends_on:
       - neo4j
       - eureka-server
-      - rabbitmq
-      - api-gateway
     ports:
       - 8083:8083
 

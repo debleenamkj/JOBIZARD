@@ -10,16 +10,16 @@ server:
 ribbon:
   ReadTimeout: 60000
 
-  spring:
-    cloud:
-      gateway:
-        globalcors:
-          corsConfigurations:
-            '[/**]':
-              allowedOrigins: "*"
-              allowedMethods:
-                - GET
-                - POST
+#  spring:
+#    cloud:
+#      gateway:
+#        globalcors:
+#          corsConfigurations:
+#            '[/**]':
+#              allowedOrigins: "*"
+#              allowedMethods:
+#                - GET
+#                - POST
 
 
 spring:
@@ -35,10 +35,10 @@ spring:
             allowedHeaders: "*"
             exposedHeaders: "*"
       routes:
-        - id: assessmentservice
-          uri: lb://assessmentservice
+        - id: assessment-service
+          uri: lb://assessment-service
           predicates:
-            - Path=/assessmentservice/**
+            - Path=/assessment-service/**
 
         - id: authentication-service
           uri: lb://authentication-service
@@ -92,12 +92,12 @@ spring:
             - RewritePath=/post-service(?<segment>/?.*), $\{segment}
 
 
-#        - id: product-webapp
-#          uri: lb://product-webapp
-#          predicates:
-#            - Path=/**
-#          filters:
-#            - RewritePath=(?<segment>/?.*), $\{segment}
+        - id: product-webapp
+          uri: lb://product-webapp
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=(?<segment>/?.*), $\{segment}
 
 
         - id: recommendation-service
