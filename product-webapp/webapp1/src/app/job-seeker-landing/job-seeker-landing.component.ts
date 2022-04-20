@@ -26,55 +26,55 @@ export class JobSeekerLandingComponent implements OnInit {
   ngOnInit(): void {
     // let file = new File('src\assets\1.jpg','')
 
-    // this.getJobSeeker();
+    this.getJobSeeker();
 
-    // setTimeout(() => {
+    setTimeout(() => {
       
-    // let skill = {name:"",level:""}
-    // let count =0;
-    // console.log(this.skills)
-    // this.skills.forEach((element: any) => {
-    //   console.log("element");
-    //   console.log(element);
+    let skill = {name:"",level:""}
+    let count =0;
+    console.log(this.skills)
+    this.skills.forEach((element: any) => {
+      console.log("element");
+      console.log(element);
       
-    //   if(element.isVerified==false){
-    //     console.log("not")
-    //     this.notVerifiedSkills.push(element.skillName)
-    //     count++;
-    //   }
-    //   else if(element.isVerified==true){
-    //     let skill = {name:element.skillName,level:element.level,logo:""}
-    //     if(skill.name!=""){
-    //       if (skill.level == 'beginner') {
-    //         skill.logo = this.service.getbeginner();
+      if(element.isVerified==false){
+        console.log("not")
+        this.notVerifiedSkills.push(element.skillName)
+        count++;
+      }
+      else if(element.isVerified==true){
+        let skill = {name:element.skillName,level:element.level,logo:""}
+        if(skill.name!=""){
+          if (skill.level == 'beginner') {
+            skill.logo = this.service.getbeginner();
             
-    //       } else if (skill.level == 'saga') {
-    //         skill.logo = this.service.getsaga();
+          } else if (skill.level == 'saga') {
+            skill.logo = this.service.getsaga();
             
-    //       } else if (skill.level == 'gladiator') {
-    //         skill.logo = this.service.getgladiator();
+          } else if (skill.level == 'gladiator') {
+            skill.logo = this.service.getgladiator();
             
-    //       } else if (skill.level == 'ninja') {
-    //         skill.logo = this.service.getninja();
+          } else if (skill.level == 'ninja') {
+            skill.logo = this.service.getninja();
             
-    //       }
-    //       // console.log(skill)
-    //       this.verifiedSkills.push(skill);
+          }
+          // console.log(skill)
+          this.verifiedSkills.push(skill);
           
-    //       count++;
-    //     }
-    //     // skill.name=element.name;
-    //     // skill.badge=element.badge;
-    //     // skill.warrior=element.warrior;
-    //   // this.notVerifiedSkills.length=0
-    //   }
-    // });
-    // console.log("hreklooooooooo")
-    //       console.log(this.verifiedSkills)
-    // }, 500);
+          count++;
+        }
+        // skill.name=element.name;
+        // skill.badge=element.badge;
+        // skill.warrior=element.warrior;
+      // this.notVerifiedSkills.length=0
+      }
+    });
+    console.log("hreklooooooooo")
+          console.log(this.verifiedSkills)
+    }, 500);
 
     
-    // this.getPosts()
+    this.getPosts()
     
   }
 
