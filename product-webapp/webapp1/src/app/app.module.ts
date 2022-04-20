@@ -48,6 +48,7 @@ import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.co
 import { LoginComponent } from './login/login.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
+import { CommonModule } from '@angular/common';
 // import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { SkilltestComponent } from './skilltest/skilltest.component';
@@ -208,6 +209,7 @@ import { AddSkillsComponent } from './add-skills/add-skills.component';
     MatExpansionModule,
     MatTabsModule,
     MatDialogModule,
+    CommonModule,
     MatPaginatorModule
   ],
   providers: [TockenInterceptorService],
