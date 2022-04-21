@@ -15,37 +15,37 @@ import { RegisterServiceService } from '../service/register-service.service';
 })
 export class JobSeekersRegisterComponent {
 
-  jobSeeker:JobSeeker = new JobSeeker();
+  jobSeeker: JobSeeker = new JobSeeker();
 
-  registerForm =new FormGroup({
-    
+  registerForm = new FormGroup({
+
     //role
-    role:new FormControl("JOBSEEKER"),
-    emailId:new FormControl(this.jobSeeker.emailId,[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+    role: new FormControl("JOBSEEKER"),
+    emailId: new FormControl(this.jobSeeker.emailId, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
     password: new FormControl('', Validators.compose([
       Validators.minLength(5),
       Validators.required,
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$') //this is for the letters (both uppercase and lowercase) and numbers validation
-   ])),
+    ])),
 
-    confirm:new FormControl('',[Validators.required])
-  },{
+    confirm: new FormControl('', [Validators.required])
+  }, {
     validators: [passwordMatchValidator('password', 'confirm')]
   }
 
   );
 
 
-  
-  constructor(private formBuilder: FormBuilder ,private registerService : RegisterServiceService , private router : Router,
-    private http:HttpClient )
-  {
+
+  constructor(private formBuilder: FormBuilder, private registerService: RegisterServiceService, private router: Router,
+    private http: HttpClient) {
   }
 
   ngOnInit(): void { }
 
 
 
+<<<<<<< HEAD
   // jobSeekerRegister()
   // {
 
@@ -55,43 +55,57 @@ export class JobSeekersRegisterComponent {
   //   console.log(this.jobSeeker)
   //   this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data=>{
   //     //alert("JobSeeker data added successfully")
+=======
+  jobSeekerRegister() {
+
+    this.jobSeeker.emailId = this.registerForm.value.emailId;
+    this.jobSeeker.password = this.registerForm.value.password;
+    // this.jobSeeker.role = this.registerForm.value.role;
+    console.log(this.jobSeeker)
+    this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data => {
+      //alert("JobSeeker data added successfully")
+>>>>>>> 8fe911a2087db7b9c9e4fdf5e33c3a54ae847317
 
   //     // this.registerService.role = this.registerForm.get('role').value;
 
   //     // localStorage.setItem('role',this.user.role)
 
+<<<<<<< HEAD
   //     this.router.navigate(["/userLogin"])
   //   },error=>alert("Sorry not able to register jobSeeker Details."));
+=======
+      this.router.navigate(["/userLogin"])
+    }, error => alert("Sorry not able to register jobSeeker Details."));
+>>>>>>> 8fe911a2087db7b9c9e4fdf5e33c3a54ae847317
 
   // }
 
   hide = true;
 
 
-  
-  get email(){
+
+  get email() {
     return this.registerForm.get('emailId');
   }
-  
-  get password(){
+
+  get password() {
     return this.registerForm.get('password');
   }
-  
-  get confirm(){
+
+  get confirm() {
     return this.registerForm.get('confirm');
   }
-  user:any={};
-  
+  user: any = {};
+
   //role
-  get role()
-  {
+  get role() {
     return this.registerForm.get('role');
   }
 
-  submit(){
+  submit() {
     this.jobSeeker.emailId = this.registerForm.value.emailId;
-   
-  
+
+
     this.jobSeeker.password = this.registerForm.value.password;
     console.log("password");
     console.log(this.registerForm.value.password);
@@ -100,24 +114,22 @@ export class JobSeekersRegisterComponent {
     console.log(this.jobSeeker)
     console.log("submit method ")
     console.log(this.jobSeeker);
-  
-  
-    if(!this.confirm?.invalid && !this.password?.invalid && (this.confirm?.value==this.password?.value) )
-    {
+
+
+    if (!this.confirm?.invalid && !this.password?.invalid && (this.confirm?.value == this.password?.value)) {
       //role /  role : this.role?.value , 
-      this.jobSeeker={role : this.role?.value ,emailId : this.email?.value,password:this.password?.value}
-      this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data=>
-        {
-          this.user=data;
-          console.log(data);
-          this.router.navigate(['/userLogin']);
-        });
+      this.jobSeeker = { role: this.role?.value, emailId: this.email?.value, password: this.password?.value }
+      this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data => {
+        this.user = data;
+        console.log("Jobseeker Registraton", data);
+        this.router.navigate(['/userLogin']);
+      });
     }
-    else
-    {
+    else {
       console.log("Registration failed");
     }
 
+<<<<<<< HEAD
  }
 
  validateEmailId()
@@ -154,6 +166,30 @@ export class JobSeekersRegisterComponent {
 //     { type: 'pattern', message: 'You must accept terms and conditions' }
 //   ]
 //   }
+=======
+  }
+
+
+  //  account_validation_messages = {
+
+  //   'emailId': [
+  //     { type: 'required', message: 'Email is required' },
+  //     { type: 'pattern', message: 'Enter a valid email' }
+  //   ],
+  //   'confirm': [
+  //     { type: 'required', message: 'Confirm password is required' },
+  //     { type: 'areEqual', message: 'Password mismatch' }
+  //   ],
+  //   'password': [
+  //     { type: 'required', message: 'Password is required' },
+  //     { type: 'minlength', message: 'Password must be at least 5 characters long' },
+  //     { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+  //   ],
+  //   'terms': [
+  //     { type: 'pattern', message: 'You must accept terms and conditions' }
+  //   ]
+  //   }
+>>>>>>> 8fe911a2087db7b9c9e4fdf5e33c3a54ae847317
 
 
 

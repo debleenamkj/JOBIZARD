@@ -38,36 +38,31 @@ export class ChatroomComponent implements OnInit {
     
     
    }
-
+   stringArray:any[]=[]; 
   ngOnInit(): void {
-    // this.chatService.getMessages(this.senderId,this.recipientId).subscribe((data)=>{
-    //   this.getChats = data;
-    //   this.getChats.reverse();
-    //   this.receiverInitials = this.recipientName.charAt(0);
-    // })
+    this.chatService.getMessages(this.senderId,this.recipientId).subscribe((data)=>{
+      this.getChats = data;
+      this.getChats.reverse();
+      this.receiverInitials = this.recipientId.charAt(0);
+    })
 
     this.receiverInitials = this.recipientName.charAt(0);
 
     this.chatService.getAllMessages().subscribe((data)=>{
-  
-      // .forEach((e)=>{
-      //   if(!stringArray.includes("e.senderId+'_'+this.senderId")){
-      //     stringArray.push(e.senderId);
-      //   }
-      // });
-      
-      let stringArray:any[]=[]; 
+        console.log(data);
+          
+      // let 
       data.filter((e)=> e.senderId == this.senderId || e.recipientId == this.senderId).forEach((e)=>{
         
-        if(!stringArray.includes(e.chatId)){
+        if(!this.stringArray.includes(e.chatId)){
          
           
-          stringArray.push(e.chatId);
+          this.stringArray.push(e.chatId);
           this.receiverNames.push(e);
         }
       });
       
-      
+     
       
 
   //    var res: any[] = [];
@@ -92,24 +87,13 @@ export class ChatroomComponent implements OnInit {
     // this.receiverNames.forEach((element,index)=>{
     //       if(element.senderId!=this.senderId) {this.receiverNames.splice(index,1);}
 
-    console.log(this.receiverNames);
     // this.receiverNames.forEach((element,index)=>{
     //       if(element.senderId===this.senderId) {this.receiverNames.splice(index,1);}
 
     //    });
     })
 
-    
-    
-    this.chatService.getChatroom().subscribe((data)=>{
-      this.getChatRoom = data;
-      console.log(data);
-      console.log(data.filter((e)=>e.senderId == this.senderId));
-      console.log(data.map((e)=>e.chatId));
-      
-      data.filter((e)=>e.senderId == this.senderId);
-      
-    })
+  
     
   }
   
@@ -158,6 +142,7 @@ export class ChatroomComponent implements OnInit {
   // recipientName = "EFGH";
 
 
+
   sendMessage(){
 
     console.log(this.text);
@@ -175,25 +160,24 @@ export class ChatroomComponent implements OnInit {
       this.text = "";
       this.ngOnInit();
     })
-    
+    this.ngOnInit();
+    // this.chatMethod(this.senderId,this.recipientId);
   }
 
 
   selectedReceiver(receiver:any){
     console.log(receiver);
     if(this.senderId == receiver.senderId){
-    this.recipientName = receiver.receiverNames;
     this.chatService.getMessages(this.senderId,receiver.recipientId).subscribe((data)=>{
       this.recipientId = receiver.recipientId;
       this.senderName = receiver.senderName;
       this.getChats = data;
       this.getChats.reverse();
-      this.recipientName = receiver.recipientName;
-      this.receiverInitials = receiver.recipientName.charAt(0);
+      this.recipientName = receiver.recipientId.split('@',2)[0];
+      this.receiverInitials = receiver.recipientId.charAt(0);
     })
   }
   else{
-    this.recipientName = receiver.senderName;
     this.chatService.getMessages(receiver.recipientId,receiver.senderId).subscribe((data)=>{
       this.getChats = data;
       console.log(data);
@@ -201,24 +185,23 @@ export class ChatroomComponent implements OnInit {
       this.recipientId = receiver.senderId;
       this.senderName = receiver.recipientName;
       this.getChats.reverse();
-      this.recipientName = receiver.senderName;
-      this.receiverInitials = receiver.senderName.charAt(0);
+      this.recipientName = receiver.senderId.split('@',2)[0];
+      this.receiverInitials = receiver.senderId.charAt(0);
     })
   }
+  
   }
 
-  chatMethod(senderId:string,senderName:string,receiverId:string,receiverName:string){
+  chatMethod(senderId:string,receiverId:string){
     this.sendChats.senderId = senderId;    
-    this.sendChats.senderName = senderName;
     this.sendChats.recipientId = receiverId;
-    this.sendChats.recipientName = receiverName;
     this.chatService.getMessages(senderId,receiverId).subscribe((data)=>{
       this.getChats = data;
       this.getChats.reverse();
-      this.recipientName = receiverName;
-      this.receiverInitials = receiverName.charAt(0);
+      this.recipientName = receiverId.split('@',2)[0];
+      this.receiverInitials = receiverId.charAt(0);
     })
-    this.ngOnInit();
-    
   }
+
+  
 }

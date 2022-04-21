@@ -6,10 +6,10 @@ import { ChatroomComponent } from '../chatroom/chatroom.component';
 import { EmailRequest } from '../model/email-request';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
 import {  RecruiterLandingData } from '../model/recruiter-landing-data';
-import { SearchService } from '../search.service';
+import { SearchService } from '../service/search.service';
 import { ChatroomService } from '../service/chatroom.service';
 import { PostService } from '../service/post/post.service';
-import { RecruiterlandingService } from './recruiterlanding.service';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
   selector: 'app-recruiterlanding',
