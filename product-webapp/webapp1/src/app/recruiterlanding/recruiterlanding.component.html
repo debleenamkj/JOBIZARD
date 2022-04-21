@@ -35,9 +35,11 @@
     </mat-card-actions>
   </mat-card> -->
 <!-- </div> -->
-
+<div>{{jobSeekerSlice.length}}</div>
 <div class="container-fluid col-lg-9" *ngIf="jobSeekerSlice.length>0">
+  <div>Jobseeker Slice Card</div>
   <div *ngFor="let jobseekers of jobSeekerSlice">
+    <div>After Jobseeker Slice Card</div>
     <mat-card class="example-card" *ngIf="filterCards(jobseekers)">
       <div>Card</div>
       <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
