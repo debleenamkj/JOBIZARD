@@ -95,12 +95,12 @@ export class RecruiterlandingComponent implements OnInit {
     })
   }
 
-  filterCards(jobseekers: any): boolean {
-    if (jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.additionalDetails.academicsCertification.length> 0) {
-      console.log("if condition true",jobseekers.firstName);
-      return true;
-    }
-    console.log("else condition false",jobseekers.firstName);
-    return false;
-  }
+  // filterCards(jobseekers: any): boolean {
+  //   if (jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.additionalDetails.academicsCertification.length> 0) {
+  //     console.log("if condition true",jobseekers.firstName);
+  //     return true;
+  //   }
+  //   console.log("else condition false",jobseekers.firstName);
+  //   return false;
+  // }
 }

@@ -35,13 +35,14 @@
     </mat-card-actions>
   </mat-card> -->
 <!-- </div> -->
-<div>{{jobSeekerSlice.length}}</div>
+<!-- <div>{{jobSeekerSlice.length}}</div> -->
 <div class="container-fluid col-lg-9" *ngIf="jobSeekerSlice.length>0">
-  <div>Jobseeker Slice Card</div>
+  <!-- <div>Jobseeker Slice Card</div> -->
   <div *ngFor="let jobseekers of jobSeekerSlice">
-    <div>After Jobseeker Slice Card</div>
-    <mat-card class="example-card" *ngIf="filterCards(jobseekers)">
-      <div>Card</div>
+    <!-- <div>After Jobseeker Slice Card</div> -->
+    <mat-card class="example-card"
+      *ngIf="jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.additionalDetails.academicsCertification.length> 0">
+      <!-- <div>Card</div> -->
       <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <a (click)="jobseeker(jobseekers?.emailId)"><img mat-card-image src="{{jobseekers?.seekerProfileImage}}"
           class="pi"></a>
