@@ -188,3 +188,14 @@ services:
       - 8083:8083
 
 
+  resources-service:
+    build: resources-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongodb
+      - eureka-server
+    ports:
+      - 8087:8087
+
+
