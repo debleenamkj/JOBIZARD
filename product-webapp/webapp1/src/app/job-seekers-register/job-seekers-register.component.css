@@ -1,8 +1,8 @@
 
-*{
+/* *{
 margin: 0vw;
 padding: 0vw;
-}
+} */
 
 
 body{
@@ -14,26 +14,29 @@ position: fixed;
 } 
 
 
-.form__icon{
+/* .form__icon{
 height: 1.5625vh;
-}
+} */
 
+.shipping-card {
+  min-width: 150px;
+  margin: 30px 20px;
+}
 
 #mat-card{
   /* border-color: aquamarine; */
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgb(177,23,132), -4px -4px 10px rgb(110,37,134);
+  min-width: 150px;
+  background-image: url("src/assets/Register/tech.png");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: 65% center;
 }
 
 
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
-}
-
-
-.shipping-card {
-  min-width: 150px;
-  margin: 30px 20px;
 }
 
 

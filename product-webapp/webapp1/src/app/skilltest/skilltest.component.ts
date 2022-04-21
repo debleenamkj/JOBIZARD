@@ -29,7 +29,10 @@ export class SkilltestComponent implements OnInit {
    
     let quizName = this.service.quizName;
     console.log("quizName :"+quizName);
+    this.service.quizName = quizName;
     this.service.getTest(quizName).subscribe(data =>{
+      console.log("daaattaaaa");
+      
       console.log(data);
       this.data = data;
       this.actualAnswers=this.data.answers;
@@ -126,9 +129,12 @@ changeColor(qno:number){
   }
 
   end_yes(){
-    setTimeout(() => {
-      this.router.navigate(['/navbar/job-posting'])
-    }, 300);
+    
+    console.log("endd  yesss");
+    
+    this.calculateScores();
+      this.router.navigate(['/navbar/result'])
+    
   }
   end_no(){
     let end = document.getElementsByClassName("end") as HTMLCollectionOf<HTMLElement>;

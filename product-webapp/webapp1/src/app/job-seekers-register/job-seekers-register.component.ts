@@ -46,24 +46,24 @@ export class JobSeekersRegisterComponent {
 
 
 
-  jobSeekerRegister()
-  {
+  // jobSeekerRegister()
+  // {
 
-    this.jobSeeker.emailId = this.registerForm.value.emailId;
-    this.jobSeeker.password = this.registerForm.value.password;
-    // this.jobSeeker.role = this.registerForm.value.role;
-    console.log(this.jobSeeker)
-    this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data=>{
-      //alert("JobSeeker data added successfully")
+  //   this.jobSeeker.emailId = this.registerForm.value.emailId;
+  //   this.jobSeeker.password = this.registerForm.value.password;
+  //   // this.jobSeeker.role = this.registerForm.value.role;
+  //   console.log(this.jobSeeker)
+  //   this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data=>{
+  //     //alert("JobSeeker data added successfully")
 
-      // this.registerService.role = this.registerForm.get('role').value;
+  //     // this.registerService.role = this.registerForm.get('role').value;
 
-      // localStorage.setItem('role',this.user.role)
+  //     // localStorage.setItem('role',this.user.role)
 
-      this.router.navigate(["/userLogin"])
-    },error=>alert("Sorry not able to register jobSeeker Details."));
+  //     this.router.navigate(["/userLogin"])
+  //   },error=>alert("Sorry not able to register jobSeeker Details."));
 
-  }
+  // }
 
   hide = true;
 
@@ -120,6 +120,20 @@ export class JobSeekersRegisterComponent {
 
  }
 
+ validateEmailId()
+ {
+   if(this.registerForm.controls['emailId'].hasError('required'))
+   {
+     return "Email-ID is required";
+   }
+   if(this.registerForm.controls['emailId'].hasError('pattern'))
+   {
+     return "Must be email type required";
+   }
+   return "";
+ }
+
+ 
 
 //  account_validation_messages = {
   
@@ -140,6 +154,7 @@ export class JobSeekersRegisterComponent {
 //     { type: 'pattern', message: 'You must accept terms and conditions' }
 //   ]
 //   }
+
 
 
 }

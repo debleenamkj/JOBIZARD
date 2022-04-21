@@ -1,8 +1,8 @@
-
+/* 
 *{
   margin: 0vw;
   padding: 0vw;
-  }
+  } */
   
   
   body{
@@ -11,18 +11,22 @@
   height: auto;
   width: 100vw;
   position: fixed;
+  background-repeat: no-repeat;
   } 
   
 
-  .form__icon{
-  height: 1.5625vh;
-  }
-  
+ 
 
   #mat-card{
     /* border-color: aquamarine; */
     border-radius: 10px;
     box-shadow: 4px 4px 10px rgb(177,23,132), -4px -4px 10px rgb(110,37,134);
+
+    /* Image */
+    background-image: url("src/assets/Register/tech.png");
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: 65% center;
   }
   
   
