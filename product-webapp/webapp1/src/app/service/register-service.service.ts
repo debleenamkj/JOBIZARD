@@ -27,7 +27,7 @@ export class RegisterServiceService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl = environment.apiBaseUrl + '/application-register-service';
+  baseUrl = 'https://jobizard.stackroute.io' + '/application-register-service';
   baseUrl1 = environment.apiBaseUrl + '/authentication-service';
   // baseUrl='http://localhost:8098'
   // baseUrl1='http://localhost:8099'
