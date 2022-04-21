@@ -96,7 +96,7 @@ export class RecruiterlandingComponent implements OnInit {
   }
 
   filterCards(jobseekers: any): boolean {
-    if (jobseekers.additionalDetails.skillSet && jobseekers.seekerProfileImage && jobseekers.firstName && jobseekers.lastName && jobseekers.additionalDetails.academicsCertification.length != 0) {
+    if (jobseekers.additionalDetails.skillSet.length != 0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.additionalDetails.academicsCertification.length != 0) {
       return true;
     }
     return false;
