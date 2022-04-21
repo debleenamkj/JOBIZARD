@@ -16,7 +16,7 @@ export class ChatroomService {
   recipientName = "";
 
   constructor(private http:HttpClient) { }
-  baseUrl=environment.apiBaseUrl+'/chatroom-service';
+  baseUrl='https://jobizard.stackroute.io'+'/chatroom-service';
   //baseUrl="http://localhost:8089";
 
   public getMessages(senderId:any,recipientId:any) : Observable<ChatMessage[]>{

@@ -7,11 +7,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SearchService {
-  baseUrl=environment.apiBaseUrl+'/recommendation-service';
+  baseUrl='https://jobizard.stackroute.io'+'/recommendation-service';
   //baseUrl = "http://localhost:8083";
-  baseUrl1=environment.apiBaseUrl +'/application-register-service'
+  baseUrl1='https://jobizard.stackroute.io' +'/application-register-service'
   //baseUrl1="http://localhost:8098";
-  baseUrl2=environment.apiBaseUrl+'/email-service'
+  baseUrl2='https://jobizard.stackroute.io'+'/email-service'
   //baseUrl2="http://localhost:8085";
   
   emailId!:string

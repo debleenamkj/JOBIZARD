@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
 })
 export class PostJobServiceService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
-  baseUrl = environment.apiBaseUrl + '/application-register-service'
-  // baseUrl='http://localhost:8098'
+  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+  //baseUrl='http://localhost:8098'
 
 
   // postJob(job:any){
@@ -19,17 +19,17 @@ export class PostJobServiceService {
   //   return this.httpClient.post("http://localhost:8090/recruitment/posting",job)
   // }
 
-  postRecruiter(job: any, emailId: string) {
+  postRecruiter(job:any,emailId:string){
     console.log("service method called");
-    return this.httpClient.put(this.baseUrl + '/api/v1/recruiterWithImage/' + emailId, job);
+    return this.httpClient.put(this.baseUrl + '/api/v1/recruiterWithImage/'+emailId,job);
   }
 
-  getRecruiter(emailId: string) {
-    return this.httpClient.get(this.baseUrl + "/api/v1/recruiterProfile/" + emailId);
+  getRecruiter(emailId:string){
+    return this.httpClient.get(this.baseUrl + "/api/v1/recruiterProfile/"+emailId);
   }
 
-  updateRecruiter(emailId: string, data: any) {
-    return this, this.httpClient.put(this.baseUrl + '/api/v1/recruiterWithoutImage/' + emailId, data)
+  updateRecruiter(emailId:string,data:any){
+    return this,this.httpClient.put(this.baseUrl + '/api/v1/recruiterWithoutImage/'+emailId,data)
   }
 
   // postJob1(job:any){

@@ -12,7 +12,7 @@ export class RecruiterlandingService {
 
   constructor(private httpCLient: HttpClient) { }
 
-  baseUrl=environment.apiBaseUrl + '/application-register-service'
+  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
   //baseUrl='http://localhost:8098'
 
   getRecruiterProfile():any{

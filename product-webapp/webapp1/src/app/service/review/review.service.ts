@@ -16,7 +16,7 @@ export class ReviewService {
   to! :any;
 
   
-  baseUrl = environment.apiBaseUrl+'/resources-service';
+  baseUrl = 'https://jobizard.stackroute.io'+'/resources-service';
   // baseUrl = 'http://localhost:8087';
 
 
