@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   local:'production',
-  apiBaseUrl: 'httpsS://3.111.146.155:8080',
+  apiBaseUrl: 'https://3.111.146.155:8080',
 };
