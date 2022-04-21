@@ -192,9 +192,9 @@ services:
     build: resources-service/
     restart: always
     network_mode: host
-      depends_on:
-        - mongodb
-        - eureka-server
+    depends_on:
+      - mongodb
+      - eureka-server
     ports:
       - 8087:8087
 
