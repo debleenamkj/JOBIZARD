@@ -1,51 +1,52 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkilltestServiceService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  // baseUrl=environment.apiBaseUrl + '/application-register-service'
-    // baseUrl1=environment.apiBaseUrl + '/assessment-service'
-    baseUrl='http://localhost:8098'
-    baseUrl1='http://localhost:8081'
+  baseUrl = environment.apiBaseUrl + '/application-register-service'
+  baseUrl1 = environment.apiBaseUrl + '/assessment-service'
+  // baseUrl='http://localhost:8098'
+  // baseUrl1='http://localhost:8081'
 
 
-  answeredQuestions:number = 0;
-  unAnsweredQuestions:number=0;
-  percentage:number=0;
-  worrior:string="";
-  quizName:string="";
+  answeredQuestions: number = 0;
+  unAnsweredQuestions: number = 0;
+  percentage: number = 0;
+  worrior: string = "";
+  quizName: string = "";
 
-  getQuestions(){
+  getQuestions() {
     return this.httpClient.get("http://localhost:3000/test")
   }
 
   // http://localhost:8081/category/java
   // http://localhost:8081/category/java
 
-  getTest(testName:string){
+  getTest(testName: string) {
     // const testname = testName.toLowerCase()
     // console.log('http://localhost:8081/category/'+testName.toLowerCase());
-    return this.httpClient.get(this.baseUrl1 + "/category/"+testName);
+    return this.httpClient.get(this.baseUrl1 + "/category/" + testName);
   }
-  getninja(){
+  getninja() {
     return 'assets\\warriors_logos\\ninja.png'
   }
-  getbeginner(){
+  getbeginner() {
     return 'assets\\warriors_logos\\beginner.PNG';
   }
-  getsaga(){
+  getsaga() {
     return 'assets\\warriors_logos\\jobified.PNG';
   }
-  getgladiator(){
+  getgladiator() {
     return 'assets\\warriors_logos\\gladiator.PNG';
   }
 
-  sendMarks(email:string,skill:any){
-    return this.httpClient.put(this.baseUrl + "/api/v1/marks/"+email,skill)
+  sendMarks(email: string, skill: any) {
+    return this.httpClient.put(this.baseUrl + "/api/v1/marks/" + email, skill)
   }
 }
