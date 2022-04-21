@@ -7,7 +7,7 @@ import { EmailRequest } from '../model/email-request';
 import { jobDetails } from '../model/jobDetails';
 import { RecruiterDetails } from '../model/recruiter-details';
 import { Search } from '../search';
-import { SearchService } from '../search.service';
+import { SearchService } from '../service/search.service';
 import { ChatroomService } from '../service/chatroom.service';
 
 @Component({
