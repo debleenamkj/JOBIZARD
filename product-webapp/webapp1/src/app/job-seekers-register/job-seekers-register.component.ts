@@ -45,7 +45,6 @@ export class JobSeekersRegisterComponent {
 
 
 
-<<<<<<< HEAD
   // jobSeekerRegister()
   // {
 
@@ -55,28 +54,13 @@ export class JobSeekersRegisterComponent {
   //   console.log(this.jobSeeker)
   //   this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data=>{
   //     //alert("JobSeeker data added successfully")
-=======
-  jobSeekerRegister() {
-
-    this.jobSeeker.emailId = this.registerForm.value.emailId;
-    this.jobSeeker.password = this.registerForm.value.password;
-    // this.jobSeeker.role = this.registerForm.value.role;
-    console.log(this.jobSeeker)
-    this.registerService.jobSeekerRegister(this.jobSeeker).subscribe(data => {
-      //alert("JobSeeker data added successfully")
->>>>>>> 8fe911a2087db7b9c9e4fdf5e33c3a54ae847317
 
   //     // this.registerService.role = this.registerForm.get('role').value;
 
   //     // localStorage.setItem('role',this.user.role)
 
-<<<<<<< HEAD
   //     this.router.navigate(["/userLogin"])
   //   },error=>alert("Sorry not able to register jobSeeker Details."));
-=======
-      this.router.navigate(["/userLogin"])
-    }, error => alert("Sorry not able to register jobSeeker Details."));
->>>>>>> 8fe911a2087db7b9c9e4fdf5e33c3a54ae847317
 
   // }
 
@@ -129,7 +113,6 @@ export class JobSeekersRegisterComponent {
       console.log("Registration failed");
     }
 
-<<<<<<< HEAD
  }
 
  validateEmailId()
@@ -166,30 +149,6 @@ export class JobSeekersRegisterComponent {
 //     { type: 'pattern', message: 'You must accept terms and conditions' }
 //   ]
 //   }
-=======
-  }
-
-
-  //  account_validation_messages = {
-
-  //   'emailId': [
-  //     { type: 'required', message: 'Email is required' },
-  //     { type: 'pattern', message: 'Enter a valid email' }
-  //   ],
-  //   'confirm': [
-  //     { type: 'required', message: 'Confirm password is required' },
-  //     { type: 'areEqual', message: 'Password mismatch' }
-  //   ],
-  //   'password': [
-  //     { type: 'required', message: 'Password is required' },
-  //     { type: 'minlength', message: 'Password must be at least 5 characters long' },
-  //     { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
-  //   ],
-  //   'terms': [
-  //     { type: 'pattern', message: 'You must accept terms and conditions' }
-  //   ]
-  //   }
->>>>>>> 8fe911a2087db7b9c9e4fdf5e33c3a54ae847317
 
 
 
