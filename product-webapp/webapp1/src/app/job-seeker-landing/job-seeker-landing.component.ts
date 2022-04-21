@@ -331,7 +331,7 @@ export class JobSeekerLandingComponent implements OnInit {
       console.log("All post length")
       console.log(this.allPost[0].length)
       for (let index = 0; index < this.allPost[0].length; index++) {
-        console.log("imaagee");
+        console.log("image");
         if (this.allPost[0][index].postImage != null) {
 
           const img = 'data:image/jpeg;base64,' + this.allPost[0][index].postImage.postImage;
