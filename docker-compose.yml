@@ -20,7 +20,7 @@ services:
     #      - SYS_NICE
     environment:
       MYSQL_ROOT_PASSWORD: 'Password'
-      MYSQL_DATABASE: authuser
+      MYSQL_DATABASE: authenticationDB
       MYSQL_PASSWORD: root
       MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
 
