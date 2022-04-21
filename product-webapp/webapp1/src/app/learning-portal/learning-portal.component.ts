@@ -7,6 +7,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { last, map, Observable, startWith, Subject, takeUntil } from 'rxjs';
 import { CompanyDetails } from '../model/company-details';
 import { CourseSuggestion } from '../model/course-suggestion';
+import { ReviewService } from '../service/review/review.service';
 
 @Component({
   selector: 'app-learning-portal',
@@ -37,7 +38,7 @@ export class LearningPortalComponent implements OnInit {
     [Breakpoints.Large, 7],
     [Breakpoints.XLarge,11]
   ])
-  constructor(config: NgbCarouselConfig, private http: HttpClient,private breakpointObserver:BreakpointObserver) { 
+  constructor(config: NgbCarouselConfig, private http: HttpClient,private breakpointObserver:BreakpointObserver, private reviewService:ReviewService) { 
      config.showNavigationArrows = true;
      config.showNavigationIndicators = false;
      config.pauseOnFocus = true;
@@ -68,8 +69,8 @@ export class LearningPortalComponent implements OnInit {
   filteredOptions!: Observable<string[]>;
   
 
-  private getSkillTypesByCategory = "http://localhost:8087/api/v1/resources/suggestions/get_skillTypes_by_category";
-  private getUrlBySkillType = "http://localhost:8087/api/v1/resources/suggestions/getSourceBySkills";
+  // private getSkillTypesByCategory = "http://localhost:8087/api/v1/resources/suggestions/get_skillTypes_by_category";
+  // private getUrlBySkillType = "http://localhost:8087/api/v1/resources/suggestions/getSourceBySkills";
 
   courses:SourceUrlAggregate[]=[];
   skillTypes: string[]=[];
@@ -265,19 +266,14 @@ export class LearningPortalComponent implements OnInit {
 
 
   
-  getCategoriesAndSkillTypes(){
-    return this.http.get<SkillAggregate[]>(this.getSkillTypesByCategory);
-  }
-  getSourceUrlBySkillTypes(){
-    return this.http.get<SourceUrlAggregate[]>(this.getUrlBySkillType);
-  }
+
 
   requestResource(){
     if(this.companyLogos.length>0){
       this.logoTemplate = this.carouselSlidesAndCards(this.companyLogos.length,10)
       this.cardsPerSlide.logo=10;}
 
-      this.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
+      this.reviewService.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
         this.skillAggregate = response;  
       
         if(this.skillAggregate.length > 0){
@@ -315,7 +311,7 @@ export class LearningPortalComponent implements OnInit {
         //   }
         // })
       })
-    this.getSourceUrlBySkillTypes().subscribe((response:SourceUrlAggregate[])=>{
+    this.reviewService.getSourceUrlBySkillTypes().subscribe((response:SourceUrlAggregate[])=>{
       this.courses = response;
     })
   }
