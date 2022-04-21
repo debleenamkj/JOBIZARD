@@ -30,6 +30,10 @@ export class ReviewService {
   private getAllDetailsRequest=this.baseUrl+"/api/v1/resources/getAllDetails";
 
 
+  private getSkillTypesByCategory = this.baseUrl+"/api/v1/resources/suggestions/get_skillTypes_by_category";
+  private getUrlBySkillType = this.baseUrl+"/api/v1/resources/suggestions/getSourceBySkills";
+
+
   postReview( review:Review, companyName:string){
     return this.http.post<Review>(this.postReviewRequest, review, 
       {params:new HttpParams().append('companyName', companyName)});
@@ -40,9 +44,7 @@ export class ReviewService {
     param = param.append("companyName", companyName);
     return this.http.delete<boolean>( this.deleteReviewRequest,{params: param});
   }
-
-
-
+  
   getReviewsByCompanyName(companyName:string){
     return this.http.get<Review[]>(this.getReviewsByCompanyNameRequest, {
                 params:new HttpParams().append('companyName',companyName)
@@ -58,6 +60,12 @@ export class ReviewService {
   }
   getAllDetails(){
     return this.http.get<CompanyDetails[]>(this.getAllDetailsRequest)
+  }
+  getCategoriesAndSkillTypes(){
+    return this.http.get<SkillAggregate[]>(this.getSkillTypesByCategory);
+  }
+  getSourceUrlBySkillTypes(){
+    return this.http.get<SourceUrlAggregate[]>(this.getUrlBySkillType);
   }
 }
 
@@ -104,6 +112,27 @@ type WorkDetails = {
 export interface CompanyNameGroup {
   letter: string;
   names: string[];
+}
+
+export class SkillAggregate{
+  category:string;
+  image:string;
+  skillTypes:string[];
+
+  constructor(category?:string,skillTypes?:string[], image?:string){
+    this.category = category;
+    this.skillTypes = skillTypes;
+    this.image = image;
+  }
+}
+export class SourceUrlAggregate{
+  skillType:string;
+  source:string[];
+
+  constructor(skillType?:string, source?:string[]){
+    this.skillType=skillType;
+    this.source=source;
+  }
 }
 // export interface Review {
 //   reviewId?:number;
