@@ -65,7 +65,7 @@ export class ReviewFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    localStorage.setItem('loginId','Aka@sh@Gmail.com')
+    // localStorage.setItem('loginId','Aka@sh@Gmail.com')
   }
 
   reviewForm:FormGroup = this.formBuilder.group({

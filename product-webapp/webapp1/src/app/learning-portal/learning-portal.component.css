@@ -22,6 +22,8 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;   
+    /* filter: grayscale(100%); */
+    background-color: #4E1B5F;
 }
 .skill-card-margin{
     margin-left: auto;
@@ -218,9 +220,21 @@ mat-card-title{
     /* scrollbar-width: none; */
     color: white;
 }
-/* .flip-card-back::-webkit-scrollbar{
-    display: none;
-} */
+.flip-card-back::-webkit-scrollbar{
+    /* display: none; */
+    background: back;
+}
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    /* background: #f1f1f1;  */
+    background: none;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: white;
+  }
 .flip-card-back h1{
     font-weight: 500;
     line-height: 30px;

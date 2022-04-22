@@ -26,8 +26,6 @@ export class HomepageComponent implements OnInit {
           })
           image= '../../assets/home-page/'+newString.substring( 0,newString.length-2);
           this.backgroundImages.push(image);
-          console.log(image);
-          console.log(this.backgroundImages);
     })
    
   }
@@ -36,4 +34,31 @@ export class HomepageComponent implements OnInit {
   backgroundImages:string[]=[];
   // location:string="../../assets/learning-portal/"
   card:any[]=["../../assets/home-page/12.webp","2","3"]
+  ourFeatureImagesLocation:string="../../assets/home-page/";
+  ourFeatures:OurFeatures[] = [
+    {
+      imageName:"jzi.png",
+      description:" Getting the latest information on demanding " +
+      "skills and other related news made available, "+
+       "so you don't need to look for various platforms and "+
+       "only use Jobizard to stay updated about industry new with detailed stats."
+    },
+    {
+      imageName:"22.png",
+      description:"Recruitment made easier than ever, no need to worry about hiring skilled "+
+      "candidates, Verified and assesed profiles are made available through our search filters "+
+      "designed to suit your expectations from the candidates."
+    },
+    {
+      imageName:"resume.png",
+      description:"“Your dream job doesn't exist you need to create it “. A good resume along will your skills will help you to "+
+      "get your dream job. Try out our resume template to stand out from the crowd. Just fill required fields and "+
+      "the resume will be created for you."
+    }
+  ];
+}
+
+type OurFeatures={
+  imageName:string
+  description:string
 }

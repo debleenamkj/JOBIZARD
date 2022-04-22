@@ -40,6 +40,7 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SelectedCandidateComponent } from './selected-candidate/selected-candidate.component';
 
 
 const routes: Routes = [
@@ -59,20 +60,10 @@ const routes: Routes = [
       {path : 'businessnews', component: BusinessnewsComponent},
       {path:'job-apply',component:JobApplyComponent},
       {path:'job-posting',component:JobPostingComponent},
-      {
-        path: 'cv-generation', component: CvGenerationComponent
-      },
-      {
-        path: 'cv-template1', component:CvTemplate1Component
-      },
-      {
-        path:'cv-template2', component:CvTemplate2Component
-      },
-      {
-        path:"jobdetail",
-        component:JobDetailComponent,
-    
-      },
+      {path: 'cv-generation', component: CvGenerationComponent},
+      {path: 'cv-template1', component:CvTemplate1Component},
+      {path:'cv-template2', component:CvTemplate2Component},
+      {path:"jobdetail",component:JobDetailComponent,},
       {path:"chatbot",component:ChatbotComponent},
       {path:"chatroom",component:ChatroomComponent},
       {path:"assesmentportal",component:AssesmentPortalComponent},
@@ -92,7 +83,7 @@ const routes: Routes = [
       // {path:"Organization",component:OrganizationDetails},
     
       {path:"recruiterLanding", component: RecruiterlandingComponent},
-    
+      {path:'selected-candidates',component: SelectedCandidateComponent},
     
       { path: "update", component: UpdateDetailsComponent },
       { path: "update-user", component: UpdateUserDetailsComponent },

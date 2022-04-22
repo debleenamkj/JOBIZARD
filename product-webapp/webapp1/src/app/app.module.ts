@@ -94,6 +94,7 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
 import { environment } from 'src/environments/environment';
+import { SelectedCandidateComponent } from './selected-candidate/selected-candidate.component';
 
 
 
@@ -159,7 +160,8 @@ import { environment } from 'src/environments/environment';
     BlogPostDialogComponent,
     RecruiterRegisterComponent,
     HomepageComponent,
-    AddSkillsComponent
+    AddSkillsComponent,
+    SelectedCandidateComponent
 
   ],
   imports: [

@@ -120,9 +120,9 @@ export class LearningPortalComponent implements OnInit {
   ];
   categoryImages: string[]=[
     "Math & Logic.jpg",
-    "Personality Development.jpg",
-    "Technology Courses.jpg",
-    "Banking And Finance.jpg",
+    "Personality Development.webp",
+    "Technology Courses.webp",
+    "Banking And Finance.webp",
     "Fin Tech.jpg"
   ]
 
@@ -276,11 +276,13 @@ export class LearningPortalComponent implements OnInit {
       this.reviewService.getCategoriesAndSkillTypes().subscribe((response:SkillAggregate[])=>{
         this.skillAggregate = response;  
       
-        if(this.skillAggregate.length > 0){
+        
+        if(this.skillAggregate&&this.skillAggregate.length > 0){
           this.categoryTemplate = this.carouselSlidesAndCards(this.skillAggregate.length, 5);
           this.cardsPerSlide.category=5
           this.options = this.getAllSkills();
-        }        
+        }  
+           
         this.categoryImages.forEach(pic=>{
           this.skillAggregate.forEach(skill=>{
             if(skill.category.toLowerCase() == pic.toLowerCase().split(".")[0]){
