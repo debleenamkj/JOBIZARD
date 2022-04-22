@@ -19,8 +19,8 @@ public class MailServiceImpl implements MailService {
     @Override
     public boolean sendEmail(String to, String subject, String message, String companyName) throws Exception {
         boolean flag = false;
-        String senderEmail = "jobizard5@gmail.com";
-        String senderPassword = "nwxbvzxctycldpmw";
+        final String senderEmail = "jobizard5@gmail.com";
+        final String senderPassword = "nwxbvzxctycldpmw";
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
@@ -29,7 +29,7 @@ public class MailServiceImpl implements MailService {
 
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                System.out.println(senderEmail);
+//                System.out.println(senderEmail);
                 return new PasswordAuthentication(senderEmail,senderPassword);
             }
         });
