@@ -27,7 +27,6 @@
         <module>api-gateway</module>
         <module>product-webapp</module>
         <module>email-service</module>
-        <module>cv-generation-service</module>
         <module>recommendation-service</module>
         <module>recruitment-service</module>
         <module>resources-service</module>
@@ -35,7 +34,6 @@
         <module>assessment-service</module>
         <module>application-register-service</module>
         <module>authentication-service</module>
-        <module>cv-generation-service</module>
         <module>chatroom-service</module>
         <module>post-service</module>
 
