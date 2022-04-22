@@ -19,8 +19,8 @@ public class MailServiceImpl implements MailService {
     @Override
     public boolean sendEmail(String to, String subject, String message, String companyName) throws Exception {
         boolean flag = false;
-        final String senderEmail = "jobizard5@gmail.com";
-        final String senderPassword = "nwxbvzxctycldpmw";
+        String senderEmail = "jobizard5@gmail.com";
+        String senderPassword = "nwxbvzxctycldpmw";
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");

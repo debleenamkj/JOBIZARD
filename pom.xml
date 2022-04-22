@@ -99,8 +99,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.7</source><!-- changed from 1.8 -->
-                    <target>1.7</target><!-- changed from 1.8 -->
+                    <source>1.8</source><!-- changed from 1.8 -->
+                    <target>1.8</target><!-- changed from 1.8 -->
                 </configuration>
             </plugin>
             <plugin>
