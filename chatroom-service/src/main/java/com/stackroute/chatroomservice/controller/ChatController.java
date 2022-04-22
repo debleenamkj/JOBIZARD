@@ -3,7 +3,6 @@ package com.stackroute.chatroomservice.controller;
 import com.stackroute.chatroomservice.domain.ChatMessage;
 import com.stackroute.chatroomservice.domain.ChatNotification;
 import com.stackroute.chatroomservice.domain.ChatRoom;
-import com.stackroute.chatroomservice.dto.SenderIdGroup;
 import com.stackroute.chatroomservice.service.ChatMessageService;
 import com.stackroute.chatroomservice.service.ChatRoomService;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +14,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 //@CrossOrigin
