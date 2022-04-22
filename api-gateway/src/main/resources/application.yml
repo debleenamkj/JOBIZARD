@@ -9,18 +9,16 @@ server:
   port: 8080
 ribbon:
   ReadTimeout: 60000
-
-  spring:
-    cloud:
-      gateway:
-        globalcors:
-          corsConfigurations:
-            '[/**]':
-              allowedOrigins: "https://jobizard.stackroute.io"
-              allowCredentials: true
-              allowedMethods:
-                - GET
-                - POST
+#
+#  spring:
+#    cloud:
+#      gateway:
+#        globalcors:
+#          corsConfigurations:
+#            '[/**]':
+#              allowedMethods:
+#                - GET
+#                - POST
 
 
 spring:
@@ -41,6 +39,8 @@ spring:
           uri: lb://assessment-service
           predicates:
             - Path=/assessment-service/**
+          filters:
+            - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
 
         - id: authentication-service
           uri: lb://authentication-service
