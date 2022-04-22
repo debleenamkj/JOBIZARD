@@ -29,7 +29,7 @@ public class MailServiceImpl implements MailService {
 
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                System.out.println(senderEmail);
+//                System.out.println(senderEmail);
                 return new PasswordAuthentication(senderEmail,senderPassword);
             }
         });

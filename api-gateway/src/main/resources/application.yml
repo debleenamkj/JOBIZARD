@@ -9,14 +9,13 @@ server:
   port: 8080
 ribbon:
   ReadTimeout: 60000
-
+#
 #  spring:
 #    cloud:
 #      gateway:
 #        globalcors:
 #          corsConfigurations:
 #            '[/**]':
-#              allowedOrigins: "*"
 #              allowedMethods:
 #                - GET
 #                - POST
@@ -40,9 +39,14 @@ spring:
           uri: lb://assessment-service
           predicates:
             - Path=/assessment-service/**
+<<<<<<< HEAD
 	  filters:
             - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
 
+=======
+          filters:
+            - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
+>>>>>>> fa033856d77788daaa8c349fc64831847487999d
 
         - id: authentication-service
           uri: lb://authentication-service

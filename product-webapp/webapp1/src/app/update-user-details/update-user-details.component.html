@@ -137,15 +137,15 @@
             <!-- ---------------------Buttons Div---------------------------------------- -->
             <div class="personalInfoBTN">
               <div>
-                <button mat-raised-button (click)="userdetails()"    class="personalInfoSaveBTN">
-                  Save
+                <button mat-raised-button (click)="userdetails()"  (click)="clickMe()"  class="personalInfoSaveBTN">
+                  Save & Next
                 </button>
               </div>
-              <div>
-                <button mat-raised-button class="personalInfoNextBTN" (click)="clickMe()">
+              <!-- <div>
+                <button mat-raised-button class="personalInfoNextBTN" >
                   Next
                 </button>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- ------------End of parent Div info------------------------------ -->
@@ -290,11 +290,11 @@
   
             <div class="addressBTN" >
               <div>
-                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()">Save</button>
+                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()" (click)="clickMe1()">Save & Next</button>
               </div>
-              <div >
+              <!-- <div >
                 <button mat-raised-button class="addressNextBTN" (click)="clickMe1()"  >Next</button>
-              </div>
+              </div> -->
             </div>
           </div>
           <!-- ------------Start of Image Div ------------------------------ -->
@@ -463,11 +463,11 @@
   
            <div class="detailsBTN" >
              <div>
-               <button mat-raised-button class="detailsSaveBTN"  (click)="userDetailsInfo()">Save</button>
+               <button mat-raised-button class="detailsSaveBTN"  (click)="userDetailsInfo()" (click)="clickMe2()">Save & Next</button>
              </div>
-             <div>
+             <!-- <div>
                <button mat-raised-button class="detailsNextBTN" (click)="clickMe2()" >Next</button>
-             </div>
+             </div> -->
            </div>
      
    

@@ -71,7 +71,7 @@
   .personalInfoBTN{
   display: flex;
   padding-top: 30px;
-  padding-left: 140px;
+  padding-left: 200px;
   }
   .personalInfoSaveBTN{
     color: whitesmoke;
@@ -136,7 +136,7 @@
     width: 100%;
     display: flex;
     padding-top: 60px;
-    padding-left: 140px;
+    padding-left: 200px;
 
   }
   .addressSaveBTN{
@@ -185,7 +185,7 @@
   .detailsBTN{
       display: flex;
       padding-top: 180px;
-      padding-left: 120px;
+      padding-left: 200px;
   }
   .detailsSaveBTN{
     color: whitesmoke;

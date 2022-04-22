@@ -31,7 +31,7 @@ export class BlogPostDialogComponent implements OnInit {
     formData.append('post', JSON.stringify(this.post));
     this.service.sendBlogPost(localStorage.getItem('loginId'), formData).subscribe(data => {
       console.log(data);
-      //  window.location.reload();
+      window.location.reload();
     });
   }
 }

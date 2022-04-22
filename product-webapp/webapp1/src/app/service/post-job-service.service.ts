@@ -10,7 +10,7 @@ export class PostJobServiceService {
   constructor(private httpClient:HttpClient) { }
 
   baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
-  //baseUrl='http://localhost:8098'
+  // baseUrl='http://localhost:8098'
 
 
   // postJob(job:any){

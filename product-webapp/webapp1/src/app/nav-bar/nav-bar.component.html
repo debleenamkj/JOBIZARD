@@ -48,7 +48,7 @@
       <mat-icon>person</mat-icon>
       </button></div>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/navbar/jobseekerprofile">
+        <button mat-menu-item routerLink="/navbar/jobseekerprofile" *ngIf="role=='JOBSEEKER'">
           <mat-icon>settings</mat-icon>
           <span>My Profile</span>
         </button>
