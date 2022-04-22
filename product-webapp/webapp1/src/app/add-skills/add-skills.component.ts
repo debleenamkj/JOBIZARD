@@ -33,7 +33,7 @@ export class AddSkillsComponent implements OnInit {
    addskill(){  
      let email=localStorage.getItem('loginId');
     console.log(this.addSkillForm);
-    this.addskill1.courses=this.addSkillForm.value.course;  
+    this.addskill1.courses=this.addSkillForm.value.course.toLowerCase();  
     this.addskill1.streamOrField=this.addSkillForm.value.stream; 
     this.addskill1.universityOrInstitute=this.addSkillForm.value.university;  
     this.addskill1.courseType=this.addSkillForm.value.courseType;  
@@ -48,6 +48,7 @@ export class AddSkillsComponent implements OnInit {
 
 
   save() {  
+    location.reload();
     // this.userDetails.updateUserDetails(this.addskill1)  
     //   .subscribe(data => console.log(data));  
   }
