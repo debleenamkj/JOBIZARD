@@ -40,6 +40,9 @@ spring:
           uri: lb://assessment-service
           predicates:
             - Path=/assessment-service/**
+	  filters:
+            - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
+
 
         - id: authentication-service
           uri: lb://authentication-service
