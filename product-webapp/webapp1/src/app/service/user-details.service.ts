@@ -11,8 +11,8 @@ export class UserDetailsService {
   constructor(private http:HttpClient) { }
 
 
-  // baseUrl=environment.apiBaseUrl + '/application-register-service'
-  baseUrl:"http://localhost:8098";
+  baseUrl=environment.apiBaseUrl + '/application-register-service'
+  // baseUrl:"http://localhost:8098";
   
   // updateUserDetails(userdetail:any):Observable<any>
   // {

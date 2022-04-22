@@ -9,8 +9,8 @@ export class PostJobServiceService {
 
   constructor(private httpClient:HttpClient) { }
 
-  // baseUrl=environment.apiBaseUrl + '/application-register-service'
-  baseUrl='http://localhost:8098'
+  baseUrl=environment.apiBaseUrl + '/application-register-service'
+  // baseUrl='http://localhost:8098'
 
 
   // postJob(job:any){

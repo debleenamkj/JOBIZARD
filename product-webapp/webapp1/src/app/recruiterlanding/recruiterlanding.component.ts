@@ -56,7 +56,8 @@ export class RecruiterlandingComponent implements OnInit {
 
   getImages(jobSeeker: JobSeekerLanding[]){
     jobSeeker.forEach(d => {
-      d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
+      d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;    
+      
     });
   }
 

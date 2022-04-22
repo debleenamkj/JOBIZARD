@@ -8,10 +8,10 @@ export class SkilltestServiceService {
 
   constructor(private httpClient:HttpClient) { }
 
-  // baseUrl=environment.apiBaseUrl + '/application-register-service'
-    // baseUrl1=environment.apiBaseUrl + '/assessment-service'
-    baseUrl='http://localhost:8098'
-    baseUrl1='http://localhost:8081'
+  baseUrl=environment.apiBaseUrl + '/application-register-service'
+    baseUrl1=environment.apiBaseUrl + '/assessment-service'
+    // baseUrl='http://localhost:8098'
+    // baseUrl1='http://localhost:8081'
 
 
   answeredQuestions:number = 0;
