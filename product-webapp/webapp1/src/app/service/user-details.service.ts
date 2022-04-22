@@ -23,18 +23,24 @@ export class UserDetailsService {
   // }
 
   updateUserWithImage(email:string,data:any){
+    console.log(this.baseUrl+"/api/v1/jobSeekerWithImage/"+email);
+    
     return this.http.put(this.baseUrl+"/api/v1/jobSeekerWithImage/"+email,data);
   }
 
   updateUserWithoutImage(email:string,data:any){
     return this.http.put(this.baseUrl+'/api/v1/jobSeekerWithoutImage/'+email,data);
+    // return this.http.put('http://localhost:8098'+'/api/v1/jobSeekerWithoutImage/'+email,data);
   }
 
   getJobSeeker(email:string){
-    return this.http.get(this.baseUrl+"/api/v1/"+email);
+    console.log(this.baseUrl+"/api/v1/"+email);
+    //  return this.http.get(this.baseUrl+"/api/v1/"+email);
+    return this.http.get('http://localhost:8098'+"/api/v1/"+email);
   }
 
   updateEducation(email:string,data:any){
-    return this.http.put(this.baseUrl+'/api/v1/jobSeeker/education/'+email,data);
+    // return this.http.put(this.baseUrl+'/api/v1/jobSeeker/education/'+email,data);
+    return this.http.put('http://localhost:8098'+'/api/v1/jobSeeker/education/'+email,data);
   }
 }

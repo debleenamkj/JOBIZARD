@@ -12,8 +12,8 @@ export class PostService {
 
   baseUrl= 'https://jobizard.stackroute.io' + '/post-service';
   baseUrl1= 'https://jobizard.stackroute.io' + '/application-register-service';
-  //baseUrl = 'http://localhost:9093';
-  //baseUrl1 = 'http://localhost:8098';
+  // baseUrl = 'http://localhost:9093';
+  // baseUrl1 = 'http://localhost:8098';
 
   loginUser=localStorage.getItem('loginId');
 

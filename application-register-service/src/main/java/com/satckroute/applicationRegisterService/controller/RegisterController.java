@@ -595,6 +595,19 @@ public class RegisterController
 
     @PutMapping("/marks/{emailId}")
     public JobSeeker updateMarks(@PathVariable String emailId,@RequestBody Skill skill) throws JobSeekerNotFoundException {
+        System.out.println(skill);
         return registerService.updateDetails(emailId,skill);
     }
-}
+
+    @PutMapping("/shortList/{jobSeekerEmailId}/{recruiterEmailId}")
+    public Recruiter shortlist(@PathVariable String jobSeekerEmailId,String recruiterEmailId) throws JobSeekerNotFoundException, RecruiterNotFoundException {
+        return registerService.selecteJobSeeker(recruiterEmailId, jobSeekerEmailId);
+    }
+
+    @GetMapping("/get/{jobSeekerEmailId}/{recruiterEmailId}")
+    public JobSeeker getJobSeeker(@PathVariable String jobSeekerEmailId, String recruiterEmailId) throws JobSeekerNotFoundException, RecruiterNotFoundException {
+        return registerService.getJobSeeker(jobSeekerEmailId,recruiterEmailId);
+    }
+
+
+    }

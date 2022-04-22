@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v6")
-//@CrossOrigin
+@CrossOrigin
 @Slf4j
 public class TrendController {
 

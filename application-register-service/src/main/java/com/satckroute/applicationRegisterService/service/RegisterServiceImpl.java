@@ -298,6 +298,11 @@ public class RegisterServiceImpl implements RegisterService
             }
             jobSeeker1.setEducationDetails(educationList);
             if (jobSeeker1.getProgress() < 100) {
+                JobSeekerProgress jobSeekerProgress = new JobSeekerProgress();
+                jobSeekerProgress.setAdditionalInfo(jobSeeker1.getSeekerProgress().getAdditionalInfo());
+                jobSeekerProgress.setContactInfo(jobSeeker1.getSeekerProgress().getContactInfo());
+                jobSeekerProgress.setPersonalInfo(jobSeeker1.getSeekerProgress().getPersonalInfo());
+                jobSeekerProgress.setPersonalInfo(25);
                 jobSeeker1.setProgress(jobSeeker1.getProgress()+25);
             }
 
@@ -309,7 +314,7 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws JobSeekerNotFoundException
     {
-        System.out.println("In service");
+        System.out.println("update details of jobseeker");
         Seeker seeker = new Seeker();
         if(jobSeekerRegisterRepository.findById(emailId).isEmpty())
         {
@@ -319,13 +324,10 @@ public class RegisterServiceImpl implements RegisterService
         {
             JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(emailId).get();
             jobSeeker.setJobSeekerImage(jobSeeker1.getJobSeekerImage());
-            jobSeeker.setProgress(jobSeeker.getSeekerProgress().getAdditionalInfo()+jobSeeker.getSeekerProgress().getContactInfo()+jobSeeker.getSeekerProgress().getPersonalInfo());
+            jobSeeker.setProgress(jobSeeker.getSeekerProgress().getAdditionalInfo()+jobSeeker.getSeekerProgress().getContactInfo()+jobSeeker.getSeekerProgress().getPersonalInfo()+jobSeeker.getSeekerProgress().getEducationalInfo());
 
             ArrayList<String> education = new ArrayList<>();
-            ArrayList skills = new ArrayList();
 
-
-//            ArrayList<Education> JobSeekerList = (ArrayList<Education>) jobSeeker.getEducationDetails();
             if(jobSeeker.getEducationDetails()!=null){
                 for (Education courses:jobSeeker.getEducationDetails()){
                     education.add(courses.getCourses());
@@ -333,16 +335,55 @@ public class RegisterServiceImpl implements RegisterService
                 }
             }
 
+//            if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
+//                for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
+//                    skills.add(skill.getSkillName());
+//                    System.out.println(skills);
+//                }
+//            }
+            ArrayList<Skill> skillsAlreadyPresent= new ArrayList<>();
             if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
-                for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
-                    skills.add(skill.getSkillName());
-                    System.out.println(skills);
-                }
-            }
+                System.out.println("skills");
+                ArrayList<Skill> matchedSkills = new ArrayList<Skill>();
+                ArrayList<Skill> skills = jobSeeker.getAdditionalDetails().getSkillSet();
+                System.out.println("current skill set");
+                System.out.println(skills);
+                seeker.setSkillSet(skills);
+                if(jobSeeker1.getAdditionalDetails().getSkillSet()!=null){
+                    skillsAlreadyPresent = jobSeeker1.getAdditionalDetails().getSkillSet();
+                    System.out.println("already present skills"+skillsAlreadyPresent);
+                    for (Skill skill:skillsAlreadyPresent) {
+                        for (Skill skill1:skills) {
+                            if(skill.getSkillName().equalsIgnoreCase(skill1.getSkillName())){
+                                matchedSkills.add(skill);
 
+                            }
+                        }
+                    }
+                    System.out.println("matched skills");
+                    System.out.println(matchedSkills);
+                }
+                for (int i=0;i<matchedSkills.size();i++){
+                    for (int j=0;j<skills.size();j++){
+                        if(matchedSkills.get(i).getSkillName().equalsIgnoreCase(skills.get(j).getSkillName())){
+                            skills.remove(j);
+                        }
+                    }
+                }
+                System.out.println("removed matched skills");
+                System.out.println(skills);
+                skillsAlreadyPresent.addAll(skills);
+
+                Details details = new Details();
+                details.setJobPreferences(jobSeeker.getAdditionalDetails().getJobPreferences());
+                details.setAchievements(jobSeeker.getAdditionalDetails().getAchievements());
+                details.setAcademicsCertification(jobSeeker.getAdditionalDetails().getAcademicsCertification());
+                details.setSkillSet(skillsAlreadyPresent);
+
+                jobSeeker.setAdditionalDetails(details);
+            }
                 seeker.setEmail(emailId);
                 seeker.setEducation(education);
-                seeker.setSkillSet(skills);
                 producer.sendJobSeekerMessage(seeker);
 
 
@@ -366,7 +407,7 @@ public class RegisterServiceImpl implements RegisterService
         else
         {
 
-            jobSeeker.setProgress(jobSeeker.getSeekerProgress().getAdditionalInfo()+jobSeeker.getSeekerProgress().getContactInfo()+jobSeeker.getSeekerProgress().getPersonalInfo());
+            jobSeeker.setProgress(jobSeeker.getSeekerProgress().getAdditionalInfo()+jobSeeker.getSeekerProgress().getContactInfo()+jobSeeker.getSeekerProgress().getPersonalInfo()+jobSeeker.getSeekerProgress().getEducationalInfo());
             user.setUserEmailId(emailId);
             user.setUserName(jobSeeker.getFirstName()+" "+jobSeeker.getLastName());
 
@@ -391,6 +432,7 @@ public class RegisterServiceImpl implements RegisterService
         else
         {
             JobDetails jobDetails = new JobDetails();
+
             Recruiter recruiter1 = recruiterRegisterRepository.findById(emailId).get();
             recruiter.setLogo(recruiter1.getLogo());
             jobDetails.setEmailId(emailId);
@@ -529,7 +571,7 @@ public class RegisterServiceImpl implements RegisterService
         {
             throw new JobSeekerNotFoundException();
         }
-        return List.of(jobSeekerRegisterRepository.findById(emailId).get().getAdditionalDetails().getSkillSet());
+        return jobSeekerRegisterRepository.findById(emailId).get().getAdditionalDetails().getSkillSet();
     }
 
 
@@ -561,6 +603,8 @@ public class RegisterServiceImpl implements RegisterService
 
     @Override
     public JobSeeker getJobseeker(String emailId) throws JobSeekerNotFoundException {
+        System.out.println(emailId);
+        System.out.println("get jobseeker");
         JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(emailId).get();
         if(jobSeeker==null){
             throw new JobSeekerNotFoundException();
@@ -575,7 +619,7 @@ public class RegisterServiceImpl implements RegisterService
             throw new JobSeekerNotFoundException();
         }
         Details details = new Details();
-        Skill[] skillSet=jobSeeker.getAdditionalDetails().getSkillSet();
+        ArrayList<Skill> skillSet=jobSeeker.getAdditionalDetails().getSkillSet();
         String[] academicsCertification=jobSeeker.getAdditionalDetails().getAcademicsCertification();
         String[] jobPreferences=jobSeeker.getAdditionalDetails().getJobPreferences();
         String[] achievements=jobSeeker.getAdditionalDetails().getAchievements();
@@ -583,22 +627,63 @@ public class RegisterServiceImpl implements RegisterService
         details.setAcademicsCertification(academicsCertification);
         details.setJobPreferences(jobPreferences);
 
-//        for (Skill skill1: skillSet) {
-//            if(skill1.getSkillName().equalsIgnoreCase(skill.getSkillName())){
-//                skill1 = skill;
-//            }
-//        }
-
-        for (int i=0;i< skillSet.length;i++){
-            if(skillSet[i].getSkillName().equalsIgnoreCase(skill.getSkillName())){
-                skillSet[i] = skill;
+        for (int i=0;i< skillSet.size();i++){
+            if(skillSet.get(i).getSkillName().equalsIgnoreCase(skill.getSkillName())){
+                skillSet.set(i,skill);
             }
         }
         details.setSkillSet(skillSet);
         jobSeeker.setAdditionalDetails(details);
-
+        System.out.println(jobSeeker);
         return jobSeekerRegisterRepository.save(jobSeeker);
     }
+
+    @Override
+    public Recruiter selecteJobSeeker(String recruiterEmail,String jobSeekerEmail) throws JobSeekerNotFoundException, RecruiterNotFoundException {
+        JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(jobSeekerEmail).get();
+        Recruiter recruiter = recruiterRegisterRepository.findById(recruiterEmail).get();
+        if(jobSeeker==null){
+            throw new JobSeekerNotFoundException();
+        }
+        if(recruiter==null){
+            throw new RecruiterNotFoundException();
+        }
+        if(jobSeeker!=null&&recruiter!=null){
+            List<JobSeeker> jobSeekerList = recruiter.getSelectedJobSeekers();
+            List<JobSeeker> shortListedList = new ArrayList<>();
+            for (JobSeeker jobSeeker1:jobSeekerList) {
+                if(jobSeeker1.getEmailId()!=jobSeekerEmail){
+                    shortListedList.add(jobSeeker);
+                }
+            }
+            recruiter.setSelectedJobSeekers(shortListedList);
+            recruiterRegisterRepository.save(recruiter);
+        }
+        return recruiter;
+    }
+
+    @Override
+    public JobSeeker getJobSeeker(String email,String recruiterEmail) throws JobSeekerNotFoundException, RecruiterNotFoundException {
+        JobSeeker jobSeeker = null;
+        Recruiter recruiter = recruiterRegisterRepository.findById(email).get();
+        if(jobSeekerRegisterRepository.findById(email).isEmpty()){
+            throw  new JobSeekerNotFoundException();
+        }
+        if(recruiter==null){
+            throw new RecruiterNotFoundException();
+        }
+        if(jobSeeker!=null&&recruiter!=null){
+            List<JobSeeker> jobSeekerList = recruiter.getSelectedJobSeekers();
+            for (JobSeeker jobSeeker1:jobSeekerList) {
+                if(jobSeeker1.getEmailId()!=email){
+                    jobSeeker = jobSeekerRegisterRepository.findById(email).get();
+                }
+            }
+        }
+        return jobSeeker;
+    }
+
+
 }
 
 
