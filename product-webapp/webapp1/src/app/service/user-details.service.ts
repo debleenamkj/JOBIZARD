@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { UserDetails } from '../model/user-details';
 
 @Injectable({
@@ -11,8 +12,10 @@ export class UserDetailsService {
   constructor(private http:HttpClient) { }
 
 
-  baseUrl=environment.apiBaseUrl + '/application-register-service'
+  // baseUrl=environment.apiBaseUrl + '/application-register-service'
   // baseUrl:"http://localhost:8098";
+   baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+  //baseUrl:"http://localhost:8098";
   
   // updateUserDetails(userdetail:any):Observable<any>
   // {

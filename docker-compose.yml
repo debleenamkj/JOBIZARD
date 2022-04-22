@@ -20,9 +20,9 @@ services:
     #      - SYS_NICE
     environment:
       MYSQL_ROOT_PASSWORD: 'Password'
-      MYSQL_DATABASE: authuser
+      MYSQL_DATABASE: authenticationDB
       MYSQL_PASSWORD: root
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "YES"
 
 
   mongodb:
@@ -154,7 +154,7 @@ services:
       - 8085:8085
 
   assessment-service:
-    image: assessmentservice
+#    image: assessmentservice
     build: assessment-service/
     restart: always
     hostname: localhost
@@ -186,5 +186,16 @@ services:
       - eureka-server
     ports:
       - 8083:8083
+
+
+  resources-service:
+    build: resources-service/
+    restart: always
+    network_mode: host
+    depends_on:
+      - mongodb
+      - eureka-server
+    ports:
+      - 8087:8087
 
 

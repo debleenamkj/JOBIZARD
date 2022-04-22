@@ -43,53 +43,53 @@ scrape_configs:
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8099' ]
+        - targets: [ '172.31.39.175:8099' ]
 
     - job_name: ' trend-lab-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8086' ]
+        - targets: [ '172.31.39.175:8086' ]
 
     - job_name: 'chatroom-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8089' ]
+        - targets: [ '172.31.39.175:8089' ]
 
     - job_name: '  email-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8085' ]
+        - targets: [ '172.31.39.175:8085' ]
 
     - job_name: 'assessment-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8081' ]
+        - targets: [ '172.31.39.175:8081' ]
 
     - job_name: ' post-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '172.31.41.154:9093' ]
+        - targets: [ '172.31.39.175:9093' ]
 
     - job_name: 'recommendation-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:9093' ]
+        - targets: [ '172.31.39.175:9093' ]
 
     - job_name: 'resources-service'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8087' ]
+        - targets: [ '172.31.39.175:8087' ]
 
 
     - job_name: 'eureka-server'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '3.111.146.155:8761' ]
+        - targets: [ '172.31.39.175:8761' ]
