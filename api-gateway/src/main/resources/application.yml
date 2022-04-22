@@ -16,7 +16,7 @@ ribbon:
         globalcors:
           corsConfigurations:
             '[/**]':
-              allowedOrigins: "*"
+              allowedOrigins: "https://jobizard.stackroute.io"
               allowCredentials: true
               allowedMethods:
                 - GET
