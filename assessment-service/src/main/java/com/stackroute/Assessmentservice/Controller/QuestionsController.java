@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping("/question")
 public class QuestionsController {
 
