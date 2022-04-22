@@ -11,8 +11,8 @@
 }
 
 .mat-toolbar.mat-primary {
-  /* position: sticky; */
-  position:fixed;
+  position: sticky;
+  /* position:fixed; */
   top: 0;
   z-index: 1;
   /* position: relative; */
