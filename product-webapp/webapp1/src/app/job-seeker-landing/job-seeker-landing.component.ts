@@ -94,7 +94,7 @@ export class JobSeekerLandingComponent implements OnInit {
   user:any;
 
   sendReview(comment:any,post:any){
-   const review = {reviewUserName:"Malathi",review:""}
+   const review = {reviewUserName:"",review:""}
    review.review=comment;
    const comment1 = {reviewUserName:review.reviewUserName,review:comment};
    if(comment!=""){
