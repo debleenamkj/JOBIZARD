@@ -13,7 +13,7 @@ services:
     container_name: mysql
     restart: always
     hostname: localhost
-#    network_mode: host
+    network_mode: host
     ports:
       - 3306:3306
     #    cap_add:
@@ -28,7 +28,7 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongo-container
-#    network_mode: host
+    network_mode: host
     hostname: localhost
     ports:
       - 27017:27017
@@ -37,7 +37,7 @@ services:
     image: neo4j:4.2.3
     container_name: neo4j
     restart: always
-#    network_mode: host
+    network_mode: host
     ports:
       - 7474:7474
       - 7687:7687
@@ -64,7 +64,7 @@ services:
     build: eureka-server/
     container_name: eureka-server
     restart: always
-#    network_mode: host
+    network_mode: host
     hostname: localhost
     ports:
       - 8761:8761
@@ -75,7 +75,7 @@ services:
     depends_on:
       - eureka-server
     restart: always
-#    network_mode: "host"
+    network_mode: "host"
     hostname: localhost
     ports:
       - 8080:8080
@@ -86,7 +86,7 @@ services:
     depends_on:
       - mongodb
       - eureka-server
-#    network_mode: host
+    network_mode: "host"
     hostname: localhost
     restart: always
     ports:
@@ -98,7 +98,7 @@ services:
     depends_on:
       - mysql
       - eureka-server
-#    network_mode: host
+    network_mode: host
     hostname: localhost
     restart: always
     ports:
@@ -110,7 +110,7 @@ services:
     image: product-webapp
     restart: always
     container_name: product-webapp
-#    network_mode: host
+    network_mode: host
     hostname: localhost
     ports:
       - 4200:4200
@@ -121,7 +121,7 @@ services:
     container_name:   trend-lab-service
     restart: always
     hostname: localhost
-#    network_mode: host
+    network_mode: host
     depends_on:
       - mongodb
       - eureka-server
@@ -134,7 +134,7 @@ services:
     container_name: chatroom-service
     restart: always
     hostname: localhost
-#    network_mode: host
+    network_mode: host
     depends_on:
       - mongodb
       - eureka-server
@@ -147,7 +147,7 @@ services:
     container_name: email-service
     restart: always
     hostname: localhost
-#    network_mode: host
+    network_mode: host
     depends_on:
       - eureka-server
     ports:
@@ -158,7 +158,7 @@ services:
     build: assessment-service/
     restart: always
     hostname: localhost
-#    network_mode: host
+    network_mode: host
     depends_on:
       - mongodb
       - eureka-server
@@ -169,7 +169,7 @@ services:
     image: postservice
     build: post-service/
     restart: always
-#    network_mode: host
+    network_mode: host
     depends_on:
       - mongodb
       - eureka-server
@@ -180,7 +180,7 @@ services:
     image: recommendationservice
     build: recommendation-service/
     restart: always
-#    network_mode: host
+    network_mode: host
     depends_on:
       - neo4j
       - eureka-server

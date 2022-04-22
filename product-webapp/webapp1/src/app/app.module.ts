@@ -46,7 +46,7 @@ import { LearningPortalComponent } from './learning-portal/learning-portal.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssesmentPortalComponent } from './assesment-portal/assesment-portal.component';
 import { LoginComponent } from './login/login.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { UpdateDetailsComponent } from './update-details/update-details.component';
 import { CommonModule } from '@angular/common';
 // import { FormBuilder, FormGroup } from '@angular/forms';
@@ -93,7 +93,7 @@ import { BlogPostDialogComponent } from './blog-post-dialog/blog-post-dialog.com
 import { RecruiterRegisterComponent } from './recruiter-register/recruiter-register.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AddSkillsComponent } from './add-skills/add-skills.component';
-
+import { environment } from 'src/environments/environment';
 
 
 
@@ -215,6 +215,6 @@ import { AddSkillsComponent } from './add-skills/add-skills.component';
   providers: [TockenInterceptorService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents:[UpdateUserDetailsComponent]
+  entryComponents: [UpdateUserDetailsComponent]
 })
 export class AppModule { }

@@ -44,10 +44,7 @@ export class ReviewComponent implements OnInit {
   searchedReviewsSlice:Review[]=[];
   
 
-  private getAllCompaniesGetRequest = "http://localhost:8087/api/v1/resources/get_all_companies";
-  private getCompanyByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_company";
-  private getReviewsByCompanyNameRequest="http://localhost:8087/api/v1/resources/get_reviews";
-  private getAllDetailsRequest="http://localhost:8087/api/v1/resources/getAllDetails";
+  
   ///////////////////////////////////////////
   companyPageChange(event:any){
     let start = event.pageSize*event.pageIndex;
@@ -83,14 +80,14 @@ export class ReviewComponent implements OnInit {
   querySearch(){
     let verticalPosition:MatSnackBarVerticalPosition='top';
     let horizontalPosition:MatSnackBarHorizontalPosition='center';
-    this.getCompanyByCompanyName(this.companyForm.get('companyGroup')?.value)
+    this.reviewService.getCompanyByCompanyName(this.companyForm.get('companyGroup')?.value)
     .subscribe({next: response=>{
 console.log(response);
       this.searchedCompany = response;
       this.searchedCompany.retrievedImage = 'data:image/jpeg;base64,'+this.searchedCompany.companyLogo;
 
 
-      this.getReviewsByCompanyName(this.companyForm.get('companyGroup')?.value)
+      this.reviewService.getReviewsByCompanyName(this.companyForm.get('companyGroup')?.value)
       .subscribe({ next: response =>{
         this.searchedReviews = response;
         this.searchedReviews.forEach((review)=>{
@@ -195,7 +192,7 @@ console.log(nameGroup)
   }
 
   requestResources() {
-    this.getCompanies().subscribe((response: CompanyDetails[]) => {
+    this.reviewService.getCompanies().subscribe((response: CompanyDetails[]) => {
       this.companies = response;
       this.retrieveLogos(this.companies);
 console.log(this.companies)
@@ -209,7 +206,7 @@ console.log(this.companies)
       }
     })
 
-    this.getAllDetails().subscribe({
+    this.reviewService.getAllDetails().subscribe({
       next: response=>{
         
         this.allDetails=response;
@@ -243,37 +240,43 @@ console.log(this.reviewHome);
     
   }
 
-  getReviewsByCompanyName(companyName:string){
-    return this.http.get<Review[]>(this.getReviewsByCompanyNameRequest, {
-                params:new HttpParams().append('companyName',companyName)
-    });
-  }
-  getCompanyByCompanyName(companyName:string){
-    return this.http.get<CompanyDetails>(this.getCompanyByCompanyNameRequest, {
-                params:new HttpParams().append('companyName',companyName)
-    });
-  }
-  getCompanies() {
-    return this.http.get<CompanyDetails[]>(this.getAllCompaniesGetRequest);
-  }
-  getAllDetails(){
-    return this.http.get<CompanyDetails[]>(this.getAllDetailsRequest)
-  }
+  
 }
 
 export interface CompanyNameGroup {
   letter: string;
   names: string[];
 }
-export interface Review {
+// export interface Review {
+//   reviewId?:number;
+//   user?:User;
+//   prosMessage?:string;
+//   consMessage?:string;
+//   reviewDate?:Date;
+//   companyRatings?:Ratings;
+//   companyName?:string;
+//   companyLogo?:any;
+// };
+export class Review {
   reviewId?:number;
-  user?:User;
   prosMessage?:string;
   consMessage?:string;
   reviewDate?:Date;
   companyRatings?:Ratings;
   companyName?:string;
   companyLogo?:any;
+  user?:User;
+  constructor(reviewId?:number,user?:User,prosMessage?:string,consMessage?:string,
+    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any){
+      this.reviewDate=reviewDate;
+      this.reviewId=reviewId;
+      this.prosMessage=prosMessage;
+      this.consMessage=consMessage;
+      this.user=user;
+      this.companyRatings=companyRatings;
+      this.companyName = companyName;
+      this.companyLogo=companyLogo;
+    }
 };
 enum Ratings{
         POOR = 1,

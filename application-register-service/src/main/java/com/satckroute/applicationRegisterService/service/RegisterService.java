@@ -63,6 +63,10 @@ public interface RegisterService
 
     JobSeeker updateDetails(String emaild, Skill skill) throws JobSeekerNotFoundException;
 
+    Recruiter selecteJobSeeker(String recruiterEmail, String jobSeekerEmail) throws JobSeekerNotFoundException, RecruiterNotFoundException;
+
+    JobSeeker getJobSeeker(String email, String recruiterEmail) throws JobSeekerNotFoundException, RecruiterNotFoundException;
+
 
     //public int generateJobSeekerIdInSequence(String sequenceName);
 }
