@@ -109,7 +109,7 @@ public class RegisterController
     {
         try
         {
-            log.debug("RegisterController - registerNewJobSeeker");
+            log.info("RegisterController - registerNewJobSeeker");
             return new ResponseEntity<>(registerService.registerNewJobSeeker(jobSeeker), HttpStatus.CREATED);
         }
         catch (JobSeekerAlreadyExistException jobSeekerAlreadyExistException)

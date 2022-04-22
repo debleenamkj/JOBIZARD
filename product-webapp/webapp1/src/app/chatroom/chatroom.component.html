@@ -42,7 +42,7 @@
                 <div>
                 <mat-form-field appearance="outline" style="width: 85%; background-color: white;">
                     <mat-label>Enter Your Message</mat-label>
-                    <input matInput placeholder="Enter a text" type="text" [(ngModel)]="text"/>
+                    <input matInput placeholder="Enter a text" minlength="1" type="text" [(ngModel)]="text"/>
                   </mat-form-field>
                   <button mat-fab (click) = "sendMessage()" class="button"><mat-icon >send</mat-icon></button>
                 </div>
