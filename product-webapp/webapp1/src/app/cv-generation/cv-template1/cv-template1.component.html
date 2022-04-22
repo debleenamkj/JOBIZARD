@@ -3,7 +3,7 @@
     <div class="cv-body-header">
       <div class="cv-header-content1">
         <div class="intials" style="text-align: center;  width: 95%;padding: 1%;">
-          <span style="border-right-style: solid; padding-right: 1%">S</span><span style="padding-left: 1%">K</span>
+          <span></span><span></span>
         </div>
 
         <div class="dwnld-button" style=" width: 5%; text-align: end;">
@@ -48,8 +48,86 @@
         <div class="cv-body-side-content-avatar">
           <img mat-card-avatar src="{{'data:image/jpg;base64,' + res.jobSeekerImage}}" />
         </div>
+        <!-- <div class="skill">
+          <p>Skills are the expertise or talent needed in order to do a job or task. Job skills allow everyone to do a particular job and life skills help you through everyday tasks. Skills are what makes everyone confident and independent in life and are essential for success. It might take determination and practice, but almost any skill can be learned or improved.</p>
+
+        </div> -->
+        <div class="skills-container">
+          <div class="skills-header-container">
+            <h2 style="
+                font-size: 200%;
+                letter-spacing: 3px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                color: rgb(49, 49, 83);
+              ">
+              Skills
+            </h2>
+          </div>
+
+           <div class="skills-detail">
+            <div class="skills">
+            <li style="padding-left: 2%; font-size: x-large;  color: rgb(83, 83, 83);
+            font-family: 'Josefin Sans', sans-serif;">xys</li>
+            </div>
+          </div> 
+        </div>
+
+        <div class="work-experience-container">
+          <div class="work-experience-header-container">
+            <h2 style="
+                font-size: 200%;
+                letter-spacing: 3px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                color: rgb(49, 49, 83);
+              ">
+              Work experience
+            </h2>
+          </div>
+
+          <div class="work-details">
+            <div class="Designation">
+              <h3 style="
+                  font-size: 150%;
+                  text-transform: uppercase;
+                  font-weight: bold;
+                  color: rgb(49, 49, 83);
+                  padding-top: 5%;
+                  margin: 0%;
+                ">
+                {{res.experience[0].jobPosition}}
+
+              </h3>
+            </div>
+            <div class="company-name-with-term">
+              <h4 style="
+                  font-size: 140%;
+                  font-weight: bold;
+                  color: rgb(201, 178, 119);
+                  padding: 0%;
+                  margin-bottom: 2%;
+                ">
+                {{res.experience[0].companyName}}/{{res.experience[0].duration}}/{{res.experience[0].location}}
+              </h4>
+            </div>
+            <div class="work-description">
+              <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
+                {{res.experience[0].workDescription}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 2nd part starts -->
+      <div class="cv-body-main-content">
+        <div class="main-career-objective">
+          <p style="font-size: 150%; font-weight: bold; color: rgb(109, 109, 109)">
+            {{res.objective}}
+          </p>
+        </div>
         <div class="cv-body-side-content-edu">
-          <div class="cv-body-side-content-edu-header" >
+          <div class="cv-body-side-content-edu-header">
             <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
@@ -60,6 +138,7 @@
               Education
             </h2>
           </div>
+
         </div>
 
         <div class="cv-body-side-content-edu-container1">
@@ -70,7 +149,7 @@
               color: rgb(49, 49, 83);
               padding-top: 5%;
               margin: 0%;
-            " >
+            ">
             {{res.educationDetails[0].courses}}
           </h3>
           <h4 style="
@@ -108,15 +187,14 @@
               padding: 0%;
               margin-bottom: 2%;
             ">
-             {{res.educationDetails[1].universityOrInstitute}}/{{res.educationDetails[1].passingOutYear}}
+            {{res.educationDetails[1].universityOrInstitute}}/{{res.educationDetails[1].passingOutYear}}
           </h4>
           <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
             {{res.educationDetails[1].percentageOrCgpa}}
           </p>
         </div>
-
-        <div class="cv-body-side-content-lang-container">
-          <div class="cv-body-side-content-lang-header">
+        <div class="cv-body-side-content-edu">
+          <div class="cv-body-side-content-edu-header">
             <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
@@ -124,28 +202,17 @@
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
               ">
-              languages
+             Academic certifications
             </h2>
           </div>
-          <div>
-          <mat-chip-list >
-            <mat-chip>{{res.languagesKnown[0]}}</mat-chip>
-            <mat-chip>{{res.languagesKnown[1]}}</mat-chip>
-          </mat-chip-list>
-          </div>
-          <div class="cv-body-side-content-lang-container1"></div>
-        </div>
-      </div>
-      <!-- 2nd part starts -->
-      <div class="cv-body-main-content">
-        <div class="main-career-objective">
-          <p style="font-size: 150%; font-weight: bold; color: rgb(109, 109, 109)">
-            {{res.objective}}
-          </p>
-        </div>
 
-        <div class="work-experience-container">
-          <div class="work-experience-header-container">
+        </div>
+        <div class="Acheivements">
+          <li style="padding-left: 2%; font-size: x-large;  color: rgb(83, 83, 83);
+          font-family: 'Josefin Sans', sans-serif;">xys</li>
+          </div>
+        <div class="cv-body-side-content-edu">
+          <div class="cv-body-side-content-edu-header">
             <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
@@ -153,44 +220,35 @@
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
               ">
-              Work Experience
+             Acheivements
             </h2>
           </div>
-
-          <div class="work-details">
-            <div class="Designation">
-              <h3 style="
-                  font-size: 150%;
-                  text-transform: uppercase;
-                  font-weight: bold;
-                  color: rgb(49, 49, 83);
-                  padding-top: 5%;
-                  margin: 0%;
-                ">
-                {{res.experience[0].jobPosition}}
-
-              </h3>
-            </div>
-            <div class="company-name-with-term">
-              <h4 style="
-                  font-size: 140%;
-                  font-weight: bold;
-                  color: rgb(201, 178, 119);
-                  padding: 0%;
-                  margin-bottom: 2%;
-                ">
-                {{res.experience[0].companyName}}/{{res.experience[0].duration}}/{{res.experience[0].location}}
-              </h4>
-            </div>
-            <div class="work-description">
-              <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
-                {{res.experience[0].workDescription}}
-              </p>
-            </div>
+        </div>
+        <div class="Acheivements">
+          <li style="padding-left: 2%; font-size: x-large;  color: rgb(83, 83, 83);
+          font-family: 'Josefin Sans', sans-serif;">xys</li>
+          </div>
+        <div class="cv-body-side-content-edu">
+          <div class="cv-body-side-content-edu-header">
+            <h2 style="
+                font-size: 200%;
+                letter-spacing: 3px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                color: rgb(49, 49, 83);
+              ">
+             Job preference
+            </h2>
           </div>
         </div>
+        <div class="skills">
+          <li style="padding-left: 2%; font-size: x-large;  color: rgb(83, 83, 83);
+          font-family: 'Josefin Sans', sans-serif;">xys</li>
+          </div>
 
-        <div class="skills-container">
+
+
+        <!-- <div class="skills-container">
           <div class="skills-header-container">
             <h2 style="
                 font-size: 200%;
@@ -203,7 +261,7 @@
             </h2>
           </div>
 
-          <div class="skills-detail">
+           <div class="skills-detail">
             <div class="skills">
               <h5>{{res.skills}}</h5>
               <div class="progress" id="progressbar">
@@ -221,8 +279,8 @@
                   style="background-color: rgb(195, 151, 76); width: 50%" role="progressbar"></div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> 
+        </div> -->
       </div>
     </div>
   </div>
