@@ -49,6 +49,7 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   { path: "userLogin", component: LoginComponent },
   {path: 'job-seeker', component: JobSeekerLandingComponent},
+  {path:"assesmentportal",component:AssesmentPortalComponent},
   {path:"navbar",component: NavBarComponent,
     children:[
       {path: 'job-seeker', component: JobSeekerLandingComponent},
@@ -59,6 +60,7 @@ const routes: Routes = [
       {path : 'businessnews', component: BusinessnewsComponent},
       {path:'job-apply',component:JobApplyComponent},
       {path:'job-posting',component:JobPostingComponent},
+      
       {
         path: 'cv-generation', component: CvGenerationComponent
       },
