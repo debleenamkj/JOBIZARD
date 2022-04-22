@@ -10,16 +10,17 @@ server:
 ribbon:
   ReadTimeout: 60000
 
-#  spring:
-#    cloud:
-#      gateway:
-#        globalcors:
-#          corsConfigurations:
-#            '[/**]':
-#              allowedOrigins: "*"
-#              allowedMethods:
-#                - GET
-#                - POST
+  spring:
+    cloud:
+      gateway:
+        globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowCredentials: true
+              allowedMethods:
+                - GET
+                - POST
 
 
 spring:
