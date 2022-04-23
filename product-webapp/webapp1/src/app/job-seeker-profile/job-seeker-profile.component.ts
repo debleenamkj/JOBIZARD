@@ -31,7 +31,7 @@ export class JobSeekerProfileComponent implements OnInit {
   objective="";
 
   skills:any;
-
+  experience="";
   achievements: any []=[];
 
   verifiedSkills = new Array();
@@ -53,6 +53,7 @@ export class JobSeekerProfileComponent implements OnInit {
       this.url='data:image/jpeg;base64,' + this.data.jobSeekerImage;
       this.skills = this.data.additionalDetails.skillSet;
       this.educational = this.data.educationDetails;
+      this.experience = this.data.experience;
      } )
   }
 

@@ -640,8 +640,8 @@ public class RegisterServiceImpl implements RegisterService
 
     @Override
     public Recruiter selecteJobSeeker(String recruiterEmail,String jobSeekerEmail) throws JobSeekerNotFoundException, RecruiterNotFoundException {
-        JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(jobSeekerEmail).get();
         Recruiter recruiter = recruiterRegisterRepository.findById(recruiterEmail).get();
+        JobSeeker jobSeeker = jobSeekerRegisterRepository.findById(jobSeekerEmail).get();
         if(jobSeeker==null){
             throw new JobSeekerNotFoundException();
         }
@@ -651,11 +651,17 @@ public class RegisterServiceImpl implements RegisterService
         if(jobSeeker!=null&&recruiter!=null){
             List<JobSeeker> jobSeekerList = recruiter.getSelectedJobSeekers();
             List<JobSeeker> shortListedList = new ArrayList<>();
-            for (JobSeeker jobSeeker1:jobSeekerList) {
-                if(jobSeeker1.getEmailId()!=jobSeekerEmail){
-                    shortListedList.add(jobSeeker);
+            if(jobSeekerList!=null){
+                for (JobSeeker jobSeeker1:jobSeekerList) {
+                    if(jobSeeker1.getEmailId()!=jobSeekerEmail){
+                        shortListedList.addAll(jobSeekerList);
+                        shortListedList.add(jobSeeker);
+                    }
                 }
+            }else {
+                shortListedList.add(jobSeeker);
             }
+
             recruiter.setSelectedJobSeekers(shortListedList);
             recruiterRegisterRepository.save(recruiter);
         }
@@ -665,19 +671,29 @@ public class RegisterServiceImpl implements RegisterService
     @Override
     public JobSeeker getJobSeeker(String email,String recruiterEmail) throws JobSeekerNotFoundException, RecruiterNotFoundException {
         JobSeeker jobSeeker = null;
-        Recruiter recruiter = recruiterRegisterRepository.findById(email).get();
+        Recruiter recruiter = recruiterRegisterRepository.findById(recruiterEmail).get();
         if(jobSeekerRegisterRepository.findById(email).isEmpty()){
             throw  new JobSeekerNotFoundException();
         }
         if(recruiter==null){
             throw new RecruiterNotFoundException();
         }
-        if(jobSeeker!=null&&recruiter!=null){
+        if(recruiter!=null){
+            System.out.println("job and rec not null");
             List<JobSeeker> jobSeekerList = recruiter.getSelectedJobSeekers();
-            for (JobSeeker jobSeeker1:jobSeekerList) {
-                if(jobSeeker1.getEmailId()!=email){
-                    jobSeeker = jobSeekerRegisterRepository.findById(email).get();
+            System.out.println(jobSeekerList.size());
+            boolean flag = false;
+            if(jobSeekerList!=null){
+                for (JobSeeker jobSeeker1:jobSeekerList) {
+                    System.out.println(jobSeeker1.getEmailId());
+                    if((jobSeeker1.getEmailId().equalsIgnoreCase(email))){
+                        flag = true;
+                        System.out.println(jobSeeker1.getEmailId()+" "+email);
+                    }
                 }
+            }
+            if(!flag){
+                jobSeeker = jobSeekerRegisterRepository.findById(email).get();
             }
         }
         return jobSeeker;

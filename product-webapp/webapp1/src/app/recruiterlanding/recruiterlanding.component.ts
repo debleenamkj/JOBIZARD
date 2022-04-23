@@ -41,7 +41,7 @@ export class RecruiterlandingComponent implements OnInit {
 
     });
 
-    this.recruiterLanding.getAllJobSeekers().subscribe(d => {
+    this.recruiterLanding.getAllJobSeekers().subscribe(d => {  
       this.jobSeeker = d;
       this.getImages(this.jobSeeker);
       this.jobSeekerSlice = d.slice(0, 8);
