@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { environment } from 'src/environments/environment';
 
 
 import { ReviewService } from '../service/review/review.service';
@@ -59,9 +60,12 @@ export class ReviewFormComponent implements OnInit {
     green:'invert(76%) sepia(93%) saturate(522%) hue-rotate(26deg) brightness(97%) contrast(117%)',
     golden:'invert(72%) sepia(95%) saturate(622%) hue-rotate(359deg) brightness(102%) contrast(106%)'
   }
-  constructor(private formBuilder:FormBuilder, private http:HttpClient,private alert:MatSnackBar  ,public reviewService:ReviewService) { }
+  constructor(private formBuilder:FormBuilder, private http:HttpClient,private alert:MatSnackBar  ,public reviewService:ReviewService) {
+    // localStorage.setItem('loginId','sdsd')
+   }
 
   ngOnInit(): void {
+    // localStorage.setItem('loginId','Aka@sh@Gmail.com')
   }
 
   reviewForm:FormGroup = this.formBuilder.group({
@@ -69,8 +73,8 @@ export class ReviewFormComponent implements OnInit {
     consMessage: ['',[Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
     companyRatings: ['', [Validators.required]],
     user:this.formBuilder.group({
-      anonymousUser: ['false', Validators.required],
-      email: [{value: 'a@gmail.com',disabled: true}],
+      anonymousUser: ['true', Validators.required],
+      email: [{value: 'akash@gmail.com',disabled: true}],
       name: [{value: 'Akash Suneja',disabled:true}],
       workDetails: this.formBuilder.group({
         currentlyWorking: ['false', [Validators.required]],
@@ -80,10 +84,31 @@ export class ReviewFormComponent implements OnInit {
     })
   })
   formRadio:string='';
+  emailId:string=localStorage.getItem('loginId');
+  name:string=''
+  // private postReviewRequest = this.reviewService.baseUrl+'/api/v1/resources/saveReview';
+  // private deleteReviewRequest = this.reviewService.baseUrl+'/api/v1/resources/deleteReview';
 
-  private postReviewRequest = 'http://localhost:8087/api/v1/resources/saveReview';
-  private deleteReviewRequest = 'http://localhost:8087/api/v1/resources/deleteReview';
+  
 
+  setUserName(){
+    let email="";
+    let name=""
+    
+      email = localStorage.getItem('loginId');
+      this.emailId=email;
+      name = email.split('@')[0];
+      this.name=name
+    
+    if(this.reviewForm.get(['user', 'anonymousUser']).value=='true'){
+      this.reviewForm.get(['user', 'email']).setValue( email);
+      this.reviewForm.get(['user', 'name']).setValue(name);
+    }
+    else{
+      this.reviewForm.get(['user', 'email']).setValue( '');
+      this.reviewForm.get(['user', 'name']).setValue('Anonymous');
+    }
+  }
   formValidation(){
     return true
   }
@@ -129,10 +154,18 @@ export class ReviewFormComponent implements OnInit {
     let review:Review;
     review = this.reviewForm.value;
     review.reviewDate = new Date();
+    if(this.reviewForm.get(['user', 'anonymousUser']).value=="true"){
+    review.user.email= "";
+    review.user.name= "Anonymous";
+    }
+    else{
+      review.user.email= localStorage.getItem('loginId');
+      review.user.name= this.name;
+    }
     let horizontalPosition:MatSnackBarHorizontalPosition='center';
     let verticalPosition:MatSnackBarVerticalPosition='top'; 
     console.log(review)
-    this.postReview(review, this.reviewService.selectedCompany.companyName)
+    this.reviewService.postReview(review, this.reviewService.selectedCompany.companyName)
           .subscribe({
             next: response=>{
               console.log(response);
@@ -170,14 +203,6 @@ export class ReviewFormComponent implements OnInit {
         return 'Message must be 5 to 100 characters long';
     return '' ;
   }
-  postReview( review:Review, companyName:string){
-    return this.http.post<Review>(this.postReviewRequest, review, 
-      {params:new HttpParams().append('companyName', companyName)});
-  }
-  deleteReview(reviewId:number, companyName:string){
-    let param = new HttpParams();
-    param = param.append("reviewId", reviewId);
-    param = param.append("companyName", companyName);
-    return this.http.delete<boolean>(this.deleteReviewRequest,{params: param});
-  }
+  
+  
 }

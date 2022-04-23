@@ -48,7 +48,7 @@ public class EmailControllerTest {
                     .andExpect(status().isOk())
                     .andDo(MockMvcResultHandlers.print()
                     );
-            verify(mailService,times(1)).sendEmail(any(),any(),any(),any());
+            verify(mailService,times(1)).sendEmail((String) any(), (String) any(), (String) any(), (String) any());
         }
 
 

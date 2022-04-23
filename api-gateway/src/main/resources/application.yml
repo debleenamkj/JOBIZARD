@@ -7,6 +7,19 @@ eureka:
 
 server:
   port: 8080
+ribbon:
+  ReadTimeout: 60000
+#
+#  spring:
+#    cloud:
+#      gateway:
+#        globalcors:
+#          corsConfigurations:
+#            '[/**]':
+#              allowedMethods:
+#                - GET
+#                - POST
+
 
 spring:
   application:
@@ -21,10 +34,13 @@ spring:
             allowedHeaders: "*"
             exposedHeaders: "*"
       routes:
-        - id: assessmentservice
-          uri: lb://assessmentservice
+
+        - id: assessment-service
+          uri: lb://assessment-service
           predicates:
-            - Path=/assessmentservice/**
+            - Path=/assessment-service/**
+          filters:
+            - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
 
         - id: authentication-service
           uri: lb://authentication-service
@@ -78,12 +94,12 @@ spring:
             - RewritePath=/post-service(?<segment>/?.*), $\{segment}
 
 
-#        - id: product-webapp
-#          uri: lb://product-webapp
-#          predicates:
-#            - Path=/**
-#          filters:
-#            - RewritePath=(?<segment>/?.*), $\{segment}
+        - id: product-webapp
+          uri: lb://product-webapp
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=(?<segment>/?.*), $\{segment}
 
 
         - id: recommendation-service

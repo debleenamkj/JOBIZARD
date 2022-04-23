@@ -19,7 +19,7 @@
     </header> 
     <section class="back end" style="color: white; position: relative; width: 25%; padding: 3%; margin-left: 37%; border: #4E1B5F 3px solid; margin-top: 2%;">
     <p style="font-size: large; line-height: 140%;">Are you sure to submit the test?</p><br><br>
-    <button class="button " mat-button style="cursor: pointer; color: #4E1B5F; background-color: white; margin-left: 10%;" routerLink="/navbar/job-posting" >Yes</button>
+    <button class="button " mat-button style="cursor: pointer; color: #4E1B5F; background-color: white; margin-left: 10%;" (click)="end_yes()" >Yes</button>
     <button class="button " mat-button style="color: #4E1B5F; background-color: white; margin-left: 10%;" (click)="end_no()">No &nbsp;</button>
     </section>
 <section class="row">

@@ -8,24 +8,24 @@
       <hr>
       <div *ngIf="role=='JOBSEEKER'">
         <mat-nav-list style="align-items: center; justify-content: center;">
-          <button mat-list-item type="button" routerLink="/navbar/jobSeeker" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Home</button>
-          <button mat-list-item type="button" routerLink="/navbar/update-user" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Update Profile</button>
-          <button mat-list-item type="button" routerLink="/navbar/assesmentportal" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Assessment Portal</button>
-          <button mat-list-item routerLink="/navbar/learning" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Learning Portal</button>
-          <button mat-list-item routerLink="/navbar/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">JobiZone</button>
-          <button mat-list-item routerLink="/navbar/cv-generation" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Generate Your CV</button>
-          <button mat-list-item routerLink="/navbar/review" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Review</button>
-          <button mat-list-item routerLink="/navbar/chatroom" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Chatroom</button>
+          <button mat-list-item type="button" routerLink="/navbar/jobSeeker" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>home</mat-icon>&nbsp;&nbsp;Home</button>
+          <button mat-list-item type="button" routerLink="/navbar/update-user" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon> present_to_all</mat-icon>&nbsp;&nbsp;Update Profile</button>
+          <button mat-list-item type="button" routerLink="/navbar/assesmentportal" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon> border_color</mat-icon>&nbsp;&nbsp;Assessment Portal</button>
+          <button mat-list-item routerLink="/navbar/learning" style="border: none;  display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon> import_contacts</mat-icon>&nbsp;&nbsp;Learning Portal</button>
+          <button mat-list-item routerLink="/navbar/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>dashboard</mat-icon>&nbsp;&nbsp;JobiZone</button>
+          <button mat-list-item routerLink="/navbar/cv-generation" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>recent_actors</mat-icon>&nbsp;&nbsp;Generate Your CV</button>
+          <button mat-list-item routerLink="/navbar/review" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>thumbs_up_down</mat-icon>&nbsp;&nbsp;Review</button>
+          <button mat-list-item routerLink="/navbar/chatroom" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon> forum</mat-icon>&nbsp;&nbsp;Chatroom</button>
         </mat-nav-list>
       </div>
 
       <div *ngIf="role=='RECRUITER'">
         <mat-nav-list style="align-items: center; justify-content: center;">
-          <button mat-list-item routerLink="/navbar/recruiterLanding" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Home</button>
-          <button mat-list-item routerLink="/navbar/job-posting" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Post Jobs</button>
-          <button mat-list-item routerLink="/navbar/search" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Search Profiles</button>
-          <button mat-list-item routerLink="/navbar/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">JobiZone</button>
-          <button mat-list-item routerLink="/navbar/chatroom" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);">Chatroom</button>
+          <button mat-list-item routerLink="/navbar/recruiterLanding" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>home</mat-icon>&nbsp;&nbsp;Home</button>
+          <button mat-list-item routerLink="/navbar/job-posting" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>business_center</mat-icon>&nbsp;&nbsp;Post Jobs</button>
+          <button mat-list-item routerLink="/navbar/search" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>search</mat-icon>&nbsp;&nbsp;Search Profiles</button>
+          <button mat-list-item routerLink="/navbar/trend" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon>dashboard</mat-icon>&nbsp;&nbsp;JobiZone</button>
+          <button mat-list-item routerLink="/navbar/chatroom" style="border: none; display: block; width: 100%; padding: 2%; font-size: 2rem; color: white; background-color: rgb(82, 15, 102);"><mat-icon> forum</mat-icon>&nbsp;&nbsp;Chatroom</button>
         </mat-nav-list>
       </div>
   </mat-sidenav>
@@ -48,7 +48,7 @@
       <mat-icon>person</mat-icon>
       </button></div>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/navbar/jobseekerprofile">
+        <button mat-menu-item routerLink="/navbar/jobseekerprofile" *ngIf="role=='JOBSEEKER'">
           <mat-icon>settings</mat-icon>
           <span>My Profile</span>
         </button>

@@ -8,18 +8,17 @@ import com.stackroute.chatroomservice.service.ChatRoomService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@CrossOrigin
+//@CrossOrigin
+
 @Slf4j
 public class ChatController {
 
@@ -81,4 +80,11 @@ public class ChatController {
         log.debug("Inside ChatController - getChatroom");
         return chatRoomService.getAllChats();
     }
+
+
+
+//    @GetMapping("/messagegroup/{chatId}")
+//    public SenderIdGroup getMesssages(@PathVariable String chatId){
+//        return chatMessageService.getSenderMessages(chatId);
+//    }
 }

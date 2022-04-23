@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { ChatMessage } from '../model/chat-message';
 import { ChatRoom } from '../model/chat-room';
 
@@ -15,20 +16,22 @@ export class ChatroomService {
   recipientName = "";
 
   constructor(private http:HttpClient) { }
+  baseUrl='https://jobizard.stackroute.io'+'/chatroom-service';
+  //baseUrl="http://localhost:8089";
 
   public getMessages(senderId:any,recipientId:any) : Observable<ChatMessage[]>{
-    return this.http.get<ChatMessage[]>("http://localhost:8089/messages/"+senderId+"/"+recipientId);
+    return this.http.get<ChatMessage[]>(this.baseUrl+"/messages/"+senderId+"/"+recipientId);
   }
 
   public getAllMessages() : Observable<ChatMessage[]>{
-    return this.http.get<ChatMessage[]>("http://localhost:8089/getall");
+    return this.http.get<ChatMessage[]>(this.baseUrl+"/getall");
   }
 
   public postMessages(chats:ChatMessage){
-    return this.http.post<any>("http://localhost:8089/chat",chats);
+    return this.http.post<any>(this.baseUrl+"/chat",chats);
   }
 
   public getChatroom() : Observable<ChatRoom[]>{
-    return this.http.get<ChatRoom[]>("http://localhost:8089/getchatroom");
+    return this.http.get<ChatRoom[]>(this.baseUrl+"/getchatroom");
   }
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,13 @@ import { Injectable } from '@angular/core';
 export class SkilltestServiceService {
 
   constructor(private httpClient:HttpClient) { }
+
+  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+  baseUrl1='https://jobizard.stackroute.io' + '/assessment-service'
+    // baseUrl='http://localhost:8098'
+    // baseUrl1='http://localhost:8081'
+
+
   answeredQuestions:number = 0;
   unAnsweredQuestions:number=0;
   percentage:number=0;
@@ -21,9 +29,9 @@ export class SkilltestServiceService {
   // http://localhost:8081/category/java
 
   getTest(testName:string){
-    const testname = testName.toLowerCase()
-    console.log('http://localhost:8081/category/'+testName.toLowerCase());
-    return this.httpClient.get("http://localhost:8081/category/java");
+    // const testname = testName.toLowerCase()
+    // console.log('http://localhost:8081/category/'+testName.toLowerCase());
+    return this.httpClient.get(this.baseUrl1 + "/category/"+"java");
   }
   getninja(){
     return 'assets\\warriors_logos\\ninja.png'
@@ -39,6 +47,6 @@ export class SkilltestServiceService {
   }
 
   sendMarks(email:string,skill:any){
-    return this.httpClient.put("http://localhost:8098/api/v1/marks/"+email,skill)
+    return this.httpClient.put(this.baseUrl + "/api/v1/marks/"+email,skill)
   }
 }

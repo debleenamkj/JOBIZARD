@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping(value = "/category")
 public class CategoryController {
     @Autowired
@@ -21,7 +21,7 @@ public class CategoryController {
 
     @PostMapping("/")
     public ResponseEntity<Category> addCategory(@RequestBody Category category) throws CategoryAlreadyExistsException {
-        System.out.println(category);
+        System.out.println("Assessment Service post question"+category);
         Category category1 = this.service.addCategory(category);
         return ResponseEntity.ok(category1);
     }

@@ -193,7 +193,7 @@ progress=new progress();
     
     let skill = new Array();
     this.skillSets.forEach(element => {
-      let skill1 = {isVerified:false,skillName:element.name,level:"",percentage:""}
+      let skill1 = {isVerified:false,skillName:element.name.toLowerCase(),level:"",percentage:""}
       console.log(skill1);
       skill.push(skill1);
     });

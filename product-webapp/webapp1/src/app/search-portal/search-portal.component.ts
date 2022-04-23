@@ -7,8 +7,9 @@ import { EmailRequest } from '../model/email-request';
 import { jobDetails } from '../model/jobDetails';
 import { RecruiterDetails } from '../model/recruiter-details';
 import { Search } from '../search';
-import { SearchService } from '../search.service';
+import { SearchService } from '../service/search.service';
 import { ChatroomService } from '../service/chatroom.service';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
   selector: 'app-search-portal',
@@ -18,80 +19,83 @@ import { ChatroomService } from '../service/chatroom.service';
 
 export class SearchPortalComponent implements OnInit {
   emailList: Observable<Search[]>;
-  recruiterData= new RecruiterDetails();
+  recruiterData = new RecruiterDetails();
   gridColumns = 3;
-  skillsFilter:string[]=[]
-  educationStringFilter:string=""
-  filterSkill:searchObject[]=[]
-  jobSeeker:Array<jobDetails>[]=[]
-  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar, private chat: ChatroomService, private router: Router,private jobSeekerLanding:SearchService) {
-    console.log(this.jobSeekersList);
-    console.log(this.skills);
-    
+  skillsFilter: string[] = []
+  educationStringFilter: string = ""
+  filterSkill: searchObject[] = []
+  jobSeeker: Array<jobDetails>[] = []
+  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar, private chat: ChatroomService, private router: Router, private jobSeekerLanding: SearchService,private service1:RecruiterlandingService) {
+    console.log("JobSeeker List", this.jobSeekersList);
+    console.log("Skills", this.skills);
+
   }
   matchedEmailList: string[];
   jobSeekersList: any[] = [];
-  jobSeekersListSlice:any[]=[];
+  jobSeekersListSlice: any[] = [];
   skills: FormGroup = this.fb.group({
-    s1:"",s2:"",s3:""
+    s1: "", s2: "", s3: ""
   })
   ngOnInit(): void {
     // this.getEmailList()
-    this.jobSeekerLanding.getRecruiter().subscribe((d: RecruiterDetails)=>{
-      this.recruiterData=d;
-      this.recruiterData.skillsRequired.forEach(skill=>{
-        this.filterSkill.push({isExist:true,skillname:skill.toLowerCase()})
-      })
-      localStorage.setItem('companyName',this.recruiterData.companyName)
-      this.skillsFilter=this.recruiterData.skillsRequired
-      this.educationStringFilter=this.recruiterData.educationRequired
-      this.getJobSeekersList(new JobDetails(this.recruiterData.emailId,this.recruiterData.skillsRequired,this.recruiterData.educationRequired))
+    this.jobSeekerLanding.getRecruiter().subscribe((d: RecruiterDetails) => {
+      this.recruiterData = d;
+      if (this.recruiterData.skillsRequired) {
+        this.recruiterData.skillsRequired.forEach(skill => {
+          this.filterSkill.push({ isExist: true, skillname: skill.toLowerCase() })
+        })
+        localStorage.setItem('companyName', this.recruiterData.companyName)
+        this.skillsFilter = this.recruiterData.skillsRequired
+        this.educationStringFilter = this.recruiterData.educationRequired
+        this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.recruiterData.skillsRequired, this.recruiterData.educationRequired))
+        console.log("Details of the Recruiter");
+      }
     });
   }
-  trial(){
- this.recruiterData.skillsRequired
-}
-pageChange(event:any){
-  let start = event.pageSize*event.pageIndex;
-  this.jobSeekersListSlice = this.jobSeekersList.slice(start,start+6)
-    
-}
-skillFilter(skill:string,s1:boolean){
-  skill=skill.toLowerCase()
-  console.log("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
-      if(s1){
-        this.filterSkill.forEach(e=>{
-          if(e.skillname==skill){
-            e.isExist=true;
-          }
-        })
-      
-      }
-     else{
-      this.filterSkill.forEach(e=>{
-        if(e.skillname==skill){
-          e.isExist=false;
+  trial() {
+    this.recruiterData.skillsRequired
+  }
+  pageChange(event: any) {
+    let start = event.pageSize * event.pageIndex;
+    this.jobSeekersListSlice = this.jobSeekersList.slice(start, start + 6)
+
+  }
+  skillFilter(skill: string, s1: boolean) {
+    skill = skill.toLowerCase()
+
+    if (s1) {
+      this.filterSkill.forEach(e => {
+        if (e.skillname == skill) {
+          e.isExist = true;
         }
-    
+      })
+
+    }
+    else {
+      this.filterSkill.forEach(e => {
+        if (e.skillname == skill) {
+          e.isExist = false;
+        }
+
       })
     }
-      console.log(this.skillsFilter);
- 
- this.getJobSeekersList(new JobDetails(this.recruiterData.emailId,this.skillsFilter,this.educationStringFilter))
+    console.log(this.skillsFilter);
 
-}
-educationFilter(education:string,s2:boolean){
-  
-  if(s2){
-    this.educationStringFilter=education.toLowerCase()
+    this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.skillsFilter, this.educationStringFilter))
+
   }
-  else{
-    this.educationStringFilter=""
+  educationFilter(education: string, s2: boolean) {
+
+    if (s2) {
+      this.educationStringFilter = education.toLowerCase()
+    }
+    else {
+      this.educationStringFilter = ""
+    }
+    this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.skillsFilter, this.educationStringFilter))
   }
-  this.getJobSeekersList(new JobDetails(this.recruiterData.emailId,this.skillsFilter,this.educationStringFilter))
-}
   getEmailList() {
-    
+
     let details = new JobDetails(this.recruiterData.emailId, this.recruiterData.skillsRequired, this.recruiterData.educationRequired);
     this.getJobSeekersList(details)
     console.log("-------------------------job seeker");
@@ -105,58 +109,59 @@ educationFilter(education:string,s2:boolean){
       d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
     });
   }
-  getJobSeekersList(details:JobDetails){
-    details=new JobDetails(this.recruiterData.emailId,[],this.educationStringFilter)
+  getJobSeekersList(details: JobDetails) {
+    details = new JobDetails(this.recruiterData.emailId, [], this.educationStringFilter)
 
-    this.filterSkill.forEach(e=>{
-      if(e.isExist){
+    this.filterSkill.forEach(e => {
+      if (e.isExist) {
         details.skillsRequired.push(e.skillname)
       }
     })
-    details.education=details.education.toLowerCase()
-   details.skillsRequired=details.skillsRequired.map(d=>{return d.toLowerCase()})
+    details.education = details.education.toLowerCase()
+    details.skillsRequired = details.skillsRequired.map(d => { return d.toLowerCase() })
     // if(details.education==""&&details.skillsRequired==[]){
-       
+
     // }
     console.log("**************************************************************");
     console.log(details)
     this.service.getEmail(details).subscribe((data: string[]) => {
       this.matchedEmailList = data;
-      if(data==null){
-            this.alert.open("No Recommendation Available",'close',{ 
-              duration: 5000
-             })
+      if (data == null) {
+        this.alert.open("No Recommendation Available", 'close', {
+          duration: 5000
+        })
       }
-      else{
-        this.jobSeekersList=[]
-        let i=0;
+      else {
+        this.jobSeekersList = []
+        let i = 0;
 
         this.matchedEmailList.forEach((element: any) => {
           console.log(element)
-          this.service.getJobSeeker(element).subscribe({next:data => {
-            console.log(data)
-            this.jobSeekersList.push(data);
-            this.getImages(this.jobSeekersList);
-            if(this.jobSeekersList.length!=0){
-              this.jobSeekersListSlice=this.jobSeekersList.slice(0,6)
+          this.service.getJobSeeker(element).subscribe({
+            next: data => {
+              console.log(data)
+              this.jobSeekersList.push(data);
+              this.getImages(this.jobSeekersList);
+              if (this.jobSeekersList.length != 0) {
+                this.jobSeekersListSlice = this.jobSeekersList.slice(0, 6)
+              }
+              else {
+                this.jobSeekersListSlice = []
+              }
+            }, error: errorresponse => {
+              console.log(++i + " " + errorresponse.message)
             }
-           else{
-             this.jobSeekersListSlice=[]
-           }
-          }, error:errorresponse=> {                
-            console.log(++i+" "+errorresponse.message)
-          } 
-        }
+          }
           )
-  
-         });
+
+        });
       }
       console.log("************")
       console.log(this.matchedEmailList)
       console.log(this.matchedEmailList.length)
 
     })
-    
+
   }
 
   display() {
@@ -179,7 +184,7 @@ educationFilter(education:string,s2:boolean){
   }
   //for emailservice
   sendEmail(jobseeker: any) {
-    
+
     let details = new EmailRequest(jobseeker.emailId, localStorage.getItem('companyName'))
     let message: string = ""
     this.service.sendEmail(details).subscribe({
@@ -198,6 +203,13 @@ educationFilter(education:string,s2:boolean){
         })
       }
     })
+  let recruiterEmailId=localStorage.getItem('loginId')
+  this.service1.updateShortlistedCandidate(recruiterEmailId,jobseeker.emailId).subscribe(response=>{
+    console.log(response+"selectedShortlisted")
+  }
+
+  )
+
   }
 }
 
@@ -217,13 +229,13 @@ export class JobDetails {
     this.education = education
 
   }
-  
+
 
 
 }
-type searchObject={
-  skillname?:string;
-  isExist?:boolean
+type searchObject = {
+  skillname?: string;
+  isExist?: boolean
 
 }
 
