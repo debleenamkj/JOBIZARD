@@ -97,7 +97,7 @@ spring:
         - id: product-webapp
           uri: lb://product-webapp
           predicates:
-            - Path=/**
+            - Path=/product-webapp/**
           filters:
             - RewritePath=(?<segment>/?.*), $\{segment}
 
@@ -131,6 +131,8 @@ spring:
             - Path=/trend-lab-service/**
           filters:
             - RewritePath=/trend-lab-service(?<segment>/?.*), $\{segment}
+
+
 
 
 
