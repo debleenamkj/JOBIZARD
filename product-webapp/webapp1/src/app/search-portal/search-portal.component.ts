@@ -61,7 +61,7 @@ export class SearchPortalComponent implements OnInit {
   }
   skillFilter(skill: string, s1: boolean) {
     skill = skill.toLowerCase()
-    console.log("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+    console.log("skillFilter to lower case")
     if (s1) {
       this.filterSkill.forEach(e => {
         if (e.skillname == skill) {
