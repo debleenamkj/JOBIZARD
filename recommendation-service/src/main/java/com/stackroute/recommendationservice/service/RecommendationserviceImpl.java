@@ -98,6 +98,7 @@ public class RecommendationserviceImpl implements RecommendationService{
 
                 if(!skills.isEmpty())
                 {
+                    System.out.println("\n \n \n \n \n \n skills"+skills);
                     for(String requiredSkills:skills) {
                         log.info("  required skillsss"+  requiredSkills);
                         List<Seeker> seeker1 = userRepository.findBySkillSet(requiredSkills);
