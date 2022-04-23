@@ -6,7 +6,7 @@ sub {
 /* div {
   border-style: solid;
   margin: 10px;
-  padding: 10px; 
+  padding: 10px;
 } */
 body {
   margin: 1%;
@@ -135,7 +135,7 @@ mat-icon {
 .cv-body-side-content-edu {
   margin-top: 5%;
   border-style: inset;
-  border-color: rgb(169, 166, 166) transparent rgb(169, 166, 166) transparent;
+  border-color: rgb(169, 166, 166) transparent transparent transparent;
   padding-top: 2.5%;
 }
 
@@ -199,6 +199,6 @@ h5 {
   background-image: linear-gradient(to right, rgb(110, 37, 134), rgb(177, 23, 132));
   color: azure;
   position: absolute;
-  
+
 }
 

@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-//@CrossOrigin("*")
+@CrossOrigin("*")
 @Slf4j
 @RestController
 @RequestMapping("api/v1")
@@ -595,6 +595,19 @@ public class RegisterController
 
     @PutMapping("/marks/{emailId}")
     public JobSeeker updateMarks(@PathVariable String emailId,@RequestBody Skill skill) throws JobSeekerNotFoundException {
+        System.out.println(skill);
         return registerService.updateDetails(emailId,skill);
     }
-}
+
+    @PutMapping("/shortList/{jobSeekerEmailId}/{emailId}")
+    public Recruiter shortlist(@PathVariable String jobSeekerEmailId,@PathVariable String emailId) throws JobSeekerNotFoundException, RecruiterNotFoundException {
+        return registerService.selecteJobSeeker(emailId, jobSeekerEmailId);
+    }
+
+    @GetMapping("/get/{jobSeekerEmailId}/{emailId}")
+    public JobSeeker getJobSeeker(@PathVariable String jobSeekerEmailId,@PathVariable String emailId) throws JobSeekerNotFoundException, RecruiterNotFoundException {
+        System.out.println("job seeker :"+jobSeekerEmailId+"\t recruiter email :"+emailId);
+        return registerService.getJobSeeker(jobSeekerEmailId,emailId);
+    }
+
+    }

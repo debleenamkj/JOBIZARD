@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("api/v2")
 public class AuthenticationController
