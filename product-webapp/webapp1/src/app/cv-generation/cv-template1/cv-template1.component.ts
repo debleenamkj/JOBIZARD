@@ -20,11 +20,6 @@ export class CvTemplate1Component implements OnInit {
   count: number[] = [, 0, 1, 2, 3];
   emailId: any = localStorage.getItem('loginId');
   constructor(private post: PostService) {
-    //  this.cvT.getCv()
-    //  .subscribe((response:any)=>{
-    //   this.response=response;
-    //   console.log(response);
-    //  });
     this.post.getSeeker(this.emailId)
       .subscribe((response: any) => {
         this.res = response;
