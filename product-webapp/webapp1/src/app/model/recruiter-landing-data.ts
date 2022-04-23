@@ -6,6 +6,7 @@ export class RecruiterLandingData
     emailId: string
     firstName!: string
     companyName!: string
+    companyUrl!: string
     logo!: Byte[]
     logoImage!: any
 
