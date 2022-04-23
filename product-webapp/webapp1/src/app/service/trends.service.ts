@@ -16,9 +16,9 @@ export class TrendsService {
     
     // baseUrl='http://localhost:8086'
 
-  baseUrl = 'https://jobizard.stackroute.io' + '/trend-lab-service'
+  // baseUrl = 'https://jobizard.stackroute.io' + '/trend-lab-service'
 
-  //baseUrl='http://localhost:8086'
+  baseUrl='http://localhost:8086'
 
   getSkills(): Observable<SkillTrend[]> {
     return this.http.get<SkillTrend[]>(this.baseUrl + "/api/v6/getnames");
@@ -32,16 +32,16 @@ export class TrendsService {
     return this.http.get<JSON>(this.baseUrl + "/api/v6/salary/" + jobTitle);
   }
 
-  techNewsApiUrl: any = "http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
+  // techNewsApiUrl: any = "http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
 
-  businessNewsApiUrl: any = "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
+  // businessNewsApiUrl: any = "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
 
   techNews(): Observable<any> {
-    return this.http.get(this.techNewsApiUrl);
+    return this.http.get(this.baseUrl + "/api/v6/technews");
   }
 
   businessNews(): Observable<any> {
-    return this.http.get(this.businessNewsApiUrl);
+    return this.http.get(this.baseUrl + "/api/v6/businessnews");
   }
 
   // getTechNews() : Observable<JSON[]>{

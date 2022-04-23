@@ -89,5 +89,32 @@ public class TrendController {
         return skillTrendService.getNameOfSkills();
     }
 
+    ////////////////////////// Tech News ///////////////////////////////////////
+
+    @GetMapping("/technews")
+    public ResponseEntity<String> callExternalApiForTechNews(){
+        log.debug("Inside TrendController - callExternalApiForTechNews");
+        String url = "http://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("apiKey", "0aaeaf07a51d4efcabb8a92ae8b1dd15");
+        HttpEntity<Object> entity = new HttpEntity<>(headers);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        return response;
+    }
+
+    ////////////////////////// Business News ///////////////////////////////////////
+
+    @GetMapping("/businessnews")
+    public ResponseEntity<String> callExternalApiForBusinessNews(){
+        log.debug("Inside TrendController - callExternalApiForBusinessNews");
+        String url = "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=0aaeaf07a51d4efcabb8a92ae8b1dd15";
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("apiKey", "0aaeaf07a51d4efcabb8a92ae8b1dd15");
+        HttpEntity<Object> entity = new HttpEntity<>(headers);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        return response;
+    }
 }
 
