@@ -14,17 +14,19 @@ export class CvTemplate1Component implements OnInit {
 
 
   res: any;
+  details:any;
+  education:any[];
+  jobPreferences:any[];
   count: number[] = [, 0, 1, 2, 3];
   emailId: any = localStorage.getItem('loginId');
   constructor(private post: PostService) {
-    //  this.cvT.getCv()
-    //  .subscribe((response:any)=>{
-    //   this.response=response;
-    //   console.log(response);
-    //  });
     this.post.getSeeker(this.emailId)
       .subscribe((response: any) => {
         this.res = response;
+        console.log("detailss")
+        this.details=response.additionalDetails;
+        this.jobPreferences=response.additionalDetails.jobPreferences
+        this.education=response.educationDetails
         console.log(this.res);
       });
   }
