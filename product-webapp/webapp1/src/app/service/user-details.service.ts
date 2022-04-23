@@ -35,12 +35,12 @@ export class UserDetailsService {
 
   getJobSeeker(email:string){
     console.log(this.baseUrl+"/api/v1/"+email);
-    //  return this.http.get(this.baseUrl+"/api/v1/"+email);
-    return this.http.get('http://localhost:8098'+"/api/v1/"+email);
+     return this.http.get(this.baseUrl+"/api/v1/"+email);
+    //return this.http.get('http://localhost:8098'+"/api/v1/"+email);
   }
 
   updateEducation(email:string,data:any){
-    // return this.http.put(this.baseUrl+'/api/v1/jobSeeker/education/'+email,data);
-    return this.http.put('http://localhost:8098'+'/api/v1/jobSeeker/education/'+email,data);
+    return this.http.put(this.baseUrl+'/api/v1/jobSeeker/education/'+email,data);
+    //return this.http.put('http://localhost:8098'+'/api/v1/jobSeeker/education/'+email,data);
   }
 }

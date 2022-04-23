@@ -39,14 +39,8 @@ spring:
           uri: lb://assessment-service
           predicates:
             - Path=/assessment-service/**
-<<<<<<< HEAD
-	  filters:
-            - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
-
-=======
           filters:
             - RewritePath=/assessment-service(?<segment>/?.*), $\{segment}
->>>>>>> fa033856d77788daaa8c349fc64831847487999d
 
         - id: authentication-service
           uri: lb://authentication-service
@@ -78,12 +72,12 @@ spring:
           filters:
             - RewritePath=/chatbot-service(?<segment>/?.*), $\{segment}
 
-        - id: cv-generation-service
-          uri: lb://cv-generation-service
-          predicates:
-            - Path=/cv-generation-service/**
-          filters:
-            - RewritePath=/cv-generation-service(?<segment>/?.*), $\{segment}
+#        - id: cv-generation-service
+#          uri: lb://cv-generation-service
+#          predicates:
+#            - Path=/cv-generation-service/**
+#          filters:
+#            - RewritePath=/cv-generation-service(?<segment>/?.*), $\{segment}
 
         - id: email-service
           uri: lb://email-service
