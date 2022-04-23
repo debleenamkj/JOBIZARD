@@ -16,12 +16,12 @@
                 </div>
                 </div>
                 <hr>
-            <mat-card style="text-align: center; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
+            <mat-card style="text-align: center; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; overflow: auto; height: fit-content; max-height: 20vh;">
                 <h1 style="font-weight: bolder; color: #B11784; text-align: center;"><mat-icon>gps_fixed</mat-icon> Objective</h1>
                 <span style="font-size: 2rem;">{{objective}}</span>
             </mat-card>
         
-            <mat-card *ngIf="academicCertification!=null" style="margin-top: 4%; font-size: 2rem;  height: 15rem; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
+            <mat-card *ngIf="academicCertification!=null" style="margin-top: 4%; font-size: 2rem;  overflow: auto; height: 22vh; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c;">
                 <h1 style="font-weight: bolder; color: #B11784; text-align: center;">	<mat-icon> local_library</mat-icon> Academic Certification</h1>
                 <ul style="list-style: none; margin-bottom: 3%; text-align: center;">
                     <li *ngFor="let certificate of academicCertification">{{certificate}}</li>
@@ -29,7 +29,7 @@
             </mat-card>
         </div>
         <div class="col-xl-4" style="height: 100%; font-size: 2rem;  line-height: 3rem;">
-            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
+            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;  overflow: auto; height: fit-content; min-height: 28vh; max-height: 30vh;">
                 <h1 style="font-weight: bolder; text-align: center; color: #B11784; display: block;"><mat-icon>book</mat-icon> Skills</h1>
                 <div>
                     <ul style="columns: 2; list-style: none; line-height: 3rem; text-align: center;"> 
@@ -38,16 +38,21 @@
                 </div>
             </mat-card>
            
-            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
+            <mat-card style="border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%; overflow: auto; height: fit-content; min-height: 28vh; max-height: 30vh;">
                 <h1 style="font-weight: bolder; color: #B11784; text-align: center;"><mat-icon>whatshot</mat-icon> Achievements</h1>
                     <ol style="list-style: none; text-align: center;">
                         <li *ngFor = "let achievement of achievements">{{achievement}}</li>
                     </ol>
             </mat-card>
+            <mat-card style="text-align: center; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;" *ngIf="experience">
+                <h1 style="font-weight: bolder; color: #B11784; text-align: center;"><mat-icon>business_center</mat-icon> Work Experience</h1>
+                <span style="font-size: 2rem;">{{experience}}</span>
+            </mat-card>
+            
            
         </div>
-        <div class="col-xl-4" style="font-size: 2rem; height: 20vw; line-height: 3rem;">
-            <mat-card style="display: block; overflow: hidden; overflow-y: scroll;  border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
+        <div class="col-xl-4" style="font-size: 2rem;  line-height: 3rem;">
+            <mat-card style="display: block; overflow: auto; height: fit-content; min-height: 53vh; max-height: 75vh; border-radius: 12px; border: #6E2586 1px dotted; box-shadow: 5px 5px #b117836c; margin-top: 4%;">
                 <h1 style="font-weight: bolder; text-align: center; color: #B11784;"><mat-icon>school</mat-icon> Educational Details</h1>
                 <ol *ngFor="let educational of educational" style="list-style: none;">
                     <li><span style="font-weight: bold;">Education: </span>{{educational.courses}}</li>

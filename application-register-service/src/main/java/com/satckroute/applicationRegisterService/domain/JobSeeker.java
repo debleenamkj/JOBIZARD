@@ -36,6 +36,7 @@ public class JobSeeker
     private JobSeekerProgress seekerProgress;
     private int progress;
     public Role role;
+    public char[] experience;
 //    private Role Role.JOBSEEKER;
 
     private Address address;

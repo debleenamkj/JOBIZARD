@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.1</version>
+        <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.stackroute</groupId>
@@ -28,7 +28,6 @@
         <module>product-webapp</module>
         <module>email-service</module>
         <module>recommendation-service</module>
-        <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>

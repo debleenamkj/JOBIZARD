@@ -63,7 +63,6 @@ export class SearchPortalComponent implements OnInit {
   }
   skillFilter(skill: string, s1: boolean) {
     skill = skill.toLowerCase()
-
     if (s1) {
       this.filterSkill.forEach(e => {
         if (e.skillname == skill) {
