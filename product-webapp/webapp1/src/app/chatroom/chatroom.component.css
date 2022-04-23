@@ -42,6 +42,12 @@ mat-label{
     display: flex;
     flex-direction: column-reverse;
 }
+.chatscrolls::-webkit-scrollbar-thumb{
+    background: #4E1B5F;
+}
+.chatscrolls::-webkit-scrollbar-track{
+    background: transparent;
+}
 .sender{
     margin-top: 1%;
     margin-bottom: 1%;
