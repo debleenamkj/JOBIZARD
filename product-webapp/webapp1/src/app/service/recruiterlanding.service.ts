@@ -23,4 +23,7 @@ export class RecruiterlandingService {
   getAllJobSeekers():Observable<any>{
     return this.httpCLient.get(this.baseUrl+'/api/v1/jobSeekers');
   }
+  updateShortlistedCandidate(recruiterEmailId:string,jobSeekerEmailId:string){
+    return this.httpCLient.put(this.baseUrl+'/api/v1/shortList/' +jobSeekerEmailId+ "/"+recruiterEmailId,"");
+  }
 }
