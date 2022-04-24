@@ -72,12 +72,12 @@ spring:
           filters:
             - RewritePath=/chatbot-service(?<segment>/?.*), $\{segment}
 
-        - id: cv-generation-service
-          uri: lb://cv-generation-service
-          predicates:
-            - Path=/cv-generation-service/**
-          filters:
-            - RewritePath=/cv-generation-service(?<segment>/?.*), $\{segment}
+#        - id: cv-generation-service
+#          uri: lb://cv-generation-service
+#          predicates:
+#            - Path=/cv-generation-service/**
+#          filters:
+#            - RewritePath=/cv-generation-service(?<segment>/?.*), $\{segment}
 
         - id: email-service
           uri: lb://email-service
