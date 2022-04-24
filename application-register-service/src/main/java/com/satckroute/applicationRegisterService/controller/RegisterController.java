@@ -83,25 +83,25 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @PostMapping("/saveOrganizationDetails")
-    public ResponseEntity<?> registerOrganizationDetails(@RequestBody OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
-    {
-        try
-        {
-            log.debug("RegisterController - registerOrganizationDetails");
-            return new ResponseEntity<>(registerService.saveOrganizationDetails(organizationDetails), HttpStatus.CREATED);
-        }
-        catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException)
-        {
-            log.error("RegisterController - registerOrganizationDetails"+organizationDetailsAlreadyExistException);
-            throw new OrganizationDetailsAlreadyExistException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - registerOrganizationDetails"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PostMapping("/saveOrganizationDetails")
+//    public ResponseEntity<?> registerOrganizationDetails(@RequestBody OrganizationDetails organizationDetails) throws OrganizationDetailsAlreadyExistException
+//    {
+//        try
+//        {
+//            log.debug("RegisterController - registerOrganizationDetails");
+//            return new ResponseEntity<>(registerService.saveOrganizationDetails(organizationDetails), HttpStatus.CREATED);
+//        }
+//        catch (OrganizationDetailsAlreadyExistException organizationDetailsAlreadyExistException)
+//        {
+//            log.error("RegisterController - registerOrganizationDetails"+organizationDetailsAlreadyExistException);
+//            throw new OrganizationDetailsAlreadyExistException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - registerOrganizationDetails"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -138,44 +138,44 @@ public class RegisterController
     }
 
 //---------------------------------------------------------------------------------------------------------------------
-
-    @GetMapping("/getAllOrganization")
-    public ResponseEntity<?> getAllOrganization()
-    {
-        try
-        {
-            log.debug("RegisterController - getAllOrganization");
-            return new ResponseEntity<>(registerService.getAllOrganization(), HttpStatus.OK);
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - getAllOrganization"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-//---------------------------------------------------------------------------------------------------------------------
-
-    @GetMapping("/jobSeeker/getUserByFirstName/{firstName}")
-    public ResponseEntity<?> getJobSeekerByFirstName(@PathVariable String firstName) throws JobSeekerNotFoundException
-    {
-        try
-        {
-            log.debug("RegisterController - getJobSeekerByFirstName");
-            return new ResponseEntity<>(registerService.getAllJobSeekerByFirstName(firstName), HttpStatus.OK);
-        }
-        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
-        {
-            log.error("RegisterController - getJobSeekerByFirstName"+jobSeekerNotFoundException);
-            throw new JobSeekerNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - getJobSeekerByFirstName"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
+//
+//    @GetMapping("/getAllOrganization")
+//    public ResponseEntity<?> getAllOrganization()
+//    {
+//        try
+//        {
+//            log.debug("RegisterController - getAllOrganization");
+//            return new ResponseEntity<>(registerService.getAllOrganization(), HttpStatus.OK);
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - getAllOrganization"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+////---------------------------------------------------------------------------------------------------------------------
+//
+//    @GetMapping("/jobSeeker/getUserByFirstName/{firstName}")
+//    public ResponseEntity<?> getJobSeekerByFirstName(@PathVariable String firstName) throws JobSeekerNotFoundException
+//    {
+//        try
+//        {
+//            log.debug("RegisterController - getJobSeekerByFirstName");
+//            return new ResponseEntity<>(registerService.getAllJobSeekerByFirstName(firstName), HttpStatus.OK);
+//        }
+//        catch (JobSeekerNotFoundException jobSeekerNotFoundException)
+//        {
+//            log.error("RegisterController - getJobSeekerByFirstName"+jobSeekerNotFoundException);
+//            throw new JobSeekerNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - getJobSeekerByFirstName"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
 
 //---------------------------------------------------------------------------------------------------------------------
 
@@ -201,25 +201,25 @@ public class RegisterController
 
 //---------------------------------------------------------------------------------------------------------------------
 
-    @GetMapping("/organizationDetails/getOrganizationDetailsName/{organizationName}")
-    public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsNotFoundException
-    {
-        try
-        {
-            log.debug("RegisterController - getAllOrganizationDetailsByOrganizationName");
-            return new ResponseEntity<>(registerService.getAllOrganizationDetailsByOrganizationName(organizationName), HttpStatus.OK);
-        }
-        catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
-        {
-            log.error("RegisterController - getAllOrganizationDetailsByOrganizationName"+organizationDetailsNotFoundException);
-            throw new OrganizationDetailsNotFoundException();
-        }
-        catch (Exception exception)
-        {
-            log.error("RegisterController - getAllOrganizationDetailsByOrganizationName"+exception);
-            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/organizationDetails/getOrganizationDetailsName/{organizationName}")
+//    public ResponseEntity<?> getAllOrganizationDetailsByOrganizationName(@PathVariable String organizationName) throws OrganizationDetailsNotFoundException
+//    {
+//        try
+//        {
+//            log.debug("RegisterController - getAllOrganizationDetailsByOrganizationName");
+//            return new ResponseEntity<>(registerService.getAllOrganizationDetailsByOrganizationName(organizationName), HttpStatus.OK);
+//        }
+//        catch (OrganizationDetailsNotFoundException organizationDetailsNotFoundException)
+//        {
+//            log.error("RegisterController - getAllOrganizationDetailsByOrganizationName"+organizationDetailsNotFoundException);
+//            throw new OrganizationDetailsNotFoundException();
+//        }
+//        catch (Exception exception)
+//        {
+//            log.error("RegisterController - getAllOrganizationDetailsByOrganizationName"+exception);
+//            return new ResponseEntity<>("Try after some time.", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @PutMapping("/jobSeeker/education/{emailId}")
     public ResponseEntity<?> updateJobSeekerEducation(@RequestBody Education education, @PathVariable String emailId) throws JobSeekerNotFoundException

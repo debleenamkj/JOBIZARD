@@ -42,6 +42,7 @@ public class RecommendationserviceImpl implements RecommendationService{
             if(jobRepository.findById(job.getEmailId()).isPresent())
             {
                   jobRepository.save(job);
+
 //                log.error("RecommendationserviceImpl - savejob : JobAlreadyPresentException");
 //                throw new JobAlreadyPresentException();
             }
@@ -67,6 +68,7 @@ public class RecommendationserviceImpl implements RecommendationService{
 //                log.error("RecommendationserviceImpl - saveUser : UserAlreadyExistsException");
 //                throw new UserAlreadyExistsException();
                 userRepository.save(seeker);
+                log.info(" getting from rabbitmq updating details"+seeker);
             }
             else {
                 userRepository.save(seeker);

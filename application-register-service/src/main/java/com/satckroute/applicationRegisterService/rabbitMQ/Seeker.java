@@ -20,6 +20,6 @@ import java.util.List;
 public class Seeker
 {
     private String email;
-    private ArrayList education;
-    private ArrayList skillSet;
+    private ArrayList<String> education;
+    private ArrayList<String> skillSet;
 }
