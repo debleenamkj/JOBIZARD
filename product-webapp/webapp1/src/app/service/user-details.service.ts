@@ -50,6 +50,5 @@ export class UserDetailsService {
     //return this.http.put('http://localhost:8098'+'/api/v1/jobSeeker/education/'+email,data);
 
     // return this.http.put('http://localhost:8098'+'/api/v1/jobSeeker/education/'+email,data);
-
-  }
+ }
 }

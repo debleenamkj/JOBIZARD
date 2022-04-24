@@ -1,14 +1,15 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 
 
 .column {
-  float: left;
-  width: 25%;
+  /* float: left; */
+  width: 23%;
   padding: 0 8px;
   
+
 }
 
 
@@ -174,4 +175,7 @@ list-style: none;
       letter-spacing: 8px;
       margin-bottom: -40px;
   }
+}
+#scroll::-webkit-scrollbar{
+    display: none;
 }

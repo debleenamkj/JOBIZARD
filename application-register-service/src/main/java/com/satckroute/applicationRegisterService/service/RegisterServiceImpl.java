@@ -653,7 +653,7 @@ public class RegisterServiceImpl implements RegisterService
             List<JobSeeker> shortListedList = new ArrayList<>();
             if(jobSeekerList!=null){
                 for (JobSeeker jobSeeker1:jobSeekerList) {
-                    if(jobSeeker1.getEmailId()!=jobSeekerEmail){
+                    if(!(jobSeeker1.getEmailId().equalsIgnoreCase(jobSeekerEmail))){
                         shortListedList.addAll(jobSeekerList);
                         shortListedList.add(jobSeeker);
                     }
