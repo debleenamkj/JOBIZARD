@@ -94,12 +94,14 @@ spring:
             - RewritePath=/post-service(?<segment>/?.*), $\{segment}
 
 
-        - id: product-webapp
-          uri: lb://product-webapp
+
+        - id: trend-lab-service
+          uri: lb://trend-lab-service
           predicates:
-            - Path=/**
+            - Path=/trend-lab-service/**
           filters:
-            - RewritePath=(?<segment>/?.*), $\{segment}
+            - RewritePath=/trend-lab-service(?<segment>/?.*), $\{segment}
+
 
 
         - id: recommendation-service
@@ -110,14 +112,6 @@ spring:
             - RewritePath=/recommendation-service(?<segment>/?.*), $\{segment}
 
 
-        - id: recruitment-service
-          uri: lb://recruitment-service
-          predicates:
-            - Path=/recruitment-service/**
-          filters:
-            - RewritePath=/recruitment-service(?<segment>/?.*), $\{segment}
-
-
         - id: resources-service
           uri: lb://resources-service
           predicates:
@@ -125,12 +119,14 @@ spring:
           filters:
             - RewritePath=/resources-service(?<segment>/?.*), $\{segment}
 
-        - id: trend-lab-service
-          uri: lb://trend-lab-service
+        - id: product-webapp
+          uri: lb://product-webapp
           predicates:
-            - Path=/trend-lab-service/**
+            - Path=/**
           filters:
-            - RewritePath=/trend-lab-service(?<segment>/?.*), $\{segment}
+            - RewritePath=(?<segment>/?.*), $\{segment}
+
+
 
 
 

@@ -28,7 +28,6 @@
         <module>product-webapp</module>
         <module>email-service</module>
         <module>recommendation-service</module>
-        <module>recruitment-service</module>
         <module>resources-service</module>
         <module>trend-lab-service</module>
         <module>assessment-service</module>
@@ -88,10 +87,10 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-gateway</artifactId>-->
+<!--        </dependency>-->
 
     </dependencies>
 

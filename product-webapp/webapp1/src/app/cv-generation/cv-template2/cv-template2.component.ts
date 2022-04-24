@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { jsPDF } from 'jspdf';
 // import html2canvas from 'html2canvas';
-import { CvTemplateService } from 'src/app/service/cv-generation/cv-template.service';
+
 
 @Component({
   selector: 'app-cv-template2',
@@ -11,12 +11,8 @@ import { CvTemplateService } from 'src/app/service/cv-generation/cv-template.ser
 export class CvTemplate2Component implements OnInit {
   
   response:any
-  constructor(private cvT: CvTemplateService) {
-    this.cvT.getCv()
-   .subscribe((response:any)=>{
-    this.response=response;
-    console.log(response);
-   });
+  constructor(){
+  
   }
   
   ngOnInit(): void {
