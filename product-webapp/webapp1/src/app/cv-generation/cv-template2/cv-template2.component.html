@@ -1,230 +1,144 @@
-<body>
-  <div class="cv-template" id="cv-template">
-    <div class="cv-left-side-content">
-      <div class="cv-left-side-header">
-        <img mat-card-avatar src="assets\sunset.png">
-      </div>
-      <div class="contact-details">
-        <div class="contact-header">
-            <h2 style="font-size: 200%; letter-spacing: 3px;font-weight: bolder; text-transform: uppercase;">Contact</h2>
-        </div>
-        <div class="num-header">
-            <mat-icon> stay_primary_portrait</mat-icon>
-            <span style="font-size: 150%; font-weight: bolder;" >{{response.phoneNumber}}</span>
-        </div>
-        <div class="mail-hader">
-            <mat-icon> mail_outline</mat-icon>
-            <span style="font-size: 150%; font-weight: bolder;" >{{response.email}}</span>
-        </div>
-        <div class="location header">
-            <mat-icon> location_on</mat-icon>
-            <span style="font-size: 150%; font-weight: bolder;" >{{response.address}}</span>
-        </div>
-        <!-- <div class="links-header">
-            <mat-icon> location_on</mat-icon>
-            <sub style="font-size: 150%; font-weight: bolder;" ></sub>
-        </div> -->
-      </div>
-      <div class="skills-container">
-        <div class="skills-header-container">
-          <h2
-            style="
-              font-size: 200%;
-              letter-spacing: 3px;
-              font-weight: bolder;
-              text-transform: uppercase;
-              color: rgb(83, 83, 83);
-            "
-          >
-            Skills
-          </h2>
-        </div>
-
-        <div class="skills-detail">
-          <div class="skills">
-            <h5  style="font-size:150%; font-weight: bold; color: rgb(83, 83, 83);">Adobe photoshop</h5>
-            <div class="progress" id="progressbar">
-              <div
-                class="progress-bar"
-                aria-valuenow="90"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="background-color: rgb(219, 133, 133); width: 50%"
-                role="progressbar"
-              ></div>
-            </div>
-            <h5  style="font-size:150%; font-weight: bold; color: rgb(83, 83, 83);">Java</h5>
-            <div class="progress" id="progressbar">
-              <div
-                class="progress-bar"
-                aria-valuenow="90"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style="background-color: rgb(219, 133, 133); width: 50%"
-                role="progressbar"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="Languages">
-        <div class="lang-container">
-          <h2
-          style="
-            font-size: 200%;
-            letter-spacing: 3px;
-            font-weight: bolder;
-            text-transform: uppercase;
-            color: rgb(83, 83, 83);
-          "
-        >
-         Languages
-        </h2>
-        </div>
-        <div class="lang-chips">
-          <mat-chip-list>
-            <mat-chip color="accent" selected>English</mat-chip>
-            <mat-chip color="accent" selected>Urdu</mat-chip>
-            <mat-chip color="accent" selected>Telugu</mat-chip>
-          </mat-chip-list>
-        </div>
-        <div></div>
-        <div></div>
-      </div>
-      
+<!-- <div class="cv-body-container">
+  <div class="cv-body-header-container">
+    <div class="cv-avatar-container">
+      <img mat-card-avatar src="{{'data:image/jpg;base64,' + res.jobSeekerImage}}" />
     </div>
-    <div class="cv-right-side-content">
-        <div class="name-header">
-            <div class="name-content">
-                <h1 style="font-size:400%; font-weight: bold; color: rgb(83, 83, 83);">{{response.firstName}}&nbsp;{{response.lastName}}</h1> 
-            </div>
-            <div class="role-content">
-                <h2 style="font-size:200%; font-weight: bold;">Role</h2>
-            </div>
-        </div>
-      <div class="content-objective">
-     
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim porro impedit odit excepturi illo, laboriosam
-            obcaecati aliquid aliquam adipisci nulla maxime culpa nobis perferendis. Magni nobis odio officiis consequuntur
-            cumque.
-        
-      </div>
-      <div class="Exp-header">
-          <div class="exp">Experience</div>
-          <div class="exp-content">
-            <h2  style="font-size:200%; font-weight: bold; color: rgb(83, 83, 83);">Enter you  job position here</h2>
-            <h3  style="font-size:170%;  color: rgb(83, 83, 83);">company/Location/Date</h3>
-          </div>
-          <div class="exp-details">
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo aut quis officia ducimus quasi reprehenderit fugit error qui, reiciendis corporis illo quaerat eaque fuga nihil temporibus distinctio cupiditate. Tenetur, adipisci. </li>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex deleniti, totam rem aliquam incidunt error animi corporis labore repellendus ullam, nulla quo repudiandae nisi voluptatem tempora modi, debitis libero ducimus.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus illum neque, porro ut necessitatibus doloremque odio cupiditate ipsum autem eos distinctio aut eligendi minus quibusdam ducimus eum! Maxime, alias ex.</li>
-          </div>
-      </div>
-        <div class="Ed-header">
-          <div class="edu">Education</div>
-          <div class="ed-details">
-            <h3
-            style="
-              font-size: 180%;
-              text-transform: uppercase;
-              font-weight: bold;
-              color: rgb(83, 83, 83);
-              padding-top: 3%;
-              margin: 0%;
-            "
-          >
-            B.tech
-          </h3>
-          <h4
-            style="
-              font-size: 160%;
-              font-weight: bold;
-              color: rgb(83, 83, 83);
-              padding: 0%;
-              margin-bottom: 2%;
-            "
-          >
-            ssiet college/2019
-          </h4>
-          <p
-            style="
-              font-size: 150%;
-              color: rgb(83, 83, 83);
-              padding-top: 0%;
-              margin: 0%;
-            "
-          >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consectetur sapiente animi ratione. Quis quos tenetur vero
-            perferendis minus eius neque dignissimos voluptas. Quod expedita
-            laboriosam temporibus corporis maiores ab cumque.
-          </p>
-          <h3
-            style="
-              font-size: 180%;
-              text-transform: uppercase;
-              font-weight: bold;
-              color: rgb(83, 83, 83);
-              padding-top: 3%;
-              margin: 0%;
-            "
-          >
-            high school
-          </h3>
-          <h4
-            style="
-              font-size: 160%;
-              font-weight: bold;
-              color: rgb(83, 83, 83);
-              padding: 0%;
-              margin-bottom: 2%;
-            "
-          >
-            lorem college/2015
-          </h4>
-          <p
-            style="font-size: 150%; color: rgb(83, 83, 83)"
-          >
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            eligendi ipsam quisquam at, quo mollitia amet fugiat modi ullam
-            beatae sit dolor commodi exercitationem tempore ut veritatis illo
-            culpa aliquid?
-          </p>
-          </div>
-        </div>
-        <div class="Interests">
-          <div class="interests-container">
-            interests
-          </div>
-          <div class="interest-chips">
-            <mat-chip-list>
-              <mat-chip>
-                <mat-chip-avatar>
-                    <img src="assets\cv-assests\music-notes.png">
-                </mat-chip-avatar>
-                music
-              </mat-chip>
-              <mat-chip>
-                <mat-chip-avatar>
-                    <img src="assets\cv-assests\music-notes.png">
-                </mat-chip-avatar>
-                 cooking
-              </mat-chip>
-              <mat-chip>
-                <mat-chip-avatar>
-                    <img src="assets\cv-assests\music-notes.png">
-                </mat-chip-avatar>
-                reading books
-              </mat-chip>
-            </mat-chip-list>
-          </div>
-          <div></div>
-        </div>
+    <div class="cv-header-container">
+      <div class="cv-header-name" style="text-transform: uppercase; font-size: 420%">
+        {{res.firstName}}&nbsp;{{res.lastName}}</div>
+      <br>
+      <div class="cv-header-designation" style="text-transform: uppercase;font-size: 160%">SOFTWARE DEVEPOLER</div>
     </div>
   </div>
-  <div style="text-align: center;">
-    <input type="button" class="button" value="Download Pdf" (click)="convertToPDF()"/>
-   </div>
-  
-</body>
+  <div class="cv-content-container">
+    <div class="cv-content-container-left">
+      <div class="cv-content-left">
+        <div class="cv-content-contact">
+          <div class="cv-content-contact-header-cnotainer" style="text-transform: uppercase;">CONTACT</div>
+          <div class="cv-contact-number">
+            <mat-icon>call</mat-icon>
+            <sub>{{res.mobileNumber}}</sub>
+          </div>
+          <div class="cv-email">
+            <mat-icon>email</mat-icon>
+            <sub>{{res.emailId}}</sub>
+          </div>
+          <div class="cv-city-state">
+            <mat-icon>place</mat-icon>
+            <sub>{{res.address.state}},{{res.address.city}}</sub>
+          </div>
+          <div class="cv-links">
+            <mat-icon>link</mat-icon>
+          </div>
+        </div>
+        <div class="cv-content-skills">
+          <div class="cv-content-skills-header-cnotainer" style="text-transform: uppercase;">Skills</div>
+          <div class="cv-education-skills-details" *ngFor="let skill of details.skillSet">
+            <li>{{skill.skillName}}</li>
+          </div>
+        </div>
+        <div class="cv-content-experience">
+          <div class="cv-content-experience-header-cnotainer" style="text-transform: uppercase;">
+            Work Experience
+          </div>
+          <div class="cv-education-experience-details"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cv-content-container-right">
+      <div class="cv-content-right">
+        <div class="cv-content-career-objective">
+          <div class="cv-content-career-objective-header-cnotainer">
+            CAREER OBJECTIVE
+          </div>
+          <div class="career-objective">
+            <h2 style="margin-left:12% ;  font-weight: bold; color: rgb(109, 109, 109)">
+              {{res.objective}}
+            </h2>
+          </div>
+        </div>
+        <div class="cv-content-education">
+          <div class="cv-content-education-header-cnotainer">EDUCATION</div>
+          <div class="cv-education-course-details" *ngFor="let edu of education">
+            <div class="degree">
+              <p>
+                <span>
+                  <h2 style=" display: inline-block; width: 50%; margin: 0;">Course</h2>
+                </span>
+                <span style="display: inline-block;">
+                  <h2>{{edu.courses}}</h2>
+                </span>
+              </p>
+            </div>
+            <div class="stream">
+              <p>
+                <span>
+                  <h2 style=" display: inline-block; width: 50%; margin: 0;">Stream</h2>
+                </span>
+                <span style="display: inline-block;">
+                  <h2>{{edu.streamOrField}}</h2>
+                </span>
+              </p>
+            </div>
+            <div class="stream">
+              <p>
+                <span>
+                  <h2 style=" display: inline-block; width: 50%; margin: 0;">School / College</h2>
+                </span>
+                <span style="display: inline-block;">
+                  <h2>{{edu.universityOrInstitute}}</h2>
+                </span>
+              </p>
+            </div>
+            <p>
+              <span>
+                <h2 style=" display: inline-block; width: 50%; margin: 0;">Percentage</h2>
+              </span>
+              <span style="display: inline-block;">
+                <h2>{{edu.percentageOrCgpa}}</h2>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="cv-content-academics">
+          <div class="cv-content-academics-header-cnotainer" style="text-transform: uppercase;">
+            ACADEMIC CERTIFICATIONS
+          </div>
+          <div class=" CERTIFICATIONS">
+            <p class="text" style="font-family: 'Gill Sans', 'Gill Sans MT'; font-size: 200%; "> Academic Certification
+              is about assessing your academic credentials to ensure they comply with the academic requirements of an
+              organisation.</p>
+            <div *ngFor="let job of details.academicsCertification">
+              <li style="margin-left: 12%; font-size: x-large;  color: rgb(83, 83, 83);
+              font-family: 'Josefin Sans', sans-serif;">{{job}}</li>
+            </div>
+          </div>
+        </div>
+        <div class="cv-content-achivements">
+          <div class="cv-content-achivements-header-cnotainer" style="text-transform: uppercase;">
+            ACHEIVEMENTS
+          </div>
+          <div class="cv-education-achivements-details">
+            <p class="text" style="font-family: 'Gill Sans', 'Gill Sans MT'; font-size: 200%; ">An achievement is a
+              great accomplishment something achieved with great effort or skill.</p>
+            <div *ngFor="let job of details.achievements">
+              <li style="margin-left: 12%; font-size: x-large;  color: rgb(83, 83, 83);
+                font-family: 'Josefin Sans', sans-serif;">{{job}}</li>
+            </div>
+          </div>
+          <div class="cv-content-job">
+            <div class="cv-content-job-header-cnotainer" style="text-transform: uppercase;">JOB PREFERENCE</div>
+            <div class="cv-education-job-details">
+              <p class="text" style="font-family: 'Gill Sans', 'Gill Sans MT'; font-size: 200%; ">Job preferences
+                reflects most important skills, interests, and values for a jobseeker. Job preferences shows a genuine
+                interest of a person for a particular field.</p>
+              <div *ngFor="let job of jobPreferences">
+                <li style="margin-left: 12%; font-size: x-large;  color: rgb(83, 83, 83);
+                  font-family: 'Josefin Sans', sans-serif;">{{job}}</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
