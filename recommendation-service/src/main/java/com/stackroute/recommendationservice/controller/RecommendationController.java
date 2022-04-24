@@ -57,6 +57,7 @@ public class RecommendationController {
     public ResponseEntity<?> matchSeeker(@RequestBody JobDetails job) throws UserNotFoundException {
         try{
             log.debug("RecomendationController - matchSeeker");
+            System.out.println("controller layer"+job);
             return new ResponseEntity<>(recommendationService.getMatchingJobSeeker(job),HttpStatus.OK);
         }catch (UserNotFoundException | JobNotFoundException exception){
             log.error("RecommendationController - matchSeeker : "+exception);
