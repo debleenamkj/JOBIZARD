@@ -101,13 +101,15 @@ public class RecommendationserviceImpl implements RecommendationService{
                     System.out.println("\n \n \n \n \n \n skills"+skills);
                     for(String requiredSkills:skills) {
                         log.info("  required skillsss"+  requiredSkills);
-                        List<Seeker> seeker1 = userRepository.findBySkillSet(requiredSkills);
-                        if(seeker1!=null){
-                            for (Seeker seeker:seeker1 ) {
-                                matchingJobSeekers.add(seeker.getEmail());
+                        if(skills!=null){
+                            List<Seeker> seeker1 = userRepository.findBySkillSet(requiredSkills);
+                            if(seeker1!=null){
+                                for (Seeker seeker:seeker1 ) {
+                                    matchingJobSeekers.add(seeker.getEmail());
+                                }
+                            }else{
+                                log.error("RecommendationserviceImpl - getMachingJobSeeker : Required skills for a job is empty");
                             }
-                        }else{
-                            log.error("RecommendationserviceImpl - getMachingJobSeeker : Required skills for a job is empty");
                         }
                     }
                 }
