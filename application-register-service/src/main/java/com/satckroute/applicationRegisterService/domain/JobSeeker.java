@@ -25,7 +25,7 @@ public class JobSeeker
 
 //    @Column(unique = true)
     @Id
-        private String emailId;
+    private String emailId;
     private String firstName;
     private String lastName;
 
