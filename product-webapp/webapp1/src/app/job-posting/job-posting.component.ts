@@ -6,6 +6,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { jobDetails } from '../model/jobDetails';
 import { HttpClient } from '@angular/common/http';
 import { PostJobServiceService } from '../service/post-job-service.service';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +20,7 @@ export interface Fruit {
   styleUrls: ['./job-posting.component.css']
 })
 export class JobPostingComponent implements OnInit {
-  constructor(private fb:FormBuilder,private service:PostJobServiceService) { }
+  constructor(private fb:FormBuilder,private service:PostJobServiceService,private router:Router) { }
 
   file:any
   post=new jobPosting();
@@ -225,6 +226,8 @@ getCompany(){
         console.log("finish posting");
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
+        this.router.navigate(["/navbar/recruiterLanding"])
+
       }) 
      }
      else if (this.file==null){
@@ -237,6 +240,7 @@ getCompany(){
         console.log(data)
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
+        this.router.navigate(["/navbar/recruiterLanding"]);
       }) 
      }
     //  uploadData.append('file', this.file);

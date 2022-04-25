@@ -9,6 +9,7 @@ import { RecruiterDetails } from '../model/recruiter-details';
 import { Search } from '../search';
 import { SearchService } from '../service/search.service';
 import { ChatroomService } from '../service/chatroom.service';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
   selector: 'app-search-portal',
@@ -24,7 +25,7 @@ export class SearchPortalComponent implements OnInit {
   educationStringFilter: string = ""
   filterSkill: searchObject[] = []
   jobSeeker: Array<jobDetails>[] = []
-  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar, private chat: ChatroomService, private router: Router, private jobSeekerLanding: SearchService) {
+  constructor(private fb: FormBuilder, private service: SearchService, private alert: MatSnackBar, private chat: ChatroomService, private router: Router, private jobSeekerLanding: SearchService,private service1:RecruiterlandingService) {
     console.log("JobSeeker List", this.jobSeekersList);
     console.log("Skills", this.skills);
 
@@ -32,6 +33,7 @@ export class SearchPortalComponent implements OnInit {
   matchedEmailList: string[];
   jobSeekersList: any[] = [];
   jobSeekersListSlice: any[] = [];
+  loggedinRecruiter:any
   skills: FormGroup = this.fb.group({
     s1: "", s2: "", s3: ""
   })
@@ -46,8 +48,11 @@ export class SearchPortalComponent implements OnInit {
         localStorage.setItem('companyName', this.recruiterData.companyName)
         this.skillsFilter = this.recruiterData.skillsRequired
         this.educationStringFilter = this.recruiterData.educationRequired
+        if(this.recruiterData.skillsRequired!=null){
         this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.recruiterData.skillsRequired, this.recruiterData.educationRequired))
-        console.log("Details of the Recruiter");
+                console.log("Details of the Recruiter");
+        }
+
       }
     });
   }
@@ -61,7 +66,6 @@ export class SearchPortalComponent implements OnInit {
   }
   skillFilter(skill: string, s1: boolean) {
     skill = skill.toLowerCase()
-    console.log("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
     if (s1) {
       this.filterSkill.forEach(e => {
         if (e.skillname == skill) {
@@ -83,6 +87,9 @@ export class SearchPortalComponent implements OnInit {
     this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.skillsFilter, this.educationStringFilter))
 
   }
+
+
+
   educationFilter(education: string, s2: boolean) {
 
     if (s2) {
@@ -93,6 +100,9 @@ export class SearchPortalComponent implements OnInit {
     }
     this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.skillsFilter, this.educationStringFilter))
   }
+
+
+
   getEmailList() {
 
     let details = new JobDetails(this.recruiterData.emailId, this.recruiterData.skillsRequired, this.recruiterData.educationRequired);
@@ -108,6 +118,9 @@ export class SearchPortalComponent implements OnInit {
       d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;
     });
   }
+
+
+
   getJobSeekersList(details: JobDetails) {
     details = new JobDetails(this.recruiterData.emailId, [], this.educationStringFilter)
 
@@ -123,6 +136,7 @@ export class SearchPortalComponent implements OnInit {
     // }
     console.log("**************************************************************");
     console.log(details)
+    ////////////////////
     this.service.getEmail(details).subscribe((data: string[]) => {
       this.matchedEmailList = data;
       if (data == null) {
@@ -133,33 +147,53 @@ export class SearchPortalComponent implements OnInit {
       else {
         this.jobSeekersList = []
         let i = 0;
+        ////////////////////////////////////////////////////////
+        this.service1.getRecruiterProfile().subscribe({
+          next: (d:any)=>{
+            this.loggedinRecruiter=d;
+            let selectedJobseekers:any[]=[]
+            if(this.loggedinRecruiter.selectedJobSeekers!=null)
+              selectedJobseekers=this.loggedinRecruiter.selectedJobSeekers
+            console.log("********************************");
+            console.log(this.loggedinRecruiter)
 
-        this.matchedEmailList.forEach((element: any) => {
-          console.log(element)
-          this.service.getJobSeeker(element).subscribe({
-            next: data => {
-              console.log(data)
-              this.jobSeekersList.push(data);
-              this.getImages(this.jobSeekersList);
-              if (this.jobSeekersList.length != 0) {
-                this.jobSeekersListSlice = this.jobSeekersList.slice(0, 6)
+            selectedJobseekers.forEach(o=>{   /*checking shortlisted and removing if exists*/
+              if(this.matchedEmailList.includes(o.emailId)){
+                this.matchedEmailList.splice(this.matchedEmailList.indexOf(o.emailId),1)
               }
-              else {
-                this.jobSeekersListSlice = []
-              }
-            }, error: errorresponse => {
-              console.log(++i + " " + errorresponse.message)
-            }
+            })
+
+            this.matchedEmailList.forEach((element: any) => { /*iterating all matched candidates*/
+
+           /////////////////////////////////////////////////////////
+
+                this.service.getJobSeeker(element).subscribe({
+                  next: data => {
+                    console.log(data)
+                    this.jobSeekersList.push(data);
+                    this.getImages(this.jobSeekersList);
+                    if (this.jobSeekersList.length != 0) {
+                      this.jobSeekersListSlice = this.jobSeekersList.slice(0, 6)
+                    }
+                    else {
+                      this.jobSeekersListSlice = []
+                    }
+                  }, error: errorresponse => {
+                    console.log(++i + " " + errorresponse.message)
+                  }
+                })
+                ////////////////////////////////////////////////////////////////////////
+
+            });//forEachEnd
           }
-          )
+        })
+        /////////////////////////////////////////////////////
 
-        });
       }
-      console.log("************")
       console.log(this.matchedEmailList)
       console.log(this.matchedEmailList.length)
-
     })
+    ////////////
 
   }
 
@@ -186,6 +220,7 @@ export class SearchPortalComponent implements OnInit {
 
     let details = new EmailRequest(jobseeker.emailId, localStorage.getItem('companyName'))
     let message: string = ""
+    /////////////////////////////////////////////////////
     this.service.sendEmail(details).subscribe({
       next: d => {
         console.log(d)
@@ -202,7 +237,34 @@ export class SearchPortalComponent implements OnInit {
         })
       }
     })
+    /////////////////////////////////////////////////
+  let recruiterEmailId=localStorage.getItem('loginId')
+  /////////////////////////////////////////////////////////
+  this.service1.updateShortlistedCandidate(recruiterEmailId,jobseeker.emailId).subscribe({
+    next: response=>{
+   this.getJobSeekersList(jobseeker) //change in landing
+   this.alert.open("Added to Shortlisted Candidates", 'close', {
+    duration: 5000
+    })
+  },
+  error: errorResponse=>{
+    this.alert.open(errorResponse.error.message, "close",{
+      duration: 5000
+    })
+  }});
+///////////////////////////////////////////////////////////////////////
   }
+  // removeShortListCard(){
+  //   this.jobSeekersList.forEach(p=>{
+  //     if(p.selectedCandidate.includes(p)){
+  //       this.jobSeekersList.splice(this.jobSeekersList.indexOf(p),1);
+
+  //     }
+  //   })
+  //   console.log("hellooo")
+  //   console.log(this.jobSeekersList);
+
+  // }
 }
 
 

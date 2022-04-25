@@ -25,7 +25,7 @@ role="";
   constructor(private http:HttpClient) { }
 
  baseUrl='https://jobizard.stackroute.io' + '/authentication-service'
-// baseUrl:'http://localhost:8099'
+// baseUrl='http://localhost:8099'
 
 //   userLogIn(userLogin:UserLogin)  // any - jobSeeker and recruiter any one can log-in
 //   {

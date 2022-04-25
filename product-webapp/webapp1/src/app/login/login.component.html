@@ -101,8 +101,9 @@
 
     <div style="background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132));border-radius: 5px;width: 380px;" >
       <p style="color:  whitesmoke;margin-left: 0px;text-decoration: underline;font-weight: bolder;font-family: 'Montserrat', sans-serif;font-size: large;" >
+        <a href="#">
         <img  src="../../assets/logo-crop.png" style="height: 8vh;margin-left:10px;margin-top: -10px;position: sticky;" alt="logo">
-        
+      </a>
        Login Page</p>
 
       </div>      
@@ -120,6 +121,9 @@
           <mat-form-field color="accent" appearance="fill" style="width: 16.5%;margin-left: 15px;" class="full-width">
             <mat-label>Email Id</mat-label>
             <input  matInput style="display:inline-block;" placeholder="Email ID" formControlName="emailId">
+            <mat-error *ngIf="loginForm.controls['emailId'].hasError('required')">
+              Email-ID is <strong>required</strong>
+            </mat-error>
             <mat-error>{{error}}</mat-error>
 
           </mat-form-field>
@@ -137,6 +141,10 @@
                 <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                  Password is <strong>required</strong>
+                </mat-error>
+                <mat-error>{{error}}</mat-error>
           </mat-form-field>
         </div>
       </div>

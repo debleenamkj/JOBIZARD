@@ -5,11 +5,12 @@ import com.stackroute.recommendationservice.exception.UserAlreadyExistsException
 import com.stackroute.recommendationservice.model.JobDetails;
 import com.stackroute.recommendationservice.model.Seeker;
 import com.stackroute.recommendationservice.service.RecommendationService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-
+@Slf4j
 @Component
 public class Consumer {
     @Autowired
@@ -18,6 +19,7 @@ public class Consumer {
 
     @RabbitListener(queues = "jobSeeker_queue")
     public void getUser(Seeker seeker) throws UserAlreadyExistsException {
+        log.info("In consumer - recommendationservice - get user");
         recommendationService.saveUser(seeker);
     }
 

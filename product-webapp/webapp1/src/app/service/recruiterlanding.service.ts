@@ -13,7 +13,7 @@ export class RecruiterlandingService {
   constructor(private httpCLient: HttpClient) { }
 
   baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
-  //baseUrl='http://localhost:8098'
+  // baseUrl='http://localhost:8098'
 
   getRecruiterProfile():any{
     this.emailId=localStorage.getItem('loginId')
@@ -22,5 +22,8 @@ export class RecruiterlandingService {
 
   getAllJobSeekers():Observable<any>{
     return this.httpCLient.get(this.baseUrl+'/api/v1/jobSeekers');
+  }
+  updateShortlistedCandidate(recruiterEmailId:string,jobSeekerEmailId:string){
+    return this.httpCLient.put(this.baseUrl+'/api/v1/shortList/' +jobSeekerEmailId+ "/"+recruiterEmailId,"");
   }
 }

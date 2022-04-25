@@ -13,6 +13,9 @@ public interface JobRepository extends Neo4jRepository<JobDetails,String> {
     @Query("MATCH(j:JobDetails) WHERE $userSkills IN j.skillsRequired RETURN j")
     List<JobDetails> findBySkills(String userSkills);
 
+    @Query("MATCH (n:JobDetails {emailId: $email}) RETURN n")
+    JobDetails findByEmailId(String email);
+
 //    @Query("MATCH(j:JobDetails{jobRole:$jobRoles}) RETURN j")
 //    List<JobDetails> findByJobRole(String jobRoles);
 

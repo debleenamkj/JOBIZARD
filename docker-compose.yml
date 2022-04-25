@@ -80,6 +80,16 @@ services:
     ports:
       - 8080:8080
 
+  product-webapp:
+    build: product-webapp/
+    image: product-webapp
+    restart: always
+    container_name: product-webapp
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 4200:4200
+
   application-register-service:
     build: application-register-service/
     container_name: application-register-service
@@ -105,15 +115,7 @@ services:
         - 8099:8099
 
 
-  product-webapp:
-    build: product-webapp/
-    image: product-webapp
-    restart: always
-    container_name: product-webapp
-    network_mode: host
-    hostname: localhost
-    ports:
-      - 4200:4200
+
 
   trend-lab-service:
 #    image: trendlabimage

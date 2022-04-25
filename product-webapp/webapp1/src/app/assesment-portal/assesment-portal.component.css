@@ -1,18 +1,25 @@
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 
 
 .column {
-  float: left;
-  width: 25%;
+  /* float: left; */
+  width: 23%;
   padding: 0 8px;
   
+
 }
 
 
-.row {margin: 0 -5px;}
+.row {
+  /* margin: 0 -5px; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 100px;
+}
 
 
 .row:after {
@@ -32,17 +39,17 @@
   display: inline-block;
     border-radius: 5px;
     width:87% ;
-    height:64% ;
-    margin-left:10px;   
-    margin-top: 31%
+    height: 280px;
+    margin-left:6px;   
+    margin-top: 31%;
 }
 
 
 
 .flip-card {
   background-color: transparent;
-  width: 280px;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   perspective: 1000px;
 }
 
@@ -125,7 +132,7 @@ list-style: none;
 .container {
   text-align: center;
   position: absolute;
-  top: 32%;
+  top: 240px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -143,7 +150,7 @@ list-style: none;
   background: purple;
   position: relative;
   animation: text 3s 1;
-  margin-top: 7%;
+  margin-top: 0%;
   
 }
 
@@ -168,4 +175,7 @@ list-style: none;
       letter-spacing: 8px;
       margin-bottom: -40px;
   }
+}
+#scroll::-webkit-scrollbar{
+    display: none;
 }
