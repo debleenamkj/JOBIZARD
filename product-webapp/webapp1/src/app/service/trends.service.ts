@@ -48,4 +48,8 @@ export class TrendsService {
   //   return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTechNews");
   // }
 
+  getPincode(pincode: any): Observable<JSON> {
+    return this.http.get<JSON>(this.baseUrl + "/api/v6/pincode/" + pincode);
+  }
+
 }

@@ -17,7 +17,6 @@ export class UserDetailsService {
   //  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
   baseUrl="http://localhost:8098";
 
-
   // updateUserDetails(userdetail:any):Observable<any>
   // {
   //   return this.http.post<any>(this.baseUrl+"jobSeeker",userdetail)
