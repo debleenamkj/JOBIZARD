@@ -1,3 +1,24 @@
+#sc::-webkit-scrollbar{
+  width: 0px;
+  height: 6px;
+}
+
+#sc::-webkit-scrollbar-track{
+  background: transparent; 
+}
+
+#sc::-webkit-scrollbar-button:single-button {
+  display: block;
+}
+
+#sc::-webkit-scrollbar-thumb{
+  /* background: #6E2586; */
+  background: #6E2586;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
 
 
 

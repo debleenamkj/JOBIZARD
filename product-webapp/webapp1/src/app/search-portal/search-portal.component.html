@@ -39,14 +39,18 @@
  <mat-card-header>
    <mat-card-title>{{jobseekers.firstName}} {{jobseekers.lastName}}&nbsp; &nbsp;<span style="font-weight: normal; font-size: 15px;margin-top:0.2%;"></span></mat-card-title>
  </mat-card-header>
- <mat-card-content>
+ <!-- style="display: flex; overflow: auto; width: 100%;" -->
+ <mat-card-content id="sc" style="display: flex; overflow: auto; width: 100%; height: 42px;" >
    <mat-chip-list style="display: inline-flex;" *ngFor="let skills of jobseekers.additionalDetails.skillSet">
-     <mat-chip style="padding: 8px;">{{skills.skillName}}</mat-chip>
+    <mat-chip *ngIf="skills.isVerified" style="background-color: green; color: white; font-weight: bold; margin:4px 6px;">
+      {{skills.skillName}}</mat-chip>
+    <mat-chip *ngIf="!skills.isVerified" style="background-color: red; color: white; font-weight: bold;margin:4px 6px;">
+      {{skills.skillName}}</mat-chip>
    </mat-chip-list>
-   <h2>Education Details:</h2>
-   <mat-chip-list style="display: inline-flex;" *ngFor="let course of jobseekers.educationDetails">
+   <!-- <h2>Education Details:</h2> -->
+   <!-- <mat-chip-list style="display: inline-flex;" *ngFor="let course of jobseekers.educationDetails">
      <mat-chip style="padding: 8px;">{{course.courses}}</mat-chip>
-   </mat-chip-list>
+   </mat-chip-list> -->
  </mat-card-content>
  <mat-card-actions>
    <button  (click)="sendEmail(jobseekers)" style="margin-left: 3px; border: none; background-color: white;"><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button>
