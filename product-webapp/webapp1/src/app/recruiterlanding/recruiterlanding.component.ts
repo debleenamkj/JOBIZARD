@@ -43,15 +43,28 @@ export class RecruiterlandingComponent implements OnInit {
     
     
   }
-  checkVisibility(jobseekers:any):boolean{
-    if((this.recruiterLandingData.selectedJobSeekers!=null))
-      if((!this.recruiterLandingData.selectedJobSeekers.includes(jobseekers))&&jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.educationDetails)
-      {console.log("true")
-        return true;
-      }
-      console.log("false")
-    return false;
-  }
+
+  // checkVisibility(jobseekers:any):boolean{
+  //   console.log("check visibility")
+  //   let flag = false;
+  //   let match= new Array();
+  //   if((this.recruiterLandingData.selectedJobSeekers!=null)){
+  //     console.log(this.recruiterLandingData.selectedJobSeekers)
+  //     this.recruiterLandingData.selectedJobSeekers.forEach((element: any) => {
+  //         if(element.emailId==jobseekers.emailId){
+  //           console.log("email matches")
+  //           return false
+  //         }
+  //     });
+  //   }
+      
+  //       if(jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.educationDetails){
+  //         return true;
+  //     }
+      
+  //     return false;
+  // }
+
   getAllJobSeekers(){
     this.recruiterLanding.getAllJobSeekers().subscribe(d => {  
       this.jobSeeker = d;
@@ -113,6 +126,7 @@ export class RecruiterlandingComponent implements OnInit {
   this.recruiterLanding.updateShortlistedCandidate(recruiterEmailId,emailId).subscribe({
     next: response=>{
    this.ngOnInit//change in landing
+   console.log("added to shortlist");
    this.alert.open("Added to Shortlisted Candidates", 'close', {
     duration: 5000
     })

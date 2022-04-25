@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping(value = "/category")
 public class CategoryController {
     @Autowired
