@@ -11,10 +11,11 @@
 }
 
 .mat-toolbar.mat-primary {
-  /* position: sticky; */
+  position: sticky;
+  /* position:fixed; */
   top: 0;
   z-index: 1;
-  position: relative;
+  /* position: relative; */
   width: 100%;
 }
 

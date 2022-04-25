@@ -5,6 +5,7 @@ import { Recruiter } from '../model/recruiter';
 import { UserLogin } from '../model/userLogin';
 import { Observable } from 'rxjs';
 import { OrganizationDetails } from '../model/organizationDetails';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -26,10 +27,10 @@ export class RegisterServiceService {
 
   constructor(private http:HttpClient) { }
 
-    // baseUrl=environment.apiBaseUrl + '/application-register-service'
-    // baseUrl1=environment.apiBaseUrl + '/authentication-service'
-    baseUrl='http://localhost:8098'
-    baseUrl1='http://localhost:8099'
+    baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+    baseUrl1='https://jobizard.stackroute.io' + '/authentication-service'
+    // baseUrl='http://localhost:8098'
+    // baseUrl1='http://localhost:8099'
 
   jobSeekerRegister(jobSeekerData:any)
   {

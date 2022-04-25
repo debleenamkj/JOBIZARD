@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
   selector: 'app-selected-candidate',
@@ -7,14 +8,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectedCandidateComponent implements OnInit {
 
-  constructor() {
+  constructor(private recruiterService:RecruiterlandingService) {
     
    }
 
   ngOnInit(): void {
+    this.getSelectedJobseekers();
   }
 
+
+  selectedJobseekers:any[]=[]
+  selectedJobseekersSlice:any[]=[]
   
+  pageChange(event:any){
+    let start = event.pageSize*event.pageIndex;
+    this.selectedJobseekersSlice = this.selectedJobseekersSlice.slice(start,start+event.pageSize)
+  }
+  
+  getSelectedJobseekers(){
+    this.recruiterService.getRecruiterProfile().subscribe({
+      next: (response:any)=>{
+        if(response){
+          if(response.selectedJobseekers){
+          this.selectedJobseekers = response.selectedJobSeekers
+          this.selectedJobseekersSlice=this.selectedJobseekers.slice(0,10)
+          }else{
+            console.log("No Selected Jobsekers")
+          }
+        }
+        else{
+          console.log("response didn't receive")
+        }
+      },
+      error: (errorResponse:any)=>{
+        console.log(errorResponse.message)
+      }
+    })
+  }
   
 
 }
@@ -31,13 +61,3 @@ export class SelectedCandidateComponent implements OnInit {
 //     List<String> selected;
 //   }
 
-//   get(){
-//     this.neo4JMatchedJobseeker.forEach(p=>{
-//       if(this.selected.includes(p)){
-//         this.neo4JMatchedJobseeker.splice(this.neo4JMatchedJobseeker.indexOf(p),1);
-//         this.wishlist.push(p)
-//       }
-//     })
-//     console.log(this.neo4JMatchedJobseeker);
-//     console.log(this.wishlist);
-//   }

@@ -32,9 +32,8 @@ export class HomepageComponent implements OnInit {
 
   images:string[]=["18.jpg","19.jpg","14.png","15.jpg"];
   backgroundImages:string[]=[];
-  // location:string="../../assets/learning-portal/"
   card:any[]=["../../assets/home-page/12.webp","2","3"]
-  ourFeatureImagesLocation:string="../../assets/home-page/";
+  imagesLocation:string="../../assets/home-page/"
   ourFeatures:OurFeatures[] = [
     {
       imageName:"jzi.png",
@@ -56,9 +55,68 @@ export class HomepageComponent implements OnInit {
       "the resume will be created for you."
     }
   ];
+
+  aboutJobizard:AboutJobizard[]=[
+    {
+      imageName:"7.png",
+      title:"Career Profile",
+      description:"The Job Seekers can build their profiles and showcase skills instead of applying jobs."
+    },
+    {
+      imageName:"16.png",
+      title:"Hire",
+      description:"Hire candidates on click of a button who best suit your vacancy requirements."
+    },
+    {
+      imageName:"17.webp",
+      title:"Skilled Candidates",
+      description:"Candidates on our Jobizard earn badges which tells how much skilles they are in the mentioned skills,"+
+      "which will make your selection process unnecessary."
+    }
+  ]
+
+  evenMore:OurFeatures[]=[
+    {
+      imageName:"",
+      description:"Create resume in various templates and stop worrying about resume-creation."
+    },
+    {
+      imageName:"",
+      description:"Interact with other seekers to stay connected."
+    },
+    {
+      imageName:"",
+      description:"Filter candidates according to skills and education so you get relevant candidates."
+    },
+    {
+      imageName:"",
+      description:"Get business news and tech news, so that you can always stay updated in the industry."
+    },
+    {
+      imageName:"",
+      description:"Our Chatbot will help you guide through our platform."
+    },
+    {
+      imageName:"",
+      description:"Know the current salary trend and the demand of kills in the detailed graphical representation."
+    },
+    {
+      imageName:"",
+      description:"Search companies to know the insight through reviews and write a review to help other seekers."
+    },
+    {
+      imageName:"",
+      description:"Search for courses according to the skills you want to learn or hone your skills with our recommended courses through top-educators."
+    }
+  ]
 }
 
 type OurFeatures={
   imageName:string
+  description:string
+}
+type AboutJobizard={
+  imageName:string
+  title:string
   description:string
 }

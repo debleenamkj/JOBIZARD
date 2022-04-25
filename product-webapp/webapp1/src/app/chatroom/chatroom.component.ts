@@ -38,26 +38,26 @@ export class ChatroomComponent implements OnInit {
     
     
    }
-
+   stringArray:any[]=[]; 
   ngOnInit(): void {
-    // this.chatService.getMessages(this.senderId,this.recipientId).subscribe((data)=>{
-    //   this.getChats = data;
-    //   this.getChats.reverse();
-    //   this.receiverInitials = this.recipientName.charAt(0);
-    // })
+    this.chatService.getMessages(this.senderId,this.recipientId).subscribe((data)=>{
+      this.getChats = data;
+      this.getChats.reverse();
+      this.receiverInitials = this.recipientId.charAt(0);
+    })
 
     this.receiverInitials = this.recipientName.charAt(0);
 
     this.chatService.getAllMessages().subscribe((data)=>{
         console.log(data);
           
-      let stringArray:any[]=[]; 
+      // let 
       data.filter((e)=> e.senderId == this.senderId || e.recipientId == this.senderId).forEach((e)=>{
         
-        if(!stringArray.includes(e.chatId)){
+        if(!this.stringArray.includes(e.chatId)){
          
           
-          stringArray.push(e.chatId);
+          this.stringArray.push(e.chatId);
           this.receiverNames.push(e);
         }
       });
@@ -119,7 +119,7 @@ export class ChatroomComponent implements OnInit {
   // senderName = "IJKL";
   // recipientName = "MNOP";
 
-  // senderId = "R125"
+  // senderId = "S123"
   // recipientId = ""
   // senderName = "";
   // recipientName = "";
@@ -158,9 +158,10 @@ export class ChatroomComponent implements OnInit {
       console.log(data);
       console.log(this.sendChats);
       this.text = "";
-      
+      this.ngOnInit();
     })
-    this.chatMethod(this.senderId,this.recipientId);
+    this.ngOnInit();
+    // this.chatMethod(this.senderId,this.recipientId);
   }
 
 

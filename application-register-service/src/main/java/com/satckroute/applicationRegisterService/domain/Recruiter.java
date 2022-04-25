@@ -53,4 +53,5 @@ public class Recruiter
     private byte[] logo;
     private String educationRequired;
     private List<String> skillsRequired;
+    private List<JobSeeker> selectedJobSeekers;
 }

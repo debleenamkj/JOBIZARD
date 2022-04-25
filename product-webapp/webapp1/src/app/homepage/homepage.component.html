@@ -29,30 +29,33 @@
     <ngb-carousel style="height: 100%;">
       <ng-template ngbSlide style="height: 100%; position: relative;">
 
-        <div style="background-image: url(../../assets/home-page/20.jpg);height: 70vh;width: 100%;
-              background-repeat: repeat-x; background-size: cover;background-position: center;">
-          <h3 class="tagline">
-            Get Everything from A to Izzard...
-          </h3>
-        </div>
-
-      </ng-template>
-      <ng-template ngbSlide style="height: 100%;">
-
         <div style="background-image: url(../../assets/home-page/2.webp);height: 70vh;width: 100%;
-              background-repeat: no-repeat; background-size: cover; background-position: center 20%; ">
-          <h3 class="tagline">
-            Pull Candidates with Skill from A to Izzard..
+        background-color: rgb(0,150,136); 
+              background-repeat: no-repeat; background-size: contain;background-position: right bottom;">
+          <h3 style="  width: 100%; min-width: 320px; max-width: 600px; height: 100%; padding-top: 10%; padding-left: 10%;
+          font-size: 50px; text-align: left; letter-spacing: 2px; line-height: 50px; color: white;">
+            Step on the rungs of opportunities with Jobizard.
           </h3>
         </div>
 
       </ng-template>
       <ng-template ngbSlide style="height: 100%;">
 
-        <div style="background-image: url( ../../assets/home-page/23.webp);height:70vh;width: 100%;
-              background-repeat: no-repeat; background-size: cover;background-position: center;">
+        <div style="background-image: url(../../assets/home-page/cover.png);height: 70vh; width: 100%;
+              background-repeat: no-repeat; background-size: contain; background-position: center bottom;">
           <h3 class="tagline">
-            Connect Recruiters from Various Vocation.
+            Pick Candidates with Skill from A to Izzard..
+          </h3>
+        </div>
+
+      </ng-template>
+      <ng-template ngbSlide style="height: 100%;">
+
+        <div style="background-image: url( ../../assets/home-page/27.webp);height:70vh;width: 100%;
+          background-color: #00ccff;
+              background-repeat: no-repeat; background-size: contain;background-position: center;">
+          <h3 class="tagline">
+            Connect with Recruiters from Various Vocation.
           </h3>
         </div>
 
@@ -66,11 +69,12 @@
         style="width: 100%; height: fit-content; display: flex; justify-content: center; align-items: center;">
 
         <div style="width: 100%; max-width: 700px; min-width: 300px; height: 350px;">
-          <img style="width: 100%; height: 100%;  object-fit: cover; " src="../../assets/home-page/19.jpg">
+          <img style="width: 100%; height: 100%;  object-fit: cover;
+         " src="../../assets/home-page/1.jpg">
         </div>
 
-        <div class="intro-down"
-          style="width: 100%;  max-width: 700px; min-width: 320px; height: fit-content; color: white;">
+        <div class="intro-down" style="width: 100%;  max-width: 700px; min-width: 320px;
+          height: fit-content; color: white; padding: 5px;">
           <h2 style="font-size: x-large;">
             Searching for jobs?</h2>
           <p style="font-size: large; letter-spacing: 2px;font-weight: 500;">
@@ -94,8 +98,8 @@
   </section>
   <section style="width: 100%; background-color: #4E1B5F; padding: 40px 0 40px 0;">
     <div style="width: 85%; margin: auto;">
-      <div class="intro-div"
-        style="width: 100%; height: fit-content; display: flex; justify-content: center; align-items: center;">
+      <div class="intro-div" style="width: 100%; height: fit-content; display: flex; padding: 5px;
+        justify-content: center; align-items: center;">
         <div style="width: 100%; max-width: 700px; min-width: 320px; height: fit-content; color: white;">
           <h2 style="font-size: x-large;">
             Need to fill the vacancy?</h2>
@@ -125,12 +129,12 @@
     <h1 class="title">
       Our Features
     </h1>
-    <div style="width: 90%; margin: auto;">
+    <div style="width: 100%; margin: auto;">
       <div class="our-container">
         <mat-card class="example-card" *ngFor="let card of ourFeatures">
-          <img src="{{ourFeatureImagesLocation}}{{card.imageName}}" *ngIf="card.imageName == 'jzi.png'"
+          <img src="{{imagesLocation}}{{card.imageName}}" *ngIf="card.imageName == 'jzi.png'"
             style="background-image: linear-gradient(to right, #6E2586,rgb(218, 153, 206))">
-          <img src="{{ourFeatureImagesLocation}}{{card.imageName}}" *ngIf="card.imageName != 'jzi.png'">
+          <img src="{{imagesLocation}}{{card.imageName}}" *ngIf="card.imageName != 'jzi.png'">
           <mat-card-content>
             <p style="font-size:1.8rem;">
               {{card.description}}
@@ -149,129 +153,84 @@
     <h1 class="title">
       About Jobizard
     </h1>
-    <div style="width: 90%; margin: auto;">
-      <div class="intro-div" style="display: flex; width: 100%;
-       height: fit-content;">
+    <div style="width: 100%; margin: auto;">
+      <div class="intro-div" style="display: flex; width: 100%; justify-content: center;
+       height: fit-content;  align-items: center;">
+
         <div style="display: flex; flex-direction: column;
-          width: 100%;  min-width: 300px; max-width: 700px; height: 350px; margin: auto;">
-          <div style="position: relative; top: 10%; width: 100%; height: fit-content;">
+          width: 100%;  min-width: 300px; max-width: 700px; height: fit-content;
+          align-items: center; justify-content: center;">
+
+          <div *ngFor="let row of aboutJobizard" style="width: 100%; height: fit-content; ">
             <div class="about-div">
-              <img src="../../assets/home-page/7.png">
-              <h1>
-                Career Profile
-              </h1>
-              <p style="font-size: medium;">
-                The Job Seekers can build their profiles and showcase skills instead of applying jobs.
-              </p>
+              <img src="{{imagesLocation}}{{row.imageName}}">
+              <div>
+                <h1>
+                  {{row.title}}
+                </h1>
+                <p style="font-size: medium;">
+                  {{row.description}}
+                </p>
+              </div>
             </div>
           </div>
-          <div style="position: relative; top: 40%; width: 100%; height: fit-content;">
-            <div class="about-div">
-              <img src="../../assets/home-page/16.png">
-              <h1>
-                Hire
-              </h1>
-              <p style="font-size: medium;">
-                Hire candidates on click of a button who best suit your vacancy requirements.
-              </p>
-            </div>
-          </div>
-          <div style="position: relative;width: 100%; top: 70%; height: fit-content;">
-            <div class="about-div">
-              <img src="../../assets/home-page/17.webp">
-              <h1>
-                Skilled Candidates
-              </h1>
-              <p style="font-size: medium;">
-                Candidates on our Jobizard earn badges which tells how much skilles they are in the mentioned skills,
-                which will make your selection process unnecessary.
-              </p>
-            </div>
-          </div>
+
         </div>
-        <div class="intro-down" style=" width: 100%; margin: auto; max-width: 700px; min-width: 400px;
+
+        <div class="intro-down" style=" width: 100%;  max-width: 700px;
+         min-width: 320px; background-color: bisque;
          height: 350px; ">
-          <img style="width: 100%; height: 100%;" src="../../assets/home-page/18.jpg">
+          <img style="width: 100%; height: 100%;" src="../../assets/home-page/99.jpg">
         </div>
       </div>
     </div>
   </section>
 
-  <hr style="margin: 60px auto; width: 100%;">
+  <hr style="margin-top: 60px; width: 100%;">
 
-  <section style="width: 85%; margin: auto;">
-    <h1 class="title">
-      Get Spellbound with features like
-    </h1>
-    <div style="display: flex; height: 600px;">
-      <div style="margin-right:3%; width: 30%; height: 100%;">
-        <section class="even-more-section">
+  <h1 class="title">
+    Get Spellbound with features like
+  </h1>
 
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Create resume in various templates and stop worrying about resume-creation.
+  <section class="parallax-section">
+<div class="even-more-div">
+    <div style="display: flex; flex-direction: column;">
+      <div *ngFor="let feature of evenMore;odd as isOdd ">
+        <div *ngIf="isOdd" style="display: flex; align-items: center; padding: 10px; margin: 0% auto;
+         width: 300px; ">
+          <div style="background-color: white; margin-top: 10px; margin-bottom: auto;">
+            <i class="fa-solid fa-file-invoice fa-2xl" ></i>
+          </div>
+          <div style="width: 100%;margin-left: 10px; padding: auto 10px; border-bottom: 1px solid white;">
+            <p style="padding: auto; color: white;">
+              {{feature.description}}
             </p>
           </div>
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Interact with other seeker to stay connected.
-            </p>
-          </div>
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Filter candidates according to skills and education so you get relevant candidates.
-            </p>
-          </div>
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Get business news and tech news, so that you can always stay updated in the industry.
-            </p>
-          </div>
-
-        </section>
-      </div>
-      <!-- <img src="../../assets/home-page/14.png" style="width: 30%; height: 100%;"> -->
-      <div style="margin-left: 3%;width: 30%; height: 100%;">
-        <section class="even-more-section">
-
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Our Chatbot will help you guide through our platform.
-            </p>
-          </div>
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Know the current salary trend and the demand of kills in the detailed graphical representation.
-            </p>
-          </div>
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Search companies to know the insight through reviews and write a review to help other seekers.
-            </p>
-          </div>
-          <div>
-            <img src="../../assets/home-page/black-tie-brands.svg">
-            <p>
-              Search for courses according to the skills you want to learn or hone your skills with our recommended
-              courses through top-educators.
-            </p>
-          </div>
-
-        </section>
+        </div>
       </div>
     </div>
+    <div style="display: flex; flex-direction: column;">
+      <div *ngFor="let feature of evenMore;even as isEven; ">
+        <div *ngIf="isEven" style="display: flex; align-items: center; padding: 10px; margin: 0% auto;
+         width: 300px; ">
+          <div style="background-color: white; margin-top: 10px; margin-bottom: auto;">
+            <i class="fa-solid fa-file-invoice fa-2xl"></i>
+          </div>
+          <div style="width: 100%;margin-left: 10px; padding: auto 10px; border-bottom: 1px solid white;">
+            <p style="padding: auto; color: white;">
+              {{feature.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
-
+  <!-- </div> -->
 
 
 </div>
+
 
 <footer class="footer-basic">
   <ul class="list-inline">
@@ -319,7 +278,7 @@
     </button>
     COPYRIGHT © JOBIZARD 2022. ALL RIGHTS RESERVED.
   </p>
-</footer> -->
+</footer>
 <!-- <section>
     <div class="div-additional">
       <img src="../../assets/jzi.png" alt="" class="imgleft">
@@ -397,3 +356,69 @@
     </ng-template>
   </ngb-carousel>
 </section> -->
+
+
+
+<!-- <div style="display: flex; height: 600px;">
+  <div style="margin-right:3%; width: 30%; height: 100%;">
+    <section class="even-more-section">
+
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Create resume in various templates and stop worrying about resume-creation.
+        </p>
+      </div>
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Interact with other seeker to stay connected.
+        </p>
+      </div>
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Filter candidates according to skills and education so you get relevant candidates.
+        </p>
+      </div>
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Get business news and tech news, so that you can always stay updated in the industry.
+        </p>
+      </div>
+
+    </section>
+  </div>
+  <div style="margin-left: 3%;width: 30%; height: 100%;">
+    <section class="even-more-section">
+
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Our Chatbot will help you guide through our platform.
+        </p>
+      </div>
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Know the current salary trend and the demand of kills in the detailed graphical representation.
+        </p>
+      </div>
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Search companies to know the insight through reviews and write a review to help other seekers.
+        </p>
+      </div>
+      <div>
+        <img src="../../assets/home-page/black-tie-brands.svg">
+        <p>
+          Search for courses according to the skills you want to learn or hone your skills with our recommended
+          courses through top-educators.
+        </p>
+      </div>
+
+    </section>
+  </div>
+</div> -->
