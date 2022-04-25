@@ -17,7 +17,7 @@ export class RecruiterlandingService {
 
   getRecruiterProfile():any{
    this.emailId=localStorage.getItem('loginId')
-    return this.httpCLient.get(this.baseUrl+'/api/v1/recruiterProfile/'+'s4@gmail.com');
+    return this.httpCLient.get(this.baseUrl+'/api/v1/recruiterProfile/'+this.emailId);
   }
 
   getAllJobSeekers():Observable<any>{

@@ -197,8 +197,8 @@ h5 {
 
 .button {
   background-image: linear-gradient(to right, rgb(110, 37, 134), rgb(177, 23, 132));
-  color: azure;
-  position: absolute;
+  color: white;
+  /* position: absolute; */
 
 }
 

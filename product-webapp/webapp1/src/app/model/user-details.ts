@@ -13,6 +13,7 @@ export class UserDetails {
        public dateOfBirth:string="";
        public objective:any="";
        public mobileNumber:string="";
+       public experience:any="";
     //    public profilePicture:any="";
     //    public lane:string="";
     //    public state:string="";
@@ -36,6 +37,7 @@ export class UserDetails {
         this.dateOfBirth="",
         this.mobileNumber="",
         this.objective="",
+        this.experience="",
         // this.profilePicture="",
         // this.lane="",
         // this.state="",

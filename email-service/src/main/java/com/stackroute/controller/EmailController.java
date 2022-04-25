@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1")
 @RestController
 @Slf4j
-//@CrossOrigin("*")
+@CrossOrigin("*")
 public class EmailController {
     private MailService mailService;
 
