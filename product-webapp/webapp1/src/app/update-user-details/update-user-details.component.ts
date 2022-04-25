@@ -62,6 +62,7 @@ progress=new progress();
           gender:this.seekerDetails.gender,
           dateOfBirth:this.seekerDetails.dateOfBirth,
           objective:this.seekerDetails.objective,
+          profilePicture:this.seekerDetails.jobSeekerImage
         })
         console.log("---------personal form ------------")
         console.log(this.addPersonalInfoForm);
@@ -409,11 +410,11 @@ userdetails1 = new UserDetails();
 
 addPersonalInfoForm = this.fb.group({
   firstName:['', Validators.required],
-  lastName:"",
-  gender:"",
-  dateOfBirth:"",
-  objective:"",
-  profilePicture:"",
+  lastName:['', Validators.required],
+  gender:['', Validators.required],
+  dateOfBirth:['', Validators.required],
+  objective:['', Validators.required],
+  // profilePicture:['', Validators.required],
   
  });
 

@@ -23,7 +23,7 @@
                   
                 >
                   <mat-label>first Name</mat-label>
-                  <input matInput formControlName="firstName" />
+                  <input matInput formControlName="firstName" required/>
                 </mat-form-field>
               </div>
             </div>
@@ -52,7 +52,7 @@
                   
                 >
                   <mat-label>Last Name</mat-label>
-                  <input matInput formControlName="lastName" />
+                  <input matInput formControlName="lastName" required/>
                 </mat-form-field>
               </div>
             </div>
@@ -73,7 +73,7 @@
                   style="width: 400px"
                   >
                   <mat-label>Gender</mat-label>
-                  <mat-select formControlName="gender">
+                  <mat-select formControlName="gender" required>
                     <mat-option value="Male">Male</mat-option>
                     <mat-option value="Female">Female</mat-option>
                     <mat-option value="Other">Other</mat-option>
@@ -92,7 +92,7 @@
                   
                 >
                   <mat-label>Choose your dob</mat-label>
-                  <input matInput [matDatepicker]="picker"formControlName="dateOfBirth" />
+                  <input matInput [matDatepicker]="picker"formControlName="dateOfBirth" required/>
                   <mat-datepicker-toggle
                     matSuffix
                     [for]="picker"
@@ -112,7 +112,7 @@
                   
                 >
                   <mat-label>Objective</mat-label>
-                  <textarea matInput formControlName="objective"></textarea>
+                  <textarea matInput formControlName="objective" required></textarea>
                 </mat-form-field>
               </div>
             </div>
@@ -129,7 +129,7 @@
                   <mat-label>Mobile Number</mat-label>
                   <input matInput />
                 </mat-form-field> -->
-                <input class="imageUploadLabel" type="file" id="img" name="img" (change)="onFileChanged($event)" formControlName="profilePicture" accept="image/*">
+                <input class="imageUploadLabel" type="file" id="img" name="img" (change)="onFileChanged($event)" formControlName="profilePicture" accept="image/*" >
                 <img style="float: right;" src="{{upimage}}" width="20%">
               </div>
             </div>
@@ -137,7 +137,7 @@
             <!-- ---------------------Buttons Div---------------------------------------- -->
             <div class="personalInfoBTN">
               <div>
-                <button mat-raised-button (click)="userdetails()"  (click)="clickMe()"  class="personalInfoSaveBTN">
+                <button mat-raised-button (click)="userdetails()"  (click)="clickMe()"  class="personalInfoSaveBTN" [disabled]="!addPersonalInfoForm.valid">
                   Save & Next
                 </button>
               </div>

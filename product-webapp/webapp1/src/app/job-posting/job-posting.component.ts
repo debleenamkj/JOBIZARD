@@ -62,8 +62,6 @@ export class JobPostingComponent implements OnInit {
   companyForm = this.fb.group({
     companyName:['', Validators.required],
     companyUrl:"",
-    companyEmail:['', Validators.required],
-    companyLogo:"",
     industryType:['', Validators.required]
    });
 
@@ -77,7 +75,7 @@ export class JobPostingComponent implements OnInit {
 
    requirementsForm = this.fb.group({
     education:['', Validators.required],
-    skills:['', Validators.required],
+    skills:[''],
    });
 
    upimage:any;

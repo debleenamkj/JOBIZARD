@@ -144,7 +144,7 @@
         </mat-card>
         <mat-card class="card1" *ngIf="post.postBlog!=null" style="width: 150%; background-color: whitesmoke;">
           <mat-card-header>
-            <mat-card-title>{{post.user.userName}}</mat-card-title>
+            <mat-card-title>{{post.user.userName | titlecase}}</mat-card-title>
           </mat-card-header>
           <!-- <hr> -->
            <mat-card-content *ngIf="post.postBlog!=null">
