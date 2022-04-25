@@ -166,7 +166,8 @@ export class JobSeekerLandingComponent implements OnInit {
 
   openDialog2(): void {
     const dialogRef = this.dialog.open(BlogPostDialogComponent, {
-      width: '500px',
+      width: '700px',
+      height:'70%',
       data: { name: 'malathi' },
     });
 

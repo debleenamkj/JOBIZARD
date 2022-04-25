@@ -93,6 +93,8 @@ progress=new progress();
         this.jobPreferences.forEach(element =>{
           jobPreference.push(element.name);
         });
+
+
         console.log("---------jobPreference-------- ");
         console.log(this.jobPreferences);
         console.log(jobPreference);
@@ -106,10 +108,7 @@ progress=new progress();
 
 
         this.addDetailsInfoForm.patchValue({
-          academicCertification:[],
-          skillSet:[],
-          jobPreference:[],
-          achievements:[],
+          experience:this.seekerDetails.experience
         })
         this.updateDetails.emailId=this.seekerDetails.emailId;
         this.userdetails1.firstName=this.seekerDetails.firstName;  
@@ -120,6 +119,7 @@ progress=new progress();
         this.userdetails1.objective=this.seekerDetails.objective;
       
         this.userdetails2.mobileNumber=this.seekerDetails.mobileNumber;
+        this.userdetails2.experience = this.seekerDetails.experience;
            
         // this.address.lane=this.seekerDetails.address.lane;
         console.log(this.addContactInfoForm.value.state);
@@ -226,6 +226,7 @@ progress=new progress();
     this.details.jobPreferences=jobPreference; 
     this.details.achievements=achievement;
     this.userdetails1.additionalDetails=this.details;
+    this.userdetails1.experience = this.addDetailsInfoForm.value.experience;
 
     this.userdetails1.seekerProgress=this.progress;
     console.log(this.userdetails1);
@@ -540,6 +541,7 @@ addDetailsInfoForm = this.fb.group({
   skillSet:[],
   jobPreference:[],
   achievements:[],
+  experience:['',Validators.required]
  });
 
 

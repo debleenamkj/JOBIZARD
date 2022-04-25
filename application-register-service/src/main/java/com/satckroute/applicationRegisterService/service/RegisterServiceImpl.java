@@ -284,31 +284,52 @@ public class RegisterServiceImpl implements RegisterService
     public JobSeeker updateEducationDetails(String email, Education education) throws JobSeekerNotFoundException {
         List<Education> educationList = new ArrayList<>();
         JobSeeker jobSeeker1 = jobSeekerRegisterRepository.findById(email).get();
+        Seeker seeker = new Seeker();
         if(jobSeeker1==null){
             throw new JobSeekerNotFoundException();
         }
-        else{
-            if(jobSeeker1.getEducationDetails()!=null){
+        else {
+            if (jobSeeker1.getEducationDetails() != null) {
                 educationList.addAll(jobSeeker1.getEducationDetails());
                 educationList.add(education);
-            }else if(jobSeeker1.getEducationDetails()==null){
+            } else if (jobSeeker1.getEducationDetails() == null) {
                 educationList.add(education);
-
             }
             jobSeeker1.setEducationDetails(educationList);
+            ArrayList<String> educationTobeSend = new ArrayList<>();
+            ArrayList<String> skillsSend = new ArrayList<>();
+            if (educationList != null) {
+                for (Education education1 : educationList) {
+                    educationTobeSend.add(education1.getCourses());
+                }
+            }
+            if (jobSeeker1.getAdditionalDetails() != null) {
+                if (jobSeeker1.getAdditionalDetails().getSkillSet() != null) {
+                    ArrayList<Skill> skills = jobSeeker1.getAdditionalDetails().getSkillSet();
+                    for (Skill skill : skills) {
+                        skillsSend.add(skill.getSkillName());
+                    }
+                }
+            }
+
             if (jobSeeker1.getProgress() < 100) {
                 JobSeekerProgress jobSeekerProgress = new JobSeekerProgress();
                 jobSeekerProgress.setAdditionalInfo(jobSeeker1.getSeekerProgress().getAdditionalInfo());
                 jobSeekerProgress.setContactInfo(jobSeeker1.getSeekerProgress().getContactInfo());
                 jobSeekerProgress.setPersonalInfo(jobSeeker1.getSeekerProgress().getPersonalInfo());
                 jobSeekerProgress.setPersonalInfo(25);
-                jobSeeker1.setProgress(jobSeeker1.getProgress()+25);
+                jobSeeker1.setProgress(jobSeeker1.getProgress() + 25);
             }
 
-            System.out.println(jobSeeker1);
+            seeker.setEmail(jobSeeker1.getEmailId());
+            seeker.setEducation(educationTobeSend);
+            seeker.setSkillSet(skillsSend);
+            producer.sendJobSeekerMessage(seeker);
         }
+
         return jobSeekerRegisterRepository.save(jobSeeker1);
     }
+
 
     @Override
     public JobSeeker updateJobSeekerDetails(JobSeeker jobSeeker, String emailId) throws JobSeekerNotFoundException
