@@ -1,0 +1,81 @@
+#mainheading{
+    color: white;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.rfc{
+    width: 300px;
+    height: 75vh;
+    float: left;
+    margin-right: 10px;
+    background-color: #4d0067;
+}
+
+.profile-image {
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.upb{
+    border: 4px solid white;
+    padding: 10px 10px;
+    border-radius: 18px;
+    background: transparent;
+    color: white;
+    margin-left: 60px;
+    font-size: large;
+}
+
+.example-card {
+    width: 250px;
+    /* height: 265px; */
+    margin-bottom: 15px;
+    float: left;
+    margin-right: 20px;
+    align-items: center;
+}
+
+
+.pi{
+    width: 150px;
+    height: 150px;
+    object-fit:contain;
+    margin: auto;
+    padding-top: 5px;
+}
+
+#sc::-webkit-scrollbar{
+    width: 0px;
+    height: 6px;
+}
+
+#sc::-webkit-scrollbar-track{
+    background: transparent; 
+}
+
+#sc::-webkit-scrollbar-button:single-button {
+    display: block;
+}
+
+#sc::-webkit-scrollbar-thumb{
+    /* background: #6E2586; */
+    background: #6E2586;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.rp{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    margin-bottom: 30px;
+}

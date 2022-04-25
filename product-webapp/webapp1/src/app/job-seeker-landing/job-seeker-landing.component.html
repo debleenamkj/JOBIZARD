@@ -43,6 +43,7 @@
               </div>
               </mat-card-content>
             </mat-card>
+            
             <button class="button1" mat-button (change)="getPosts()" (click)="openDialog1()">Add Post</button>
             <button class="button2" mat-button (change)="getPosts()" (click)="openDialog2()">Add Blog</button>
           
@@ -66,18 +67,19 @@
             
               </div>
                <br>
-                <div>
+                <div >
                   <h2 style="color:#4E1B5F ;">Verified Skills :</h2>
 
                   <div *ngFor="let verified of verifiedSkills">
                     <span style="font-size: 130%; ">{{verified.name}} &nbsp; </span>
               
                   </div>
-
+                 
                   <div *ngIf="notVerifiedSkills.length==0">
                   <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
                   <br>They are made...
                   </h1>
+                 
                   <button class="myProfileButton"  style="margin-left: 20%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
                   </div>
                
@@ -142,7 +144,7 @@
         </mat-card>
         <mat-card class="card1" *ngIf="post.postBlog!=null" style="width: 150%; background-color: whitesmoke;">
           <mat-card-header>
-            <mat-card-title>{{post.user.userName}}</mat-card-title>
+            <mat-card-title>{{post.user.userName | titlecase}}</mat-card-title>
           </mat-card-header>
           <!-- <hr> -->
            <mat-card-content *ngIf="post.postBlog!=null">
@@ -211,7 +213,7 @@
           
               </div>
                <br>
-                <div>
+                <div >
                   <h2 style="color:#4E1B5F ;">Verified Skills :</h2>
 
                   <div *ngFor="let verified of verifiedSkills">
@@ -224,7 +226,8 @@
                   <h1 class="warriors" style="color: #4E1B5F; text-align: center; font-weight: 600;" >Warriors are not born,
                   <br>They are made...
                   </h1>
-                  <button class="myProfileButton" style="margin-left: 20%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
+                  <br>
+                  <button class="myProfileButton" style="margin-left: 25%;" mat-button routerLink="/navbar/learning">Learn Courses</button>
                   </div>
                
                 </div>

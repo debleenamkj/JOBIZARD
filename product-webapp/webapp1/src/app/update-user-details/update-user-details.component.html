@@ -23,7 +23,7 @@
                   
                 >
                   <mat-label>first Name</mat-label>
-                  <input matInput formControlName="firstName" />
+                  <input matInput formControlName="firstName" required/>
                 </mat-form-field>
               </div>
             </div>
@@ -52,7 +52,7 @@
                   
                 >
                   <mat-label>Last Name</mat-label>
-                  <input matInput formControlName="lastName" />
+                  <input matInput formControlName="lastName" required/>
                 </mat-form-field>
               </div>
             </div>
@@ -73,7 +73,7 @@
                   style="width: 400px"
                   >
                   <mat-label>Gender</mat-label>
-                  <mat-select formControlName="gender">
+                  <mat-select formControlName="gender" required>
                     <mat-option value="Male">Male</mat-option>
                     <mat-option value="Female">Female</mat-option>
                     <mat-option value="Other">Other</mat-option>
@@ -92,7 +92,7 @@
                   
                 >
                   <mat-label>Choose your dob</mat-label>
-                  <input matInput [matDatepicker]="picker"formControlName="dateOfBirth" />
+                  <input matInput [matDatepicker]="picker"formControlName="dateOfBirth" required/>
                   <mat-datepicker-toggle
                     matSuffix
                     [for]="picker"
@@ -112,7 +112,7 @@
                   
                 >
                   <mat-label>Objective</mat-label>
-                  <textarea matInput formControlName="objective"></textarea>
+                  <textarea matInput formControlName="objective" required></textarea>
                 </mat-form-field>
               </div>
             </div>
@@ -129,7 +129,7 @@
                   <mat-label>Mobile Number</mat-label>
                   <input matInput />
                 </mat-form-field> -->
-                <input class="imageUploadLabel" type="file" id="img" name="img" (change)="onFileChanged($event)" formControlName="profilePicture" accept="image/*">
+                <input class="imageUploadLabel" type="file" id="img" name="img" (change)="onFileChanged($event)" formControlName="profilePicture" accept="image/*" >
                 <img style="float: right;" src="{{upimage}}" width="20%">
               </div>
             </div>
@@ -137,7 +137,7 @@
             <!-- ---------------------Buttons Div---------------------------------------- -->
             <div class="personalInfoBTN">
               <div>
-                <button mat-raised-button (click)="userdetails()"  (click)="clickMe()"  class="personalInfoSaveBTN">
+                <button mat-raised-button (click)="userdetails()"  (click)="clickMe()"  class="personalInfoSaveBTN" [disabled]="!addPersonalInfoForm.valid">
                   Save & Next
                 </button>
               </div>
@@ -260,6 +260,16 @@
                     <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
                     <mat-option value="Uttarakhand">Uttarakhand</mat-option>
                     <mat-option value="West Bengal">West Bengal</mat-option>
+                    <mat-option value="Andaman and Nicobar">Andaman and Nicobar</mat-option>
+                    <mat-option value="Chandigarh">Chandigarh</mat-option>
+                    <mat-option value="Daman and Diu">Daman and Diu</mat-option>
+                    <mat-option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</mat-option>
+                    <mat-option value="Delhi">Delhi</mat-option>
+                    <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
+                    <mat-option value="Ladakh">Ladakh</mat-option>
+                    <mat-option value="Lakshadweep">Lakshadweep</mat-option>
+                    <mat-option value="Puducherry">Puducherry</mat-option>
+                    
                     
                   </mat-select>
                 </mat-form-field> -->
@@ -271,7 +281,7 @@
               >
               
                 <mat-label>State</mat-label>
-                <input matInput formControlName="state" value="{{stateAuto}}"/>
+                <input matInput formControlName="state"/>
               </mat-form-field>
             </div>
             <br />
@@ -284,7 +294,7 @@
               >
               
                 <mat-label>City</mat-label>
-                <input matInput formControlName="city" value="{{cityAuto}}"/>
+                <input matInput formControlName="city"/>
               </mat-form-field>
             </div>
             <br />
@@ -297,13 +307,13 @@
                 style="width: 376px"
               >
                 <mat-label>Nationality</mat-label>
-                <input matInput formControlName="nationality" value="{{countryAuto}}" />
+                <input matInput formControlName="nationality" />
               </mat-form-field>
             </div>
   
             <div class="addressBTN" >
               <div>
-                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()" (click)="clickMe1()">Save & Next</button>
+                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()" (click)="clickMe1()" [disabled]="!addContactInfoForm.valid">Save & Next</button>
               </div>
               <!-- <div >
                 <button mat-raised-button class="addressNextBTN" (click)="clickMe1()"  >Next</button>
@@ -368,7 +378,7 @@
                    [matChipInputAddOnBlur]="addOnBlur"
                    (matChipInputTokenEnd)="add($event)"
                    formControlName="academicCertification"
-                 />
+                   />
                </mat-chip-list>
              </mat-form-field>
            </div>
@@ -429,7 +439,7 @@
                  </button>
                </mat-chip>
                <input
-                 placeholder="New fruit..."
+                 placeholder="Job Preference"
                  [matChipInputFor]="chipList3"
                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                  [matChipInputAddOnBlur]="addOnBlur"
@@ -459,7 +469,7 @@
                   </button>
                 </mat-chip>
                 <input
-                  placeholder="New fruit..."
+                  placeholder="Achievements"
                   [matChipInputFor]="chipList4"
                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                   [matChipInputAddOnBlur]="addOnBlur"

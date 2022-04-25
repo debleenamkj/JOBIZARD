@@ -48,8 +48,11 @@ export class SearchPortalComponent implements OnInit {
         localStorage.setItem('companyName', this.recruiterData.companyName)
         this.skillsFilter = this.recruiterData.skillsRequired
         this.educationStringFilter = this.recruiterData.educationRequired
+        if(this.recruiterData.skillsRequired!=null){
         this.getJobSeekersList(new JobDetails(this.recruiterData.emailId, this.recruiterData.skillsRequired, this.recruiterData.educationRequired))
-        console.log("Details of the Recruiter");
+                console.log("Details of the Recruiter");
+        }
+
       }
     });
   }
@@ -153,17 +156,17 @@ export class SearchPortalComponent implements OnInit {
               selectedJobseekers=this.loggedinRecruiter.selectedJobSeekers
             console.log("********************************");
             console.log(this.loggedinRecruiter)
-      
+
             selectedJobseekers.forEach(o=>{   /*checking shortlisted and removing if exists*/
               if(this.matchedEmailList.includes(o.emailId)){
                 this.matchedEmailList.splice(this.matchedEmailList.indexOf(o.emailId),1)
               }
-            })     
+            })
 
             this.matchedEmailList.forEach((element: any) => { /*iterating all matched candidates*/
-               
+
            /////////////////////////////////////////////////////////
-             
+
                 this.service.getJobSeeker(element).subscribe({
                   next: data => {
                     console.log(data)
@@ -180,12 +183,12 @@ export class SearchPortalComponent implements OnInit {
                   }
                 })
                 ////////////////////////////////////////////////////////////////////////
-    
+
             });//forEachEnd
           }
         })
         /////////////////////////////////////////////////////
-        
+
       }
       console.log(this.matchedEmailList)
       console.log(this.matchedEmailList.length)
@@ -239,7 +242,7 @@ export class SearchPortalComponent implements OnInit {
   /////////////////////////////////////////////////////////
   this.service1.updateShortlistedCandidate(recruiterEmailId,jobseeker.emailId).subscribe({
     next: response=>{
-   this.getJobSeekersList(jobseeker) //change in landing 
+   this.getJobSeekersList(jobseeker) //change in landing
    this.alert.open("Added to Shortlisted Candidates", 'close', {
     duration: 5000
     })
@@ -255,12 +258,12 @@ export class SearchPortalComponent implements OnInit {
   //   this.jobSeekersList.forEach(p=>{
   //     if(p.selectedCandidate.includes(p)){
   //       this.jobSeekersList.splice(this.jobSeekersList.indexOf(p),1);
-       
+
   //     }
   //   })
   //   console.log("hellooo")
   //   console.log(this.jobSeekersList);
-    
+
   // }
 }
 

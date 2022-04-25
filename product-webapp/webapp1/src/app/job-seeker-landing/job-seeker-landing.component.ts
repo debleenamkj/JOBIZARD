@@ -28,6 +28,8 @@ export class JobSeekerLandingComponent implements OnInit {
 
     this.getJobSeeker();
 
+    console.log("verified"+this.verifiedSkills)
+
     setTimeout(() => {
 
       let skill = { name: "", level: "" }
@@ -94,7 +96,10 @@ export class JobSeekerLandingComponent implements OnInit {
   user: any;
 
   sendReview(comment: any, post: any) {
-    const review = { reviewUserName: "Malathi", review: "" }
+    let email = localStorage.getItem('loginId');
+    let username = email.split('@');
+    console.log(username[0]);
+    const review = { reviewUserName: username[0], review: "" }
     review.review = comment;
     const comment1 = { reviewUserName: review.reviewUserName, review: comment };
     if (comment != "") {
@@ -331,7 +336,12 @@ export class JobSeekerLandingComponent implements OnInit {
       console.log("All post length")
       console.log(this.allPost[0].length)
       for (let index = 0; index < this.allPost[0].length; index++) {
-        console.log("image");
+        console.log(this.allPost[0][index]);
+        var email = this.allPost[0][index].user.userEmailId;
+        let username = email.split('@');
+        console.log(username[0])
+        // console.log(this.allPost[0][index].user.userEmailId)
+        this.allPost[0][index].user.userName=username[0];
         if (this.allPost[0][index].postImage != null) {
 
           const img = 'data:image/jpeg;base64,' + this.allPost[0][index].postImage.postImage;
@@ -369,6 +379,8 @@ export class JobSeekerLandingComponent implements OnInit {
   getJobSeeker() {
 
     let email = localStorage.getItem('loginId')
+    let username = email.split('@');
+    console.log(username[0]);
 
     this.service1.getSeeker(email).subscribe(data => {
       console.log(data);

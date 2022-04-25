@@ -6,6 +6,7 @@ import com.stackroute.recommendationservice.exception.UserAlreadyExistsException
 import com.stackroute.recommendationservice.exception.UserNotFoundException;
 import com.stackroute.recommendationservice.model.JobDetails;
 import com.stackroute.recommendationservice.model.Seeker;
+import com.stackroute.recommendationservice.repository.JobDetailsRepository;
 import com.stackroute.recommendationservice.repository.JobRepository;
 import com.stackroute.recommendationservice.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -24,14 +25,16 @@ import java.util.Set;
 public class RecommendationserviceImpl implements RecommendationService{
 
     private JobRepository jobRepository;
+    private JobDetailsRepository jobDetailsRepository;
     private UserRepository userRepository;
 
     @Autowired
-    public RecommendationserviceImpl(JobRepository jobRepository, UserRepository userRepository) {
+    public RecommendationserviceImpl(JobRepository jobRepository, UserRepository userRepository,JobDetailsRepository jobDetailsRepository) {
         log.info("Autowiring jobRepository");
         this.jobRepository = jobRepository;
         log.info("Autowiring userRepository");
         this.userRepository = userRepository;
+        this.jobDetailsRepository = jobDetailsRepository;
     }
 
     @Override
@@ -42,6 +45,7 @@ public class RecommendationserviceImpl implements RecommendationService{
             if(jobRepository.findById(job.getEmailId()).isPresent())
             {
                   jobRepository.save(job);
+
 //                log.error("RecommendationserviceImpl - savejob : JobAlreadyPresentException");
 //                throw new JobAlreadyPresentException();
             }
@@ -67,6 +71,7 @@ public class RecommendationserviceImpl implements RecommendationService{
 //                log.error("RecommendationserviceImpl - saveUser : UserAlreadyExistsException");
 //                throw new UserAlreadyExistsException();
                 userRepository.save(seeker);
+                log.info(" getting from rabbitmq updating details"+seeker);
             }
             else {
                 userRepository.save(seeker);
@@ -86,6 +91,19 @@ public class RecommendationserviceImpl implements RecommendationService{
         log.debug("In RecommendationserviceImpl - getMachingJobSeeker");
         Set<String> matchingJobSeekers = new HashSet<>();
         Set<String> matchingSeeeker = new HashSet<>();
+        System.out.println("email id of job seeker \t"+job.getEmailId()+"\n");
+
+//        List<JobDetails> all = jobRepository.findAll();
+//        for (JobDetails details:all) {
+//            System.out.println(details.getEmailId());
+//        }
+
+//        JobDetails jobDetails = jobRepository.findByEmailId(job.getEmailId());
+        System.out.println(userRepository.findById("vishnu24@gmail.com"));
+        System.out.println(jobRepository.findByEmailId(job.getEmailId()));
+        String email = job.getEmailId();
+        System.out.println(jobDetailsRepository.findById(email).get());
+
         try{
             if(jobRepository.findById(job.getEmailId()).isEmpty())
             {
@@ -98,14 +116,18 @@ public class RecommendationserviceImpl implements RecommendationService{
 
                 if(!skills.isEmpty())
                 {
+                    System.out.println("\n \n \n \n \n \n skills"+skills);
                     for(String requiredSkills:skills) {
-                        List<Seeker> seeker1 = userRepository.findBySkillSet(requiredSkills);
-                        if(seeker1!=null){
-                            for (Seeker seeker:seeker1 ) {
-                                matchingJobSeekers.add(seeker.getEmail());
+                        log.info("  required skills"+  requiredSkills);
+                        if(requiredSkills!=null){
+                            List<Seeker> seeker1 = userRepository.findBySkillSet(requiredSkills);
+                            if(seeker1!=null){
+                                for (Seeker seeker:seeker1 ) {
+                                    matchingJobSeekers.add(seeker.getEmail());
+                                }
+                            }else{
+                                log.error("RecommendationserviceImpl - getMachingJobSeeker : Required skills for a job is empty");
                             }
-                        }else{
-                            log.error("RecommendationserviceImpl - getMachingJobSeeker : Required skills for a job is empty");
                         }
                     }
                 }

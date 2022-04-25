@@ -291,7 +291,6 @@ public class RegisterServiceImpl implements RegisterService
             if(jobSeeker1.getEducationDetails()!=null){
                 educationList.addAll(jobSeeker1.getEducationDetails());
                 educationList.add(education);
-                System.out.println(educationList);
             }else if(jobSeeker1.getEducationDetails()==null){
                 educationList.add(education);
 
@@ -334,59 +333,51 @@ public class RegisterServiceImpl implements RegisterService
                     System.out.println(education);
                 }
             }
-
-//            if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
-//                for (Skill skill:jobSeeker.getAdditionalDetails().getSkillSet()){
-//                    skills.add(skill.getSkillName());
-//                    System.out.println(skills);
-//                }
-//            }
+            Details details = new Details();
             ArrayList<Skill> skillsAlreadyPresent= new ArrayList<>();
-            if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
-                System.out.println("skills");
-                ArrayList<Skill> matchedSkills = new ArrayList<Skill>();
-                ArrayList<Skill> skills = jobSeeker.getAdditionalDetails().getSkillSet();
-                System.out.println("current skill set");
-                System.out.println(skills);
-                seeker.setSkillSet(skills);
-                if(jobSeeker1.getAdditionalDetails().getSkillSet()!=null){
-                    skillsAlreadyPresent = jobSeeker1.getAdditionalDetails().getSkillSet();
-                    System.out.println("already present skills"+skillsAlreadyPresent);
-                    for (Skill skill:skillsAlreadyPresent) {
-                        for (Skill skill1:skills) {
-                            if(skill.getSkillName().equalsIgnoreCase(skill1.getSkillName())){
-                                matchedSkills.add(skill);
-
+            if(jobSeeker.getAdditionalDetails()!=null){
+                if(jobSeeker.getAdditionalDetails().getSkillSet()!=null){
+                    ArrayList<Skill> matchedSkills = new ArrayList<Skill>();
+                    ArrayList<Skill> skills = jobSeeker.getAdditionalDetails().getSkillSet();
+                    ArrayList<String> skillToBeSend = new ArrayList<>();
+                    for (Skill skill:skills) {
+                        skillToBeSend.add(skill.getSkillName());
+                    }
+                    seeker.setSkillSet(skillToBeSend);
+                    if(jobSeeker1.getAdditionalDetails()!=null){
+                        if(jobSeeker1.getAdditionalDetails().getSkillSet()!=null){
+                            skillsAlreadyPresent = jobSeeker1.getAdditionalDetails().getSkillSet();
+                            for (Skill skill:skillsAlreadyPresent) {
+                                for (Skill skill1:skills) {
+                                    if(skill.getSkillName().equalsIgnoreCase(skill1.getSkillName())){
+                                        matchedSkills.add(skill);
+                                    }
+                                }
                             }
                         }
-                    }
-                    System.out.println("matched skills");
-                    System.out.println(matchedSkills);
-                }
-                for (int i=0;i<matchedSkills.size();i++){
-                    for (int j=0;j<skills.size();j++){
-                        if(matchedSkills.get(i).getSkillName().equalsIgnoreCase(skills.get(j).getSkillName())){
-                            skills.remove(j);
+                        for (int i=0;i<matchedSkills.size();i++){
+                            for (int j=0;j<skills.size();j++){
+                                if(matchedSkills.get(i).getSkillName().equalsIgnoreCase(skills.get(j).getSkillName())){
+                                    skills.remove(j);
+                                }
+                            }
                         }
+                        skillsAlreadyPresent.addAll(skills);
+                        details.setSkillSet(skillsAlreadyPresent);
+                    }else{
+                        details.setSkillSet(jobSeeker.getAdditionalDetails().getSkillSet());
                     }
+
+                    details.setJobPreferences(jobSeeker.getAdditionalDetails().getJobPreferences());
+                    details.setAchievements(jobSeeker.getAdditionalDetails().getAchievements());
+                    details.setAcademicsCertification(jobSeeker.getAdditionalDetails().getAcademicsCertification());
+                    jobSeeker.setAdditionalDetails(details);
                 }
-                System.out.println("removed matched skills");
-                System.out.println(skills);
-                skillsAlreadyPresent.addAll(skills);
-
-                Details details = new Details();
-                details.setJobPreferences(jobSeeker.getAdditionalDetails().getJobPreferences());
-                details.setAchievements(jobSeeker.getAdditionalDetails().getAchievements());
-                details.setAcademicsCertification(jobSeeker.getAdditionalDetails().getAcademicsCertification());
-                details.setSkillSet(skillsAlreadyPresent);
-
-                jobSeeker.setAdditionalDetails(details);
             }
                 seeker.setEmail(emailId);
                 seeker.setEducation(education);
                 producer.sendJobSeekerMessage(seeker);
-
-
+                log.info("seeker details sent "+seeker);
             return jobSeekerRegisterRepository.save(jobSeeker);
         }
 
@@ -653,7 +644,7 @@ public class RegisterServiceImpl implements RegisterService
             List<JobSeeker> shortListedList = new ArrayList<>();
             if(jobSeekerList!=null){
                 for (JobSeeker jobSeeker1:jobSeekerList) {
-                    if(jobSeeker1.getEmailId()!=jobSeekerEmail){
+                    if(!(jobSeeker1.getEmailId().equalsIgnoreCase(jobSeekerEmail))){
                         shortListedList.addAll(jobSeekerList);
                         shortListedList.add(jobSeeker);
                     }

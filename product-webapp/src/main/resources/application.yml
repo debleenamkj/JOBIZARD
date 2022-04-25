@@ -11,4 +11,3 @@ server:
 spring:
   application:
     name: "product-webapp"
-

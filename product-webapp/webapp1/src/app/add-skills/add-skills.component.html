@@ -60,9 +60,17 @@
           style="width: 415px"
           
         >
-          <mat-label>Course Type</mat-label>
-          <input matInput formControlName="courseType" />
+        <mat-select formControlName="courseType">
+          <mat-option value="Full Time" selected>
+            Full Time
+          </mat-option>
+          <mat-option value="Part Time">
+            Part Time
+          </mat-option>
+        </mat-select>
         </mat-form-field>
+
+        
       </div>
       <br />
       <div class="commondiv">
@@ -96,7 +104,7 @@
       <div class="educationBTN">
       
         <div>
-          <button mat-raised-button class="educationSaveBTN" (click)="addskill()">Save</button>
+          <button mat-raised-button class="educationSaveBTN" (click)="addskill()" [disabled]="!addSkillForm.valid">Save</button>
         </div>
         
       </div>

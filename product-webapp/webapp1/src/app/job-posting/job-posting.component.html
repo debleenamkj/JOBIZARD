@@ -46,7 +46,7 @@
       </div>
       </div>
       <div>
-        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()"    >Next</button> 
+        <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()"     [disabled]="!companyForm.valid">Next</button> 
                
        
       </div>
@@ -105,7 +105,7 @@
              </div>
 <!-- [disabled]="!requirementsForm.valid" -->
               </div>
-              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" >Next</button> 
+              <button mat-button matStepperNext style=" margin-top: 6%; background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px;font-size: large; border: none; color: white; border-radius: 6px; float: right;" (click)="company()" [disabled]="!requirementsForm.valid">Next</button> 
               <button mat-button matStepperPrevious style="font-size: large; margin-top: 6%;  background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); padding: 5px 35px; border: none; color: white; border-radius: 5px; float: right; margin-right: 40px;">Back</button>
               <br>
           </form><br><br>

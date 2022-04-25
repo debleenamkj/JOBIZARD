@@ -6,6 +6,7 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { jobDetails } from '../model/jobDetails';
 import { HttpClient } from '@angular/common/http';
 import { PostJobServiceService } from '../service/post-job-service.service';
+import { Router } from '@angular/router';
 
 
 
@@ -19,7 +20,7 @@ export interface Fruit {
   styleUrls: ['./job-posting.component.css']
 })
 export class JobPostingComponent implements OnInit {
-  constructor(private fb:FormBuilder,private service:PostJobServiceService) { }
+  constructor(private fb:FormBuilder,private service:PostJobServiceService,private router:Router) { }
 
   file:any
   post=new jobPosting();
@@ -61,8 +62,6 @@ export class JobPostingComponent implements OnInit {
   companyForm = this.fb.group({
     companyName:['', Validators.required],
     companyUrl:"",
-    companyEmail:['', Validators.required],
-    companyLogo:"",
     industryType:['', Validators.required]
    });
 
@@ -76,7 +75,7 @@ export class JobPostingComponent implements OnInit {
 
    requirementsForm = this.fb.group({
     education:['', Validators.required],
-    skills:['', Validators.required],
+    skills:[''],
    });
 
    upimage:any;
@@ -199,7 +198,7 @@ getCompany(){
     this.fruits.forEach(element => {
       console.log("in for")
       console.log(element.name);
-      skills.push(element.name);
+      skills.push(element.name.toLowerCase());
     });
     console.log(skills);
     this.post.skillsRequired = skills;
@@ -225,6 +224,11 @@ getCompany(){
         console.log("finish posting");
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
+        setTimeout(() => {
+          this.router.navigate(["/navbar/recruiterLanding"])
+        }, 400);
+        
+
       }) 
      }
      else if (this.file==null){
@@ -237,6 +241,9 @@ getCompany(){
         console.log(data)
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
+        setTimeout(() => {
+          this.router.navigate(["/navbar/recruiterLanding"])
+        }, 400);
       }) 
      }
     //  uploadData.append('file', this.file);

@@ -27,7 +27,7 @@
         <p class="ques1 container-fluid" style="display: inline-block;  line-height: 35px; margin-bottom: 2%; font-weight: bold;">{{question.quesNo}}.{{question.question}}</p><br>
  
         
-        <mat-radio-group class="container-fluid"  [(ngModel)]="answers[question.quesNo]" (change)="option(question.quesNo)">
+        <mat-radio-group class="container-fluid"  [(ngModel)]="answers[question.quesNo]" (click)="option(question.quesNo-1)">
             <mat-radio-button class="options" #option style=" margin-bottom: 2%;" value="a" *ngIf="question.a">{{question.a}}</mat-radio-button><br>
             <mat-radio-button class="options" #option style=" margin-bottom: 2%;" value="b" *ngIf="question.b">{{question.b}}</mat-radio-button><br>
             <mat-radio-button class="options" #option style=" margin-bottom: 2%;" value="c" *ngIf="question.c">{{question.c}}</mat-radio-button><br>
@@ -35,8 +35,8 @@
         </mat-radio-group>
         <!-- <button mat-button class="button back" (click)="getQuestion(question.qno - 1)">Back</button> -->
         <section class="buttons">
-        <button class="button next" mat-button style="margin-left: 1%;" (click)="getQuestion(question.quesNo + 1); bookmark(question.quesNo-2)">Mark & Next</button>
-        <button class="button next1" mat-button style=" margin-left: 10%;" (click)="getQuestion(question.quesNo + 1); changeColor(question.quesNo)">Save & Next</button>
+        <button class="button next" mat-button style="margin-left: 1%;" (click)="getQuestion(question.quesNo+1); bookmark(question.quesNo-2); ">Mark & Next</button>
+        <button class="button next1" mat-button style=" margin-left: 10%;" (click)="getQuestion(question.quesNo+1); changeColor(question.quesNo); ">Save & Next</button>
     </section>
     </section>
 
@@ -45,7 +45,7 @@
         <div>
         <!-- <li *ngFor='let in of ques_counter(Questions.no_of_questions) ;let i = index'>{{i}}</li> -->
         <div class="ques1" style=" margin-left: 10%;" *ngFor="let ques of no_of_questions">
-            <button class="ques {{ques.qno}}" style=" color: white; float: left; width: 20%; margin-bottom: 2%; margin-left: 1%; border:none; padding:15px 0;" (click)="getQuestion(ques); changeColor(question.quesNo)">{{ques}}</button>
+            <button class="ques {{ques.qno}}" style=" color: white; float: left; width: 20%; margin-bottom: 2%; margin-left: 1%; border:none; padding:15px 0;" (click)="getQuestion(ques); changeColor(ques); ">{{ques}}</button>
         </div>
         </div><br><br>
         <div style="margin-left: 10%; margin-top: 55%;  padding:5% 12%; width: 80%; border: 2px solid #4E1B5F;">

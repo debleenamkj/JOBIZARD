@@ -40,15 +40,17 @@ import { RecruiterRegisterComponent } from './recruiter-register/recruiter-regis
 import { SearchPortalComponent } from './search-portal/search-portal.component';
 import { CvTemplate2Component } from './cv-generation/cv-template2/cv-template2.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SelectedCandidateComponent } from './selected-candidate/selected-candidate.component';
 
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
+  //{ path: "update-user", component: UpdateUserDetailsComponent },
   { path: "jobSeekersRegister", component: JobSeekersRegisterComponent },
   { path: "recruiterRegister", component: RecruiterRegisterComponent },
   { path: "register", component: RegisterComponent },
   { path: "userLogin", component: LoginComponent },
-  // { path: "update-user", component: UpdateUserDetailsComponent },
+  { path: "update-user", component: UpdateUserDetailsComponent },
   { path: 'job-seeker', component: JobSeekerLandingComponent },
   
   {
@@ -93,11 +95,10 @@ const routes: Routes = [
       { path: "organizationRegister", component: OrganizationDetailsComponent },
       { path: "not-found", component: NotFoundComponent },
       // {path:"Organization",component:OrganizationDetails},
-
-      { path: "recruiterLanding", component: RecruiterlandingComponent },
-
-
-      { path: "update", component: UpdateDetailsComponent },
+    
+      {path:"recruiterLanding", component: RecruiterlandingComponent},
+      {path:'selected-candidates',component: SelectedCandidateComponent},
+      // { path: "update", component: UpdateDetailsComponent },
       { path: "update-user", component: UpdateUserDetailsComponent },
       { path: "review", component: ReviewComponent },
 

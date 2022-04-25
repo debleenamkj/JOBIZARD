@@ -64,6 +64,7 @@ progress=new progress();
           gender:this.seekerDetails.gender,
           dateOfBirth:this.seekerDetails.dateOfBirth,
           objective:this.seekerDetails.objective,
+          profilePicture:this.seekerDetails.jobSeekerImage
         })
         console.log("---------personal form ------------")
         console.log(this.addPersonalInfoForm);
@@ -411,11 +412,11 @@ userdetails1 = new UserDetails();
 
 addPersonalInfoForm = this.fb.group({
   firstName:['', Validators.required],
-  lastName:"",
-  gender:"",
-  dateOfBirth:"",
-  objective:"",
-  profilePicture:"",
+  lastName:['', Validators.required],
+  gender:['', Validators.required],
+  dateOfBirth:['', Validators.required],
+  objective:['', Validators.required],
+  // profilePicture:['', Validators.required],
   
  });
 
@@ -468,12 +469,12 @@ userdetails2 = new UserDetails();
 
 addContactInfoForm = this.fb.group({
  
-  mobileNumber:"",
-  lane:"",
-  state:"",
-  city:"",
-  pincode:"",
-  nationality:"",
+  mobileNumber:['', Validators.required],
+  lane:['', Validators.required],
+  state:[''],
+  city:[''],
+  pincode:['', Validators.required],
+  nationality:['', Validators.required],
   
  });
 
@@ -567,6 +568,12 @@ pincode(){
     this.stateAuto = this.apiAddress[0].PostOffice[0].State;
     this.cityAuto = this.apiAddress[0].PostOffice[0].District;
     this.countryAuto = this.apiAddress[0].PostOffice[0].Country+"n";
+
+    this.addContactInfoForm.patchValue({
+      state:this.stateAuto,
+      city:this.cityAuto,
+      nationality:this.countryAuto
+    })
 
   })
 }
