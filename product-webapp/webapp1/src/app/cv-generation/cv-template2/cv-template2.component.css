@@ -1,188 +1,183 @@
-div {
-  /* border-style: solid;
-  margin: 10px;
-  padding: 10px;  */
+.cv-body-container {
+  margin: 5%;
+  border-style: inset;
+  font-family: 'Mukta', sans-serif;
+  letter-spacing: 2px;
 }
-body{
- /* display: flex; */
- justify-content: center;
- padding: 0%;
- margin: 2%;
-}
-.cv-template {
+.cv-body-header-container {
   display: flex;
-  justify-content: space-around;
-  height: 230%;
-  margin-left: 10%;
-  width: 80%;
-  color: rgb(83, 83, 83);
-  font-family: 'Josefin Sans', sans-serif;
-  /* font-family: 'PT Sans', sans-serif; */
+  width: 100%;
+  background-color: rgb(72, 73, 81);
+  text-transform: uppercase;
 }
-.contact-details{
-    text-align: center;
-
-}
-.contact-header{
-    text-align: left;
-    padding: 3%;
-    margin: 2%;
-    text-align: center;
-   
+.cv-avatar-container {
+  margin-left: 5%;
+  margin-top: 3%;
+  text-align: center;
+  background-color: rgb(247, 234, 229);
+  width: 25%;
 }
 .mat-card-avatar {
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-}
-.cv-left-side-content{
-    background-color: rgb(238, 224, 226);
-    width: 30%;
-   
-}
-.cv-left-side-header {
-  text-align: center;
   padding: 5%;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border-style: black;
 }
-.cv-left-side-content {
-  margin: 0%;
-  padding: 0%;
-}
-mat-icon {
-    color: rgb(108, 105, 105);
-    
-}
-.num-header{
-    text-align: left;
-}
-.location header{
-    text-align: left;
-    margin-left: 10%;
-    padding-bottom: 15%;
-}
-.name-header{
-    text-align: center;
-   
-}
-.name-content{
-    text-align: center;
-    text-transform: uppercase;
-    padding-top: 8%;
-    
-}
-.role-content{
-  text-align: center;
-  text-transform: uppercase;
-}
-.name-header{
-    background-color: rgb(234, 234, 234);
-    height: 12%;
-}
-
-.cv-right-side-content {
+.cv-header-container {
+  color: azure;
+  padding: 10%;
   width: 75%;
 }
-.content-objective{
-    text-align: left;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 200%;
-    color: rgb(108, 105, 105);
-    font-weight: bold;
-    padding: 2%;
-    margin: 3%;
-}
-.Exp-header{
-   
-    /* border-color: rgb(169, 166, 166)  rgb(169, 166, 166)  rgb(169, 166, 166)  rgb(169, 166, 166) ; */
-}
-.exp{
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 350%;
-  color: rgb(83, 83, 83);
-  font-weight: bold;
+.cv-header-designation {
   text-align: center;
-  margin: 20px;
-  background-color:rgb(238, 224, 226) ;
-  text-transform: uppercase;
 }
-.exp-content{
+.cv-header-name {
   text-align: center;
-  text-transform: uppercase;
-  margin: 0px;
 }
-.exp-details{
-  text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 100%;
-  color: rgb(83, 83, 83);
-  padding: 2.5%;
-  margin:0%;
+.cv-content-container {
+  display: flex;
+  background-color: rgb(255, 255, 255);
 }
-li{
-  text-align:left;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 150%;
-}
-.edu{
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 350%;
-  color: rgb(83, 83, 83);
-  font-weight: bold;
-  text-align: center;
-  margin: 20px;
-  background-color:rgb(238, 224, 226) ;
-  text-transform: uppercase;
-}
-.ed-details{
-  text-align: left;
+.cv-content-container-left {
   margin-left: 5%;
-  /* padding-bottom: 25%; */
+  width: 24.3%;
+  padding: 2%;
+  background-color: rgb(246, 235, 229);
 }
-.skills-header-container{
-  padding: 8%;
-  margin: 4%;
+.cv-content-left {
+}
+.cv-content-contact {
+  padding: 5px;
+  margin: 5px;
+  border-bottom-style: solid;
+}
+.cv-content-contact-header-cnotainer {
+  padding-top: 5%;
   text-align: center;
-  border-style: inset;
-  border-color: rgb(58, 58, 58) transparent transparent transparent;
+  text-transform: uppercase; 
+  font-size: 140%;
+  font-weight: 600;
 }
-.skills-container {
-  margin-top: 10%;
-  margin-bottom: 10%;
+.cv-contact-number {
+  
 }
-.skills{
-  margin: 3%;
-  padding-bottom:5%;
+.cv-email {
+  
 }
-.interests-container{
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 350%;
-  color: rgb(83, 83, 83);
-  font-weight: bold;
+.cv-city-state {
+  
+}
+.cv-links {
+ 
+}
+.cv-content-skills {
+  border-bottom-style: solid;
+}
+.cv-content-skills-header-cnotainer {
+  padding-top: 5%;
   text-align: center;
-  margin: 20px;
-  background-color:rgb(238, 224, 226);
-  text-transform: uppercase;
+  text-transform: uppercase; 
+  font-size: 140%;
+  font-weight: 600;
 }
-.interest-chips{
-  padding: 3%;
-  margin: 2%;
+.cv-education-skills-details {
+  padding: 5px;
+  margin: 5px;
 }
-.lang-container{
-  padding: 8%;
-  margin: 4%;
+.cv-content-experience {
+  padding: 5px;
+  margin: 5px;
+}
+.cv-content-experience-header-cnotainer {
+  padding-top: 5%;
   text-align: center;
-  border-style: inset;
-  border-color: rgb(58, 58, 58) transparent transparent transparent;
+  text-transform: uppercase; 
+  font-size: 140%;
+  font-weight: 600;
 }
-.lang-chips{
-  padding: 3%;
-  margin-top: 3%;
+.cv-education-experience-details {
 }
-.button{ 
-  margin-top: 2%;
-   background-image: linear-gradient(to right, rgb(110,37,134),rgb(177,23,132)); 
-   font-size:x-large; 
-   border: none;
-   color: white;
-  border-radius: 6px;   
+li {
+}
+.cv-content-container-right {
+  width: 75%;
+}
+.cv-content-right {
+  padding: 4%;
+  padding-left: 1%;
+}
+.cv-content-career-objective {
+}
+.cv-content-career-objective-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.career-objective {
+}
+.cv-content-education {
+}
+.cv-content-education-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-course-details {
+  display: flex;
+ justify-content: left;
+}
+.degree {
+}
+.stream {
+}
+.university-name {
+}
+.year-of-duration {
+}
+.cv-content-academics {
+}
+.cv-content-academics-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-academics-details {
+}
+.cv-content-achivements {
+}
+.cv-content-achivements-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-achivements-details {
+}
+.cv-content-job {
+}
+.cv-content-job-header-cnotainer {
+  text-align: center;
+  padding: 2%;
+  background-color: rgb(244, 235, 229);
+  text-transform: uppercase; 
+  font-size: 180%;
+  font-weight: 600;
+}
+.cv-education-job-details {
+}
+.content-container {
+  display: flex;
+  justify-content: space-evenly;
 }

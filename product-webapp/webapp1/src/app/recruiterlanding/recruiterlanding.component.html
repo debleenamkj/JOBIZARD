@@ -1,15 +1,23 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+
 <mat-card
   style="background-image: linear-gradient(to right, #6E2586, #B11784); margin-top: 0.5rem; padding-top: 5px; padding-bottom: 5px;">
   <h1 id="mainheading">Recruiter</h1>
 </mat-card>
 
 
-<mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw; margin-top: 10px;">
-  <mat-card-title style="text-align: center; font-size: 30px;">Welcome Recruiter</mat-card-title>
+<mat-card class="rfc container-fluid col-lg-3" style="margin-left: 1vw; margin-top: 20px;">
+  <mat-card-title
+    style="text-align: center; font-size: 30px; margin-top: 10px; font-family: 'Source Sans Pro', sans-serif; color: white;">
+    Welcome Recruiter</mat-card-title>
   <img mat-card-image class="profile-image" src="data:image/jpeg;base64,{{recruiterLandingData.logo}}">
   <mat-card-subtitle
-    style="text-align: center; margin-top: 30px; font-size: 40px; font-weight: 400; color: black; margin-bottom: 30px;">
+    style="text-align: center; margin-top: 30px; font-size: 40px; font-family: 'Source Sans Pro', sans-serif; color: white; margin-bottom: 30px;">
     {{recruiterLandingData.companyName}}</mat-card-subtitle>
+  <p class="rp"><a href="{{recruiterLandingData.companyUrl}}"
+      style="text-decoration: none; color: white;">{{recruiterLandingData.companyUrl}}</a></p>
   <button class="upb" routerLink="/navbar/job-posting">Update profile</button>
 </mat-card>
 
@@ -36,26 +44,30 @@
   </mat-card> -->
 <!-- </div> -->
 <!-- <div>{{jobSeekerSlice.length}}</div> -->
-<div class="container-fluid col-lg-9 " style="float: left; " *ngIf="jobSeekerSlice.length>0">
+<div class="container-fluid col-lg-9" *ngIf="jobSeekerSlice.length>0">
   <!-- <div>Jobseeker Slice Card</div> -->
   <div *ngFor="let jobseekers of jobSeekerSlice">
     <!-- <div>After Jobseeker Slice Card</div> -->
     <mat-card class="example-card"
-      *ngIf="jobseekers?.additionalDetails.skillSet.length>0 && jobseekers?.seekerProfileImage != null && jobseekers?.firstName != null && jobseekers?.lastName != null && jobseekers?.additionalDetails.academicsCertification.length> 0">
+    *ngIf="jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.educationDetails">
       <!-- <div>Card</div> -->
       <!-- <img mat-card-image class="pi" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
       <a (click)="jobseeker(jobseekers?.emailId)"><img mat-card-image src="{{jobseekers?.seekerProfileImage}}"
           class="pi"></a>
-      <mat-card-header>
-        <mat-card-title>{{jobseekers?.firstName}} {{jobseekers?.lastName}}&nbsp;&nbsp;<span
-            style="font-weight: normal; font-size: 15px;">{{jobseekers?.additionalDetails.academicsCertification}}</span>
-        </mat-card-title>
+      <mat-card-header
+        style="width: 100%; display: flex; align-items: center; justify-content: center; margin: 0px; padding: 0px;">
+        <mat-card-title>{{jobseekers?.firstName}} {{jobseekers?.lastName}}</mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <p *ngFor="let course of jobseekers.educationDetails"
+        style="font-weight: 500; font-size: 15px; padding: 0px; margin-top: -6px; margin-bottom: 5px; margin-left: auto; margin-right: auto;">
+        {{course.courses}}</p>
+      <mat-card-content id="sc" style="display:flex; height: 42px; width:100%; overflow-x: scroll;">
         <mat-chip-list *ngFor="let skills of jobseekers?.additionalDetails.skillSet"
-          style="display:inline-flex; margin: 2px;">
-          <mat-chip *ngIf="skills.isVerified" style="background-color: green">{{skills.skillName}}</mat-chip>
-          <mat-chip *ngIf="!skills.isVerified" style="background-color: red">{{skills.skillName}}</mat-chip>
+          style="width: fit-content; margin: 0px 2px;">
+          <mat-chip *ngIf="skills.isVerified" style="background-color: green; color: white; font-weight: bold;">
+            {{skills.skillName}}</mat-chip>
+          <mat-chip *ngIf="!skills.isVerified" style="background-color: red; color: white; font-weight: bold;">
+            {{skills.skillName}}</mat-chip>
         </mat-chip-list>
       </mat-card-content>
       <mat-card-actions>

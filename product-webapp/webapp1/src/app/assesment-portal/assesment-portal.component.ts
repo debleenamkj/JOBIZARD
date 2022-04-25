@@ -21,10 +21,10 @@ export class AssesmentPortalComponent {
     });
   }
 
-  getQuizName(name:any){
+  getQuizName(name:string){
     console.log("dialog")
     console.log(name);
-      this.service.quizName=name;
+      this.service.quizName=name.toLowerCase();
   }
 }
 
