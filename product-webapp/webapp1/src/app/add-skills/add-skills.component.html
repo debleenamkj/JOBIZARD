@@ -96,7 +96,7 @@
       <div class="educationBTN">
       
         <div>
-          <button mat-raised-button class="educationSaveBTN" (click)="addskill()">Save</button>
+          <button mat-raised-button class="educationSaveBTN" (click)="addskill()" [disabled]="!addSkillForm.valid">Save</button>
         </div>
         
       </div>

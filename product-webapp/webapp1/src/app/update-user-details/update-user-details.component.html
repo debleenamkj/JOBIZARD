@@ -247,6 +247,16 @@
                     <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
                     <mat-option value="Uttarakhand">Uttarakhand</mat-option>
                     <mat-option value="West Bengal">West Bengal</mat-option>
+                    <mat-option value="Andaman and Nicobar">Andaman and Nicobar</mat-option>
+                    <mat-option value="Chandigarh">Chandigarh</mat-option>
+                    <mat-option value="Daman and Diu">Daman and Diu</mat-option>
+                    <mat-option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</mat-option>
+                    <mat-option value="Delhi">Delhi</mat-option>
+                    <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
+                    <mat-option value="Ladakh">Ladakh</mat-option>
+                    <mat-option value="Lakshadweep">Lakshadweep</mat-option>
+                    <mat-option value="Puducherry">Puducherry</mat-option>
+                    
                     
                   </mat-select>
                 </mat-form-field>
@@ -290,7 +300,7 @@
   
             <div class="addressBTN" >
               <div>
-                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()" (click)="clickMe1()">Save & Next</button>
+                <button mat-raised-button class="addressSaveBTN" (click)="userContactdetails()" (click)="clickMe1()" [disabled]="!addContactInfoForm.valid">Save & Next</button>
               </div>
               <!-- <div >
                 <button mat-raised-button class="addressNextBTN" (click)="clickMe1()"  >Next</button>
@@ -355,7 +365,7 @@
                    [matChipInputAddOnBlur]="addOnBlur"
                    (matChipInputTokenEnd)="add($event)"
                    formControlName="academicCertification"
-                 />
+                   />
                </mat-chip-list>
              </mat-form-field>
            </div>
