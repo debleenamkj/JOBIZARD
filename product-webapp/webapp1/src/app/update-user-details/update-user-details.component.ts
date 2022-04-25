@@ -62,6 +62,7 @@ progress=new progress();
           gender:this.seekerDetails.gender,
           dateOfBirth:this.seekerDetails.dateOfBirth,
           objective:this.seekerDetails.objective,
+          profilePicture:this.seekerDetails.jobSeekerImage
         })
         console.log("---------personal form ------------")
         console.log(this.addPersonalInfoForm);
@@ -92,6 +93,8 @@ progress=new progress();
         this.jobPreferences.forEach(element =>{
           jobPreference.push(element.name);
         });
+
+
         console.log("---------jobPreference-------- ");
         console.log(this.jobPreferences);
         console.log(jobPreference);
@@ -105,10 +108,7 @@ progress=new progress();
 
 
         this.addDetailsInfoForm.patchValue({
-          academicCertification:[],
-          skillSet:[],
-          jobPreference:[],
-          achievements:[],
+          experience:this.seekerDetails.experience
         })
         this.updateDetails.emailId=this.seekerDetails.emailId;
         this.userdetails1.firstName=this.seekerDetails.firstName;  
@@ -119,6 +119,7 @@ progress=new progress();
         this.userdetails1.objective=this.seekerDetails.objective;
       
         this.userdetails2.mobileNumber=this.seekerDetails.mobileNumber;
+        this.userdetails2.experience = this.seekerDetails.experience;
            
         // this.address.lane=this.seekerDetails.address.lane;
         console.log(this.addContactInfoForm.value.state);
@@ -225,6 +226,7 @@ progress=new progress();
     this.details.jobPreferences=jobPreference; 
     this.details.achievements=achievement;
     this.userdetails1.additionalDetails=this.details;
+    this.userdetails1.experience = this.addDetailsInfoForm.value.experience;
 
     this.userdetails1.seekerProgress=this.progress;
     console.log(this.userdetails1);
@@ -409,11 +411,11 @@ userdetails1 = new UserDetails();
 
 addPersonalInfoForm = this.fb.group({
   firstName:['', Validators.required],
-  lastName:"",
-  gender:"",
-  dateOfBirth:"",
-  objective:"",
-  profilePicture:"",
+  lastName:['', Validators.required],
+  gender:['', Validators.required],
+  dateOfBirth:['', Validators.required],
+  objective:['', Validators.required],
+  // profilePicture:['', Validators.required],
   
  });
 
@@ -466,12 +468,12 @@ userdetails2 = new UserDetails();
 
 addContactInfoForm = this.fb.group({
  
-  mobileNumber:"",
-  lane:"",
-  state:"",
-  city:"",
-  pincode:"",
-  nationality:"",
+  mobileNumber:['', Validators.required],
+  lane:['', Validators.required],
+  state:['', Validators.required],
+  city:['', Validators.required],
+  pincode:['', Validators.required],
+  nationality:['', Validators.required],
   
  });
 
@@ -539,6 +541,7 @@ addDetailsInfoForm = this.fb.group({
   skillSet:[],
   jobPreference:[],
   achievements:[],
+  experience:['',Validators.required]
  });
 
 

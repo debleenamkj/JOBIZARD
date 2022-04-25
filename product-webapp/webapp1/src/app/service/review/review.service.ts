@@ -16,8 +16,8 @@ export class ReviewService {
   to! :any;
 
   
-  //baseUrl = 'https://jobizard.stackroute.io'+'/resources-service';
-   baseUrl = 'http://localhost:8087';
+  // baseUrl = 'https://jobizard.stackroute.io'+'/resources-service';
+  baseUrl = 'http://localhost:8087';
 
 
   private postReviewRequest = this.baseUrl+'/api/v1/resources/saveReview';

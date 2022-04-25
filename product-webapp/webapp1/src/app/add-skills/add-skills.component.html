@@ -52,7 +52,7 @@
         </mat-form-field>
       </div>
       <br />
-      <div class="commondiv">
+      <!-- <div class="commondiv">
         <p class="commonSpace">Course Type :</p>
         <mat-form-field
           appearance="fill"
@@ -63,6 +63,21 @@
           <mat-label>Course Type</mat-label>
           <input matInput formControlName="courseType" />
         </mat-form-field>
+      </div> -->
+
+      <div class="commondiv" style="margin-top: 3%;">
+        <p style="width: 60%;" class="commonSpace">Course Type :</p>
+        <div>
+          <mat-form-field style="margin:4px 20%" class="example-chip-list" appearance="fill" class="commonFieldSpace achievementsSpcae custom-form-field"
+          style="width: 378px"
+            >
+            <mat-label>Course Type</mat-label>
+            <mat-select formControlName="courseType" required>
+              <mat-option value="Full-time">Full-time</mat-option>
+              <mat-option value="Part-time">Part-time</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
       </div>
       <br />
       <div class="commondiv">
@@ -96,7 +111,7 @@
       <div class="educationBTN">
       
         <div>
-          <button mat-raised-button class="educationSaveBTN" (click)="addskill()">Save</button>
+          <button mat-raised-button class="educationSaveBTN" (click)="addskill()" [disabled]="!addSkillForm.valid">Save</button>
         </div>
         
       </div>

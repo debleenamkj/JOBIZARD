@@ -19,11 +19,11 @@ export class AddSkillsComponent implements OnInit {
 
   addSkillForm = this.fb.group({
     course:['', Validators.required],
-    stream:"",
+    stream:['', Validators.required],
     university:"",
     courseType:"",
     passOutYear:"",
-    percentageOrCgpa:""
+    percentageOrCgpa:['', Validators.required]
    });
 
 

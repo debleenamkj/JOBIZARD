@@ -1,13 +1,14 @@
 <body>
+  <div class="button" style="width:fit-content; margin-bottom: 2%; " >
+    <button mat-button style=" font-family: Arial, Helvetica, sans-serif; font-size: 200%;" (click)="convertToPDF()">Download<mat-icon>save_alt</mat-icon></button>
+  </div>
 <div class="cv-body" id="cv-body">
   <div class="cv-body-header">
     <div class="cv-header-content1">
       <div class="intials" style="text-align: center;  width: 95%;padding: 1%;">
         <span></span><span></span>
       </div>
-      <div class="dwnld-button" style=" width: 5%; text-align: end;">
-        <mat-icon class="button" (click)="convertToPDF()">save_alt</mat-icon>
-      </div>
+      
     </div>
     <div class="cv-header-content2">
       <h1 style="font-size: 320%">{{res.firstName}}&nbsp;{{res.lastName}}</h1>
@@ -89,19 +90,19 @@
           </div>
         </div>
       </div>
-      <div style="margin-top: 20%;" class="work-experience-container">
-        <div class="work-experience-header-container">
-          <h2 style="
+      <!-- <div style="margin-top: 20%;" class="work-experience-container">
+        <div class="work-experience-header-container"> -->
+          <!-- <h2 style="
                 font-size: 200%;
                 letter-spacing: 3px;
                 font-weight: bolder;
                 text-transform: uppercase;
                 color: rgb(49, 49, 83);
               ">
-            Work experience
-          </h2>
+            <!-- Work experience 
+          </h2> -->
         </div>
-        <div class="work-details">
+        <!-- <div class="work-details">
           <div class="Designation">
             <h3 style="
                   font-size: 150%;
@@ -111,7 +112,7 @@
                   padding-top: 5%;
                   margin: 0%;
                 ">
-              <!-- {{res.experience[0].jobPosition}} -->
+              <!-- {{res.experience[0].jobPosition}} 
             </h3>
           </div>
           <div class="company-name-with-term">
@@ -122,17 +123,17 @@
                   padding: 0%;
                   margin-bottom: 2%;
                 ">
-              <!-- {{res.experience[0].companyName}}/{{res.experience[0].duration}}/{{res.experience[0].location}} -->
+              <!-- {{res.experience[0].companyName}}/{{res.experience[0].duration}}/{{res.experience[0].location}} 
             </h4>
           </div>
           <div class="work-description">
             <p style="font-size: 130%; font-weight: bold; color: rgb(109, 109, 109)">
-              <!-- {{res.experience[0].workDescription}} -->
+              <!-- {{res.experience[0].workDescription}} 
             </p>
           </div>
-        </div>
-      </div>
-    </div>
+        </div>-->
+      <!-- </div>  -->
+    <!-- </div> -->
     <!-- 2nd part starts -->
     <div class="cv-body-main-content">
       <div class="main-career-objective">

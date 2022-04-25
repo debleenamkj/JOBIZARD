@@ -14,8 +14,8 @@ export class UserDetailsService {
 
   // baseUrl=environment.apiBaseUrl + '/application-register-service'
   // baseUrl:"http://localhost:8098";
-   //baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
-   baseUrl="http://localhost:8098";
+  //  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+  baseUrl="http://localhost:8098";
 
 
   // updateUserDetails(userdetail:any):Observable<any>
