@@ -467,12 +467,12 @@ userdetails2 = new UserDetails();
 
 addContactInfoForm = this.fb.group({
  
-  mobileNumber:"",
-  lane:"",
-  state:"",
-  city:"",
-  pincode:"",
-  nationality:"",
+  mobileNumber:['', Validators.required],
+  lane:['', Validators.required],
+  state:['', Validators.required],
+  city:['', Validators.required],
+  pincode:['', Validators.required],
+  nationality:['', Validators.required],
   
  });
 

@@ -50,7 +50,7 @@ const routes: Routes = [
   { path: "recruiterRegister", component: RecruiterRegisterComponent },
   { path: "register", component: RegisterComponent },
   { path: "userLogin", component: LoginComponent },
-  // { path: "update-user", component: UpdateUserDetailsComponent },
+  { path: "update-user", component: UpdateUserDetailsComponent },
   { path: 'job-seeker', component: JobSeekerLandingComponent },
   
   {
@@ -99,7 +99,7 @@ const routes: Routes = [
       {path:"recruiterLanding", component: RecruiterlandingComponent},
       {path:'selected-candidates',component: SelectedCandidateComponent},
       { path: "update", component: UpdateDetailsComponent },
-      { path: "update-user", component: UpdateUserDetailsComponent },
+      // { path: "update-user", component: UpdateUserDetailsComponent },
       { path: "review", component: ReviewComponent },
 
       { path: "jobSeeker", component: JobSeekerLandingComponent },
