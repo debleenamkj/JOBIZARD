@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { JobSeekerLanding } from '../model/job-seeker-landing';
+import { ChatroomService } from '../service/chatroom.service';
 import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
@@ -8,8 +11,8 @@ import { RecruiterlandingService } from '../service/recruiterlanding.service';
 })
 export class SelectedCandidateComponent implements OnInit {
 
-  constructor(private recruiterService:RecruiterlandingService) {
-    
+  constructor(private recruiterService:RecruiterlandingService, private router:Router,private chat: ChatroomService) {
+    // localStorage.setItem('loginId','s4@gmail.com')
    }
 
   ngOnInit(): void {
@@ -19,21 +22,35 @@ export class SelectedCandidateComponent implements OnInit {
 
   selectedJobseekers:any[]=[]
   selectedJobseekersSlice:any[]=[]
+  recruiterLandingData:any;
   
   pageChange(event:any){
     let start = event.pageSize*event.pageIndex;
     this.selectedJobseekersSlice = this.selectedJobseekersSlice.slice(start,start+event.pageSize)
+  }
+  // jobseeker(emailId: any) {
+  //   this.post.selectedSeekerEmail = emailId;
+  //   this.router.navigate(['/navbar/jobseekerprofile']);
+  // }
+  getImages(jobSeeker:JobSeekerLanding[]) {
+    jobSeeker.forEach((d:any) => {
+      d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;    
+      
+    });
   }
   
   getSelectedJobseekers(){
     this.recruiterService.getRecruiterProfile().subscribe({
       next: (response:any)=>{
         if(response){
-          if(response.selectedJobseekers){
+          this.recruiterLandingData = response;
+          console.log(response)
+          if(response.selectedJobSeekers){
           this.selectedJobseekers = response.selectedJobSeekers
+          this.getImages(this.selectedJobseekers)
           this.selectedJobseekersSlice=this.selectedJobseekers.slice(0,10)
           }else{
-            console.log("No Selected Jobsekers")
+            console.log("No Selected Jobseekers")
           }
         }
         else{
@@ -44,6 +61,13 @@ export class SelectedCandidateComponent implements OnInit {
         console.log(errorResponse.message)
       }
     })
+  }
+  onClick(recipientEmail: any, recipientName: any) {
+    this.chat.senderId = this.recruiterLandingData.emailId;
+    this.chat.senderName = this.recruiterLandingData.companyName;
+    this.chat.recipientId = recipientEmail;
+    this.chat.recipientName = recipientName;
+    this.router.navigate(['/navbar/chatroom']);
   }
   
 

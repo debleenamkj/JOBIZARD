@@ -13,7 +13,7 @@
 <div>
   <div *ngFor="let candidate of selectedJobseekersSlice">
     <mat-card class="example-card" style="height: 350px;">
-      <img mat-card-image src="" class="pi">
+      <img mat-card-image src="{{candidate?.seekerProfileImage}}" class="pi">
       <mat-card-header>
         <mat-card-title>{{candidate.firstName}} {{candidate.lastName}}&nbsp; &nbsp;
           <span style="font-weight: normal; font-size: 15px;margin-top:0.2%;">
@@ -21,22 +21,16 @@
           </span>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
-        <mat-chip-list style="display: inline-flex;"
-        *ngFor="let skills of candidate.additionalDetails.skillSet">
-          <mat-chip style="padding: 8px;">{{skills.skillName}}</mat-chip>
-        </mat-chip-list>
-        <h2>Education Details:</h2>
-        <mat-chip-list style="display: inline-flex;"
-          *ngFor="let course of candidate.educationDetails">
-          <mat-chip style="padding: 8px;">
-            {{course.courses}}
-          </mat-chip>
+      <mat-card-content id="sc" style="display: flex; width: 100%; overflow: auto;">
+        <mat-chip-list  *ngFor="let skills of candidate?.additionalDetails.skillSet"
+          style="display:inline-flex; margin: 2px;">
+          <mat-chip *ngIf="skills.isVerified" style="background-color: green">{{skills.skillName}}</mat-chip>
+          <mat-chip *ngIf="!skills.isVerified" style="background-color: red">{{skills.skillName}}</mat-chip>
         </mat-chip-list>
       </mat-card-content>
       <mat-card-actions>
         <!-- <button (click)="sendEmail(jobseekers)" style="margin-left: 3px; border: none; background-color: white;"><i class="fa-solid fa-check" style="font-size: 30px; color: rgb(0, 146, 44);"></i></button> -->
-        <!-- <button (click)="onClick(jobseekers.emailId,jobseekers.firstName +' '+jobseekers.lastName)" style="margin-left: 150px; border: none; background-color: white;"><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159);">chat</i></button> -->
+        <button (click)="onClick(candidate.emailId,candidate.firstName +' '+candidate.lastName)" style="margin-left: 150px; border: none; background-color: white;"><i class="material-icons" style="font-size:30px;color: rgb(16, 0, 159);">chat</i></button>
       </mat-card-actions>
     </mat-card>
   </div>

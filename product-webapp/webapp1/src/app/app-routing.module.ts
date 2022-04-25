@@ -45,7 +45,7 @@ import { SelectedCandidateComponent } from './selected-candidate/selected-candid
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: "update-user", component: UpdateUserDetailsComponent },
+  //{ path: "update-user", component: UpdateUserDetailsComponent },
   { path: "jobSeekersRegister", component: JobSeekersRegisterComponent },
   { path: "recruiterRegister", component: RecruiterRegisterComponent },
   { path: "register", component: RegisterComponent },
