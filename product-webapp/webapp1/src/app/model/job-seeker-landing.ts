@@ -9,6 +9,7 @@ export class JobSeekerLanding {
     additionalDetails: any;
     educationDetails: any;
     progress: number;
+    selectedJobSeekers:any;
 
     constructor() {
         this.firstName;

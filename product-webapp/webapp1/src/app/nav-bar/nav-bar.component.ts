@@ -67,6 +67,7 @@ export class NavBarComponent {
     this.emailId=localStorage.getItem('loginId');
     console.log(this.emailId)
     // this.name = this.emailId.slice(0,this.emailId.indexOf('@'));
+    if(this.emailId)
     this.name = this.emailId.split('@',2)[0];
     console.log(this.name);
   }
