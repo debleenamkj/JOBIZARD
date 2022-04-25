@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v6")
-//@CrossOrigin
+@CrossOrigin
 @Slf4j
 public class TrendController {
 
@@ -116,5 +116,18 @@ public class TrendController {
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
         return response;
     }
+
+    ////////////////////////// Pincode API ///////////////////////////////////////
+    @GetMapping("/pincode/{pincode}")
+    public ResponseEntity<String> callExternalApiForPincode(@PathVariable String pincode){
+        log.debug("Inside TrendController - callExternalApiForPincode");
+        String url = "https://api.postalpincode.in/pincode/" + pincode;
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<Object> entity = new HttpEntity<>(headers);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
+        return response;
+    }
+
 }
 

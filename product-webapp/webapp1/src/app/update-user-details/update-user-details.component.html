@@ -190,6 +190,18 @@
             </div>
             
             <br />
+            <div class="commondiv">
+              <p class="commonSpace">Pincode :</p>
+              <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace  pincodeSpace custom-form-field"
+                style="width: 396px"
+              >
+                <mat-label>Pincode</mat-label>
+                <input matInput formControlName="pincode" (change)="pincode()"/>
+              </mat-form-field>
+            </div>
+            <br />
   
              <div class="commondiv">
               <p class="commonSpace">Lane :</p>
@@ -214,11 +226,12 @@
                 <mat-label>State</mat-label>
                 <input matInput />
               </mat-form-field> -->
-              <mat-form-field appearance="fill"
+              <!-- <mat-form-field appearance="fill"
                 class="commonFieldSpace stateSpcae custom-form-field"
                   style="width: 418px">
                   <mat-label>State</mat-label>
-                  <mat-select formControlName="state" >
+                  <mat-select formControlName="state">
+                    <mat-option *ngIf="stateAuto" value="{{stateAuto}}" selected>{{stateAuto}}</mat-option>
                     <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
                     <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
                     <mat-option value="Assam">Assam</mat-option>
@@ -249,7 +262,17 @@
                     <mat-option value="West Bengal">West Bengal</mat-option>
                     
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
+
+                <mat-form-field
+                appearance="fill"
+                class="commonFieldSpace citySpace custom-form-field"
+                style="width: 430px"
+              >
+              
+                <mat-label>State</mat-label>
+                <input matInput formControlName="state" value="{{stateAuto}}"/>
+              </mat-form-field>
             </div>
             <br />
             <div class="commondiv">
@@ -259,23 +282,13 @@
                 class="commonFieldSpace citySpace custom-form-field"
                 style="width: 430px"
               >
+              
                 <mat-label>City</mat-label>
-                <input matInput formControlName="city" />
+                <input matInput formControlName="city" value="{{cityAuto}}"/>
               </mat-form-field>
             </div>
             <br />
-            <div class="commondiv">
-              <p class="commonSpace">Pincode :</p>
-              <mat-form-field
-                appearance="fill"
-                class="commonFieldSpace  pincodeSpace custom-form-field"
-                style="width: 396px"
-              >
-                <mat-label>Pincode</mat-label>
-                <input matInput formControlName="pincode" />
-              </mat-form-field>
-            </div>
-            <br />
+            
             <div class="commondiv">
               <p class="commonSpace">Nationality :</p>
               <mat-form-field
@@ -284,7 +297,7 @@
                 style="width: 376px"
               >
                 <mat-label>Nationality</mat-label>
-                <input matInput formControlName="nationality" />
+                <input matInput formControlName="nationality" value="{{countryAuto}}" />
               </mat-form-field>
             </div>
   

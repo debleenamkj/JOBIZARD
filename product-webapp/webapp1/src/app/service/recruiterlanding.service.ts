@@ -12,8 +12,8 @@ export class RecruiterlandingService {
 
   constructor(private httpCLient: HttpClient) { }
 
-  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
-  // baseUrl='http://localhost:8098'
+  // baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+  baseUrl='http://localhost:8098'
 
   getRecruiterProfile():any{
     this.emailId=localStorage.getItem('loginId')

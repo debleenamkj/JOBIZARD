@@ -10,6 +10,7 @@ import { UserDetailsService } from '../service/user-details.service';
 import { details } from '../model/details';
 import { address } from '../model/address';
 import { progress } from '../model/progress';
+import { TrendsService } from '../service/trends.service';
 
 //************************************** interface declared of ts components of chips********************************
 
@@ -41,7 +42,8 @@ export class UpdateUserDetailsComponent implements OnInit {
    updateDetails:any = FormGroup;
   constructor(private fb:FormBuilder,
     private dialog:MatDialog,
-    private userDetails:UserDetailsService
+    private userDetails:UserDetailsService,
+    private trend:TrendsService
     )
      { }
 
@@ -550,7 +552,24 @@ save3() {
   //   .subscribe(data => console.log(data));  
 }
 
+apiAddress:any;
+stringifiedData:any;
+stateAuto:any;
+cityAuto:any;
+countryAuto:any;
+pincode(){
+  let pincode= this.addContactInfoForm.value.pincode;
 
+  this.trend.getPincode(pincode).subscribe((data)=>{
+    this.stringifiedData = JSON.stringify(data);    
+      this.apiAddress = JSON.parse(this.stringifiedData);
+    console.log("City Name: ",this.apiAddress[0].PostOffice[0].District);
+    this.stateAuto = this.apiAddress[0].PostOffice[0].State;
+    this.cityAuto = this.apiAddress[0].PostOffice[0].District;
+    this.countryAuto = this.apiAddress[0].PostOffice[0].Country+"n";
+
+  })
+}
 
 
 }

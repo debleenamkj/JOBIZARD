@@ -16,9 +16,9 @@ export class TrendsService {
 
   // baseUrl='http://localhost:8086'
 
-  baseUrl = 'https://jobizard.stackroute.io' + '/trend-lab-service'
+  // baseUrl = 'https://jobizard.stackroute.io' + '/trend-lab-service'
 
-  // baseUrl='http://localhost:8086'
+  baseUrl='http://localhost:8086'
 
   getSkills(): Observable<SkillTrend[]> {
     return this.http.get<SkillTrend[]>(this.baseUrl + "/api/v6/getnames");
@@ -47,5 +47,9 @@ export class TrendsService {
   // getTechNews() : Observable<JSON[]>{
   //   return this.http.get<JSON[]>("http://localhost:8086/api/v2/getTechNews");
   // }
+
+  getPincode(pincode: any): Observable<JSON> {
+    return this.http.get<JSON>(this.baseUrl + "/api/v6/pincode/" + pincode);
+  }
 
 }
