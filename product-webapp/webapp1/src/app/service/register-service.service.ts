@@ -27,10 +27,10 @@ export class RegisterServiceService {
 
   constructor(private http:HttpClient) { }
 
-   baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
-   baseUrl1='https://jobizard.stackroute.io' + '/authentication-service'
-    // baseUrl='http://localhost:8098'
-    // baseUrl1='http://localhost:8099'
+   //baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+   //baseUrl1='https://jobizard.stackroute.io' + '/authentication-service'
+     baseUrl='http://localhost:8098'
+     baseUrl1='http://localhost:8099'
 
   jobSeekerRegister(jobSeekerData:any)
   {

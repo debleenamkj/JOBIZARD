@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-//@CrossOrigin
+@CrossOrigin
 
 @Slf4j
 public class ChatController {

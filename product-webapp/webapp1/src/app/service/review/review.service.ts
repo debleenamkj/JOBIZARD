@@ -16,8 +16,8 @@ export class ReviewService {
   to! :any;
 
   
-  baseUrl = 'https://jobizard.stackroute.io'+'/resources-service';
-  // baseUrl = 'http://localhost:8087';
+  //baseUrl = 'https://jobizard.stackroute.io'+'/resources-service';
+   baseUrl = 'http://localhost:8087';
 
 
   private postReviewRequest = this.baseUrl+'/api/v1/resources/saveReview';
@@ -78,8 +78,9 @@ export class Review {
   companyName?:string;
   companyLogo?:any;
   user?:User;
+  avgRating?:number
   constructor(reviewId?:number,user?:User,prosMessage?:string,consMessage?:string,
-    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any){
+    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any,avgRating?:number){
       this.reviewDate=reviewDate;
       this.reviewId=reviewId;
       this.prosMessage=prosMessage;
@@ -88,6 +89,7 @@ export class Review {
       this.companyRatings=companyRatings;
       this.companyName = companyName;
       this.companyLogo=companyLogo;
+      this.avgRating=avgRating
     }
 };
 enum Ratings{

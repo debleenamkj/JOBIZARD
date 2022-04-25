@@ -42,7 +42,7 @@ export class ReviewComponent implements OnInit {
   searchedCompany:CompanyDetails;
   searchedReviews:Review[]=[];
   searchedReviewsSlice:Review[]=[];
-  
+  avgRating:AvgRating[]=[];
 
   
   ///////////////////////////////////////////
@@ -77,6 +77,51 @@ export class ReviewComponent implements OnInit {
     //  console.log(result)
     // })
   }
+  calculateAvgRatings(companyDetails:CompanyDetails[]){
+   
+    
+    companyDetails.forEach(o=>{
+      let avg:number=0;
+      if(o.reviews){
+        let a:number=0;
+        
+        o.reviews.forEach(obj=>{
+          switch(obj.companyRatings.toString()){
+            case 'POOR':
+              a=1;
+              break;
+              case 'NOT_BAD':
+                a=2;
+                break;
+                case 'GOOD':
+                  a=3;
+                  break;
+                  case 'VERY_GOOD':
+                    a=4;
+                    break;
+                    case 'EXCELLENT':
+                      a=5;
+                      break;
+          }
+          avg = avg + a;
+        })
+      }
+      //////
+      avg=(o.reviews)?(avg/o.reviews.length).toString().substring(0,3) as unknown as number:0
+      this.avgRating.push({
+        avg:avg,
+        cin:o.cin
+      })
+      o.avgRating=avg
+      o.retrievedImage = 'data:image/jpeg;base64,'+o.companyLogo;
+    })
+
+    console.log(this.avgRating)
+    console.log(this.allDetails)
+  }
+
+  
+
   querySearch(){
     let verticalPosition:MatSnackBarVerticalPosition='top';
     let horizontalPosition:MatSnackBarHorizontalPosition='center';
@@ -85,6 +130,11 @@ export class ReviewComponent implements OnInit {
 console.log(response);
       this.searchedCompany = response;
       this.searchedCompany.retrievedImage = 'data:image/jpeg;base64,'+this.searchedCompany.companyLogo;
+      this.allDetails.forEach(o=>{
+        if(o.cin==this.searchedCompany.cin){
+          this.searchedCompany.avgRating=o.avgRating
+        }
+      })
 
 
       this.reviewService.getReviewsByCompanyName(this.companyForm.get('companyGroup')?.value)
@@ -93,6 +143,7 @@ console.log(response);
         this.searchedReviews.forEach((review)=>{
           review.companyLogo = this.searchedCompany.retrievedImage;
           review.companyName = this.searchedCompany.companyName;
+          review.avgRating=this.searchedCompany.avgRating
         })
 
         this.searchedReviewsSlice=this.searchedReviews.slice(0,12);
@@ -153,6 +204,7 @@ console.log(nameGroup)
     return nameGroup;
   }
 
+
   ratingsLoopArray(rating:Ratings, starParent:any){
     let a:number;
     let array: number[]=[]
@@ -192,25 +244,14 @@ console.log(nameGroup)
   }
 
   requestResources() {
-    this.reviewService.getCompanies().subscribe((response: CompanyDetails[]) => {
-      this.companies = response;
-      this.retrieveLogos(this.companies);
-console.log(this.companies)
-      this.companiesSlice=this.companies.slice(0,5);
-      if (this.companies.length > 0) {
-        this.companyNameGroups = this.getCompanyNameGroup();
-        this.companyGroupOptions = this.companyForm.get('companyGroup')!.valueChanges.pipe(
-          startWith(''),
-          map(value => this._filterGroup(value)),
-        );
-      }
-    })
+  
 
     this.reviewService.getAllDetails().subscribe({
       next: response=>{
         
         this.allDetails=response;
-        this.retrieveLogos(this.allDetails);
+        this.calculateAvgRatings(this.allDetails)
+        //this.retrieveLogos(this.allDetails);
         this.allDetails.forEach(company=>{
           if(company.reviews!=null){
             let sliced:any=[];
@@ -219,6 +260,7 @@ console.log(this.companies)
               this.reviewHome.push(review);
               this.reviewHome[this.reviewHome.length-1].companyName=company.companyName;
               this.reviewHome[this.reviewHome.length-1].companyLogo=company.retrievedImage;
+              this.reviewHome[this.reviewHome.length-1].avgRating=company.avgRating
             })
           }
         })
@@ -232,11 +274,33 @@ console.log(this.reviewHome);
         }
         );
         this.reviewHomeSlice = this.reviewHome.slice(0,12)
+        console.log(this.reviewHome)
+        this.companies = this.allDetails;
+console.log(this.companies)
+      this.companiesSlice=this.companies.slice(0,5);
+      if (this.companies.length > 0) {
+        this.companyNameGroups = this.getCompanyNameGroup();
+        this.companyGroupOptions = this.companyForm.get('companyGroup')!.valueChanges.pipe(
+          startWith(''),
+          map(value => this._filterGroup(value)),
+        );
+      }
+      // this.companies.forEach(o=>{
+      //   this.allDetails.forEach(aD=>{
+      //     if(o.cin == aD.cin){
+      //       o.avgRating=aD.avgRating
+      //     }
+      //   })
+        
+      // })
       },
       error: errorResponse=>{
         
       }
     })
+    // this.reviewService.getCompanies().subscribe((response: CompanyDetails[]) => {
+      
+    // })
     
   }
 
@@ -266,8 +330,9 @@ export class Review {
   companyName?:string;
   companyLogo?:any;
   user?:User;
+  avgRating?:number
   constructor(reviewId?:number,user?:User,prosMessage?:string,consMessage?:string,
-    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any){
+    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any,avgRating?:number){
       this.reviewDate=reviewDate;
       this.reviewId=reviewId;
       this.prosMessage=prosMessage;
@@ -276,6 +341,7 @@ export class Review {
       this.companyRatings=companyRatings;
       this.companyName = companyName;
       this.companyLogo=companyLogo;
+      this.avgRating=avgRating
     }
 };
 enum Ratings{
@@ -295,6 +361,10 @@ type WorkDetails = {
   currentlyWorking?:boolean;
   jobRole?:string;
   yearsOfExperience?:string;
+}
+type AvgRating={
+  avg:number
+  cin:string
 }
 
 export const _filter = (opt: string[], value: string): string[] => {

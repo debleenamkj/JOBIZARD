@@ -38,11 +38,24 @@ export class RecruiterlandingComponent implements OnInit {
       this.recruiterLandingData = d;
       localStorage.setItem('companyName', this.recruiterLandingData.companyName)
       console.log("Recruiter Profile", this.recruiterLandingData);
-
+      this.getAllJobSeekers();
     });
-
+    
+    
+  }
+  checkVisibility(jobseekers:any):boolean{
+    if((this.recruiterLandingData.selectedJobSeekers!=null))
+      if((!this.recruiterLandingData.selectedJobSeekers.includes(jobseekers))&&jobseekers.additionalDetails.skillSet.length>0 && jobseekers.seekerProfileImage != null && jobseekers.firstName != null && jobseekers.lastName != null && jobseekers.educationDetails)
+      {console.log("true")
+        return true;
+      }
+      console.log("false")
+    return false;
+  }
+  getAllJobSeekers(){
     this.recruiterLanding.getAllJobSeekers().subscribe(d => {  
       this.jobSeeker = d;
+      
       this.getImages(this.jobSeeker);
       this.jobSeekerSlice = d.slice(0, 8);
       console.log("Jobseeker Array", this.jobSeekerSlice);
@@ -94,6 +107,22 @@ export class RecruiterlandingComponent implements OnInit {
         })
       }
     })
+
+    let recruiterEmailId=localStorage.getItem('loginId')
+  /////////////////////////////////////////////////////////
+  this.recruiterLanding.updateShortlistedCandidate(recruiterEmailId,emailId).subscribe({
+    next: response=>{
+   this.ngOnInit//change in landing
+   this.alert.open("Added to Shortlisted Candidates", 'close', {
+    duration: 5000
+    })
+  },
+  error: errorResponse=>{
+    this.alert.open(errorResponse.error.message, "close",{
+      duration: 5000
+    })
+  }});
+
   }
 
   // filterCards(jobseekers: any): boolean {

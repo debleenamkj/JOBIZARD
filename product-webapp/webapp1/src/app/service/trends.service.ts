@@ -12,11 +12,11 @@ export class TrendsService {
   constructor(private http: HttpClient) { }
 
 
-  // baseUrl=environment.apiBaseUrl + '/trend-lab-service'
+   //baseUrl=environment.apiBaseUrl + '/trend-lab-service'
 
-  // baseUrl='http://localhost:8086'
+   baseUrl='http://localhost:8086'
 
-  baseUrl = 'https://jobizard.stackroute.io' + '/trend-lab-service'
+  //baseUrl = 'https://jobizard.stackroute.io' + '/trend-lab-service'
 
   // baseUrl='http://localhost:8086'
 

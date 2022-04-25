@@ -16,8 +16,9 @@ export class Review {
   companyName?:string;
   companyLogo?:any;
   user?:User;
+  avgRating?:number
   constructor(reviewId?:number,user?:User,prosMessage?:string,consMessage?:string,
-    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any){
+    reviewDate?:Date,companyRatings?:Ratings,companyName?:string,companyLogo?:any,avgRating?:number){
       this.reviewDate=reviewDate;
       this.reviewId=reviewId;
       this.prosMessage=prosMessage;
@@ -26,6 +27,7 @@ export class Review {
       this.companyRatings=companyRatings;
       this.companyName = companyName;
       this.companyLogo=companyLogo;
+      this.avgRating=avgRating
     }
 };
 enum Ratings{
@@ -74,8 +76,8 @@ export class ReviewFormComponent implements OnInit {
     companyRatings: ['', [Validators.required]],
     user:this.formBuilder.group({
       anonymousUser: ['true', Validators.required],
-      email: [{value: 'akash@gmail.com',disabled: true}],
-      name: [{value: 'Akash Suneja',disabled:true}],
+      email: [{value: '',disabled: true}],
+      name: [{value: 'Anonymous',disabled:true}],
       workDetails: this.formBuilder.group({
         currentlyWorking: ['false', [Validators.required]],
         jobRole: [''],
