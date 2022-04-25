@@ -66,6 +66,8 @@ options: string="";
 
 bookmark(qno:number){
   this.bookmarks[qno]="true";
+  console.log("bookmarks");
+  console.log(this.bookmarks);
   let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
   bookmark[qno].style.backgroundColor='#00CED1';
 }
@@ -75,16 +77,29 @@ option(qno:number){
 
   console.log("options in");
   console.log(qno);
-  console.log(this.answers)
-  if(this.answers[qno]==""){
+  console.log(this.answers.length)
+  let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
+
+  if(this.bookmarks[qno]=="true"){
+    console.log("in options it is bookmarked");
+  }
+   else if(this.answers[qno]==''){
     console.log("optionss");
+    bookmark[qno].style.backgroundColor='rgb(177,23,132)';
    
   }
-  else if(this.answers[qno]!=""){
+
+  else if(this.answers[qno-1]!=""){
+    console.log("The question is answered")
     console.log(this.answers);
-    let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
-    bookmark[qno].style.backgroundColor='#4E1B5F';
+    // bookmark[qno].style.backgroundColor='#4E1B5F';
     console.log("options checked");
+  }
+
+  if((qno+1)==(this.answers.length-1))
+  {
+    bookmark[qno].style.backgroundColor='#4E1B5F';   
+    console.log("last question")
   }
 }
 
@@ -92,12 +107,14 @@ changeColor(qno:number){
   console.log(this.changeColor)
   console.log(qno)
   let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
-  if(this.bookmarks[qno]=="true"){
+  if(this.bookmarks[qno-2]=="true"){
+    console.log("In change color ")
     console.log(this.bookmarks[qno]);
-    bookmark[qno-1].style.backgroundColor ='#00CED1';
+    // bookmark[qno-1].style.backgroundColor = '#00CED1';
   }
   else if(this.answers[qno-1]!=""){
     setTimeout(() => {
+      console.log("this question"+ (qno-1) + "is answered");
       bookmark[qno-2].style.backgroundColor='#4E1B5F';   
     }, 200);
    
@@ -106,7 +123,16 @@ changeColor(qno:number){
 
   getQuestion(qno : number){
     let bookmark = document.getElementsByClassName("ques") as HTMLCollectionOf<HTMLElement>;
-    if(this.answers[qno]==""){
+    console.log("get questions");
+    console.log(this.answers)
+    console.log(qno)
+    if(this.bookmarks[qno-1]=="true"){
+      console.log("it is book marked in getQuestion()")
+    }
+    else if(this.answers[qno]==''){
+      console.log(this.answers)
+      console.log("the "+qno+" is not answered")
+      console.log("\n \n "+qno)
       bookmark[qno-1].style.backgroundColor='rgb(177,23,132)';
       this.options = "";
     }
@@ -147,7 +173,7 @@ changeColor(qno:number){
   counter : any= { min: 0, sec: "15" }
 
   startTimer() {
-    this.counter = { min: 1, sec: "00" } // choose whatever you want
+    this.counter = { min: 5, sec: "00" } // choose whatever you want
     let intervalId = setInterval(() => {
       if (this.counter.sec - 1 == -1) {
         this.counter.min -= 1;

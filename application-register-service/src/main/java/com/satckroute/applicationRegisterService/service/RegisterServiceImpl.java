@@ -351,7 +351,6 @@ public class RegisterServiceImpl implements RegisterService
                                 for (Skill skill1:skills) {
                                     if(skill.getSkillName().equalsIgnoreCase(skill1.getSkillName())){
                                         matchedSkills.add(skill);
-
                                     }
                                 }
                             }
@@ -372,8 +371,6 @@ public class RegisterServiceImpl implements RegisterService
                     details.setJobPreferences(jobSeeker.getAdditionalDetails().getJobPreferences());
                     details.setAchievements(jobSeeker.getAdditionalDetails().getAchievements());
                     details.setAcademicsCertification(jobSeeker.getAdditionalDetails().getAcademicsCertification());
-
-
                     jobSeeker.setAdditionalDetails(details);
                 }
             }

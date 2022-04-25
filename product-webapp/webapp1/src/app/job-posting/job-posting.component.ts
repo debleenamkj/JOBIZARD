@@ -200,7 +200,7 @@ getCompany(){
     this.fruits.forEach(element => {
       console.log("in for")
       console.log(element.name);
-      skills.push(element.name);
+      skills.push(element.name.toLowerCase());
     });
     console.log(skills);
     this.post.skillsRequired = skills;
@@ -226,7 +226,10 @@ getCompany(){
         console.log("finish posting");
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
-        this.router.navigate(["/navbar/recruiterLanding"])
+        setTimeout(() => {
+          this.router.navigate(["/navbar/recruiterLanding"])
+        }, 400);
+        
 
       }) 
      }
@@ -240,7 +243,9 @@ getCompany(){
         console.log(data)
         let div = document.getElementsByClassName('finish') as HTMLCollectionOf<HTMLElement>;
         div[0].style.display='block';
-        this.router.navigate(["/navbar/recruiterLanding"]);
+        setTimeout(() => {
+          this.router.navigate(["/navbar/recruiterLanding"])
+        }, 400);
       }) 
      }
     //  uploadData.append('file', this.file);

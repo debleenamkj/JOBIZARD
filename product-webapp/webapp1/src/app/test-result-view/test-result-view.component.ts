@@ -74,6 +74,7 @@ export class TestResultViewComponent implements OnInit {
     console.log(this.skill);
     
     this.service.sendMarks(email,this.skill).subscribe(data =>{
+      console.log("value sent :" +this.skill)
       console.log(data);
     })
   }
