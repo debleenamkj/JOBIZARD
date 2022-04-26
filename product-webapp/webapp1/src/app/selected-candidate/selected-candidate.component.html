@@ -13,7 +13,7 @@
 <div>
   <div *ngFor="let candidate of selectedJobseekersSlice">
     <mat-card class="example-card" style="height: 350px;">
-      <img mat-card-image src="{{candidate?.seekerProfileImage}}" class="pi">
+      <a (click)="jobseeker(candidate?.emailId)"><img mat-card-image src="{{candidate?.seekerProfileImage}}" class="pi"></a>
       <mat-card-header>
         <mat-card-title>{{candidate.firstName}} {{candidate.lastName}}&nbsp; &nbsp;
           <span style="font-weight: normal; font-size: 15px;margin-top:0.2%;">

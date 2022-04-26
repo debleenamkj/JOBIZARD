@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JobSeekerLanding } from '../model/job-seeker-landing';
 import { ChatroomService } from '../service/chatroom.service';
+import { PostService } from '../service/post/post.service';
 import { RecruiterlandingService } from '../service/recruiterlanding.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { RecruiterlandingService } from '../service/recruiterlanding.service';
 })
 export class SelectedCandidateComponent implements OnInit {
 
-  constructor(private recruiterService:RecruiterlandingService, private router:Router,private chat: ChatroomService) {
+  constructor(private recruiterService:RecruiterlandingService, private router:Router,private chat: ChatroomService, private post: PostService) {
     // localStorage.setItem('loginId','s4@gmail.com')
    }
 
@@ -28,10 +29,10 @@ export class SelectedCandidateComponent implements OnInit {
     let start = event.pageSize*event.pageIndex;
     this.selectedJobseekersSlice = this.selectedJobseekersSlice.slice(start,start+event.pageSize)
   }
-  // jobseeker(emailId: any) {
-  //   this.post.selectedSeekerEmail = emailId;
-  //   this.router.navigate(['/navbar/jobseekerprofile']);
-  // }
+  jobseeker(emailId: any) {
+    this.post.selectedSeekerEmail = emailId;
+    this.router.navigate(['/navbar/jobseekerprofile']);
+  }
   getImages(jobSeeker:JobSeekerLanding[]) {
     jobSeeker.forEach((d:any) => {
       d.seekerProfileImage = 'data:image/jpeg;base64,' + d.jobSeekerImage;    
@@ -73,15 +74,4 @@ export class SelectedCandidateComponent implements OnInit {
 
 }
 
-// neo4JMatchedJobseeker=[1,2,3,4,5];
-//   selected=[3,5,8,9,10];
-//   wishlist:number[]=[];
-//   Recruiter{
-//     List<Selected> selected;
-//   }
-
-//   Selected{               
-//     String wishListName;
-//     List<String> selected;
-//   }
 
