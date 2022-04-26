@@ -472,8 +472,8 @@ addContactInfoForm = this.fb.group({
  
   mobileNumber:['', Validators.required],
   lane:['', Validators.required],
-  state:[''],
-  city:[''],
+  state:['', Validators.required],
+  city:['', Validators.required],
   pincode:['', Validators.required],
   nationality:['', Validators.required],
   
@@ -566,17 +566,18 @@ pincode(){
   this.trend.getPincode(pincode).subscribe((data)=>{
     this.stringifiedData = JSON.stringify(data);    
       this.apiAddress = JSON.parse(this.stringifiedData);
+      console.log(data);
+      
     console.log("City Name: ",this.apiAddress[0].PostOffice[0].District);
     this.stateAuto = this.apiAddress[0].PostOffice[0].State;
     this.cityAuto = this.apiAddress[0].PostOffice[0].District;
     this.countryAuto = this.apiAddress[0].PostOffice[0].Country+"n";
-
     this.addContactInfoForm.patchValue({
       state:this.stateAuto,
       city:this.cityAuto,
       nationality:this.countryAuto
     })
-
+    
   })
 }
 
