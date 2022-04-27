@@ -20,31 +20,31 @@ scrape_configs:
       static_configs:
         - targets: [ 'localhost:8761' ] ## host and port for your mis
 
-        - job_name: 'authentication-service'
+  - job_name: 'authentication-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
             - targets: [ 'localhost:8099' ] ## host and port for your mis
 
-        - job_name: 'application-register-service'
+   job_name: 'application-register-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
             - targets: [ 'localhost:8098' ] ## host and port for your mis
 
-        - job_name: 'assessment-service'
+  - job_name: 'assessment-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
             - targets: [ 'localhost:8081' ] ## host and port for your mis
         #
-        - job_name: 'trend-lab-service'
+  - job_name: 'trend-lab-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
             - targets: [ 'localhost:8086' ] ## host and port for your mis
 
-        - job_name: 'chatroom-service'
+  - job_name: 'chatroom-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
