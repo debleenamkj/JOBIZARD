@@ -36,8 +36,10 @@ nav img {
   justify-content: space-around;
   align-items: center;
   width: 60%;
+  font-size: 20px;
+
   min-width: 700px;
-  background-color: #4E1B5F;
+  background-color: rgba(78, 27, 95, 0.8);
   border-radius: 20px;
   margin: auto;
 }
