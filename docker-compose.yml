@@ -48,7 +48,7 @@ services:
     container_name: prom
     image: prom/prometheus
     restart: always
-    network_mode: "bridge"
+    network_mode: "host"
     hostname: localhost
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
@@ -59,7 +59,7 @@ services:
     container_name: graf
     image: grafana/grafana
     restart: always
-    network_mode: "bridge"
+    network_mode: "host"
     hostname: localhost
     ports:
       - 3000:3000
