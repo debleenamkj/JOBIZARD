@@ -26,7 +26,7 @@ scrape_configs:
           static_configs:
             - targets: [ 'localhost:8099' ] ## host and port for your mis
 
-   job_name: 'application-register-service'
+  - job_name: 'application-register-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
