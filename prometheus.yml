@@ -1,4 +1,4 @@
-# my global config
+ # my global config
 global:
   scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
@@ -25,7 +25,7 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ["172.31.39.175:9090"]
+      - targets: ['172.31.39.175:9090']
 
     - job_name: 'api-gateway'
       metrics_path: '/actuator/prometheus'
@@ -33,63 +33,63 @@ scrape_configs:
       static_configs:
         - targets: [ '172.31.39.175:8080']
 
-#    - job_name: ' application-register-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8098' ]
+    - job_name: ' application-register-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8098' ]
 
-#    - job_name: '  authentication-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8099' ]
+    - job_name: '  authentication-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8099' ]
 
-#    - job_name: ' trend-lab-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8086' ]
+    - job_name: ' trend-lab-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8086' ]
 
-#    - job_name: 'chatroom-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8089' ]
-#
-#    - job_name: '  email-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8085' ]
-#
-#    - job_name: 'assessment-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8081' ]
-#
-#    - job_name: ' post-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:9093' ]
-#
-#    - job_name: 'recommendation-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:9093' ]
-#
-#    - job_name: 'resources-service'
-#      metrics_path: '/actuator/prometheus'
-#      scrape_interval: 3s
-#      static_configs:
-#        - targets: [ '172.31.39.175:8087' ]
+    - job_name: 'chatroom-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8089' ]
+
+    - job_name: '  email-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8085' ]
+
+    - job_name: 'assessment-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8081' ]
+
+    - job_name: ' post-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:9093' ]
+
+    - job_name: 'recommendation-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:9093' ]
+
+    - job_name: 'resources-service'
+      metrics_path: '/actuator/prometheus'
+      scrape_interval: 3s
+      static_configs:
+        - targets: [ '172.31.39.175:8087' ]
 
 
     - job_name: 'eureka-server'
       metrics_path: '/actuator/prometheus'
       scrape_interval: 3s
       static_configs:
-        - targets: [ '172.31.39.175:8761' ]
+        - targets: [ "172.31.39.175:8761" ]
