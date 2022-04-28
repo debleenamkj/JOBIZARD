@@ -24,31 +24,31 @@ scrape_configs:
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
-            - targets: [ 'localhost:8099' ] ## host and port for your mis
+            - targets: [ '172.31.39.175:8099' ] ## host and port for your mis
 
   - job_name: 'application-register-service'
           scrape_interval: 2s
           metrics_path: '/actuator/prometheus' ##prometheus endpoint
           static_configs:
-            - targets: [ 'localhost:8098' ] ## host and port for your mis
+            - targets: [ '172.31.39.175:8098' ] ## host and port for your mis
 
-  - job_name: 'assessment-service'
-          scrape_interval: 2s
-          metrics_path: '/actuator/prometheus' ##prometheus endpoint
-          static_configs:
-            - targets: [ 'localhost:8081' ] ## host and port for your mis
-        #
-  - job_name: 'trend-lab-service'
-          scrape_interval: 2s
-          metrics_path: '/actuator/prometheus' ##prometheus endpoint
-          static_configs:
-            - targets: [ 'localhost:8086' ] ## host and port for your mis
-
-  - job_name: 'chatroom-service'
-          scrape_interval: 2s
-          metrics_path: '/actuator/prometheus' ##prometheus endpoint
-          static_configs:
-            - targets: [ 'localhost:8089' ] ## host and port for your mis
+#  - job_name: 'assessment-service'
+#          scrape_interval: 2s
+#          metrics_path: '/actuator/prometheus' ##prometheus endpoint
+#          static_configs:
+#            - targets: [ 'localhost:8081' ] ## host and port for your mis
+#        #
+#  - job_name: 'trend-lab-service'
+#          scrape_interval: 2s
+#          metrics_path: '/actuator/prometheus' ##prometheus endpoint
+#          static_configs:
+#            - targets: [ 'localhost:8086' ] ## host and port for your mis
+#
+#  - job_name: 'chatroom-service'
+#          scrape_interval: 2s
+#          metrics_path: '/actuator/prometheus' ##prometheus endpoint
+#          static_configs:
+#            - targets: [ 'localhost:8089' ] ## host and port for your mis
         #
 #        - job_name: 'email-service'
 #          scrape_interval: 2s
