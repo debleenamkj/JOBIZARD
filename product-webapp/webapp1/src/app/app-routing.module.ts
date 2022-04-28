@@ -65,7 +65,7 @@ const routes: Routes = [
       { path: 'job-apply', component: JobApplyComponent },
       { path: 'job-posting', component: JobPostingComponent },
       {
-        path: 'cv-generation', component: CvGenerationComponent
+        path: 'cv-generation', component: CvTemplate1Component
       },
       {
         path: 'cv-template1', component: CvTemplate1Component

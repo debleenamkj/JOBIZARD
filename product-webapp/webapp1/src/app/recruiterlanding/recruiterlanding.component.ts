@@ -108,7 +108,7 @@ export class RecruiterlandingComponent implements OnInit {
       next: d => {
         console.log(d)
         message = d.message
-        this.alert.open(message, 'close', {
+        this.alert.open("Email sent successfully", 'close', {
           duration: 5000
         })
       },
@@ -123,19 +123,19 @@ export class RecruiterlandingComponent implements OnInit {
 
     let recruiterEmailId=localStorage.getItem('loginId')
   /////////////////////////////////////////////////////////
-  this.recruiterLanding.updateShortlistedCandidate(recruiterEmailId,emailId).subscribe({
-    next: response=>{
-   this.ngOnInit//change in landing
-   console.log("added to shortlist");
-   this.alert.open("Added to Shortlisted Candidates", 'close', {
-    duration: 5000
-    })
-  },
-  error: errorResponse=>{
-    this.alert.open(errorResponse.error.message, "close",{
-      duration: 5000
-    })
-  }});
+  // this.recruiterLanding.updateShortlistedCandidate(recruiterEmailId,emailId).subscribe({
+  //   next: response=>{
+  //  this.ngOnInit//change in landing
+  //  console.log("added to shortlist");
+  //  this.alert.open("Added to Shortlisted Candidates", 'close', {
+  //   duration: 5000
+  //   })
+  // },
+  // error: errorResponse=>{
+  //   this.alert.open(errorResponse.error.message, "close",{
+  //     duration: 5000
+  //   })
+  // }});
 
   }
 

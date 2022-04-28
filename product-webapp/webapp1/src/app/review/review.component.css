@@ -26,7 +26,7 @@
     background-repeat: no-repeat;
     background-size: 90%;
     animation: animate 6s linear infinite;
-    -webkit-background-clip: text;
+    -webkit-background-clip: text; 
     background-clip: text;
      -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }

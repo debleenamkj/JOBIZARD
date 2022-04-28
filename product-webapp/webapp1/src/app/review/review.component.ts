@@ -277,7 +277,7 @@ console.log(this.reviewHome);
         console.log(this.reviewHome)
         this.companies = this.allDetails;
 console.log(this.companies)
-      this.companiesSlice=this.companies.slice(0,5);
+      this.companiesSlice=this.companies.slice(0,4);
       if (this.companies.length > 0) {
         this.companyNameGroups = this.getCompanyNameGroup();
         this.companyGroupOptions = this.companyForm.get('companyGroup')!.valueChanges.pipe(
