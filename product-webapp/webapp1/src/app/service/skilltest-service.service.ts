@@ -9,10 +9,10 @@ export class SkilltestServiceService {
 
   constructor(private httpClient:HttpClient) { }
 
-  // baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
-  // baseUrl1='https://jobizard.stackroute.io' + '/assessment-service'
-    baseUrl='http://localhost:8098'
-    baseUrl1='http://localhost:8081'
+  baseUrl='https://jobizard.stackroute.io' + '/application-register-service'
+  baseUrl1='https://jobizard.stackroute.io' + '/assessment-service'
+    // baseUrl='http://localhost:8098'
+    // baseUrl1='http://localhost:8081'
 
 
   answeredQuestions:number = 0;
